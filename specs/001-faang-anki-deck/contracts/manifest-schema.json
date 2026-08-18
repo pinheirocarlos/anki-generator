@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CurriculumManifestContract",
+  "type": "object",
+  "required": ["version", "last_updated", "phases"],
+  "properties": {
+    "version": { "type": "string" },
+    "last_updated": { "type": "string" },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "modules"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "modules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "title", "subtopics"],
+              "properties": {
+                "id": { "type": "string" },
+                "title": { "type": "string" },
+                "subtopics": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["id", "title", "status", "card_ids"],
+                    "properties": {
+                      "id": { "type": "string" },
+                      "title": { "type": "string" },
+                      "status": {
+                        "type": "string",
+                        "enum": ["pending", "in_progress", "completed"]
+                      },
+                      "card_ids": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

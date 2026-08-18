@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build & Generated Outputs (Anki Decks)
+dist/
+build/
+out/
+*.apkg
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+
+# IDEs and Editors (JetBrains IntelliJ / WebStorm & VS Code)
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*~
+
+# Operating System & Cloud Sync (Windows / macOS / OneDrive)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+*.tmp
+~$*
+.tmp.driveupload/
+
+# Tooling / Cache
+.specify/integrations/.cache/
+.gemini/
+*.sqlite-journal
+*.sqlite3-journal
+
+

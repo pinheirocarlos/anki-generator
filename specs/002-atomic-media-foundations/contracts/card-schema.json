@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FlashcardFrontmatter",
+  "type": "object",
+  "required": ["id", "title", "tags"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9]+-[A-Z0-9]+-[A-Z0-9]+-[0-9]{3}$",
+      "description": "Unique canonical deterministic ID (e.g. CS-ARCH-CACHE-001)"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 120,
+      "description": "Concise flashcard title"
+    },
+    "tags": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string"
+      },
+      "description": "Required tags matching level::*, topic::*::*, freq::*, and optional company::*"
+    }
+  }
+}

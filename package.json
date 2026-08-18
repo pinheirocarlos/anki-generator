@@ -1,0 +1,29 @@
+{
+  "name": "anki-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/generator.js",
+  "scripts": {
+    "build": "node src/generator.js",
+    "test": "node test/validate-cards.test.js",
+    "audit:atomic": "node src/utils/atomic-decomposer.js"
+  },
+  "keywords": [
+    "anki",
+    "flashcards",
+    "anki-generator",
+    "spaced-repetition",
+    "faang"
+  ],
+  "author": "Carlos Pinheiro",
+  "license": "MIT",
+  "description": "Pedagogical Anki Deck Generator & Engine for Engineering Mastery",
+  "dependencies": {
+    "anki-apkg-export": "^4.0.3",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.12.0",
+    "katex": "^0.18.4",
+    "marked": "^18.0.9",
+    "sql.js": "^1.14.2"
+  }
+}

@@ -1,0 +1,1342 @@
+{
+  "version": "1.1.0",
+  "last_updated": "2026-08-18",
+  "phases": [
+    {
+      "id": "01-dsa",
+      "title": "Estruturas de Dados & Algoritmos (DSA / LeetCode Mastery)",
+      "modules": [
+        {
+          "id": "data-structures",
+          "title": "Estruturas de Dados Fundamentais e Avançadas",
+          "subtopics": [
+            {
+              "id": "arrays-strings",
+              "title": "Vetores Dinâmicos, Manipulação de Strings, Matrizes e Buffers Contíguos",
+              "status": "completed",
+              "card_ids": [
+                "DSA-STRUCT-ARRAY-000",
+                "DSA-STRUCT-ARRAY-001",
+                "DSA-STRUCT-ARRAY-002",
+                "DSA-STRUCT-ARRAY-003",
+                "DSA-STRUCT-ARRAY-004",
+                "DSA-STRUCT-ARRAY-005"
+              ]
+            },
+            {
+              "id": "linked-lists",
+              "title": "Listas Ligadas Simples, Duplamente Ligadas, Skip Lists e Operações com Ponteiros",
+              "status": "completed",
+              "card_ids": [
+                "DSA-STRUCT-LIST-000",
+                "DSA-STRUCT-LIST-001",
+                "DSA-STRUCT-LIST-002",
+                "DSA-STRUCT-LIST-003",
+                "DSA-STRUCT-LIST-004",
+                "DSA-STRUCT-LIST-005"
+              ]
+            },
+            {
+              "id": "stacks-queues",
+              "title": "Pilhas, Filas Circulares, Deques, Monotonic Stacks e Min/Max Stacks",
+              "status": "completed",
+              "card_ids": [
+                "DSA-STRUCT-STACK-000",
+                "DSA-STRUCT-STACK-001",
+                "DSA-STRUCT-STACK-002",
+                "DSA-STRUCT-STACK-003",
+                "DSA-STRUCT-STACK-004",
+                "DSA-STRUCT-STACK-005"
+              ]
+            },
+            {
+              "id": "trees-bst",
+              "title": "Árvores Binárias, Árvores Binárias de Busca (BST), AVL, Red-Black e Árvores N-árias",
+              "status": "completed",
+              "card_ids": [
+                "DSA-STRUCT-TREE-000",
+                "DSA-STRUCT-TREE-001",
+                "DSA-STRUCT-TREE-002",
+                "DSA-STRUCT-TREE-003",
+                "DSA-STRUCT-TREE-004",
+                "DSA-STRUCT-TREE-005"
+              ]
+            },
+            {
+              "id": "heaps-priority-queues",
+              "title": "Min/Max Heap Binário, Heaps K-Vias, Median Finding e Filas de Prioridade",
+              "status": "completed",
+              "card_ids": [
+                "DSA-STRUCT-HEAP-000",
+                "DSA-STRUCT-HEAP-001",
+                "DSA-STRUCT-HEAP-002",
+                "DSA-STRUCT-HEAP-003",
+                "DSA-STRUCT-HEAP-004",
+                "DSA-STRUCT-HEAP-005"
+              ]
+            },
+            {
+              "id": "graphs-representations",
+              "title": "Representações por Lista e Matriz de Adjacência, Grafos Direcionados, Não-Direcionados e Ponderados",
+              "status": "completed",
+              "card_ids": [
+                "DSA-STRUCT-GRAPH-000",
+                "DSA-STRUCT-GRAPH-001",
+                "DSA-STRUCT-GRAPH-002",
+                "DSA-STRUCT-GRAPH-003",
+                "DSA-STRUCT-GRAPH-004",
+                "DSA-STRUCT-GRAPH-005"
+              ]
+            },
+            {
+              "id": "trie-prefix-tree",
+              "title": "Árvore de Prefixos Trie, Radix Trees, Autocomplete e Bitwise Trie",
+              "status": "completed",
+              "card_ids": [
+                "DSA-STRUCT-TRIE-000",
+                "DSA-STRUCT-TRIE-001",
+                "DSA-STRUCT-TRIE-002",
+                "DSA-STRUCT-TRIE-003",
+                "DSA-STRUCT-TRIE-004",
+                "DSA-STRUCT-TRIE-005"
+              ]
+            },
+            {
+              "id": "hash-tables",
+              "title": "Tabelas Hash, Resolução de Colisões por Encadeamento e Open Addressing, Funções de Hash e LRU Cache",
+              "status": "completed",
+              "card_ids": [
+                "DSA-STRUCT-HASH-000",
+                "DSA-STRUCT-HASH-001",
+                "DSA-STRUCT-HASH-002",
+                "DSA-STRUCT-HASH-003",
+                "DSA-STRUCT-HASH-004",
+                "DSA-STRUCT-HASH-005"
+              ]
+            },
+            {
+              "id": "advanced-trees",
+              "title": "Segment Tree com Lazy Propagation, Binary Indexed Tree (Fenwick Tree) e Treaps",
+              "status": "completed",
+              "card_ids": [
+                "DSA-STRUCT-ADVTREE-000",
+                "DSA-STRUCT-ADVTREE-001",
+                "DSA-STRUCT-ADVTREE-002",
+                "DSA-STRUCT-ADVTREE-003",
+                "DSA-STRUCT-ADVTREE-004",
+                "DSA-STRUCT-ADVTREE-005"
+              ]
+            },
+            {
+              "id": "disjoint-set-union",
+              "title": "Disjoint Set Union (Union-Find), Union by Rank, Path Compression e Detecção de Ciclos",
+              "status": "completed",
+              "card_ids": [
+                "DSA-STRUCT-DSU-000",
+                "DSA-STRUCT-DSU-001",
+                "DSA-STRUCT-DSU-002",
+                "DSA-STRUCT-DSU-003",
+                "DSA-STRUCT-DSU-004",
+                "DSA-STRUCT-DSU-005"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "algorithmic-patterns",
+          "title": "Padrões Algorítmicos FAANG & Resolução de Problemas",
+          "subtopics": [
+            {
+              "id": "two-pointers",
+              "title": "Ponteiros Opostos, Two Pointers em Arrays Ordenados, Fast & Slow Pointers para Ciclos",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-2POINT-000",
+                "DSA-PATT-2POINT-001",
+                "DSA-PATT-2POINT-002",
+                "DSA-PATT-2POINT-003",
+                "DSA-PATT-2POINT-004",
+                "DSA-PATT-2POINT-005"
+              ]
+            },
+            {
+              "id": "sliding-window",
+              "title": "Janela Deslizante de Tamanho Fixo e Dinâmico, Otimização de Subarrays e Substrings",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-SLIDE-000",
+                "DSA-PATT-SLIDE-001",
+                "DSA-PATT-SLIDE-002",
+                "DSA-PATT-SLIDE-003",
+                "DSA-PATT-SLIDE-004",
+                "DSA-PATT-SLIDE-005"
+              ]
+            },
+            {
+              "id": "binary-search",
+              "title": "Busca Binária Clássica, Busca em Arrays Rotacionados, Binary Search em Resposta / Predicado Monótono",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-BSEARCH-000",
+                "DSA-PATT-BSEARCH-001",
+                "DSA-PATT-BSEARCH-002",
+                "DSA-PATT-BSEARCH-003",
+                "DSA-PATT-BSEARCH-004",
+                "DSA-PATT-BSEARCH-005"
+              ]
+            },
+            {
+              "id": "monotonic-stack-queue",
+              "title": "Monotonic Stack para Next Greater Element, Largest Rectangle in Histogram e Sliding Window Maximum",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-MONOSTACK-000",
+                "DSA-PATT-MONOSTACK-001",
+                "DSA-PATT-MONOSTACK-002",
+                "DSA-PATT-MONOSTACK-003",
+                "DSA-PATT-MONOSTACK-004",
+                "DSA-PATT-MONOSTACK-005"
+              ]
+            },
+            {
+              "id": "bfs-dfs-traversals",
+              "title": "Busca em Largura (BFS), Busca em Profundidade (DFS), Multi-Source BFS, Flood Fill e Componentes Conexos",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-TRAVERSAL-000",
+                "DSA-PATT-TRAVERSAL-001",
+                "DSA-PATT-TRAVERSAL-002",
+                "DSA-PATT-TRAVERSAL-003",
+                "DSA-PATT-TRAVERSAL-004",
+                "DSA-PATT-TRAVERSAL-005"
+              ]
+            },
+            {
+              "id": "topological-sort",
+              "title": "Ordenação Topológica com Algoritmo de Kahn (In-degree) e DFS com Detecção de Ciclos em DAGs",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-TOPO-000",
+                "DSA-PATT-TOPO-001",
+                "DSA-PATT-TOPO-002",
+                "DSA-PATT-TOPO-003",
+                "DSA-PATT-TOPO-004",
+                "DSA-PATT-TOPO-005"
+              ]
+            },
+            {
+              "id": "shortest-path-algorithms",
+              "title": "Caminhos Mínimos: Algoritmo de Dijkstra, Bellman-Ford, Floyd-Warshall e A* Search",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-SPATH-000",
+                "DSA-PATT-SPATH-001",
+                "DSA-PATT-SPATH-002",
+                "DSA-PATT-SPATH-003",
+                "DSA-PATT-SPATH-004",
+                "DSA-PATT-SPATH-005"
+              ]
+            },
+            {
+              "id": "minimum-spanning-tree",
+              "title": "Árvore Geradora Mínima (MST): Algoritmo de Kruskal com DSU e Algoritmo de Prim",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-MST-000",
+                "DSA-PATT-MST-001",
+                "DSA-PATT-MST-002",
+                "DSA-PATT-MST-003",
+                "DSA-PATT-MST-004",
+                "DSA-PATT-MST-005"
+              ]
+            },
+            {
+              "id": "dynamic-programming-1d",
+              "title": "Programação Dinâmica 1D: Fibonacci, Kadane's Algorithm, House Robber, LIS e Coin Change",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-DP1D-000",
+                "DSA-PATT-DP1D-001",
+                "DSA-PATT-DP1D-002",
+                "DSA-PATT-DP1D-003",
+                "DSA-PATT-DP1D-004",
+                "DSA-PATT-DP1D-005"
+              ]
+            },
+            {
+              "id": "dynamic-programming-2d",
+              "title": "Programação Dinâmica 2D: 0/1 Knapsack, Unbounded Knapsack, LCS, Edit Distance e Matrix DP",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-DP2D-000",
+                "DSA-PATT-DP2D-001",
+                "DSA-PATT-DP2D-002",
+                "DSA-PATT-DP2D-003",
+                "DSA-PATT-DP2D-004",
+                "DSA-PATT-DP2D-005"
+              ]
+            },
+            {
+              "id": "dynamic-programming-advanced",
+              "title": "DP Avançada: Bitmask DP, Digit DP, Tree DP (Subtree Aggregates) e Interval DP (Burst Balloons)",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-DPADV-000",
+                "DSA-PATT-DPADV-001",
+                "DSA-PATT-DPADV-002",
+                "DSA-PATT-DPADV-003",
+                "DSA-PATT-DPADV-004",
+                "DSA-PATT-DPADV-005"
+              ]
+            },
+            {
+              "id": "backtracking",
+              "title": "Backtracking: Combinações, Permutações, Subconjuntos, N-Queens, Sudoku Solver e Poda de Ramos",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-BACKTRACK-000",
+                "DSA-PATT-BACKTRACK-001",
+                "DSA-PATT-BACKTRACK-002",
+                "DSA-PATT-BACKTRACK-003",
+                "DSA-PATT-BACKTRACK-004",
+                "DSA-PATT-BACKTRACK-005"
+              ]
+            },
+            {
+              "id": "greedy-algorithms",
+              "title": "Algoritmos Gulosos: Interval Scheduling, Jump Game, Huffman Coding, Gas Station e Escolhas Ótimas Locais",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-GREEDY-000",
+                "DSA-PATT-GREEDY-001",
+                "DSA-PATT-GREEDY-002",
+                "DSA-PATT-GREEDY-003",
+                "DSA-PATT-GREEDY-004",
+                "DSA-PATT-GREEDY-005"
+              ]
+            },
+            {
+              "id": "intervals-merge",
+              "title": "Manipulação de Intervalos: Merge Intervals, Insert Interval, Non-Overlapping Intervals e Meeting Rooms",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-INTERVAL-000",
+                "DSA-PATT-INTERVAL-001",
+                "DSA-PATT-INTERVAL-002",
+                "DSA-PATT-INTERVAL-003",
+                "DSA-PATT-INTERVAL-004",
+                "DSA-PATT-INTERVAL-005"
+              ]
+            },
+            {
+              "id": "bit-manipulation-patterns",
+              "title": "Manipulação de Bits: Operações Bitwise, XOR Tricks, Single Number, Subconjuntos via Bitmask",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-BIT-000",
+                "DSA-PATT-BIT-001",
+                "DSA-PATT-BIT-002",
+                "DSA-PATT-BIT-003",
+                "DSA-PATT-BIT-004",
+                "DSA-PATT-BIT-005"
+              ]
+            },
+            {
+              "id": "divide-and-conquer-sorting",
+              "title": "Divisão e Conquista: Merge Sort, Quick Sort, Quickselect para K-ésimo Elemento e Teorema Mestre",
+              "status": "completed",
+              "card_ids": [
+                "DSA-PATT-DIVCONQ-000",
+                "DSA-PATT-DIVCONQ-001",
+                "DSA-PATT-DIVCONQ-002",
+                "DSA-PATT-DIVCONQ-003",
+                "DSA-PATT-DIVCONQ-004",
+                "DSA-PATT-DIVCONQ-005"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "advanced-dsa-string-math",
+          "title": "Algoritmos Avançados, Teoria dos Jogos & Concorrência",
+          "subtopics": [
+            {
+              "id": "string-matching",
+              "title": "Casamento de Padrões em Strings: KMP (Knuth-Morris-Pratt), Rabin-Karp Rolling Hash e Z-Algorithm",
+              "status": "completed",
+              "card_ids": [
+                "DSA-ADV-STRING-000",
+                "DSA-ADV-STRING-001",
+                "DSA-ADV-STRING-002",
+                "DSA-ADV-STRING-003",
+                "DSA-ADV-STRING-004",
+                "DSA-ADV-STRING-005"
+              ]
+            },
+            {
+              "id": "game-theory-math",
+              "title": "Teoria dos Jogos & Matemática: Minimax com Alpha-Beta Pruning, Fast Power, Crivo de Eratóstenes, MDC e Exponenciação de Matrizes",
+              "status": "completed",
+              "card_ids": [
+                "DSA-ADV-GAMETHEORY-000",
+                "DSA-ADV-GAMETHEORY-001",
+                "DSA-ADV-GAMETHEORY-002",
+                "DSA-ADV-GAMETHEORY-003",
+                "DSA-ADV-GAMETHEORY-004",
+                "DSA-ADV-GAMETHEORY-005"
+              ]
+            },
+            {
+              "id": "sweepline-geometry",
+              "title": "Geometria Computacional & Linha de Varredura (Sweep-Line Algorithm, Skyline Problem e Convex Hull)",
+              "status": "completed",
+              "card_ids": [
+                "DSA-ADV-SWEEPLINE-000",
+                "DSA-ADV-SWEEPLINE-001",
+                "DSA-ADV-SWEEPLINE-002",
+                "DSA-ADV-SWEEPLINE-003",
+                "DSA-ADV-SWEEPLINE-004",
+                "DSA-ADV-SWEEPLINE-005"
+              ]
+            },
+            {
+              "id": "concurrent-data-structures",
+              "title": "Estruturas de Dados Concorrentes: Lock-Free Queue (Michael-Scott), Concurrent HashMap, SkipList Map e Disruptor Ring Buffer",
+              "status": "completed",
+              "card_ids": [
+                "DSA-ADV-CONCURRENT-000",
+                "DSA-ADV-CONCURRENT-001",
+                "DSA-ADV-CONCURRENT-002",
+                "DSA-ADV-CONCURRENT-003",
+                "DSA-ADV-CONCURRENT-004",
+                "DSA-ADV-CONCURRENT-005"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02-cs-fundamentals",
+      "title": "Fundamentos da Ciência da Computação",
+      "modules": [
+        {
+          "id": "architecture",
+          "title": "Arquitetura de Computadores e Hardware",
+          "subtopics": [
+            {
+              "id": "cpu-cache",
+              "title": "Hierarquia de Caches, Cache Line, Coerência MESI, False Sharing e Prefetching",
+              "status": "completed",
+              "card_ids": [
+                "CS-ARCH-CACHE-000",
+                "CS-ARCH-CACHE-001",
+                "CS-ARCH-CACHE-002",
+                "CS-ARCH-CACHE-003",
+                "CS-ARCH-CACHE-004"
+              ]
+            },
+            {
+              "id": "pipelining-branch-prediction",
+              "title": "Pipeline de Instruções, Hazards Estruturais/Dados/Controle, Branch Prediction e SIMD",
+              "status": "completed",
+              "card_ids": [
+                "CS-ARCH-PIPE-000",
+                "CS-ARCH-PIPE-001",
+                "CS-ARCH-PIPE-002",
+                "CS-ARCH-PIPE-003"
+              ]
+            },
+            {
+              "id": "cpu-internals-isa",
+              "title": "Registradores, Stack Frames, Calling Conventions, x86-64 vs ARM64 e Arquitetura NUMA",
+              "status": "completed",
+              "card_ids": [
+                "CS-ARCH-CPU-000",
+                "CS-ARCH-CPU-001",
+                "CS-ARCH-CPU-002",
+                "CS-ARCH-CPU-003"
+              ]
+            },
+            {
+              "id": "storage-io-hierarchy",
+              "title": "SSD NVMe vs HDD, Random vs Sequential I/O, OS Page Cache e DMA (Direct Memory Access)",
+              "status": "completed",
+              "card_ids": [
+                "CS-ARCH-IO-000",
+                "CS-ARCH-IO-001",
+                "CS-ARCH-IO-002",
+                "CS-ARCH-IO-003",
+                "CS-ARCH-IO-004",
+                "CS-ARCH-IO-005"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "os-memory",
+          "title": "Sistemas Operacionais, Gestão de Memória & Concorrência",
+          "subtopics": [
+            {
+              "id": "virtual-memory",
+              "title": "Memória Virtual, Paginação, TLB, Page Faults, HugePages e Memory Mapping (mmap)",
+              "status": "completed",
+              "card_ids": [
+                "CS-OS-VMEM-000",
+                "CS-OS-VMEM-001",
+                "CS-OS-VMEM-002",
+                "CS-OS-VMEM-003",
+                "CS-OS-VMEM-005"
+              ]
+            },
+            {
+              "id": "processes-threads",
+              "title": "Processos vs Threads, PCB/TCB, Context Switch Overhead e Goroutines / Green Threads",
+              "status": "completed",
+              "card_ids": [
+                "CS-OS-PROC-000",
+                "CS-OS-PROC-001",
+                "CS-OS-PROC-002",
+                "CS-OS-PROC-003"
+              ]
+            },
+            {
+              "id": "synchronization-primitives",
+              "title": "Primitivas de Sincronização: Mutex, Semáforos, Read-Write Locks, Spinlocks, Futex, Deadlocks e Race Conditions",
+              "status": "completed",
+              "card_ids": [
+                "CS-OS-SYNC-000",
+                "CS-OS-SYNC-001",
+                "CS-OS-SYNC-002",
+                "CS-OS-SYNC-003",
+                "CS-OS-SYNC-004"
+              ]
+            },
+            {
+              "id": "lock-free-atomics",
+              "title": "Instruções Atômicas CAS, Barreiras de Memória, Visibilidade Volatile, Lock-Free Ring Buffers e Problema ABA",
+              "status": "completed",
+              "card_ids": [
+                "CS-OS-ATOM-000",
+                "CS-OS-ATOM-001",
+                "CS-OS-ATOM-002",
+                "CS-OS-ATOM-004"
+              ]
+            },
+            {
+              "id": "linux-io-syscalls",
+              "title": "File Descriptors, I/O Multiplexing (select, poll, epoll Level vs Edge Triggered), Zero-Copy sendfile e io_uring",
+              "status": "completed",
+              "card_ids": [
+                "CS-OS-SYS-000",
+                "CS-OS-SYS-001",
+                "CS-OS-SYS-002",
+                "CS-OS-SYS-003"
+              ]
+            },
+            {
+              "id": "linux-kernel-process-management",
+              "title": "Escalonador CFS, Cgroups, Namespaces (Containers), Sinais Unix (SIGTERM/SIGKILL), Processos Zumbi e OOM Killer",
+              "status": "completed",
+              "card_ids": [
+                "CS-OS-KERN-000",
+                "CS-OS-KERN-001",
+                "CS-OS-KERN-002",
+                "CS-OS-KERN-003"
+              ]
+            },
+            {
+              "id": "ipc-inter-process-communication",
+              "title": "Comunicação Inter-Processos (IPC): Unix Domain Sockets, Pipes, Shared Memory e POSIX Message Queues",
+              "status": "completed",
+              "card_ids": [
+                "CS-OS-IPC-000",
+                "CS-OS-IPC-001",
+                "CS-OS-IPC-002",
+                "CS-OS-IPC-003"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "runtimes-garbage-collection",
+          "title": "Runtimes, Gerenciamento de Memória & Garbage Collection (Go & JVM)",
+          "subtopics": [
+            {
+              "id": "jvm-memory-gc",
+              "title": "Layout de Memória JVM (Eden, Survivor, Tenured, Metaspace) e Coletores GC (G1, ZGC, Shenandoah)",
+              "status": "completed",
+              "card_ids": [
+                "CS-RNT-JVM-000",
+                "CS-RNT-JVM-001",
+                "CS-RNT-JVM-002",
+                "CS-RNT-JVM-003"
+              ]
+            },
+            {
+              "id": "go-runtime-gc",
+              "title": "Go Runtime: Modelo GMP (Goroutine, Machine, Processor), GC Tri-Color Concorrente, Write Barrier e GOMEMLIMIT",
+              "status": "completed",
+              "card_ids": [
+                "CS-RNT-GO-000",
+                "CS-RNT-GO-001",
+                "CS-RNT-GO-002"
+              ]
+            },
+            {
+              "id": "memory-allocation-escape-analysis",
+              "title": "Alocação Stack vs Heap, Análise de Escape (Escape Analysis) em Go e Java, e Memória Off-Heap",
+              "status": "completed",
+              "card_ids": [
+                "CS-RNT-ALLOC-000",
+                "CS-RNT-ALLOC-002",
+                "CS-RNT-ALLOC-003"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "networking",
+          "title": "Redes de Computadores para Engenharia Backend",
+          "subtopics": [
+            {
+              "id": "tcp-udp-transport",
+              "title": "TCP vs UDP, Handshake de 3 Vias, Máquina de Estados TCP, Controle de Congestionamento (Cubic, BBR) e HoL Blocking",
+              "status": "completed",
+              "card_ids": [
+                "CS-NET-TCP-000",
+                "CS-NET-TCP-001",
+                "CS-NET-TCP-002",
+                "CS-NET-TCP-003",
+                "CS-NET-TCP-004"
+              ]
+            },
+            {
+              "id": "http-protocols",
+              "title": "Evolução HTTP: HTTP/1.1 Pipelining, HTTP/2 Multiplexing & HPACK, HTTP/3 QUIC / UDP e QPACK",
+              "status": "completed",
+              "card_ids": [
+                "CS-NET-HTTP-000",
+                "CS-NET-HTTP-001",
+                "CS-NET-HTTP-002",
+                "CS-NET-HTTP-003"
+              ]
+            },
+            {
+              "id": "dns-tls",
+              "title": "Hierarquia DNS, Resolução Recursiva/Autoritativa, Handshake TLS 1.3, Certificados PKI e ALPN",
+              "status": "completed",
+              "card_ids": [
+                "CS-NET-DNS-000",
+                "CS-NET-DNS-001",
+                "CS-NET-DNS-002"
+              ]
+            },
+            {
+              "id": "socket-io-epoll",
+              "title": "Programação de Sockets TCP, Buffers SO_RCVBUF, TCP_NODELAY (Nagle), Estado TIME_WAIT e Keep-Alive",
+              "status": "completed",
+              "card_ids": [
+                "CS-NET-SOCK-000",
+                "CS-NET-SOCK-001",
+                "CS-NET-SOCK-002"
+              ]
+            },
+            {
+              "id": "modern-apis-protocols",
+              "title": "Protocolos Modernos de Comunicação: WebSockets, Server-Sent Events (SSE), gRPC com Protocol Buffers e GraphQL",
+              "status": "completed",
+              "card_ids": [
+                "CS-NET-API-000",
+                "CS-NET-API-001",
+                "CS-NET-API-002",
+                "CS-NET-API-003"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "discrete-math",
+          "title": "Matemática Discreta, Baixo Nível & Teoria da Computação",
+          "subtopics": [
+            {
+              "id": "boolean-logic",
+              "title": "Lógica Booleana, Bitwise, Álgebra de Boole, Teoremas de De Morgan e Portas Lógicas",
+              "status": "completed",
+              "card_ids": [
+                "CS-MATH-BOOL-000",
+                "CS-MATH-BOOL-001",
+                "CS-MATH-BOOL-002",
+                "CS-MATH-BOOL-003",
+                "CS-MATH-BOOL-004"
+              ]
+            },
+            {
+              "id": "number-representation-ieee754",
+              "title": "Representação Numérica: Complemento de Dois, Ponto Flutuante IEEE 754, Endianness, Overflow e Underflow",
+              "status": "completed",
+              "card_ids": [
+                "CS-MATH-NUM-000",
+                "CS-MATH-NUM-001",
+                "CS-MATH-NUM-002",
+                "CS-MATH-NUM-003",
+                "CS-MATH-NUM-004"
+              ]
+            },
+            {
+              "id": "combinatorics-probability",
+              "title": "Combinatória e Probabilidade: Permutações, Probabilidade Condicional, Teorema de Bayes e Birthday Paradox em Hashes",
+              "status": "completed",
+              "card_ids": [
+                "CS-MATH-PROB-000",
+                "CS-MATH-PROB-001",
+                "CS-MATH-PROB-002",
+                "CS-MATH-PROB-004"
+              ]
+            },
+            {
+              "id": "graph-theory",
+              "title": "Teoria dos Grafos & Conjuntos: DAGs, Conectividade, Relações de Equivalência e Indução Matemática",
+              "status": "completed",
+              "card_ids": [
+                "CS-MATH-GRAPH-000",
+                "CS-MATH-GRAPH-001",
+                "CS-MATH-GRAPH-002",
+                "CS-MATH-GRAPH-003",
+                "CS-MATH-GRAPH-004"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03-system-design-backend",
+      "title": "Engenharia de Sistemas, Design & Backend Architecture",
+      "modules": [
+        {
+          "id": "system-design-foundations",
+          "title": "Fundamentos de System Design & Cálculos de Ordem de Grandeza",
+          "subtopics": [
+            {
+              "id": "back-of-the-envelope-estimations",
+              "title": "Estimativas Rápidas: Latências de Hardware (Jeff Dean), QPS, Bandwidth, IOPS, Capacidade de Storage e Disponibilidade (99.9% vs 99.999%)",
+              "status": "completed",
+              "card_ids": [
+                "SYS-FND-ESTIMATION-000",
+                "SYS-FND-ESTIMATION-001",
+                "SYS-FND-ESTIMATION-002"
+              ]
+            },
+            {
+              "id": "system-design-interview-framework",
+              "title": "Framework de Entrevistas de System Design em 4 Passos: Requisitos, Escopo, Design Alto Nível e Deep Dives",
+              "status": "completed",
+              "card_ids": [
+                "SYS-FND-FRAMEWORK-000",
+                "SYS-FND-FRAMEWORK-001"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "distributed-systems",
+          "title": "Princípios Fundamentais de Sistemas Distribuídos",
+          "subtopics": [
+            {
+              "id": "cap-pacelc-consistency",
+              "title": "Teorema CAP, PACELC e Modelos de Consistência: Strict Linearizability, Eventual, Causal, Read-Your-Writes e CRDTs",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DIST-CONSISTENCY-000",
+                "SYS-DIST-CONSISTENCY-001",
+                "SYS-DIST-CONSISTENCY-002"
+              ]
+            },
+            {
+              "id": "consensus-replication",
+              "title": "Algoritmos de Consenso: Raft (Eleição e Replicação de Log), Paxos, Quorum Reads/Writes (R+W>N), Leader-Follower e Multi-Leader",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DIST-CONSENSUS-000",
+                "SYS-DIST-CONSENSUS-001",
+                "SYS-DIST-CONSENSUS-002"
+              ]
+            },
+            {
+              "id": "distributed-transactions",
+              "title": "Transações Distribuídas: Two-Phase Commit (2PC), Saga Pattern (Coreografia vs Orquestração), Outbox Pattern e TCC",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DIST-TX-000",
+                "SYS-DIST-TX-001",
+                "SYS-DIST-TX-002"
+              ]
+            },
+            {
+              "id": "sharding-consistent-hashing",
+              "title": "Particionamento e Sharding: Consistent Hashing com Virtual Nodes, Range Partitioning, Hash Sharding e Rebalanceamento",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DIST-SHARDING-000",
+                "SYS-DIST-SHARDING-001"
+              ]
+            },
+            {
+              "id": "distributed-locking-coordination",
+              "title": "Coordenação e Bloqueios Distribuídos: ZooKeeper, etcd (Raft Leases), Distributed Locks com Redlock e Fencing Tokens",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DIST-LOCK-000",
+                "SYS-DIST-LOCK-001"
+              ]
+            },
+            {
+              "id": "time-clocks-id-generation",
+              "title": "Tempo em Sistemas Distribuídos: Lamport/Vector Clocks, TrueTime, e Geradores de ID Único (Snowflake ID, UUIDv7)",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DIST-TIME-000",
+                "SYS-DIST-TIME-001",
+                "SYS-DIST-TIME-002"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "databases-storage",
+          "title": "Bancos de Dados & Mecanismos de Armazenamento Interno",
+          "subtopics": [
+            {
+              "id": "storage-engines",
+              "title": "Mecanismos de Armazenamento: B-Trees / B+Trees vs LSM-Trees (MemTable, WAL, SSTables, Compaction) e Armazenamento Colunar (Parquet)",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DB-ENGINE-000",
+                "SYS-DB-ENGINE-001",
+                "SYS-DB-ENGINE-002"
+              ]
+            },
+            {
+              "id": "sql-indexing-optimization",
+              "title": "Otimização SQL: Índices Clustered vs Secondary, Índices Compostos (Leftmost Prefix), EXPLAIN ANALYZE e Algoritmos de Join",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DB-SQLOPT-000",
+                "SYS-DB-SQLOPT-001",
+                "SYS-DB-SQLOPT-002"
+              ]
+            },
+            {
+              "id": "acid-isolation-levels",
+              "title": "ACID e Isolamento: Dirty Read, Non-Repeatable Read, Phantom Read, Write Skew, MVCC, 2PL e Serializable Snapshot Isolation",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DB-ACID-000",
+                "SYS-DB-ACID-001",
+                "SYS-DB-ACID-002"
+              ]
+            },
+            {
+              "id": "nosql-data-modeling",
+              "title": "Modelagem NoSQL: Document (MongoDB), Key-Value (DynamoDB), Wide-Column (Cassandra), Graph (Neo4j) e Time-Series",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DB-NOSQL-000",
+                "SYS-DB-NOSQL-001"
+              ]
+            },
+            {
+              "id": "vector-databases-search",
+              "title": "Mecanismos de Busca e Vetores: Elasticsearch (Índice Invertido, BM25), Vector Databases (HNSW, pgvector) para RAG e LLMs",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DB-VECTOR-000",
+                "SYS-DB-VECTOR-001"
+              ]
+            },
+            {
+              "id": "scaling-replication-cdc",
+              "title": "Escala de Bancos de Dados: Read Replicas, Multi-Region, Sharding, Connection Pooling e Change Data Capture (CDC com Debezium)",
+              "status": "completed",
+              "card_ids": [
+                "SYS-DB-SCALING-000",
+                "SYS-DB-SCALING-001"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "caching-cdn",
+          "title": "Estratégias de Cache & Entrega de Conteúdo",
+          "subtopics": [
+            {
+              "id": "caching-patterns",
+              "title": "Padrões de Cache: Cache-Aside, Write-Through, Write-Back, Write-Around e Políticas de Evicção (LRU, LFU, ARC, TinyLFU)",
+              "status": "completed",
+              "card_ids": [
+                "SYS-CACHE-PATTERNS-000",
+                "SYS-CACHE-PATTERNS-001"
+              ]
+            },
+            {
+              "id": "cache-invalidation-anomalies",
+              "title": "Anomalias de Cache: Cache Stampede (Thundering Herd), Penetration, Breakdown, Avalanche e Estratégias de Invalidação",
+              "status": "completed",
+              "card_ids": [
+                "SYS-CACHE-ANOMALIES-000",
+                "SYS-CACHE-ANOMALIES-001"
+              ]
+            },
+            {
+              "id": "redis-internals",
+              "title": "Arquitetura Interna do Redis: Event Loop Single-Threaded, Estruturas SDS/Skiplist/ZSet, Persistência RDB/AOF, Cluster e Sentinel",
+              "status": "completed",
+              "card_ids": [
+                "SYS-CACHE-REDIS-000",
+                "SYS-CACHE-REDIS-001"
+              ]
+            },
+            {
+              "id": "cdn-edge-caching",
+              "title": "CDNs e Edge Computing: PoPs, Edge Caching, Cabeçalhos Cache-Control, ETag, Anycast Routing e Edge Workers",
+              "status": "completed",
+              "card_ids": [
+                "SYS-CACHE-CDN-000",
+                "SYS-CACHE-CDN-001"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "messaging-streaming",
+          "title": "Mensageria, Filas & Arquiteturas Orientadas a Eventos",
+          "subtopics": [
+            {
+              "id": "message-queues",
+              "title": "Filas de Mensagens: RabbitMQ, AWS SQS, AMQP, Point-to-Point vs Pub/Sub, Dead Letter Queues (DLQ) e Visibility Timeout",
+              "status": "completed",
+              "card_ids": [
+                "SYS-MSG-QUEUES-000",
+                "SYS-MSG-QUEUES-001"
+              ]
+            },
+            {
+              "id": "kafka-internals",
+              "title": "Arquitetura Interna do Apache Kafka: Append-Only Log, Partições, Consumer Groups, Offsets, Zero-Copy e Compaction",
+              "status": "completed",
+              "card_ids": [
+                "SYS-MSG-KAFKA-000",
+                "SYS-MSG-KAFKA-001"
+              ]
+            },
+            {
+              "id": "delivery-guarantees-idempotency",
+              "title": "Garantias de Entrega: At-Least-Once, Exactly-Once Semantics (EOS), Idempotency Keys e Deduplicação no Consumidor",
+              "status": "completed",
+              "card_ids": [
+                "SYS-MSG-GUARANTEES-000",
+                "SYS-MSG-GUARANTEES-001"
+              ]
+            },
+            {
+              "id": "event-sourcing-cqrs",
+              "title": "Padrões Orientados a Eventos: Event Sourcing, CQRS (Command Query Responsibility Segregation) e Projeções de Leitura",
+              "status": "completed",
+              "card_ids": [
+                "SYS-MSG-EVENTS-000",
+                "SYS-MSG-EVENTS-001"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "resilience-traffic",
+          "title": "Alta Disponibilidade, Resiliência & Gerenciamento de Tráfego",
+          "subtopics": [
+            {
+              "id": "load-balancing-proxies",
+              "title": "Balanceamento de Carga: L4 vs L7 Load Balancers, Algoritmos, NGINX, HAProxy, Envoy e Reverse Proxies",
+              "status": "completed",
+              "card_ids": [
+                "SYS-RES-LOADBAL-000",
+                "SYS-RES-LOADBAL-001"
+              ]
+            },
+            {
+              "id": "rate-limiting-throttling",
+              "title": "Rate Limiting e Throttling: Token Bucket, Leaky Bucket, Sliding Window Counter e Rate Limiting Distribuído com Redis",
+              "status": "completed",
+              "card_ids": [
+                "SYS-RES-RATELIMIT-000",
+                "SYS-RES-RATELIMIT-001"
+              ]
+            },
+            {
+              "id": "fault-tolerance-resilience",
+              "title": "Tolerância a Falhas: Circuit Breakers, Retries com Exponential Backoff & Jitter, Bulkheads, Fallbacks e Prazos em Cascata",
+              "status": "completed",
+              "card_ids": [
+                "SYS-RES-FAULTTOL-000",
+                "SYS-RES-FAULTTOL-001"
+              ]
+            },
+            {
+              "id": "api-design-gateways",
+              "title": "Design de APIs: RESTful, GraphQL, gRPC com Protobuf, API Gateway Pattern e Backend-for-Frontend (BFF)",
+              "status": "completed",
+              "card_ids": [
+                "SYS-RES-APIGW-000",
+                "SYS-RES-APIGW-001"
+              ]
+            },
+            {
+              "id": "service-mesh-discovery",
+              "title": "Service Mesh & Descoberta de Serviços: Data Plane (Envoy Sidecar), Control Plane (Istio), Service Discovery e mTLS",
+              "status": "completed",
+              "card_ids": [
+                "SYS-RES-MESH-000",
+                "SYS-RES-MESH-001"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "low-level-design",
+          "title": "Low-Level Design (LLD), OOP & Padrões de Concorrência Backend",
+          "subtopics": [
+            {
+              "id": "solid-clean-architecture",
+              "title": "Princípios SOLID, Arquitetura Hexagonal (Ports & Adapters), Clean Architecture e Conceitos Fundamentais de DDD",
+              "status": "completed",
+              "card_ids": [
+                "SYS-LLD-SOLID-000",
+                "SYS-LLD-SOLID-001"
+              ]
+            },
+            {
+              "id": "design-patterns-gang-of-four",
+              "title": "Design Patterns GoF: Factory, Builder, Singleton, Adapter, Decorator, Strategy, Observer, Command e Chain of Responsibility",
+              "status": "completed",
+              "card_ids": [
+                "SYS-LLD-PATTERNS-000",
+                "SYS-LLD-PATTERNS-001"
+              ]
+            },
+            {
+              "id": "concurrency-patterns-backend",
+              "title": "Padrões de Concorrência em Go e Java: Worker Pool, Fan-In/Fan-Out, Pipeline, Producer-Consumer, CSP vs Actor Model",
+              "status": "completed",
+              "card_ids": [
+                "SYS-LLD-CONCURRENCY-000",
+                "SYS-LLD-CONCURRENCY-001"
+              ]
+            },
+            {
+              "id": "lld-case-studies",
+              "title": "Estudos de Caso LLD: Design Parking Lot, Design Vending Machine, Design Rate Limiter Class e Design In-Memory Cache",
+              "status": "completed",
+              "card_ids": [
+                "SYS-LLD-CASES-000",
+                "SYS-LLD-CASES-001"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "faang-system-design-archetypes",
+          "title": "Estudos de Caso Clássicos de System Design FAANG",
+          "subtopics": [
+            {
+              "id": "case-url-shortener",
+              "title": "Design TinyURL / Bitly: Base62 Encoding, Gerador de ID Único, Cache e Razão Leitura/Escrita 100:1",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-URL-000",
+                "SYS-ARCH-URL-001"
+              ]
+            },
+            {
+              "id": "case-social-timeline-feed",
+              "title": "Design Twitter / Facebook Feed: Fan-out on Write vs Fan-out on Read, Cache de Timeline e Tratamento de Celebridades",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-FEED-000",
+                "SYS-ARCH-FEED-001"
+              ]
+            },
+            {
+              "id": "case-video-streaming",
+              "title": "Design YouTube / Netflix: Pipeline de Ingestão e Transcodificação de Vídeo, HLS/DASH Adaptive Bitrate e Edge CDN",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-STREAM-000",
+                "SYS-ARCH-STREAM-001"
+              ]
+            },
+            {
+              "id": "case-realtime-chat",
+              "title": "Design WhatsApp / Discord: WebSocket Gateways, Serviço de Presença, Armazenamento Efêmero e Notificações Push",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-CHAT-000",
+                "SYS-ARCH-CHAT-001"
+              ]
+            },
+            {
+              "id": "case-ride-hailing-geospatial",
+              "title": "Design Uber / Lyft: Indexação Geoespacial (Geohash, QuadTree, Google S2, Uber H3) e Matching Motorista-Passageiro",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-RIDE-000",
+                "SYS-ARCH-RIDE-001"
+              ]
+            },
+            {
+              "id": "case-flash-sale-inventory",
+              "title": "Design Amazon Flash Sale / Ticketmaster: Reserva de Inventário de Alta Concorrência, Anti-Overselling e Filas Virtuais",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-FLASHSALE-000",
+                "SYS-ARCH-FLASHSALE-001"
+              ]
+            },
+            {
+              "id": "case-web-crawler-search",
+              "title": "Design Google Web Crawler: URL Frontier, Políticas de Polidez/Prioridade, Deduplicação com Bloom Filter e Parser",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-CRAWLER-000",
+                "SYS-ARCH-CRAWLER-001"
+              ]
+            },
+            {
+              "id": "case-distributed-file-storage",
+              "title": "Design Google Drive / Dropbox: Chunking de Arquivos, Deduplicação de Conteúdo (CAS), Delta Sync e Resolução de Conflitos",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-FILESTORE-000",
+                "SYS-ARCH-FILESTORE-001"
+              ]
+            },
+            {
+              "id": "case-metrics-monitoring",
+              "title": "Design Datadog / Prometheus: Ingestão de Séries Temporais (TSDB), Compressão Gorilla, Downsampling e Engine de Alertas",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-METRICS-000",
+                "SYS-ARCH-METRICS-001"
+              ]
+            },
+            {
+              "id": "case-search-autocomplete",
+              "title": "Design Google Typeahead / Autocomplete: Trie em Memória, Particionamento de Prefixos e Agregação Offline Top-K",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-TYPEAHEAD-000",
+                "SYS-ARCH-TYPEAHEAD-001"
+              ]
+            },
+            {
+              "id": "case-distributed-task-scheduler",
+              "title": "Design Temporal / Distributed Cron: Execução de DAGs de Tarefas, Delay Queues, Heartbeats e Garantia de Execução Exata",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-SCHEDULER-000",
+                "SYS-ARCH-SCHEDULER-001"
+              ]
+            },
+            {
+              "id": "case-payment-system-ledger",
+              "title": "Design Stripe / Digital Wallet: Livro-Razão de Partidas Dobradas (Double-Entry), Idempotência Financeira e Conciliação",
+              "status": "completed",
+              "card_ids": [
+                "SYS-ARCH-PAYMENT-000",
+                "SYS-ARCH-PAYMENT-001"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04-behavioral-engineering",
+      "title": "Engenharia de Software, Liderança & Comportamental (FAANG Culture)",
+      "modules": [
+        {
+          "id": "behavioral-leadership",
+          "title": "Entrevistas Comportamentais, Métricas de Impacto & Liderança",
+          "subtopics": [
+            {
+              "id": "star-framework-storytelling",
+              "title": "Estruturação de Histórias no Método STAR (Situation, Task, Action, Result) com Métricas Quantitativas de Impacto",
+              "status": "completed",
+              "card_ids": [
+                "BEH-LEAD-STAR-000",
+                "BEH-LEAD-STAR-001",
+                "BEH-LEAD-STAR-002",
+                "BEH-LEAD-STAR-003",
+                "BEH-LEAD-STAR-004",
+                "BEH-LEAD-STAR-005"
+              ]
+            },
+            {
+              "id": "amazon-leadership-principles",
+              "title": "Os 16 Princípios de Liderança da Amazon: Customer Obsession, Ownership, Bias for Action, Dive Deep e Perguntas Típicas",
+              "status": "completed",
+              "card_ids": [
+                "BEH-LEAD-AMAZON-000",
+                "BEH-LEAD-AMAZON-001",
+                "BEH-LEAD-AMAZON-002",
+                "BEH-LEAD-AMAZON-003",
+                "BEH-LEAD-AMAZON-004",
+                "BEH-LEAD-AMAZON-005"
+              ]
+            },
+            {
+              "id": "faang-company-cultures",
+              "title": "Culturas Corporativas FAANG: Google Googliness, Meta Move Fast, Netflix Freedom & Responsibility, Apple DRI",
+              "status": "completed",
+              "card_ids": [
+                "BEH-LEAD-CULTURE-000",
+                "BEH-LEAD-CULTURE-001",
+                "BEH-LEAD-CULTURE-002",
+                "BEH-LEAD-CULTURE-003",
+                "BEH-LEAD-CULTURE-004",
+                "BEH-LEAD-CULTURE-005"
+              ]
+            },
+            {
+              "id": "conflict-resolution-influence",
+              "title": "Resolução de Conflitos Técnicos, Desacordo e Compromisso (Disagree and Commit) e Influência sem Autoridade",
+              "status": "completed",
+              "card_ids": [
+                "BEH-LEAD-CONFLICT-000",
+                "BEH-LEAD-CONFLICT-001",
+                "BEH-LEAD-CONFLICT-002",
+                "BEH-LEAD-CONFLICT-003",
+                "BEH-LEAD-CONFLICT-004",
+                "BEH-LEAD-CONFLICT-005"
+              ]
+            },
+            {
+              "id": "failure-learning-retrospectives",
+              "title": "Narrativas de Falhas em Produção, Cultura Blameless Post-Mortem, Lições Aprendidas e Mentalidade de Crescimento",
+              "status": "completed",
+              "card_ids": [
+                "BEH-LEAD-FAILURE-000",
+                "BEH-LEAD-FAILURE-001",
+                "BEH-LEAD-FAILURE-002",
+                "BEH-LEAD-FAILURE-003",
+                "BEH-LEAD-FAILURE-004",
+                "BEH-LEAD-FAILURE-005"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "observability-sre",
+          "title": "Observabilidade, SRE & Gestão de Incidentes em Produção",
+          "subtopics": [
+            {
+              "id": "metrics-logs-traces",
+              "title": "Os 3 Pilares da Observabilidade: Métricas Prometheus, Structured Logging, Distributed Tracing com OpenTelemetry / Jaeger",
+              "status": "completed",
+              "card_ids": [
+                "BEH-SRE-PILARS-000",
+                "BEH-SRE-PILARS-001",
+                "BEH-SRE-PILARS-002",
+                "BEH-SRE-PILARS-003",
+                "BEH-SRE-PILARS-004",
+                "BEH-SRE-PILARS-005"
+              ]
+            },
+            {
+              "id": "sli-slo-sla-error-budgets",
+              "title": "Conceitos SRE: SLI, SLO, SLA, Gestão de Error Budgets e Governança de Bloqueio de Deploys",
+              "status": "completed",
+              "card_ids": [
+                "BEH-SRE-SLI-000",
+                "BEH-SRE-SLI-001",
+                "BEH-SRE-SLI-002",
+                "BEH-SRE-SLI-003",
+                "BEH-SRE-SLI-004",
+                "BEH-SRE-SLI-005"
+              ]
+            },
+            {
+              "id": "incident-management-postmortems",
+              "title": "Gestão de Incidentes de Produção: Triage Sev-1/Sev-2, War Rooms, Mitigação Rápida, Análise 5 Whys e Root Cause Analysis (RCA)",
+              "status": "completed",
+              "card_ids": [
+                "BEH-SRE-INCIDENT-000",
+                "BEH-SRE-INCIDENT-001",
+                "BEH-SRE-INCIDENT-002",
+                "BEH-SRE-INCIDENT-003",
+                "BEH-SRE-INCIDENT-004",
+                "BEH-SRE-INCIDENT-005"
+              ]
+            },
+            {
+              "id": "capacity-planning-chaos-engineering",
+              "title": "Planejamento de Capacidade, Testes de Carga (k6/Locust), Chaos Engineering (Chaos Monkey) e Disaster Recovery (RTO/RPO)",
+              "status": "completed",
+              "card_ids": [
+                "BEH-SRE-CHAOS-000",
+                "BEH-SRE-CHAOS-001",
+                "BEH-SRE-CHAOS-002",
+                "BEH-SRE-CHAOS-003",
+                "BEH-SRE-CHAOS-004",
+                "BEH-SRE-CHAOS-005"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "release-security",
+          "title": "Engenharia de Release, Segurança & Qualidade Backend",
+          "subtopics": [
+            {
+              "id": "deployment-strategies",
+              "title": "Estratégias de Deploy: Blue-Green, Canary Releases, Rolling Updates, Feature Flags e Migrações de Schema Zero-Downtime",
+              "status": "completed",
+              "card_ids": [
+                "BEH-SEC-DEPLOY-000",
+                "BEH-SEC-DEPLOY-001",
+                "BEH-SEC-DEPLOY-002",
+                "BEH-SEC-DEPLOY-003",
+                "BEH-SEC-DEPLOY-004"
+              ]
+            },
+            {
+              "id": "testing-pyramid-backend",
+              "title": "Pirâmide de Testes Backend: Testes Unitários, Testcontainers para Integração Real, Contract Testing com Pact e Mocks",
+              "status": "completed",
+              "card_ids": [
+                "BEH-SEC-PYRAMID-000",
+                "BEH-SEC-PYRAMID-001",
+                "BEH-SEC-PYRAMID-002",
+                "BEH-SEC-PYRAMID-003",
+                "BEH-SEC-PYRAMID-004"
+              ]
+            },
+            {
+              "id": "backend-security-owasp",
+              "title": "Segurança Backend & OWASP: OAuth 2.0 / OIDC / JWT, RBAC vs ABAC, Prevenção de SQLi/SSRF, Gestão de Secrets e Proteção DoS",
+              "status": "completed",
+              "card_ids": [
+                "BEH-SEC-OWASP-000",
+                "BEH-SEC-OWASP-001",
+                "BEH-SEC-OWASP-002",
+                "BEH-SEC-OWASP-003",
+                "BEH-SEC-OWASP-004",
+                "BEH-SEC-OWASP-005",
+                "BEH-SEC-OWASP-006"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

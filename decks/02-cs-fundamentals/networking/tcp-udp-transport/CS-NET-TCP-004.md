@@ -1,0 +1,40 @@
+---
+id: CS-NET-TCP-004
+title: "Janela Deslizante (Sliding Window), Window Scaling e BDP"
+tags:
+  - level::l4-pleno
+  - topic::cs::networking
+  - company::apple
+  - freq::high
+---
+
+## Pergunta
+Como o mecanismo de **Janela Deslizante (Sliding Window)** e **Window Scaling** do TCP permite atingir máxima utilização do Bandwidth-Delay Product (BDP)?
+
+## Resposta
+### Quick Answer
+**Solução Direta**:
+- **Sliding Window**: Mecanismo de controle de fluxo onde o receptor anuncia no cabeçalho TCP quantos bytes seu buffer de socket consegue receber sem estourar (`Receive Window - rwnd`). O emissor envia múltiplos pacotes em voo sem esperar ACK individual para cada um.
+- **BDP (Bandwidth-Delay Product)**: A capacidade de dados que a rede consegue manter em trânsito simultâneo:
+  $$\text{BDP} = \text{Largura de Banda} \times \text{RTT}$$
+  *Ex*: Link de 10 Gbps com 50ms de RTT $\implies \text{BDP} = 10^9 \text{ B/s} \times 0.05\text{ s} = 62.5 \text{ MB}$.
+- **Window Scaling (RFC 1323)**: O cabeçalho TCP padrão limita o campo de janela a 16 bits (máximo 64 KB). A opção Window Scale multiplica esse valor por potências de 2 (até $2^{14}$), permitindo janelas de até **1 GB**, viabilizando alta vazão em conexões de alta velocidade.
+
+### Dual Coding Visual
+| Tipo de Janela | Tamanho Máximo de Janela | Vazão Máxima em Link com 50ms RTT |
+|---|---|---|
+| **TCP Padrão (Sem Scale)** | 64 KB (16 bits) | ~10 Mbps (Gargalo severo) |
+| **TCP com Window Scaling** | Até 1 GB (Fator $2^{14}$) | 10+ Gbps (Satura o link físico) |
+
+<details>
+<summary>Deep Dive & Walkthrough</summary>
+
+#### O Modelo Mental do Cano de Água
+- **Largura de Banda**: O diâmetro do cano.
+- **RTT**: O comprimento do cano.
+- **BDP**: O volume total de água que cabe dentro do cano. Se a janela TCP for menor que o BDP, o cano fica quase vazio, operando com uma fração ínfima de sua capacidade.
+
+#### Key Takeaways
+- Para links transoceânicos ou de data centers com alto BDP (*Long Fat Networks - LFNs*), Window Scaling e buffers de socket afinados no Linux são obrigatórios.
+
+</details>
