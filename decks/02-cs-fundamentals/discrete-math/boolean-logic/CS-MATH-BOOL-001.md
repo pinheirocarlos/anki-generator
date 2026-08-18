@@ -19,6 +19,12 @@ Como o algoritmo de **Brian Kernighan** utiliza a expressão `n & (n - 1)` para 
 - **Complexidade**: Enquanto o loop ingênuo testa todos os 32 ou 64 bits em $O(\text{total\_bits})$, Brian Kernighan executa em **$O(K)$ iterações**, onde $K$ é a quantidade exata de bits 1 ativos ($K \le \text{total\_bits}$).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/bitwise-brian-kernighan-popcount-loop.webm">
+    <p>Visualização: A operação n & (n-1) desliga o bit 1 menos significativo em cada iteração contando os bits ativos.</p>
+  </video>
+</div>
+
 | Valor de `n` | Binário Original | Resultado `n & (n - 1)` |
 |---|---|---|
 | **`n = 12`** | `1100` | `1000` (8) - Limpou o bit 2 |

@@ -22,6 +22,12 @@ Como o padrão de **Two Pointers Opostos** resolve o problema de soma de dois n�
 - Como o array está ordenado, descartamos com segurança uma linha ou coluna inteira de combinações a cada iteração, reduzindo o tempo de $O(N^2)$ para **$O(N)$**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/two-pointers-converging-sum-loop.webm">
+    <p>Visualização: Ponteiros left e right convergindo em direção ao centro com avanço condicional pela soma.</p>
+  </video>
+</div>
+
 | Comparação de Soma | Ação no Ponteiro | Racional |
 |---|---|---|
 | $\text{soma} < \text{alvo}$ | `left++` | Precisa aumentar o valor total |

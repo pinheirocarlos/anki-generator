@@ -23,6 +23,12 @@ Como a **Poda Alfa-Beta (Alpha-Beta Pruning)** reduz o número de nós avaliados
 - **Complexidade**: Com ordenação ótima de jogadas, reduz a árvore de $O(B^d)$ para **$O(B^{d/2})$**, dobrando a profundidade explorável no mesmo tempo.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/sprague-grundy-mex-game-states-loop.webm">
+    <p>Visualização: Mapeamento de jogos combinatórios imparciais para valores de Grundy usando o menor inteiro não negativo excluído (Mex).</p>
+  </video>
+</div>
+
 | Parâmetro de Poda | Papel na Busca | Condição de Corte |
 |---|---|---|
 | **$\alpha$ (Alfa)** | Maximizador (Piso de pontuação) | Se $\beta \le \alpha \implies$ Poda ramo |

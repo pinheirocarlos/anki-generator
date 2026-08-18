@@ -21,6 +21,12 @@ Como a combinação dos padrões Strategy e Factory Method substitui blocos comp
   3. A classe consumidora apenas invoca `factory.getStrategy(type).pay(amount)` em tempo constante sem condicionais aninhadas.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/design-patterns-strategy-factory-polymorphism-loop.webm">
+    <p>Visualização: Substituição de condicionais por polimorfismo instanciando algoritmos via Factory e executando via interface Strategy.</p>
+  </video>
+</div>
+
 | Abordagem | Manutenibilidade | Aderência ao OCP |
 |---|---|---|
 | **`switch/case` Monolítico** | Frágil (cresce indefinidamente com risco de regressão) | Violação (Modifica código existente a cada novo tipo) |

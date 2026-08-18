@@ -22,6 +22,12 @@ O que é uma pausa **Stop-The-World (STW)** e como a JVM utiliza **SafePoints** 
   3. **Compact**: Desloca objetos vivos contiguamente para o início do Heap, eliminando buracos de fragmentação.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/jvm-safepoint-stw-pause-loop.webm">
+    <p>Visualização: Suspensão de threads de aplicação em SafePoints conhecidos para escaneamento de raízes do GC.</p>
+  </video>
+</div>
+
 | Fase do Algoritmo | Ação do Coletor | Efeito na Fragmentação |
 |---|---|---|
 | **Mark (Marcação)** | Identifica raízes ativas no grafo | Nenhum |

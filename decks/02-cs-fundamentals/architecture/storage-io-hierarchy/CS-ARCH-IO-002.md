@@ -18,6 +18,12 @@ Por que acessos de I/O **Sequenciais** são ordens de grandeza mais rápidos que
 - **Em SSDs**: Embora não haja braço móvel, a memória Flash organiza dados em *Páginas (4-16 KB)* e *Blocos (2-8 MB)*. Leituras sequenciais ativam múltiplos canais NAND em paralelo e o *Read-Ahead* do controlador; escritas sequenciais evitam fragmentação e o custo severo de *Garbage Collection / Write Amplification* da controladora SSD.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/sequential-vs-random-disk-io-loop.webm">
+    <p>Visualização: Throughput de I/O sequencial atingindo GB/s comparado a dezenas de MB/s no I/O aleatório.</p>
+  </video>
+</div>
+
 | Tipo de Acesso | Comportamento em HDD | Comportamento em SSD NVMe |
 |---|---|---|
 | **I/O Sequencial** | Braço parado, leitura contínua (~200 MB/s) | Canais NAND em paralelo máximo (~5.000 MB/s) |

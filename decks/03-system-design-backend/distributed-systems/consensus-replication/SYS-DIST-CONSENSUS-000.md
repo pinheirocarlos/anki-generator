@@ -23,6 +23,12 @@ Como o algoritmo de consenso Raft realiza a eleição de um novo líder utilizan
   4. Timeouts aleatórios evitam divisão de votos (*Split Votes*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/raft-leader-election-term-timeout-loop.webm">
+    <p>Visualização: Eleição de líder no Raft: candidato dispara RequestVote após Election Timeout e conquista liderança com maioria de votos.</p>
+  </video>
+</div>
+
 | Estado no Raft | Responsabilidade Principal | Transição |
 |---|---|---|
 | **Follower** | Responde a RPCs de Leader/Candidate | Vira Candidate se timeout expirar |

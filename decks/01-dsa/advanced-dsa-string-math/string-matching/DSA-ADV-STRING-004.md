@@ -20,6 +20,12 @@ Como a combinação de **Suffix Array** e **LCP Array (Longest Common Prefix)** 
   $$\text{Substrings Distintas} = \frac{N(N + 1)}{2} - \sum_{i=1}^{N-1} LCP[i]$$
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/aho-corasick-automaton-failure-links-loop.webm">
+    <p>Visualização: Trie enriquecida com links de falha e dicionário funcionando como autômato finito determinístico em O(N + sum(M)).</p>
+  </video>
+</div>
+
 | Estrutura de Sufixos | Memória de Armazenamento | Propósito Principal |
 |---|---|---|
 | **Suffix Tree** | $O(N)$ (Constante alta ~20 bytes/nó) | Consultas complexas em grafos |

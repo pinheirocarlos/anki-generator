@@ -19,6 +19,12 @@ Por que a BFS tradicional falha em encontrar o caminho mais curto em grafos com 
 - **Dijkstra** substitui a Fila FIFO por uma **Fila de Prioridade (Min-Heap)**, expandindo sempre o nó com a **menor distância acumulada acumulada até o momento**, garantindo a corretude com custos desiguais não-negativos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dijkstra-wavefront-loop.webm">
+    <p>Visualização: Seleção do nó com menor distância na Fila de Prioridade e relaxamento de todas as arestas adjacentes.</p>
+  </video>
+</div>
+
 | Algoritmo | Fila e Métrica de Expansão | Aplicabilidade |
 |---|---|---|
 | **BFS** | Fila FIFO / Contagem de saltos ($w=1$) | Apenas pesos unitários |

@@ -29,6 +29,12 @@ Como funciona o mecanismo de **Upgrade de Conexão HTTP para WebSocket** via cab
   3. A partir deste momento, o socket abandona o protocolo HTTP e passa a transmitir **frames binários WebSocket bidirecionais** sobre o mesmo túnel TCP.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/websocket-handshake-upgrade-loop.webm">
+    <p>Visualização: Handshake inicial HTTP com cabeçalho Connection: Upgrade transicionando para frames bidirecionais TCP.</p>
+  </video>
+</div>
+
 | Fase da Conexão | Protocolo Ativo | Código de Status HTTP |
 |---|---|---|
 | **Início (Handshake)** | HTTP/1.1 (Texto com cabeçalhos de upgrade) | `101 Switching Protocols` |

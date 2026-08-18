@@ -20,6 +20,12 @@ Como o algoritmo **TimSort** combina Insertion Sort e Mergesort para atingir per
 - **Complexidade**: $O(N)$ no melhor caso (dados já ordenados) e $O(N \log N)$ no pior caso, mantendo estrita estabilidade.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/master-theorem-cases-complexity-loop.webm">
+    <p>Visualização: Comparação entre o custo do trabalho local f(n) e a taxa de crescimento das folhas da árvore n^(log_b a).</p>
+  </video>
+</div>
+
 | Algoritmo | Complexidade (Melhor / Pior) | Estabilidade |
 |---|---|---|
 | **Quicksort Padrão** | $O(N \log N)$ / $O(N^2)$ | Instável |

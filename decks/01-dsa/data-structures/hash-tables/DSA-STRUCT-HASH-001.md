@@ -18,6 +18,12 @@ Quais os trade-offs de desempenho de cache e alocação de memória entre **Sepa
 - **Open Addressing (Linear Probing / Robin Hood)**: Todos os pares residem diretamente em um array contíguo plano. Quando ocorre colisão, procura o próximo slot livre ($i+1, i+2$). Vantagem: excelente localidade de cache CPU (leituras sequenciais). Desvantagem: exige $\alpha < 0.7$ para evitar *clustering* (agrupamento primário de colisões).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/chaining-vs-open-addressing-loop.webm">
+    <p>Visualização: Listas encadeadas em buckets colidentes vs sondagem linear direta em slots livres adjacentes.</p>
+  </video>
+</div>
+
 | Característica | Separate Chaining | Open Addressing (Linear Probing) |
 |---|---|---|
 | **Localidade de Cache CPU** | Ruim (saltos no Heap) | Excelente (vetor contíguo) |

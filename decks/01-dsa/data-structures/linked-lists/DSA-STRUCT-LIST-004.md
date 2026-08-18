@@ -21,6 +21,12 @@ Como a composição de uma **Lista Duplamente Ligada** com um **Hash Map** permi
 - Com a referência direta do nó obtida pelo mapa, a remoção e reinserção na cabeça da lista ocorrem em $O(1)$ através da manipulação de 4 ponteiros.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lru-cache-doubly-linked-map-loop.webm">
+    <p>Visualização: Hash Map mapeia chaves diretamente para nós da lista duplamente ligada para remoção e inserção O(1) na cabeça.</p>
+  </video>
+</div>
+
 | Operação LRU | Papel do Hash Map | Papel da Lista Dupla |
 |---|---|---|
 | **`get(key)`** | Localiza o nó em $O(1)$ | Move nó para `head` em $O(1)$ |

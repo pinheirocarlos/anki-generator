@@ -24,6 +24,12 @@ Por que ferramentas de Change Data Capture (CDC) baseadas na leitura de logs de 
   3. Alimenta streams no Kafka para sincronização de Elasticsearch, Caches e Data Lakes com latência sub-segundo.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/cdc-debezium-wal-binlog-streaming-loop.webm">
+    <p>Visualização: Change Data Capture (CDC) lendo o Write-Ahead Log (WAL) do banco de dados e transmitindo streams de mutações em tempo real.</p>
+  </video>
+</div>
+
 | Estratégia de Captura | Impacto no Banco Primário | Captura Deleções? |
 |---|---|---|
 | **Polling (`WHERE updated_at`)** | Alto (Queries recorrentes com table scan) | NÃO (Linhas apagadas são invisíveis) |

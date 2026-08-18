@@ -22,6 +22,12 @@ O que é o **Fator de Carga (Load Factor)** em uma tabela hash e quando o proces
 - O custo do rehashing é $O(N)$, mas ocorre raramente, mantendo o custo médio por inserção em $O(1)$ amortizado.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/hash-table-rehashing-growth-loop.webm">
+    <p>Visualização: Disparo de redimensionamento ao atingir fator de carga alpha >= 0.75 com alocação de nova tabela 2x e re-hash.</p>
+  </video>
+</div>
+
 | Fator de Carga ($\alpha$) | Risco de Colisão | Ocupação de Memória |
 |---|---|---|
 | **$\alpha < 0.5$** | Muito baixo (rápido) | Desperdício de memória |

@@ -22,6 +22,12 @@ Como o protocolo de coerência de cache **MESI** coordena a consistência de dad
 - Quando um núcleo grava em uma linha no estado **Shared**, ele transmite uma mensagem de invalidação (*Bus Invalidate*) no barramento, forçando todos os outros núcleos a marcar sua cópia como **Invalid**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-cache-l1-l2-l3-latency-loop.webm">
+    <p>Visualização: Comparação de latência: L1 (~1ns), L2 (~4ns), L3 (~15ns) e RAM principal (~80ns).</p>
+  </video>
+</div>
+
 | Estado MESI | No Cache Local? | Modificado vs RAM? |
 |---|---|---|
 | **Modified (M)** | Válido e Exclusivo | Sim (Pendente de Flush) |

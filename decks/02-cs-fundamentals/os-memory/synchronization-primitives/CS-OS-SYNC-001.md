@@ -24,6 +24,12 @@ Qual é a diferença de consumo de CPU e latência entre um **Spinlock**, um **O
   2. Apenas se houver colisão concorrente real: invoca a syscall `futex(FUTEX_WAIT)` para dormir no kernel.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/futex-fast-userspace-mutex-loop.webm">
+    <p>Visualização: Espera ocupada na CPU (Spinlock) vs suspensão da thread no kernel (Mutex) vs abordagem híbrida (Futex).</p>
+  </video>
+</div>
+
 | Primitiva | Caminho Sem Contenção | Comportamento sob Contenção |
 |---|---|---|
 | **Spinlock** | CAS atômico (~5 ns) | Gira em loop ocupado (100% CPU) |

@@ -20,6 +20,12 @@ Como uma Árvore de Prefixos (Trie) em memória combinada com pré-computação 
   - Ao digitar o prefixo (ex: `"sys"`), o servidor navega até o nó do prefixo em tempo **$O(L)$** (onde $L = \text{comprimento da string} \le 20$) e retorna o Top-5 **instantaneamente em $O(1)$** sem precisar varrer os nós filhos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/typeahead-trie-topk-cache-lookup-loop.webm">
+    <p>Visualização: Árvore Trie em memória armazenando as K sugestões mais frequentes em cada nó para retorno em O(1).</p>
+  </video>
+</div>
+
 | Estrutura de Autocomplete | Tempo de Resposta | Complexidade Algorítmica |
 |---|---|---|
 | **Trie sem Cache Top-K** | Lento (~50-100 ms sob alta carga) | $O(\text{tamanho da subárvore} + K \log K)$ |

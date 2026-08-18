@@ -22,6 +22,12 @@ Como a DP 2D sobre intervalos $[i, j]$ verifica se substrings são palíndromos 
 - **Ordem de Preenchimento**: Deve ser preenchida por **comprimento crescente de substring** ou com $i$ decrescendo de $N-1$ até $0$ para que o miolo $DP[i+1][j-1]$ já esteja calculado.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/edit-distance-levenshtein-matrix-loop.webm">
+    <p>Visualização: Cálculo de operações mínimas (inserção, deleção, substituição) na transformação de uma string em outra.</p>
+  </video>
+</div>
+
 | Condição de Palíndromo | Equação | Racional |
 |---|---|---|
 | $S[i] == S[j]$ e $j - i \le 2$ | `true` | Tamanho 1 ou 2 com caracteres iguais |

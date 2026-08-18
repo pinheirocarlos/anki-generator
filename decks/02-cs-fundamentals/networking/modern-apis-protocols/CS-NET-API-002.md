@@ -22,6 +22,12 @@ Por que o framework **gRPC com Protocol Buffers (Protobuf)** é significativamen
 - **Transporte Otimizado**: gRPC roda nativamente sobre **HTTP/2**, aproveitando multiplexação de streams, compressão de headers e conexões TCP persistentes.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/grpc-protobuf-binary-framing-loop.webm">
+    <p>Visualização: Mensagens codificadas em binário compacto Protobuf com esquema tipado estrito e overhead mínimo de parsing.</p>
+  </video>
+</div>
+
 | Métrica | REST com JSON | gRPC com Protocol Buffers |
 |---|---|---|
 | **Tamanho do Payload** | Grande (Texto com chaves repetidas) | Compacto binário (Tags de 1-2 bytes) |

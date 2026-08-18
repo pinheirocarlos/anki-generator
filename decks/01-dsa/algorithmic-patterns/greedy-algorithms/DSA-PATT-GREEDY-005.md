@@ -24,6 +24,12 @@ Como o **Algoritmo de Huffman Coding** utiliza uma estratégia gulosa com Min-He
 - **Complexidade**: $O(N \log N)$ tempo e $O(N)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/matroid-greedy-exchange-proof-loop.webm">
+    <p>Visualização: Propriedade de troca de matroides garantindo matematicamente a convergência para o ótimo global.</p>
+  </video>
+</div>
+
 | Frequência do Símbolo | Posição na Árvore de Huffman | Tamanho do Código Binário |
 |---|---|---|
 | **Alta Frequência** | Próximo à Raiz | Curto (ex: 1 a 2 bits) |

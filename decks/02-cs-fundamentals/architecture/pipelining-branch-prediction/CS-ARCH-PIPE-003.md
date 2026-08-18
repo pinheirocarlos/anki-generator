@@ -19,6 +19,12 @@ O que é uma **Instrução SIMD** (*Single Instruction, Multiple Data*) e como e
 - Essencial para computação gráfica, machine learning, codificação de áudio/vídeo e buscas analíticas em bancos colunares (ClickHouse/DuckDB).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/simd-vector-parallel-lanes-loop.webm">
+    <p>Visualização: Processamento paralelo de múltiplos elementos de dados (128/256/512 bits) em uma única instrução de máquina.</p>
+  </video>
+</div>
+
 | Modelo de Execução | Largura de Registrador | Elementos Processados por Ciclo |
 |---|---|---|
 | **Escalar Padrão (x86-64)** | 64 bits | 1 valor escalar |

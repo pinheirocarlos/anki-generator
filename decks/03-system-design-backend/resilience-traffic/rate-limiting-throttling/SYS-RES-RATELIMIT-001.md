@@ -23,6 +23,12 @@ Como implementar um Rate Limiter distribuído de Janela Deslizante (Sliding Wind
   6. Toda a sequência é encapsulada em um **Script Lua atômico** para evitar condições de corrida em ambientes multi-instância.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/redis-rate-limiter-sliding-window-sorted-set-loop.webm">
+    <p>Visualização: Janela deslizante com Redis Sorted Set contando elementos com timestamp acima de (now - window) em script Lua atômico.</p>
+  </video>
+</div>
+
 | Etapa no ZSet do Redis | Comando Executado | Efeito |
 |---|---|---|
 | **1. Purga** | `ZREMRANGEBYSCORE` | Remove registros fora da janela deslizante |

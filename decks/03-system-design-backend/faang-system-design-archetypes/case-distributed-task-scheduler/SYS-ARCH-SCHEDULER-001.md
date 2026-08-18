@@ -22,6 +22,12 @@ Como orquestradores de fluxo (Temporal / Apache Airflow) coordenam a execução 
   - Se o worker morrer (crash, falha de máquina ou perda de rede) e não enviar heartbeat antes do `heartbeat_timeout`, o orquestrador reatribui a tarefa para outro worker saudável a partir do último checkpoint gravado.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/dag-task-orchestrator-worker-heartbeat-loop.webm">
+    <p>Visualização: Coordenação de fluxos em DAG com monitoramento de heartbeat e reatribuição de tarefas órfãs após falha de worker.</p>
+  </video>
+</div>
+
 | Mecanismo de Resiliência | Gatilho de Disparo | Ação do Orquestrador |
 |---|---|---|
 | **Heartbeat Timeout** | Worker para de enviar sinal de vida | Reatribui a tarefa para outro nó saudável |

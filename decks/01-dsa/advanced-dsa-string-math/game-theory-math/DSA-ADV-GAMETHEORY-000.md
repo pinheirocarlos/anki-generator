@@ -23,6 +23,12 @@ O que caracteriza as **Posições Vencedoras (N-Positions)** e **Perdedoras (P-P
 - Um jogador perfeito sempre escolhe o movimento que força o oponente a cair em uma P-Position.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/game-theory-nim-sum-loop.webm">
+    <p>Visualização: Cálculo do XOR de todas as pilhas: posição vencedora se XOR x_i != 0 e perdedora se XOR x_i == 0.</p>
+  </video>
+</div>
+
 | Tipo de Posição | Significado Prático | Movimentos Disponíveis |
 |---|---|---|
 | **P-Position** | Quem está com a vez perde | Todos os movimentos levam a N-Positions |

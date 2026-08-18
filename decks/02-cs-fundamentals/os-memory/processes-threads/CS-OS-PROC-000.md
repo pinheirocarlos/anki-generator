@@ -18,6 +18,12 @@ Qual é a diferença fundamental entre um **Processo** e uma **Thread** no siste
 - **Thread (Linha de Execução)**: É a menor unidade de escalonamento que o processador pode executar. Múltiplas threads pertencentes ao mesmo processo **compartilham o mesmo espaço de memória virtual (Heap, código, variáveis globais e FDs)**, possuindo apenas sua própria **Stack privativa** e conjunto de registradores de CPU.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/process-vs-thread-memory-space-loop.webm">
+    <p>Visualização: Processos com espaços de memória isolados (CR3 distinto) vs Threads compartilhando heap, código e dados.</p>
+  </video>
+</div>
+
 | Recurso do Sistema | Compartilhado entre Threads do mesmo Processo? | Isolado por Processo? |
 |---|---|---|
 | **Espaço de Memória (Heap / Código)** | Sim (Compartilhado) | Sim (Totalmente Isolado) |

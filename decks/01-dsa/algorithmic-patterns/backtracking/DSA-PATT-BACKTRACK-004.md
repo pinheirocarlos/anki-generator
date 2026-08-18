@@ -23,6 +23,12 @@ Como o algoritmo de Backtracking para **Sudoku Solver** (LeetCode 37) valida nú
 - Ao tentar colocar o dígito $d$ em $(r, c)$: testa `!rows[r][d] && !cols[c][d] && !boxes[boxId][d]` em $O(1)$. Se válido, marca as 3 matrizes e avança recursivamente.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/sudoku-solver-backtracking-grid-loop.webm">
+    <p>Visualização: Tentativa de dígitos de 1 a 9 com validação em linha, coluna e bloco 3x3 com backtracking nas falhas.</p>
+  </video>
+</div>
+
 | Restrição de Sudoku | Estrutura de Validação | Fórmula de Índice |
 |---|---|---|
 | **Linha** | `rows[r][d]` | $r \in [0, 8]$ |

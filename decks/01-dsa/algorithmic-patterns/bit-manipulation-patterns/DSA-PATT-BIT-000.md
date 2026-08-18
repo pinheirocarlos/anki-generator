@@ -22,6 +22,12 @@ Como funcionam os operadores bitwise fundamentais (`&`, `|`, `^`, `~`, `<<`, `>>
 - **Right Shift (`x >> k`)**: Divide $x$ por $2^k$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bitwise-operations-truth-table-loop.webm">
+    <p>Visualização: Execução direta na ALU em 1 ciclo de instrução para operações lógicas bit a bit.</p>
+  </video>
+</div>
+
 | Operador | Operação em Bits | Identidade Chave |
 |---|---|---|
 | **Operador AND** | Interseção de bits | $x \ \& \ x = x, \quad x \ \& \ 0 = 0$ |

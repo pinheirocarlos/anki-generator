@@ -21,6 +21,12 @@ Como o Single Responsibility Principle (SRP) e o Dependency Inversion Principle 
 - Permite trocar o banco de dados (ex: Postgres por DynamoDB) sem alterar uma única linha de regra de negócio do core.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/solid-principles-srp-dip-inversion-loop.webm">
+    <p>Visualização: Single Responsibility isolando motivos de mudança e Dependency Inversion fazendo o domínio depender de abstrações.</p>
+  </video>
+</div>
+
 | Princípio SOLID | Violação Comum | Design Correto |
 |---|---|---|
 | **SRP** | Classe de Negócio calcula imposto e grava no SQL | Lógica de cálculo isolada de repositórios |

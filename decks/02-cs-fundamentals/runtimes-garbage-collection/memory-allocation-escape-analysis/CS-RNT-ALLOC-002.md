@@ -24,6 +24,12 @@ O que é **Análise de Escape (Escape Analysis)** e como o compilador determina 
     4. O tamanho da variável é dinâmico ou grande demais para a Stack.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/escape-analysis-stack-heap-loop.webm">
+    <p>Visualização: Ponteiros que não escapam do escopo da função são alocados diretamente no stack frame sem overhead de GC.</p>
+  </video>
+</div>
+
 | Padrão de Código | O Objeto Escapa? | Local de Alocação |
 |---|---|---|
 | `func f() int { x := 10; return x }` | **Não** (Retorna cópia por valor) | **Stack** |

@@ -24,6 +24,12 @@ Como a Arquitetura Hexagonal (Ports & Adapters) organiza os limites do software 
   - **Driven Adapters**: Implementam as Outbound Ports conectando ao mundo externo (ex: `PostgresUserRepository`, `SendgridEmailAdapter`).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/hexagonal-architecture-ports-and-adapters-loop.webm">
+    <p>Visualização: Núcleo de domínio isolado de infraestrutura comunicando-se exclusivamente através de Portas de Entrada e Saída.</p>
+  </video>
+</div>
+
 | Componente Hexagonal | Natureza | Exemplo Concreto |
 |---|---|---|
 | **Core Domain** | Regras de Negócio Puras | Entidades `Order`, `PaymentRule` |

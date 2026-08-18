@@ -22,6 +22,12 @@ Como o padrão Worker Pool gerencia o consumo de recursos limitando o número m�
   4. Sincroniza a finalização com `sync.WaitGroup`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/concurrency-worker-pool-bounded-channels-loop.webm">
+    <p>Visualização: Worker Pool distribuindo tarefas através de canal bufferizado para número fixo de goroutines controlando uso de CPU e memória.</p>
+  </video>
+</div>
+
 | Abordagem Concorrente | Uso de Memória e Conexões sob Pico | Risco Operacional |
 |---|---|---|
 | **Goroutine sem Limite (`go fn()`)** | Ilimitado ($O(N)$ goroutines) | Queda por OOM ou esgotamento de sockets |

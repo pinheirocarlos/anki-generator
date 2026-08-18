@@ -23,6 +23,12 @@ O que torna a **Troca de Contexto (Context Switch)** de um processo significativ
   3. *Poluição de Caches L1/L2/L3*: O novo processo toca endereços de memória diferentes, causando uma avalanche de Cache Misses subsequentes. Custo: **~2 a 5 µs** + penalidade prolongada de cache misses.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/process-context-switch-pcb-loop.webm">
+    <p>Visualização: Troca de contexto salvando registradores, stack pointer e invalidando entradas da TLB na troca de processos.</p>
+  </video>
+</div>
+
 | Operação de Troca de Contexto | Entre Threads do mesmo Processo | Entre Processos Distintos |
 |---|---|---|
 | **Troca de Registradores de CPU** | Sim | Sim |

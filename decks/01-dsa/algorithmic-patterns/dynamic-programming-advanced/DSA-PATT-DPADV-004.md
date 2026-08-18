@@ -23,6 +23,12 @@ Como a **Otimização Convex Hull Trick (CHT)** reduz a complexidade de transiç
 - **Complexidade**: Reduz de $O(N^2)$ para **$O(N)$ linear**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/convex-hull-trick-line-envelope-loop.webm">
+    <p>Visualização: Manutenção de envoltória de retas lineares reduzindo o cálculo de min(m_j * x + c_j) de O(N) para O(1).</p>
+  </video>
+</div>
+
 | Abordagem de Transição | Custo por Estado | Complexidade Total |
 |---|---|---|
 | **DP Quadrática Padrão** | Varre todos os $j < i$ | $O(N^2)$ |

@@ -19,6 +19,12 @@ O que é uma **Trie (Árvore de Prefixos)** e como ela compartilha prefixos comu
 - Um flag booleano `isEndOfWord` no nó marca quando aquele caminho forma uma palavra completa válida, economizando espaço ao evitar duplicação de prefixos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/trie-prefix-sharing-loop.webm">
+    <p>Visualização: Compartilhamento de nós de prefixos comuns entre palavras reduzindo redundância estrutural.</p>
+  </video>
+</div>
+
 | Estrutura de Busca | Custo de Busca por Palavra de Tam $L$ | Busca por Prefixo |
 |---|---|---|
 | **Hash Map** | $O(L)$ cálculo do hash | $O(N \times L)$ Varredura total |

@@ -23,6 +23,12 @@ O que é um **Deadlock** e quais são as 4 condições necessárias de Coffman p
 - Quebrar **qualquer uma** das 4 condições torna o deadlock matematicamente impossível.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/deadlock-coffman-circular-wait-loop.webm">
+    <p>Visualização: Bloqueio mútuo quando ocorrem Exclusão Mútua, Posse e Espera, Não-Preempção e Espera Circular.</p>
+  </video>
+</div>
+
 | Thread | Recursos Retidos | Recursos Aguardados |
 |---|---|---|
 | **Thread 1** | Retém Lock A | Aguarda Lock B (Bloqueada) |

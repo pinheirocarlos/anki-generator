@@ -19,6 +19,12 @@ Qual é a diferença conceitual entre Linearizabilidade (Strong Consistency), Co
 - **Read-Your-Writes (Causal)**: Garante que um usuário específico sempre enxerga suas próprias alterações imediatamente (mesmo que outros usuários ainda vejam dados antigos).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/linearizability-vs-eventual-consistency-timeline-loop.webm">
+    <p>Visualização: Linearizabilidade simulando uma cópia única global atômica vs propagação assíncrona na consistência eventual.</p>
+  </video>
+</div>
+
 | Modelo de Consistência | Garantia Oferecida | Custo de Implementação |
 |---|---|---|
 | **Linearizabilidade** | Ordem global estrita em tempo real | Alto (Quorum síncrono / Raft / Paxos) |

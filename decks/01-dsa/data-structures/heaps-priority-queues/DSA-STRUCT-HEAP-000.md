@@ -20,6 +20,12 @@ O que é a propriedade estrutural e a invariante de ordenação de um **Heap Bin
 - A estrutura não impõe ordenação horizontal estrita entre nós irmãos, apenas vertical entre pais e descendentes.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/min-max-heap-property-loop.webm">
+    <p>Visualização: Invariante de Heap: o nó pai é sempre menor ou igual (Min-Heap) a todos os seus filhos.</p>
+  </video>
+</div>
+
 | Tipo de Heap | Invariante de Nó | Elemento na Raiz |
 |---|---|---|
 | **Min-Heap** | $\text{pai} \le \text{filhos}$ | Menor valor global ($O(1)$) |

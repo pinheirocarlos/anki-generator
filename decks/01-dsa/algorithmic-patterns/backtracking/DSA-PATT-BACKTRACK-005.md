@@ -22,6 +22,12 @@ Por que acoplar uma **Trie** ao Backtracking em **Word Search II** (LeetCode 212
   4. Uma única busca no tabuleiro valida todas as $K$ palavras em paralelo.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/subsets-permutations-deduplication-loop.webm">
+    <p>Visualização: Ordenação prévia e salto de elementos iguais consecutivos na árvore combinatória.</p>
+  </video>
+</div>
+
 | Abordagem | Número de Buscas no Tabuleiro | Complexidade |
 |---|---|---|
 | **Busca Individual por Palavra** | $K$ buscas independentes | $O(K \cdot M \cdot N \cdot 4^L)$ |

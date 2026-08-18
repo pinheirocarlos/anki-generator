@@ -21,6 +21,12 @@ O que é um **Read-Write Lock (RW-Lock)** e em que cenários de tráfego ele ent
 - Em cenários com muitas escritas, o RW-Lock pode ter performance inferior a um Mutex simples devido ao overhead de manter contadores atômicos de leitores.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/read-write-lock-concurrency-loop.webm">
+    <p>Visualização: Múltiplos leitores simultâneos permitidos com bloqueio exclusivo apenas durante operações de escrita.</p>
+  </video>
+</div>
+
 | Modo do Lock | Múltiplos Leitores Simultâneos? | Escritores Simultâneos? |
 |---|---|---|
 | **RLock (Leitura)** | **Sim (Ilimitados)** | Não (Bloqueia novos escritores) |

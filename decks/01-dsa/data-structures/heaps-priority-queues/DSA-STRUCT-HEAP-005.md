@@ -23,6 +23,12 @@ Como o padrão de **Dois Heaps (Max-Heap + Min-Heap)** calcula a mediana de um f
   - Se total par: $(\text{smallHeap.peek()} + \text{largeHeap.peek()}) / 2.0$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/two-heaps-stream-median-loop.webm">
+    <p>Visualização: Balanceamento entre Max-Heap (metade inferior) e Min-Heap (metade superior) fornecendo a mediana em O(1).</p>
+  </video>
+</div>
+
 | Configuração de Heaps | Metade dos Dados | Acesso ao Elemento Mediano |
 |---|---|---|
 | **Max-Heap (`small`)** | Metade Inferior ($x \le \text{mediana}$) | Topo é o maior da metade baixa |

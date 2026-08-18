@@ -19,6 +19,12 @@ O que é o fenômeno destrutivo de **False Sharing** em sistemas multi-core e co
 - **Mitigação**: Inserir **padding de 64 bytes** (ex: `[8]uint64` em Go ou `@Contended` em Java) ou alinhar as estruturas para garantir que variáveis concorrentes fiquem em Cache Lines isoladas.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-cache-line-64bytes-spatial-loop.webm">
+    <p>Visualização: Carregamento contíguo de 64 bytes da RAM para a cache L1 acelerando acessos sequenciais a vetores.</p>
+  </video>
+</div>
+
 | Cenário Multi-Thread | Disposição na Memória | Impacto de Performance |
 |---|---|---|
 | **False Sharing Ativo** | Variáveis concorrentes na mesma linha (64B) | Invalidação constante da Cache Line |

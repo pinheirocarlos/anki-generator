@@ -22,6 +22,12 @@ Por que sistemas financeiros e gateways de pagamento utilizam o princípio de Co
     $$\sum \text{Débitos} - \sum \text{Créditos} = 0$$
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/double-entry-bookkeeping-ledger-debit-credit-loop.webm">
+    <p>Visualização: Livro-razão imutável garantindo que toda transação financeira possua Débitos e Créditos equilibrados com soma zero.</p>
+  </video>
+</div>
+
 | Tipo de Conta | Aumento de Valor | Redução de Valor |
 |---|---|---|
 | **Ativo / Despesas (Asset / Expense)** | Lançamento a DÉBITO | Lançamento a CRÉDITO |

@@ -21,6 +21,12 @@ Como o padrão guloso de rastreamento do alcance máximo (`maxReach`) resolve **
   - Ao iterar $i$ até $N-2$: atualiza `curFarthest = max(curFarthest, i + nums[i])`. Quando $i == \text{curEnd}$, somos forçados a dar um salto (`jumps++`) e expandimos a fronteira `curEnd = curFarthest`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/greedy-interval-scheduling-loop.webm">
+    <p>Visualização: Seleção gulosa de intervalos que terminam mais cedo liberando o recurso para o máximo de tarefas subsequentes.</p>
+  </video>
+</div>
+
 | Problema Jump Game | Variáveis Rastreadas | Decisão de Incremento |
 |---|---|---|
 | **Jump Game I** | `maxReach` | Se $i > \text{maxReach} \implies$ Inalcançável |

@@ -25,6 +25,12 @@ Como iterar estritamente sobre todos os subconjuntos de uma máscara binária us
   $$\sum_{k=0}^N \binom{N}{k} 2^k = (1 + 2)^N = 3^N$$
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bit-shifts-multiplication-division-loop.webm">
+    <p>Visualização: Deslocamento de bits à esquerda (n << k = n * 2^k) e à direita (n >> k = floor(n / 2^k)) com custo O(1).</p>
+  </video>
+</div>
+
 | Abordagem | Estados Avaliados | Complexidade para todas as máscaras |
 |---|---|---|
 | **Loop Ingênuo de $0$ a `mask`** | Testa números inválidos | $O(4^N)$ |

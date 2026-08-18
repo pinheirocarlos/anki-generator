@@ -21,6 +21,12 @@ Quais os critérios rigorosos de engenharia para escolher entre Lista de Adjacê
 - **Algoritmos com Matriz**: Algoritmos como Floyd-Warshall ($O(V^3)$ All-Pairs Shortest Path) operam naturalmente sobre matrizes contíguas.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/adj-list-vs-matrix-density-loop.webm">
+    <p>Visualização: Matriz O(V²) para grafos densos (E ≈ V²) vs Lista O(V+E) para grafos esparsos do mundo real.</p>
+  </video>
+</div>
+
 | Métrica | Grafo Esparso ($V=10^5, E=10^6$) | Grafo Denso ($V=10^4, E=10^8$) |
 |---|---|---|
 | **Matriz $O(V^2)$** | $\approx 10\text{ GB}$ (99.9% vazia) | $\approx 100\text{ MB}$ (Ótima) |

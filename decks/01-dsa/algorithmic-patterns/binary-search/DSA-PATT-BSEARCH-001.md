@@ -23,6 +23,12 @@ Como funciona o paradigma de **Binary Search on Answer** para encontrar o valor 
 - **Complexidade**: $O(\text{Custo}(\text{isValid}) \times \log(\text{maxAns} - \text{minAns}))$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/binary-search-overflow-guard-loop.webm">
+    <p>Visualização: Uso da fórmula segura L + (R-L)/2 evitando estouro de 2^31 - 1 na soma (L+R).</p>
+  </video>
+</div>
+
 | Propriedade de Resposta | Espaço de Teste | Direção de Busca |
 |---|---|---|
 | `isValid(K) == false` | $K$ insuficiente | Aumenta $K \to$ `left = mid + 1` |

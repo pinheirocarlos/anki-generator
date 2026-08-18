@@ -25,6 +25,12 @@ Qual é o trade-off fundamental entre Fan-Out on Write (Push Model) e Fan-Out on
   - **Problema**: Leituras ficam extremamente lentas se o usuário seguir centenas de contas ativas.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/social-feed-fanout-push-vs-pull-timeline-loop.webm">
+    <p>Visualização: Fan-Out on Write gravando posts na caixa de entrada de cada seguidor vs Fan-Out on Read consultando na hora da leitura.</p>
+  </video>
+</div>
+
 | Modelo de Feed | Custo na Publicação (Write) | Custo no Carregamento (Read) |
 |---|---|---|
 | **Fan-Out on Write (Push)** | Alto ($O(\text{seguidores})$ gravações no Redis) | **Instantâneo ($O(1)$ leitura direta de lista)** |

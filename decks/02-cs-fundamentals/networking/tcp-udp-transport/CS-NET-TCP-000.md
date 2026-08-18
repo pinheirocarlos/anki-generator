@@ -24,6 +24,12 @@ Quais são as diferenças essenciais de garantias entre o protocolo **TCP** e o 
   - Ideal para streaming de vídeo em tempo real, chamadas de voz (VoIP), jogos online, DNS e protocolo QUIC.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/tcp-vs-udp-transport-layer-loop.webm">
+    <p>Visualização: Garantia de entrega, retransmissão e ordenação (TCP) vs datagramas connectionless de baixa latência (UDP).</p>
+  </video>
+</div>
+
 | Característica | TCP | UDP |
 |---|---|---|
 | **Confiabilidade & Ordem** | Garantida com retransmissão | Não garantida (Best-Effort) |

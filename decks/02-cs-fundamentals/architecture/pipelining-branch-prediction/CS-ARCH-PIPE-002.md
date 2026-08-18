@@ -20,6 +20,12 @@ O que são **Hazards Estruturais e de Dados (RAW)** no pipeline da CPU e como a 
 - **Forwarding (Bypassing)**: Circuito de hardware que conecta a saída da ALU diretamente à entrada da ALU para a próxima instrução, eliminando 2 ciclos de espera sem precisar aguardar a gravação no registrador.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/pipeline-data-hazard-forwarding-loop.webm">
+    <p>Visualização: Encaminhamento de dados direto da saída da ALU (Bypassing) eliminando bolhas de espera (Stalls).</p>
+  </video>
+</div>
+
 | Tipo de Hazard | Causa Primária | Solução de Hardware |
 |---|---|---|
 | **Structural Hazard** | Conflito por recurso de hardware | Caches L1i e L1d fisicamente separados |

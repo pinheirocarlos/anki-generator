@@ -21,6 +21,12 @@ Por que a técnica de Nós Virtuais (Virtual Nodes / Vnodes) é essencial no Con
   - Permite atribuir pesos diferentes para servidores heterogêneos (um servidor com o dobro de RAM/CPU recebe o dobro de vnodes).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/consistent-hashing-virtual-nodes-uniform-distribution-loop.webm">
+    <p>Visualização: Nós virtuais (Vnodes) espalhando múltiplos pontos de cada servidor pelo anel para distribuição uniforme de carga.</p>
+  </video>
+</div>
+
 | Abordagem | Distribuição de Chaves | Tratamento de Hardware Heterogêneo |
 |---|---|---|
 | **1 Ponto Físico por Nó** | Altamente irregular (Risco de Hotspots) | Não suporta proporcionalidade |

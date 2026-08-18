@@ -22,6 +22,12 @@ Qual é a diferença de intenção arquitetural entre o padrão Decorator e o pa
   - **Intenção**: Permitir que duas classes com contratos divergentes trabalhem juntas sem alterar seu código-fonte.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/design-patterns-decorator-vs-adapter-wrapper-loop.webm">
+    <p>Visualização: Decorator adicionando responsabilidades em cadeia sem alterar a interface vs Adapter convertendo interfaces incompatíveis.</p>
+  </video>
+</div>
+
 | Padrão GoF | Relação de Interface | Intenção Primária |
 |---|---|---|
 | **Decorator** | Mantém a **mesma** interface | Adiciona novas funcionalidades dinâmicas em camadas |

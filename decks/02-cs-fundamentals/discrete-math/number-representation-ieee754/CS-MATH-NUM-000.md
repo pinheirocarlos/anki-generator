@@ -21,6 +21,12 @@ Como funciona a representação de inteiros em **Complemento de Dois** e como o 
 - **Integer Overflow**: Ocorre quando o resultado ultrapassa a capacidade de bits (`MaxInt + 1` vira `MinInt`), gerando o flag de overflow (`OF`) na CPU sem disparar exceções por padrão em C/Go.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/twos-complement-integer-overflow-loop.webm">
+    <p>Visualização: Inversão de bits somada a 1 (~x + 1) unificando adição e subtração na ALU com wrap-around no estouro.</p>
+  </video>
+</div>
+
 | Valor Decimal (8 bits) | Representação Binária | Significado dos Bits |
 |---|---|---|
 | **$+127$ (Max)** | `0111 1111` | $0 \times (-128) + 127$ |

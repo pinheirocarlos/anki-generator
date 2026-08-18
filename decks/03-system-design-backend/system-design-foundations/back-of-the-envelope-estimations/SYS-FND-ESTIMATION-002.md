@@ -20,6 +20,12 @@ O que representa a métrica de disponibilidade em 'noves' (99.9% vs 99.999%) e q
 - Cada 'nove' adicional exige automação total de failover, replicação multi-região e arquiteturas ativas-ativas sem pontos únicos de falha (SPOF).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/availability-nines-sla-downtime-table-loop.webm">
+    <p>Visualização: Tabela de noves de disponibilidade: de 99.9% (8.7 horas de downtime/ano) a 99.999% (5 minutos de downtime/ano).</p>
+  </video>
+</div>
+
 | Disponibilidade (Nines) | Downtime / Mês | Downtime / Ano |
 |---|---|---|
 | **99.9% (3 noves)** | 43.8 minutos | 8.76 horas |

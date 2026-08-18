@@ -20,6 +20,12 @@ Como o **GraphQL** resolve os problemas clássicos de *Over-fetching* e *Under-f
   - *Solução GraphQL*: Uma **única requisição HTTP** recupera toda a árvore de dados aninhados em 1 único RTT.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/graphql-query-payload-exact-loop.webm">
+    <p>Visualização: O cliente especifica exatamente os campos desejados retornando a resposta exata em uma única requisição.</p>
+  </video>
+</div>
+
 | Problema em REST | Sintoma em Clientes Móveis | Resolução com GraphQL |
 |---|---|---|
 | **Over-fetching** | Baixa 100 KB de JSON para usar 2 KB | Query solicita apenas campos necessários |

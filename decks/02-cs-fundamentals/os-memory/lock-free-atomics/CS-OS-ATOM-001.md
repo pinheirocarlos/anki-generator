@@ -21,6 +21,12 @@ O que são **Memory Barriers / Fences** e por que a semântica `volatile` / *Hap
 - **Semântica `volatile` / Happens-Before**: Garante que qualquer escrita realizada antes da gravação de uma flag volátil se torne **imediatamente visível** para qualquer thread que leia essa flag em seguida.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/memory-barriers-happens-before-fences-loop.webm">
+    <p>Visualização: Instruções de barreira impedindo reordenação de instruções no compilador e na CPU (Happens-Before).</p>
+  </video>
+</div>
+
 | Tipo de Barreira | Efeito na Ordem de Memória | Caso de Uso |
 |---|---|---|
 | **Release Barrier** | Impede escritas anteriores de passarem para baixo | Publicação de dados antes de ligar a flag `ready` |

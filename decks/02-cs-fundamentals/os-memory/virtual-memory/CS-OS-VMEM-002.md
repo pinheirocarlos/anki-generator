@@ -21,6 +21,12 @@ Como a **MMU (Memory Management Unit)** e as **Tabelas de Páginas Multinível**
   3. A MMU percorre a árvore de 4 níveis (*Page Table Walk*) para encontrar o endereço base do frame físico e soma o *Offset*, gerando o endereço real de RAM em hardware.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/multilevel-page-tables-cr3-walk-loop.webm">
+    <p>Visualização: Árvore de tradução hierárquica (PGD -> PUD -> PMD -> PTE) economizando memória para espaços esparsos.</p>
+  </video>
+</div>
+
 | Estrutura | Função no Hardware |
 |---|---|
 | **Registrador `CR3`** | Aponta para a base da Tabela de Páginas do processo atual |

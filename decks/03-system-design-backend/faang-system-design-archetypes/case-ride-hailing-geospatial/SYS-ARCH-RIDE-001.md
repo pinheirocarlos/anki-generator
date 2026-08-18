@@ -26,6 +26,12 @@ Como dimensionar a ingestão e matching de localização GPS de 1 milhão de mot
      - O backend executa `GEORADIUSBYMEMBER` ou busca nos hexágonos H3 vizinhos (*k-ring* de raio 2 km) em **$O(\log N)$ na RAM**, filtrando motoristas livres em milissegundos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/driver-rider-geospatial-matching-stream-loop.webm">
+    <p>Visualização: Ingestão de localização de motoristas a cada 4 segundos com matching geoespacial por células H3 em tempo real.</p>
+  </video>
+</div>
+
 | Camada | Tecnologia | Função no Sistema |
 |---|---|---|
 | **Ingestão (250k QPS)** | WebSockets + Kafka | Absorção e validação do fluxo de telemetria |

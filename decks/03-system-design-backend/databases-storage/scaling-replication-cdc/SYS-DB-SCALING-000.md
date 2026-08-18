@@ -22,6 +22,12 @@ Como a topologia de Read Replicas (Leader-Follower assíncrono) escala leituras 
   - Se um usuário atualiza seu perfil e recarrega a página imediatamente, a leitura roteada para a réplica atrasada exibe os dados antigos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/database-replication-lag-leader-follower-loop.webm">
+    <p>Visualização: Assincronia na replicação Leader-Follower gerando Replication Lag e leituras inconsistentes em réplicas secundárias.</p>
+  </video>
+</div>
+
 | Papel do Nó | Operações Permitidas | Mecanismo de Sincronização |
 |---|---|---|
 | **Leader (Primário)** | Leitura e Escrita | Grava WAL e transmite para réplicas |

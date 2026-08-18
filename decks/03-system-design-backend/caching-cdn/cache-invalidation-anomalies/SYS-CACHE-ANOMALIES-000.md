@@ -21,6 +21,12 @@ O que é o fenômeno Cache Stampede (Thundering Herd) que ocorre após a expira�
      $$\Delta - \beta \cdot \ln(\text{rand}()) > \text{TTL}$$
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/cache-stampede-mutex-singleflight-loop.webm">
+    <p>Visualização: Cache Stampede: múltiplas requisições simultâneas em cache miss bloqueadas por Mutex/Singleflight enquanto apenas 1 worker recalcula o dado.</p>
+  </video>
+</div>
+
 | Estratégia contra Stampede | Mecânica | Impacto no Banco de Dados |
 |---|---|---|
 | **Sem Proteção (Ingênuo)** | 50.000 requisições batem no DB ao expirar | Queda imediata do banco de dados |

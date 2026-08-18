@@ -21,6 +21,12 @@ Como a modelagem orientada a consultas (Query-First) funciona no Apache Cassandr
   - Se a aplicação deletar milhões de registros, leituras subsequentes por faixa precisam ler e descartar centenas de milhares de Tombstones da memória/disco antes de encontrar registros vivos, causando picos severos de latência ou `ReadTimeoutException` (*Tombstone Storm*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/cassandra-wide-column-tombstone-storm-loop.webm">
+    <p>Visualização: Deleções no Cassandra gravando marcadores Tombstone e degradação de leitura durante varreduras em SSTables não compactadas.</p>
+  </video>
+</div>
+
 | Conceito Cassandra | Comportamento | Impacto de Performance |
 |---|---|---|
 | **Query-Driven Design** | 1 Tabela por padrão de acesso | Leituras em $O(1)$ partições sem JOIN |

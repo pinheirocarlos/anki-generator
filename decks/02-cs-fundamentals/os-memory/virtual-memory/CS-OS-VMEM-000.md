@@ -21,6 +21,12 @@ O que é **Memória Virtual** e por que os processos nunca acessam a memória RA
   3. **Contiguidade Ilusória**: O programa vê sua memória como um bloco único contínuo, mesmo que os dados estejam espalhados em páginas fragmentadas na RAM.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/virtual-memory-isolation-layout-loop.webm">
+    <p>Visualização: Cada processo opera em seu próprio espaço de endereçamento virtual contíguo isolado de outros processos.</p>
+  </video>
+</div>
+
 | Visão do Processo | Visão do Kernel / Hardware |
 |---|---|
 | Espaço contíguo privado de 0 a 128 TB | Páginas de 4 KB espalhadas na RAM física |

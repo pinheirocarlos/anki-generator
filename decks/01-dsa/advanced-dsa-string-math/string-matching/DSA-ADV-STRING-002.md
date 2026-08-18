@@ -21,6 +21,12 @@ Como o **Algoritmo KMP (Knuth-Morris-Pratt)** utiliza a tabela LPS para nunca re
 - **Complexidade**: $O(N + M)$ tempo estrito garantido no pior caso e $O(M)$ espaço auxiliar.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/rabin-karp-rolling-hash-slide-loop.webm">
+    <p>Visualização: Cálculo do hash da janela em O(1) removendo o caractere de saída e adicionando o novo caractere com módulo Q.</p>
+  </video>
+</div>
+
 | Comportamento em Mismatch | Ponteiro do Texto $i$ | Ponteiro do Padrão $j$ |
 |---|---|---|
 | **Busca Ingênua** | Retrocede para $i - j + 1$ | Reinicia em $0$ |

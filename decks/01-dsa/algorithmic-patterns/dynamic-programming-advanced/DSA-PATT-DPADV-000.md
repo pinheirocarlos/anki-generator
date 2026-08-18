@@ -22,6 +22,12 @@ Como a **Programação Dinâmica em Árvores (Tree DP)** calcula valores ótimos
 - **Complexidade**: $O(N)$ tempo (visita cada nó 1 vez) e $O(H)$ espaço de pilha.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dp-bitmask-tsp-loop.webm">
+    <p>Visualização: Inteiro de 32 bits utilizado como conjunto de elementos visitados indexando o estado da DP.</p>
+  </video>
+</div>
+
 | Estado Retornado | Relação com Filhos | Fórmula de Ganho |
 |---|---|---|
 | **Roubar Raiz** | Obriga a NÃO roubar filhos | $\text{node.val} + \text{filhos.notRob}$ |

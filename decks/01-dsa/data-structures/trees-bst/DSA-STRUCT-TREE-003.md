@@ -21,6 +21,12 @@ Por que a travessia **In-order (Em-ordem)** visita os elementos de uma BST estri
 - Pela própria invariante da BST, esse padrão garante que nenhum elemento maior seja processado antes de seus predecessores menores, gerando uma sequência monotônica estritamente ordenada em tempo linear $O(N)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bst-inorder-sorted-traversal-loop.webm">
+    <p>Visualização: Visita recursiva esquerda -> raiz -> direita produzindo a sequência estritamente ordenada dos elementos.</p>
+  </video>
+</div>
+
 | Ordem de Travessia | Sequência de Passos | Propriedade em BST |
 |---|---|---|
 | **In-order** | Esquerda $\to$ Raiz $\to$ Direita | Produz array ordenado ($O(N)$) |

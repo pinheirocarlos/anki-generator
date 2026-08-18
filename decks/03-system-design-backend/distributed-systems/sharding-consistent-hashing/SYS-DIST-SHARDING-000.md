@@ -21,6 +21,12 @@ Como o algoritmo de Consistent Hashing minimiza a realocação de chaves quando 
   3. Ao adicionar ou remover 1 servidor, apenas **$1/N$ das chaves** em média precisam ser migradas (apenas as chaves entre o novo nó e seu antecessor).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/consistent-hashing-ring-node-add-remove-loop.webm">
+    <p>Visualização: Anel de Consistent Hashing remapeando apenas as chaves do segmento vizinho quando nós entram ou saem do cluster.</p>
+  </video>
+</div>
+
 | Estratégia de Hashing | Chaves Remapeadas ao Alterar Cluster | Impacto em Produção |
 |---|---|---|
 | **Hash Tradicional ($\% N$)** | $\approx \frac{N-1}{N} \approx 100\%$ | Avalanche de requisições no DB primário |

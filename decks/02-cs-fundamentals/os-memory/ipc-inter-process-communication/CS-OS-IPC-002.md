@@ -22,6 +22,12 @@ Por que a comunicação via **Unix Domain Sockets (UDS)** é até 2x mais rápid
   - Oferece **o dobro de vazão (throughput)**, **metade da latência** e suporte a controle de permissões por arquivo padrão Unix (`chmod / chown`).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/unix-domain-sockets-vs-loopback-loop.webm">
+    <p>Visualização: UDS eliminando encapsulamento de cabeçalhos TCP/IP, checksums e controle de congestionamento na mesma máquina.</p>
+  </video>
+</div>
+
 | Característica | TCP Loopback (`127.0.0.1`) | Unix Domain Socket (`AF_UNIX`) |
 |---|---|---|
 | **Caminho dos Dados** | Pilha TCP/IP completa do kernel | Cópia direta de buffer em memória |

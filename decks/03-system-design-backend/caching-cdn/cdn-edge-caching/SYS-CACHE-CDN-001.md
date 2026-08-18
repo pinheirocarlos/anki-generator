@@ -20,6 +20,12 @@ Qual é a diferença entre as diretivas `max-age`, `s-maxage` e `stale-while-rev
 - `ETag / If-None-Match`: Validador de conteúdo que retorna status `304 Not Modified` sem reenviar o payload se o conteúdo não mudou.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/http-cache-control-stale-while-revalidate-loop.webm">
+    <p>Visualização: Diretiva stale-while-revalidate servindo conteúdo em cache instantaneamente enquanto dispara revalidação assíncrona na origem.</p>
+  </video>
+</div>
+
 | Diretiva HTTP | Onde se Aplica | Efeito Prático |
 |---|---|---|
 | **`max-age=300`** | Navegador do Usuário | Cache privado local de 5 minutos |

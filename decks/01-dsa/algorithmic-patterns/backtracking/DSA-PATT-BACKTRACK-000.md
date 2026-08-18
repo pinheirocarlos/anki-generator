@@ -21,6 +21,12 @@ O que define o paradigma de **Backtracking** e como a **Poda (Pruning)** evita a
 - **Poda (Pruning)**: Aborta ramos inteiros assim que uma restrição de negócio for violada (ex: soma já ultrapassou o alvo), evitando explorar subárvores inviáveis.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/backtracking-pruning-loop.webm">
+    <p>Visualização: Exploração de escolhas candidatas na árvore de decisão com retrocesso imediato ao violar restrições.</p>
+  </video>
+</div>
+
 | Etapa de Backtracking | Ação no Estado | Reversão na Saída |
 |---|---|---|
 | **1. Escolha** | `path.add(candidate)` | Estado modificado |

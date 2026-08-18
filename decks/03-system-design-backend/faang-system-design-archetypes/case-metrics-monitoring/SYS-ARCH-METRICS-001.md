@@ -27,6 +27,12 @@ Quais são os trade-offs entre o modelo de coleta Pull (Prometheus) e Push (Data
   - Após 30 dias, são agregados em médias de 1 hora (retenção de 1 ano), reduzindo em $>95\%$ o volume de dados em disco.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/metrics-pull-vs-push-downsampling-pipeline-loop.webm">
+    <p>Visualização: Coleta Pull por scraper central vs Push por agentes locais e agregação temporal (downsampling) para histórico de longo prazo.</p>
+  </video>
+</div>
+
 | Modelo de Coleta | Iniciação da Conexão | Cenário Ideal |
 |---|---|---|
 | **Pull (Prometheus)** | Servidor busca na aplicação | Microsserviços e contêineres de longa duração |

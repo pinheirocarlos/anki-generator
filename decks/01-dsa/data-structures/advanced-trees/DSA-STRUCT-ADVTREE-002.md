@@ -20,6 +20,12 @@ Como a **Segment Tree (Árvore de Segmentos)** decompõe intervalos para respond
 - Qualquer intervalo de consulta arbitrário $[Q_L, Q_R]$ pode ser decomposto em no máximo **$O(\log N)$ nós canônicos disjuntos** da árvore, calculando a resposta em $O(\log N)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/segment-tree-range-query-loop.webm">
+    <p>Visualização: Decomposição do intervalo [L, R] em no máximo 2 log N nós canônicos da árvore.</p>
+  </video>
+</div>
+
 | Nível da Segment Tree | Intervalo Coberto | Operação Agregada |
 |---|---|---|
 | **Raiz** | $[0, N-1]$ | Soma total do array |

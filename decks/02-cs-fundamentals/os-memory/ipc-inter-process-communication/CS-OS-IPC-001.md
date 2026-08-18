@@ -19,6 +19,12 @@ Por que **Unix Domain Sockets (UDS)** entregam o dobro do throughput e metade da
 - **POSIX Message Queues**: Diferente de sockets e pipes (que transmitem fluxos contínuos de bytes), as filas de mensagens transmitem pacotes delimitados (*message boundaries*) com suporte nativo a prioridades numéricas e notificações assíncronas via sinais Unix.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/linux-ipc-mechanisms-overview-loop.webm">
+    <p>Visualização: Espectro de IPC: Sockets UDS, Pipes, POSIX Queues e Memória Compartilhada classificados por latência.</p>
+  </video>
+</div>
+
 | Primitiva IPC | Cópias de Dados na Memória | Latência Média de Transferência |
 |---|---|---|
 | **TCP Loopback (`127.0.0.1`)** | 2 Cópias + Stack de Rede TCP/IP | ~10 a 25 µs |

@@ -19,6 +19,12 @@ O que é uma **Race Condition (Condição de Corrida)** e por que seções crít
 - **Exclusão Mútua**: Regra que garante que **no máximo 1 thread** possa executar dentro da seção crítica em qualquer instante de tempo, impedindo que operações compostas não-atômicas (como `read-modify-write`) sejam intercaladas destrutivamente.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/race-condition-critical-section-loop.webm">
+    <p>Visualização: Acesso concorrente a recurso compartilhado sem sincronização levando a corrupção de estado inconsistente.</p>
+  </video>
+</div>
+
 | Thread 1 (Lê saldo = 100) | Thread 2 (Lê saldo = 100) | Saldo Real Gravado |
 |---|---|---|
 | Subtrai 20 (calcula 80) | Subtrai 50 (calcula 50) | Inconsistente! |

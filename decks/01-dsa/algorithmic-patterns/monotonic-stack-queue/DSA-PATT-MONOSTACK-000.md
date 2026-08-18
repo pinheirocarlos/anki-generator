@@ -20,6 +20,12 @@ Qual é a invariante estrutural de uma **Monotonic Stack** e quando escolher uma
 - Ao inserir $x$, desempilhamos todos os elementos que violam a invariante de ordem, garantindo amortização total de $O(N)$ linear.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/monotonic-stack-loop.webm">
+    <p>Visualização: Desempilhamento contínuo de elementos menores para manter a pilha em ordem estritamente decrescente.</p>
+  </video>
+</div>
+
 | Tipo de Pilha Monótona | Ordem da Base ao Topo | Objetivo de Busca |
 |---|---|---|
 | **Crescente** | Valores aumentam | Próximo / Anterior **Menor** |

@@ -35,6 +35,12 @@ Qual é o **template canônico universal** para resolver qualquer problema de Sl
   ```
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/sliding-window-template-expansion-loop.webm">
+    <p>Visualização: Laço externo expande ponteiro direito; laço interno contrai ponteiro esquerdo enquanto a condição for inválida.</p>
+  </video>
+</div>
+
 | Etapa do Template | Responsabilidade | Complexidade Amortizada |
 |---|---|---|
 | **1. Ingestão (`right`)** | Atualiza contadores do novo item | $O(1)$ |

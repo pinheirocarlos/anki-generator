@@ -22,6 +22,12 @@ Como a arquitetura Log-Structured Merge-Tree (LSM-Tree) converte escritas aleat�
 - Maximiza o throughput de escrita ao eliminar *Random Disk Seeks*.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/lsm-tree-memtable-wal-sstable-compaction-loop.webm">
+    <p>Visualização: LSM-Tree gravando em WAL e MemTable em memória com flush assíncrono para SSTables imutáveis em disco.</p>
+  </video>
+</div>
+
 | Componente LSM | Localização | Papel Funcional |
 |---|---|---|
 | **WAL** | Disco (Append-only) | Garante durabilidade imediata com I/O sequencial |

@@ -23,6 +23,12 @@ Qual é o ciclo de vida completo e a sequência de syscalls de um **Socket TCP n
   6. **`close(client_fd)`**: Encerra a conexão e dispara o Four-Way Handshake de término (FIN/ACK).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/tcp-server-socket-bind-listen-accept-loop.webm">
+    <p>Visualização: Sequência canônica de chamadas de sistema: socket() -> bind() -> listen() -> accept() criando socket conectado.</p>
+  </video>
+</div>
+
 | Syscall no Servidor | Estado do Socket | Função no Kernel |
 |---|---|---|
 | **`socket()` + `bind()`** | Fechado / Associado à Porta | Aloca estrutura no kernel e reserva porta |

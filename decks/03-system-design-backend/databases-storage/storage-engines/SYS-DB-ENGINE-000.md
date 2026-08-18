@@ -21,6 +21,12 @@ Por que bancos de dados relacionais (OLTP) utilizam B+Trees em vez de B-Trees co
   3. **Localidade de Cache**: Nós internos menores cabem facilmente no Buffer Pool da memória RAM.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/b-plus-tree-node-split-linked-leaves-loop.webm">
+    <p>Visualização: B+Tree com nós internos apenas como roteadores e folhas duplamente encadeadas otimizando range scans sequenciais.</p>
+  </video>
+</div>
+
 | Estrutura de Índice | Altura Típica ($N=10^9$) | Eficiência em Range Query (`BETWEEN`) |
 |---|---|---|
 | **Árvore AVL / Red-Black** | ~30 níveis ($O(\log_2 N)$) | Ruim (Travessia in-order com saltos aleatórios) |

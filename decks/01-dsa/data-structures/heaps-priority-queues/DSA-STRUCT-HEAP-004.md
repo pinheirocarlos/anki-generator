@@ -22,6 +22,12 @@ Como utilizar um **Min-Heap de tamanho fixo $K$** para encontrar os $K$ maiores 
 - **Complexidade**: $O(N \log K)$ tempo e $O(K)$ espaço auxiliar (muito superior a ordenar o array inteiro em $O(N \log N)$ quando $K \ll N$).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/top-k-elements-min-heap-loop.webm">
+    <p>Visualização: Manutenção de Min-Heap de tamanho K onde elementos menores são descartados na raiz em tempo O(N log K).</p>
+  </video>
+</div>
+
 | Estratégia Top-K | Complexidade de Tempo | Espaço Auxiliar |
 |---|---|---|
 | **Ordenação Completa** | $O(N \log N)$ | $O(1)$ ou $O(N)$ |

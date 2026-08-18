@@ -24,6 +24,12 @@ Como o algoritmo de compressão Gorilla (desenvolvido pelo Facebook/Meta) compri
 - Reduz o tamanho médio de cada ponto de telemetria de 16 bytes para **apenas 1.37 bytes (redução de ~12x)**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/gorilla-tsdb-delta-of-delta-float-xor-loop.webm">
+    <p>Visualização: Algoritmo Gorilla comprimindo timestamps com delta-of-delta e valores float via XOR com os bits precedentes.</p>
+  </video>
+</div>
+
 | Campo da Métrica | Formato Bruto sem Compressão | Formato Comprimido Gorilla |
 |---|---|---|
 | **Timestamp (Epoch ms)** | 64 bits (8 bytes) | **1 a 4 bits na maioria dos pontos** |

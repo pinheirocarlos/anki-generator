@@ -20,6 +20,12 @@ Como funciona o protocolo Two-Phase Commit (2PC) e por que ele é classificado c
 - **Natureza Bloqueante**: Se o coordenador cair após a Fase 1 enquanto nós mantêm locks abertos, os participantes ficam bloqueados indefinidamente sem saber se devem commitar ou abortar (*Coordinator Failure Problem*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/two-phase-commit-2pc-prepare-commit-loop.webm">
+    <p>Visualização: Protocolo Two-Phase Commit (2PC): fase Prepare obtendo votos de prontidão e fase Commit aplicando alterações atomicamente.</p>
+  </video>
+</div>
+
 | Fase do 2PC | Ação do Coordenador | Ação dos Participantes |
 |---|---|---|
 | **Fase 1: Prepare** | Envia requisição de voto | Adquire locks e responde Sim/Não |

@@ -21,6 +21,12 @@ Como funciona a resolução hierárquica do **DNS** e qual a diferença entre um
   4. **Servidor Autoritativo (ex: Route 53, Cloudflare DNS)**: O servidor oficial do dono do domínio que armazena os registros DNS finais (A, AAAA, CNAME) e entrega a resposta definitiva com autoridade.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/dns-recursive-authoritative-resolution-loop.webm">
+    <p>Visualização: Cascata de resolução: Root Server (.) -> TLD (.com) -> Servidor Autoritativo -> Cache no Resolvedor Recursivo.</p>
+  </video>
+</div>
+
 | Tipo de Servidor DNS | Papel no Fluxo de Resolução | Armazena Registros Definitivos? |
 |---|---|---|
 | **Resolvedor Recursivo** | Faz buscas iterativas e armazena cache local | Não (Apenas retém em cache pelo TTL) |

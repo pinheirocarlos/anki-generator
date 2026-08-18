@@ -22,6 +22,12 @@ Qual é a diferença conceitual entre as anomalias de Cache Penetration, Cache B
   - *Mitigação*: Adicionar **Jitter aleatório** ao TTL (`TTL = 3600 + rand(0, 300)`).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/cache-penetration-bloom-filter-avalanche-loop.webm">
+    <p>Visualização: Filtro de Bloom intercepta consultas a chaves inexistentes (Penetration) e TTL jitter evita expiração simultânea em massa (Avalanche).</p>
+  </video>
+</div>
+
 | Anomalia | Causa Raiz | Mitigação Principal |
 |---|---|---|
 | **Penetration** | Chave inexistente no sistema todo | Bloom Filter / Cache Null |

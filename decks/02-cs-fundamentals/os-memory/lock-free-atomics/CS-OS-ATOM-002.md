@@ -21,6 +21,12 @@ Como a instrução de hardware **Compare-And-Swap (CAS)** permite atualizar vari
 - **Laço Lock-Free (CAS Loop)**: A thread lê o valor atual, calcula a mutação e tenta o CAS em loop; se outra thread ganhar a corrida, o CAS falha e a thread repete o laço com o valor atualizado sem nunca ser suspensa pelo kernel.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/compare-and-swap-atomic-instruction-loop.webm">
+    <p>Visualização: Atualização atômica em hardware onde o novo valor é escrito somente se o valor atual for idêntico ao esperado.</p>
+  </video>
+</div>
+
 | Etapa do CAS Loop | Operação | Resultado se Houver Colisão |
 |---|---|---|
 | **1. Leitura** | `old = *ptr` | Obtém snapshot do valor |

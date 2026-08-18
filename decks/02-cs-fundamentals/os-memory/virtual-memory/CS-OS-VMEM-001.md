@@ -21,6 +21,12 @@ O que é o **TLB (Translation Lookaside Buffer)** e por que bancos de dados de a
 - **HugePages (2 MB / 1 GB)**: Reduz a quantidade total de entradas necessárias em até $512\times$ (para 2 MB) ou $262.144\times$ (para 1 GB), garantindo que quase todo o *Buffer Pool* caiba nas entradas do TLB, acelerando o throughput do banco em **10% a 30%**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/virtual-memory-tlb-translation-loop.webm">
+    <p>Visualização: Cache L1 de traduções na MMU e uso de HugePages (2MB/1GB) aumentando a área de memória por entrada da TLB.</p>
+  </video>
+</div>
+
 | Configuração de Página | Quantidade de Entradas para 64 GB | Cobertura Típica do TLB |
 |---|---|---|
 | **Página Padrão (4 KB)** | 16.777.216 páginas | < 0.1% da memória cabe no TLB |

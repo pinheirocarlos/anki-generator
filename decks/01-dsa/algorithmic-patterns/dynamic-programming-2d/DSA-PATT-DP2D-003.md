@@ -22,6 +22,12 @@ Como a Programação Dinâmica 2D resolve o problema **Longest Common Subsequenc
 - **Complexidade**: $O(M \times N)$ tempo e $O(M \times N)$ espaço (ou $O(\min(M, N))$ otimizado).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lcs-grid-matching-diagonal-loop.webm">
+    <p>Visualização: Se caracteres coincidem: soma diagonal +1; se divergem: máximo entre vizinho superior e esquerdo.</p>
+  </video>
+</div>
+
 | Comparação de Caracteres | Equação de Transição | Direção de Preenchimento |
 |---|---|---|
 | $S_1[i-1] == S_2[j-1]$ | $1 + DP[i-1][j-1]$ | Diagonal Superior |

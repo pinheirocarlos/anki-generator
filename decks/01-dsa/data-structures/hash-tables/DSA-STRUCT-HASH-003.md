@@ -21,6 +21,12 @@ Como funciona a resolução de colisões por **Encadeamento Separado (Separate C
 - **Complexidade**: $O(1)$ em média (com distribuição uniforme); $O(N)$ no pior caso (se todas as chaves colidirem no mesmo bucket).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/separate-chaining-collision-loop.webm">
+    <p>Visualização: Adição de nós na lista encadeada do bucket na ocorrência de colisão com travessia linear local.</p>
+  </video>
+</div>
+
 | Estratégia de Colisão | Estrutura no Bucket | Tratamento de Colisão |
 |---|---|---|
 | **Separate Chaining** | Lista Encadeada / AVL | Insere novo nó na lista do bucket |

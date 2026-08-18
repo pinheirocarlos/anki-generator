@@ -22,6 +22,12 @@ Como o **Algoritmo de Kruskal** utiliza o DSU para construir a Árvore Geradora 
   3. Encerra quando a MST contiver $V - 1$ arestas.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dsu-kruskal-connectivity-loop.webm">
+    <p>Visualização: Processamento guloso de arestas ordenadas adicionando à MST apenas arestas que não formam ciclos via DSU.</p>
+  </video>
+</div>
+
 | Etapa de Kruskal | Operação Principal | Custo Assintótico |
 |---|---|---|
 | **1. Ordenação de Arestas** | `Arrays.sort(edges)` | $O(E \log E)$ |

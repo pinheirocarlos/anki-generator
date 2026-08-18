@@ -20,6 +20,12 @@ Por que a concatenação de strings em loop com operador `+=` tem complexidade $
 - Classes como `StringBuilder` (Java) ou `strings.Builder` (Go) utilizam um buffer de bytes mutável com expansão geométrica, alcançando complexidade linear $O(N)$ total.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/stringbuilder-buffer-append-loop.webm">
+    <p>Visualização: Mutação in-place em buffer de char ajustável evitando alocações e cópias O(N²).</p>
+  </video>
+</div>
+
 | Estratégia de Concatenação | Tempo de Execução | Alocações no Heap |
 |---|---|---|
 | **Loop com `s += str`** | $O(N^2)$ Quadrático | $N$ novos objetos alocados |

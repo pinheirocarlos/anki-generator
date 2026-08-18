@@ -22,6 +22,12 @@ Como o padrão **IEEE 754** divide números de ponto flutuante em *Sinal, Expoen
   $$\text{Valor} = (-1)^S \times (1 + M) \times 2^{E - \text{Bias}}$$
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/ieee-754-floating-point-layout-loop.webm">
+    <p>Visualização: Decomposição binária em 1 bit de sinal, 8 bits de expoente com bias e 23 bits de mantissa normalizada.</p>
+  </video>
+</div>
+
 | Tipo IEEE 754 | Expoente com Bias | Mantissa / Fração |
 |---|---|---|
 | **Single (`float32`)** | 8 bits (Bias 127) | 23 bits (~7 dígitos precisão) |

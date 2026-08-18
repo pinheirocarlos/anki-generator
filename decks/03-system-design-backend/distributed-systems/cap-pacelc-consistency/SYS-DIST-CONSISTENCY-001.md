@@ -21,6 +21,12 @@ Como o Teorema PACELC expande o CAP ao definir trade-offs de Latência versus Co
 - Para minimizar latência (PA/EL), responde-se ao cliente antes de replicar a todos os nós (replicação assíncrona), arriscando inconsistências temporárias.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/pacelc-latency-vs-consistency-matrix-loop.webm">
+    <p>Visualização: Teorema PACELC: Se houver partição (P) avalia-se A vs C; senão (E), avalia-se Latência (L) vs Consistência (C).</p>
+  </video>
+</div>
+
 | Classificação PACELC | Trade-off Operacional | Exemplo de Banco |
 |---|---|---|
 | **PC / EC** | Consistência forte e replicação síncrona | Google Spanner, CockroachDB |

@@ -23,6 +23,12 @@ Como a **Fila de Michael-Scott (ConcurrentLinkedQueue)** implementa operações 
   - **Dequeue()**: Tenta avançar o ponteiro `head` para `head.next` via CAS e retorna o valor do nó.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/disruptor-ring-buffer-sequence-loop.webm">
+    <p>Visualização: Ring buffer pré-alocado com padding de 64 bytes eliminando false sharing e disputa de locks.</p>
+  </video>
+</div>
+
 | Operação Concorrente | Mecanismo de Proteção | Propriedade Garantida |
 |---|---|---|
 | **Enqueue** | 2 passos com CAS + Helping | Lock-Free (Não bloqueia) |

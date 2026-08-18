@@ -20,6 +20,12 @@ Por que em sistemas distribuídos sob o Teorema CAP a escolha real é sempre ent
   - **Sistema AP**: Permite leituras e escritas em nós isolados, gerando divergência temporária (prioriza disponibilidade).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/cap-theorem-network-partition-tradeoff-loop.webm">
+    <p>Visualização: Teorema CAP: em caso de partição de rede (P), o sistema deve optar entre Consistência estrita (CP) ou Disponibilidade (AP).</p>
+  </video>
+</div>
+
 | Propriedade CAP | Definição Rigorosa | Exemplo de Sistema |
 |---|---|---|
 | **Consistência (C)** | Toda leitura retorna a escrita mais recente ou erro | Spanner, etcd, ZooKeeper (CP) |

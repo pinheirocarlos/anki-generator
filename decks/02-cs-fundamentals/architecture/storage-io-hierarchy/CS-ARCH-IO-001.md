@@ -22,6 +22,12 @@ Por que sistemas como **Kafka** e motores **LSM-Trees (RocksDB)** convertem toda
 - Isso maximiza o throughput de gravação atingindo a vazão máxima teórica do SSD/HDD.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/append-only-log-sequential-io-loop.webm">
+    <p>Visualização: Gravações sequenciais no final do arquivo eliminando rotações de disco e random writes no armazenamento.</p>
+  </video>
+</div>
+
 | Estrutura de Armazenamento | Padrão de Escrita em Disco | Otimizado Para |
 |---|---|---|
 | **B-Tree Clássica (PostgreSQL / MySQL)** | In-Place Aleatório em páginas fixas | Leituras pontuais rápidas |

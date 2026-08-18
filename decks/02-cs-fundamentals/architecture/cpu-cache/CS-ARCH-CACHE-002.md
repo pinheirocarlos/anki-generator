@@ -19,6 +19,12 @@ O que é uma **Cache Line** de 64 bytes e como ela afeta a transferência de dad
 - Isso maximiza o aproveitamento da **localidade espacial**, tornando acessos a elementos contíguos de um array praticamente gratuitos (Cache Hits em L1).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cache-write-through-vs-write-back-loop.webm">
+    <p>Visualização: Atualização síncrona da RAM (Write-Through) vs marcação de bit sujo (Dirty Bit) com flush assíncrono (Write-Back).</p>
+  </video>
+</div>
+
 | Estrutura de Memória | Unidade de Transferência | Alinhamento Típico |
 |---|---|---|
 | **RAM para Cache L3/L2/L1** | 1 Cache Line | Blocos de 64 bytes |

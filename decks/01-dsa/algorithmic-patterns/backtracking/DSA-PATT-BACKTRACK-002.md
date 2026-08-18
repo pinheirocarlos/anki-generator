@@ -19,6 +19,12 @@ Quais são as diferenças de estrutura de loop e complexidade entre os padrões 
 - **Combinations (Combinações - $O(\binom{N}{K})$)**: Subsets de tamanho fixo $K$. Itera a partir de `start` até $N-1$, adicionando à resposta quando `path.size() == k`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/choose-explore-unchoose-revert-loop.webm">
+    <p>Visualização: Padrão canônico: aplicar modificação de estado antes da recursão e reverter pontualmente após o retorno.</p>
+  </video>
+</div>
+
 | Problema Combinatório | Estrutura de Loop | Complexidade |
 |---|---|---|
 | **Subsets** | `i = start .. N-1` (Todos os passos) | $O(N \cdot 2^N)$ |

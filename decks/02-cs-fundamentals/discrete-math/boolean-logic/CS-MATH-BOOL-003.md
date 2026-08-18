@@ -23,6 +23,12 @@ Quais são as propriedades algébricas fundamentais do **XOR ($oplus$)** e como 
   $$\text{resultado} = a \oplus a \oplus b \oplus b \oplus c = 0 \oplus 0 \oplus c = c$$
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/xor-properties-self-canceling-loop.webm">
+    <p>Visualização: Auto-anulação (A ^ A = 0) e elemento neutro (A ^ 0 = A) cancelando duplicatas em tempo linear.</p>
+  </video>
+</div>
+
 | Propriedade XOR | Expressão Matemática | Efeito em Bits |
 |---|---|---|
 | **Elemento Neutro** | $x \oplus 0 = x$ | Preserva todos os bits de $x$ |

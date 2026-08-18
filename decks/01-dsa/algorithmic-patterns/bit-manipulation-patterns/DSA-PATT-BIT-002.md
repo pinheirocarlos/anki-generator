@@ -19,6 +19,12 @@ Como a expressão bitwise **`n & (n - 1)` (Algoritmo de Brian Kernighan)** apaga
 - **Contagem de Bits (Hamming Weight)**: Executamos `n = n & (n - 1)` em um loop até que `n == 0`. O laço executa exatamente $K$ vezes, onde $K$ é o número de bits 1 ativos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/xor-single-number-cancellation-loop.webm">
+    <p>Visualização: Propriedades a ^ a = 0 e a ^ 0 = a cancelando todos os elementos duplicados em O(N) e espaço O(1).</p>
+  </video>
+</div>
+
 | Passo | Valor de `n` (Binário) | Ação `n & (n - 1)` |
 |---|---|---|
 | **Inicial** | `11000` ($24$) | $24 \ \& \ 23 = 11000 \ \& \ 10111 = 10000$ |

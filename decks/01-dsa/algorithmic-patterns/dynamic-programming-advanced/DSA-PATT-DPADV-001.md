@@ -21,6 +21,12 @@ Como o paradigma de **Matrix Chain Multiplication (MCM)** particiona intervalos 
 - **Complexidade**: $O(N^3)$ tempo e $O(N^2)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/tsp-bitmask-state-graph-loop.webm">
+    <p>Visualização: Busca pelo menor ciclo hamiltoniano computando dp[mask][u] com transições para vizinhos não visitados.</p>
+  </video>
+</div>
+
 | Componente da Recorrência | Significado |
 |---|---|
 | $DP[i][k]$ | Custo ótimo da partição esquerda |

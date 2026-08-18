@@ -19,6 +19,12 @@ Qual é a diferença entre as garantias de entrega At-Most-Once, At-Least-Once e
 - **Exactly-Once Semantics (EOS)**: O efeito final no sistema de destino equivale a processar cada mensagem exatamente uma vez, combinando transações no produtor/broker com **consumidores idempotentes**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/message-delivery-guarantees-ack-retry-loop.webm">
+    <p>Visualização: At-Least-Once com retentativas e confirmações (ACKs) vs Exactly-Once usando streams transacionais e chaves de idempotência.</p>
+  </video>
+</div>
+
 | Garantia de Entrega | Características de Risco | Padrão da Indústria |
 |---|---|---|
 | **At-Most-Once** | Risco de perda, zero duplicatas | Telemetria não-crítica |

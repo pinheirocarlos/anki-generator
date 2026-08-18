@@ -24,6 +24,12 @@ Como o algoritmo de partição binária encontra a **Mediana de Dois Arrays Orde
 - A mediana é computada em $O(1)$ a partir dos extremos da partição.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/rotated-sorted-array-binary-search-loop.webm">
+    <p>Visualização: Identificação da metade estritamente ordenada e verificação se o alvo reside nela antes de descartar.</p>
+  </video>
+</div>
+
 | Metade Esquerda | Metade Direita | Condição de Validade |
 |---|---|---|
 | $\max(A[i-1], B[j-1])$ | $\min(A[i], B[j])$ | $\text{maxEsquerda} \le \text{minDireita}$ |

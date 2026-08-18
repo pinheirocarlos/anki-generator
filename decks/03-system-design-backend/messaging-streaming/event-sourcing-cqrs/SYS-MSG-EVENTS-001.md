@@ -20,6 +20,12 @@ Como o padrão CQRS segrega os modelos de escrita (Commands) e leitura (Queries)
 - **Projeções de Leitura**: Consomem eventos emitidos pelo lado de comando e atualizam assincronamente as visões de leitura (*Read Models*), operando com **consistência eventual**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/cqrs-command-query-async-projections-loop.webm">
+    <p>Visualização: Separação estrita de modelo de escrita (Commands) e banco desnormalizado de leitura (Queries) via projeções assíncronas.</p>
+  </video>
+</div>
+
 | Dimensão CQRS | Lado de Comando (Command) | Lado de Consulta (Query) |
 |---|---|---|
 | **Operações** | Mutação (`CreateOrder`, `CancelOrder`) | Leitura (`GetOrderDetails`, `SearchOrders`) |

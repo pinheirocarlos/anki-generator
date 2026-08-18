@@ -24,6 +24,12 @@ Como o sistema roteia uma mensagem de chat quando o Remetente e o Destinatário 
 - **Tratamento de Usuário Offline**: Se B não estiver conectado em nenhum gateway, o sistema persiste no banco (Cassandra/Postgres) e dispara uma **Notificação Push (APNs / FCM)**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/chat-routing-redis-pubsub-cross-server-loop.webm">
+    <p>Visualização: Roteamento de mensagens entre instâncias de WebSocket através de canais dedicados no Redis Pub/Sub.</p>
+  </video>
+</div>
+
 | Estado do Destinatário | Caminho de Entrega | Latência Típica |
 |---|---|---|
 | **Online (Conectado em Gateway)** | WebSocket direto via Redis Pub/Sub | Sub-100 ms |

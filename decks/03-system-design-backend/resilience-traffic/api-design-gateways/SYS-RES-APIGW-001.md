@@ -23,6 +23,12 @@ Por que o gRPC com Protocol Buffers (Protobuf) é significativamente mais rápid
 - **Contrato Tipado Estrito**: Esquemas `.proto` com geração automática de código em múltiplas linguagens.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/grpc-protobuf-vs-rest-json-framing-loop.webm">
+    <p>Visualização: Serialização binária compacta em Protobuf sobre HTTP/2 eliminando overhead textual de JSON e headers repetitivos.</p>
+  </video>
+</div>
+
 | Dimensão | REST / JSON | gRPC / Protocol Buffers |
 |---|---|---|
 | **Protocolo de Rede** | HTTP/1.1 (predominante) | HTTP/2 (Multiplexação nativa) |

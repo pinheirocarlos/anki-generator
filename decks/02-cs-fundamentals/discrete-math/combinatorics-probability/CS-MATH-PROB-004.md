@@ -24,6 +24,12 @@ Como dimensionar o tamanho do vetor de bits ($m$) e a quantidade de funções ha
     $$k = \frac{m}{n} \ln 2 \approx 0.693 \cdot \frac{m}{n}$$
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/bloom-filter-false-positive-math-loop.webm">
+    <p>Visualização: Relação matemática entre número de hashes k = (m/n) ln 2 e taxa de falsos positivos no filtro probabilístico.</p>
+  </video>
+</div>
+
 | Taxa de Falso Positivo ($p$) | Bits por Elemento ($m/n$) | Funções Hash Ótimas ($k$) |
 |---|---|---|
 | **$1\%$ ($p = 0.01$)** | ~9.6 bits / item | $k = 7$ |

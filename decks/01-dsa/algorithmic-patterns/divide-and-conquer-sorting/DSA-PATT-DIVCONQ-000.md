@@ -24,6 +24,12 @@ Como o paradigma de **Divisão e Conquista (Divide and Conquer)** decompõe prob
   - Se $d > \log_b a \implies T(N) = O(N^d)$ (Raiz domina).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/divide-and-conquer-recursion-tree-loop.webm">
+    <p>Visualização: Divisão em subproblemas menores independentes, resolução na base e combinação das soluções parciais.</p>
+  </video>
+</div>
+
 | Algoritmo | Recorrência e Parâmetros | Complexidade Final |
 |---|---|---|
 | **Binary Search** | $T(N/2) + O(1)$ com $a=1, b=2, d=0$ | $O(\log N)$ |

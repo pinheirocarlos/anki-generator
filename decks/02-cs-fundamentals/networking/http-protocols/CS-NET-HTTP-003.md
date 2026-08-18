@@ -19,6 +19,12 @@ Como o **HTTP/3 sobre QUIC/UDP** elimina o Head-of-Line Blocking na camada de tr
 - **Handshake Unificado (0-RTT / 1-RTT)**: O QUIC funde o handshake de transporte com o handshake de criptografia do **TLS 1.3** em um único fluxo, estabelecendo conexão segura em **1 RTT** (ou **0-RTT** para conexões reutilizadas com chaves pré-compartilhadas).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/http3-quic-udp-streams-loop.webm">
+    <p>Visualização: Streams independentes em nível de transporte onde a perda de pacotes em um fluxo não interrompe outros fluxos.</p>
+  </video>
+</div>
+
 | Propriedade de Rede | HTTP/2 (sobre TCP + TLS 1.3) | HTTP/3 (sobre QUIC / UDP) |
 |---|---|---|
 | **Camada de Transporte** | TCP (Kernel) | QUIC sobre UDP (Userspace) |

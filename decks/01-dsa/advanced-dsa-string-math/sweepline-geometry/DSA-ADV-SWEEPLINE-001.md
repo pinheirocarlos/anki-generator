@@ -25,6 +25,12 @@ Como o algoritmo **Monotone Chain de Andrew** constrói o Fecho Convexo (Convex 
   - Se $> 0$: Curva para a esquerda (anti-horário, válido). Se $\le 0$: Curva para a direita ou colinear (inválido).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/skyline-problem-events-heap-loop.webm">
+    <p>Visualização: Eventos de início e término de prédios inserindo e removendo alturas da Priority Queue detectando pontos de contorno.</p>
+  </video>
+</div>
+
 | Sinal do Produto Vetorial | Orientação dos 3 Pontos | Ação na Pilha Monótona |
 |---|---|---|
 | $\text{cross}(A, B, C) > 0$ | Curva estritamente para a esquerda | Adiciona ponto $C$ |

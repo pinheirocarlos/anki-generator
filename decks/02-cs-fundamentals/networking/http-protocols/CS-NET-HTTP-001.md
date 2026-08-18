@@ -22,6 +22,12 @@ Como funciona a compressão de cabeçalhos **HPACK** no HTTP/2 e por que o HTTP/
 - **QPACK (HTTP/3)**: Separa os fluxos em **Encoder Stream** e **Decoder Stream** dedicados, permitindo decodificação não-bloqueante mesmo com perda de pacotes.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/hpack-qpack-header-compression-loop.webm">
+    <p>Visualização: Tabela dinâmica de cabeçalhos e codificação de Huffman eliminando bytes redundantes em requisições contínuas.</p>
+  </video>
+</div>
+
 | Mecanismo de Compressão | Protocolo | Tolerância a Entrega Fora de Ordem |
 |---|---|---|
 | **HPACK** | HTTP/2 (sobre TCP) | Não suporta (Exige entrega estritamente ordenada) |

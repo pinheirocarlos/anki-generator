@@ -19,6 +19,12 @@ Qual é a diferença conceitual e de garantias entre a **Escolha Gulosa (Greedy)
 - **Quando usar Greedy**: Somente quando for possível provar matematicamente a **Propriedade da Escolha Gulosa** e a **Subestrutura Ótima**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/greedy-choice-property-step-loop.webm">
+    <p>Visualização: Escolha local ótima a cada passo sem reavaliação ou backtracking em problemas com propriedade gulosa.</p>
+  </video>
+</div>
+
 | Paradigma | Decisão e Exploração | Custo Típico |
 |---|---|---|
 | **Greedy (Guloso)** | Irrevogável / 1 único caminho | $O(N)$ / $O(N log N)$ |

@@ -22,6 +22,12 @@ Como resolver **Single Number II** (onde todos os números aparecem 3 vezes, exc
 - **Complexidade**: $O(32N) = O(N)$ tempo e $O(1)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bit-manipulation-lsb-loop.webm">
+    <p>Visualização: A operação n & (n-1) limpa o bit menos significativo em cada passo reduzindo as iterações à quantidade de 1s.</p>
+  </video>
+</div>
+
 | Contribuição de Bit | Ocorrências do Número | Valor Módulo 3 ($\% 3$) |
 |---|---|---|
 | **Números Triplicados** | Aparecem $3k$ vezes | $3k \pmod 3 = 0$ (Anulados) |

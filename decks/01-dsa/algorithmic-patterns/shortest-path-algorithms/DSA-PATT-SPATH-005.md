@@ -22,6 +22,12 @@ Como o **Algoritmo de Floyd-Warshall** computa o caminho mais curto entre todos 
 - **Complexidade**: $O(V^3)$ tempo e $O(V^2)$ espaço em matriz contígua.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/floyd-warshall-all-pairs-matrix-loop.webm">
+    <p>Visualização: Programação dinâmica tridimensional atualizando matriz de adjacência dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]).</p>
+  </video>
+</div>
+
 | Algoritmo All-Pairs | Estrutura de Código | Complexidade |
 |---|---|---|
 | **$V \times$ Dijkstra** | $V$ chamadas de Min-Heap | $O(V \cdot E \log V)$ |

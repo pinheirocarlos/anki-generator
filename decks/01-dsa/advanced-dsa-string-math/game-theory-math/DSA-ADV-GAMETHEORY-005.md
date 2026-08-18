@@ -25,6 +25,12 @@ Como o **Crivo Linear (Crivo de Euler)** visita cada número composto exatamente
 - Como cada composto é marcado exclusivamente pelo seu **menor fator primo**, a complexidade é **estritamente $O(N)$**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/extended-euclidean-gcd-modular-inverse-loop.webm">
+    <p>Visualização: Cálculo simultâneo do MDC e coeficientes inteiros de Bézout ax + by = gcd(a, b).</p>
+  </video>
+</div>
+
 | Algoritmo de Crivo | Visitas por Número Composto | Complexidade de Tempo |
 |---|---|---|
 | **Eratóstenes Tradicional** | Múltiplas vezes (uma por fator primo) | $O(N \log \log N)$ |

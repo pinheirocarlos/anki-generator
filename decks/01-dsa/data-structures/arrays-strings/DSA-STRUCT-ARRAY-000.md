@@ -20,6 +20,12 @@ Por que arrays contíguos em memória oferecem **acesso indexado $O(1)$** instan
 - Como a operação envolve apenas uma multiplicação e uma adição de inteiros executadas em tempo constante pela ALU, o acesso a qualquer elemento ocorre em $O(1)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/array-pointer-arithmetic-loop.webm">
+    <p>Visualização: Acesso indexado O(1) calculando endereço de memória física base + i * size.</p>
+  </video>
+</div>
+
 | Estrutura de Dados | Acesso por Índice | Cálculo de Endereço |
 |---|---|---|
 | **Array Contíguo** | $O(1)$ Instantâneo | Aritmética direta de ponteiros |

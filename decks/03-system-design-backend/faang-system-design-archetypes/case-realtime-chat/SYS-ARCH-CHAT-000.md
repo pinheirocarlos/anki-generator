@@ -23,6 +23,12 @@ Como os servidores de WebSocket Gateway mantêm conexões bidirecionais persiste
   - Se o usuário perder conexão ou não enviar ping antes do TTL expirar, o status transiciona automaticamente para **Offline**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/websocket-gateway-presence-heartbeat-loop.webm">
+    <p>Visualização: Servidores de WebSocket Gateway mantendo conexões TCP persistentes com heartbeat e presença agregada no Redis.</p>
+  </video>
+</div>
+
 | Protocolo / Mecanismo | Overhead de Cabeçalho por Mensagem | Tipo de Comunicação |
 |---|---|---|
 | **HTTP Polling Tradicional** | ~500 a 1.000 bytes (Headers completos) | Unidirecional periódica do cliente |

@@ -21,6 +21,12 @@ Como a **DFS com Pós-Ordem Reversa (Post-Order)** gera uma ordenação topológ
 - Como um nó só é empilhado após todas as suas dependências terem sido concluídas, desempilhar todos os nós produz a **ordem topológica exata**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dfs-reverse-post-order-topo-loop.webm">
+    <p>Visualização: Empilhamento de nós no final da visitação DFS e desempilhamento para gerar a ordem topológica reversa.</p>
+  </video>
+</div>
+
 | Passo da DFS | Estado do Nó | Inserção na Ordem |
 |---|---|---|
 | **Entrada no nó** | Marcado como `Gray` (Ativo) | Nenhuma |

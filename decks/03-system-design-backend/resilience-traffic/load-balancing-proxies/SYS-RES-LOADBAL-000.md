@@ -22,6 +22,12 @@ Qual é a diferença fundamental entre Load Balancers de Camada 4 (L4) e Camada 
   - Permite **roteamento inteligente** (ex: `/api/v1/payments` vai para o cluster A; cabeçalho `User-Agent: Mobile` vai para o cluster B), com custo de maior consumo de CPU e memória.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/load-balancer-l4-transport-vs-l7-application-loop.webm">
+    <p>Visualização: Load Balancer L4 operando por IP/Porta sem abrir payload vs L7 inspecionando cabeçalhos HTTP, cookies e rotas.</p>
+  </video>
+</div>
+
 | Critério de Comparação | Layer 4 (L4 - ex: AWS NLB, Maglev) | Layer 7 (L7 - ex: AWS ALB, NGINX, Envoy) |
 |---|---|---|
 | **Informações Analisadas** | Apenas IP e Porta TCP/UDP | Headers HTTP, Cookies, Path URL, JWT |

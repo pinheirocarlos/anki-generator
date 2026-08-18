@@ -25,6 +25,12 @@ Como o padrão Event Sourcing modela o estado de uma entidade como uma sequênci
 - Fornece **trilha de auditoria 100% perfeita**, viagem no tempo (*Time Travel Debugging*) e reconstrução histórica.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/event-sourcing-append-only-log-rehydration-loop.webm">
+    <p>Visualização: Reidratação de estado de entidade reconstruindo a partir da sequência cronológica de eventos imutáveis.</p>
+  </video>
+</div>
+
 | Paradigma | O que fica persistido no banco | Rastreabilidade Histórica |
 |---|---|---|
 | **CRUD Convencional** | Apenas a linha com valor atual | Nula (Sobrescrita destrutiva) |

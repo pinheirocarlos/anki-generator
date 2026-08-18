@@ -21,6 +21,12 @@ Como as técnicas de **Read-Copy-Update (RCU)** e **Copy-On-Write (COW)** garant
 - **Read-Copy-Update (RCU)**: Padrão similar utilizado no Kernel Linux, onde leitores não sofrem bloqueio e os dados antigos são desalocados após um período de graça (*grace period*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/hazard-pointers-safe-memory-reclaim-loop.webm">
+    <p>Visualização: Registro de ponteiros protegidos impedindo que threads leitoras acessem memória liberada por outra thread.</p>
+  </video>
+</div>
+
 | Operação | Copy-On-Write Performance | Mecanismo |
 |---|---|---|
 | **Leitura (`get`)** | $O(1)$ Custo Zero de Lock | Acesso direto a array imutável |

@@ -21,6 +21,12 @@ Como funciona a esteira assíncrona de ingestão, particionamento (Chunking) e t
   4. **Transcodificação Paralela em DAG**: Múltiplos workers em GPU processam os chunks em paralelo para dezenas de combinações de codecs (H.264, H.265/HEVC, AV1) e resoluções (360p a 4K).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/video-ingestion-chunking-transcoding-dag-loop.webm">
+    <p>Visualização: Upload de vídeo particionado em chunks com workers paralelos transcodificando múltiplos codecs e resoluções.</p>
+  </video>
+</div>
+
 | Etapa do Pipeline | Componente Responsável | Objetivo |
 |---|---|---|
 | **1. Upload** | Pre-Signed S3 / Cloudflare R2 | Upload direto do cliente sem sobrecarregar API |

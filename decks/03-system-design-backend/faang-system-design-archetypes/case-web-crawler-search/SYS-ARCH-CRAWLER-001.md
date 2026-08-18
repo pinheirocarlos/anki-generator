@@ -22,6 +22,12 @@ Como crawlers em escala de petabytes eliminam URLs repetidas e páginas quase id
   - O **SimHash de 64 bits** preserva a proximidade semântica: textos similares possuem **Distância de Hamming pequena** (diferem em apenas 1 a 3 bits), permitindo identificar e descartar páginas duplicadas instantaneamente.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/crawler-simhash-bloom-filter-deduplication-loop.webm">
+    <p>Visualização: Filtros de Bloom descartando URLs já visitadas e SimHash detectando páginas com conteúdo quase idêntico (Near-Duplicates).</p>
+  </video>
+</div>
+
 | Técnica de Deduplicação | O que Deduplica | Estrutura Utilizada |
 |---|---|---|
 | **Bloom Filter** | URLs já visitadas ou enfileiradas | Array de bits com múltiplas funções hash |

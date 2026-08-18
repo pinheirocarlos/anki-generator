@@ -26,6 +26,12 @@ Quais informações essenciais são salvas no **PCB (Process Control Block)** e 
   - Prioridade de escalonamento e afinidade de CPU.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/pcb-tcb-kernel-structs-loop.webm">
+    <p>Visualização: Estruturas do Kernel armazenando estado de execução, prioridade, descritores de arquivo e mapeamento de memória.</p>
+  </video>
+</div>
+
 | Estrutura do Kernel | Dados Armazenados | Escopo |
 |---|---|---|
 | **PCB (`task_struct`)** | Memória virtual, FDs, credenciais, PID | Global para todo o processo |

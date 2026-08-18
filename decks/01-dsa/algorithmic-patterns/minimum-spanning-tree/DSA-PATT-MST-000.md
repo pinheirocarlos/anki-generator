@@ -19,6 +19,12 @@ O que é uma **Árvore Geradora Mínima (MST)** e qual a intuição da **Proprie
 - Essa propriedade matemática é o fundamento da corretude dos algoritmos gulosos de Kruskal e Prim.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/mst-spanning-tree-connected-loop.webm">
+    <p>Visualização: Subgrafo acíclico que conecta todos os V vértices com exatamente V-1 arestas de peso total mínimo.</p>
+  </video>
+</div>
+
 | Propriedade de MST | Requisito Estrutural | Quantidade de Arestas |
 |---|---|---|
 | **Conexão Total** | Todos os $V$ nós conectados | Exatamente $V - 1$ arestas |

@@ -22,6 +22,12 @@ Como resolver **Longest Substring Without Repeating Characters** (LeetCode 3) em
 - **Complexidade**: $O(N)$ tempo e $O(\min(N, |\Sigma|))$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/longest-substring-distinct-hashmap-loop.webm">
+    <p>Visualização: Salto direto do ponteiro left para lastIndex + 1 ao encontrar caractere duplicado no Hash Map.</p>
+  </video>
+</div>
+
 | Técnica de Contração | Passos para Pular Duplicata | Complexidade |
 |---|---|---|
 | **Set com While `left++`** | Avança 1 a 1 até remover caractere | $O(2N)$ passos |

@@ -55,11 +55,11 @@
 **Independent Test**: Renderizar cards em ambiente móvel e desktop, garantindo reprodução contínua e sem áudio de vídeos e renderização nítida de SVGs com `viewBox`.
 
 ### Implementation for User Story 2
-- [ ] T015 [P] [US2] Mapear subtópicos prioritários para micro-vídeos e SVGs (Árvores, Grafos, Caches, TCP, Raft, Kafka, Consistência)
-- [ ] T016 [P] [US2] Injetar micro-vídeos em loop em cards de algoritmos e transições de estado em `decks/01-dsa/`
-- [ ] T017 [P] [US2] Injetar diagramas vetoriais SVG responsivos e micro-vídeos em `decks/02-cs-fundamentals/`
-- [ ] T018 [P] [US2] Injetar topologias de arquitetura em SVG e micro-vídeos em `decks/03-system-design-backend/`
-- [ ] T019 [US2] Validar links remotos HTTPS e integridade de assets locais via `npm test`
+- [X] T015 [P] [US2] Mapear subtópicos prioritários para micro-vídeos e SVGs (Árvores, Grafos, Caches, TCP, Raft, Kafka, Consistência)
+- [X] T016 [P] [US2] Injetar micro-vídeos em loop em cards de algoritmos e transições de estado em `decks/01-dsa/`
+- [X] T017 [P] [US2] Injetar diagramas vetoriais SVG responsivos e micro-vídeos em `decks/02-cs-fundamentals/`
+- [X] T018 [P] [US2] Injetar topologias de arquitetura em SVG e micro-vídeos em `decks/03-system-design-backend/`
+- [X] T019 [US2] Validar links remotos HTTPS e integridade de assets locais via `npm test`
 
 **Checkpoint**: Conteúdo multimídia de alto impacto operacional nos cartões dinâmicos.
 
@@ -72,7 +72,7 @@
 **Independent Test**: Filtrar o baralho no Anki com `tag:level::l2-fundamental` e validar que 100% dos subtópicos possuem entrada intuitiva desmistificadora.
 
 ### Implementation for User Story 3
-- [ ] T020 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/01-dsa/`
+- [X] T020 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/01-dsa/`
 - [ ] T021 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/02-cs-fundamentals/`
 - [ ] T022 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/03-system-design-backend/`
 - [ ] T023 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/04-behavioral-engineering/`

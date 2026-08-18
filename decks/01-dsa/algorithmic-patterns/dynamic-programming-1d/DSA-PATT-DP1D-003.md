@@ -21,6 +21,12 @@ Como reduzir o espaço de memória de uma DP 1D de $O(N)$ para **tempo constante
 - **Complexidade**: Reduz o espaço de $O(N)$ para **$O(1)$** estrito mantendo o tempo em $O(N)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/house-robber-dp-state-choice-loop.webm">
+    <p>Visualização: Transição de estado escolhendo o máximo entre roubar a casa atual somando a dp[i-2] ou manter dp[i-1].</p>
+  </video>
+</div>
+
 | Abordagem | Consumo de Memória | Estrutura de Armazenamento |
 |---|---|---|
 | **Array `dp[]` Completo** | $O(N)$ | Array alocado no Heap |

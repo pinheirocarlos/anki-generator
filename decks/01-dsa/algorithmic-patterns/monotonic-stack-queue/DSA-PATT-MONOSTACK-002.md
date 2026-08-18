@@ -23,6 +23,12 @@ Como a **Monotonic Stack** resolve o problema **Daily Temperatures** (dias de es
 - **Complexidade**: $O(N)$ tempo e $O(N)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/largest-rectangle-histogram-stack-loop.webm">
+    <p>Visualização: Cálculo da largura máxima quando a barra atual limita a altura de expansão dos elementos empilhados.</p>
+  </video>
+</div>
+
 | Estado da Pilha | Temperatura Atual $T[i]$ | Ação |
 |---|---|---|
 | $T[i] \le T[\text{topo}]$ | Mais fria/igual | Empilha $i$ (mantém ordem decrescente) |

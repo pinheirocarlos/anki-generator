@@ -23,6 +23,12 @@ Por que a expressão `0.1 + 0.2 == 0.3` avalia como `false` em ponto flutuante I
   2. Armazenar valores monetários como **inteiros na menor unidade fracionária** (ex: R$ 10,50 armazenado como `1050` centavos).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/floating-point-inaccuracy-01-02-loop.webm">
+    <p>Visualização: Dízimas periódicas binárias (0.1 + 0.2 = 0.30000000000000004) exigindo tipos decimais em sistemas contábeis.</p>
+  </video>
+</div>
+
 | Abordagem de Cálculo | Representação Interna | Risco de Arredondamento Financeiro |
 |---|---|---|
 | **`float64` / `double`** | Ponto flutuante binário IEEE 754 | Inaceitável (Dízima periódica em base 2) |

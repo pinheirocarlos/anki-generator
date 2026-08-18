@@ -22,6 +22,12 @@ O que são as operações **bitwise fundamentais** (AND, OR, XOR, NOT, Shifts) e
   - **Shifts (`<<`, `>>`)**: Deslocam bits para esquerda (multiplica por $2^k$) ou direita (divide por $2^k$).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/bitwise-operations-masks-truth-loop.webm">
+    <p>Visualização: Aplicações de máscaras lógicas (AND para leitura, OR para ativação, XOR para alternância) em 1 ciclo.</p>
+  </video>
+</div>
+
 | Operação Bitwise | Exemplo de Código | Efeito Prático na Flag |
 |---|---|---|
 | **Setar Bit $k$** | `set_bit(flags, k)` | Liga o bit na posição $k$ |

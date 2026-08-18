@@ -23,6 +23,12 @@ O que é a anomalia de Write Skew que ocorre sob Snapshot Isolation / Repeatable
 - **Mitigação**: `SELECT FOR UPDATE` explícito ou nível de isolamento **Serializable / SSI (Serializable Snapshot Isolation)** que detecta dependências anti-rw.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/db-write-skew-ssi-locks-loop.webm">
+    <p>Visualização: Anomalia de Write Skew violando restrições de integridade cruzadas sob Snapshot Isolation e detecção de dependências no SSI.</p>
+  </video>
+</div>
+
 | Nível de Isolamento | Comportamento no Caso dos Médicos | Resultado Final |
 |---|---|---|
 | **Snapshot Isolation** | Ambas transações aprovam e commitam | Violação de integridade (Zero médicos) |

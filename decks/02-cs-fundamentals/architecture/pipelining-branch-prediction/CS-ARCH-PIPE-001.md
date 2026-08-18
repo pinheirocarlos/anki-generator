@@ -18,6 +18,12 @@ Por que a penalidade de **Branch Misprediction** degrada a performance da CPU e 
 - **Código Branchless**: Técnica que substitui estruturas de decisão condicionais por operações aritméticas, bitwise ou instruções de seleção condicional em hardware (`CMOV - Conditional Move`), executando em tempo estritamente constante e imune a erros de predição.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-pipeline-branch-flush-loop.webm">
+    <p>Visualização: Previsão especulativa de ramificação mantendo o pipeline cheio e penalidade de flush em caso de erro.</p>
+  </video>
+</div>
+
 | Estratégia | Instruções Geradas | Penalidade em Dados Aleatórios |
 |---|---|---|
 | **Com Branch (`if/else`)** | `CMP` + `JNE` (Salto condicional) | ~15-20 ciclos a cada erro de predição |

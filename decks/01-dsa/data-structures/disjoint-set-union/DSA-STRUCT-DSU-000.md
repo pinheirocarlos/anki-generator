@@ -22,6 +22,12 @@ O que é a estrutura de dados **Disjoint Set Union (DSU / Union-Find)** e qual p
 - É a estrutura ideal para consultas dinâmicas de conectividade (*connected components*) em grafos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dsu-disjoint-sets-forest-loop.webm">
+    <p>Visualização: Floresta de árvores onde cada nó aponta para seu pai até a raiz representativa do conjunto.</p>
+  </video>
+</div>
+
 | Operação DSU | Propósito | Pergunta Respondida |
 |---|---|---|
 | **`find(x)`** | Localiza a raiz canônica do conjunto | "A qual grupo $x$ pertence?" |

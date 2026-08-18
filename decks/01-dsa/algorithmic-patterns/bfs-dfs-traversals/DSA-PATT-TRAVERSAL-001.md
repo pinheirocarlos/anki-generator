@@ -20,6 +20,12 @@ Como a **BFS Bidirecional (Bidirectional BFS)** reduz a complexidade de espaço 
 - O número total de nós visitados cai drasticamente para $2 \times O(B^{d/2}) = O(B^{d/2})$. Para $B=10$ e $d=6$, reduz de $1.000.000$ para apenas $2.000$ nós avaliados ($500\times$ mais rápido).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dfs-recursion-depth-backtrack-loop.webm">
+    <p>Visualização: Descida contínua pelo ramo mais profundo até o nó folha antes de retroceder e visitar irmãos.</p>
+  </video>
+</div>
+
 | Técnica de BFS | Nós Avaliados ($B=10, d=6$) | Complexidade de Nós |
 |---|---|---|
 | **BFS Unidirecional** | $10^6 = 1.000.000$ nós | $O(B^d)$ |

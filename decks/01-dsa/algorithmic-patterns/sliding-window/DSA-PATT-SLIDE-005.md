@@ -23,6 +23,12 @@ Como implementar o clássico hard **Minimum Window Substring** (LeetCode 76) em 
 - **Complexidade**: $O(|S| + |T|)$ tempo e $O(|\Sigma|)$ espaço (onde $|\Sigma| \le 128$ para ASCII).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/minimum-window-substring-matching-loop.webm">
+    <p>Visualização: Rastreamento do contador matched e contração da janela buscando o comprimento mínimo com todos os caracteres.</p>
+  </video>
+</div>
+
 | Variável de Controle | Significado | Condição de Janela Válida |
 |---|---|---|
 | **`required`** | Total de caracteres únicos em $T$ | Constante |

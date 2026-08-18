@@ -20,6 +20,12 @@ O que é **Endianness** (Big-Endian vs Little-Endian) e por que a conversão par
 - **Network Byte Order**: A arquitetura da Internet (TCP/IP) adota estritamente **Big-Endian**. Protocolos exigem conversão explícita (`htons`, `htonl`, `binary.BigEndian`) antes de transmitir pacotes na rede.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/endianness-byte-order-network-loop.webm">
+    <p>Visualização: Byte mais significativo no menor endereço (Big-Endian / Network Order) vs byte menos significativo (Little-Endian / x86).</p>
+  </video>
+</div>
+
 | Ordem de Bytes (`0x12345678`) | Endereço `0x00` (Início) | Endereço `0x03` (Fim) |
 |---|---|---|
 | **Big-Endian (Network Order)** | `0x12` (MSB Mais Significativo) | `0x78` (LSB Menos Significativo) |

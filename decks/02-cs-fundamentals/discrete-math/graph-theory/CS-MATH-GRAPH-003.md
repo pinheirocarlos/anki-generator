@@ -21,6 +21,12 @@ O que caracteriza um **Componente Fortemente Conexo (SCC)** em grafos direcionad
 - Quando a DFS completa a exploração de um nó raiz onde `ids[u] == low[u]`, todos os vértices acima de $u$ na pilha da DFS formam um SCC completo e são desempilhados juntos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/tarjan-strongly-connected-components-loop.webm">
+    <p>Visualização: Busca em profundidade com low-link values identificando componentes fortemente conexos em tempo O(V+E).</p>
+  </video>
+</div>
+
 | Métrica no Algoritmo de Tarjan | Significado | Ação ao Completar DFS do Nó |
 |---|---|---|
 | **`low[u] < ids[u]`** | O nó alcança um ancestral na árvore DFS | Faz parte de um ciclo maior no SCC |

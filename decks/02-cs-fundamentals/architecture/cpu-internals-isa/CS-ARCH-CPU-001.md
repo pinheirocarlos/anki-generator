@@ -21,6 +21,12 @@ Como a arquitetura **NUMA (Non-Uniform Memory Access)** impacta a latência em s
 - **CPU Pinning / Thread Affinity**: Vincular processos ou threads a núcleos de um único nó NUMA específico (via comando `numactl` ou syscall `sched_setaffinity`), garantindo alocação estritamente local de memória.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-fetch-decode-execute-loop.webm">
+    <p>Visualização: Ciclo de instrução da CPU buscando comando no PC, decodificando na Control Unit e executando na ALU.</p>
+  </video>
+</div>
+
 | Tipo de Acesso NUMA | Caminho do Barramento | Latência Típica |
 |---|---|---|
 | **Local Memory Access** | CPU $ightarrow$ RAM Local | ~60 a 80 ns |

@@ -18,6 +18,12 @@ Qual a diferença fundamental de mecânica e latência entre um **HDD mecânico*
 - **SSD NVMe**: Construído com chips de memória Flash NAND em estado sólido sem peças móveis, comunicando-se diretamente pelo barramento PCIe de alta velocidade com milhares de filas de comandos paralelas, entregando latência de **~10 a 50 microssegundos (µs)** (~100x a 1000x mais rápido).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/hdd-mechanical-vs-nvme-ssd-loop.webm">
+    <p>Visualização: Tempo de busca mecânica do braço do HDD (~5ms) vs acesso eletrônico direto em células NAND flash (~20µs).</p>
+  </video>
+</div>
+
 | Meio de Armazenamento | Latência Típica | IOPS Típico |
 |---|---|---|
 | **HDD Mecânico** | ~10.000 µs (10 ms) | ~75 a 200 IOPS |

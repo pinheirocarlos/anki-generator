@@ -22,6 +22,12 @@ Como utilizar **Indução Matemática** e o **Princípio da Casa dos Pombos** pa
   - *Exemplo*: Em qualquer grafo simples com $V \ge 2$ nós, existem **ao menos dois vértices com exatamente o mesmo grau de conexões**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/pigeonhole-principle-induction-loop.webm">
+    <p>Visualização: Se n itens são colocados em m recipientes com n > m, ao menos um recipiente contém múltiplos itens.</p>
+  </video>
+</div>
+
 | Método de Prova | Estrutura Lógica | Aplicação em Engenharia de Software |
 |---|---|---|
 | **Indução Matemática** | Base $P(1)$ + Passo $P(k) \implies P(k+1)$ | Prova de terminação e invariante de laços |

@@ -19,6 +19,12 @@ Por que o **Mergesort** garante complexidade $O(N \log N)$ em todos os casos (me
 - **Desvantagem**: Exige $O(N)$ de memória auxiliar para o buffer temporário de fusão.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/quicksort-partition-loop.webm">
+    <p>Visualização: Escolha de pivô e reorganização in-place com menores à esquerda e maiores à direita.</p>
+  </video>
+</div>
+
 | Caso de Execução | Tempo Mergesort | Tempo Quicksort |
 |---|---|---|
 | **Melhor Caso** | $O(N \log N)$ | $O(N \log N)$ |

@@ -19,6 +19,12 @@ Como ocorrem as operações de **inserção (`push`)** e **remoção do extremo 
 - **Consulta (`peek()`)**: Apenas lê o índice 0 em tempo constante $O(1)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/priority-queue-extract-min-loop.webm">
+    <p>Visualização: Substituição da raiz pelo último elemento seguida de sift-down restabelecendo o heap em O(log N).</p>
+  </video>
+</div>
+
 | Operação | Mecânica de Reajuste | Complexidade |
 |---|---|---|
 | **`push(x)`** | Adiciona no fim + `siftUp` | $O(\log N)$ |

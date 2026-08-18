@@ -22,6 +22,12 @@ Como a arquitetura da URL Frontier equilibra prioridade de rastreamento com pol�
      - Uma thread de worker só consome uma URL de um domínio se o temporizador daquele domínio tiver expirado, respeitando estritamente o arquivo `robots.txt`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/web-crawler-url-frontier-politeness-queue-loop.webm">
+    <p>Visualização: URL Frontier separando filas de prioridade e filas de polidez por hostname para evitar sobrecarga em servidores de destino.</p>
+  </video>
+</div>
+
 | Módulo da URL Frontier | Estrutura | Responsabilidade |
 |---|---|---|
 | **Priority Selector** | Filas ponderadas por PageRank | Define *o que* deve ser baixado primeiro |

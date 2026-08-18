@@ -24,6 +24,12 @@ Como implementar um Distributed Lock no Redis com comando atômico `SET resource
   5. O Processo A acorda da pausa de GC e prossegue achando que ainda detém o lock, executando mutações concorrentes com B (**Violação de Exclusão Mútua**).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/distributed-lock-redis-setnx-gc-pause-loop.webm">
+    <p>Visualização: Quebra de exclusão mútua quando uma pausa longa de GC no cliente faz o TTL do lock expirar antes do processamento terminar.</p>
+  </video>
+</div>
+
 | Linha do Tempo | Estado dos Processos | Estado do Lock no Redis |
 |---|---|---|
 | **$t_0$** | Processo A adquire lock (TTL 10s) | Chave atribuída a A |

@@ -22,6 +22,12 @@ Como projetar um Cache em Memória Thread-Safe de alta performance com suporte a
   2. **Expiração Ativa em Background (Active Purge)**: Uma goroutine roda periodicamente (ex: a cada 100 ms), sorteia 20 chaves aleatórias com TTL e purga as expiradas, evitando vazamento de memória para chaves que nunca mais são consultadas.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/lld-in-memory-cache-threadsafe-ttl-eviction-loop.webm">
+    <p>Visualização: Cache em memória com mutex RWMutex, limpeza ativa de chaves expiradas por worker em background e evicção LRU.</p>
+  </video>
+</div>
+
 | Mecanismo de Expiração | Gatilho | Finalidade |
 |---|---|---|
 | **Lazy (Passiva)** | Ocorre sob demanda na chamada `Get(key)` | Zero overhead enquanto a chave não for lida |

@@ -21,6 +21,12 @@ Como o problema **Maximal Rectangle** (LeetCode 85) em uma matriz binária é de
 - **Complexidade**: $O(M \times N)$ tempo total e $O(N)$ espaço auxiliar.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/monotonic-deque-sliding-window-max-loop.webm">
+    <p>Visualização: Deque com valores decrescentes mantendo o maior elemento da janela sempre disponível na cabeça em O(1).</p>
+  </video>
+</div>
+
 | Linha da Matriz | Alturas de Histograma (`heights[]`) | Algoritmo Aplicado |
 |---|---|---|
 | Linha 0 | `[1, 0, 1, 0, 0]` | `largestRectangle(heights)` |

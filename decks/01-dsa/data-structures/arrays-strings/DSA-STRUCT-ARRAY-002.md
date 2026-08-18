@@ -23,6 +23,12 @@ Como funciona o **redimensionamento dinâmico** de vetores (`ArrayList` / `slice
   3. O buffer antigo é liberado pelo Garbage Collector.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dynamic-array-realloc-copy-loop.webm">
+    <p>Visualização: Alocação de novo buffer contíguo de tamanho duplicado e cópia em bloco dos elementos.</p>
+  </video>
+</div>
+
 | Estado do Vetor | Dimensões (Len / Cap) | Ação de Alocação |
 |---|---|---|
 | **Inicial** | `len: 3, cap: 4` | Nenhuma (há espaço livre) |

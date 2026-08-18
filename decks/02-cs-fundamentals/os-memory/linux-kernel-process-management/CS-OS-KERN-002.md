@@ -23,6 +23,12 @@ Qual é a diferença fundamental entre um **Processo Zumbi (`defunct`)** e um **
   - O kernel Linux automaticamente adota o processo órfão, reatribuindo seu pai para o **PID 1 (`systemd` / `init`)**, que chama `wait()` periodicamente para coletar seu status quando ele morrer.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/zombie-vs-orphan-processes-init-loop.webm">
+    <p>Visualização: Processo terminado aguardando wait() do pai (Zumbi) vs processo cujo pai morreu re-adotado pelo init/systemd (Órfão).</p>
+  </video>
+</div>
+
 | Tipo de Processo | O Processo ainda Roda Código? | Causa Raiz do Problema |
 |---|---|---|
 | **Zumbi (`defunct`)** | Não (Morto, apenas retém o PID) | O pai esqueceu de chamar `waitpid()` |

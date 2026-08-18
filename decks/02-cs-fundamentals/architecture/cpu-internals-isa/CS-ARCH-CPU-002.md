@@ -19,6 +19,12 @@ Como a CPU gerencia **Stack Frames** utilizando os registradores de ponteiro de 
 - **RBP (Base / Frame Pointer)**: Aponta para a **base fixa do frame atual**, servindo como âncora estável para acessar variáveis locais (`[rbp - 8]`) e parâmetros passados na Stack (`[rbp + 16]`).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cisc-vs-risc-instruction-set-loop.webm">
+    <p>Visualização: Instruções complexas de múltiplos ciclos (CISC) vs instruções atômicas de tamanho fixo em 1 ciclo (RISC).</p>
+  </video>
+</div>
+
 | Registrador | Papel no Stack Frame | Variação Durante a Execução |
 |---|---|---|
 | **RSP (Stack Pointer)** | Topo dinâmico da pilha | Altera a cada `PUSH`, `POP` ou alocação |

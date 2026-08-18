@@ -23,6 +23,12 @@ Como o **Algoritmo de Bentley-Ottmann** encontra todas as $K$ interseções entr
 - **Complexidade**: $O((N + K) \log N)$ tempo.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/closest-pair-points-divide-strip-loop.webm">
+    <p>Visualização: Divisão e conquista examinando apenas pontos dentro da faixa de largura 2d no retorno ordenado por Y.</p>
+  </video>
+</div>
+
 | Abordagem | Pares Testados | Complexidade de Tempo |
 |---|---|---|
 | **Força Bruta** | Todos os $\binom{N}{2}$ pares | $O(N^2)$ |

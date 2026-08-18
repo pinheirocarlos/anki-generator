@@ -23,6 +23,12 @@ Como o **Algoritmo de Euclides Estendido** calcula o **Inverso Modular** $a^{-1}
 - **Pequeno Teorema de Fermat** (caso $m$ seja primo): $a^{-1} \equiv a^{m-2} \pmod m$, calculado em $O(\log m)$ via exponenciação binária.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/sieve-of-eratosthenes-primes-grid-loop.webm">
+    <p>Visualização: Eliminação progressiva de múltiplos de primos marcando compostos na grade numérica contígua.</p>
+  </video>
+</div>
+
 | Método de Inverso Modular | Condição para Módulo $m$ | Complexidade |
 |---|---|---|
 | **Pequeno Teorema de Fermat** | $m$ deve ser **Primo** ($a^{m-2}$) | $O(\log m)$ |

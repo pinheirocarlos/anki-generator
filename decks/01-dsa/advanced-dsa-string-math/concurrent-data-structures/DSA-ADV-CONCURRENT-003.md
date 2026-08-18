@@ -21,6 +21,12 @@ O que é o **Problema ABA** em estruturas lock-free baseadas em CAS e como **Tag
 - **Mitigação com Tagged Pointers / Versionamento**: Acopla um contador de versão (ou timestamp) ao ponteiro: $(A, v_1) \to (B, v_2) \to (A, v_3)$. Como $v_1 \neq v_3$, o CAS falha com segurança (ex: `AtomicStampedReference` no Java).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/treiber-stack-lockfree-push-pop-loop.webm">
+    <p>Visualização: Atualização atômica do ponteiro da cabeça via CAS repetindo a operação em caso de colisão entre threads.</p>
+  </video>
+</div>
+
 | Tipo de Referência | Transição de Estados | Resultado do CAS |
 |---|---|---|
 | **Ponteiro Puro (Sem Versão)** | $A \to B \to A$ | CAS tem **sucesso falso** (Corrompe memória) |

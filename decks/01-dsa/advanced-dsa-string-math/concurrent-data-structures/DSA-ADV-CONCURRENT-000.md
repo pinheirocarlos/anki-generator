@@ -21,6 +21,12 @@ Como funciona a instrução atômica de hardware **Compare-And-Swap (CAS)** e co
 - **Loop Lock-Free**: Uma thread lê o estado atual, computa o novo estado e tenta gravar via CAS em um laço: `while (!CAS(ptr, old, new))`. Se falhar, relê o estado e tenta novamente sem jamais bloquear o sistema operacional.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lock-free-cas-loop.webm">
+    <p>Visualização: Substituição de travas com mutex por laços otimistas de Compare-And-Swap (CAS) eliminando context switches.</p>
+  </video>
+</div>
+
 | Mecanismo de Sincronização | Impacto de Contenção | Risco de Deadlock |
 |---|---|---|
 | **Mutex / Lock Tradicional** | Thread suspensa pelo SO (Context Switch) | Alto |

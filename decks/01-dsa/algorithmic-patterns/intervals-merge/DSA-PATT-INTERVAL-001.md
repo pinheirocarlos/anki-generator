@@ -22,6 +22,12 @@ Como utilizar um **Min-Heap de horários de término** para encontrar o número 
 - O tamanho máximo do heap representa o **número mínimo de salas simultâneas necessárias**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/insert-interval-three-phases-loop.webm">
+    <p>Visualização: Inserção ordenada: 1) anteriores sem sobreposição; 2) fusão com sobrepostos; 3) posteriores restantes.</p>
+  </video>
+</div>
+
 | Evento | Condição do Heap | Ação de Sala |
 |---|---|---|
 | **Reunião Inicia** | `minHeap.peek() <= start` | Reutiliza sala existente (`poll` + `offer`) |

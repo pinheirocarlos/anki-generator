@@ -23,6 +23,12 @@ Como modelar as classes, enums e regras de alocação de vagas para um Estaciona
 - **Estratégia de Vagas**: Utiliza uma interface `ParkingStrategy` (ex: `NearestToEntranceStrategy`) para desacoplar a lógica de busca.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/lld-parking-lot-class-diagram-polymorphism-loop.webm">
+    <p>Visualização: Modelagem orientada a objetos de estacionamento com hierarquia de vagas, estratégia de alocação e cálculo de tarifas.</p>
+  </video>
+</div>
+
 | Classe | Responsabilidade Central | Relacionamentos |
 |---|---|---|
 | **`ParkingLot`** | Ponto de entrada, emite tickets e calcula tarifas | Contém múltiplos `ParkingFloor` |

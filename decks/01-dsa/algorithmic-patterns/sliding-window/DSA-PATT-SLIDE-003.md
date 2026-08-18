@@ -20,6 +20,12 @@ Como funciona uma **Sliding Window Dinâmica/Variável** onde o tamanho da janel
   3. **Registro**: Atualiza a métrica ótima (tamanho máximo ou mínimo da janela).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dynamic-sliding-window-shrink-loop.webm">
+    <p>Visualização: Ajuste elástico da janela mantendo a invariante válida do problema com custo total 2N -> O(N).</p>
+  </video>
+</div>
+
 | Ação de Janela Dinâmica | Movimento de Ponteiro | Disparo de Ação |
 |---|---|---|
 | **Expandir Janela** | `right++` | A cada passo do laço externo |

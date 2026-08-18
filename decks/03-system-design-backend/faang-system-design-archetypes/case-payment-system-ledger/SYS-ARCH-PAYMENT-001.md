@@ -23,6 +23,12 @@ Como gateways de pagamento garantem que nenhuma cobrança seja duplicada sob fal
   - Um pipeline batch (Spark/EMR) executa um *Outer Join* entre os registros do Ledger interno e o arquivo do adquirente para verificar se $100\%$ das transações batem em centavos, sinalizando divergências para auditoria humana.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/payment-gateway-idempotency-reconciliation-loop.webm">
+    <p>Visualização: Tabela de idempotência atômica interceptando retentativas e reconciliação noturna comparando extratos de adquirentes.</p>
+  </video>
+</div>
+
 | Mecanismo de Segurança | Momento de Atuação | Objetivo |
 |---|---|---|
 | **Idempotency Keys** | Tempo Real (No ato do pagamento) | Impede cobrança dupla por retries de rede |

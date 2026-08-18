@@ -23,6 +23,12 @@ Como o **Handshake do TLS 1.3** reduziu a latência de estabelecimento seguro pa
 - **0-RTT Resumption (Early Data)**: Clientes que já visitaram o site anteriormente utilizam um *Pre-Shared Key (PSK)* para enviar dados criptografados na primeira mensagem, com **zero RTT** de espera.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/tls-13-handshake-keyshare-loop.webm">
+    <p>Visualização: Handshake TLS 1.3 de 1-RTT enviando parâmetros Diffie-Hellman na primeira mensagem.</p>
+  </video>
+</div>
+
 | Versão TLS | RTTs de Handshake | Algoritmos Criptográficos Legados (RSA Key Exch, CBC, MD5) |
 |---|---|---|
 | **TLS 1.2** | 2 RTTs | Suportados (Vulnerabilidades conhecidas) |

@@ -23,6 +23,12 @@ Como o **Algoritmo de Manacher** calcula o maior raio palíndromo centrado em ca
 - **Complexidade**: $O(N)$ linear estrito, pois a borda direita $R$ avança monotonicamente.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/manachers-palindrome-radius-loop.webm">
+    <p>Visualização: Inserção de delimitadores e reaproveitamento do raio de simetria do centro mais à direita expandindo em O(N).</p>
+  </video>
+</div>
+
 | Algoritmo de Palíndromos | Complexidade de Tempo | Tratamento de Tamanho Par/Ímpar |
 |---|---|---|
 | **Expand Around Center** | $O(N^2)$ | Exige 2 loops separados ($2N-1$ centros) |

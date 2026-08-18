@@ -23,6 +23,12 @@ Qual é a diferença operacional entre o padrão Cache-Aside (Lazy Loading) e o 
   - Garante consistência imediata entre cache e storage, com custo de maior latência de escrita.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/cache-aside-vs-write-through-loop.webm">
+    <p>Visualização: Cache-Aside lê sob demanda da cache com lazy loading vs Write-Through atualizando cache e banco de dados de forma síncrona.</p>
+  </video>
+</div>
+
 | Padrão de Cache | Responsável pela Integração | Comportamento na Escrita |
 |---|---|---|
 | **Cache-Aside** | Código da Aplicação | Grava no DB e deleta chave no cache |

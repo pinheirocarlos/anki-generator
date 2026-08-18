@@ -20,6 +20,12 @@ O que é o padrão **Sliding Window (Janela Deslizante)** e como ele reduz a com
 - Como cada elemento entra e sai da janela exatamente uma única vez, o custo total é **$O(N)$ linear** com $O(1)$ por passo.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/sliding-window-loop.webm">
+    <p>Visualização: Janela deslizante de tamanho K adicionando elemento à direita e removendo à esquerda com atualização delta O(1).</p>
+  </video>
+</div>
+
 | Abordagem | Cálculo por Deslizamento | Complexidade Total |
 |---|---|---|
 | **Força Bruta** | Recalcula todos os $K$ itens | $O(N \cdot K)$ ou $O(N^2)$ |

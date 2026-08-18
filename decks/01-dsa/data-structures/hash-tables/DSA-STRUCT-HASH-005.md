@@ -21,6 +21,12 @@ Como estruturar a implementação completa de um **LRU Cache (Least Recently Use
 - **Fluxo de `put(key, value)`**: Se já existe, atualiza o valor e move para `head`. Se for novo e atingir `capacity`, remove `tail.prev` da lista e apaga sua entrada do mapa; em seguida insere o novo nó em `head`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lru-cache-get-put-evict-loop.webm">
+    <p>Visualização: Remoção do nó menos recentemente usado (LRU) na cauda e movimentação para a cabeça no acesso em O(1).</p>
+  </video>
+</div>
+
 | Operação LRU | Composição (Mapa + Lista) | Complexidade |
 |---|---|---|
 | **`get(key)`** | Busca no Mapa + Move para `head` | $O(1)$ |

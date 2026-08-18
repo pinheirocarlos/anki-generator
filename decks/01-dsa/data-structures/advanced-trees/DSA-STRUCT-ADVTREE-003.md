@@ -20,6 +20,12 @@ Como a **Fenwick Tree (Binary Indexed Tree - BIT)** utiliza a operação bitwise
 - **Vantagem sobre Segment Tree**: Consome apenas **$1N$** de espaço (contra $4N$) e seu código possui menos de 10 linhas.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/fenwick-tree-lsb-jumps-loop.webm">
+    <p>Visualização: Navegação por saltos de índices usando isolamento do bit menos significativo i & (-i).</p>
+  </video>
+</div>
+
 | Operação em Fenwick | Operação Bitwise de Passo | Complexidade |
 |---|---|---|
 | **`query(i)` (Prefixo)** | `i -= i & (-i)` (Remove LSB) | $O(\log N)$ |

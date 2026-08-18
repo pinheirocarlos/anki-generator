@@ -21,6 +21,12 @@ Como modelar uma **Matriz 2D como um Grafo Implícito** para contar componentes 
 - **Complexidade**: $O(M \times N)$ tempo e $O(M \times N)$ espaço no pior caso de pilha de recursão.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/flood-fill-connected-components-grid-loop.webm">
+    <p>Visualização: Propagação em matriz 2D em 4 direções marcando células conectadas para contagem de componentes.</p>
+  </video>
+</div>
+
 | Elemento de Matriz | Equivalente em Teoria dos Grafos |
 |---|---|
 | **Célula `(r, c)`** | Vértice $V$ |

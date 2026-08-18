@@ -18,6 +18,12 @@ Quais são as desvantagens de consumo de memória e localidade de cache de lista
 - **Cache Misses Críticos**: Como os nós são alocados em momentos distintos, eles ficam espalhados pelo Heap; percorrer a lista gera um salto aleatório de memória por nó, inutilizando o pré-fetcher de hardware da CPU.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/linked-list-cache-miss-loop.webm">
+    <p>Visualização: Dispersão espacial de nós na memória heap gerando saltos e cache misses sucessivos na CPU.</p>
+  </video>
+</div>
+
 | Característica | Lista Encadeada | Array Contíguo |
 |---|---|---|
 | **Overhead por Elemento** | 8–16 bytes (ponteiros) | 0 bytes extras |

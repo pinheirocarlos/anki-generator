@@ -21,6 +21,12 @@ Como a operação **`find`** localiza a raiz canônica de um elemento em um DSU 
   - Retorna esse nó raiz representativo.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dsu-find-representative-loop.webm">
+    <p>Visualização: Travessia recursiva de ponteiros parent[x] localizando o líder do componente conexo.</p>
+  </video>
+</div>
+
 | Estado de Nó | Condição no Array | Papel Estrutural |
 |---|---|---|
 | **Nó Raiz (Líder)** | `parent[i] == i` | Representante oficial do grupo |

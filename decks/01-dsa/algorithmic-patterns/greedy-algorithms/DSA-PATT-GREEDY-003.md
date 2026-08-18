@@ -18,6 +18,12 @@ Por que a estratégia gulosa por **densidade de valor ($V/W$)** funciona perfeit
 - **0/1 Knapsack (Mochila Discreta)**: Como os itens são indivisíveis (0 ou 1), pegar um item de alta densidade pode deixar um espaço residual vazio que não cabe mais nenhum outro item valioso, gerando desperdício e tornando a escolha gulosa subótima (exige DP).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/jump-game-max-reachable-index-loop.webm">
+    <p>Visualização: Atualização contínua do índice máximo alcançável maxReach = max(maxReach, i + nums[i]) em tempo linear O(N).</p>
+  </video>
+</div>
+
 | Variante da Mochila | Divisibilidade dos Itens | Algoritmo Ótimo |
 |---|---|---|
 | **Fracionária (Fractional)** | Permite frações de itens | **Greedy** ($O(N \log N)$ por $V/W$) |

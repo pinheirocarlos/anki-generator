@@ -24,6 +24,12 @@ Quais são as diferenças fundamentais de filosofia de design entre arquiteturas
   - 31 registradores de propósito geral (`X0` a `X30`).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-registers-pc-sp-flags-loop.webm">
+    <p>Visualização: Manipulação de registradores de estado: Program Counter (PC), Stack Pointer (SP) e Flags aritméticas (ZF, CF, OF).</p>
+  </video>
+</div>
+
 | Característica | x86-64 (Intel / AMD) | ARM64 / AArch64 (Graviton / Apple) |
 |---|---|---|
 | **Filosofia ISA** | CISC (Complexo) | RISC (Reduzido / Load-Store) |

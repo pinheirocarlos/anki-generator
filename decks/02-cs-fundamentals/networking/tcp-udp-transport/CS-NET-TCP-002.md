@@ -21,6 +21,12 @@ Como funciona o **Three-Way Handshake (SYN, SYN-ACK, ACK)** do TCP e por que sã
 - 3 etapas são o mínimo matemático necessário para que ambos os nós confirmem que os canais de envio e recepção estão 100% operacionais nos dois sentidos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/tcp-handshake-loop.webm">
+    <p>Visualização: O handshake de 3 vias sincroniza números de sequência iniciais (ISN) entre cliente e servidor.</p>
+  </video>
+</div>
+
 | Etapa do Handshake | Origem $\to$ Destino | Flags e Números de Sequência |
 |---|---|---|
 | **1. SYN** | Cliente $\to$ Servidor | `SYN=1`, `seq=X` |

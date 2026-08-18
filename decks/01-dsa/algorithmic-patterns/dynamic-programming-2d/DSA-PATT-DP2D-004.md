@@ -21,6 +21,12 @@ Como o algoritmo de **Edit Distance (Distância de Levenshtein)** computa o núm
 - **Complexidade**: $O(M \times N)$ tempo e $O(M \times N)$ espaço (ou $O(N)$ comprimido).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/unique-paths-grid-accumulation-loop.webm">
+    <p>Visualização: Propagação de caminhos acumulando o número de rotas vindas de cima e da esquerda: dp[i][j] = dp[i-1][j] + dp[i][j-1].</p>
+  </video>
+</div>
+
 | Operação de Edição | Posição na Matriz DP | Racional |
 |---|---|---|
 | **Substituição** | Diagonal $DP[i-1][j-1]$ | Troca o caractere correspondente |

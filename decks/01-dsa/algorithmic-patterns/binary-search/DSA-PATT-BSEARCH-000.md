@@ -22,6 +22,12 @@ Como a **Busca Binária (Binary Search)** divide o espaço de busca pela metade 
 - **Complexidade**: $O(\log N)$ tempo e $O(1)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/binary-search-bisect-loop.webm">
+    <p>Visualização: Cálculo do ponto médio M = L + (R-L)/2 e descarte imediato da metade do espaço de busca a cada iteração.</p>
+  </video>
+</div>
+
 | Fórmula de Cálculo de Mid | Risco de Overflow | Segurança em 32-bit |
 |---|---|---|
 | `(left + right) / 2` | Alto se soma $> 2^{31}-1$ | Inseguro (bug histórico do Java) |

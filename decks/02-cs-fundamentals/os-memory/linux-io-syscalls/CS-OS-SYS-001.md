@@ -24,6 +24,12 @@ O que é **Direct I/O (`O_DIRECT`)** e por que bancos de dados relacionais trans
   - O banco de dados assume o controle total dos algoritmos de substituição de cache (LRU/Clock) e da ordem de gravação no WAL (*Write-Ahead Log*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/buffered-vs-direct-io-pagecache-loop.webm">
+    <p>Visualização: Acesso mediado pelo Page Cache na RAM vs I/O direto via O_DIRECT sem duplicação de buffers.</p>
+  </video>
+</div>
+
 | Modo de I/O | Passa pelo Page Cache do SO? | Risco de Duplicação de Memória |
 |---|---|---|
 | **Buffered I/O** | Sim (Retém em cache na RAM do kernel) | Sim (*Double Buffering* consome o dobro de RAM) |

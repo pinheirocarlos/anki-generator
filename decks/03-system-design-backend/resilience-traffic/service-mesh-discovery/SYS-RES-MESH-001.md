@@ -24,6 +24,12 @@ Como o Mutual TLS (mTLS) garante autenticação criptográfica bidirecional e au
   3. Viabiliza **Políticas de Autorização Estritas baseadas em Identidade** (ex: o serviço `Cart` só pode se comunicar com `Inventory` se apresentar certificado legítimo emitido para sua Service Account).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/zero-trust-mutual-tls-mtls-handshake-loop.webm">
+    <p>Visualização: Criptografia mTLS de ponta a ponta com certificados X.509 validados bilateralmente entre microsserviços.</p>
+  </video>
+</div>
+
 | Tipo de TLS | Quem Apresenta Certificado | Nível de Segurança |
 |---|---|---|
 | **TLS Convencional** | Apenas o Servidor | Cliente sabe com quem fala; servidor não valida cliente |

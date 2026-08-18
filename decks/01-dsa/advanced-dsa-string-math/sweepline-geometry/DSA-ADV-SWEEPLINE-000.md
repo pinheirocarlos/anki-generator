@@ -21,6 +21,12 @@ O que é o paradigma de **Linha de Varredura (Sweep-Line)** e como ele converte 
 - **Complexidade**: Reduz problemas $O(N^2)$ para $O(N \log N)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/sweepline-events-loop.webm">
+    <p>Visualização: Linha imaginária varrendo o plano bidimensional processando eventos em ordem cronológica de coordenadas X.</p>
+  </video>
+</div>
+
 | Componente de Sweep-Line | Estrutura de Dados | Papel no Algoritmo |
 |---|---|---|
 | **Fila de Eventos** | Array Ordenado / Min-Heap ($X$) | Determina a ordem cronológica da varredura |

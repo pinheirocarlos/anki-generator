@@ -19,6 +19,12 @@ O que define um **Grafo Direcionado Acíclico (DAG)** e como a **Ordenação Top
 - **Aplicações**: Resolução de ordem de compilação de pacotes (npm/Go modules), pipelines de CI/CD, escalonamento de queries em bancos de dados distribuídos e DAGs de orquestração (Apache Airflow / Spark).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/dag-topological-ordering-proof-loop.webm">
+    <p>Visualização: Existência de ao menos um nó com in-degree 0 em todo DAG permitindo linearização causal das tarefas.</p>
+  </video>
+</div>
+
 | Estrutura de Grafo | Possui Ciclo? | Suporta Ordenação Topológica? |
 |---|---|---|
 | **DAG (Válido)** | Não | Sim (Ao menos 1 ordem linear válida) |

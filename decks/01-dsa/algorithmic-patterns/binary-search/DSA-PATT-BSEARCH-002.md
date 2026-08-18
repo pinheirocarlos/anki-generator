@@ -19,6 +19,12 @@ Qual é a diferença conceitual e de invariante entre **Lower Bound** (primeira 
 - A contagem de elementos iguais ao alvo é dada por: $\text{count} = \text{upperBound} - \text{lowerBound}$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bisect-left-right-insertion-loop.webm">
+    <p>Visualização: Localização da primeira ocorrência (Bisect Left) vs última ocorrência (Bisect Right) em arrays com duplicatas.</p>
+  </video>
+</div>
+
 | Algoritmo | Condição de Encolhimento para a Esquerda | Retorno Típico |
 |---|---|---|
 | **Lower Bound** | `arr[mid] >= target` | Primeiro índice com valor $\ge \text{target}$ |

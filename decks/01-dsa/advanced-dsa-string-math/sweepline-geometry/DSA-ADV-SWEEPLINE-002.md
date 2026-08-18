@@ -25,6 +25,12 @@ Como a técnica de **Sweep-Line com TreeMap de contagem de alturas** resolve **T
 - **Complexidade**: $O(N \log N)$ tempo e $O(N)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/shamos-hoey-sweep-line-tree-loop.webm">
+    <p>Visualização: Manutenção de árvore BST balanceada dos segmentos ativos testando apenas vizinhos adjacentes na linha de varredura.</p>
+  </video>
+</div>
+
 | Evento de Edifício | Modificação no TreeMap | Condição de Ponto no Skyline |
 |---|---|---|
 | **Início em $L$ ($+H$)** | Incrementa contagem de $H$ | $\text{maxH atual} \neq \text{maxH anterior}$ |

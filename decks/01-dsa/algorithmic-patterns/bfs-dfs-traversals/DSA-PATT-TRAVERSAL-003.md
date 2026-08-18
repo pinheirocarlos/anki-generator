@@ -19,6 +19,12 @@ Quais os trade-offs de consumo de memória entre BFS ($O(W)$ largura máxima) e 
 - Em grafos muito largos e rasos, DFS consome muito menos memória; em grafos profundos e estreitos, a BFS é mais estável contra StackOverflow.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dfs-tri-color-cycle-detection-loop.webm">
+    <p>Visualização: Marcação tri-color (Branco=Não visitado, Cinza=Na pilha de recursão, Preto=Concluído) detectando back-edges.</p>
+  </video>
+</div>
+
 | Formato da Árvore | Consumo de Memória (BFS vs DFS) | Escolha Ideal |
 |---|---|---|
 | **Balanceada** | BFS: $O(N)$ / DFS: $O(log N)$ | DFS economiza RAM |

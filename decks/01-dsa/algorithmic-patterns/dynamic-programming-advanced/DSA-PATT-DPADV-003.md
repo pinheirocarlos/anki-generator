@@ -22,6 +22,12 @@ Como a técnica de **Digit DP** conta números em um intervalo $[A, B]$ que sati
 - **Complexidade**: $O(\text{len}(\text{dígitos}) \times \text{estados})$, executando em menos de 1ms para números até $10^{18}$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/tree-dp-post-order-subtree-loop.webm">
+    <p>Visualização: Agregação de respostas parciais de subárvores no retorno pós-ordem da travessia DFS.</p>
+  </video>
+</div>
+
 | Parâmetro de Digit DP | Papel no Algoritmo | Efeito na Ramificação |
 |---|---|---|
 | `isLimit == true` | Prefixo coincide com $N$ | Dígito limitado a $[0, N[i]]$ |

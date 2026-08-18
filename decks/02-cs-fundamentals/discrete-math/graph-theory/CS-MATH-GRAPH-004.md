@@ -25,6 +25,12 @@ O que é uma **Relação de Equivalência** e como a estrutura **Disjoint Set Un
 - **Complexidade**: Amortizado **$O(\alpha(N))$ por operação** (onde $\alpha$ é a Função de Ackermann Inversa, $\alpha(N) < 5$ para qualquer $N$ no universo observável).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/equivalence-relation-dsu-partition-loop.webm">
+    <p>Visualização: Particionamento do conjunto em classes de equivalência disjuntas mantidas com árvores de apontadores.</p>
+  </video>
+</div>
+
 | Operação DSU | Sem Otimização | Com Path Compression & Union-by-Rank |
 |---|---|---|
 | **`Find(u)`** | $O(N)$ (Árvore degenerada em lista) | $O(\alpha(N)) \approx O(1)$ Quase constante |

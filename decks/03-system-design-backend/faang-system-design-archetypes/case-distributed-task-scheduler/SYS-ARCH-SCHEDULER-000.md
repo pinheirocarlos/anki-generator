@@ -22,6 +22,12 @@ Como agendadores de tarefas distribuídos escalam a execução de milhões de ti
   4. As tarefas prontas são movidas imediatamente para a fila de execução ativa (Kafka / RabbitMQ / SQS) para despacho aos workers.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/distributed-task-scheduler-delay-queue-redis-zset-loop.webm">
+    <p>Visualização: Agendador distribuído usando Redis Sorted Sets com score de timestamp para puxar tarefas prontas com baixa latência.</p>
+  </video>
+</div>
+
 | Componente do Agendador | Estrutura | Responsabilidade |
 |---|---|---|
 | **Timer Registry** | Redis ZSet / RocksDB ordenado | Mantém tarefas ordenadas por timestamp de disparo |

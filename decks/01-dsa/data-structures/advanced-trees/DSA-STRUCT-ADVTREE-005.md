@@ -23,6 +23,12 @@ Como a estrutura **Treap (Cartesian Tree)** combina as propriedades de BST e Hea
 - Como as prioridades são aleatórias, a árvore é equivalente a uma BST construída por inserção em ordem aleatória, garantindo altura esperada $O(\log N)$ com alta probabilidade.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/treap-heap-priority-rotation-loop.webm">
+    <p>Visualização: Manutenção de BST nas chaves e Max-Heap nas prioridades aleatórias com rotações locais O(1).</p>
+  </video>
+</div>
+
 | Dimensão do Nó | Invariante Satisfeita | Função na Estrutura |
 |---|---|---|
 | **`key` (Chave)** | BST ($	ext{left} < 	ext{key} < 	ext{right}$) | Busca de elementos ordenada |

@@ -21,6 +21,12 @@ O que são **Goroutines / Green Threads (Threads de Userspace)** e por que elas 
 - Permite que um único servidor execute **centenas de milhares de Goroutines simultâneas** consumindo poucos gigabytes de RAM.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/goroutines-m-to-n-scheduler-loop.webm">
+    <p>Visualização: Goroutines leves (2KB) escalonadas em User Space vs Threads do Kernel (1-2MB) com sobrecarga de syscall.</p>
+  </video>
+</div>
+
 | Característica | OS Kernel Thread | Goroutine (Go Runtime) |
 |---|---|---|
 | **Consumo Inicial de Stack** | ~1.048.576 bytes (1 MB fixo) | ~2.048 bytes (2 KB dinâmico) |

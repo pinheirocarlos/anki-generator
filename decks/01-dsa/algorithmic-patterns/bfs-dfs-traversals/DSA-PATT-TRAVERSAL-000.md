@@ -21,6 +21,12 @@ Por que a **Busca em Largura (BFS)** garante encontrar o **caminho mais curto em
 - Como a Fila FIFO processa estritamente todos os nós do nível $k$ antes de qualquer nó do nível $k+1$, a primeira vez que o nó alvo é desenfileirado corresponde **garantidamente ao menor número possível de passos**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bfs-wavefront-expansion-loop.webm">
+    <p>Visualização: Expansão da fronteira de busca nível por nível em anéis concêntricos usando fila FIFO.</p>
+  </video>
+</div>
+
 | Algoritmo | Estrutura de Dados | Ordem de Exploração |
 |---|---|---|
 | **BFS (Largura)** | Fila FIFO (`Queue`) | Camadas concêntricas de distância crescente |

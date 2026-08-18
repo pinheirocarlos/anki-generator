@@ -19,6 +19,12 @@ Como o controlador **DMA (Direct Memory Access)** transfere dados entre armazena
 - **Com DMA**: A CPU apenas programa o controlador DMA com o endereço de origem, destino e tamanho do bloco, liberando-se imediatamente para executar outros processos. Quando a transferência termina, o DMA emite uma **interrupção de hardware (IRQ)** avisando a CPU.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/dma-direct-memory-access-transfer-loop.webm">
+    <p>Visualização: Controlador DMA transferindo blocos entre periféricos e RAM liberando a CPU para outras tarefas.</p>
+  </video>
+</div>
+
 | Método de Transferência | Intervenção da CPU Durante a Transferência | Carga de CPU |
 |---|---|---|
 | **Programmed I/O (Sem DMA)** | CPU lê e grava cada byte individualmente em loop | 100% de uso de núcleo |

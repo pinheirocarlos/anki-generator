@@ -21,6 +21,12 @@ Como funciona a política de Log Compaction no Apache Kafka para manter apenas a
   - Permite utilizar tópicos Kafka como **tabelas de estado reconstruíveis (KTable)** para restauração instantânea de caches e bancos após crash.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/kafka-log-compaction-cleaner-head-tail-loop.webm">
+    <p>Visualização: Thread de Cleaner do Kafka mantendo apenas o último valor de cada chave no log compactado.</p>
+  </video>
+</div>
+
 | Estratégia de Retenção | Critério de Limpeza | Caso de Uso |
 |---|---|---|
 | **Time-based Retention** | Idade do registro ($> N$ dias) | Eventos temporais efêmeros (Logs, métricas) |

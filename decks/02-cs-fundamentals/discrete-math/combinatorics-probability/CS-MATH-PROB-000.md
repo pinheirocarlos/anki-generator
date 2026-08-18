@@ -21,6 +21,12 @@ Qual é a diferença matemática fundamental entre **Permutações** e **Combina
 - A divisão por $k!$ nas combinações cancela todas as permutações equivalentes do mesmo subconjunto.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/permutations-vs-combinations-tree-loop.webm">
+    <p>Visualização: A ordem importa nas permutações P(n,k) = n!/(n-k)! vs indiferença de ordem em combinações C(n,k).</p>
+  </video>
+</div>
+
 | Conceito | Importa a Ordem? | Exemplo com `{A,B,C}` ($k=2$) |
 |---|---|---|
 | **Permutação** | Sim | 6 pares: `AB, BA, AC, CA, BC, CB` |

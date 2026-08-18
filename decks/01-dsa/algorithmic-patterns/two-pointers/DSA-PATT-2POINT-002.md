@@ -22,6 +22,12 @@ Como o padrão **Fast & Slow Pointers (Algoritmo de Floyd / Tartaruga e Lebre)**
 - Se houver ciclo, a cada passo a distância relativa entre `fast` e `slow` dentro do ciclo diminui em 1 nó; portanto, `fast` inevitavelmente alcançará `slow` (`fast == slow`) dentro de no máximo uma volta no ciclo.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/floyd-cycle-detection-loop.webm">
+    <p>Visualização: Ponteiro rápido (2x) e lento (1x) reduzindo a distância relativa no ciclo a cada passo até o encontro.</p>
+  </video>
+</div>
+
 | Estado da Lista | Comportamento de `fast` | Diagnóstico |
 |---|---|---|
 | **Sem Ciclo** | Atinge `null` em $N/2$ passos | Lista linear terminada |

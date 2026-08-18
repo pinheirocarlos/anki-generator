@@ -19,6 +19,12 @@ Por que a estratégia gulosa de Dijkstra falha em encontrar o caminho correto qu
 - Para grafos com pesos negativos, deve-se utilizar o **Algoritmo de Bellman-Ford** ($O(V \cdot E)$).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dijkstra-negative-edge-failure-loop.webm">
+    <p>Visualização: A premissa gulosa de que a menor distância já finalizada é imutável quebra na presença de pesos negativos.</p>
+  </video>
+</div>
+
 | Algoritmo | Suporte a Pesos Negativos | Complexidade de Tempo |
 |---|---|---|
 | **Dijkstra** | Não (produz resultado errado) | $O((V + E) \log V)$ |

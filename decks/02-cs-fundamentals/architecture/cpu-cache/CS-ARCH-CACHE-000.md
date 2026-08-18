@@ -21,6 +21,12 @@ O que é a **hierarquia de memória da CPU (L1/L2/L3)** e por que ela existe na 
   - **L3 (Shared/LLC)**: ~16-64 MB compartilhado entre todos os núcleos, latência de ~10-15 ns (40-60 ciclos).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-cache-false-sharing-mesi-loop.webm">
+    <p>Visualização: Invalidação de linha de cache compartilhada entre cores distintos durante escritas simultâneas em variáveis vizinhas.</p>
+  </video>
+</div>
+
 | Nível de Memória | Tamanho Típico | Latência de Acesso |
 |---|---|---|
 | **Registradores** | ~1-2 KB | ~0.3 ns (1 ciclo) |

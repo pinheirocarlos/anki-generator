@@ -24,6 +24,12 @@ Como a regra do Prefixo Mais à Esquerda (*Leftmost Prefix Rule*) determina a ef
   - `WHERE B = 2` ou `WHERE C = 3` ou `WHERE B = 2 AND C = 3` (Não iniciam pelo prefixo $A$, exigindo *Full Table Scan* ou *Index Full Scan*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/sql-composite-index-leftmost-prefix-loop.webm">
+    <p>Visualização: Regra do Prefixo Mais à Esquerda navegando na B+Tree composta (A, B, C) apenas quando a coluna antecedente é filtrada.</p>
+  </video>
+</div>
+
 | Cláusula WHERE | Uso do Índice `(A, B, C)` | Tipo de Execução |
 |---|---|---|
 | `WHERE A = 1 AND B = 5` | Total para $A$ e $B$ | Index Range Scan |

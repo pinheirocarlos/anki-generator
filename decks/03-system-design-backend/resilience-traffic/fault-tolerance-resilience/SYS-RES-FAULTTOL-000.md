@@ -25,6 +25,12 @@ Como o padrão Circuit Breaker protege microsserviços contra falhas em cascata 
   - Se tiverem sucesso, o circuito volta para **Closed**; se falharem, retorna para **Open**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/circuit-breaker-state-transitions-closed-open-half-loop.webm">
+    <p>Visualização: Circuit Breaker interrompendo requisições instantaneamente (Open) após limite de erros para evitar sobrecarga em cascata.</p>
+  </video>
+</div>
+
 | Estado do Circuito | Comportamento das Chamadas | Próxima Transição |
 |---|---|---|
 | **Closed** | Executa chamadas normalmente na rede | Vira **Open** se taxa de erro $>$ limite |

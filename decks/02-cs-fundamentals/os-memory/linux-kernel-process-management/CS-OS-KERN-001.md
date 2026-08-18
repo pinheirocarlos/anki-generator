@@ -22,6 +22,12 @@ Como o escalonador **CFS (Completely Fair Scheduler)** do Linux prioriza tarefas
 - **OOM Killer**: Quando o sistema ou Cgroup atinge o limite de memória física e swap, o kernel calcula o `oom_score` (baseado em `% RAM usada + oom_score_adj`) e dispara `SIGKILL` no processo com maior pontuação.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/cfs-scheduler-vruntime-rbtree-loop.webm">
+    <p>Visualização: Seleção da tarefa com menor tempo virtual de execução (vruntime) na extrema esquerda da Red-Black Tree.</p>
+  </video>
+</div>
+
 | Mecanismo / Fenômeno | Estrutura no Kernel | Impacto Prático em Produção |
 |---|---|---|
 | **CFS Scheduler** | Red-Black Tree de `vruntime` | Balanceamento justo entre threads |

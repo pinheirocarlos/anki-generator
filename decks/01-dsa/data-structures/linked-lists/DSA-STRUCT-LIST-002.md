@@ -20,6 +20,12 @@ Por que a inserção e remoção no início de uma lista encadeada é **estritam
 - Essa operação manipula exatamente dois ponteiros em tempo constante $O(1)$, independentemente do tamanho $N$ da lista, sem precisar realocar ou deslocar nenhum outro elemento.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/linked-list-insert-delete-loop.webm">
+    <p>Visualização: Troca local de ponteiros prev e next em tempo O(1) sem deslocamento de elementos.</p>
+  </video>
+</div>
+
 | Operação | Lista Encadeada | Vetor Dinâmico |
 |---|---|---|
 | **Inserção no Início (`pushFront`)** | $O(1)$ Ponteiros | $O(N)$ Deslocamento em bloco |

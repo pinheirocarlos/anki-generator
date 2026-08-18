@@ -21,6 +21,12 @@ Como estruturar uma **Sliding Window de tamanho fixo $K$** para calcular a soma 
 - **Complexidade**: $O(N)$ tempo e $O(1)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/fixed-sliding-window-k-sum-loop.webm">
+    <p>Visualização: Janela de amplitude constante K avançando a cada iteração mantendo o acumulador máximo.</p>
+  </video>
+</div>
+
 | Passo de Janela Fixa | Operação Delta | Complexidade de Passo |
 |---|---|---|
 | **Entrada do elemento** | `soma += arr[right]` | $O(1)$ |

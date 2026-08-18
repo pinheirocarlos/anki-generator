@@ -24,6 +24,12 @@ Quais são os trade-offs práticos entre **Árvores AVL** e **Red-Black Trees** 
   - Escolhida para `std::map` (C++), `TreeMap` (Java) e o escalonador CFS do kernel Linux (*Workloads mistos*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/avl-vs-redblack-rotations-loop.webm">
+    <p>Visualização: AVL com balanceamento rígido (delta h <= 1) vs Red-Black com no máximo 3 rotações por inserção.</p>
+  </video>
+</div>
+
 | Critério | Árvore AVL | Red-Black Tree |
 |---|---|---|
 | **Foco de Performance** | Leituras ultra-rápidas | Inserções / Deleções rápidas |

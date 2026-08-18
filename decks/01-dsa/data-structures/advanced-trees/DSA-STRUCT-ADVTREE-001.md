@@ -22,6 +22,12 @@ Como o mecanismo de **Lazy Propagation (Propagação Preguiçosa)** permite atua
 - **Complexidade**: Reduz a atualização de intervalo de $O(N)$ para **$O(\log N)$**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/segment-tree-lazy-propagation-loop.webm">
+    <p>Visualização: Armazenamento do delta pendente no nó ancestral com propagação sob demanda aos filhos em O(log N).</p>
+  </video>
+</div>
+
 | Estratégia de Range Update | Visita de Nós | Complexidade de Tempo |
 |---|---|---|
 | **Sem Lazy Propagation** | Visita todas as folhas no range | $O(N)$ Ineficiente |

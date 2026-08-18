@@ -24,6 +24,12 @@ Como manter a consulta do elemento mínimo (`getMin`) em **tempo constante $O(1)
 - `getMin()` retorna `minStack.peek()` instantaneamente em $O(1)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/min-stack-tracking-loop.webm">
+    <p>Visualização: Pilha auxiliar rastreia o valor mínimo corrente empilhado sincronizadamente com a pilha principal.</p>
+  </video>
+</div>
+
 | Operação | Pilhas (`main` / `min`) | `getMin()` |
 |---|---|---|
 | `push(5)` | `[5]` / `[5]` | `5` |

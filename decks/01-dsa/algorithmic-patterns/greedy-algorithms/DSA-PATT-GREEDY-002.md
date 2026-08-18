@@ -23,6 +23,12 @@ Por que o problema de **Seleção de Atividades (Interval Scheduling)** exige or
 - **Complexidade**: $O(N \log N)$ tempo e $O(1)$ espaço auxiliar.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/huffman-coding-tree-merge-loop.webm">
+    <p>Visualização: Fusão repetida dos dois nós de menor frequência gerando códigos binários mais curtos para caracteres mais frequentes.</p>
+  </video>
+</div>
+
 | Critério de Ordenação Guloso | Resultado | Status de Otimização |
 |---|---|---|
 | **Ordenar por Início (`start`)** | Pode escolher tarefa longa que bloqueia tudo | Incorreto |

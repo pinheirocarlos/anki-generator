@@ -21,6 +21,12 @@ Qual é o papel dos **Registradores de Propósito Geral** e como a **Calling Con
   - **Callee-Saved (Non-Volatile)**: `RBX, RSP, RBP, R12-R15`. A função chamada deve salvar e restaurar seus valores intactos antes de retornar.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/von-neumann-vs-harvard-architecture-loop.webm">
+    <p>Visualização: Barramento compartilhado de dados e instruções (Von Neumann) vs barramentos independentes paralelos (Harvard).</p>
+  </video>
+</div>
+
 | Categoria de Registrador | Registradores Típicos (x86-64) | Responsabilidade de Preservação |
 |---|---|---|
 | **Passagem de Args (1-6)** | `RDI, RSI, RDX, RCX, R8, R9` | Caller fornece antes de `CALL` |

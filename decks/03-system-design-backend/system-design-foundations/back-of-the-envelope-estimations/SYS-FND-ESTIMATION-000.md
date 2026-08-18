@@ -23,6 +23,12 @@ Quais são os números de latência de hardware fundamentais de Jeff Dean que to
 - **RTT Transcontinental (EUA - Europa)**: ~150 ms.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/jeff-dean-latency-numbers-orders-of-magnitude-loop.webm">
+    <p>Visualização: Comparação visual de latências de hardware: L1 Cache (0.5ns), RAM (100ns), SSD (100µs), Network RTT (150ms).</p>
+  </video>
+</div>
+
 | Nível de Acesso | Latência Típica | Fator de Escala Relativo |
 |---|---|---|
 | **L1 / L2 Cache** | 0.5 - 4 ns | 1x (Fração de segundo) |

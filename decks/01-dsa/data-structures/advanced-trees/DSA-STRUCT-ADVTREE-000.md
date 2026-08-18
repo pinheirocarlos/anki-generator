@@ -21,6 +21,12 @@ Por que arrays de soma de prefixos (*Prefix Sums*) falham em atender cenários c
 - Estruturas como **Segment Tree** e **Fenwick Tree** equilibram ambos para **$O(\log N)$**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/prefix-sum-update-bottleneck-loop.webm">
+    <p>Visualização: Atualização pontual forçando recálculo de todo o vetor de prefixos em tempo O(N).</p>
+  </video>
+</div>
+
 | Estrutura de Dados | Range Query (Consulta) | Point Update (Atualização) |
 |---|---|---|
 | **Array Simples** | $O(N)$ Varredura | $O(1)$ Direto no índice |

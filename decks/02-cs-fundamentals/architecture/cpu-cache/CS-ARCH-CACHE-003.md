@@ -19,6 +19,12 @@ Como o mecanismo de **Hardware Prefetching** da CPU acelera leituras sequenciais
 - Isso oculta a latência de ~60ns da RAM, permitindo que a CPU processe arrays em velocidade próxima ao limite de largura de banda do barramento.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cache-set-associative-mapping-loop.webm">
+    <p>Visualização: Mapeamento de endereço de memória em Index, Tag e Offset com busca paralela em N vias do conjunto.</p>
+  </video>
+</div>
+
 | Padrão de Acesso | Comportamento do Prefetcher | Taxa de Cache Miss |
 |---|---|---|
 | **Linear Sequencial (`arr[i++]`)** | Antecipação com 100% de precisão | Próxima de 0% (quase nula) |

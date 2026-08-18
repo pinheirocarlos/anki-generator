@@ -22,6 +22,12 @@ Como o mecanismo de Fencing Tokens (proposto por Martin Kleppmann) protege stora
 - Se o Cliente A acordar após timeout com token antigo (31) e tentar gravar, o storage rejeita porque já aceitou uma gravação do Cliente B com token mais recente (32).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/fencing-tokens-monotonic-resource-protection-loop.webm">
+    <p>Visualização: Fencing Tokens monotonicamente crescentes rejeitando gravações de clientes antigos com tokens desatualizados.</p>
+  </video>
+</div>
+
 | Origem da Operação | Token Apresentado | Decisão do Storage |
 |---|---|---|
 | **Cliente 1** | Token = 31 | Aceito (Marca maior token = 31) |

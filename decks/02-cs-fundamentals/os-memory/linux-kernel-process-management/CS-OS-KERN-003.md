@@ -22,6 +22,12 @@ Qual é a diferença entre os sinais **SIGTERM (15)** e **SIGKILL (9)** e como i
   - **Não pode ser capturado, bloqueado ou ignorado**: o processo é destruído instantaneamente no mesmo ciclo de clock, podendo corromper arquivos ou transações não persistidas.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/unix-signals-sigterm-vs-sigkill-loop.webm">
+    <p>Visualização: Sinal interceptável para limpeza graciosa (SIGTERM 15) vs terminação forçada e incondicional no Kernel (SIGKILL 9).</p>
+  </video>
+</div>
+
 | Sinal Unix | Pode ser Capturado pelo App? | Ação Realizada pelo Processo |
 |---|---|---|
 | **SIGTERM (15)** | **Sim** | Fecha conexões, salva estado e encerra com calma |

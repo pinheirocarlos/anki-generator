@@ -19,6 +19,12 @@ Como os padrões Fan-Out e Fan-In aceleram tarefas computacionalmente intensivas
 - **Benefício**: Permite paralelizar etapas demoradas de uma esteira (*Pipeline*) mantendo a sincronização limpa e livre de deadlocks.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/concurrency-fan-out-fan-in-multiplexing-loop.webm">
+    <p>Visualização: Fan-Out disparando múltiplos workers independentes e Fan-In agregando resultados em um canal único com sync.WaitGroup.</p>
+  </video>
+</div>
+
 | Etapa do Fluxo | Ação Estrutural | Cardinalidade de Canais |
 |---|---|---|
 | **Fan-Out** | Distribuição de carga em múltiplos workers | 1 Canal de Entrada $\rightarrow N$ Workers |

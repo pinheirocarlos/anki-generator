@@ -20,6 +20,12 @@ Qual é o framework padrão em 4 etapas utilizado para estruturar uma entrevista
 - **Etapa 4: Deep Dives e Gargalos (15-20 min)**: Tratar falhas parciais, estratégias de particionamento, replicação, concorrência e monitoramento.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/system-design-interview-4-step-framework-loop.webm">
+    <p>Visualização: Framework em 4 etapas: 1. Escopo e Requisitos, 2. Arquitetura em Alto Nível, 3. Deep Dive, 4. Gargalos e Escala.</p>
+  </video>
+</div>
+
 | Etapa do Framework | Duração Sugerida | Objetivo Central |
 |---|---|---|
 | **1. Requisitos & Escopo** | 5 min | Eliminar ambiguidades e definir metas |

@@ -21,6 +21,12 @@ Como a arquitetura de Service Mesh divide responsabilidades entre o Data Plane (
   - Servidor central que traduz configurações declarativas de alto nível (ex: regras de roteamento de tráfego, canary releases) e as distribui dinamicamente para os proxies Envoy via APIs xDS.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/service-mesh-istio-control-plane-envoy-sidecar-loop.webm">
+    <p>Visualização: Proxies Envoy Sidecar interceptando todo tráfego leste-oeste coordenados pelas políticas do Control Plane Istiod.</p>
+  </video>
+</div>
+
 | Plano do Service Mesh | Componente Típico | Responsabilidade Primária |
 |---|---|---|
 | **Data Plane** | Envoy Proxy (Sidecar) | Encaminha bytes de rede, aplica mTLS e métricas |

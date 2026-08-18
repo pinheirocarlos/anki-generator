@@ -22,6 +22,12 @@ Como a esteira de agregação offline e o particionamento de Trie em servidores 
   - **Particionamento por Consistent Hashing**: Hasheia o prefixo para balancear uniformemente letras com frequências desiguais (ex: 'e' tem muito mais termos que 'x').
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/typeahead-offline-aggregation-trie-sharding-loop.webm">
+    <p>Visualização: Esteira MapReduce calculando frequências de busca offline e particionando a Trie por prefixos em clusters distribuídos.</p>
+  </video>
+</div>
+
 | Camada | Função | Tecnologia |
 |---|---|---|
 | **Tempo Real (Leitura)** | Responde sugestões em < 10ms a partir de Tries em RAM | Cluster C++ / Go com Trie em memória |

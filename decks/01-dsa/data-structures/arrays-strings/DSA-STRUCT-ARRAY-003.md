@@ -19,6 +19,12 @@ Como a **localidade espacial de cache da CPU** beneficia arrays contíguos em co
 - Em listas encadeadas, cada nó é alocado individualmente no Heap em posições esparsas de memória, provocando frequentes **Cache Misses** e forçando acessos lentos à RAM (~50–100ns).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/cpu-cache-locality-spatial-loop.webm">
+    <p>Visualização: Carregamento de linha de cache de 64 bytes com múltiplos elementos adjacentes eliminando cache misses.</p>
+  </video>
+</div>
+
 | Estrutura | Disposição em Memória | Padrão de Cache L1/L2 |
 |---|---|---|
 | **Array Contíguo** | Bloco contínuo único | Cache Hits sequenciais (~1ns) |

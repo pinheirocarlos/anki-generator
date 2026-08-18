@@ -21,6 +21,12 @@ Como implementar um **Bitset / Bit Array** compacto de alta performance e realiz
 - **Operações Vetoriais**: Operações de conjunto (União com `|`, Interseção com `&`) processam **64 booleanos por ciclo de clock da ALU**, alcançando velocidade $64\times$ maior que loops iterativos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/bitset-dense-array-indexing-loop.webm">
+    <p>Visualização: Indexação de booleanos comprimidos usando array[i / 64] & (1ULL << (i % 64)) com 8x menos memória.</p>
+  </video>
+</div>
+
 | Estrutura de Booleans | Memória por 1.000.000 Bools | Custo de Interseção (AND) |
 |---|---|---|
 | **Array de Bools (`[]bool`)** | ~1.000.000 bytes (1 MB) | 1.000.000 iterações escalares |

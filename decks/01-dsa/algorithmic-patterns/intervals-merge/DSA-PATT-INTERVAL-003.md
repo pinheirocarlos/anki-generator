@@ -22,6 +22,12 @@ Como inserir um novo intervalo em uma lista de intervalos disjuntos já ordenada
 - **Complexidade**: $O(N)$ tempo e $O(N)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/meeting-rooms-min-heap-allocation-loop.webm">
+    <p>Visualização: Min-Heap rastreia horários de término das reuniões em andamento alocando nova sala quando houver colisão.</p>
+  </video>
+</div>
+
 | Fase do Algoritmo | Critério de Processamento | Ação |
 |---|---|---|
 | **Fase 1 (Antes)** | `interval.end < new.start` | Adiciona direto |

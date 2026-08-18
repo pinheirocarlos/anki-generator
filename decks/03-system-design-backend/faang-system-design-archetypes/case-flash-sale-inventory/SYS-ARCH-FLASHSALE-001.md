@@ -23,6 +23,12 @@ Como salas de espera virtuais (Virtual Waiting Room) e expiração automática d
   - O sistema agenda uma mensagem atrasada (*Delayed Message* no SQS/Kafka). Se a confirmação de pagamento não chegar aos 10 minutos, o worker cancela a reserva e **devolve o estoque ao Redis automaticamente**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/virtual-waiting-room-token-bucket-reservation-ttl-loop.webm">
+    <p>Visualização: Sala de espera virtual liberando tokens de compra gradualmente e devolvendo estoque não pago após expiração do TTL.</p>
+  </video>
+</div>
+
 | Componente | Papel Arquitetural | Proteção do Sistema |
 |---|---|---|
 | **Virtual Waiting Room** | Retém usuários na borda via fila justa | Impede sobrecarga de CPU/Rede no backend |

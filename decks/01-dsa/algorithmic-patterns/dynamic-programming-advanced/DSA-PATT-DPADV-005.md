@@ -22,6 +22,12 @@ Como a técnica de **Profile DP (Broken Profile)** modela o preenchimento exato 
 - **Complexidade**: $O(M \cdot N \cdot 2^M)$, permitindo preenchimento de grades com $M \le 12$ e $N$ grande em tempo submilisegundo.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dp-divide-conquer-quadrangle-loop.webm">
+    <p>Visualização: Monotonicidade dos pontos de divisão ótima opt[i][j] reduzindo complexidade de O(K * N²) para O(K * N log N).</p>
+  </video>
+</div>
+
 | Estratégia de Transição | Estado Rastreado | Complexidade |
 |---|---|---|
 | **Coluna por Coluna** | $2^M \times 2^M$ transições | $O(N \cdot 4^M)$ |

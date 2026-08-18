@@ -21,6 +21,12 @@ Como modificar a etapa de fusão do **Mergesort** para contar o número de inver
 - **Complexidade**: $O(N \log N)$ tempo contra $O(N^2)$ da contagem ingênua por pares.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/quicksort-random-pivot-avoid-worst-loop.webm">
+    <p>Visualização: Pivô aleatório evitando a degeneração quadrática em arrays já ordenados garantindo média O(N log N).</p>
+  </video>
+</div>
+
 | Condição no Merge | Relação de Valor | Inversões Somadas |
 |---|---|---|
 | `left[i] <= right[j]` | Normal (sem inversão) | $0$ |

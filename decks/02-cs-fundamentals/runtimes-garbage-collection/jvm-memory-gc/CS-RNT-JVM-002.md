@@ -21,6 +21,12 @@ O que afirma a **Hipótese Geracional Fraca (Weak Generational Hypothesis)** e c
   - **Major / Full GC (Old Gen)**: Executado com frequência muito menor, poupando CPU.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/jvm-generational-gc-promotion-loop.webm">
+    <p>Visualização: Objetos sobreviventes promovidos de Eden para Survivor e posteriormente para Tenured no ciclo de GC da JVM.</p>
+  </video>
+</div>
+
 | Tipo de Coleta | Frequência | Tempo de Pausa Típico |
 |---|---|---|
 | **Minor GC (Young Gen)** | Muito Alta (Várias vezes por segundo) | Baixíssimo (~1 a 5 ms) |

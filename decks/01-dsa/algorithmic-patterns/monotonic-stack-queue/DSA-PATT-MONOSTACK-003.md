@@ -22,6 +22,12 @@ Como um **Monotonic Deque** obtém o valor máximo de cada janela deslizante em 
 - **Complexidade**: $O(N)$ tempo contra $O(N \log K)$ do Heap.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/trapping-rain-water-monotonic-loop.webm">
+    <p>Visualização: Cálculo do volume de água contida entre a barra atual e o limitador esquerdo desempilhado.</p>
+  </video>
+</div>
+
 | Estrutura para Janela Máxima | Consulta do Máximo | Custo por Deslizamento |
 |---|---|---|
 | **Max-Heap** | $O(1)$ na raiz | $O(\log K)$ Inserção / Deleção |

@@ -19,6 +19,12 @@ Como uma Trie executa as operações de **inserção**, **busca exata** e **`sta
 - **`startsWith(prefix)`**: Idêntico ao `search`, mas no final retorna `true` se alcançar o último caractere do prefixo, sem exigir que seja o fim de uma palavra ($O(P)$).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/trie-insert-search-char-loop.webm">
+    <p>Visualização: Descida caractere a caractere na árvore de ponteiros em tempo estritamente linear ao tamanho L.</p>
+  </video>
+</div>
+
 | Operação em Trie | Critério de Sucesso | Complexidade de Tempo |
 |---|---|---|
 | **`insert(word)`** | Todos os nós criados + `isEnd=true` | $O(L)$ |

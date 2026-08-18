@@ -21,6 +21,12 @@ Como adaptar a Busca Binária para encontrar um alvo em um **array rotacionado e
     - Se $\text{arr}[\text{mid}] < \text{target} \le \text{arr}[\text{right}]$, busca na direita (`left = mid + 1`); senão, busca na esquerda (`right = mid - 1`).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/binary-search-answer-space-predicate-loop.webm">
+    <p>Visualização: Busca binária sobre valores de resposta aplicando predicado de viabilidade booleano feasible(x).</p>
+  </video>
+</div>
+
 | Metade Ordenada | Condição de Teste | Regra de Descarte |
 |---|---|---|
 | **Esquerda Ordenada** | `arr[left] <= arr[mid]` | Verifica se alvo está entre `left` e `mid` |

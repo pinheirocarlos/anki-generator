@@ -21,6 +21,12 @@ Por que uma operação simples como `count++` não é atômica no nível de hard
 - Se duas threads em núcleos diferentes executarem o passo 1 simultaneamente, ambas lerão o mesmo valor antigo (ex: 5) e ambas gravarão 6, perdendo 1 incremento (*Lost Update*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/non-atomic-increment-hardware-race-loop.webm">
+    <p>Visualização: Decomposição da instrução em 3 etapas (Read, Modify, Write) gerando race condition entre múltiplos cores.</p>
+  </video>
+</div>
+
 | Ciclo de CPU | Thread 1 vs Thread 2 | Memória `count` |
 |---|---|---|
 | **1-2 (Read)** | Ambas leem count (5) para registradores locais | 5 |

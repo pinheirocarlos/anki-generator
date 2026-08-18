@@ -22,6 +22,12 @@ Como provar matematicamente a corretude do descarte guloso da menor barra em **C
   - Portanto, **nenhum outro par** contendo `left` pode gerar uma área maior que a atual. Podemos descartar `left` com segurança incrementando `left++`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/container-most-water-pointers-loop.webm">
+    <p>Visualização: Movimentação da barra mais baixa garantindo que nenhuma área maior seja descartada.</p>
+  </video>
+</div>
+
 | Decisão de Ponteiro | Condição de Altura | Justificativa Matemática |
 |---|---|---|
 | `left++` | $H[\text{left}] < H[\text{right}]$ | `left` já atingiu sua área máxima possível |

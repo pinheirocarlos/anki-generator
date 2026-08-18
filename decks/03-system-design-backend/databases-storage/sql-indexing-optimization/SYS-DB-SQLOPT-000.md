@@ -23,6 +23,12 @@ Qual é a diferença fundamental entre um Índice Clustered e um Índice Secund�
   - Para acessar colunas não presentes no índice secundário, o banco realiza uma segunda busca na árvore primária (**Bookmark Lookup / Index Lookup**).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/sql-clustered-vs-secondary-index-lookup-loop.webm">
+    <p>Visualização: Índice Clustered contendo as páginas de dados na folha da B+Tree vs Índice Secundário apontando para a Primary Key.</p>
+  </video>
+</div>
+
 | Tipo de Índice | O que contém nas Folhas da B+Tree | Quantidade por Tabela |
 |---|---|---|
 | **Clustered Index** | A linha de dados completa da tabela | Exatamente 1 |

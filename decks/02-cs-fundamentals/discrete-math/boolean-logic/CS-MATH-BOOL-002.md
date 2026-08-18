@@ -22,6 +22,12 @@ O que estabelecem os **Teoremas de De Morgan** e como aplicá-los para simplific
 - Permite refatorar expressões com múltiplos `!` aninhados em código legível, eliminando bugs de limites (*boundary errors*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/de-morgan-laws-simplification-loop.webm">
+    <p>Visualização: Equivalência lógica: NOT (A AND B) = (NOT A) OR (NOT B) e NOT (A OR B) = (NOT A) AND (NOT B).</p>
+  </video>
+</div>
+
 | Expressão com Negação Externa | Forma Equivalente De Morgan | Legibilidade em Código |
 |---|---|---|
 | `!(A && B)` | `!A OR !B` | Condição de recusa imediata |

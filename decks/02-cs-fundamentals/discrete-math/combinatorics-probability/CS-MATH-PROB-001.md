@@ -21,6 +21,12 @@ Como o **Paradoxo do Aniversário (Birthday Paradox)** explica por que colisões
   - Em hashes de 64 bits ($2^{64}$), colisões surgem após $\approx 2^{32} \approx 4$ bilhões de chaves.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/birthday-paradox-hash-collision-loop.webm">
+    <p>Visualização: Crescimento exponencial da probabilidade de colisão atingindo 50% em apenas sqrt(N) elementos.</p>
+  </video>
+</div>
+
 | Espaço de Hash ($N$) | Raiz Quadrada ($\sqrt{N}$) | Inserções para 50% de Risco de Colisão |
 |---|---|---|
 | **32-bit ($4.2 \times 10^9$)** | $2^{16}$ | ~65.536 chaves |

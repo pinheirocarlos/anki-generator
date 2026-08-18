@@ -20,6 +20,12 @@ Como a **Radix Tree (Compressed / Compact Trie / Patricia Tree)** reduz o consum
 - Isso reduz drasticamente o número total de nós alocados e economiza memória de ponteiros em até 70%.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/radix-tree-node-compression-loop.webm">
+    <p>Visualização: Fusão de nós unários consecutivos em uma única aresta de string comprimida.</p>
+  </video>
+</div>
+
 | Estrutura | Sequência `"inter"` sem bifurcação | Quantidade de Nós |
 |---|---|---|
 | **Trie Padrão** | `'i' -> 'n' -> 't' -> 'e' -> 'r'` | 5 nós alocados |

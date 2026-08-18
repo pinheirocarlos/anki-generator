@@ -20,6 +20,12 @@ Como implementar um mecanismo de **Autocomplete** de palavras combinando busca e
 - **Complexidade**: $O(P + K)$, onde $P$ é o tamanho do prefixo e $K$ é o número total de caracteres explorados na subárvore de sugestões.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/trie-autocomplete-dfs-expansion-loop.webm">
+    <p>Visualização: Navegação até o nó do prefixo seguida de exploração DFS da subárvore coletando palavras válidas.</p>
+  </video>
+</div>
+
 | Etapa do Autocomplete | Algoritmo | Complexidade |
 |---|---|---|
 | **1. Navegação de Prefixo** | Busca padrão em Trie | $O(P)$ |

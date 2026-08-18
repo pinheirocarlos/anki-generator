@@ -23,6 +23,12 @@ O que é o **Problema ABA** em estruturas de dados Lock-Free e como ponteiros ve
   - O CAS passa a validar o par completo: `Double-Word CAS (DCAS / CMPXCHG16B)`. Mesmo que o ponteiro volte para $A$, a versão será diferente ($A_1 \to B_2 \to A_3 \neq A_1$), fazendo o CAS falhar com segurança.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/lock-free-cas-aba-tagged-loop.webm">
+    <p>Visualização: Incremento atômico de versão em tagged pointer impedindo que mudanças ABA passem despercebidas pelo CAS.</p>
+  </video>
+</div>
+
 | Linha do Tempo | Ação Concorrente | Estado da Pilha |
 |---|---|---|
 | **$t_1$ (Leitura T1)** | T1 lê Topo = $A$ (aponta para $B$) | Pilha: $A \to B$ |

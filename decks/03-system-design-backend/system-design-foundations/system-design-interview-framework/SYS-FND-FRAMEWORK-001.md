@@ -21,6 +21,12 @@ Como conduzir a fase de 'Deep Dive' em System Design demonstrando senioridade t�
 - Identifique o componente mais crítico (gargalo de CPU, I/O ou rede) e proponha mitigação comprovada.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/system-design-deep-dive-tradeoffs-analysis-loop.webm">
+    <p>Visualização: Análise estruturada de trade-offs arquiteturais: consistência vs latência, particionamento e pontos únicos de falha.</p>
+  </video>
+</div>
+
 | Dimensão de Decisão | Opção A | Opção B |
 |---|---|---|
 | **Mecanismo de Escrita** | Síncrono direto no DB | Fila buffer assíncrona (Write-Behind) |

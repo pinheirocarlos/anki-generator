@@ -21,6 +21,12 @@ O que define formalmente uma **Árvore Binária** e quais são suas propriedades
 - Em uma árvore binária perfeitamente balanceada de altura $H$, ela pode armazenar até $2^{H+1} - 1$ nós, garantindo $H = \lfloor \log_2 N \rfloor$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/binary-tree-properties-loop.webm">
+    <p>Visualização: Divisão hierárquica por níveis k com até 2^k nós e capacidade máxima 2^(H+1)-1.</p>
+  </video>
+</div>
+
 | Propriedade de Árvore | Fórmula Matemática | Exemplo ($H = 3$) |
 |---|---|---|
 | **Nós no nível $k$** | $2^k$ nós | Nível 3 tem até 8 nós |

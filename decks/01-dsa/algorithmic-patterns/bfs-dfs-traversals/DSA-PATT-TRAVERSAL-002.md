@@ -21,6 +21,12 @@ Como a **Busca em Profundidade (DFS)** explora caminhos até o esgotamento antes
   - Ordenação Topológica e detecção de ciclos em grafos direcionados.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bfs-shortest-path-unweighted-loop.webm">
+    <p>Visualização: Primeira visita a um nó no BFS corresponde estritamente à distância mínima em número de arestas.</p>
+  </video>
+</div>
+
 | Característica | DFS (Depth-First) | BFS (Breadth-First) |
 |---|---|---|
 | **Estratégia** | Aprofunda o máximo possível | Varre em ondas circulares |

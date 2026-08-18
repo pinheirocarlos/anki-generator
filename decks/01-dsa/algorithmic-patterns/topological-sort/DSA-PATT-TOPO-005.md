@@ -19,6 +19,12 @@ Como modelar as relações de dependência dos problemas **Course Schedule I (Le
 - Em ambos, a aresta de dependência $[u, v]$ onde $v$ é pré-requisito de $u$ deve ser modelada como aresta $v \to u$, garantindo que `in-degree[u]++` represente a quantidade de pré-requisitos pendentes.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/course-schedule-kahn-dsa-loop.webm">
+    <p>Visualização: Verificação de viabilidade curricular contando vértices processados contra total de disciplinas V.</p>
+  </video>
+</div>
+
 | Problema LeetCode | Pergunta Respondida | Retorno Esperado |
 |---|---|---|
 | **Course Schedule I** | É possível formar? (Sem ciclo) | `boolean` (`true` / `false`) |

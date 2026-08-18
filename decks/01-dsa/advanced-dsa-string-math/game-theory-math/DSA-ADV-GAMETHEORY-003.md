@@ -22,6 +22,12 @@ Como o **Teorema de Sprague-Grundy** e a função **MEX (Minimum Excluded Value)
   - Se $G_{\text{global}} \neq 0$, o primeiro jogador vence.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/fast-binary-exponentiation-bits-loop.webm">
+    <p>Visualização: Elevação ao quadrado da base e multiplicação do acumulador quando o bit menos significativo do expoente for 1.</p>
+  </video>
+</div>
+
 | Componente | Definição Matemática | Papel no Jogo |
 |---|---|---|
 | **MEX** | Menor inteiro $\ge 0$ ausente | Atribui valor ao estado |

@@ -20,6 +20,12 @@ Como funciona internamente uma **Tabela Hash (Hash Map)** e qual o papel desempe
 - Esse cálculo direto permite localizar, inserir e remover pares chave-valor em tempo médio $O(1)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/hash-function-bucket-index-loop.webm">
+    <p>Visualização: Cálculo da função hash determinística e mapeamento de chave para índice do array via hash(key) % N.</p>
+  </video>
+</div>
+
 | Componente | Função Principal | Complexidade Média |
 |---|---|---|
 | **Função de Hash** | Mapeia chave para inteiro uniforme | $O(L)$ (tam da chave) |

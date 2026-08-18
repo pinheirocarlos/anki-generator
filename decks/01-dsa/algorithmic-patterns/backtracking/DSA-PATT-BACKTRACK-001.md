@@ -21,6 +21,12 @@ Como otimizar a verificação de segurança de rainhas no **Problema das N-Rainh
 - Mantendo três Hash Sets (ou Bitmasks inteiros) para `cols`, `diag1` e `diag2`, verificamos a segurança em tempo **estritamente $O(1)$** sem precisar varrer o tabuleiro.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/backtracking-state-space-pruning-loop.webm">
+    <p>Visualização: Corte antecipado de ramos inviáveis evitando explosão combinatória desnecessária.</p>
+  </video>
+</div>
+
 | Linha de Ataque da Rainha | Propriedade Matemática em $(r, c)$ | Rastreamento em $O(1)$ |
 |---|---|---|
 | **Coluna Vertical** | $c$ | `Set<Integer> cols` |

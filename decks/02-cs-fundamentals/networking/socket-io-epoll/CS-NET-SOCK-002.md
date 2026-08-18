@@ -20,6 +20,12 @@ O que é o estado **TIME_WAIT** no encerramento de conexões TCP e por que o ker
   2. **Drenagem de pacotes fantasmas**: Garante que qualquer pacote atrasado ou duplicado da conexão anterior morra na rede antes que uma nova conexão use a mesma porta.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/tcp-timewait-2msl-drain-loop.webm">
+    <p>Visualização: Retenção do socket por 2MSL garantindo que o ACK final chegue ao servidor e pacotes obsoletos na rede expirem.</p>
+  </video>
+</div>
+
 | Lado do Encerramento | Sequência de Estados de Término | Assume TIME_WAIT? |
 |---|---|---|
 | **Active Closer (Inicia o Close)** | `ESTABLISHED` $\to$ `FIN_WAIT_1` $\to$ `FIN_WAIT_2` $\to$ **`TIME_WAIT`** | **Sim (Retido por 2MSL)** |

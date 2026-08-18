@@ -24,6 +24,12 @@ Como o algoritmo de **Patience Sorting + Busca Binária** otimiza o cálculo de 
 - O comprimento da LIS é exatamente o tamanho final do array `tails[]`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lis-patience-sorting-binary-search-loop.webm">
+    <p>Visualização: Manutenção de array de menores caudas de subsequências com busca binária substituindo elementos em O(N log N).</p>
+  </video>
+</div>
+
 | Algoritmo de LIS | Complexidade de Tempo | Espaço de Memória |
 |---|---|---|
 | **DP Quadrática Padrão** | $O(N^2)$ | $O(N)$ |

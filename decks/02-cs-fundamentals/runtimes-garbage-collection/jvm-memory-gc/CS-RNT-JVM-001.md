@@ -25,6 +25,12 @@ Qual é a diferença arquitetural entre o **G1GC** e o **ZGC (Z Garbage Collecto
   - Garante pausas STW **menores que 1 milissegundo (< 1ms)** independente do tamanho do Heap.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/jvm-g1gc-vs-zgc-regions-loop.webm">
+    <p>Visualização: Heap particionado em regiões de 1-32MB (G1GC) vs Colored Pointers com pausas < 1ms (ZGC).</p>
+  </video>
+</div>
+
 | Coletor de GC | Pausa Típica de STW | Escala Máxima de Heap |
 |---|---|---|
 | **G1GC** | ~10 a 200 milissegundos | Até ~64 GB |

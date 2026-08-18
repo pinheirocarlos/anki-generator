@@ -19,6 +19,12 @@ Como o **OS Page Cache** do kernel Linux acelera leituras e gravações de arqui
 - **Gravações**: Syscalls `write()` gravam imediatamente no Page Cache marcando as páginas como *Dirty Pages*, retornando sucesso instantâneo para a aplicação; threads de background do kernel (`flusher/kswapd`) descarregam as páginas no disco de forma assíncrona.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/os-page-cache-dirty-pages-loop.webm">
+    <p>Visualização: Interpolação transparente de páginas na RAM física com gravações diferidas (Flush de Dirty Pages) pelo pdflush/flusher.</p>
+  </video>
+</div>
+
 | Operação de I/O | Fluxo com Page Cache (Padrão) | Latência Percebida pelo App |
 |---|---|---|
 | **Leitura com Cache Hit** | App $leftarrow$ RAM Page Cache (Zero acesso ao disco) | ~100 ns |

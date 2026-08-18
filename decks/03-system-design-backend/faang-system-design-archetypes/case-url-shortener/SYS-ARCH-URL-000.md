@@ -23,6 +23,12 @@ Como a codificação Base62 converte IDs inteiros numéricos únicos de 64 bits 
   3. Preenche com zeros à esquerda até 7 caracteres (`"0000wX9"`).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/tinyurl-base62-encoding-id-generator-loop.webm">
+    <p>Visualização: Conversão de identificador numérico de 64 bits em string alfanumérica compacta de 7 caracteres via Base62.</p>
+  </video>
+</div>
+
 | Comprimento da Chave (Base62) | Combinações Únicas Possíveis | Espaço de Endereçamento |
 |---|---|---|
 | **6 Caracteres ($62^6$)** | ~56.8 Bilhões | Adequado para sistemas médios |

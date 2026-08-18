@@ -22,6 +22,12 @@ Como provar que o problema **Gas Station (Postos de Combustível)** pode ser res
   - Reiniciamos `startStation = i + 1` e `currentTank = 0`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/gas-station-circuit-greedy-loop.webm">
+    <p>Visualização: Se o saldo acumulado de combustível cair abaixo de 0, o ponto de partida deve ser estritamente posterior a esse índice.</p>
+  </video>
+</div>
+
 | Métrica Rastreada | Condição de Teste | Ação |
 |---|---|---|
 | **`totalTank`** | $\sum (\text{gas} - \text{cost}) < 0$ | Retorna $-1$ no final |

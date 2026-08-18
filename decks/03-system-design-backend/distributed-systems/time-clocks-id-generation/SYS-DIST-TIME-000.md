@@ -23,6 +23,12 @@ Por que relógios físicos de parede (Time of Day via NTP) são inadequados para
 - **Vector Clocks**: Mantêm um vetor de inteiros por processo, permitindo detectar eventos concorrentes que causaram divergência (*Conflicting Writes*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/vector-clocks-causality-tracking-concurrent-loop.webm">
+    <p>Visualização: Vector Clocks rastreando causalidade entre nós distribuídos e detectando conflitos de escrita concorrentes.</p>
+  </video>
+</div>
+
 | Tipo de Relógio | Garantia Oferecida | Limitação Principal |
 |---|---|---|
 | **Físico (NTP)** | Horário aproximado de parede | Sujeito a skew/drift de dezenas de milissegundos |

@@ -21,6 +21,12 @@ Como a fórmula de Quorum $R + W > N$ garante leituras com dados atualizados em 
 - Esse nó compartilhado conterá o timestamp/versão mais recente, permitindo ao coordenador retornar o dado correto e disparar reparo em segundo plano (*Read Repair*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/quorum-reads-writes-overlap-formula-loop.webm">
+    <p>Visualização: A fórmula R + W > N garante que ao menos um nó no conjunto de leitura possui a versão mais recente escrita.</p>
+  </video>
+</div>
+
 | Configuração ($N=3$) | Parâmetros ($W, R$) | Garantia de Consistência |
 |---|---|---|
 | **Quorum Forte** | $W=2, R=2$ ($R+W=4 > 3$) | Consistência forte (Lê escrita mais recente) |

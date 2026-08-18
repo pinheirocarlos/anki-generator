@@ -22,6 +22,12 @@ Quais os trade-offs de velocidade e consumo de memória entre usar um **Array Fi
   - Pequeno overhead adicional de hashing e indireção de objetos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/trie-node-memory-layout-loop.webm">
+    <p>Visualização: Array fixo de 26 ponteiros para velocidade direta vs Hash Map para economia em alfabetos esparsos.</p>
+  </video>
+</div>
+
 | Estratégia de Nós | Acesso por Caractere | Consumo de Memória |
 |---|---|---|
 | **Array Fixo `Node[26]`** | $O(1)$ Ultra-rápido | Alto (26 ponteiros por nó) |

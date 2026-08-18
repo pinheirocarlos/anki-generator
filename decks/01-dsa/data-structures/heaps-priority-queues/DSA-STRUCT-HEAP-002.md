@@ -22,6 +22,12 @@ Por que um Heap Binário pode ser representado compactamente em um **array cont�
 - Isso elimina 100% dos ponteiros de árvore, resultando em localidade de cache perfeita e zero overhead de memória.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/heap-array-indexing-math-loop.webm">
+    <p>Visualização: Mapeamento em array 0-indexado: pai (i-1)/2, filho esquerdo 2i+1 e filho direito 2i+2 sem ponteiros.</p>
+  </video>
+</div>
+
 | Relação Familiar | Fórmula (0-Indexed) | Exemplo para Índice $i = 2$ |
 |---|---|---|
 | **Pai** | $(i - 1) / 2$ | $(2 - 1) / 2 = 0$ (Raiz) |

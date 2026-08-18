@@ -22,6 +22,12 @@ Por que a **Memória Compartilhada (Shared Memory / `shm_open`)** é o mecanismo
 - **Desafio**: Como o kernel não faz mediação, os processos são responsáveis por sincronizar o acesso concorrente usando Mutexes compartilhados ou primitivas Atômicas Lock-Free.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/posix-shared-memory-shm-loop.webm">
+    <p>Visualização: Mapeamento do mesmo bloco de memória física nos espaços virtuais de dois processos para transferência em O(1).</p>
+  </video>
+</div>
+
 | Mecanismo de IPC | Cópias de Dados por Mensagem | Envolve Syscalls a cada Mensagem? |
 |---|---|---|
 | **Pipes / Sockets** | 2 cópias (User $	o$ Kernel $	o$ User) | Sim (`write()` e `read()`) |

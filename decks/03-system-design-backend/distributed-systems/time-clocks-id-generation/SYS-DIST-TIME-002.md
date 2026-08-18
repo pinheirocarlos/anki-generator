@@ -21,6 +21,12 @@ Como a TrueTime API do Google Spanner utiliza relógios atômicos e GPS para for
 - Isso garante **Linearizabilidade global** estrita sem necessidade de comunicação cruzada entre continentes para verificar ordem temporal.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/google-spanner-truetime-uncertainty-wait-loop.webm">
+    <p>Visualização: TrueTime API garantindo linearizabilidade global através de espera deliberada pela janela de incerteza [earliest, latest].</p>
+  </video>
+</div>
+
 | Mecanismo de Tempo | Tratamento de Incerteza | Garantia Oferecida |
 |---|---|---|
 | **NTP Convencional** | Ignora incerteza (assume relógio perfeito) | Não garante consistência temporal estrita |

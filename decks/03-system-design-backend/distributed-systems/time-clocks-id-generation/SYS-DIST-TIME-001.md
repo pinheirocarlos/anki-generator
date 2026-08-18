@@ -21,6 +21,12 @@ Qual é a estrutura binária de 64 bits do algoritmo Twitter Snowflake e como el
   4. **12 bits de Sequência**: Contador local incrementado a cada ID gerado no mesmo milissegundo (suporta até $4.096$ IDs por milissegundo por nó $\approx 4.096.000$ IDs/segundo por nó).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/twitter-snowflake-64bit-id-structure-loop.webm">
+    <p>Visualização: Estrutura do Snowflake: 41 bits de timestamp, 10 bits de ID de máquina/datacenter e 12 bits de sequência local.</p>
+  </video>
+</div>
+
 | Segmento do Snowflake ID | Quantidade de Bits | Capacidade / Propósito |
 |---|---|---|
 | **Sign Bit** | 1 bit | Sempre 0 (Valor positivo) |

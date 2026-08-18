@@ -21,6 +21,12 @@ Como o algoritmo de Divisão e Conquista geométrico encontra o **Par de Pontos 
 - **Complexidade**: $T(N) = 2T(N/2) + O(N) = O(N \log N)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/rectangle-area-union-segment-tree-loop.webm">
+    <p>Visualização: Sweep line no eixo X combinada com Segment Tree no eixo Y mantendo o comprimento total ativo coberto.</p>
+  </video>
+</div>
+
 | Etapa do Algoritmo | Complexidade | Propriedade Chave |
 |---|---|---|
 | **Divisão e Conquista** | $2T(N/2)$ | Resolve metades esquerda e direita |

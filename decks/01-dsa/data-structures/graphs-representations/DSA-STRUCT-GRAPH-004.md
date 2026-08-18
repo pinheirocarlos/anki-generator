@@ -21,6 +21,12 @@ Como a estrutura **Compressed Sparse Row (CSR)** elimina ponteiros e atinge máx
 - **Benefício**: Zero ponteiros ou listas dinâmicas no Heap, compactação máxima de memória e vetorização SIMD de travessia na CPU/GPU.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/csr-sparse-graph-layout-loop.webm">
+    <p>Visualização: Três vetores contíguos (values, column_indices, row_offsets) compactando o grafo sem overhead de ponteiros.</p>
+  </video>
+</div>
+
 | Estrutura de Grafo | Disposição na Memória | Localidade de Cache |
 |---|---|---|
 | **Lista de Listas (`vector<vector>`)** | Múltiplos buffers fragmentados | Ruim (Cache Misses) |

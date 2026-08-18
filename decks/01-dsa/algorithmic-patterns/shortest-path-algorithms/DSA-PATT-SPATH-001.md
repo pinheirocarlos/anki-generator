@@ -20,6 +20,12 @@ Qual é a matriz de trade-offs entre **Dijkstra**, **Bellman-Ford**, **Floyd-War
 - **A* Search ($O(E)$ com boa heurística)**: Utiliza função heurística $f(n) = g(n) + h(n)$ para direcionar a busca em direção ao alvo em mapas espaciais (GPS e IA de jogos).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dijkstra-min-heap-complexity-loop.webm">
+    <p>Visualização: Extração de V nós e atualização de até E arestas resultando em complexidade O((V+E) log V).</p>
+  </video>
+</div>
+
 | Algoritmo | Complexidade e Tipo | Suporta Pesos Negativos |
 |---|---|---|
 | **Dijkstra** | $O((V+E)log V)$ (Single-Source) | Não |

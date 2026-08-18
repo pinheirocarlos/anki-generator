@@ -23,6 +23,12 @@ Como o particionamento de tópicos e o modelo de Consumer Groups viabilizam esca
   - Aumentar o paralelismo exige aumentar o número de partições ($N$ partições suportam até $N$ consumidores ativos em paralelo).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/kafka-partition-stream-loop.webm">
+    <p>Visualização: Cada partição do Kafka é um log sequencial distribuído e lido de forma independente por consumidores.</p>
+  </video>
+</div>
+
 | Componente Kafka | Papel Estrutural | Regra de Escala |
 |---|---|---|
 | **Partição** | Unidade básica de paralelismo e ordem | Mensagens com mesma chave mantêm ordem estrita |

@@ -19,6 +19,12 @@ Como evitar a geração de subconjuntos e combinações duplicadas em Backtracki
 - **Por que funciona**: A condição `i > start` permite usar o mesmo número duplicado em níveis mais profundos (ramos filhos), mas impede escolher o mesmo número mais de uma vez como a primeira opção daquele nível de ramificação (irmãos).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/n-queens-bitmask-attack-vectors-loop.webm">
+    <p>Visualização: Rastreamento de colunas e diagonais ocupadas usando máscaras binárias e avanço por linhas.</p>
+  </video>
+</div>
+
 | Nível de Decisão | Condição de Duplicata | Ação |
 |---|---|---|
 | **Primeiro item do nível (`i == start`)** | `nums[i] == nums[i-1]` | Processa normalmente (ramo filho) |

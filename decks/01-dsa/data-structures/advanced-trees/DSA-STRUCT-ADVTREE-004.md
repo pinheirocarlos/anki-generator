@@ -21,6 +21,12 @@ Como estender a Fenwick Tree para uma **matriz bidimensional 2D** com consultas 
   $$\text{soma} = Q(r_2, c_2) - Q(r_1-1, c_2) - Q(r_2, c_1-1) + Q(r_1-1, c_1-1)$$
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/fenwick-tree-2d-grid-loop.webm">
+    <p>Visualização: Atualização em grade 2D navegando bits nos eixos X e Y em tempo O(log N * log M).</p>
+  </video>
+</div>
+
 | Operação 2D | Abordagem Força Bruta | Fenwick Tree 2D |
 |---|---|---|
 | **Update Pontual Matriz** | $O(1)$ | $O(\log N \log M)$ |

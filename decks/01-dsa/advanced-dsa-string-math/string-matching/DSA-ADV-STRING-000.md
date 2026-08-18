@@ -22,6 +22,12 @@ Como o **Algoritmo de Rabin-Karp** utiliza **Rolling Hash polinomial** para busc
 - **Complexidade**: $O(N + M)$ tempo médio e $O(1)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/kmp-lps-automaton-loop.webm">
+    <p>Visualização: Tabela LPS permite saltar caracteres redundantes sem retroceder o ponteiro do texto principal.</p>
+  </video>
+</div>
+
 | Algoritmo | Custo por Janela | Complexidade de Tempo Médio |
 |---|---|---|
 | **Busca Ingênua** | $O(M)$ Comparações | $O(N \cdot M)$ |

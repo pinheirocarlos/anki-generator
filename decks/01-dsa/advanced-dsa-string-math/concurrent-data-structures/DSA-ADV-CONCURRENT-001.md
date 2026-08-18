@@ -23,6 +23,12 @@ Qual a evolução arquitetural do **ConcurrentHashMap** entre Java 7 (Segment Lo
   - Converte buckets longos ($> 8$ nós) em árvores rubro-negras (`TreeBin`) garantindo tempo $O(\log K)$ em colisões severas.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/aba-problem-tagged-pointers-loop.webm">
+    <p>Visualização: Associação de contador de versão sequencial ao ponteiro (AtomicStampedReference) impedindo CAS espúrio.</p>
+  </video>
+</div>
+
 | Característica | ConcurrentHashMap Java 7 | ConcurrentHashMap Java 8+ |
 |---|---|---|
 | **Granularidade de Lock** | Segmento (1/16 da tabela) | Nó da cabeça do bucket individual |

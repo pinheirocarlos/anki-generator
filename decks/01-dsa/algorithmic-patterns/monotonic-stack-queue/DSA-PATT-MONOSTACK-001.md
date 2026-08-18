@@ -23,6 +23,12 @@ Como a **Monotonic Stack Crescente** resolve o clássico hard **Largest Rectangl
 - **Complexidade**: $O(N)$ tempo e $O(N)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/monotonic-stack-nge-loop.webm">
+    <p>Visualização: Cada elemento entra e sai da pilha no máximo uma vez, identificando o primeiro maior à direita em O(N).</p>
+  </video>
+</div>
+
 | Elemento Desempilhado | Limites (Esq / Dir) | Cálculo de Largura |
 |---|---|---|
 | Barra de altura $H[\text{tp}]$ | Topo anterior / Índice atual $i$ | $i - \text{stack.peek}() - 1$ |

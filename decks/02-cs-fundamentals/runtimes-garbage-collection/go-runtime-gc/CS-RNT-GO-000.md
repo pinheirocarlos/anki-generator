@@ -22,6 +22,12 @@ Como opera o algoritmo de **Tri-Color Concurrent Mark & Sweep** no Garbage Colle
 - Ao término do escaneamento (quando a fila de Cinzas esvazia), qualquer objeto que permaneceu **Branco** não possui nenhuma referência viva e é liberado na fase de Sweep.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/go-tri-color-gc-mark-sweep-loop.webm">
+    <p>Visualização: Escaneamento concorrente com coloração Preto, Cinza e Branco com pausas STW sub-milissegundo.</p>
+  </video>
+</div>
+
 | Cor do Objeto | Estado no Grafo de Memória | Ação do Coletor |
 |---|---|---|
 | **Branco** | Não visitado / Inalcançável | Será destruído na fase de Sweep |

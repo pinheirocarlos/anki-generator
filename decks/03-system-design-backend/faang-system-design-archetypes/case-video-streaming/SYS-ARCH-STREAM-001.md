@@ -21,6 +21,12 @@ Como os protocolos de streaming adaptativo HLS e MPEG-DASH alternam dinamicament
 - **Edge CDN Caching**: Como os chunks são arquivos estáticos imutáveis (`.ts` ou `.m4s`), a CDN atinge $>99\%$ de Cache Hit na borda.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/adaptive-bitrate-hls-dash-manifest-switch-loop.webm">
+    <p>Visualização: Player alternando dinamicamente entre perfis de qualidade através de arquivos de manifesto HLS (.m3u8).</p>
+  </video>
+</div>
+
 | Estrutura de Arquivos | Formato / Extensão | Papel no Player |
 |---|---|---|
 | **Manifesto Mestre** | `master.m3u8` | Lista resoluções e bitrates disponíveis |

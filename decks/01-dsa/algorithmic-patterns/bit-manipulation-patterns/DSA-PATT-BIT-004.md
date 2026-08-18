@@ -22,6 +22,12 @@ Como resolver **Single Number III** (encontrar dois números únicos $X$ e $Y$ e
 - **Complexidade**: $O(N)$ tempo e $O(1)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bitmask-subsets-iteration-trick-loop.webm">
+    <p>Visualização: Técnica sub = (sub - 1) & mask gerando todos os subconjuntos não-nulos em tempo O(3^N) em vez de O(4^N).</p>
+  </video>
+</div>
+
 | Grupo de Separação | Condição Bitwise | Resultado do XOR Acumulado |
 |---|---|---|
 | **Grupo 0** | `(num & diff) == 0` | Produz exatamente o número $X$ |

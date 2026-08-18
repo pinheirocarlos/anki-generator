@@ -23,6 +23,12 @@ Como operam os algoritmos de controle de congestionamento TCP baseados em perda 
   - Mantém a quantidade exata de dados em trânsito igual ao produto $BDP = B_{\text{bottleneck}} \times RTT_{\text{min}}$, maximizando a vazão sem inflar os buffers de fila.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/tcp-congestion-cubic-vs-bbr-loop.webm">
+    <p>Visualização: Crescimento de janela em curva cúbica baseada em perda (CUBIC) vs modelo de banda e RTT mínimo (BBR).</p>
+  </video>
+</div>
+
 | Algoritmo | Sinal Primário de Congestionamento | Comportamento sob Bufferbloat |
 |---|---|---|
 | **TCP CUBIC** | Perda de pacotes (Packet Drop) | Enche buffers de roteador, gerando alta latência |

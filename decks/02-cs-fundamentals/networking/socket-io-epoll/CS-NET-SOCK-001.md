@@ -20,6 +20,12 @@ O que faz o **Algoritmo de Nagle** e por que aplicações backend de baixa latê
 - **`TCP_NODELAY`**: Flag de socket que desabilita o Algoritmo de Nagle, forçando o kernel a enviar qualquer fragmento de dados imediatamente para a rede sem espera.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/nagle-algorithm-tcp-nodelay-loop.webm">
+    <p>Visualização: Buffering de pequenos pacotes aguardando ACK vs envio imediato com TCP_NODELAY para baixa latência.</p>
+  </video>
+</div>
+
 | Configuração de Socket | Comportamento de Envio | Latência em Mensagens Pequenas (gRPC / Redis) |
 |---|---|---|
 | **Nagle Ativado (Padrão Antigo)** | Agrupa bytes até receber ACK | ~40 a 200 ms de atraso com Delayed ACK |

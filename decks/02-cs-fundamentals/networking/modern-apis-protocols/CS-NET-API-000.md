@@ -19,6 +19,12 @@ Quais são as diferenças fundamentais de modelo de comunicação entre **HTTP R
 - **Server-Sent Events (SSE - Unidirecional Servidor $\to$ Cliente)**: Fluxo contínuo de texto sobre HTTP padrão (`text/event-stream`) onde o servidor envia atualizações em tempo real para o cliente. Suporta reconexão automática nativa; ideal para feeds de notícias, cotações financeiras e streaming de tokens de LLMs (ChatGPT).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/rest-websocket-sse-comparison-loop.webm">
+    <p>Visualização: Request-Response síncrono (REST) vs Full-Duplex bidirecional (WebSockets) vs Unidirecional servidor->cliente (SSE).</p>
+  </video>
+</div>
+
 | Protocolo | Direção da Comunicação | Protocolo Base |
 |---|---|---|
 | **HTTP REST** | Unidirecional (Cliente $	o$ Servidor) | HTTP/1.1 ou HTTP/2 |

@@ -19,6 +19,12 @@ Quando bancos de dados relacionais contornam o Page Cache do sistema operacional
 - **`O_DIRECT`**: Flag do Linux que instrui a syscall `open()` a contornar integralmente o Page Cache do kernel, transferindo blocos diretamente entre a memória da aplicação e o disco via DMA.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/direct-io-bypass-page-cache-loop.webm">
+    <p>Visualização: Bancos de dados gerenciando seu próprio buffer pool em memória ignorando o Page Cache do Kernel.</p>
+  </video>
+</div>
+
 | Estratégia de I/O | Caminho dos Dados | Risco de Duplicação de RAM |
 |---|---|---|
 | **Buffered I/O (Padrão)** | Disco $ightarrow$ Page Cache $ightarrow$ Buffer Pool | Alto (Dupla cópia em RAM) |

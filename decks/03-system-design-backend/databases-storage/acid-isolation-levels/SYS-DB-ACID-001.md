@@ -21,6 +21,12 @@ Como o Multi-Version Concurrency Control (MVCC) permite que leituras e escritas 
 - Leituras acessam versões históricas imutáveis sem adquirir locks de leitura, garantindo que **leituras nunca bloqueiem escritas e escritas nunca bloqueiem leituras**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/mvcc-snapshot-isolation-xmin-xmax-loop.webm">
+    <p>Visualização: Controle de Concorrência Multiversão (MVCC): leituras enxergam snapshot imutável baseado em xmin/xmax sem travar escritas.</p>
+  </video>
+</div>
+
 | Ação Concorrente | Com Locks Tradicionais (2PL) | Com MVCC |
 |---|---|---|
 | **Leitura durante Escrita** | Leitura bloqueada aguardando lock exclusivo | Leitura lê versão anterior no Snapshot (Sem bloqueio) |

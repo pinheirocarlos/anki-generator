@@ -22,6 +22,12 @@ Como implementar processamento idempotente de pagamentos utilizando Chaves de Id
   4. Se a inserção for **bem-sucedida**: o worker processa o pagamento, grava o resultado e commita a transação.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/idempotency-key-consumer-deduplication-sql-loop.webm">
+    <p>Visualização: Inserção de chave de idempotência com chave única no banco de dados bloqueando processamento duplicado.</p>
+  </video>
+</div>
+
 | Tentativa de Execução | Ação na Tabela de Idempotência | Efeito no Negócio |
 |---|---|---|
 | **1ª Tentativa (Original)** | `INSERT INTO processed_keys` (Sucesso) | Executa débito no cartão |

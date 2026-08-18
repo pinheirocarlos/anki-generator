@@ -19,6 +19,12 @@ Como a Ordenação Topológica modela sistemas de resolução de dependências d
 - Se o algoritmo falhar em ordenar todos os nós, significa que foi detectada uma **Dependência Circular** fatal.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/build-dependency-graph-topo-loop.webm">
+    <p>Visualização: Sequenciamento de pacotes e tarefas respeitando restrições estritas de dependências upstream.</p>
+  </video>
+</div>
+
 | Elemento de Sistema | Modelagem em DAG |
 |---|---|
 | **Biblioteca / Módulo** | Vértice $V$ |

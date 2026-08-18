@@ -23,6 +23,12 @@ Por que sistemas de mobilidade urbana (Uber / Lyft) utilizam células hexagonais
   - Simplifica cálculos de raio de busca de motoristas (k-ring search), zoneamento de preços dinâmicos (*Surge Pricing*) e interpolação de demanda sem distorções diagonais.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/uber-h3-hexagonal-spatial-index-rings-loop.webm">
+    <p>Visualização: Grade espacial hexagonal Uber H3 com anéis k-ring de vizinhança uniforme sem distorções de cantos.</p>
+  </video>
+</div>
+
 | Sistema Geoespacial | Formato da Célula | Distância para Todos os Vizinhos |
 |---|---|---|
 | **Geohash** | Retângulo / Quadrado | Desigual (Vizinhos diagonais estão a $\sqrt{2}D$) |

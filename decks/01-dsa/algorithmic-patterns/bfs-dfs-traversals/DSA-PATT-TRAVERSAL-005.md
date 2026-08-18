@@ -21,6 +21,12 @@ Como o algoritmo de **Coloração de 3 Estados (White, Gray, Black)** detecta ci
 - **Detecção de Ciclo**: Durante a travessia DFS a partir de um nó cinza, se encontrarmos um vizinho que **já é cinza (Gray)**, encontramos uma **Back-Edge** (aresta de retorno para um ancestral ativo na pilha), confirmando a existência de um **Ciclo Direcionado**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/iddfs-iterative-deepening-loop.webm">
+    <p>Visualização: DFS com limite incremental de profundidade combinando a economia de memória do DFS com a otimalidade do BFS.</p>
+  </video>
+</div>
+
 | Cor do Vértice | Estado de Processamento | Ação ao Encontrar na DFS |
 |---|---|---|
 | **White (0)** | Inexplorado | Continua DFS normalmente |

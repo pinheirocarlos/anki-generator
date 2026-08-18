@@ -24,6 +24,12 @@ Qual é a diferença de funcionamento e capacidade de absorção de rajadas (Bur
   - **Elimina rajadas completamente**, ideal para proteger serviços downstream sensíveis a picos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/rate-limiting-token-bucket-vs-leaky-bucket-loop.webm">
+    <p>Visualização: Token Bucket permitindo rajadas até a capacidade máxima vs Leaky Bucket liberando vazão estritamente constante.</p>
+  </video>
+</div>
+
 | Algoritmo | Permite Rajadas (Bursts)? | Taxa de Saída para o Backend |
 |---|---|---|
 | **Token Bucket** | **SIM (Até a capacidade do balde)** | Variável (Responde instantaneamente aos picos) |

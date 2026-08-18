@@ -21,6 +21,12 @@ Como o Transactional Outbox Pattern resolve o problema de 'Dual-Write' garantind
   3. Garante entrega *At-Least-Once* sem risco de inconsistência.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/transactional-outbox-pattern-cdc-relay-loop.webm">
+    <p>Visualização: Gravação atômica da mutação de negócio e do evento na tabela Outbox na mesma transação SQL com relay via CDC.</p>
+  </video>
+</div>
+
 | Etapa do Processo | Onde Ocorre | Garantia |
 |---|---|---|
 | **1. Transação Local** | DB da Aplicação (`orders` + `outbox`) | ACID (Tudo ou nada no banco) |

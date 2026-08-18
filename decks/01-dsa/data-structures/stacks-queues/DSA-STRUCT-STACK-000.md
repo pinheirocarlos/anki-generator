@@ -19,6 +19,12 @@ Qual é a diferença fundamental entre o princípio de acesso **LIFO (Pilha)** e
 - Ambas as estruturas realizam suas operações primárias de inserção, remoção e consulta em tempo estritamente constante $O(1)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lifo-stack-fifo-queue-loop.webm">
+    <p>Visualização: Comparação visual de disciplinas de acesso: topo da pilha (LIFO) vs início e fim da fila (FIFO).</p>
+  </video>
+</div>
+
 | Estrutura | Disciplina de Acesso | Ponto de Inserção / Remoção |
 |---|---|---|
 | **Pilha (Stack)** | LIFO (Último a entrar sai primeiro) | Topo / Topo |

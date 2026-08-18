@@ -23,6 +23,12 @@ Como a técnica de **Zero-Copy** com a syscall **`sendfile()`** transfere arquiv
   - O kernel transfere os dados diretamente do **Page Cache para a Placa de Rede (NIC)** via descritores de DMA com *Scatter-Gather*, sem transferir nenhum byte para a memória da aplicação.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/linux-zero-copy-sendfile-loop.webm">
+    <p>Visualização: Transferência direta de dados do Page Cache para o Socket Buffer via DMA sem passar pelo User Space.</p>
+  </video>
+</div>
+
 | Método de Transferência | Cópias de Dados na RAM | Trocas de Modo (Context Switches) |
 |---|---|---|
 | **`read()` + `write()`** | 4 cópias (2 por CPU + 2 DMA) | 4 trocas (User $	o$ Kernel $	o$ User $	o$ Kernel) |

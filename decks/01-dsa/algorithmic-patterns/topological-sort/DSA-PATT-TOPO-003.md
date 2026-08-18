@@ -21,6 +21,12 @@ Por que a presença de um ciclo em um grafo direcionado quebra matematicamente q
 - Portanto, qualquer algoritmo de ordenação topológica atua simultaneamente como um **detector de ciclos direcionados**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/topo-sort-cycle-detection-deadlock-loop.webm">
+    <p>Visualização: Bloqueio do algoritmo de Kahn com nós restantes de in-degree > 0 provando a presença de ciclos.</p>
+  </video>
+</div>
+
 | Estrutura de Dependência | Relação de Posição | Status de Validade |
 |---|---|---|
 | **Caminho Linear $A \to B \to C$** | $\text{pos}(A) < \text{pos}(B) < \text{pos}(C)$ | Válido |

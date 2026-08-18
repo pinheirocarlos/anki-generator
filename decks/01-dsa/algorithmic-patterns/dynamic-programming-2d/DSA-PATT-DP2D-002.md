@@ -22,6 +22,12 @@ Como a técnica de **Array de Rolamento (Rolling Array)** reduz o consumo de mem
 - **Complexidade**: Reduz o espaço de $O(M \times N)$ para **$O(N)$** mantendo o tempo em $O(M \times N)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/knapsack-1d-space-reverse-loop.webm">
+    <p>Visualização: Iteração reversa da capacidade máxima até o peso do item prevenindo reuso múltiplo do mesmo item.</p>
+  </video>
+</div>
+
 | Estrutura de Armazenamento | Consumo de Memória | Acesso ao Vizinho de Cima |
 |---|---|---|
 | **Matriz $M \times N$** | $O(M \times N)$ | `dp[r-1][c]` |

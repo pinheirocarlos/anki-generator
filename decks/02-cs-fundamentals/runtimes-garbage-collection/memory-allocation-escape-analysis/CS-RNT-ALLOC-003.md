@@ -21,6 +21,12 @@ Como o padrão **`sync.Pool`** em Go reduz a pressão sobre o Garbage Collector 
 - **Impacto**: Reduz as alocações de memória por requisição de milhares de bytes para **zero (Zero-Allocation)**, eliminando pausas de GC.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/sync-pool-object-reuse-gc-loop.webm">
+    <p>Visualização: Pool de objetos pré-alocados reutilizados entre goroutines reduzindo drasticamente as alocações no heap.</p>
+  </video>
+</div>
+
 | Estratégia de Buffers | Alocações no Heap por Requisição | Impacto no GC |
 |---|---|---|
 | **Alocação Direta (`make([]byte, 4096)`)** | 1 nova alocação a cada requisição | Alta pressão e coletas frequentes |

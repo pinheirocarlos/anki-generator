@@ -21,6 +21,12 @@ Como a estrutura de Índice Invertido (Inverted Index) no Elasticsearch / Apache
   - **Document Length Normalization**: Penaliza documentos excessivamente longos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/elasticsearch-inverted-index-postings-list-loop.webm">
+    <p>Visualização: Índice Invertido mapeando termos normalizados para Postings Lists com busca booleana e scoring BM25 em O(1).</p>
+  </video>
+</div>
+
 | Termo Tokenizado | Posting List (IDs de Documentos com Frequência) |
 |---|---|
 | **"distributed"** | `Doc1 (freq=3)`, `Doc4 (freq=1)`, `Doc9 (freq=5)` |

@@ -21,6 +21,12 @@ O que é o **Z-Array** e como o **Algoritmo Z** encontra todas as ocorrências d
   3. Qualquer posição $i$ onde $Z[i] == |\text{pattern}|$ indica uma ocorrência exata do padrão no texto no índice $i - |\text{pattern}| - 1$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/z-algorithm-box-matching-loop.webm">
+    <p>Visualização: Manutenção do intervalo [L, R] de maior casamento de prefixo acelerando a busca em tempo linear O(N+M).</p>
+  </video>
+</div>
+
 | Estrutura Concatenada | Condição de Casamento | Índice Real no Texto |
 |---|---|---|
 | $\text{Padrão} + \$ + \text{Texto}$ | $Z[i] == \text{len}(\text{Padrão})$ | $i - \text{len}(\text{Padrão}) - 1$ |

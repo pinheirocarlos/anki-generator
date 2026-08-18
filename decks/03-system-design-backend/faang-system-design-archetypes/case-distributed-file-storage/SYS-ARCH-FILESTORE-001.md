@@ -22,6 +22,12 @@ Como o Content-Addressable Storage (CAS) permite Deduplicação Global entre mil
   - O segundo commit tem o conflito detectado e o sistema cria automaticamente uma cópia bifurcada (*Conflicted Copy*, ex: `doc (Alice's conflicted copy 2026-08-18).pdf`).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/content-addressable-storage-deduplication-conflict-loop.webm">
+    <p>Visualização: Armazenamento endereçável por conteúdo (CAS) deduplicando blocos idênticos entre contas e bifurcando versões em conflito.</p>
+  </video>
+</div>
+
 | Cenário de Sincronização | Ação do Sistema | Resultado de Storage |
 |---|---|---|
 | **Chunk já existente no cluster** | Cria ponteiro de metadados | Upload instantâneo e zero custo de storage |

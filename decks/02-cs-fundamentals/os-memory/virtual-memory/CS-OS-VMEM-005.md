@@ -21,6 +21,12 @@ Como funciona o mapeamento de arquivos em memória com a syscall **`mmap()`** e 
   3. **Compartilhamento Inter-Processos (IPC)**: Múltiplos processos podem mapear o mesmo arquivo com a flag `MAP_SHARED`, compartilhando dados em $O(1)$ sem pipes ou sockets.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/mmap-file-backed-virtual-memory-loop.webm">
+    <p>Visualização: Mapeamento de arquivo diretamente nas páginas virtuais do processo com lazy loading sob demanda na primeira leitura.</p>
+  </video>
+</div>
+
 | Estratégia de Leitura | Caminho dos Dados | Cópias de Memória |
 |---|---|---|
 | **Syscall `read()` Padrão** | Disco $	o$ Page Cache (Kernel) $	o$ Buffer (App) | 2 cópias |

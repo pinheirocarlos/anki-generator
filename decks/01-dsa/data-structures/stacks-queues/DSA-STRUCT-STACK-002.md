@@ -21,6 +21,12 @@ Como funciona um **Deque (Double-Ended Queue)** e quais operações ele suporta 
 - Pode ser implementado de forma eficiente via lista duplamente encadeada ou vetor circular dinâmico (`ArrayDeque`).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/double-ended-queue-deque-loop.webm">
+    <p>Visualização: Inserções e remoções em O(1) em ambas as extremidades (front e rear) de um Deque.</p>
+  </video>
+</div>
+
 | Operação | Início (`First`) | Fim (`Last`) |
 |---|---|---|
 | **Inserção (`push`)** | $O(1)$ | $O(1)$ |

@@ -20,6 +20,12 @@ Em quais classes de problemas lineares o padrão Two Pointers permite reduzir o 
   3. **Reversão de Strings / Palíndromos**: Troca caracteres simétricos nas pontas até que `left >= right`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/in-place-two-pointers-write-read-loop.webm">
+    <p>Visualização: Ponteiro de leitura e ponteiro de escrita reescrevendo o vetor in-place sem alocação auxiliar.</p>
+  </video>
+</div>
+
 | Problema Linear | Abordagem com Array Extra | Abordagem Two Pointers In-Place |
 |---|---|---|
 | **Remove Duplicates** | Cria novo array $O(N)$ | Ponteiros `slow/fast` em $O(1)$ |

@@ -23,6 +23,12 @@ Como a pré-alocação de inventário em Redis com scripts Lua atômicos previne
   3. Apenas os 1.000 usuários que conseguiram a reserva na RAM recebem autorização para prosseguir para a fila de pagamento no banco de dados.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/flash-sale-redis-lua-atomic-decrement-loop.webm">
+    <p>Visualização: Decremento atômico de estoque via script Lua em Redis prevenindo overselling em picos de alta concorrência.</p>
+  </video>
+</div>
+
 | Estratégia de Reserva | Throughput Máximo Suportado | Risco de Overselling |
 |---|---|---|
 | **SQL Lock (`SELECT FOR UPDATE`)** | ~1.000 a 3.000 QPS (Gargalo de I/O) | Zero, mas derruba o banco de dados |

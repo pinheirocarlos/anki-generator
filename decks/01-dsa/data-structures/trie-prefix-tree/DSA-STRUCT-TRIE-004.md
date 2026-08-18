@@ -21,6 +21,12 @@ Como uma **Bitwise Trie (Trie Binária de Bits)** resolve o problema clássico d
 - **Complexidade**: $O(32N) = O(N)$ linear contra $O(N^2)$ da força bruta com pares.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bitwise-trie-maximum-xor-loop.webm">
+    <p>Visualização: Escolha gulosa do bit oposto (1 vs 0) a cada nível da trie binária de 32 bits maximizando o XOR.</p>
+  </video>
+</div>
+
 | Abordagem | Tempo de Execução | Decisão de Bit em Cada Passo |
 |---|---|---|
 | **Pares Força Bruta** | $O(N^2)$ Quadrático | Nenhuma ($N^2$ cálculos) |

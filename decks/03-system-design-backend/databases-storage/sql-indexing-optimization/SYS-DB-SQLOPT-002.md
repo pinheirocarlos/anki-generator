@@ -20,6 +20,12 @@ O que é um Covering Index (Índice de Cobertura) em SQL e como ele elimina comp
   - Reduz drasticamente o I/O aleatório e acelera consultas críticas em até $100x$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/sql-covering-index-zero-table-lookup-loop.webm">
+    <p>Visualização: Covering Index satisfazendo todas as colunas do SELECT e WHERE diretamente nos nós folhas sem acessar a tabela física.</p>
+  </video>
+</div>
+
 | Estrutura de Consulta | Índice Utilizado | Acesso à Tabela Primária? |
 |---|---|---|
 | `SELECT id, email, status FROM users WHERE email = ?` | `INDEX(email)` | SIM (Precisa buscar `status` na tabela) |

@@ -24,6 +24,12 @@ Quais são os trade-offs de tempo e espaço entre representar grafos via **Matri
   - *Iterar sobre vizinhos de $u$*: $O(\text{grau}(u))$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/graph-adjacency-matrix-vs-list-loop.webm">
+    <p>Visualização: Matriz O(V²) para grafos densos e verificação O(1) vs Lista O(V+E) para grafos esparsos.</p>
+  </video>
+</div>
+
 | Operação | Matriz de Adjacência | Lista de Adjacência |
 |---|---|---|
 | **Consumo de Memória** | $O(V^2)$ | $O(V + E)$ (Muito mais compacto) |

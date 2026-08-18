@@ -24,6 +24,12 @@ Quando escolher entre os algoritmos de balanceamento Round Robin, Weighted Least
   - Mapeia o IP do cliente para o mesmo servidor backend físico, aproveitando caches locais na memória do nó.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/load-balancer-algorithms-least-connections-round-robin-loop.webm">
+    <p>Visualização: Algoritmo Least Connections distribuindo conexões para o servidor com menor número de sessões ativas.</p>
+  </video>
+</div>
+
 | Algoritmo | Critério de Decisão | Cenário Recomendado |
 |---|---|---|
 | **Round Robin** | Sequencial circular com pesos | APIs stateless com requisições rápidas e uniformes |

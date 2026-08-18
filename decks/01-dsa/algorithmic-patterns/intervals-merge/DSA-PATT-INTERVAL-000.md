@@ -21,6 +21,12 @@ Por que a ordenação preliminar dos intervalos por seu ponto de início (`start
   - Isso reduz o processamento a uma única varredura linear $O(N)$ após a ordenação $O(N \log N)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/intervals-merge-loop.webm">
+    <p>Visualização: Ordenação por início e fusão de intervalos sobrepostos estendendo o ponto final end = max(end, next_end).</p>
+  </video>
+</div>
+
 | Estratégia de Intervalos | Comparações Necessárias | Complexidade Total |
 |---|---|---|
 | **Sem Ordenação** | Compara todos os pares $(i, j)$ | $O(N^2)$ |

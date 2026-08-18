@@ -20,6 +20,12 @@ Como funcionam internamente os nós e ponteiros de uma **Lista Encadeada Simples
 - A lista é acessada a partir de uma referência para o nó inicial (`head`), exigindo travessia sequencial $O(N)$ para alcançar nós intermediários.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/singly-linked-list-traversal-loop.webm">
+    <p>Visualização: Travessia sequencial de ponteiros next em blocos não-contíguos na memória heap.</p>
+  </video>
+</div>
+
 | Tipo de Lista | Ponteiros por Nó | Direção de Travessia |
 |---|---|---|
 | **Singly Linked** | 1 ponteiro (`next`) | Apenas para frente |

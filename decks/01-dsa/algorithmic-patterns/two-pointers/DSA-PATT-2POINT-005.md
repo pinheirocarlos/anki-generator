@@ -26,6 +26,12 @@ Qual é a demonstração matemática que prova como encontrar o **nó exato de i
 - **Algoritmo**: Após o encontro, reiniciamos um ponteiro na cabeça (`p1 = head`) mantendo o outro no ponto de encontro (`p2 = fast`). Avançando ambos a 1 passo por vez, eles se encontrarão **exatamente no nó de início do ciclo** após $L_1$ passos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/floyd-cycle-entry-point-proof-loop.webm">
+    <p>Visualização: Reinício de um ponteiro na cabeça e avanço sincronizado a 1x encontrando o nó exato de entrada do ciclo.</p>
+  </video>
+</div>
+
 | Ponteiro na Fase 2 | Posição Inicial | Ponto de Encontro Final |
 |---|---|---|
 | **`p1`** | `head` (1 passo/vez) | Início exato do ciclo ($L_1$) |

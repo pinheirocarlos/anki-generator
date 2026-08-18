@@ -21,6 +21,12 @@ Como as rotações simples e duplas (LL, RR, LR, RL) reequilibram a altura de um
   - **Rotação Dupla (RL)**: Rotação à direita no filho direito seguida de rotação à esquerda na raiz.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/avl-rotation-loop.webm">
+    <p>Visualização: Rotação simples à direita O(1) reequilibrando a altura para O(log N) preservando a invariante BST.</p>
+  </video>
+</div>
+
 | Tipo de Desbalanceamento | Caso | Rotação Necessária |
 |---|---|---|
 | **Esquerda-Esquerda** | LL | Rotação Simples à Direita ($O(1)$) |

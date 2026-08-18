@@ -19,6 +19,12 @@ O que é o fenômeno de **Head-of-Line (HoL) Blocking** na camada de transporte 
 - Em protocolos que multiplexam múltiplas requisições independentes em uma única conexão TCP (como o HTTP/2), a perda de 1 pacote de uma imagem paralisa a entrega de todas as outras requisições e respostas ativas simultaneamente.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/tcp-head-of-line-blocking-stream-loop.webm">
+    <p>Visualização: Retenção de todos os bytes subsequentes no buffer do receptor aguardando a retransmissão de um pacote perdido.</p>
+  </video>
+</div>
+
 | Situação da Rede | Comportamento no Kernel do Receptor | Impacto no App |
 |---|---|---|
 | **Fluxo Normal** | Pacotes 1, 2, 3 chegam em ordem | Leitura imediata contínua |

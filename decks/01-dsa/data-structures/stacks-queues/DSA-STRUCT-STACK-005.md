@@ -21,6 +21,12 @@ Como o padrão **Monotonic Stack** resolve o problema clássico de *Next Greater
 - Como cada índice entra e sai da pilha no máximo uma vez, a complexidade total é $O(N)$ linear contra $O(N^2)$ da busca quadrática.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/stack-monotonic-nge-parsing-loop.webm">
+    <p>Visualização: Desempilhamento de elementos menores ao encontrar um elemento maior, mantendo a monotonicidade decrescente.</p>
+  </video>
+</div>
+
 | Abordagem | Tempo de Execução | Espaço Auxiliar |
 |---|---|---|
 | **Busca Dupla Força Bruta** | $O(N^2)$ Quadrático | $O(1)$ |

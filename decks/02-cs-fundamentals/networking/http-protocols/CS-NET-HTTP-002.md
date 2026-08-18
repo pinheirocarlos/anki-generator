@@ -19,6 +19,12 @@ Como o **HTTP/2 Multiplexing** permite trafegar centenas de requisições e resp
 - **Multiplexação Real**: Frames de dezenas de streams distintos são intercalados livremente na mesma conexão TCP em tempo real. O receptor remonta as mensagens baseado no Stream ID, eliminando o Head-of-Line Blocking na camada de aplicação.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/http2-multiplexing-streams-loop.webm">
+    <p>Visualização: Streams binárias independentes multiplexadas sobre uma única conexão TCP no HTTP/2.</p>
+  </video>
+</div>
+
 | Camada de Mensagem | HTTP/1.1 | HTTP/2 |
 |---|---|---|
 | **Formato de Protocolo** | Texto puro delimitado por CRLF (`\r\n`) | Frames binários estruturados em bytes |

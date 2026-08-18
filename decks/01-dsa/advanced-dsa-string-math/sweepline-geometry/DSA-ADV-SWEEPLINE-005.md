@@ -25,6 +25,12 @@ Como a combinação de **Linha de Varredura** com **Árvore de Segmentos (Segmen
 - **Complexidade**: $O(N \log N)$ tempo contra $O(N^2)$ da abordagem sem Segment Tree.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/graham-scan-convex-hull-cross-product-loop.webm">
+    <p>Visualização: Ordenação angular e verificação de curvas à esquerda com produto vetorial (Cross Product) desempilhando pontos côncavos.</p>
+  </video>
+</div>
+
 | Evento no Eixo $X$ | Atualização na Segment Tree | Cálculo da Área da Faixa |
 |---|---|---|
 | Avanço $X_{i-1} \to X_i$ | $\pm 1$ no intervalo $[y_1, y_2]$ | $\text{comprimentoY} \times (X_i - X_{i-1})$ |

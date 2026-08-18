@@ -24,6 +24,12 @@ Como o **Algoritmo de Prim** expande a MST incrementalmente a partir de um vért
   4. Repete até que todos os $V$ nós estejam na MST.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/prim-mst-priority-queue-loop.webm">
+    <p>Visualização: Crescimento contínuo da árvore a partir de um vértice inicial anexando a aresta mais leve na fronteira.</p>
+  </video>
+</div>
+
 | Algoritmo de MST | Estratégia de Construção | Estrutura Auxiliar Principal |
 |---|---|---|
 | **Kruskal** | Floresta de arestas fundidas | DSU (Union-Find) |

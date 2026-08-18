@@ -21,6 +21,12 @@ Como as **Skip Lists** alcançam busca, inserção e remoção em tempo $O(\log 
 - Essa descida em torre divide o espaço de busca pela metade a cada nível, atingindo $O(\log N)$ esperado.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/skip-list-express-lanes-loop.webm">
+    <p>Visualização: Saltos rápidos através de faixas expressas multinível alcançando complexidade média de busca O(log N).</p>
+  </video>
+</div>
+
 | Estrutura de Busca | Custo de Busca | Complexidade de Implementação |
 |---|---|---|
 | **Árvore Red-Black** | $O(\log N)$ Pior caso | Alta (Rotações e recolorações) |

@@ -20,6 +20,12 @@ Como o Redis implementa Sorted Sets (ZSet) combinando internamente uma SkipList 
 - Para conjuntos pequenos com poucos elementos, o Redis utiliza codificações compactas em memória (**ZipList / ListPack**) economizando até $80\%$ de RAM.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/redis-skiplist-zset-hierarchy-loop.webm">
+    <p>Visualização: SkipList probabilística do Redis ZSet permitindo buscas e inserções em O(log N) combinada com Hash Map para lookup em O(1).</p>
+  </video>
+</div>
+
 | Operação no ZSet | Estrutura Interna Utilizada | Complexidade de Tempo |
 |---|---|---|
 | `ZSCORE member` | Hash Table | $O(1)$ |

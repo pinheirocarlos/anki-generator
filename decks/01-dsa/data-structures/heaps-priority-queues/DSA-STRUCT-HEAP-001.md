@@ -23,6 +23,12 @@ Por que o algoritmo **Heapify Bottom-Up constrói um Heap em tempo linear $O(N)$
   $$S = \sum_{h=0}^{\log N} \frac{N}{2^{h+1}} \times h = N \sum_{h=0}^{\infty} \frac{h}{2^{h+1}} = N \times 1 = O(N)$$
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/heapify-bottom-up-siftdown-loop.webm">
+    <p>Visualização: Sift-down executado de floor(N/2) até a raiz resultando em somatório convergente O(N).</p>
+  </video>
+</div>
+
 | Abordagem de Construção | Algoritmo | Complexidade de Tempo |
 |---|---|---|
 | **$N$ Inserções Top-Down** | `siftUp` sucessivo | $O(N \log N)$ |

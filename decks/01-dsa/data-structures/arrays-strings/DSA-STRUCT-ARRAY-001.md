@@ -21,6 +21,12 @@ Como provar formalmente que o custo de inserção (`append`) em um vetor dinâmi
 - Quando o array atinge a capacidade $N$ e precisa duplicar para $2N$, exatamente $N$ créditos estão acumulados no saldo, pagando integralmente a cópia dos $N$ elementos para o novo buffer sem déficit. Logo, o custo por operação é $O(1)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dynamic-array-amortized-growth-loop.webm">
+    <p>Visualização: Duplicação geométrica da capacidade (2x) e redistribuição de créditos amortizados O(1).</p>
+  </video>
+</div>
+
 | Operação | Custo Real | Saldo Acumulado |
 |---|---|---|
 | **Append sem realocação** | 1 ciclo | $+2$ créditos no saldo |

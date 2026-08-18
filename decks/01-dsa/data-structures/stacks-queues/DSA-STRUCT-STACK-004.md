@@ -22,6 +22,12 @@ Como implementar uma **Fila FIFO utilizando duas Pilhas LIFO** garantindo custo 
 - Cada elemento é transferido de `inStack` para `outStack` exatamente uma vez ao longo de seu ciclo de vida, conferindo **custo amortizado $O(1)$**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/queue-two-stacks-transfer-loop.webm">
+    <p>Visualização: Transferência em lote de stack_in para stack_out invertendo a ordem para consumo FIFO O(1) amortizado.</p>
+  </video>
+</div>
+
 | Operação | Mecânica das Pilhas | Custo Amortizado |
 |---|---|---|
 | `push(x)` | Insere em `inStack` | $O(1)$ |

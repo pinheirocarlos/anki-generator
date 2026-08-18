@@ -21,6 +21,12 @@ Como projetar um **Ring Buffer (Buffer Circular)** contíguo de alta performance
 - Essa operação executa em **1 único ciclo de clock** da CPU contra 15–40 ciclos da instrução `DIV`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/circular-ring-buffer-bitwise-loop.webm">
+    <p>Visualização: Avanço modular dos ponteiros head e tail com máscara bitwise (i & (N-1)) sobre array contíguo.</p>
+  </video>
+</div>
+
 | Estratégia de Avanço | Instrução CPU | Ciclos de Clock |
 |---|---|---|
 | **Aritmética Modular (`% cap`)** | `DIV` / `IDIV` | ~15 a 40 ciclos |

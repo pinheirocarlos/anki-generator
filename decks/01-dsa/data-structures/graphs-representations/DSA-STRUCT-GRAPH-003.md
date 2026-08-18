@@ -20,6 +20,12 @@ Como funciona a representação por **Lista de Adjacência** e por que ela é o 
 - **Travessia**: Iterar sobre os vizinhos de $u$ custa exatamente o grau do nó $O(\text{deg}(u))$, permitindo que algoritmos como BFS e DFS rodem em tempo ótimo $O(V + E)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/adjacency-list-compact-loop.webm">
+    <p>Visualização: Array de listas encadeadas contendo apenas vizinhos reais com travessia de adjacentes sem escanear V colunas.</p>
+  </video>
+</div>
+
 | Representação | Consumo de Memória | Iteração de Vizinhos de $u$ |
 |---|---|---|
 | **Matriz de Adjacência** | $O(V^2)$ Quadrático | $O(V)$ Varredura de linha |

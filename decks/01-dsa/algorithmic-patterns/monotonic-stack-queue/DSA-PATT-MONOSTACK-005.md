@@ -24,6 +24,12 @@ Como um **Monotonic Deque** acelera a transição de DP $DP[i] = nums[i] + \max_
 - **Complexidade**: $O(N)$ tempo e $O(N)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/daily-temperatures-index-diff-loop.webm">
+    <p>Visualização: Armazenamento de índices na pilha monotônica calculando a diferença de dias curr_index - popped_index.</p>
+  </video>
+</div>
+
 | Abordagem de DP | Busca do Máximo nos Últimos $K$ | Complexidade Total |
 |---|---|---|
 | **Varredura Linear de Janela** | Varre $K$ posições | $O(N \cdot K)$ TLE |

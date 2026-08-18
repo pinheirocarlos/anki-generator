@@ -23,6 +23,12 @@ Como implementar o algoritmo **3Sum** em tempo $O(N^2)$ e espaço $O(1)$ garanti
     - **Deduplicação dos ponteiros**: Avança `left++` enquanto $A[\text{left}] == A[\text{left}-1]$ e recua `right--` enquanto $A[\text{right}] == A[\text{right}+1]$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/3sum-two-pointers-dedup-loop.webm">
+    <p>Visualização: Fixação do primeiro elemento e busca com two pointers nos restantes com avanço em duplicatas adjacentes.</p>
+  </video>
+</div>
+
 | Elemento da Tripla | Ponto de Deduplicação | Ação de Salto |
 |---|---|---|
 | **$i$ (Primeiro elemento)** | Antes do loop Two Pointers | `if (i > 0 && A[i] == A[i-1]) continue` |

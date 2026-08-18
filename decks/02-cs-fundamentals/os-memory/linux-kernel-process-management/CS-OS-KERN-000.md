@@ -22,6 +22,12 @@ Como a otimização de **Copy-On-Write (COW)** torna a syscall **`fork()`** prat
   4. O kernel intercepta a interrupção, aloca um novo bloco físico de 4 KB, copia os dados daquela página específica, atualiza a tabela do processo escritor com permissão de escrita e retoma a instrução.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/linux-fork-copy-on-write-loop.webm">
+    <p>Visualização: Compartilhamento de páginas físicas marcadas como read-only duplicando apenas na primeira tentativa de escrita.</p>
+  </video>
+</div>
+
 | Fase do Processo | Estado das Páginas na MMU | Memória RAM Física |
 |---|---|---|
 | **Imediatamente após `fork()`** | Somente Leitura (`RO`) | 100% compartilhada entre Pai e Filho |

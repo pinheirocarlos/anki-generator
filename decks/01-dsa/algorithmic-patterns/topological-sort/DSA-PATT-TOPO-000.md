@@ -18,6 +18,12 @@ O que é uma **Ordenação Topológica (Topological Sort)** e por que ela só é
 - **Viabilidade Exclusiva em DAGs**: Se o grafo contiver um ciclo (ex: $A \to B \to C \to A$), $A$ deveria vir antes de $B$, que deveria vir antes de $C$, que deveria vir antes de $A$ (uma contradição lógica insolúvel). Portanto, a ordenação topológica existe se e somente se o grafo for um **DAG (Directed Acyclic Graph)**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/topological-sort-dag-linear-loop.webm">
+    <p>Visualização: Linearização dos vértices de um grafo acíclico garantindo que toda aresta (u -> v) tenha u antes de v.</p>
+  </video>
+</div>
+
 | Tipo de Grafo | Possui Ciclo | Ordenação Topológica Válida |
 |---|---|---|
 | **DAG (Acíclico Direcionado)** | Não | Sim (ao menos uma ordenação válida) |

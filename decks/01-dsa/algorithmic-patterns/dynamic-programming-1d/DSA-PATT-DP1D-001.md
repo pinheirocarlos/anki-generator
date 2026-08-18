@@ -22,6 +22,12 @@ Como modelar a equação de recorrência e a escolha binária (roubar vs não ro
 - **Complexidade**: $O(N)$ tempo e $O(1)$ espaço (usando duas variáveis).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/top-down-memo-vs-bottom-up-tab-loop.webm">
+    <p>Visualização: Recursão com cache em tabela vs iteração bottom-up preenchendo o vetor linear sequencialmente.</p>
+  </video>
+</div>
+
 | Decisão na Casa $i$ | Restrição Aplicada | Ganho Acumulado |
 |---|---|---|
 | **Roubar Casa $i$** | Não pode roubar $i-1$ | $DP[i-2] + A[i]$ |

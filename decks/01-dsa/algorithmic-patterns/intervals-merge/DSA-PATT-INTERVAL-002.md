@@ -22,6 +22,12 @@ Como implementar o algoritmo de **Merge Intervals** (LeetCode 56) fundindo inter
 - **Complexidade**: $O(N \log N)$ tempo (dominado pela ordenação) e $O(N)$ espaço para o resultado.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/non-overlapping-intervals-greedy-loop.webm">
+    <p>Visualização: Ao detectar sobreposição, descarte guloso do intervalo com maior término para minimizar conflitos futuros.</p>
+  </video>
+</div>
+
 | Condição com Intervalo Atual | Ação de Fusão | Resultado |
 |---|---|---|
 | `next.start <= curr.end` | `curr.end = max(curr.end, next.end)` | Intervalo expandido |

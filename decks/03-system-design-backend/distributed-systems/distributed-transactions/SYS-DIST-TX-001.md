@@ -21,6 +21,12 @@ Como o padrão Saga garante consistência eventual entre múltiplos microsservi�
 - **Orquestração**: Um serviço centralizado (Orchestrator/Workflow Engine como Temporal) controla a máquina de estados e dispara os comandos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/saga-pattern-orchestrator-compensating-tx-loop.webm">
+    <p>Visualização: Padrão Saga executando transações locais distribuídas com orquestrador central disparando transações compensatórias em falhas.</p>
+  </video>
+</div>
+
 | Modelo de Saga | Prós | Contras |
 |---|---|---|
 | **Coreografia (Event-Driven)** | Desacoplamento total, sem gargalo central | Rastreamento complexo de fluxo e dependências cíclicas |

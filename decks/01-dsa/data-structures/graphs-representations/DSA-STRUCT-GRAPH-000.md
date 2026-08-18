@@ -20,6 +20,12 @@ O que define formalmente um **Grafo** ($G = (V, E)$) e qual a diferença entre g
 - **Ponderado**: Cada aresta possui um peso associado (custo, distância, latência).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/graph-types-directed-weighted-loop.webm">
+    <p>Visualização: Representação de vértices e arestas direcionadas, bidirecionadas e ponderadas com pesos.</p>
+  </video>
+</div>
+
 | Tipo de Grafo | Simetria de Aresta | Exemplo de Aplicação |
 |---|---|---|
 | **Não-Direcionado** | $(u, v) \iff (v, u)$ | Redes de computadores / Amizades |

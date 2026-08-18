@@ -21,6 +21,12 @@ Como o **Autômato de Aho-Corasick** combina uma Trie com links de falha (*failu
 - **Complexidade**: $O(|T| + \sum |P_i|)$ tempo linear absoluto, independentemente do número de palavras no dicionário.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lps-array-construction-pointers-loop.webm">
+    <p>Visualização: Dois ponteiros computando o maior prefixo próprio que também é sufixo para cada prefixo do padrão.</p>
+  </video>
+</div>
+
 | Abordagem Multi-Padrão | Custo com $K$ Palavras | Escalabilidade |
 |---|---|---|
 | **$K \times$ KMP** | $O(K \cdot N)$ | Degrada com dicionários grandes |

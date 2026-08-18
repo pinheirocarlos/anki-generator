@@ -21,6 +21,12 @@ Por que a **SkipList Concorrente (ConcurrentSkipListMap)** é preferida em rela�
 - **Complexidade**: $O(\log N)$ tempo médio para busca, inserção e remoção com alta concorrência.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/michael-scott-queue-two-cas-loop.webm">
+    <p>Visualização: Fila encadeada com dois ponteiros atômicos (head e tail) com avanço do tail atrasado por threads concorrentes.</p>
+  </video>
+</div>
+
 | Estrutura Ordenada | Custo de Modificação Concorrente | Escalabilidade Multithread |
 |---|---|---|
 | **Red-Black Tree Concorrente** | Rotações afetam árvore inteira | Baixa (Locks amplos) |

@@ -22,6 +22,12 @@ Como a divisão de arquivos em blocos (Chunking de 4 MB) e a Sincronização Del
   - Os outros 124 chunks inalterados permanecem intactos no servidor, reduzindo o uso de largura de banda e tempo de upload em mais de $99\%$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/google-drive-chunking-delta-sync-pipeline-loop.webm">
+    <p>Visualização: Divisão de arquivos em blocos de 4MB com hash SHA-256 e sincronização delta transmitindo apenas blocos modificados.</p>
+  </video>
+</div>
+
 | Estratégia de Upload | Upload ao Modificar 1 Linha em 100 MB | Consumo de Rede e Tempo |
 |---|---|---|
 | **Upload do Arquivo Inteiro** | Reenvia todos os 100 MB | Lento e consome muita banda móvel |

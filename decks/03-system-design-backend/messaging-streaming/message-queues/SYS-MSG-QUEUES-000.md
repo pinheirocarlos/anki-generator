@@ -22,6 +22,12 @@ Qual é a diferença conceitual entre o modelo Ponto a Ponto (Point-to-Point) e 
   - A mensagem é copiada e entregue a **todos os assinantes inscritos** (cada serviço consumidor recebe sua própria cópia independente da mensagem).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/message-queues-point-to-point-vs-pubsub-loop.webm">
+    <p>Visualização: Fila Ponto a Ponto competindo por mensagens vs Fan-out Pub/Sub entregando cópia para múltiplos assinantes.</p>
+  </video>
+</div>
+
 | Modelo de Mensageria | Quantidade de Consumidores por Mensagem | Caso de Uso Primário |
 |---|---|---|
 | **Point-to-Point (Queue)** | Exatamente 1 consumidor | Processamento de tarefas assíncronas |

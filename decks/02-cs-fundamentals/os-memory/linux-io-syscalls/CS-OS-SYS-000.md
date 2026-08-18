@@ -22,6 +22,12 @@ O que acontece na CPU durante a transição de **User Mode (Ring 3)** para **Ker
   4. O kernel executa a operação protegida e retorna via `SYSRET`, restaurando o Ring 3.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/syscall-user-to-kernel-ring-transition-loop.webm">
+    <p>Visualização: Instrução syscall disparando transição de Ring 3 para Ring 0 com troca de pilha e consulta à tabela sys_call_table.</p>
+  </video>
+</div>
+
 | Nível de Privilégio | Acesso a Hardware | Estrutura de Stack Ativa |
 |---|---|---|
 | **Ring 3 (User Space)** | Bloqueado (Dispara Trap de CPU) | Stack da Thread do Processo |

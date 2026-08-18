@@ -23,6 +23,12 @@ Como o **Algoritmo de Kahn (BFS In-Degree)** calcula a ordenação topológica e
 - **Complexidade**: $O(V + E)$ tempo e $O(V + E)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/topological-sort-kahn-loop.webm">
+    <p>Visualização: Enfileiramento de nós com grau de entrada 0 e decremento dos vizinhos até esvaziar o grafo.</p>
+  </video>
+</div>
+
 | Grau de Entrada (`in-degree`) | Significado de Negócio | Ação no Algoritmo |
 |---|---|---|
 | `in-degree == 0` | Pré-requisitos 100% satisfeitos | Enfileira para execução |

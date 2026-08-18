@@ -23,6 +23,12 @@ Por que a API **`epoll`** do Linux escala em tempo **$O(1)$** com milhões de co
   3. Ao chamar `epoll_wait`, o kernel retorna **apenas os sockets que já possuem dados prontos**, sem nenhuma varredura linear.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/epoll-redblack-ready-list-loop.webm">
+    <p>Visualização: Árvore Red-Black de descritores e Ready List duplamente ligada alimentada por interrupções do kernel em O(1).</p>
+  </video>
+</div>
+
 | API de I/O | Custo por Evento | Comportamento com 100.000 Sockets Ociosos |
 |---|---|---|
 | **`select` / `poll`** | $O(N)$ | Varia 100.000 sockets a cada milissegundo (Inviável) |

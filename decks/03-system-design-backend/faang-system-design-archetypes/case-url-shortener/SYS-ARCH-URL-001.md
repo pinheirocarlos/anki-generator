@@ -25,6 +25,12 @@ Qual é a diferença entre retornar HTTP 301 Moved Permanently versus HTTP 302 F
 - **Arquitetura 100:1**: Em razão 100:1 (ex: 100k QPS de leitura e 1k QPS de escrita), utiliza-se cluster Redis em frente ao banco de dados com política LRU, atingindo $>90\%$ de Cache Hit.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/tinyurl-http-301-vs-302-redirect-cache-loop.webm">
+    <p>Visualização: Redirecionamento HTTP 302 permitindo rastrear métricas de cliques em camada de cache Redis com taxa 100:1.</p>
+  </video>
+</div>
+
 | Status HTTP | Cache no Navegador | Rastreamento Analítico de Cliques |
 |---|---|---|
 | **301 Moved Permanently** | Sim (Requisições futuras não batem no backend) | Parcial / Comprometido |

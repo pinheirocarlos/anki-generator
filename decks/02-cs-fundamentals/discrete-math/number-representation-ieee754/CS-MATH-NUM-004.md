@@ -21,6 +21,12 @@ O que são **números Subnormais (Denormais)**, `NaN` e `Infinito` no padrão IE
 - **Penalidade de Performance**: Muitas CPUs não processam subnormais no pipeline veloz da FPU e disparam microcode traps, causando lentidão de **10x a 100x** em loops intensivos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/ieee-754-subnormal-nan-infinity-loop.webm">
+    <p>Visualização: Expoente com todos os bits 1 (NaN / Infinito) e expoente 0 com mantissa não-nula (Subnormais).</p>
+  </video>
+</div>
+
 | Estado Especial | Padrão dos Bits | Comportamento em Execução |
 |---|---|---|
 | **Zero ($\pm 0$)** | Expoente 0 / Mantissa 0 | `+0.0 == -0.0` retorna `true` |

@@ -21,6 +21,12 @@ O que é **Probabilidade Condicional** e como o **Teorema de Bayes** calcula a p
 - Base para classificadores Naive Bayes (filtros anti-spam, detecção de fraude e diagnósticos de falhas em sistemas distribuídos).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/bayes-theorem-conditional-probability-loop.webm">
+    <p>Visualização: Atualização da probabilidade a posteriori P(A|B) combinando verossimilhança e probabilidade a priori.</p>
+  </video>
+</div>
+
 | Termo Bayesiano | Significado no Sistema | Exemplo em Filtro Anti-Spam |
 |---|---|---|
 | **$P(A)$ (Prior)** | Probabilidade base antes de ver o dado | Taxa geral de spam recebido (ex: 20%) |

@@ -19,6 +19,12 @@ Por que a combinação de **Path Compression** com **Union by Rank** reduz o cus
 - **Complexidade**: A combinação de ambas garante tempo amortizado $O(\alpha(N))$ por operação, onde $\alpha$ é a **Função Inversa de Ackermann** (para qualquer valor prático no universo $N \le 10^{80}$, $\alpha(N) \le 4$, ou seja, tempo efetivamente constante).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dsu-path-compression-loop.webm">
+    <p>Visualização: Achatamento da árvore de apontadores diretamente para a raiz na chamada de find() reduzindo a altura para quase 1.</p>
+  </video>
+</div>
+
 | Otimização | Mecanismo | Efeito na Árvore |
 |---|---|---|
 | **Path Compression** | `parent[x] = find(parent[x])` | Achata os ramos visitados |

@@ -19,6 +19,12 @@ Quais foram as limitações de performance do **HTTP/1.1** (como o Head-of-Line 
 - **Contornos Ineficientes**: Navegadores eram forçados a abrir **6 conexões TCP simultâneas por domínio**, exigindo 6 handshakes TCP/TLS separados e multiplicando a carga nos servidores.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/http11-head-of-line-blocking-loop.webm">
+    <p>Visualização: Bloqueio de cabeça de fila no HTTP/1.1 onde uma resposta lenta retém todas as requisições subsequentes na mesma conexão.</p>
+  </video>
+</div>
+
 | Problema no HTTP/1.1 | Impacto de Performance | Solução Adotada no HTTP/2 |
 |---|---|---|
 | **HoL Blocking de Requisições** | 1 resposta lenta bloqueia a fila | Multiplexing com Streams Binários |

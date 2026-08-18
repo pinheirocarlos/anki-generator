@@ -23,6 +23,12 @@ Como modelar a função de transição de estados de uma DP 2D em matrizes de gr
 - **Complexidade**: $O(M \times N)$ tempo e $O(M \times N)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dp-2d-knapsack-grid-loop.webm">
+    <p>Visualização: Preenchimento de matriz bidimensional onde o estado atual depende de células vizinhas (cima, esquerda, diagonal).</p>
+  </video>
+</div>
+
 | Problema de Grade | Origem dos Subproblemas | Função de Agregação |
 |---|---|---|
 | **Unique Paths** | Cima $(r-1, c)$ e Esquerda $(r, c-1)$ | Soma ($+$) |

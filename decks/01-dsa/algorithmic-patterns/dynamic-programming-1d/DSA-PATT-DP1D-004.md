@@ -22,6 +22,12 @@ Como a Programação Dinâmica 1D resolve o problema **Coin Change** (número m�
 - **Complexidade**: $O(N \times \text{amount})$ tempo e $O(\text{amount})$ espaço (variante de Mochila Não-Limitada / *Unbounded Knapsack*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/coin-change-min-coins-dp-loop.webm">
+    <p>Visualização: Preenchimento de valores de 1 até T computando min(dp[amount - coin] + 1) para cada moeda disponível.</p>
+  </video>
+</div>
+
 | Quantia Alvo $a$ | Relação de Recorrência | Caso Impossível |
 |---|---|---|
 | $a = 0$ | $DP[0] = 0$ (0 moedas) | N/A |

@@ -21,6 +21,12 @@ Por que a unicidade estrita dos pesos de todas as arestas em um grafo garante qu
   - Kruskal e Prim farão exatamente as mesmas escolhas unívocas, resultando em uma **MST única**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/mst-uniqueness-distinct-weights-loop.webm">
+    <p>Visualização: Garantia formal de que quando todos os pesos das arestas são distintos, a MST do grafo é estritamente única.</p>
+  </video>
+</div>
+
 | Pesos das Arestas no Grafo | Quantidade de MSTs Possíveis |
 |---|---|
 | **Todos os pesos distintos** | Garantidamente **1 única MST** |

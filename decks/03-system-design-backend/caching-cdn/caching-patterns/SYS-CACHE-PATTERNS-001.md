@@ -21,6 +21,12 @@ Como a política de evicção LRU (Least Recently Used) se compara à LFU (Least
   - Garante taxas de acerto (*Hit Rate*) superiores a qualquer algoritmo clássico isolado.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/lru-vs-lfu-wtinylfu-eviction-loop.webm">
+    <p>Visualização: Política W-TinyLFU combinando Window Cache para recência com Count-Min Sketch para frequência com 99% de hit ratio.</p>
+  </video>
+</div>
+
 | Política de Evicção | Critério de Descarte | Vulnerabilidade Típica |
 |---|---|---|
 | **LRU** | Menor recência (acessado há mais tempo) | Varreduras completas limpam o cache útil |

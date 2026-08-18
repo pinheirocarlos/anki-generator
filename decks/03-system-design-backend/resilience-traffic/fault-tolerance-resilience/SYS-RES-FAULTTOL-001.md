@@ -23,6 +23,12 @@ Por que adicionar Full Jitter aleatório ao Exponential Backoff é obrigatório 
   - Dispersa uniformemente a carga de retries no tempo, permitindo que o servidor se recupere suavemente.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/exponential-backoff-full-jitter-distribution-loop.webm">
+    <p>Visualização: Full Jitter aleatorizando tempos de espera entre retentativas dissipando tempestades de requisições sincronizadas.</p>
+  </video>
+</div>
+
 | Estratégia de Retry | Distribuição de Tráfego no Tempo | Risco de Ressaturação do Backend |
 |---|---|---|
 | **Retry Imediato** | Rajada violenta contínua | Colapso garantido do serviço |

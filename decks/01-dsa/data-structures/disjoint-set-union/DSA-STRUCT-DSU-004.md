@@ -21,6 +21,12 @@ Como o DSU detecta **ciclos em grafos não-direcionados** durante a inserção i
 - **Complexidade**: $O(E \cdot \alpha(V))$ tempo e $O(V)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dsu-cycle-detection-graph-loop.webm">
+    <p>Visualização: Detecção imediata de ciclo ao tentar unir dois vértices que já compartilham a mesma raiz (find(u) == find(v)).</p>
+  </video>
+</div>
+
 | Aresta Analisada $(u, v)$ | Condição no DSU | Diagnóstico |
 |---|---|---|
 | `find(u) != find(v)` | Diferentes conjuntos | Aresta segura (sem ciclo) |

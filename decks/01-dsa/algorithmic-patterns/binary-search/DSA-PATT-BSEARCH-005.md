@@ -24,6 +24,12 @@ Quais as regras de término e atualização de limites para os dois templates cl
   - Término: quando $\text{left} == \text{right}$. Usado para busca de limites e mínimos locais (*Find Peak Element*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/binary-search-loop-invariants-loop.webm">
+    <p>Visualização: Invariante de laço: low <= high para busca exata vs low < high para convergência em ponto único.</p>
+  </video>
+</div>
+
 | Template | Condição / Atualização | Condição de Parada |
 |---|---|---|
 | **Template 1** | `left <= right` com `mid ± 1` | `left > right` |

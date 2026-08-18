@@ -21,6 +21,12 @@ Como encontrar a interseção entre duas listas de intervalos ordenados e disjun
   - **Avanço de Ponteiro**: Avançamos o ponteiro do intervalo que **termina primeiro** (se $A[i].\text{end} < B[j].\text{end}$, fazemos $i++$; senão $j++$), pois ele não pode mais intersectar nenhum intervalo futuro.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/intervals-sweep-line-concurrency-loop.webm">
+    <p>Visualização: Geração de eventos de início (+1) e término (-1) processando pontos temporais para encontrar o pico concorrente.</p>
+  </video>
+</div>
+
 | Cálculo de Interseção | Condição de Validade | Regra de Descarte |
 |---|---|---|
 | $[max(S_A, S_B), min(E_A, E_B)]$ | $\text{start} \le \text{end}$ | Avança o que tiver menor `end` |

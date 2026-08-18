@@ -20,6 +20,12 @@ Como calcular a taxa de requisições por segundo (QPS médio e pico) e a capaci
 - **Storage 5 Anos**: $\text{Storage Diário} \times 365 \times 5 \approx \text{Storage Diário} \times 2.000$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/back-of-the-envelope-qps-storage-calculation-loop.webm">
+    <p>Visualização: Cálculo de dimensionamento convertendo DAU para QPS médio, pico de tráfego e armazenamento para 5 anos.</p>
+  </video>
+</div>
+
 | Parâmetro de Cálculo | Fórmula Simplificada | Regra Prática FAANG |
 |---|---|---|
 | **Segundos por Dia** | 86.400 s | Arredondar para $10^5$ (100.000 s) |

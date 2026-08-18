@@ -21,6 +21,12 @@ Como a combinação de Partition Key (HASH) e Sort Key (RANGE) viabiliza o padr�
   - Permite recuperar um usuário e todos os seus pedidos recentes em **uma única chamada `Query`** ultra-rápida (1 round-trip), sem necessidade de `JOINs`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/dynamodb-single-table-design-pk-sk-loop.webm">
+    <p>Visualização: Modelagem Single-Table no DynamoDB particionando por HASH (PK) e ordenando ranges por SORT (SK) para consultas ricas em 1 RTT.</p>
+  </video>
+</div>
+
 | Chave da Tabela | Formato de Exemplo | Finalidade |
 |---|---|---|
 | **Partition Key (PK)** | `USER#1001` | Localização do nó físico via Hash |

@@ -23,6 +23,12 @@ Qual é a diferença entre um **Minor Page Fault** e um **Major Page Fault** no 
   - O processo é suspenso enquanto o driver de storage executa I/O de disco, gerando latência severa (**~20 µs em SSD NVMe a ~10 ms em HDD**).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/page-fault-major-minor-swap-loop.webm">
+    <p>Visualização: Página ausente da tabela mas presente na RAM (Minor) vs busca obrigatória de bloco no disco/swap (Major).</p>
+  </video>
+</div>
+
 | Tipo de Page Fault | Origem do Dado | Latência Típica |
 |---|---|---|
 | **Minor Page Fault** | Já residente na RAM (Page Cache / Zeroed Page) | ~1 a 5 µs (Rápido) |

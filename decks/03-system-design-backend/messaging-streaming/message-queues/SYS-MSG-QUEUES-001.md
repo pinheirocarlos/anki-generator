@@ -22,6 +22,12 @@ Como o mecanismo de Visibility Timeout e Dead Letter Queue (DLQ) previne perda d
   - Se uma mensagem falhar consecutivamente mais de $N$ vezes (`maxReceiveCount`, ex: 5 tentativas devido a bugs ou formato inválido - *Poison Pill*), o broker a move automaticamente para uma **DLQ isolada** para auditoria manual sem bloquear a fila principal.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/sqs-visibility-timeout-dead-letter-queue-loop.webm">
+    <p>Visualização: Visibility Timeout escondendo mensagem em processamento e roteamento automático para DLQ após estourar limite de retentativas.</p>
+  </video>
+</div>
+
 | Parâmetro SQS | Finalidade | Comportamento sob Falha |
 |---|---|---|
 | **Visibility Timeout** | Prevenir processamento duplicado temporário | Mensagem reaparece se o worker falhar |

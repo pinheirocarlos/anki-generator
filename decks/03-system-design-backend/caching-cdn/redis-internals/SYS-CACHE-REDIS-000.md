@@ -20,6 +20,12 @@ Por que o Redis consegue processar mais de 100.000 operações por segundo utili
   3. **Zero Contenção de Locks**: Por ser single-threaded na execução dos comandos, o Redis **não possui locks, mutexes ou context switches de CPU**, garantindo execução atômica determinística de cada comando.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/redis-single-thread-event-loop-loop.webm">
+    <p>Visualização: Event Loop do Redis operando em memória RAM física com multiplexador de I/O não-bloqueante (epoll/kqueue) sem contenção de locks.</p>
+  </video>
+</div>
+
 | Paradigma de Execução | Overhead de Sincronização | Desempenho em Memória |
 |---|---|---|
 | **Multi-Threaded com Locks** | Alto (Contenção de mutexes e context switch de CPU) | Sujeito a gargalos sob alta concorrência |

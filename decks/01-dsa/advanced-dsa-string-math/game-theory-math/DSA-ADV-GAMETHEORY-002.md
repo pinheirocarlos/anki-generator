@@ -23,6 +23,12 @@ Como o **Teorema de Bouton** utiliza a **Soma de Nim (XOR acumulado das pilhas)*
 - **Estratégia Vencedora**: Sempre que $S \neq 0$, o jogador atual pode alterar uma pilha $x_k$ para $x_k' = x_k \oplus S < x_k$, restaurando a nova soma de Nim para $0$ e deixando o adversário em posição perdedora.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/minimax-alpha-beta-pruning-tree-loop.webm">
+    <p>Visualização: Maximização de ganhos e minimização de perdas cortando ramos onde alpha >= beta na árvore de recursão.</p>
+  </video>
+</div>
+
 | Soma de Nim ($S = \bigoplus x_i$) | Tipo de Posição | Destino do Primeiro Jogador |
 |---|---|---|
 | $S = 0$ | P-Position | Derrota garantida contra jogo perfeito |

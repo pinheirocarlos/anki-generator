@@ -23,6 +23,12 @@ Como as variáveis de ambiente **`GOGC`** e **`GOMEMLIMIT`** controlam a frequê
   - Permite que o Go rode com `GOGC` alto para poupar CPU quando a memória estiver livre, mas se o uso se aproximar do teto, o runtime dispara GCs de emergência para **evitar o OOM Killer do Linux**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/go-gc-tuning-gomemlimit-loop.webm">
+    <p>Visualização: Controle da frequência de disparo do GC em percentual de crescimento e limite rígido de memória anti-OOM.</p>
+  </video>
+</div>
+
 | Variável | Papel Principal | Risco se Configurado Incorretamente |
 |---|---|---|
 | **`GOGC`** | Trade-off entre CPU e Consumo de Heap | Muito baixo gera GC thrashing; muito alto estoura RAM |

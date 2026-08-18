@@ -23,6 +23,12 @@ O que é o **Pipeline de Instruções** da CPU e como ele aumenta o throughput d
 - Em vez de esperar uma instrução completar todos os 5 ciclos para iniciar a próxima, a CPU inicia uma nova instrução a cada ciclo de clock, completando idealmente **1 instrução por ciclo (IPC = 1)** em regime contínuo.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-instruction-pipelining-stages-loop.webm">
+    <p>Visualização: Execução sobreposta de estágios IF, ID, EX, MEM e WB elevando o throughput para 1 instrução por ciclo.</p>
+  </video>
+</div>
+
 | Estágio de Pipeline | Função Principal | Recurso de Hardware |
 |---|---|---|
 | **IF / ID** | Busca e decodificação da instrução | Cache L1i + Decodificador |

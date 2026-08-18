@@ -21,6 +21,12 @@ Como o **Algoritmo de Bellman-Ford** relaxa todas as arestas $V-1$ vezes e detec
 - **Complexidade**: $O(V \cdot E)$ tempo e $O(V)$ espaço.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bellman-ford-negative-cycle-loop.webm">
+    <p>Visualização: Relaxamento de todas as E arestas V-1 vezes com V-ésima passada detectando ciclos de custo negativo.</p>
+  </video>
+</div>
+
 | Rodada de Bellman-Ford | Propósito | Diagnóstico |
 |---|---|---|
 | **Rodadas $1$ a $V-1$** | Propaga distâncias mínimas | Convergência de caminhos simples |

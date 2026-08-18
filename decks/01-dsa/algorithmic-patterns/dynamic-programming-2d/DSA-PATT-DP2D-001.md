@@ -19,6 +19,12 @@ Como formular a Programação Dinâmica do problema da **Mochila 0/1 (0-1 Knapsa
 - **Otimização para Array 1D**: Ao comprimir para um array `dp[w]`, devemos iterar a capacidade $w$ de forma **estritamente decrescente** (de $W$ até $\text{wt}[i]$). Isso garante que o valor $DP[w - \text{wt}[i]]$ consultado venha da linha anterior ($i-1$) e impeça que o mesmo item seja reutilizado mais de uma vez.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/knapsack-01-state-decision-loop.webm">
+    <p>Visualização: Decisão de incluir o item (consumindo capacidade de peso) ou ignorar o item preservando o valor anterior.</p>
+  </video>
+</div>
+
 | Tipo de Mochila | Ordem de Iteração da Capacidade $w$ | Reutilização de Itens |
 |---|---|---|
 | **0/1 Knapsack** | **Decrescente** ($W \to \text{wt}[i]$) | Cada item usado no máximo 1 vez |

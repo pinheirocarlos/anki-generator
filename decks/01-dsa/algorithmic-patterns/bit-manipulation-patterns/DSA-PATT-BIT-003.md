@@ -21,6 +21,12 @@ Como as propriedades comutativa e associativa do **XOR** encontram o único elem
 - Acumulando o XOR de todos os elementos do array em uma variável (`result ^= num`), todos os pares duplicados se cancelam ($0$), restando exclusivamente o **único elemento solitário**.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/isolate-lowest-set-bit-twos-complement-loop.webm">
+    <p>Visualização: A expressão n & (-n) isola estritamente a menor potência de 2 setada no número binário.</p>
+  </video>
+</div>
+
 | Abordagem | Tempo | Memória Auxiliar |
 |---|---|---|
 | **Hash Set** | $O(N)$ | $O(N)$ Conjunto de elementos |

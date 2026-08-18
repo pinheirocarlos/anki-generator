@@ -19,6 +19,12 @@ Quais são as duas propriedades matemáticas fundamentais que qualificam um prob
 - A Programação Dinâmica resolve cada subproblema exatamente uma única vez, armazenando o resultado em cache para consultas futuras em $O(1)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dp-state-transition-loop.webm">
+    <p>Visualização: Memoização de subproblemas sobrepostos eliminando recálculos exponenciais O(2^N) -> O(N).</p>
+  </video>
+</div>
+
 | Propriedade de DP | Definição | Exemplo Canônico |
 |---|---|---|
 | **Subestrutura Ótima** | Solução global composta de subsoluções | $DP[i] = DP[i-1] + DP[i-2]$ |

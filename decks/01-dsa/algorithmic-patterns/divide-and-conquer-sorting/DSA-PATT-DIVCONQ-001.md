@@ -23,6 +23,12 @@ Como o algoritmo **Quickselect** localiza o $K$-ésimo menor elemento de um arra
   $$N + \frac{N}{2} + \frac{N}{4} + \dots < 2N = O(N) \text{ linear}$$
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/mergesort-divide-merge-loop.webm">
+    <p>Visualização: Divisão recursiva até tamanho 1 e intercalação ordenada estável com dois ponteiros usando memória auxiliar O(N).</p>
+  </video>
+</div>
+
 | Algoritmo | Chamadas Recursivas por Nível | Complexidade de Tempo Médio |
 |---|---|---|
 | **Quicksort** | Ambas as metades ($2 \times T(N/2)$) | $O(N \log N)$ |

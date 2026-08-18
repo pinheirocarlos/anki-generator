@@ -21,6 +21,12 @@ Por que formatos colunares (como Apache Parquet e ClickHouse) superam bancos ori
   3. **Vetorização SIMD**: Permite processamento paralelo de arrays de dados via instruções de CPU AVX-512.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/columnar-storage-parquet-clickhouse-olap-loop.webm">
+    <p>Visualização: Armazenamento colunar escaneando apenas as colunas solicitadas na agregação OLAP com alta taxa de compressão de dados.</p>
+  </video>
+</div>
+
 | Dimensão de Comparação | Row-Store (MySQL / Postgres) | Column-Store (Parquet / ClickHouse) |
 |---|---|---|
 | **Carga de Trabalho Ideal** | OLTP (Transacional, `INSERT/UPDATE/DELETE`) | OLAP (Analítico, Agregações `COUNT/SUM/AVG`) |

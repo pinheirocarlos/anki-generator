@@ -19,6 +19,12 @@ Quais são as três anomalias clássicas de leitura concorrente (Dirty Read, Non
 - **Phantom Read (Leitura Fantasma)**: A Transação A executa uma busca por intervalo (`WHERE age > 30`), e ao repetir a busca encontra **novas linhas** inseridas e commitadas pela Transação B.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/db-isolation-anomalies-dirty-phantom-loop.webm">
+    <p>Visualização: Anomalias de concorrência ANSI SQL: leitura de dados não commitados (Dirty Read) e inserções invisíveis na mesma transação (Phantom Read).</p>
+  </video>
+</div>
+
 | Nível de Isolamento | Anomalias Prevenidas | Anomalias Permitidas |
 |---|---|---|
 | **Read Uncommitted** | Nenhuma | Dirty, Non-Repeatable, Phantom |

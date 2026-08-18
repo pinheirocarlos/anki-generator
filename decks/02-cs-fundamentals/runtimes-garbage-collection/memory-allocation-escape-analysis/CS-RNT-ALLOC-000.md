@@ -24,6 +24,12 @@ Qual é a diferença fundamental entre **Stack Allocation** e **Heap Allocation*
   - Cria trabalho contínuo de rastreamento e varredura para o **Garbage Collector**, impactando a latência da aplicação.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/stack-vs-heap-memory-allocation-loop.webm">
+    <p>Visualização: Alocação e liberação instantânea por avanço de ponteiro (Stack) vs alocação dinâmica com gerenciamento de fragmentação (Heap).</p>
+  </video>
+</div>
+
 | Métrica | Stack Allocation | Heap Allocation |
 |---|---|---|
 | **Custo de Alocação** | 1 ciclo de clock (`SUB RSP, N`) | Busca em blocos / Lock / Syscall |

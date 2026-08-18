@@ -21,6 +21,12 @@ Como funciona a representação de grafos por **Matriz de Adjacência** e quais 
 - **Desvantagens**: Espaço de memória fixo quadrático $O(V^2)$ e iteração sobre vizinhos de um vértice custa sempre $O(V)$, mesmo em grafos esparsos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/adjacency-matrix-lookup-loop.webm">
+    <p>Visualização: Verificação instantânea de adjacência em O(1) indexando a célula bidimensional matrix[u][v].</p>
+  </video>
+</div>
+
 | Operação em Matriz | Complexidade | Observação |
 |---|---|---|
 | **Verificar Aresta $(u, v)$** | $O(1)$ Instantâneo | Acesso direto `M[u][v]` |

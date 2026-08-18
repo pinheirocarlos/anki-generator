@@ -21,6 +21,12 @@ Como a memória da JVM é dividida entre **Metaspace (Off-Heap)**, **Heap** (Ede
 - **Thread Stack (Privativo por Thread)**: Armazena frames de execução de métodos, variáveis locais primitivas e ponteiros de referência para objetos do Heap.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/jvm-memory-layout-metaspace-heap-loop.webm">
+    <p>Visualização: Divisão estrutural da JVM entre Metaspace (Off-Heap), Heap Generacional e Stacks individuais de cada thread.</p>
+  </video>
+</div>
+
 | Área de Memória | Compartilhada entre Threads? | Gerenciada pelo Garbage Collector? |
 |---|---|---|
 | **JVM Heap** | Sim (Global) | **Sim (Eden, Survivor, Tenured)** |

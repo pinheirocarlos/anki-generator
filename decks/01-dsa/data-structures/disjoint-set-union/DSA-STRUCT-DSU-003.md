@@ -20,6 +20,12 @@ Como a operação **`union`** funde dois conjuntos no DSU e como ela verifica se
   3. Se `rootX != rootY`, faz uma raiz apontar para a outra (`parent[rootX] = rootY`), unificando os grupos e decrementando o total de componentes conexos.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dsu-union-by-rank-merge-loop.webm">
+    <p>Visualização: Conexão da raiz da árvore mais rasa à raiz da árvore mais profunda preservando o rank mínimo.</p>
+  </video>
+</div>
+
 | Condição em `union(x, y)` | Ação | Conectividade |
 |---|---|---|
 | `rootX == rootY` | Ignora / Sinaliza ciclo | Já conectados |

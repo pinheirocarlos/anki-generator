@@ -24,6 +24,12 @@ Qual é a diferença funcional entre **Pipes Anônimos** e **Named Pipes (FIFOs)
   - O tráfego de dados continua ocorrendo 100% na memória RAM do kernel, sem escrita física no disco.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/ipc-anonymous-vs-named-pipes-loop.webm">
+    <p>Visualização: Comunicação unidirecional em buffer do kernel entre processos pai-filho vs arquivo FIFO no filesystem.</p>
+  </video>
+</div>
+
 | Tipo de Pipe | Existe no Sistema de Arquivos? | Exige Relação de Parentesco (Pai/Filho)? |
 |---|---|---|
 | **Pipe Anônimo** | Não (Apenas FDs em memória) | Sim (Criado antes do `fork()`) |

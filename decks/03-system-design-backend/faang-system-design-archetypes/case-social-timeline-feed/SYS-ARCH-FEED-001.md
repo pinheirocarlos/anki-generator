@@ -21,6 +21,12 @@ Como uma arquitetura híbrida de Fan-Out resolve o 'Problema das Celebridades' c
   3. **Montagem do Feed no Cliente**: Quando um seguidor abre o app, o sistema lê sua Timeline pré-computada no Redis e faz um *Merge dinâmico em memória* apenas com os posts recentes das celebridades que ele segue.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/hybrid-feed-celebrity-fanout-merge-loop.webm">
+    <p>Visualização: Arquitetura híbrida: push imediato para usuários regulares e pull sob demanda mesclado na leitura para contas com milhões de seguidores.</p>
+  </video>
+</div>
+
 | Tipo de Autor | Estratégia de Disseminação | Impacto na Infraestrutura |
 |---|---|---|
 | **Usuário Regular** | Fan-Out on Write (Push no Redis) | Carga diluída e absorvida facilmente |

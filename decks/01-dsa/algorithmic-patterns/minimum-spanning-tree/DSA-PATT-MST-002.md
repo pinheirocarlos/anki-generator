@@ -21,6 +21,12 @@ Como o **Algoritmo de Kruskal** constrói a MST ordenando arestas e utilizando D
   4. Encerra ao acumular $V - 1$ arestas.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/kruskal-mst-dsu-loop.webm">
+    <p>Visualização: Ordenação de arestas por peso e adição gulosa descartando arestas com extremidades no mesmo conjunto DSU.</p>
+  </video>
+</div>
+
 | Passo de Kruskal | Estrutura Envolvida | Complexidade |
 |---|---|---|
 | **1. Ordenação Global** | `Arrays.sort(edges)` | $O(E \log E)$ |

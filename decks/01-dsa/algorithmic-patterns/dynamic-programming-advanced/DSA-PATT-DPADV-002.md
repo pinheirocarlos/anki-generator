@@ -20,6 +20,12 @@ Como a **Bitmask DP** representa subconjuntos de elementos como inteiros binári
 - **Complexidade**: Reduz o custo da força bruta fatorial $O(N!)$ para **$O(N^2 2^N)$**, tornando o problema tratável para $N \le 20$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/digit-dp-tight-constraint-tree-loop.webm">
+    <p>Visualização: Construção dígito a dígito rastreando flag booleana isTight que restringe o limite numérico superior.</p>
+  </video>
+</div>
+
 | Representação de Conjunto | Formato Binário | Custo do Algoritmo |
 |---|---|---|
 | **Força Bruta de Permutações** | Lista de cidades visitadas | $O(N!)$ Inviável para $N > 12$ |

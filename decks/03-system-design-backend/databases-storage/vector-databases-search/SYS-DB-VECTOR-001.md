@@ -22,6 +22,12 @@ Como o algoritmo Hierarchical Navigable Small World (HNSW) viabiliza buscas por 
 - Permite encontrar os $K$ vizinhos mais próximos em tempo **logarítmico $O(\log N)$** com alta precisão (*Recall* $> 95\%$).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/hnsw-vector-graph-ann-search-loop.webm">
+    <p>Visualização: Grafo multicamadas HNSW navegando por saltos longos na camada superior e busca de vizinhos densa na camada inferior.</p>
+  </video>
+</div>
+
 | Algoritmo de Busca Vetorial | Complexidade de Tempo | Trade-off Operacional |
 |---|---|---|
 | **Flat (Brute Force k-NN)** | $O(N \times D)$ | $100\%$ Recall, inviável para $>100\text{k}$ vetores |

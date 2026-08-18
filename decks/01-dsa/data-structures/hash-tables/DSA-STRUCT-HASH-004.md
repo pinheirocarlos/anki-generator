@@ -20,6 +20,12 @@ Como a arquitetura **Swiss Table (Google Abseil Flat Hash Map)** utiliza control
 - **Vetorização SIMD**: Carrega 16 bytes de controle em um registrador SSE/AVX de 128-bit e compara 16 buckets simultaneamente em **uma única instrução de CPU**, eliminando comparações caras de chave para buckets vazios.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/swiss-tables-simd-ctrl-bytes-loop.webm">
+    <p>Visualização: Comparação paralela de 16 bytes de controle (H2) em um único ciclo de instrução SIMD.</p>
+  </video>
+</div>
+
 | Técnica de Tabela Hash | Comparação por Passo | Instrução CPU |
 |---|---|---|
 | **Linear Probing Tradicional** | 1 bucket por vez | Instruções escalares `CMP` |

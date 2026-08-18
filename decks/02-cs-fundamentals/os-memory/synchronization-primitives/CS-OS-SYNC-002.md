@@ -24,6 +24,12 @@ Qual é a diferença essencial de comportamento e caso de uso entre um **Mutex**
   - Usado para controle de concorrência limitada (ex: pool de 20 conexões de banco de dados) e sinalização entre threads produtoras e consumidoras.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/mutex-vs-counting-semaphore-loop.webm">
+    <p>Visualização: Propriedade exclusiva de travamento (Mutex) vs controle de pool de N recursos disponíveis (Semáforo).</p>
+  </video>
+</div>
+
 | Característica | Mutex | Semáforo Contador ($N$) |
 |---|---|---|
 | **Concorrência Máxima** | Exatamente 1 thread | Até $N$ threads simultâneas |

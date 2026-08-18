@@ -22,6 +22,12 @@ Como a escolha entre Lista de Adjacência e Matriz de Adjacência altera a compl
   - *Com Array + Matriz*: $O(V^2)$ ótimo para grafos densos onde $E \approx V^2$ (pois $(V + V^2) \log V > V^2$).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/graph-traversal-complexity-compare-loop.webm">
+    <p>Visualização: Comparativo de travessia: O(V+E) com lista de adjacência vs O(V²) obrigatório com matriz.</p>
+  </video>
+</div>
+
 | Algoritmo | Complexidade (Lista de Adjacência) | Complexidade (Matriz de Adjacência) |
 |---|---|---|
 | **BFS / DFS** | $O(V + E)$ | $O(V^2)$ |

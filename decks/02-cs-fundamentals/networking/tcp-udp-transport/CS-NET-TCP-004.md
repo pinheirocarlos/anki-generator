@@ -21,6 +21,12 @@ Como o mecanismo de **Janela Deslizante (Sliding Window)** e **Window Scaling** 
 - **Window Scaling (RFC 1323)**: O cabeçalho TCP padrão limita o campo de janela a 16 bits (máximo 64 KB). A opção Window Scale multiplica esse valor por potências de 2 (até $2^{14}$), permitindo janelas de até **1 GB**, viabilizando alta vazão em conexões de alta velocidade.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/tcp-sliding-window-bdp-scaling-loop.webm">
+    <p>Visualização: Buffer de transmissão dimensionado pelo produto Largura de Banda x Atraso (BDP = Bandwidth * RTT).</p>
+  </video>
+</div>
+
 | Tipo de Janela | Tamanho Máximo de Janela | Vazão Máxima em Link com 50ms RTT |
 |---|---|---|
 | **TCP Padrão (Sem Scale)** | 64 KB (16 bits) | ~10 Mbps (Gargalo severo) |

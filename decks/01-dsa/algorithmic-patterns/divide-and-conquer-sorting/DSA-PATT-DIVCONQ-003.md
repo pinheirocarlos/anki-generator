@@ -20,6 +20,12 @@ Como funciona o particionamento in-place no **Quicksort** e sob quais condiçõe
 - **Degeneração $O(N^2)$**: Se o pivô escolhido for sempre o menor ou maior elemento (ex: array já ordenado com pivô fixo no primeiro/último elemento), o particionamento divide o array em tamanhos $0$ e $N-1$, gerando uma árvore de altura $N$ com custo total $\sum_{i=1}^N i = O(N^2)$.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lomuto-vs-hoare-partition-loop.webm">
+    <p>Visualização: Lomuto com um ponteiro de varredura vs Hoare com ponteiros bidirecionais fazendo 3x menos trocas.</p>
+  </video>
+</div>
+
 | Estratégia de Pivô | Desempenho com Array Ordenado | Risco de $O(N^2)$ |
 |---|---|---|
 | **Pivô Fixo na Ponta** | Degrada para $O(N^2)$ | Alto |

@@ -20,6 +20,12 @@ Como Redes de Entrega de Conteúdo (CDNs) utilizam Anycast BGP e Pontos de Prese
   - Se o asset estiver em cache no PoP (Edge Cache Hit), a resposta é entregue em $\sim 5-15 \text{ ms}$, blindando os servidores de origem (*Origin Shields*).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/cdn-anycast-bgp-pop-routing-loop.webm">
+    <p>Visualização: Roteamento Anycast BGP direcionando requisições do cliente ao Point of Presence (PoP) de menor latência geográfica.</p>
+  </video>
+</div>
+
 | Tipo de Requisição | Roteamento e Término | Latência de RTT Típica |
 |---|---|---|
 | **Sem CDN (Direto na Origem)** | Roteamento Unicast transcontinental | 150 - 300 ms |

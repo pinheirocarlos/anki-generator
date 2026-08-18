@@ -23,6 +23,12 @@ Como o líder no algoritmo Raft garante a consistência do log replicado e deter
   6. No próximo heartbeat, o Leader notifica os Followers do novo `commitIndex`, que aplicam a entrada às suas respectivas FSMs.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/raft-log-replication-quorum-commit-loop.webm">
+    <p>Visualização: Replicação de entradas de log do líder para os seguidores e confirmação de commit ao atingir o quorum da maioria.</p>
+  </video>
+</div>
+
 | Fase da Replicação | Estado da Entrada de Log | Visibilidade para o Cliente |
 |---|---|---|
 | **1. Proposta** | Gravada apenas no log do Leader | Invisível (Em processamento) |

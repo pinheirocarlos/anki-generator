@@ -23,6 +23,12 @@ Como o **Algoritmo de Dijkstra** utiliza o Min-Heap e a técnica de **Relaxament
 - Encerra quando o heap esvaziar, com `dist[]` contendo o menor caminho de `src` para todos os vértices.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/shortest-path-reconstruction-parent-loop.webm">
+    <p>Visualização: Reconstrução do caminho ótimo partindo do destino até a origem usando o vetor parent[v].</p>
+  </video>
+</div>
+
 | Operação de Dijkstra | Ação | Complexidade |
 |---|---|---|
 | **Extração do Mínimo** | `minHeap.poll()` ($V$ vezes) | $O(V \log V)$ |

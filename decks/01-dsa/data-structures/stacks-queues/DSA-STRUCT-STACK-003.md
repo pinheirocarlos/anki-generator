@@ -24,6 +24,12 @@ Em quais cenários reais de engenharia de software cada estrutura (Pilha vs Fila
   - Buffers de I/O de streaming de vídeo e áudio.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/call-stack-frames-buffer-loop.webm">
+    <p>Visualização: Empilhamento de stack frames na execução de funções vs enfileiramento assíncrono de jobs.</p>
+  </video>
+</div>
+
 | Estrutura | Caso de Uso Canônico | Algoritmo Associado |
 |---|---|---|
 | **Pilha (Stack)** | Recursão / Parsing | DFS (Depth-First Search) |

@@ -20,6 +20,12 @@ Como o padrão de **Nós Sentinela (Dummy Head / Dummy Tail)** elimina condiçõ
 - **Benefício**: Qualquer nó inserido ou removido tem garantidamente um vizinho anterior (`prev`) e um vizinho posterior (`next`), eliminando todas as verificações de `if (head == null)` ou `if (node.next == null)`.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/sentinel-dummy-nodes-loop.webm">
+    <p>Visualização: Nós sentinelas eliminam verificações de ponteiro nulo nas extremidades da lista duplamente encadeada.</p>
+  </video>
+</div>
+
 | Estrutura de Lista | Inserção no Início | Remoção do Último Item |
 |---|---|---|
 | **Sem Sentinela** | Exige `if (head == null)` | Exige atualizar `head = null` |

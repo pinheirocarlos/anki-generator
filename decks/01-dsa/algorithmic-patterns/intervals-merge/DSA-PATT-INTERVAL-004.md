@@ -21,6 +21,12 @@ Como o algoritmo de **Linha de Varredura (Chronological Sweep-Line)** calcula o 
 - **Complexidade**: $O(N \log N)$ tempo e $O(N)$ espaço contíguo (com menor constante de cache que o Heap).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/interval-intersections-two-pointers-loop.webm">
+    <p>Visualização: Dois ponteiros calculando a interseção [max(A_s, B_s), min(A_e, B_e)] e avançando o intervalo que termina primeiro.</p>
+  </video>
+</div>
+
 | Evento Temporal | Ponteiro Avançado | Contador de Salas |
 |---|---|---|
 | `starts[s] < ends[e]` | `s++` (Início de reunião) | `rooms++` |

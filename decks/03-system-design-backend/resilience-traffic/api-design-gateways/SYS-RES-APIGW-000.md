@@ -22,6 +22,12 @@ Qual é o papel arquitetural de um API Gateway e quando adotar a variação Back
   - O BFF formata, compacta e filtra o payload sob medida para as necessidades específicas de rede e layout de cada plataforma (ex: mobile recebe payload enxuto de 2 KB; web recebe 50 KB com dados analíticos).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/api-gateway-pattern-bff-aggregation-loop.webm">
+    <p>Visualização: API Gateway agregando chamadas de microsserviços e BFF customizando respostas para interfaces mobile e web.</p>
+  </video>
+</div>
+
 | Padrão | Quantidade de Gateways | Vantagem Principal |
 |---|---|---|
 | **API Gateway Central** | 1 Gateway para todos os clientes | Centralização e manutenção simplificada |

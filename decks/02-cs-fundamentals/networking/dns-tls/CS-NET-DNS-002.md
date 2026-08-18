@@ -24,6 +24,12 @@ O que é o **TTL (Time to Live)** em registros DNS e quais as diferenças fundam
   - **ALIAS / ANAME**: Registro virtual que resolve o IP de outro domínio em tempo real e entrega registros A/AAAA na raiz do domínio (`exemplo.com`).
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/dns-record-types-ttl-cache-loop.webm">
+    <p>Visualização: Registros A (IPv4), AAAA (IPv6), CNAME (alias) com expiração controlada pelo Time To Live (TTL).</p>
+  </video>
+</div>
+
 | Registro DNS | Tipo de Destino | Permite Raiz Apex (`exemplo.com`)? |
 |---|---|---|
 | **A / AAAA** | Endereço IP direto (IPv4 / IPv6) | Sim |

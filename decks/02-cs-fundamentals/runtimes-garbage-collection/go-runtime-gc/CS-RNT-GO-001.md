@@ -21,6 +21,12 @@ Como funciona a arquitetura **G-M-P (Goroutine, Machine, Processor)** do escalon
 - **Work Stealing**: Quando a fila local de um $P$ esvazia, ele tenta roubar metade das goroutines da fila local de outro $P$ vizinho, mantendo todos os núcleos 100% ocupados sem contenção de lock global.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/go-gmp-scheduler-stealing-loop.webm">
+    <p>Visualização: Processador lógico ocioso roubando goroutines da fila local de outro processador no modelo GMP do Go.</p>
+  </video>
+</div>
+
 | Entidade GMP | O que Representa | Quantidade no Sistema |
 |---|---|---|
 | **G (Goroutine)** | Tarefa concorrente leve | Centenas de milhares |

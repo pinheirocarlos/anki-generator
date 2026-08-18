@@ -22,6 +22,12 @@ Como modelar o problema **Min Cost to Connect All Points** (LeetCode 1584) como 
 - **Complexidade**: $O(N^2)$ tempo e $O(N)$ espaço auxiliar.
 
 ### Dual Coding Visual
+<div class="video-wrapper">
+  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/kruskal-vs-prim-density-loop.webm">
+    <p>Visualização: Kruskal O(E log E) ideal para grafos esparsos vs Prim com heap Fibonacci O(E + V log V) para grafos densos.</p>
+  </video>
+</div>
+
 | Abordagem no LeetCode 1584 | Complexidade de Tempo | Espaço de Memória |
 |---|---|---|
 | **Kruskal (Gera todas as arestas)** | $O(N^2 \log N)$ | $O(N^2)$ para $N^2$ arestas |
