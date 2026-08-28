@@ -63,6 +63,92 @@ export function checkSysSvgs() {
   return { totalCards: files.length, totalSvgs: Object.keys(ALL_SYS_SVGS).length, missing };
 }
 
+export function remediateSysCards() {
+  console.log('🚀 Remediating Batch 3 (System Design) cards with responsive inline SVGs & semantic captions...\n');
+
+  const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'));
+  const allFiles = findMarkdownFiles(SYS_DIR);
+  console.log(`🔍 Total System Design markdown files: ${allFiles.length}`);
+  console.log(`📦 Registered SVG definitions: ${Object.keys(ALL_SYS_SVGS).length}\n`);
+
+  let updatedCount = 0;
+  let skippedCount = 0;
+  let validationErrors = 0;
+
+  for (const file of allFiles) {
+    if (file.endsWith('-006.md')) {
+      skippedCount++;
+      continue;
+    }
+
+    const rawContent = fs.readFileSync(file, 'utf8');
+    const idMatch = rawContent.match(/^id:\s*([^\r\n]+)/m);
+    if (!idMatch) {
+      console.warn(`⚠️ No ID found in ${file}`);
+      continue;
+    }
+    const cardId = idMatch[1].trim();
+    const svgCode = ALL_SYS_SVGS[cardId];
+
+    if (!svgCode) {
+      console.error(`❌ Missing SVG definition for card: ${cardId} in ${file}`);
+      validationErrors++;
+      continue;
+    }
+
+    // Replace the visual section in the markdown
+    let newContent = rawContent;
+
+    // Remove old <div class="video-wrapper">...</div> or <video> or markdown image
+    if (newContent.includes('<div class="video-wrapper">')) {
+      newContent = newContent.replace(
+        /<div class="video-wrapper">[\s\S]*?<\/div>/,
+        svgCode
+      );
+    } else if (newContent.includes('<video')) {
+      newContent = newContent.replace(
+        /<video[^>]*>[\s\S]*?<\/video>/,
+        svgCode
+      );
+    } else if (newContent.includes('![Visualização:')) {
+      newContent = newContent.replace(
+        /!\[Visualização:[^\]]*\]\([^)]+\)/,
+        svgCode
+      );
+    } else if (newContent.includes('### Dual Coding Visual\n')) {
+      newContent = newContent.replace(
+        '### Dual Coding Visual\n',
+        `### Dual Coding Visual\n${svgCode}\n\n`
+      );
+    }
+
+    // Validate the updated card
+    const validation = validateCard(file, newContent);
+    if (!validation.valid) {
+      console.error(`❌ Validation failed for ${cardId} (${file}):`);
+      validation.errors.forEach(err => console.error(`   - ${err}`));
+      validationErrors++;
+      continue;
+    }
+
+    fs.writeFileSync(file, newContent, 'utf8');
+    updatedCount++;
+  }
+
+  console.log(`\n========================================`);
+  console.log(`✨ Remediated ${updatedCount} System Design cards with responsive inline SVGs.`);
+  console.log(`⏩ Skipped ${skippedCount} L2 fundamental cards (already containing custom SVGs).`);
+  console.log(`🚨 Errors encountered: ${validationErrors}`);
+  console.log(`========================================\n`);
+
+  if (validationErrors > 0) {
+    throw new Error(`Remediation completed with ${validationErrors} errors.`);
+  }
+
+  return { updatedCount, skippedCount };
+}
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   checkSysSvgs();
+  remediateSysCards();
 }

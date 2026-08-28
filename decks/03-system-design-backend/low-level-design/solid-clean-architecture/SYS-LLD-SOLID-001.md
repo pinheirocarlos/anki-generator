@@ -24,11 +24,33 @@ Como a Arquitetura Hexagonal (Ports & Adapters) organiza os limites do software 
   - **Driven Adapters**: Implementam as Outbound Ports conectando ao mundo externo (ex: `PostgresUserRepository`, `SendgridEmailAdapter`).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/hexagonal-architecture-ports-and-adapters-loop.webm">
-    <p>Visualização: Núcleo de domínio isolado de infraestrutura comunicando-se exclusivamente através de Portas de Entrada e Saída.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Arquitetura Hexagonal (Ports &amp; Adapters / Clean Architecture)</text>
+  <g transform="translate(40, 50)">
+    <!-- Adapters In -->
+    <rect x="0" y="20" width="140" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="70" y="45" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Primary Adapters</text>
+    <text x="70" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">HTTP Controller</text>
+    <text x="70" y="85" fill="#cbd5e1" font-size="9" text-anchor="middle">gRPC / CLI Handler</text>
+
+    <!-- Domain Core -->
+    <rect x="180" y="0" width="240" height="120" rx="8" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="300" y="32" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Domain Core (Puro)</text>
+    <text x="300" y="55" fill="#ffffff" font-size="10" text-anchor="middle">Entities &amp; Use Cases</text>
+    <text x="300" y="75" fill="#86efac" font-size="9" text-anchor="middle">&lt;&lt;interface&gt;&gt; Input / Output Ports</text>
+    <text x="300" y="98" fill="#a7f3d0" font-size="9" text-anchor="middle">Zero dependência externa</text>
+
+    <!-- Adapters Out -->
+    <rect x="460" y="20" width="140" height="80" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="530" y="45" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">Secondary Adapters</text>
+    <text x="530" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">PostgresRepository</text>
+    <text x="530" y="85" fill="#cbd5e1" font-size="9" text-anchor="middle">KafkaEventPublisher</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A inversão de controle permite trocar o banco de dados Postgres por MongoDB sem encostar em 1 linha de Use Case.</text>
+
+</svg>
 
 | Componente Hexagonal | Natureza | Exemplo Concreto |
 |---|---|---|

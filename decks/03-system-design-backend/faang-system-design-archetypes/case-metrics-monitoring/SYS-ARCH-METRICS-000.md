@@ -24,11 +24,28 @@ Como o algoritmo de compressão Gorilla (desenvolvido pelo Facebook/Meta) compri
 - Reduz o tamanho médio de cada ponto de telemetria de 16 bytes para **apenas 1.37 bytes (redução de ~12x)**.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/gorilla-tsdb-delta-of-delta-float-xor-loop.webm">
-    <p>Visualização: Algoritmo Gorilla comprimindo timestamps com delta-of-delta e valores float via XOR com os bits precedentes.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bancos TSDB: Compressão Gorilla (XOR Float + Delta-of-Delta)</text>
+  <g transform="translate(40, 50)">
+    <!-- Timestamp Compression -->
+    <rect x="0" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Timestamps: Delta-of-Delta</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">t0 = 100, t1 = 160 (delta: 60)</text>
+    <text x="140" y="65" fill="#cbd5e1" font-size="10" text-anchor="middle">t2 = 220 (delta: 60 → D_of_D = 0)</text>
+    <text x="140" y="90" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Armazena exatamente 1 bit '0'</text>
+
+    <!-- Value Compression -->
+    <rect x="320" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Valores Float64: XOR Bitwise</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Métricas variam suavemente</text>
+    <text x="460" y="65" fill="#cbd5e1" font-size="10" text-anchor="middle">V_current XOR V_prev tem zeros à esq/dir</text>
+    <text x="460" y="90" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Comprime 16B para ~1.37 Bytes</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Redução de 12x no consumo de memória RAM e disco em sistemas como Prometheus e Facebook Gorilla TSDB.</text>
+
+</svg>
 
 | Campo da Métrica | Formato Bruto sem Compressão | Formato Comprimido Gorilla |
 |---|---|---|

@@ -23,11 +23,32 @@ Quais são os números de latência de hardware fundamentais de Jeff Dean que to
 - **RTT Transcontinental (EUA - Europa)**: ~150 ms.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/jeff-dean-latency-numbers-orders-of-magnitude-loop.webm">
-    <p>Visualização: Comparação visual de latências de hardware: L1 Cache (0.5ns), RAM (100ns), SSD (100µs), Network RTT (150ms).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="240" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Latências de Hardware de Jeff Dean: Ordens de Grandeza</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="135" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    
+    <rect x="20" y="15" width="200" height="24" rx="3" fill="#0284c7"/>
+    <text x="30" y="31" fill="#ffffff" font-size="10" font-weight="bold">L1 Cache Reference</text>
+    <text x="210" y="31" fill="#e0f2fe" font-size="10" text-anchor="end">0.5 ns</text>
+
+    <rect x="20" y="43" width="260" height="24" rx="3" fill="#0369a1"/>
+    <text x="30" y="59" fill="#ffffff" font-size="10" font-weight="bold">Main Memory (RAM) Reference</text>
+    <text x="270" y="59" fill="#e0f2fe" font-size="10" text-anchor="end">100 ns (200x L1)</text>
+
+    <rect x="20" y="71" width="360" height="24" rx="3" fill="#78350f"/>
+    <text x="30" y="87" fill="#ffffff" font-size="10" font-weight="bold">SSD Random Read</text>
+    <text x="370" y="87" fill="#fde68a" font-size="10" text-anchor="end">100.000 ns (100 µs)</text>
+
+    <rect x="20" y="99" width="560" height="24" rx="3" fill="#7f1d1d"/>
+    <text x="30" y="115" fill="#ffffff" font-size="10" font-weight="bold">Cross-Continent Round Trip (CA to Netherlands)</text>
+    <text x="570" y="115" fill="#fca5a5" font-size="10" text-anchor="end">150.000.000 ns (150 ms)</text>
+  </g>
+  <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Acessar a memória RAM é 1000x mais rápido que ler do SSD e 1.500.000x mais rápido que uma chamada de rede transatlântica.</text>
+
+</svg>
 
 | Nível de Acesso | Latência Típica | Fator de Escala Relativo |
 |---|---|---|

@@ -6,8 +6,8 @@ import { getMarkdownFiles } from '../generator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const ROOT_DIR = path.resolve(__dirname, '..', '..');
-const DECKS_DIR = path.join(ROOT_DIR, 'decks');
+export const ROOT_DIR = path.resolve(__dirname, '..', '..');
+export const DECKS_DIR = path.join(ROOT_DIR, 'decks');
 
 export const DEFAULT_CONFIG = {
   concurrency: 8,
@@ -17,6 +17,40 @@ export const DEFAULT_CONFIG = {
   deck: null,
   userAgent: 'FAANG-Anki-LinkChecker/1.0 (Educational flashcard media auditor)'
 };
+
+/**
+ * Resolves target deck directory from a CLI --deck argument.
+ * Supports absolute paths, root-relative paths ('decks/01-dsa'), and deck-relative paths ('01-dsa').
+ *
+ * @param {string|null} deckOption
+ * @returns {string} Absolute directory path
+ */
+export function resolveTargetDir(deckOption) {
+  if (!deckOption || typeof deckOption !== 'string' || deckOption.trim() === '') {
+    return DECKS_DIR;
+  }
+
+  const cleanOption = deckOption.trim();
+
+  if (path.isAbsolute(cleanOption)) {
+    return cleanOption;
+  }
+
+  // 1. Check relative to ROOT_DIR (e.g. 'decks/01-dsa')
+  const rootRelative = path.join(ROOT_DIR, cleanOption);
+  if (fs.existsSync(rootRelative)) {
+    return rootRelative;
+  }
+
+  // 2. Check relative to DECKS_DIR (e.g. '01-dsa')
+  const decksRelative = path.join(DECKS_DIR, cleanOption);
+  if (fs.existsSync(decksRelative)) {
+    return decksRelative;
+  }
+
+  // Default fallback to root-relative path
+  return rootRelative;
+}
 
 /**
  * Valid media MIME types accepted by the auditor.
@@ -283,9 +317,13 @@ export async function checkLink(item, options = {}, customFetch = fetch) {
 
     attempt++;
     if (attempt <= maxRetries && isRetryable) {
-      // Exponential / stepped backoff: 500ms on first retry, 1500ms on second
-      const backoffMs = attempt === 1 ? 500 : 1500;
-      await sleep(backoffMs);
+      // Exponential / stepped backoff: 500ms on first retry, 1500ms on second (or override via options.backoffMs)
+      const backoffMs = options.backoffMs !== undefined
+        ? options.backoffMs
+        : (attempt === 1 ? 500 : 1500);
+      if (backoffMs > 0) {
+        await sleep(backoffMs);
+      }
     }
   }
 
@@ -492,12 +530,7 @@ export async function auditLinks(options = {}, customFetch = fetch) {
   const config = { ...DEFAULT_CONFIG, ...options };
   const overallStartTime = performance.now();
 
-  let targetDir = DECKS_DIR;
-  if (config.deck) {
-    targetDir = path.isAbsolute(config.deck)
-      ? config.deck
-      : path.join(ROOT_DIR, config.deck);
-  }
+  const targetDir = resolveTargetDir(config.deck);
 
   console.log('\n======================================================');
   console.log('🌐 FAANG Anki Live Multimedia Reachability Auditor');

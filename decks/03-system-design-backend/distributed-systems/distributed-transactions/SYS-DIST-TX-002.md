@@ -21,11 +21,29 @@ Como o Transactional Outbox Pattern resolve o problema de 'Dual-Write' garantind
   3. Garante entrega *At-Least-Once* sem risco de inconsistência.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/transactional-outbox-pattern-cdc-relay-loop.webm">
-    <p>Visualização: Gravação atômica da mutação de negócio e do evento na tabela Outbox na mesma transação SQL com relay via CDC.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Transactional Outbox Pattern com Relay via CDC (Debezium)</text>
+  <g transform="translate(40, 50)">
+    <!-- SQL Local Tx -->
+    <rect x="0" y="0" width="280" height="110" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Mesma Transação SQL Local Atômica</text>
+    <rect x="20" y="35" width="240" height="30" rx="4" fill="#065f46"/>
+    <text x="140" y="54" fill="#86efac" font-size="9" text-anchor="middle">1. INSERT INTO orders (status='PAID')</text>
+    <rect x="20" y="70" width="240" height="30" rx="4" fill="#065f46"/>
+    <text x="140" y="89" fill="#86efac" font-size="9" text-anchor="middle">2. INSERT INTO outbox (event='OrderPaid')</text>
+
+    <!-- Outbox Relay to Kafka -->
+    <rect x="320" y="0" width="280" height="110" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Assíncrono: Message Relay / CDC</text>
+    <text x="460" y="48" fill="#cbd5e1" font-size="10" text-anchor="middle">Debezium lê tabela Outbox via WAL</text>
+    <text x="460" y="70" fill="#34d399" font-size="10" text-anchor="middle">Publica no Apache Kafka (At-Least-Once)</text>
+    <text x="460" y="92" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">Zero risco de inconsistência Dual-Write</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Elimina o problema de gravar no banco e o broker de mensagens falhar no meio do caminho.</text>
+
+</svg>
 
 | Etapa do Processo | Onde Ocorre | Garantia |
 |---|---|---|

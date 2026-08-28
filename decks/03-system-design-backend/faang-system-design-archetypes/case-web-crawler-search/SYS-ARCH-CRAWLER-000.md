@@ -22,11 +22,34 @@ Como a arquitetura da URL Frontier equilibra prioridade de rastreamento com pol�
      - Uma thread de worker só consome uma URL de um domínio se o temporizador daquele domínio tiver expirado, respeitando estritamente o arquivo `robots.txt`.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/web-crawler-url-frontier-politeness-queue-loop.webm">
-    <p>Visualização: URL Frontier separando filas de prioridade e filas de polidez por hostname para evitar sobrecarga em servidores de destino.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Web Crawler Distribuído (Googlebot): URL Frontier &amp; Políticas de Polidez</text>
+  <g transform="translate(40, 50)">
+    <!-- Priority Queues -->
+    <rect x="0" y="0" width="180" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="90" y="22" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Prioritization (PageRank)</text>
+    <rect x="15" y="35" width="150" height="22" rx="3" fill="#0284c7"/>
+    <text x="90" y="50" fill="#ffffff" font-size="9" text-anchor="middle">Fila Alta Prioridade (F0)</text>
+    <rect x="15" y="62" width="150" height="22" rx="3" fill="#0369a1"/>
+    <text x="90" y="77" fill="#ffffff" font-size="9" text-anchor="middle">Fila Média (F1)</text>
+    <rect x="15" y="88" width="150" height="22" rx="3" fill="#075985"/>
+    <text x="90" y="103" fill="#ffffff" font-size="9" text-anchor="middle">Fila Baixa (F2)</text>
+
+    <!-- Politeness Queues by Hostname -->
+    <rect x="220" y="0" width="380" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="410" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Politeness Queues (Mapeadas por Hostname)</text>
+    <rect x="240" y="35" width="340" height="22" rx="3" fill="#065f46"/>
+    <text x="410" y="50" fill="#86efac" font-size="9" text-anchor="middle">Queue: wikipedia.org (1 worker com delay de 1000ms)</text>
+    <rect x="240" y="62" width="340" height="22" rx="3" fill="#065f46"/>
+    <text x="410" y="77" fill="#86efac" font-size="9" text-anchor="middle">Queue: github.com (1 worker com delay de 500ms)</text>
+    <rect x="240" y="88" width="340" height="22" rx="3" fill="#065f46"/>
+    <text x="410" y="103" fill="#86efac" font-size="9" text-anchor="middle">Queue: nytimes.com (Respeita robots.txt)</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A URL Frontier isola hostnames garantindo que o crawler nunca cause negação de serviço (DDoS) no servidor alvo.</text>
+
+</svg>
 
 | Módulo da URL Frontier | Estrutura | Responsabilidade |
 |---|---|---|

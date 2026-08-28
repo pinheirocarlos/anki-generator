@@ -24,11 +24,28 @@ Como implementar um Distributed Lock no Redis com comando atômico `SET resource
   5. O Processo A acorda da pausa de GC e prossegue achando que ainda detém o lock, executando mutações concorrentes com B (**Violação de Exclusão Mútua**).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/distributed-lock-redis-setnx-gc-pause-loop.webm">
-    <p>Visualização: Quebra de exclusão mútua quando uma pausa longa de GC no cliente faz o TTL do lock expirar antes do processamento terminar.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Lock Distribuído (Redis SETNX) &amp; Falha por GC Pause</text>
+  <g transform="translate(40, 50)">
+    <!-- Client 1 -->
+    <rect x="0" y="0" width="280" height="120" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Cliente 1: Adquire Lock (TTL 10s)</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Entra em pausa longa de GC (15s)</text>
+    <text x="140" y="65" fill="#f87171" font-size="10" text-anchor="middle">TTL expira silenciosamente no Redis</text>
+    <text x="140" y="90" fill="#fca5a5" font-size="10" text-anchor="middle">Cliente acorda e tenta gravar no Storage</text>
+
+    <!-- Client 2 -->
+    <rect x="320" y="0" width="280" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Cliente 2: Adquire Novo Lock</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Executa e grava no Storage</text>
+    <text x="460" y="65" fill="#f87171" font-size="10" font-weight="bold" text-anchor="middle">💥 Race Condition / Dados Corrompidos</text>
+    <text x="460" y="90" fill="#cbd5e1" font-size="10" text-anchor="middle">Dois clientes gravam simultaneamente</text>
+  </g>
+  <text x="340" y="200" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Redlock puro sem fencing tokens não garante correção sob pausas de GC e assincronia de rede.</text>
+
+</svg>
 
 | Linha do Tempo | Estado dos Processos | Estado do Lock no Redis |
 |---|---|---|

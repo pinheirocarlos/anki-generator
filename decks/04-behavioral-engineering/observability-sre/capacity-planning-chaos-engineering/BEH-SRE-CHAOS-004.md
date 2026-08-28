@@ -14,16 +14,16 @@ Como definir a **Métrica de Estado Estável (Steady State)** e formular uma hip
 ## Resposta
 ### Quick Answer
 **Solução Direta**:
-- **Métrica de Steady State**: Deve ser uma métrica de negócio observável em tempo real que reflita o funcionamento saudável do sistema (ex: *taxa de reprodução de vídeos iniciados por segundo*, *pedidos faturados com sucesso*, *taxa de erro global $< 0.05%$*).
+- **Métrica de Steady State**: Deve ser uma métrica de negócio observável em tempo real que reflita o funcionamento saudável do sistema (ex: *taxa de reprodução de vídeos iniciados por segundo*, *pedidos faturados com sucesso*, *taxa de erro global $< 0.05\%$*).
 - **Formulação da Hipótese**: Deve descrever precisamente o comportamento de auto-recuperação esperado.
   - *Exemplo*: *"Se encerrarmos abruptamente a instância primária do banco de dados relacional, a réplica assumirá como primária em menos de 10 segundos sem interrupção de transações para o usuário final."*
 
 ### Dual Coding Visual
 | Componente da Hipótese | Boa Definição (Científica) | Má Definição (Vaga) |
 |---|---|---|
-| **Steady State** | Pedidos completados/s com erro $< 0.1%$ | *"O servidor parece rápido"* |
+| **Steady State** | Pedidos completados/s com erro $< 0.1\%$ | *"O servidor parece rápido"* |
 | **Falha Injetada** | Interrupção de 1 nó de Redis Sentinel | *"Testar falha no cache"* |
-| **Previsão** | Failover automático em $< 3	ext{s}$ | *"O sistema deve aguentar"* |
+| **Previsão** | Failover automático em $< 3\text{s}$ | *"O sistema deve aguentar"* |
 
 <details>
 <summary>Deep Dive & Walkthrough</summary>

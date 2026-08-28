@@ -58,5 +58,6 @@ desktop.ini
 .gemini/
 *.sqlite-journal
 *.sqlite3-journal
+scratch/
 
 

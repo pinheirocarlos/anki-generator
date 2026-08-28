@@ -25,11 +25,26 @@ Qual é a diferença entre retornar HTTP 301 Moved Permanently versus HTTP 302 F
 - **Arquitetura 100:1**: Em razão 100:1 (ex: 100k QPS de leitura e 1k QPS de escrita), utiliza-se cluster Redis em frente ao banco de dados com política LRU, atingindo $>90\%$ de Cache Hit.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/tinyurl-http-301-vs-302-redirect-cache-loop.webm">
-    <p>Visualização: Redirecionamento HTTP 302 permitindo rastrear métricas de cliques em camada de cache Redis com taxa 100:1.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Redirecionamento HTTP: 301 (Moved Permanently) vs 302 (Found / Temporary)</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="280" height="110" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">HTTP 301 (Moved Permanently)</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Navegador armazena em cache permanente</text>
+    <text x="140" y="65" fill="#86efac" font-size="10" text-anchor="middle">Zero latência nos cliques subsequentes</text>
+    <text x="140" y="88" fill="#f87171" font-size="10" font-weight="bold" text-anchor="middle">Desvantagem: Impossível rastrear cliques (Analytics)</text>
+
+    <rect x="320" y="0" width="280" height="110" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <text x="460" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">HTTP 302 (Found / Temporary)</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Toda requisição passa pelo servidor</text>
+    <text x="460" y="65" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Permite métricas de cliques, geolocalização e referrers</text>
+    <text x="460" y="88" fill="#86efac" font-size="9" text-anchor="middle">Cache Redis absorve proporção 100:1 Leitura/Escrita</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Modelagem de dados: chave primária curta no DynamoDB ou Cassandra permite leituras em &lt; 2ms.</text>
+
+</svg>
 
 | Status HTTP | Cache no Navegador | Rastreamento Analítico de Cliques |
 |---|---|---|

@@ -21,11 +21,30 @@ Como funciona a política de Log Compaction no Apache Kafka para manter apenas a
   - Permite utilizar tópicos Kafka como **tabelas de estado reconstruíveis (KTable)** para restauração instantânea de caches e bancos após crash.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/kafka-log-compaction-cleaner-head-tail-loop.webm">
-    <p>Visualização: Thread de Cleaner do Kafka mantendo apenas o último valor de cada chave no log compactado.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Log Compaction no Kafka: Retenção do Último Valor por Chave</text>
+  <g transform="translate(40, 50)">
+    <!-- Before Compaction -->
+    <rect x="0" y="0" width="600" height="40" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+    <text x="50" y="24" fill="#fbbf24" font-size="9" font-weight="bold">Log Bruto</text>
+    <text x="140" y="24" fill="#ffffff" font-size="9" font-family="monospace">(K1, V1)</text>
+    <text x="220" y="24" fill="#ffffff" font-size="9" font-family="monospace">(K2, V1)</text>
+    <text x="300" y="24" fill="#f87171" font-size="9" font-family="monospace">(K1, V2)</text>
+    <text x="380" y="24" fill="#ffffff" font-size="9" font-family="monospace">(K3, V1)</text>
+    <text x="470" y="24" fill="#34d399" font-size="9" font-family="monospace" font-weight="bold">(K1, V3)</text>
+
+    <!-- After Compaction -->
+    <rect x="0" y="55" width="600" height="40" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1.5"/>
+    <text x="50" y="79" fill="#86efac" font-size="9" font-weight="bold">Compactado</text>
+    <text x="220" y="79" fill="#ffffff" font-size="9" font-family="monospace">(K2, V1)</text>
+    <text x="380" y="79" fill="#ffffff" font-size="9" font-family="monospace">(K3, V1)</text>
+    <text x="470" y="79" fill="#34d399" font-size="9" font-family="monospace" font-weight="bold">(K1, V3)</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A thread Cleaner purga registros antigos mantendo o estado final snapshot de cada chave (ex: saldo, status de usuário).</text>
+
+</svg>
 
 | Estratégia de Retenção | Critério de Limpeza | Caso de Uso |
 |---|---|---|

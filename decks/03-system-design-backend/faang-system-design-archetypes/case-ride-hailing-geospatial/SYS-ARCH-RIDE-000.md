@@ -23,11 +23,28 @@ Por que sistemas de mobilidade urbana (Uber / Lyft) utilizam células hexagonais
   - Simplifica cálculos de raio de busca de motoristas (k-ring search), zoneamento de preços dinâmicos (*Surge Pricing*) e interpolação de demanda sem distorções diagonais.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/uber-h3-hexagonal-spatial-index-rings-loop.webm">
-    <p>Visualização: Grade espacial hexagonal Uber H3 com anéis k-ring de vizinhança uniforme sem distorções de cantos.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Indexação Geoespacial: Geohash vs Google S2 vs Uber H3 (Hexágonos)</text>
+  <g transform="translate(40, 50)">
+    <!-- Geohash / S2 (Squares) -->
+    <rect x="0" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Grades Quadradas (Geohash / S2)</text>
+    <text x="140" y="48" fill="#cbd5e1" font-size="10" text-anchor="middle">8 Vizinhos: 4 lados + 4 diagonais</text>
+    <text x="140" y="70" fill="#f87171" font-size="10" text-anchor="middle">Distorção: diagonais têm distâncias 1.41x</text>
+    <text x="140" y="92" fill="#fca5a5" font-size="9" text-anchor="middle">Complica buscas de raio circular (k-ring)</text>
+
+    <!-- Uber H3 (Hexagons) -->
+    <rect x="320" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="460" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Grade Hexagonal Uber H3</text>
+    <text x="460" y="48" fill="#cbd5e1" font-size="10" text-anchor="middle">6 Vizinhos Equidistantes</text>
+    <text x="460" y="70" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">Distância constante entre centros</text>
+    <text x="460" y="92" fill="#a7f3d0" font-size="9" text-anchor="middle">Perfeito para matching e surge pricing contíguo</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Uber H3 indexa a Terra em 16 resoluções hierárquicas através de números inteiros compactos de 64 bits (uint64).</text>
+
+</svg>
 
 | Sistema Geoespacial | Formato da Célula | Distância para Todos os Vizinhos |
 |---|---|---|

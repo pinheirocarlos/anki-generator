@@ -157,21 +157,70 @@ O baralho adota arquitetura plana no Anki (sem sub-decks aninhados para preserva
 
 ---
 
-## 📐 Contratos de Validação Automatizada (`validator.js`)
+---
 
-A suíte de testes (`npm test`) aplica verificações estritas em cada flashcard antes da compilação:
+## 🎨 Arquitetura de Mídias Online-Enhanced & Dual Coding Resiliente
 
+O motor pedagógico adota o conceito de **Online-Enhanced Multimedia Architecture**, combinando máxima riqueza visual com empacotamento ultraleve e resiliência total contra falhas de rede:
+
+### 1. Hierarquia Visual Multi-Tier (Constituição v1.4.0)
+- **Tier P1 — Micro-Vídeos & Animações em Loop (Processos Dinâmicos):**
+  - Utilizado para transições temporais de estado (ex: rotações em árvores AVL, balanceamento Raft, handshake TCP).
+  - Executados via tags `<video>` com atributos móveis obrigatórios: `autoplay loop muted playsinline webkit-playsinline disableRemotePlayback`.
+  - Hospedados em fontes públicas e CDNs seguras via HTTPS com código de resposta HTTP `200 OK`.
+- **Tier P2 — SVGs Responsivos Declarativos (Estruturas Estáticas):**
+  - Utilizado para topologias de memória, grafos, esquemas conceituais e nós de dados.
+  - Implementados com `viewBox` escalável para ajuste perfeito em qualquer largura de tela sem rolagem horizontal.
+- **Tier P2 — Tabelas Comparativas Estruturadas ($\le 3$ colunas):**
+  - Utilizado para trade-offs diretos (ex: Latência L1 vs DRAM, Paxos vs Raft).
+
+### 2. Resiliência de Layout & Degradação Graciosa (Zero Layout Shift)
+- **Eliminação de Caixas Pretas:** Remoção de `background-color: #000`, adotando transparência e integração total com as variáveis semânticas do tema (`--bg-card`, `--border-color`).
+- **Prevenção de Salto Visual (CLS):** Containers `.video-wrapper` e `.media-container` contam com `min-height: 120px`, `aspect-ratio: 16/9` e `contain: layout style`.
+- **Fallback Imediato:** Em redes lentas ou offline, a resposta direta (`Quick Answer`), a tabela comparativa e a legenda didática renderizam instantaneamente sem bloqueio de renderização.
+
+---
+
+## 🏛️ Padrões de Curadoria Pública & Registro Central (`media-curation-registry.json`)
+
+Toda mídia utilizada no currículo passa por auditoria e catalogação rigorosa:
+
+- **Atomicidade Visual Estrita:** Cada diagrama ou animação retrata exclusivamente o conceito atômico daquele flashcard específico (zero imagens genéricas ou meramente ilustrativas).
+- **Catálogo Canônico (`media-curation-registry.json`):** Dicionário estruturado que rastreia os 550 cards, mapeando:
+  - `card_id` canônico e `subtopic_id`.
+  - `concept` indivisível e `tier` pedagógico (`P1_MICRO_VIDEO`, `P2_RESPONSIVE_SVG`, `P2_TABLE_FALLBACK`, `LOCAL_ASSET`).
+  - `url` pública segura HTTPS e `media_type` validado.
+  - `attribution` da fonte original e `license` de uso aberto (*Creative Commons*, *MIT*, *Public Domain*).
+  - `caption` explicativa em PT-BR contextualizando os termos técnicos.
+- **Erradicação de Placeholders:** 100% dos cards livres de domínios fictícios (`assets.faang-anki.dev`, `example.com`, `localhost`).
+
+---
+
+## 📐 Contratos de Validação Automatizada (`validator.js` & `link-checker.js`)
+
+A qualidade do baralho é garantida por duas camadas complementares de validação:
+
+### Camada 1: Validação Offline Determinística (`validator.js` / `npm test`)
 | Regra | Requisito Validado |
 |---|---|
-| **ID Canônico** | Deve seguir o padrão `^[A-Z0-9]+-[A-Z0-9]+-[A-Z0-9]+-[0-9]{3}$` (ex: `CS-ARCH-CACHE-001`). |
+| **ID Canônico** | Padrão `^[A-Z0-9]+-[A-Z0-9]+-[A-Z0-9]+-[0-9]{3}$` (ex: `CS-ARCH-CACHE-001`). |
 | **Título** | String de 3 a 120 caracteres no Frontmatter YAML. |
-| **Tags** | Array com $\ge 3$ tags válidas (1 `level::*`, $\ge 1$ `topic::*`, 1 `freq::*` e opcionais `company::*`). |
-| **Atomicidade de Pergunta** | Exatamente uma interrogação na pergunta e proibição de conectivos de perguntas compostas (*"e também"*, *"bem como"*, etc.). |
+| **Tags** | $\ge 3$ tags válidas (1 `level::*`, $\ge 1$ `topic::*`, 1 `freq::*` e opcionais `company::*`). |
+| **Atomicidade de Pergunta** | Exatamente uma interrogação e proibição de conectivos compostos. |
 | **Seções Estruturais** | Exatamente uma seção `## Pergunta` e uma seção `## Resposta`. |
-| **Linguagens de Código** | Todo bloco ` ```lang ` deve declarar uma linguagem suportada (`go`, `java`, `python`, `sql`, `bash`, `rust`, `cpp`, `ts`, `js`, etc.). |
-| **Tabelas Mobile-First** | Máximo de 3 colunas por tabela e proibição de sequências longas de caracteres inquebráveis (`████...`). |
-| **Resolução de Assets & Vídeos** | Toda mídia local em `assets/...` deve existir no disco; mídias remotas e vídeos devem usar protocolo seguro `https://`. |
-| **Sincronização com Manifesto** | Validação bidirecional estrita com `syllabus_manifest.json` (sem IDs órfãos ou duplicados). |
+| **Linguagens de Código** | Todo bloco ` ```lang ` deve declarar linguagem suportada (`go`, `java`, `python`, `sql`, etc.). |
+| **Tabelas Mobile-First** | Máximo de 3 colunas por tabela e proibição de barras inquebráveis. |
+| **Zero Placeholders** | Bloqueio estrito de domínios fictícios (`assets.faang-anki.dev`). |
+| **Sincronização com Manifesto** | Validação bidirecional com `syllabus_manifest.json` (zero IDs órfãos). |
+
+### Camada 2: Auditoria Ativa de Links de Rede (`link-checker.js` / `npm run test:links`)
+| Recurso | Especificação |
+|---|---|
+| **Pool de Concorrência** | 8 workers simultâneos para verificação de alta vazão. |
+| **Timeout Individual** | 5000ms por requisição HTTP. |
+| **Política de Retentativas** | Até 2 retentativas com backoff em erros transitórios (429 / 5xx / timeout). |
+| **Identificação HTTP** | Cabeçalho `User-Agent: FAANG-Anki-LinkChecker/1.0`. |
+| **Relatório Estruturado** | Emissão do arquivo `link-health-report.json` com latências, status e MIME types. |
 
 ---
 
@@ -210,10 +259,14 @@ anki-generator/
 │   ├── generator.js                            # Pipeline de compilação e packaging .apkg
 │   └── utils/
 │       ├── validator.js                        # Validador de esquemas, atomicidade e constituição
+│       ├── link-checker.js                     # Auditor ativo de alcance HTTP 200 e MIME types
+│       ├── media-catalog.js                    # Catálogo de mídias prioritárias e geradores SVG
 │       ├── media-resolver.js                   # Extrator de mídias e reescritor de URLs
 │       └── atomic-decomposer.js                # Auditoria e decomposição atômica de cards
 ├── test/
-│   └── validate-cards.test.js                  # Suíte automatizada de testes
+│   └── validate-cards.test.js                  # Suíte automatizada de testes e schemas
+├── media-curation-registry.json                 # Catálogo canônico central de curadoria de mídias
+├── link-health-report.json                      # Relatório de auditoria de links gerado
 ├── syllabus_manifest.json                      # Catálogo central de currículo e IDs (550 cards)
 ├── package.json
 └── README.md
@@ -224,7 +277,7 @@ anki-generator/
 ## 📋 Catálogo Curricular (`syllabus_manifest.json`)
 
 Para viabilizar a escalabilidade para centenas de cards sem duplicações:
-1. O arquivo `syllabus_manifest.json` rastreia o status de cada subtópico (`pending`, `in_progress`, `completed`) e lista seus `card_ids`.
+1. O arquivo `syllabus_manifest.json` rastreia o status de cada subtópico (`completed`) e lista seus `card_ids`.
 2. Todo card possui um ID canônico determinístico (ex: `CS-ARCH-CACHE-000` para L2, `CS-ARCH-CACHE-001` a `006` para L3/L4/L5).
 3. O script de teste valida a sincronização bidirecional entre o manifesto e os arquivos no disco.
 
@@ -237,19 +290,34 @@ Para viabilizar a escalabilidade para centenas de cards sem duplicações:
 npm install
 ```
 
-### 2. Executar Testes Automatizados de Validação
+### 2. Executar Testes Automatizados de Validação (Offline)
 Valida todos os 550 cards contra os esquemas da constituição, atomicidade de perguntas, tags obrigatórias, cabeçalhos, tabelas responsivas, resolução de imagens/vídeos e catálogo curricular:
 ```bash
 npm test
 ```
 
-### 3. Compilar o Baralho Consolidado Master
+### 3. Executar Auditoria Ativa de Mídias Públicas (Online)
+Audita ativamente todas as URLs de mídias na internet garantindo HTTP 200 e MIME types válidos:
+```bash
+# Auditar todos os decks do repositório
+npm run test:links
+
+# Auditar lotes curriculares individuais
+node src/utils/link-checker.js --deck decks/01-dsa
+node src/utils/link-checker.js --deck decks/02-cs-fundamentals
+node src/utils/link-checker.js --deck decks/03-system-design-backend
+
+# Executar com opções customizadas de concorrência e relatório
+node src/utils/link-checker.js --concurrency 8 --timeout 5000 --retries 2 --report link-health-report.json
+```
+
+### 4. Compilar o Baralho Consolidado Master
 ```bash
 npm run build
 ```
-Gera `MAANG_Engineering_Mastery.apkg` na raiz do projeto contendo todos os 550 cards e mídias embutidas.
+Gera `MAANG_Engineering_Mastery.apkg` na raiz do projeto contendo todos os 550 cards e mídias embutidas (< 50MB, compilação em < 5s).
 
-### 4. Compilar Baralho Modular por Fase
+### 5. Compilar Baralhos Modulares por Fase
 ```bash
 node src/generator.js --phase 01-dsa
 node src/generator.js --phase 02-cs-fundamentals
@@ -258,7 +326,7 @@ node src/generator.js --phase 04-behavioral-engineering
 ```
 Gera os arquivos `.apkg` modulares correspondentes na raiz para sincronizações parciais.
 
-### 5. Como Importar no Anki
+### 6. Como Importar no Anki
 1. Abra o **Anki** no desktop ou aplicativo móvel (*AnkiDroid* / *AnkiMobile*).
 2. Clique em **Arquivo -> Importar** (ou abra diretamente o arquivo `.apkg` no celular).
-3. O baralho será importado com todos os estilos mobile-first, tags hierárquicas, badges coloridos por senioridade, realce sintático Dark Modern e mídias embutidas 100% offline.
+3. O baralho será importado com todos os estilos mobile-first, tags hierárquicas, badges coloridos por senioridade, realce sintático Dark Modern e mídias 100% responsivas e resilientes.

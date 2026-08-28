@@ -2398,6 +2398,712 @@ export const SVG_GENERATORS = {
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Conduza a entrevista como uma sessão de colaboração técnica entre pares de engenharia sênior.</text>
 
 </svg>`
+,
+  cacheAnomaliesStampede: () => `<svg viewBox="0 0 680 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="240" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Cache Stampede (Thundering Herd) &amp; Singleflight / Mutex Lock</text>
+  <g transform="translate(40, 50)">
+    <!-- Stampede Problem -->
+    <rect x="0" y="0" width="280" height="150" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="140" y="24" fill="#f87171" font-size="12" font-weight="bold" text-anchor="middle">Sem Proteção: Cache Miss Simultâneo</text>
+    <text x="140" y="55" fill="#fca5a5" font-size="11" text-anchor="middle">50.000 QPS → Chave Hot Expira</text>
+    <path d="M 40 75 L 240 75" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4"/>
+    <text x="140" y="105" fill="#fca5a5" font-size="11" text-anchor="middle">50.000 queries disparam ao DB</text>
+    <text x="140" y="130" fill="#f43f5e" font-size="11" font-weight="bold" text-anchor="middle">💥 Colapso por Sobrecarga de I/O</text>
+
+    <!-- Singleflight Solution -->
+    <rect x="320" y="0" width="280" height="150" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="24" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Com Singleflight / Mutex em Go</text>
+    <text x="460" y="55" fill="#86efac" font-size="11" text-anchor="middle">1 Goroutine adquire o Lock e calcula</text>
+    <rect x="350" y="75" width="220" height="28" rx="4" fill="#065f46"/>
+    <text x="460" y="94" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">49.999 requisições aguardam na RAM</text>
+    <text x="460" y="130" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">✅ Exatamente 1 query ao DB primário</text>
+  </g>
+  <text x="340" y="222" fill="#94a3b8" font-size="11" text-anchor="middle">XFetch Probabilístico: recálculo antecipado assíncrono antes do TTL expirar.</text>
+
+</svg>`,
+  cdnAnycastRouting: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">CDN Edge Caching &amp; Roteamento Anycast BGP</text>
+  <g transform="translate(40, 50)">
+    <!-- Client SP -->
+    <circle cx="50" cy="50" r="28" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="50" y="54" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Cliente SP</text>
+
+    <!-- PoP SP -->
+    <rect x="170" y="20" width="130" height="60" rx="6" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="235" y="44" fill="#86efac" font-size="11" font-weight="bold" text-anchor="middle">Edge PoP (SP)</text>
+    <text x="235" y="62" fill="#a7f3d0" font-size="9" text-anchor="middle">RTT: ~3 ms (Hit)</text>
+
+    <!-- Client NY -->
+    <circle cx="50" cy="120" r="28" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="50" y="124" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Cliente NY</text>
+
+    <!-- PoP NY -->
+    <rect x="170" y="90" width="130" height="60" rx="6" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="235" y="114" fill="#86efac" font-size="11" font-weight="bold" text-anchor="middle">Edge PoP (NY)</text>
+    <text x="235" y="132" fill="#a7f3d0" font-size="9" text-anchor="middle">RTT: ~2 ms (Hit)</text>
+
+    <!-- Origin DC -->
+    <rect x="420" y="45" width="160" height="80" rx="8" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+    <text x="500" y="75" fill="#fde68a" font-size="12" font-weight="bold" text-anchor="middle">Origin Data Center</text>
+    <text x="500" y="95" fill="#fef3c7" font-size="9" text-anchor="middle">(BGP Anycast IP único)</text>
+    <text x="500" y="112" fill="#cbd5e1" font-size="9" text-anchor="middle">Acessado apenas em Miss</text>
+
+    <!-- Lines -->
+    <line x1="80" y1="50" x2="170" y2="50" stroke="#38bdf8" stroke-width="2"/>
+    <line x1="80" y1="120" x2="170" y2="120" stroke="#38bdf8" stroke-width="2"/>
+    <line x1="300" y1="50" x2="420" y2="70" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4"/>
+    <line x1="300" y1="120" x2="420" y2="100" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4"/>
+  </g>
+  <text x="340" y="212" fill="#94a3b8" font-size="10" text-anchor="middle">BGP Anycast anuncia o mesmo IP globalmente; roteadores da Internet direcionam para o PoP topologicamente mais próximo.</text>
+
+</svg>`,
+  redisEventLoop: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Event Loop Single-Threaded do Redis &amp; I/O Multiplexing (epoll)</text>
+  <g transform="translate(40, 50)">
+    <!-- Socket Connections -->
+    <rect x="0" y="0" width="150" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="75" y="24" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">10.000+ Conexões TCP</text>
+    <text x="75" y="50" fill="#cbd5e1" font-size="10" text-anchor="middle">Socket Client 1 (read)</text>
+    <text x="75" y="70" fill="#cbd5e1" font-size="10" text-anchor="middle">Socket Client 2 (write)</text>
+    <text x="75" y="90" fill="#cbd5e1" font-size="10" text-anchor="middle">Socket Client N (idle)</text>
+
+    <!-- Epoll Multiplexer -->
+    <rect x="180" y="25" width="130" height="70" rx="6" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="245" y="52" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">I/O Multiplexer</text>
+    <text x="245" y="72" fill="#e0f2fe" font-size="9" text-anchor="middle">epoll / kqueue (O(1))</text>
+
+    <!-- Single Thread Event Loop -->
+    <rect x="340" y="0" width="260" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="470" y="24" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Single-Threaded Execution Engine</text>
+    <text x="470" y="50" fill="#86efac" font-size="10" text-anchor="middle">1. Pega evento pronto da fila</text>
+    <text x="470" y="70" fill="#86efac" font-size="10" text-anchor="middle">2. Executa comando em RAM pura (O(1))</text>
+    <text x="470" y="90" fill="#86efac" font-size="10" text-anchor="middle">3. Zero Locks, Zero Context Switch, Zero Race</text>
+  </g>
+  <text x="340" y="210" fill="#94a3b8" font-size="11" text-anchor="middle">Gargalo do Redis é largura de banda de rede e memória RAM, nunca contenção de threads de CPU.</text>
+
+</svg>`,
+  acidIsolationMatrix: () => `<svg viewBox="0 0 680 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="240" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Níveis de Isolamento ANSI SQL vs Anomalias de Concorrência</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="140" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+    <!-- Table Header -->
+    <rect x="0" y="0" width="600" height="30" rx="6" fill="#0284c7"/>
+    <text x="100" y="20" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Nível de Isolamento</text>
+    <text x="260" y="20" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Dirty Read</text>
+    <text x="400" y="20" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Non-Repeatable Read</text>
+    <text x="530" y="20" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Phantom Read</text>
+
+    <!-- Rows -->
+    <text x="100" y="55" fill="#f87171" font-size="10" text-anchor="middle">Read Uncommitted</text>
+    <text x="260" y="55" fill="#f87171" font-size="10" text-anchor="middle">Permite ❌</text>
+    <text x="400" y="55" fill="#f87171" font-size="10" text-anchor="middle">Permite ❌</text>
+    <text x="530" y="55" fill="#f87171" font-size="10" text-anchor="middle">Permite ❌</text>
+
+    <text x="100" y="82" fill="#fbbf24" font-size="10" text-anchor="middle">Read Committed</text>
+    <text x="260" y="82" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+    <text x="400" y="82" fill="#f87171" font-size="10" text-anchor="middle">Permite ❌</text>
+    <text x="530" y="82" fill="#f87171" font-size="10" text-anchor="middle">Permite ❌</text>
+
+    <text x="100" y="108" fill="#38bdf8" font-size="10" text-anchor="middle">Repeatable Read</text>
+    <text x="260" y="108" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+    <text x="400" y="108" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+    <text x="530" y="108" fill="#fbbf24" font-size="10" text-anchor="middle">Possível ⚠️</text>
+
+    <text x="100" y="132" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Serializable</text>
+    <text x="260" y="132" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+    <text x="400" y="132" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+    <text x="530" y="132" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+  </g>
+  <text x="340" y="218" fill="#94a3b8" font-size="10" text-anchor="middle">PostgreSQL e MySQL InnoDB utilizam MVCC para prevenir Phantom Reads em Repeatable Read sem locks em tabela.</text>
+
+</svg>`,
+  dynamoDbSingleTable: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">DynamoDB Single-Table Design: Partition Key (PK) &amp; Sort Key (SK)</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="125" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+    <!-- Header -->
+    <rect x="0" y="0" width="600" height="28" rx="6" fill="#0284c7"/>
+    <text x="80" y="19" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">PK (Hash)</text>
+    <text x="220" y="19" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">SK (Range / Sort)</text>
+    <text x="360" y="19" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Data / Attributes</text>
+    <text x="510" y="19" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">GSI1-PK / GSI1-SK</text>
+
+    <!-- Rows -->
+    <text x="80" y="48" fill="#38bdf8" font-size="9" font-family="monospace" text-anchor="middle">USER#101</text>
+    <text x="220" y="48" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">METADATA</text>
+    <text x="360" y="48" fill="#cbd5e1" font-size="9" text-anchor="middle">Name: "Carlos", email: "..."</text>
+    <text x="510" y="48" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">STATUS#ACTIVE</text>
+
+    <text x="80" y="73" fill="#38bdf8" font-size="9" font-family="monospace" text-anchor="middle">USER#101</text>
+    <text x="220" y="73" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">ORDER#2026-08#991</text>
+    <text x="360" y="73" fill="#cbd5e1" font-size="9" text-anchor="middle">Total: $450.00, Status: PAID</text>
+    <text x="510" y="73" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">DATE#2026-08-28</text>
+
+    <text x="80" y="98" fill="#38bdf8" font-size="9" font-family="monospace" text-anchor="middle">USER#101</text>
+    <text x="220" y="98" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">ORDER#2026-08#992</text>
+    <text x="360" y="98" fill="#cbd5e1" font-size="9" text-anchor="middle">Total: $89.00, Status: SHIPPED</text>
+    <text x="510" y="98" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">DATE#2026-08-28</text>
+  </g>
+  <text x="340" y="208" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Uma única Query(PK=USER#101, SK begins_with ORDER#) retorna usuário e histórico em 1 RTT O(1).</text>
+
+</svg>`,
+  databaseReplicationLag: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Replicação de Banco de Dados: Replication Lag em Leader-Follower</text>
+  <g transform="translate(40, 50)">
+    <!-- Leader -->
+    <rect x="0" y="20" width="160" height="90" rx="6" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="80" y="45" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">Leader (Primary)</text>
+    <text x="80" y="68" fill="#e0f2fe" font-size="10" text-anchor="middle">Write t=0: balance=$200</text>
+    <text x="80" y="88" fill="#86efac" font-size="9" text-anchor="middle">WAL gravado imediatamente</text>
+
+    <!-- Async Replication Stream -->
+    <path d="M 160 65 L 340 65" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4"/>
+    <text x="250" y="55" fill="#fbbf24" font-size="9" font-weight="bold" text-anchor="middle">Binlog / WAL Stream (Async)</text>
+    <text x="250" y="80" fill="#f87171" font-size="9" text-anchor="middle">Lag: ~250 ms</text>
+
+    <!-- Follower Replica -->
+    <rect x="340" y="20" width="160" height="90" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="420" y="45" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">Follower Replica</text>
+    <text x="420" y="68" fill="#fca5a5" font-size="10" text-anchor="middle">Read t=50ms: balance=$100</text>
+    <text x="420" y="88" fill="#f87171" font-size="9" text-anchor="middle">⚠️ Inconsistência de Leitura</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Solução Read-Your-Own-Writes: Roteia leituras do próprio usuário que alterou para o Leader por 5 segundos.</text>
+
+</svg>`,
+  sqlClusteredVsSecondary: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Índice Clustered (PK) vs Índice Secundário (Non-Clustered)</text>
+  <g transform="translate(40, 50)">
+    <!-- Clustered Index -->
+    <rect x="0" y="0" width="280" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Índice Clustered (B+Tree)</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Nós folhas = Linhas de dados completas</text>
+    <text x="140" y="65" fill="#86efac" font-size="10" text-anchor="middle">Apenas 1 por tabela (organiza o disco)</text>
+    <text x="140" y="90" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Busca por PK: 1 travessia na árvore</text>
+
+    <!-- Secondary Index -->
+    <rect x="320" y="0" width="280" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Índice Secundário (ex: email)</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Nós folhas contêm: (email, PK_id)</text>
+    <text x="460" y="65" fill="#f87171" font-size="10" text-anchor="middle">Exige 'Table Lookup' / 'Bookmark Lookup'</text>
+    <text x="460" y="90" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">2 travessias: Secundário → Clustered</text>
+  </g>
+  <text x="340" y="200" fill="#94a3b8" font-size="10" text-anchor="middle">No InnoDB, a chave primária curta (ex: BIGINT) reduz o tamanho de todos os índices secundários da tabela.</text>
+
+</svg>`,
+  vectorSearchHNSW: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bancos de Dados Vetoriais &amp; Grafo HNSW (Hierarchical Navigable Small World)</text>
+  <g transform="translate(40, 50)">
+    <!-- Layer 2 (Express) -->
+    <rect x="0" y="0" width="600" height="35" rx="4" fill="#0c4a6e" stroke="#38bdf8" stroke-width="1"/>
+    <text x="50" y="22" fill="#38bdf8" font-size="10" font-weight="bold">Layer 2</text>
+    <text x="300" y="22" fill="#ffffff" font-size="10" text-anchor="middle">Saltos Longos (Conexões Esparsas Globais) → Início da Busca ANN</text>
+
+    <!-- Layer 1 (Medium) -->
+    <rect x="0" y="45" width="600" height="35" rx="4" fill="#075985" stroke="#38bdf8" stroke-width="1"/>
+    <text x="50" y="67" fill="#38bdf8" font-size="10" font-weight="bold">Layer 1</text>
+    <text x="300" y="67" fill="#ffffff" font-size="10" text-anchor="middle">Conexões Intermediárias (Aproximação do Cluster Semântico)</text>
+
+    <!-- Layer 0 (Dense) -->
+    <rect x="0" y="90" width="600" height="35" rx="4" fill="#0369a1" stroke="#10b981" stroke-width="1.5"/>
+    <text x="50" y="112" fill="#86efac" font-size="10" font-weight="bold">Layer 0</text>
+    <text x="300" y="112" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Grafo Denso com Todos os Vetores (Busca K-NN Exata por Similaridade de Cosseno)</text>
+  </g>
+  <text x="340" y="205" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">HNSW atinge complexidade O(log N) para busca de vizinhos mais próximos em embeddings de 1536 dimensões.</text>
+
+</svg>`,
+  twitterSnowflake: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Twitter Snowflake: Gerador de IDs de 64 Bits Distribuído</text>
+  <g transform="translate(40, 50)">
+    <!-- 64 Bits Layout -->
+    <rect x="0" y="0" width="600" height="60" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    
+    <!-- 1 bit unused -->
+    <rect x="5" y="10" width="30" height="40" rx="4" fill="#334155"/>
+    <text x="20" y="34" fill="#94a3b8" font-size="9" text-anchor="middle">1b</text>
+
+    <!-- 41 bits timestamp -->
+    <rect x="40" y="10" width="320" height="40" rx="4" fill="#0284c7"/>
+    <text x="200" y="28" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">41 Bits: Timestamp em Milissegundos</text>
+    <text x="200" y="44" fill="#e0f2fe" font-size="9" text-anchor="middle">~69 anos de duração a partir de epoch customizada</text>
+
+    <!-- 10 bits worker id -->
+    <rect x="365" y="10" width="120" height="40" rx="4" fill="#78350f"/>
+    <text x="425" y="28" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">10 Bits: Machine ID</text>
+    <text x="425" y="44" fill="#fef3c7" font-size="9" text-anchor="middle">1024 nós/datacenters</text>
+
+    <!-- 12 bits sequence -->
+    <rect x="490" y="10" width="105" height="40" rx="4" fill="#065f46"/>
+    <text x="542" y="28" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">12b: Sequence</text>
+    <text x="542" y="44" fill="#a7f3d0" font-size="9" text-anchor="middle">4096 IDs/ms/nó</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Capacidade: 4.096.000 IDs únicos ordenáveis por tempo por nó a cada segundo sem coordenação central.</text>
+
+</svg>`,
+  distributedFileStorage: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Google Drive / Dropbox: Chunking de 4MB &amp; Sincronização Delta</text>
+  <g transform="translate(40, 50)">
+    <!-- File -->
+    <rect x="0" y="20" width="130" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="65" y="45" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Arquivo (16MB)</text>
+    <text x="65" y="70" fill="#cbd5e1" font-size="9" text-anchor="middle">4 Chunks de 4MB</text>
+
+    <!-- Chunks with SHA-256 -->
+    <g transform="translate(160, 0)">
+      <rect x="0" y="0" width="180" height="28" rx="4" fill="#0284c7"/>
+      <text x="90" y="18" fill="#ffffff" font-size="9" font-family="monospace" text-anchor="middle">Chunk 1: SHA-256(a1...)</text>
+
+      <rect x="0" y="32" width="180" height="28" rx="4" fill="#0284c7"/>
+      <text x="90" y="50" fill="#ffffff" font-size="9" font-family="monospace" text-anchor="middle">Chunk 2: SHA-256(b2...)</text>
+
+      <rect x="0" y="64" width="180" height="28" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1.5"/>
+      <text x="90" y="82" fill="#86efac" font-size="9" font-family="monospace" font-weight="bold" text-anchor="middle">Chunk 3: MODIFICADO (c3*)</text>
+
+      <rect x="0" y="96" width="180" height="28" rx="4" fill="#0284c7"/>
+      <text x="90" y="114" fill="#ffffff" font-size="9" font-family="monospace" text-anchor="middle">Chunk 4: SHA-256(d4...)</text>
+    </g>
+
+    <!-- Cloud Sync -->
+    <rect x="380" y="20" width="220" height="80" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="490" y="45" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Sincronização Delta</text>
+    <text x="490" y="68" fill="#86efac" font-size="10" text-anchor="middle">Upload APENAS do Chunk 3 (4MB)</text>
+    <text x="490" y="88" fill="#a7f3d0" font-size="9" text-anchor="middle">Economia de 75% de banda e tempo</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Algoritmo Rsync / FastCDC calcula blocos variáveis identificando alterações mesmo com inserções no meio do arquivo.</text>
+
+</svg>`,
+  metricsTsdbGorilla: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bancos TSDB: Compressão Gorilla (XOR Float + Delta-of-Delta)</text>
+  <g transform="translate(40, 50)">
+    <!-- Timestamp Compression -->
+    <rect x="0" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Timestamps: Delta-of-Delta</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">t0 = 100, t1 = 160 (delta: 60)</text>
+    <text x="140" y="65" fill="#cbd5e1" font-size="10" text-anchor="middle">t2 = 220 (delta: 60 → D_of_D = 0)</text>
+    <text x="140" y="90" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Armazena exatamente 1 bit '0'</text>
+
+    <!-- Value Compression -->
+    <rect x="320" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Valores Float64: XOR Bitwise</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Métricas variam suavemente</text>
+    <text x="460" y="65" fill="#cbd5e1" font-size="10" text-anchor="middle">V_current XOR V_prev tem zeros à esq/dir</text>
+    <text x="460" y="90" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Comprime 16B para ~1.37 Bytes</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Redução de 12x no consumo de memória RAM e disco em sistemas como Prometheus e Facebook Gorilla TSDB.</text>
+
+</svg>`,
+  paymentLedgerDoubleEntry: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Sistema de Pagamentos (Stripe): Livro-Razão de Partidas Dobradas</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="115" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="300" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Invariante Fundamental: SUM(Débitos) - SUM(Créditos) == 0</text>
+
+    <!-- Entry Example -->
+    <rect x="20" y="38" width="560" height="60" rx="4" fill="#0f172a" stroke="#0284c7" stroke-width="1"/>
+    <text x="150" y="60" fill="#f87171" font-size="10" font-family="monospace" text-anchor="middle">Conta Origem (Cliente): -$100 (Débito)</text>
+    <text x="430" y="60" fill="#34d399" font-size="10" font-family="monospace" text-anchor="middle">Conta Destino (Merchant): +$97 (Crédito)</text>
+    <text x="430" y="80" fill="#fbbf24" font-size="10" font-family="monospace" text-anchor="middle">Taxa Plataforma (Fee): +$3 (Crédito)</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Livro-razão é estritamente append-only e imutável; correções exigem lançamentos de estorno equilibrados.</text>
+
+</svg>`,
+  typeaheadTrie: () => `<svg viewBox="0 0 680 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="240" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Search Autocomplete (Google Typeahead): Trie em Memória com Top-K Cache</text>
+  <g transform="translate(40, 50)">
+    <!-- Root -->
+    <circle cx="100" cy="20" r="14" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="100" y="24" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">ROOT</text>
+
+    <!-- Node 's' -->
+    <line x1="100" y1="34" x2="60" y2="70" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="60" cy="70" r="12" fill="#0369a1" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="60" y="74" fill="#ffffff" font-size="9" text-anchor="middle">'s'</text>
+
+    <!-- Node 'sy' -->
+    <line x1="60" y1="82" x2="60" y2="115" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="60" cy="115" r="12" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="60" y="119" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">'y'</text>
+
+    <!-- Top-K Cache Box in Node 'sy' -->
+    <rect x="180" y="40" width="420" height="95" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="390" y="62" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Top-5 Sugestões Pré-computadas no Nó 'sy'</text>
+    <text x="390" y="84" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">1. "system design" (Freq: 50.000.000)</text>
+    <text x="390" y="102" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">2. "system design interview" (Freq: 28.000.000)</text>
+    <text x="390" y="120" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">3. "synchronization" (Freq: 15.000.000)</text>
+  </g>
+  <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Retorno em tempo O(p) onde p é o tamanho do prefixo digitado (ex: 2 caracteres), independente do tamanho do dicionário.</text>
+
+</svg>`,
+  webCrawlerFrontier: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Web Crawler Distribuído (Googlebot): URL Frontier &amp; Políticas de Polidez</text>
+  <g transform="translate(40, 50)">
+    <!-- Priority Queues -->
+    <rect x="0" y="0" width="180" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="90" y="22" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Prioritization (PageRank)</text>
+    <rect x="15" y="35" width="150" height="22" rx="3" fill="#0284c7"/>
+    <text x="90" y="50" fill="#ffffff" font-size="9" text-anchor="middle">Fila Alta Prioridade (F0)</text>
+    <rect x="15" y="62" width="150" height="22" rx="3" fill="#0369a1"/>
+    <text x="90" y="77" fill="#ffffff" font-size="9" text-anchor="middle">Fila Média (F1)</text>
+    <rect x="15" y="88" width="150" height="22" rx="3" fill="#075985"/>
+    <text x="90" y="103" fill="#ffffff" font-size="9" text-anchor="middle">Fila Baixa (F2)</text>
+
+    <!-- Politeness Queues by Hostname -->
+    <rect x="220" y="0" width="380" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="410" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Politeness Queues (Mapeadas por Hostname)</text>
+    <rect x="240" y="35" width="340" height="22" rx="3" fill="#065f46"/>
+    <text x="410" y="50" fill="#86efac" font-size="9" text-anchor="middle">Queue: wikipedia.org (1 worker com delay de 1000ms)</text>
+    <rect x="240" y="62" width="340" height="22" rx="3" fill="#065f46"/>
+    <text x="410" y="77" fill="#86efac" font-size="9" text-anchor="middle">Queue: github.com (1 worker com delay de 500ms)</text>
+    <rect x="240" y="88" width="340" height="22" rx="3" fill="#065f46"/>
+    <text x="410" y="103" fill="#86efac" font-size="9" text-anchor="middle">Queue: nytimes.com (Respeita robots.txt)</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A URL Frontier isola hostnames garantindo que o crawler nunca cause negação de serviço (DDoS) no servidor alvo.</text>
+
+</svg>`,
+  concurrencyWorkerPool: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Worker Pool em Go: Bounded Channels &amp; Controle Fixo de Goroutines</text>
+  <g transform="translate(40, 50)">
+    <!-- Task Queue -->
+    <rect x="0" y="20" width="160" height="90" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="80" y="42" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Jobs Channel</text>
+    <text x="80" y="65" fill="#cbd5e1" font-size="9" font-family="monospace" text-anchor="middle">jobs := make(chan Job, 100)</text>
+    <text x="80" y="85" fill="#86efac" font-size="9" text-anchor="middle">Buffer finito limita RAM</text>
+
+    <!-- 3 Fixed Workers -->
+    <g transform="translate(200, 0)">
+      <rect x="0" y="0" width="180" height="36" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="90" y="22" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">Worker 1 (Goroutine fixa)</text>
+
+      <rect x="0" y="45" width="180" height="36" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="90" y="67" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">Worker 2 (Goroutine fixa)</text>
+
+      <rect x="0" y="90" width="180" height="36" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="90" y="112" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">Worker 3 (Goroutine fixa)</text>
+    </g>
+
+    <!-- Results Channel -->
+    <rect x="420" y="20" width="160" height="90" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="500" y="42" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Results Channel</text>
+    <text x="500" y="65" fill="#cbd5e1" font-size="9" font-family="monospace" text-anchor="middle">results &lt;- process(job)</text>
+    <text x="500" y="85" fill="#86efac" font-size="9" text-anchor="middle">sync.WaitGroup sincroniza</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Evita o antipadrão 'go func()' descontrolado que causa OOM e sobrecarga do Go Runtime Scheduler.</text>
+
+</svg>`,
+  designPatternsStrategyFactory: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Padrão Strategy + Factory: Eliminação de Switch Cases Gigantes</text>
+  <g transform="translate(40, 50)">
+    <!-- Factory -->
+    <rect x="0" y="20" width="160" height="90" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="80" y="42" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">PaymentFactory</text>
+    <text x="80" y="65" fill="#cbd5e1" font-size="9" font-family="monospace" text-anchor="middle">GetStrategy(type)</text>
+    <text x="80" y="85" fill="#86efac" font-size="9" text-anchor="middle">Instanciação dinâmica</text>
+
+    <!-- Interface -->
+    <rect x="200" y="20" width="180" height="90" rx="6" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="290" y="45" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;interface&gt;&gt; PaymentStrategy</text>
+    <text x="290" y="72" fill="#e0f2fe" font-size="10" font-family="monospace" text-anchor="middle">+ Pay(amount) error</text>
+
+    <!-- Concrete Strategies -->
+    <g transform="translate(420, 0)">
+      <rect x="0" y="0" width="160" height="34" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="80" y="22" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">CreditCardStrategy</text>
+
+      <rect x="0" y="42" width="160" height="34" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="80" y="64" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">PixPaymentStrategy</text>
+
+      <rect x="0" y="84" width="160" height="34" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="80" y="106" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">CryptoPaymentStrategy</text>
+    </g>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Adesão perfeita ao Open/Closed Principle (OCP): novos métodos de pagamento são adicionados sem alterar código existente.</text>
+
+</svg>`,
+  lldParkingLotCache: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">LLD Case Study: Sistema de Estacionamento Orientado a Objetos (Parking Lot)</text>
+  <g transform="translate(40, 50)">
+    <!-- ParkingLot Hierarchy -->
+    <rect x="0" y="0" width="180" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="90" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">ParkingLot (Singleton)</text>
+    <text x="90" y="45" fill="#cbd5e1" font-size="9" text-anchor="middle">- List&lt;ParkingFloor&gt;</text>
+    <text x="90" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">- EntrancePanels</text>
+    <text x="90" y="85" fill="#cbd5e1" font-size="9" text-anchor="middle">- ExitPanels</text>
+    <text x="90" y="105" fill="#86efac" font-size="9" text-anchor="middle">+ AssignTicket(Vehicle)</text>
+
+    <!-- ParkingSpot Hierarchy -->
+    <rect x="210" y="0" width="180" height="120" rx="6" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="300" y="22" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;abstract&gt;&gt; ParkingSpot</text>
+    <text x="300" y="45" fill="#e0f2fe" font-size="9" text-anchor="middle">- CompactSpot</text>
+    <text x="300" y="65" fill="#e0f2fe" font-size="9" text-anchor="middle">- LargeSpot (Trucks)</text>
+    <text x="300" y="85" fill="#e0f2fe" font-size="9" text-anchor="middle">- ElectricSpot (Charger)</text>
+    <text x="300" y="105" fill="#86efac" font-size="9" text-anchor="middle">+ IsFree() / Occupy()</text>
+
+    <!-- Pricing Strategy -->
+    <rect x="420" y="0" width="180" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="510" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">PricingStrategy</text>
+    <text x="510" y="45" fill="#cbd5e1" font-size="9" text-anchor="middle">- HourlyPricing</text>
+    <text x="510" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">- DynamicSurgePricing</text>
+    <text x="510" y="85" fill="#cbd5e1" font-size="9" text-anchor="middle">- FlatRatePricing</text>
+    <text x="510" y="105" fill="#34d399" font-size="9" text-anchor="middle">+ CalculateFee(Ticket)</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Separação estrita de responsabilidades: concorrência protegida por Mutex por vaga ou andar.</text>
+
+</svg>`,
+  hexagonalCleanArchitecture: () => `<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Arquitetura Hexagonal (Ports &amp; Adapters / Clean Architecture)</text>
+  <g transform="translate(40, 50)">
+    <!-- Adapters In -->
+    <rect x="0" y="20" width="140" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="70" y="45" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Primary Adapters</text>
+    <text x="70" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">HTTP Controller</text>
+    <text x="70" y="85" fill="#cbd5e1" font-size="9" text-anchor="middle">gRPC / CLI Handler</text>
+
+    <!-- Domain Core -->
+    <rect x="180" y="0" width="240" height="120" rx="8" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="300" y="32" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Domain Core (Puro)</text>
+    <text x="300" y="55" fill="#ffffff" font-size="10" text-anchor="middle">Entities &amp; Use Cases</text>
+    <text x="300" y="75" fill="#86efac" font-size="9" text-anchor="middle">&lt;&lt;interface&gt;&gt; Input / Output Ports</text>
+    <text x="300" y="98" fill="#a7f3d0" font-size="9" text-anchor="middle">Zero dependência externa</text>
+
+    <!-- Adapters Out -->
+    <rect x="460" y="20" width="140" height="80" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="530" y="45" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">Secondary Adapters</text>
+    <text x="530" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">PostgresRepository</text>
+    <text x="530" y="85" fill="#cbd5e1" font-size="9" text-anchor="middle">KafkaEventPublisher</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A inversão de controle permite trocar o banco de dados Postgres por MongoDB sem encostar em 1 linha de Use Case.</text>
+
+</svg>`,
+  messageDeliveryGuarantees: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Garantias de Entrega de Mensagens: At-Least-Once vs Exactly-Once</text>
+  <g transform="translate(40, 50)">
+    <!-- At-Least-Once -->
+    <rect x="0" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">At-Least-Once (Padrão de Mercado)</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Retentativas automáticas em timeout</text>
+    <text x="140" y="65" fill="#fca5a5" font-size="10" text-anchor="middle">Mensagens podem ser duplicadas</text>
+    <text x="140" y="90" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Exige Consumidor Idempotente</text>
+
+    <!-- Exactly-Once -->
+    <rect x="320" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Exactly-Once Semantics (EOS)</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Kafka Transactions (read-process-write)</text>
+    <text x="460" y="65" fill="#86efac" font-size="10" text-anchor="middle">Producer ID + Sequence Number monotônico</text>
+    <text x="460" y="90" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">Custo extra de coordenação/latência</text>
+  </g>
+  <text x="340" y="198" fill="#94a3b8" font-size="10" text-anchor="middle">A regra de ouro de sistemas distribuídos: Transporte At-Least-Once + Processamento Idempotente = Robustez Total.</text>
+
+</svg>`,
+  messageQueuesDLQ: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Amazon SQS: Visibility Timeout &amp; Dead Letter Queue (DLQ)</text>
+  <g transform="translate(40, 50)">
+    <!-- SQS Queue -->
+    <rect x="0" y="0" width="260" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="130" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Fila Principal SQS</text>
+    <text x="130" y="48" fill="#cbd5e1" font-size="10" text-anchor="middle">Worker pega msg → Invisível por 30s</text>
+    <text x="130" y="68" fill="#f87171" font-size="10" text-anchor="middle">Se Worker falhar sem dar DeleteMsg:</text>
+    <text x="130" y="90" fill="#fbbf24" font-size="10" text-anchor="middle">Msg reaparece na fila (ReceiveCount++)</text>
+
+    <!-- Dead Letter Queue -->
+    <rect x="340" y="0" width="260" height="120" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="2"/>
+    <text x="470" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Dead Letter Queue (DLQ)</text>
+    <text x="470" y="48" fill="#fca5a5" font-size="10" text-anchor="middle">Após maxReceiveCount = 3 falhas:</text>
+    <text x="470" y="70" fill="#f87171" font-size="10" font-weight="bold" text-anchor="middle">Msg 'Poison Pill' movida para DLQ</text>
+    <text x="470" y="92" fill="#86efac" font-size="9" text-anchor="middle">Impede bloqueio e alerta equipe de SRE</text>
+
+    <!-- Flow Arrow -->
+    <line x1="260" y1="60" x2="340" y2="60" stroke="#f43f5e" stroke-width="2"/>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A DLQ isola mensagens defeituosas que quebram o código do consumidor, garantindo fluidez para o resto da fila.</text>
+
+</svg>`,
+  apiGatewayBFF: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">API Gateway Pattern &amp; Backend for Frontend (BFF)</text>
+  <g transform="translate(30, 50)">
+    <!-- Clients -->
+    <g transform="translate(0, 10)">
+      <rect x="0" y="0" width="110" height="35" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <text x="55" y="22" fill="#38bdf8" font-size="9" font-weight="bold" text-anchor="middle">Mobile iOS/Android</text>
+
+      <rect x="0" y="55" width="110" height="35" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <text x="55" y="77" fill="#38bdf8" font-size="9" font-weight="bold" text-anchor="middle">Desktop Web App</text>
+    </g>
+
+    <!-- BFF Layer -->
+    <g transform="translate(150, 0)">
+      <rect x="0" y="0" width="150" height="45" rx="6" fill="#0284c7"/>
+      <text x="75" y="24" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">BFF Mobile Gateway</text>
+      <text x="75" y="38" fill="#bae6fd" font-size="8" text-anchor="middle">Payload compacto / 5G</text>
+
+      <rect x="0" y="60" width="150" height="45" rx="6" fill="#0284c7"/>
+      <text x="75" y="84" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">BFF Web Gateway</text>
+      <text x="75" y="98" fill="#bae6fd" font-size="8" text-anchor="middle">Payload rico desnormalizado</text>
+    </g>
+
+    <!-- Microservices -->
+    <g transform="translate(350, 0)">
+      <rect x="0" y="0" width="250" height="110" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+      <text x="125" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Microsserviços Internos</text>
+      <text x="125" y="48" fill="#86efac" font-size="9" text-anchor="middle">• User Service (Auth / Profile)</text>
+      <text x="125" y="70" fill="#86efac" font-size="9" text-anchor="middle">• Order &amp; Payment Service</text>
+      <text x="125" y="92" fill="#86efac" font-size="9" text-anchor="middle">• Inventory &amp; Catalog Service</text>
+    </g>
+  </g>
+  <text x="340" y="198" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">O API Gateway centraliza SSL Termination, Rate Limiting, Autenticação JWT e agregação de chamadas.</text>
+
+</svg>`,
+  loadBalancersL4L7: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Load Balancers: Camada L4 (Transporte) vs Camada L7 (Aplicação)</text>
+  <g transform="translate(40, 50)">
+    <!-- L4 -->
+    <rect x="0" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">L4 Load Balancer (IP / Porta TCP)</text>
+    <text x="140" y="48" fill="#cbd5e1" font-size="10" text-anchor="middle">Não abre payload HTTP (Zero SSL decrypt)</text>
+    <text x="140" y="70" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">Throughput altíssimo (Milhões de QPS)</text>
+    <text x="140" y="92" fill="#94a3b8" font-size="9" text-anchor="middle">Exemplos: AWS NLB, Linux IPVS, HAProxy TCP</text>
+
+    <!-- L7 -->
+    <rect x="320" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">L7 Load Balancer (HTTP / HTTPS / gRPC)</text>
+    <text x="460" y="48" fill="#cbd5e1" font-size="10" text-anchor="middle">Inspeciona Headers, Cookies, Path (/api/v2)</text>
+    <text x="460" y="70" fill="#86efac" font-size="10" text-anchor="middle">Roteamento inteligente por URL e SSL Termination</text>
+    <text x="460" y="92" fill="#94a3b8" font-size="9" text-anchor="middle">Exemplos: AWS ALB, NGINX, Envoy, Traefik</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Topologia clássica: L4 na borda distribuindo para um pool de proxies reversos L7 escalonados horizontalmente.</text>
+
+</svg>`,
+  serviceMeshZeroTrust: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Service Mesh (Istio &amp; Envoy Sidecar): Tráfego Leste-Oeste</text>
+  <g transform="translate(40, 50)">
+    <!-- Pod A -->
+    <rect x="0" y="0" width="260" height="120" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="130" y="24" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Kubernetes Pod A</text>
+    <rect x="15" y="40" width="105" height="65" rx="4" fill="#0284c7"/>
+    <text x="67" y="68" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">App Service A</text>
+    <rect x="135" y="40" width="110" height="65" rx="4" fill="#78350f"/>
+    <text x="190" y="68" fill="#fde68a" font-size="9" font-weight="bold" text-anchor="middle">Envoy Proxy</text>
+
+    <!-- Pod B -->
+    <rect x="340" y="0" width="260" height="120" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="470" y="24" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Kubernetes Pod B</text>
+    <rect x="355" y="40" width="110" height="65" rx="4" fill="#78350f"/>
+    <text x="410" y="68" fill="#fde68a" font-size="9" font-weight="bold" text-anchor="middle">Envoy Proxy</text>
+    <rect x="480" y="40" width="105" height="65" rx="4" fill="#065f46"/>
+    <text x="532" y="68" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">App Service B</text>
+
+    <!-- Envoy to Envoy mTLS -->
+    <line x1="245" y1="72" x2="355" y2="72" stroke="#10b981" stroke-width="2"/>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Envoy Sidecar intercepta todo tráfego via iptables: injeta Circuit Breaking, Retries, Métricas e mTLS de forma transparente.</text>
+
+</svg>`,
+  backOfEnvelopeEstimations: () => `<svg viewBox="0 0 680 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="240" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Latências de Hardware de Jeff Dean: Ordens de Grandeza</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="135" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    
+    <rect x="20" y="15" width="200" height="24" rx="3" fill="#0284c7"/>
+    <text x="30" y="31" fill="#ffffff" font-size="10" font-weight="bold">L1 Cache Reference</text>
+    <text x="210" y="31" fill="#e0f2fe" font-size="10" text-anchor="end">0.5 ns</text>
+
+    <rect x="20" y="43" width="260" height="24" rx="3" fill="#0369a1"/>
+    <text x="30" y="59" fill="#ffffff" font-size="10" font-weight="bold">Main Memory (RAM) Reference</text>
+    <text x="270" y="59" fill="#e0f2fe" font-size="10" text-anchor="end">100 ns (200x L1)</text>
+
+    <rect x="20" y="71" width="360" height="24" rx="3" fill="#78350f"/>
+    <text x="30" y="87" fill="#ffffff" font-size="10" font-weight="bold">SSD Random Read</text>
+    <text x="370" y="87" fill="#fde68a" font-size="10" text-anchor="end">100.000 ns (100 µs)</text>
+
+    <rect x="20" y="99" width="560" height="24" rx="3" fill="#7f1d1d"/>
+    <text x="30" y="115" fill="#ffffff" font-size="10" font-weight="bold">Cross-Continent Round Trip (CA to Netherlands)</text>
+    <text x="570" y="115" fill="#fca5a5" font-size="10" text-anchor="end">150.000.000 ns (150 ms)</text>
+  </g>
+  <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Acessar a memória RAM é 1000x mais rápido que ler do SSD e 1.500.000x mais rápido que uma chamada de rede transatlântica.</text>
+
+</svg>`,
+  systemDesign4StepFramework: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Framework de 4 Etapas para Entrevistas de System Design (FAANG / Top Tech)</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="135" height="115" rx="6" fill="#0284c7"/>
+    <text x="67" y="24" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Etapa 1 (3-5 min)</text>
+    <text x="67" y="48" fill="#e0f2fe" font-size="9" font-weight="bold" text-anchor="middle">Escopo &amp; Requisitos</text>
+    <text x="67" y="70" fill="#bae6fd" font-size="8" text-anchor="middle">• Funcionais vs Não-Func</text>
+    <text x="67" y="88" fill="#bae6fd" font-size="8" text-anchor="middle">• Escala (DAU, QPS, SLA)</text>
+    <text x="67" y="104" fill="#ffffff" font-size="8" text-anchor="middle">• Esclarecer premissas</text>
+
+    <rect x="155" y="0" width="135" height="115" rx="6" fill="#0369a1"/>
+    <text x="222" y="24" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Etapa 2 (10-15 min)</text>
+    <text x="222" y="48" fill="#e0f2fe" font-size="9" font-weight="bold" text-anchor="middle">High-Level Design</text>
+    <text x="222" y="70" fill="#bae6fd" font-size="8" text-anchor="middle">• Diagrama de blocos</text>
+    <text x="222" y="88" fill="#bae6fd" font-size="8" text-anchor="middle">• APIs &amp; Esquema de BD</text>
+    <text x="222" y="104" fill="#ffffff" font-size="8" text-anchor="middle">• Fluxo ponta a ponta</text>
+
+    <rect x="310" y="0" width="135" height="115" rx="6" fill="#065f46"/>
+    <text x="377" y="24" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Etapa 3 (15-20 min)</text>
+    <text x="377" y="48" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">Design Deep Dive</text>
+    <text x="377" y="70" fill="#a7f3d0" font-size="8" text-anchor="middle">• Gargalos específicos</text>
+    <text x="377" y="88" fill="#a7f3d0" font-size="8" text-anchor="middle">• Algoritmos &amp; Caches</text>
+    <text x="377" y="104" fill="#ffffff" font-size="8" text-anchor="middle">• Consistência &amp; Falhas</text>
+
+    <rect x="465" y="0" width="135" height="115" rx="6" fill="#047857"/>
+    <text x="532" y="24" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Etapa 4 (5 min)</text>
+    <text x="532" y="48" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">Wrap-up &amp; Escala</text>
+    <text x="532" y="70" fill="#a7f3d0" font-size="8" text-anchor="middle">• Single Points of Failure</text>
+    <text x="532" y="88" fill="#a7f3d0" font-size="8" text-anchor="middle">• Monitoramento &amp; SRE</text>
+    <text x="532" y="104" fill="#ffffff" font-size="8" text-anchor="middle">• Resumo de trade-offs</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Conduza a entrevista como uma sessão de colaboração técnica entre pares de engenharia sênior.</text>
+
+</svg>`
 
 };
 
@@ -2641,7 +3347,7 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     targetCards: ['CS-NET-TCP-000', 'CS-NET-TCP-001', 'CS-NET-TCP-002', 'CS-NET-TCP-003', 'CS-NET-TCP-004', 'CS-NET-TCP-006'],
     svgGenerator: SVG_GENERATORS.tcpHandshake,
     videoConfig: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Sliding_window_mechanism.svg',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Sliding_window.svg',
       durationSeconds: 6,
       fallbackText: 'O handshake de 3 vias sincroniza números de sequência iniciais (ISN) entre cliente e servidor.'
     }
@@ -2654,7 +3360,7 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     targetCards: ['CS-NET-HTTP-000', 'CS-NET-HTTP-001', 'CS-NET-HTTP-002', 'CS-NET-HTTP-003', 'CS-NET-HTTP-006'],
     svgGenerator: SVG_GENERATORS.httpMultiplex,
     videoConfig: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Sliding_window_mechanism.svg',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Sliding_window.svg',
       durationSeconds: 8,
       fallbackText: 'Streams binárias independentes multiplexadas sobre uma única conexão TCP no HTTP/2 e sobre QUIC no HTTP/3.'
     }
@@ -2679,7 +3385,7 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     visualConcept: 'REST vs WebSockets vs SSE e Serialização Binária Protobuf no gRPC',
     targetCards: ['CS-NET-API-000', 'CS-NET-API-001', 'CS-NET-API-002', 'CS-NET-API-003', 'CS-NET-API-006'],
     videoConfig: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Vector_reserve.svg',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Dynamic_array.svg',
       durationSeconds: 8,
       fallbackText: 'Mensagens codificadas em binário compacto Protobuf trafegando em streams multiplexadas HTTP/2.'
     }
@@ -2833,7 +3539,7 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     targetCards: ['CS-ARCH-IO-000', 'CS-ARCH-IO-001', 'CS-ARCH-IO-002', 'CS-ARCH-IO-003', 'CS-ARCH-IO-004', 'CS-ARCH-IO-005', 'CS-ARCH-IO-006'],
     svgGenerator: SVG_GENERATORS.storageHierarchy,
     videoConfig: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Vector_reserve.svg',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Dynamic_array.svg',
       durationSeconds: 8,
       fallbackText: 'Diferenças de ordens de magnitude na latência de acesso: L1 Cache (~1ns) vs RAM (~100ns) vs NVMe (~20µs) vs HDD (~5ms).'
     }
@@ -2861,7 +3567,7 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     targetCards: ['CS-RNT-JVM-000', 'CS-RNT-JVM-001', 'CS-RNT-JVM-002', 'CS-RNT-JVM-003', 'CS-RNT-JVM-006'],
     svgGenerator: SVG_GENERATORS.jvmGenerationalHeap,
     videoConfig: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Vector_reserve.svg',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Dynamic_array.svg',
       durationSeconds: 9,
       fallbackText: 'Objetos sobreviventes promovidos de Eden para Survivor e posteriormente para Tenured no ciclo de GC da JVM.'
     }
@@ -2887,7 +3593,7 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     visualConcept: 'Operações Bitwise, Algoritmo de Brian Kernighan, Leis de De Morgan e Bitsets',
     targetCards: ['CS-MATH-BOOL-000', 'CS-MATH-BOOL-001', 'CS-MATH-BOOL-002', 'CS-MATH-BOOL-003', 'CS-MATH-BOOL-004', 'CS-MATH-BOOL-006'],
     videoConfig: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Vector_reserve.svg',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Dynamic_array.svg',
       durationSeconds: 7,
       fallbackText: 'A operação n & (n-1) desliga o bit 1 menos significativo em cada iteração contando os bits ativos.'
     }
@@ -2923,7 +3629,7 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     visualConcept: 'Complemento de Dois, Endianness e IEEE 754 (Sinal, Expoente, Mantissa)',
     targetCards: ['CS-MATH-NUM-000', 'CS-MATH-NUM-001', 'CS-MATH-NUM-002', 'CS-MATH-NUM-003', 'CS-MATH-NUM-004', 'CS-MATH-NUM-006'],
     videoConfig: {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Vector_reserve.svg',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Dynamic_array.svg',
       durationSeconds: 8,
       fallbackText: 'Decomposição binária em 1 bit de sinal, 8 bits de expoente com bias e 23 bits de mantissa normalizada.'
     }

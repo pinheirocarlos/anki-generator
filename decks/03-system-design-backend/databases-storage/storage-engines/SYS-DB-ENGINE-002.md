@@ -21,11 +21,28 @@ Por que formatos colunares (como Apache Parquet e ClickHouse) superam bancos ori
   3. **Vetorização SIMD**: Permite processamento paralelo de arrays de dados via instruções de CPU AVX-512.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/columnar-storage-parquet-clickhouse-olap-loop.webm">
-    <p>Visualização: Armazenamento colunar escaneando apenas as colunas solicitadas na agregação OLAP com alta taxa de compressão de dados.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Armazenamento Colunar (Parquet / ClickHouse) vs Linha (Row-Oriented OLTP)</text>
+  <g transform="translate(40, 50)">
+    <!-- Row-Oriented -->
+    <rect x="0" y="0" width="280" height="110" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Row-Oriented (OLTP: MySQL, Postgres)</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="9" font-family="monospace" text-anchor="middle">Disco: [ID, Name, Age, Salary] [ID, Name...]</text>
+    <text x="140" y="68" fill="#fca5a5" font-size="10" text-anchor="middle">Ótimo para INSERT/UPDATE de registros inteiros</text>
+    <text x="140" y="90" fill="#f87171" font-size="10" text-anchor="middle">Péssimo para agregação: lê colunas inúteis</text>
+
+    <!-- Columnar -->
+    <rect x="320" y="0" width="280" height="110" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Columnar (OLAP: ClickHouse, Parquet, Snowflake)</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="9" font-family="monospace" text-anchor="middle">Disco: [Age, Age, Age...] [Salary, Salary...]</text>
+    <text x="460" y="68" fill="#86efac" font-size="10" text-anchor="middle">Lê apenas a coluna do SELECT AVG(salary)</text>
+    <text x="460" y="90" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Alta taxa de compressão (Snappy/ZSTD)</text>
+  </g>
+  <text x="340" y="195" fill="#94a3b8" font-size="10" text-anchor="middle">Compressão homogênea por coluna + SIMD vectorization aceleram agregações analíticas em centenas de vezes.</text>
+
+</svg>
 
 | Dimensão de Comparação | Row-Store (MySQL / Postgres) | Column-Store (Parquet / ClickHouse) |
 |---|---|---|

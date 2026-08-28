@@ -15,20 +15,20 @@ Como funciona uma estratégia de **Canary Release** com promoção e rollback au
 ### Quick Answer
 **Solução Direta**:
 - **Funcionamento do Canary Release**:
-  1. Roteia uma fração ínfima do tráfego real de produção (ex: 2% a 5%) para a nova versão da aplicação (*Canary*).
+  1. Roteia uma fração ínfima do tráfego real de produção (ex: 2\% a 5\%) para a nova versão da aplicação (*Canary*).
   2. A ferramenta de CD (ex: Argo Rollouts / Flagger) coleta métricas do Prometheus durante janelas de observação (ex: 10 minutos).
   3. **Critérios de Validação**:
-     - Taxa de erros HTTP 5xx $< 0.1%$.
-     - Latência percentil p99 $< 250	ext{ms}$.
-  4. Se as métricas estiverem saudáveis, a ferramenta aumenta o tráfego progressivamente ($25% 	o 50% 	o 100%$).
-  5. Se qualquer métrica violar o limiar, o tráfego volta para 0% **automaticamente em segundos**.
+     - Taxa de erros HTTP 5xx $< 0.1\%$.
+     - Latência percentil p99 $< 250\text{ms}$.
+  4. Se as métricas estiverem saudáveis, a ferramenta aumenta o tráfego progressivamente ($25\% \to 50\% \to 100\%$).
+  5. Se qualquer métrica violar o limiar, o tráfego volta para 0\% **automaticamente em segundos**.
 
 ### Dual Coding Visual
 | Etapa do Canary | % de Tráfego Real | Condição para Próxima Etapa |
 |---|---|---|
-| **Etapa 1** | 5% por 10 minutos | Erro 5xx $< 0.1%$ e p99 $< 200	ext{ms}$ |
-| **Etapa 2** | 25% por 15 minutos | Métricas estáveis no Prometheus |
-| **Promoção Final** | 100% (Versão Estável) | Conclusão do rollout com sucesso |
+| **Etapa 1** | 5\% por 10 minutos | Erro 5xx $< 0.1\%$ e p99 $< 200\text{ms}$ |
+| **Etapa 2** | 25\% por 15 minutos | Métricas estáveis no Prometheus |
+| **Promoção Final** | 100\% (Versão Estável) | Conclusão do rollout com sucesso |
 
 <details>
 <summary>Deep Dive & Walkthrough</summary>

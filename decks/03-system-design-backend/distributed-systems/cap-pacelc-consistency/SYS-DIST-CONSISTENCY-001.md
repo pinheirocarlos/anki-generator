@@ -21,11 +21,28 @@ Como o Teorema PACELC expande o CAP ao definir trade-offs de Latência versus Co
 - Para minimizar latência (PA/EL), responde-se ao cliente antes de replicar a todos os nós (replicação assíncrona), arriscando inconsistências temporárias.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/pacelc-latency-vs-consistency-matrix-loop.webm">
-    <p>Visualização: Teorema PACELC: Se houver partição (P) avalia-se A vs C; senão (E), avalia-se Latência (L) vs Consistência (C).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Teorema PACELC: Trade-off de Latência vs Consistência em Normalidade</text>
+  <g transform="translate(40, 50)">
+    <!-- PAC -->
+    <rect x="0" y="0" width="280" height="120" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="140" y="24" fill="#f87171" font-size="12" font-weight="bold" text-anchor="middle">Se houver Partição (P)</text>
+    <text x="140" y="55" fill="#cbd5e1" font-size="11" text-anchor="middle">Escolha entre:</text>
+    <text x="140" y="80" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">A (Disponibilidade) vs C (Consistência)</text>
+    <text x="140" y="105" fill="#94a3b8" font-size="9" text-anchor="middle">Igual ao Teorema CAP tradicional</text>
+
+    <!-- ELC -->
+    <rect x="320" y="0" width="280" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="24" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Else (E) Em Estado Normal</text>
+    <text x="460" y="55" fill="#cbd5e1" font-size="11" text-anchor="middle">Escolha entre:</text>
+    <text x="460" y="80" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">L (Baixa Latência) vs C (Consistência)</text>
+    <text x="460" y="105" fill="#94a3b8" font-size="9" text-anchor="middle">Replicação síncrona adiciona RTT na rede</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Cassandra é PA/EL (prioriza latência); MongoDB/Postgres são PC/EC (priorizam consistência).</text>
+
+</svg>
 
 | Classificação PACELC | Trade-off Operacional | Exemplo de Banco |
 |---|---|---|

@@ -23,11 +23,23 @@ Como a pré-alocação de inventário em Redis com scripts Lua atômicos previne
   3. Apenas os 1.000 usuários que conseguiram a reserva na RAM recebem autorização para prosseguir para a fila de pagamento no banco de dados.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/flash-sale-redis-lua-atomic-decrement-loop.webm">
-    <p>Visualização: Decremento atômico de estoque via script Lua em Redis prevenindo overselling em picos de alta concorrência.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Vendas Relâmpago (Flash Sale): Reserva Atômica com Redis Lua</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="300" y="24" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Script Lua Atômico Executando em RAM Pura no Redis (100.000 QPS)</text>
+
+    <!-- Lua code snippet -->
+    <rect x="20" y="40" width="560" height="65" rx="4" fill="#0f172a" stroke="#0284c7" stroke-width="1"/>
+    <text x="40" y="60" fill="#38bdf8" font-size="9" font-family="monospace">local stock = tonumber(redis.call('GET', KEYS[1]))</text>
+    <text x="40" y="78" fill="#38bdf8" font-size="9" font-family="monospace">if stock &gt;= tonumber(ARGV[1]) then redis.call('DECRBY', KEYS[1], ARGV[1]); return 1;</text>
+    <text x="40" y="96" fill="#f87171" font-size="9" font-family="monospace">else return 0; end</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Single-thread do Redis garante zero race condition e zero overselling sem travar o banco relacional.</text>
+
+</svg>
 
 | Estratégia de Reserva | Throughput Máximo Suportado | Risco de Overselling |
 |---|---|---|

@@ -27,11 +27,26 @@ Quais são os trade-offs entre o modelo de coleta Pull (Prometheus) e Push (Data
   - Após 30 dias, são agregados em médias de 1 hora (retenção de 1 ano), reduzindo em $>95\%$ o volume de dados em disco.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/metrics-pull-vs-push-downsampling-pipeline-loop.webm">
-    <p>Visualização: Coleta Pull por scraper central vs Push por agentes locais e agregação temporal (downsampling) para histórico de longo prazo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Arquitetura de Métricas: Pull (Prometheus) vs Push (Datadog) &amp; Downsampling</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="280" height="110" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Modelo Pull (Prometheus)</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Servidor busca /metrics nos targets</text>
+    <text x="140" y="65" fill="#86efac" font-size="10" text-anchor="middle">Detecção imediata de nós offline</text>
+    <text x="140" y="88" fill="#34d399" font-size="9" text-anchor="middle">Ideal para infraestrutura estática/K8s</text>
+
+    <rect x="320" y="0" width="280" height="110" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Modelo Push (Datadog / StatsD)</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Agente envia métricas para o Gateway</text>
+    <text x="460" y="65" fill="#86efac" font-size="10" text-anchor="middle">Melhor para jobs efêmeros (AWS Lambda)</text>
+    <text x="460" y="88" fill="#34d399" font-size="9" text-anchor="middle">Exige proteção contra tempestades de tráfego</text>
+  </g>
+  <text x="340" y="195" fill="#94a3b8" font-size="10" text-anchor="middle">Downsampling: 10s resolution (7 dias) → 5m resolution (30 dias) → 1h resolution (1 ano).</text>
+
+</svg>
 
 | Modelo de Coleta | Iniciação da Conexão | Cenário Ideal |
 |---|---|---|

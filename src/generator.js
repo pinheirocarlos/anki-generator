@@ -693,7 +693,7 @@ details[open] summary {
   padding-bottom: 6px;
 }
 
-/* Media Wrappers, Inline SVGs & Micro-Videos */
+/* Media Wrappers, Inline SVGs & Micro-Videos (Graceful Degradation & Resilient Layout) */
 .video-wrapper, .media-container, .svg-wrapper {
   width: 100%;
   max-width: 100%;
@@ -705,6 +705,10 @@ details[open] summary {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  min-height: 120px;
+  contain: layout style;
+  box-sizing: border-box;
 }
 
 img, svg, video {
@@ -713,7 +717,7 @@ img, svg, video {
   width: auto;
   height: auto;
   display: block;
-  margin: 12px auto;
+  margin: 8px auto;
   border-radius: 8px;
   box-sizing: border-box;
   object-fit: contain;
@@ -725,6 +729,8 @@ img, video {
 
 video {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 120px;
   background-color: transparent;
   object-fit: contain;
 }
@@ -734,6 +740,26 @@ video {
 .card-container .video-wrapper video {
   background-color: transparent;
   border: 1px solid var(--border-color);
+}
+
+/* Fallback & Resilient Semantic Captions */
+.media-caption,
+.video-wrapper + p,
+.media-container + p,
+.svg-wrapper + p {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 6px 0 12px 0;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* High-Latency & Offline Visual Fallback: Immediate Display without Layout Shift */
+.answer-section > h3:first-of-type,
+.answer-section .quick-answer {
+  display: block;
+  content-visibility: visible;
 }
 
 /* Key Lists */

@@ -20,11 +20,36 @@ O que representa a métrica de disponibilidade em 'noves' (99.9% vs 99.999%) e q
 - Cada 'nove' adicional exige automação total de failover, replicação multi-região e arquiteturas ativas-ativas sem pontos únicos de falha (SPOF).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/availability-nines-sla-downtime-table-loop.webm">
-    <p>Visualização: Tabela de noves de disponibilidade: de 99.9% (8.7 horas de downtime/ano) a 99.999% (5 minutos de downtime/ano).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Tabela de Noves de Disponibilidade (SLA / SLO Downtime)</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="110" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+    <rect x="0" y="0" width="600" height="26" rx="6" fill="#0284c7"/>
+    <text x="100" y="17" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Disponibilidade</text>
+    <text x="300" y="17" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Downtime por Ano</text>
+    <text x="500" y="17" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Downtime por Mês</text>
+
+    <text x="100" y="44" fill="#f87171" font-size="9" text-anchor="middle">99% (Dois Noves)</text>
+    <text x="300" y="44" fill="#f87171" font-size="9" text-anchor="middle">3.65 dias</text>
+    <text x="500" y="44" fill="#f87171" font-size="9" text-anchor="middle">7.20 horas</text>
+
+    <text x="100" y="66" fill="#fbbf24" font-size="9" text-anchor="middle">99.9% (Três Noves)</text>
+    <text x="300" y="66" fill="#fbbf24" font-size="9" text-anchor="middle">8.76 horas</text>
+    <text x="500" y="66" fill="#fbbf24" font-size="9" text-anchor="middle">43.2 minutos</text>
+
+    <text x="100" y="88" fill="#34d399" font-size="9" text-anchor="middle">99.99% (Quatro Noves)</text>
+    <text x="300" y="88" fill="#34d399" font-size="9" text-anchor="middle">52.6 minutos</text>
+    <text x="500" y="88" fill="#34d399" font-size="9" text-anchor="middle">4.32 minutos</text>
+
+    <text x="100" y="104" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">99.999% (Cinco Noves)</text>
+    <text x="300" y="104" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">5.26 minutos</text>
+    <text x="500" y="104" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">25.9 segundos</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Atingir 99.999% exige failover automático multi-região ativo-ativo sem intervenção humana manual.</text>
+
+</svg>
 
 | Disponibilidade (Nines) | Downtime / Mês | Downtime / Ano |
 |---|---|---|

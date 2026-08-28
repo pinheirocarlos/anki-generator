@@ -23,11 +23,34 @@ Como o líder no algoritmo Raft garante a consistência do log replicado e deter
   6. No próximo heartbeat, o Leader notifica os Followers do novo `commitIndex`, que aplicam a entrada às suas respectivas FSMs.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/raft-log-replication-quorum-commit-loop.webm">
-    <p>Visualização: Replicação de entradas de log do líder para os seguidores e confirmação de commit ao atingir o quorum da maioria.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Raft Log Replication: AppendEntries &amp; Quorum de Commit</text>
+  <g transform="translate(40, 50)">
+    <!-- Leader Node -->
+    <rect x="0" y="0" width="600" height="40" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1.5"/>
+    <text x="60" y="25" fill="#86efac" font-size="10" font-weight="bold">Leader</text>
+    <text x="200" y="25" fill="#ffffff" font-size="10" font-family="monospace">[x=1, T1]</text>
+    <text x="320" y="25" fill="#ffffff" font-size="10" font-family="monospace">[y=9, T1]</text>
+    <text x="440" y="25" fill="#34d399" font-size="10" font-family="monospace" font-weight="bold">[z=5, T2] (COMMITTED)</text>
+
+    <!-- Follower 1 -->
+    <rect x="0" y="45" width="600" height="35" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+    <text x="60" y="67" fill="#38bdf8" font-size="10" font-weight="bold">Follower 1</text>
+    <text x="200" y="67" fill="#cbd5e1" font-size="10" font-family="monospace">[x=1, T1]</text>
+    <text x="320" y="67" fill="#cbd5e1" font-size="10" font-family="monospace">[y=9, T1]</text>
+    <text x="440" y="67" fill="#86efac" font-size="10" font-family="monospace">[z=5, T2] (ACK ✅)</text>
+
+    <!-- Follower 2 -->
+    <rect x="0" y="85" width="600" height="35" rx="4" fill="#1e293b" stroke="#f43f5e" stroke-width="1"/>
+    <text x="60" y="107" fill="#f87171" font-size="10" font-weight="bold">Follower 2</text>
+    <text x="200" y="107" fill="#cbd5e1" font-size="10" font-family="monospace">[x=1, T1]</text>
+    <text x="320" y="107" fill="#f87171" font-size="10" font-family="monospace">[Unreachable / Lagging]</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Quorum de Maioria (2 de 3 nós confirmaram) → Entrada considerada Comitted e aplicada na State Machine.</text>
+
+</svg>
 
 | Fase da Replicação | Estado da Entrada de Log | Visibilidade para o Cliente |
 |---|---|---|

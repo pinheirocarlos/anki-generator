@@ -23,11 +23,26 @@ Por que o gRPC com Protocol Buffers (Protobuf) é significativamente mais rápid
 - **Contrato Tipado Estrito**: Esquemas `.proto` com geração automática de código em múltiplas linguagens.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/grpc-protobuf-vs-rest-json-framing-loop.webm">
-    <p>Visualização: Serialização binária compacta em Protobuf sobre HTTP/2 eliminando overhead textual de JSON e headers repetitivos.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">gRPC (HTTP/2 + Protocol Buffers) vs REST (HTTP/1.1 + JSON)</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="280" height="110" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">REST / JSON (Público / Edge)</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Payload textual legível por humanos</text>
+    <text x="140" y="65" fill="#fca5a5" font-size="10" text-anchor="middle">Overhead de parsing e headers repetidos</text>
+    <text x="140" y="88" fill="#86efac" font-size="10" text-anchor="middle">Ideal para APIs públicas de terceiros</text>
+
+    <rect x="320" y="0" width="280" height="110" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="460" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">gRPC / Protobuf (Inter-Serviços)</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Serialização binária compacta (7x menor)</text>
+    <text x="460" y="65" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">HTTP/2 Multiplexing + Streaming Duplex</text>
+    <text x="460" y="88" fill="#34d399" font-size="10" text-anchor="middle">Contratos estritos tipados (.proto)</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Comunicação leste-oeste (Leste-Oeste entre microsserviços) deve padronizar em gRPC para máxima eficiência de CPU.</text>
+
+</svg>
 
 | Dimensão | REST / JSON | gRPC / Protocol Buffers |
 |---|---|---|

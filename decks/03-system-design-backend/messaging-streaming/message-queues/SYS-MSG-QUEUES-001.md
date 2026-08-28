@@ -22,11 +22,31 @@ Como o mecanismo de Visibility Timeout e Dead Letter Queue (DLQ) previne perda d
   - Se uma mensagem falhar consecutivamente mais de $N$ vezes (`maxReceiveCount`, ex: 5 tentativas devido a bugs ou formato inválido - *Poison Pill*), o broker a move automaticamente para uma **DLQ isolada** para auditoria manual sem bloquear a fila principal.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/sqs-visibility-timeout-dead-letter-queue-loop.webm">
-    <p>Visualização: Visibility Timeout escondendo mensagem em processamento e roteamento automático para DLQ após estourar limite de retentativas.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Amazon SQS: Visibility Timeout &amp; Dead Letter Queue (DLQ)</text>
+  <g transform="translate(40, 50)">
+    <!-- SQS Queue -->
+    <rect x="0" y="0" width="260" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="130" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Fila Principal SQS</text>
+    <text x="130" y="48" fill="#cbd5e1" font-size="10" text-anchor="middle">Worker pega msg → Invisível por 30s</text>
+    <text x="130" y="68" fill="#f87171" font-size="10" text-anchor="middle">Se Worker falhar sem dar DeleteMsg:</text>
+    <text x="130" y="90" fill="#fbbf24" font-size="10" text-anchor="middle">Msg reaparece na fila (ReceiveCount++)</text>
+
+    <!-- Dead Letter Queue -->
+    <rect x="340" y="0" width="260" height="120" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="2"/>
+    <text x="470" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Dead Letter Queue (DLQ)</text>
+    <text x="470" y="48" fill="#fca5a5" font-size="10" text-anchor="middle">Após maxReceiveCount = 3 falhas:</text>
+    <text x="470" y="70" fill="#f87171" font-size="10" font-weight="bold" text-anchor="middle">Msg 'Poison Pill' movida para DLQ</text>
+    <text x="470" y="92" fill="#86efac" font-size="9" text-anchor="middle">Impede bloqueio e alerta equipe de SRE</text>
+
+    <!-- Flow Arrow -->
+    <line x1="260" y1="60" x2="340" y2="60" stroke="#f43f5e" stroke-width="2"/>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A DLQ isola mensagens defeituosas que quebram o código do consumidor, garantindo fluidez para o resto da fila.</text>
+
+</svg>
 
 | Parâmetro SQS | Finalidade | Comportamento sob Falha |
 |---|---|---|

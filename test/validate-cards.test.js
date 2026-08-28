@@ -31,6 +31,9 @@ import {
   validateReport,
   writeReport,
   checkLink,
+  resolveTargetDir,
+  auditLinks,
+  extractMediaUrlsFromDecks,
   DEFAULT_CONFIG
 } from '../src/utils/link-checker.js';
 
@@ -673,40 +676,287 @@ Como uma rotação simples à direita funciona em árvores AVL?
   return unitFailures;
 }
 
-async function testLinkCheckerAndReportSchema() {
-  console.log('🧪 Running Unit Tests for Link Checker & JSON Report Schema (src/utils/link-checker.js)...\n');
+async function testUserStory3LinkCheckerAndRetryLogic() {
+  console.log('🧪 Running Unit Tests for US3: Link Checker CLI, Retry Engine & Report Generation...\n');
   let unitFailures = 0;
 
-  // 1. Test CLI Argument Parser
+  // 1. Test CLI Argument Parser Defaults
   const parsedDefault = parseArgs([]);
-  if (parsedDefault.concurrency !== 8 || parsedDefault.timeout !== 5000 || parsedDefault.retries !== 2 || parsedDefault.report !== 'link-health-report.json') {
+  if (
+    parsedDefault.concurrency !== 8 ||
+    parsedDefault.timeout !== 5000 ||
+    parsedDefault.retries !== 2 ||
+    parsedDefault.report !== 'link-health-report.json' ||
+    parsedDefault.deck !== null
+  ) {
     console.error('❌ parseArgs default values mismatch:', parsedDefault);
     unitFailures++;
   } else {
     console.log('✅ PASS: parseArgs correctly initialized default parameters.');
   }
 
-  const customArgs = ['--concurrency', '4', '--timeout', '3000', '--retries', '1', '--deck', 'decks/01-dsa', '--report', 'custom-report.json'];
+  // 2. Test CLI Argument Parser with custom space-separated flags
+  const customArgs = [
+    '--concurrency', '4',
+    '--timeout', '3000',
+    '--retries', '1',
+    '--deck', 'decks/01-dsa',
+    '--report', 'custom-report.json'
+  ];
   const parsedCustom = parseArgs(customArgs);
-  if (parsedCustom.concurrency !== 4 || parsedCustom.timeout !== 3000 || parsedCustom.retries !== 1 || parsedCustom.deck !== 'decks/01-dsa' || parsedCustom.report !== 'custom-report.json') {
+  if (
+    parsedCustom.concurrency !== 4 ||
+    parsedCustom.timeout !== 3000 ||
+    parsedCustom.retries !== 1 ||
+    parsedCustom.deck !== 'decks/01-dsa' ||
+    parsedCustom.report !== 'custom-report.json'
+  ) {
     console.error('❌ parseArgs custom parameters mismatch:', parsedCustom);
     unitFailures++;
   } else {
-    console.log('✅ PASS: parseArgs correctly parsed custom CLI flags.');
+    console.log('✅ PASS: parseArgs correctly parsed custom space-separated CLI flags.');
   }
 
-  // 2. Test Content-Type validator
-  if (!isValidContentType('video/mp4') || !isValidContentType('video/webm') || !isValidContentType('image/svg+xml')) {
-    console.error('❌ isValidContentType rejected valid media MIME types');
-    unitFailures++;
-  } else if (isValidContentType('text/html') || isValidContentType('application/json')) {
-    console.error('❌ isValidContentType accepted invalid media MIME types (text/html, application/json)');
+  // 3. Test CLI Argument Parser with equals-sign syntax (--flag=value)
+  const equalsArgs = [
+    '--concurrency=6',
+    '--timeout=2500',
+    '--retries=3',
+    '--deck=decks/02-cs-fundamentals',
+    '--report=reports/audit-cs.json'
+  ];
+  const parsedEquals = parseArgs(equalsArgs);
+  if (
+    parsedEquals.concurrency !== 6 ||
+    parsedEquals.timeout !== 2500 ||
+    parsedEquals.retries !== 3 ||
+    parsedEquals.deck !== 'decks/02-cs-fundamentals' ||
+    parsedEquals.report !== 'reports/audit-cs.json'
+  ) {
+    console.error('❌ parseArgs equals syntax parameters mismatch:', parsedEquals);
     unitFailures++;
   } else {
-    console.log('✅ PASS: isValidContentType correctly validated media MIME prefixes.');
+    console.log('✅ PASS: parseArgs correctly parsed equals-sign CLI flags (--flag=value).');
   }
 
-  // 3. Test Report Builder & Schema Validator
+  // 4. Test CLI Argument Parser boundary and invalid values handling
+  const invalidBoundsArgs = [
+    '--concurrency', '0',      // Out of bounds (1-20): should keep default 8
+    '--timeout', '-500',       // Out of bounds (>0): should keep default 5000
+    '--retries', '-1'          // Out of bounds (>=0): should keep default 2
+  ];
+  const parsedBounds = parseArgs(invalidBoundsArgs);
+  if (parsedBounds.concurrency !== 8 || parsedBounds.timeout !== 5000 || parsedBounds.retries !== 2) {
+    console.error('❌ parseArgs failed to reject out-of-bounds parameters:', parsedBounds);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: parseArgs correctly preserved defaults on invalid/out-of-bounds input values.');
+  }
+
+  // 5. Test resolveTargetDir helper across formats
+  const resolvedDefault = resolveTargetDir(null);
+  const resolvedEmpty = resolveTargetDir('');
+  const resolvedRootRel = resolveTargetDir('decks/01-dsa');
+  const resolvedDeckRel = resolveTargetDir('01-dsa');
+  const resolvedCS = resolveTargetDir('02-cs-fundamentals');
+  const resolvedSys = resolveTargetDir('03-system-design-backend');
+  const sampleAbs = path.resolve(DECKS_DIR, '01-dsa');
+  const resolvedAbs = resolveTargetDir(sampleAbs);
+
+  if (resolvedDefault !== DECKS_DIR || resolvedEmpty !== DECKS_DIR) {
+    console.error('❌ resolveTargetDir failed for default/empty input:', { resolvedDefault, resolvedEmpty });
+    unitFailures++;
+  } else if (!resolvedRootRel.endsWith(path.join('decks', '01-dsa')) || !fs.existsSync(resolvedRootRel)) {
+    console.error('❌ resolveTargetDir failed for root-relative path:', resolvedRootRel);
+    unitFailures++;
+  } else if (!resolvedDeckRel.endsWith(path.join('decks', '01-dsa')) || !fs.existsSync(resolvedDeckRel)) {
+    console.error('❌ resolveTargetDir failed for deck-relative path:', resolvedDeckRel);
+    unitFailures++;
+  } else if (!fs.existsSync(resolvedCS) || !fs.existsSync(resolvedSys)) {
+    console.error('❌ resolveTargetDir failed for CS/SysDesign batch relative paths:', { resolvedCS, resolvedSys });
+    unitFailures++;
+  } else if (resolvedAbs !== sampleAbs) {
+    console.error('❌ resolveTargetDir failed for absolute path:', { resolvedAbs, sampleAbs });
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: resolveTargetDir correctly resolved absolute, root-relative, and deck-relative batch directories.');
+  }
+
+  // 6. Test Content-Type validator
+  const validMimes = ['video/mp4', 'video/webm', 'image/svg+xml', 'image/png', 'text/xml', 'application/octet-stream'];
+  const invalidMimes = ['text/html', 'application/json', 'text/plain', 'text/css'];
+
+  for (const mime of validMimes) {
+    if (!isValidContentType(mime)) {
+      console.error(`❌ isValidContentType rejected valid MIME type: ${mime}`);
+      unitFailures++;
+    }
+  }
+  for (const mime of invalidMimes) {
+    if (isValidContentType(mime)) {
+      console.error(`❌ isValidContentType accepted invalid media MIME type: ${mime}`);
+      unitFailures++;
+    }
+  }
+  console.log('✅ PASS: isValidContentType correctly validated media MIME prefixes.');
+
+  // 7. Test checkLink: Scenario A - Transient HTTP 429 Rate Limiting Recovery
+  let calls429 = 0;
+  const mockFetch429 = async () => {
+    calls429++;
+    if (calls429 === 1) {
+      return { status: 429, statusText: 'Too Many Requests', headers: { get: () => 'text/plain' } };
+    }
+    return { status: 200, statusText: 'OK', headers: { get: (h) => h === 'content-type' ? 'video/webm' : null } };
+  };
+
+  const item429 = {
+    card_id: 'DSA-STRUCT-ARRAY-000',
+    file_path: 'decks/01-dsa/data-structures/arrays-strings/DSA-STRUCT-ARRAY-000.md',
+    url: 'https://example.org/array-429.webm'
+  };
+  const res429 = await checkLink(item429, { retries: 2, backoffMs: 0 }, mockFetch429);
+  if (!res429.passed || res429.http_status !== 200 || calls429 !== 2) {
+    console.error('❌ checkLink failed 429 retry recovery test:', { res429, calls429 });
+    unitFailures++;
+  } else {
+    console.log(`✅ PASS: checkLink recovered from HTTP 429 on retry attempt ${calls429} (passed: true).`);
+  }
+
+  // 8. Test checkLink: Scenario B - Transient HTTP 503 Server Error Exhaustion
+  let calls503 = 0;
+  const mockFetch503 = async () => {
+    calls503++;
+    return { status: 503, statusText: 'Service Unavailable', headers: { get: () => 'text/html' } };
+  };
+
+  const item503 = {
+    card_id: 'CS-OS-VMEM-001',
+    file_path: 'decks/02-cs-fundamentals/os-memory/virtual-memory/CS-OS-VMEM-001.md',
+    url: 'https://example.org/vmem-503.mp4'
+  };
+  const res503 = await checkLink(item503, { retries: 2, backoffMs: 0 }, mockFetch503);
+  if (res503.passed || res503.http_status !== 503 || calls503 !== 3 || !res503.error_message) {
+    console.error('❌ checkLink failed 503 retry exhaustion test:', { res503, calls503 });
+    unitFailures++;
+  } else {
+    console.log(`✅ PASS: checkLink retried 503 server error ${calls503} times before failing gracefully.`);
+  }
+
+  // 9. Test checkLink: Scenario C - Transient HTTP 500 / 502 Recovery
+  let calls500 = 0;
+  const mockFetch500 = async () => {
+    calls500++;
+    if (calls500 === 1) {
+      return { status: 500, statusText: 'Internal Server Error', headers: { get: () => 'text/html' } };
+    }
+    if (calls500 === 2) {
+      return { status: 502, statusText: 'Bad Gateway', headers: { get: () => 'text/html' } };
+    }
+    return { status: 200, statusText: 'OK', headers: { get: (h) => h === 'content-type' ? 'video/mp4' : null } };
+  };
+
+  const item500 = {
+    card_id: 'SYS-DIST-CONSENSUS-001',
+    file_path: 'decks/03-system-design-backend/distributed-systems/consensus-replication/SYS-DIST-CONSENSUS-001.md',
+    url: 'https://example.org/consensus-500.mp4'
+  };
+  const res500 = await checkLink(item500, { retries: 2, backoffMs: 0 }, mockFetch500);
+  if (!res500.passed || res500.http_status !== 200 || calls500 !== 3) {
+    console.error('❌ checkLink failed 500/502 recovery test:', { res500, calls500 });
+    unitFailures++;
+  } else {
+    console.log(`✅ PASS: checkLink recovered from 500/502 on retry attempt ${calls500} (passed: true).`);
+  }
+
+  // 10. Test checkLink: Scenario D - Network Timeout / AbortError
+  let callsTimeout = 0;
+  const mockFetchTimeout = async () => {
+    callsTimeout++;
+    const err = new Error('The operation was aborted');
+    err.name = 'TimeoutError';
+    throw err;
+  };
+
+  const itemTimeout = {
+    card_id: 'DSA-STRUCT-TREE-001',
+    file_path: 'decks/01-dsa/data-structures/trees-bst/DSA-STRUCT-TREE-001.md',
+    url: 'https://example.org/tree-timeout.mp4'
+  };
+  const resTimeout = await checkLink(itemTimeout, { retries: 1, backoffMs: 0, timeout: 500 }, mockFetchTimeout);
+  if (resTimeout.passed || resTimeout.http_status !== 0 || callsTimeout !== 2 || !resTimeout.error_message.includes('timed out')) {
+    console.error('❌ checkLink failed timeout retry test:', { resTimeout, callsTimeout });
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: checkLink handled network TimeoutError with retry and descriptive error message.');
+  }
+
+  // 11. Test checkLink: Scenario E - Non-retryable HTTP 404
+  let calls404 = 0;
+  const mockFetch404 = async () => {
+    calls404++;
+    return { status: 404, statusText: 'Not Found', headers: { get: () => 'text/html' } };
+  };
+
+  const item404 = {
+    card_id: 'DSA-STRUCT-TREE-002',
+    file_path: 'decks/01-dsa/data-structures/trees-bst/DSA-STRUCT-TREE-002.md',
+    url: 'https://example.org/missing-asset.mp4'
+  };
+  const res404 = await checkLink(item404, { retries: 2, backoffMs: 0 }, mockFetch404);
+  if (res404.passed || res404.http_status !== 404 || calls404 !== 1) {
+    console.error('❌ checkLink made unnecessary retries on non-retryable 404:', { res404, calls404 });
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: checkLink did not retry non-transient HTTP 404 (exact 1 attempt).');
+  }
+
+  // 12. Test checkLink: Scenario F - HEAD 405 fallback to GET with byte range
+  let headChecked = false;
+  let getChecked = false;
+  const mockFetch405Fallback = async (url, opts = {}) => {
+    if (opts.method === 'HEAD') {
+      headChecked = true;
+      return { status: 405, statusText: 'Method Not Allowed', headers: { get: () => 'text/html' } };
+    }
+    if (opts.method === 'GET') {
+      getChecked = true;
+      return { status: 206, statusText: 'Partial Content', headers: { get: (h) => h === 'content-type' ? 'video/mp4' : null } };
+    }
+    return { status: 400, statusText: 'Bad Request' };
+  };
+
+  const item405 = {
+    card_id: 'DSA-STRUCT-TREE-003',
+    file_path: 'decks/01-dsa/data-structures/trees-bst/DSA-STRUCT-TREE-003.md',
+    url: 'https://example.org/head-not-allowed.mp4'
+  };
+  const res405 = await checkLink(item405, { retries: 0, backoffMs: 0 }, mockFetch405Fallback);
+  if (!res405.passed || res405.http_status !== 206 || !headChecked || !getChecked) {
+    console.error('❌ checkLink failed HEAD 405 -> GET fallback:', { res405, headChecked, getChecked });
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: checkLink automatically fell back to GET byte-range on HEAD 405 Method Not Allowed.');
+  }
+
+  // 13. Test checkLink: Scenario G - Invalid MIME Type rejection
+  const mockFetchInvalidMime = async () => {
+    return { status: 200, statusText: 'OK', headers: { get: (h) => h === 'content-type' ? 'text/html; charset=utf-8' : null } };
+  };
+  const itemInvalidMime = {
+    card_id: 'DSA-STRUCT-TREE-004',
+    file_path: 'decks/01-dsa/data-structures/trees-bst/DSA-STRUCT-TREE-004.md',
+    url: 'https://example.org/webpage-not-video.html'
+  };
+  const resInvalidMime = await checkLink(itemInvalidMime, { retries: 0, backoffMs: 0 }, mockFetchInvalidMime);
+  if (resInvalidMime.passed || !resInvalidMime.error_message.includes('Invalid media MIME type')) {
+    console.error('❌ checkLink failed to reject invalid HTML MIME type:', resInvalidMime);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: checkLink correctly rejected non-media MIME type on HTTP 200 response.');
+  }
+
+  // 14. Test Report Builder & Schema Validator
   const sampleResults = [
     {
       card_id: 'DSA-STRUCT-ARRAY-000',
@@ -740,7 +990,7 @@ async function testLinkCheckerAndReportSchema() {
     console.log('✅ PASS: createReport generated valid schema-conforming LinkHealthReport structure.');
   }
 
-  // 4. Test Report Schema Validator catches invalid report properties
+  // 15. Test Report Schema Validator catches invalid report properties
   const invalidReport = {
     timestamp: 'not-a-date',
     total_audited: -1,
@@ -771,38 +1021,57 @@ async function testLinkCheckerAndReportSchema() {
     console.log(`✅ PASS: validateReport correctly caught ${invalidValidation.errors.length} schema violations in malformed report.`);
   }
 
-  // 5. Test checkLink with custom mockFetch
-  const customFetch = async (url, opts) => {
-    if (url.includes('notfound')) {
-      return { status: 404, statusText: 'Not Found', headers: { get: () => 'text/html' } };
+  // 16. Test writeReport disk persistence and schema re-verification
+  const scratchDir = path.join(ROOT_DIR, 'scratch');
+  const testReportFile = path.join(scratchDir, 'test-unit-report.json');
+  try {
+    const writtenPath = writeReport(report, testReportFile);
+    if (!fs.existsSync(writtenPath)) {
+      console.error('❌ writeReport failed to write file to disk:', writtenPath);
+      unitFailures++;
+    } else {
+      const diskReport = JSON.parse(fs.readFileSync(writtenPath, 'utf8'));
+      const diskValidation = validateReport(diskReport);
+      if (!diskValidation.valid) {
+        console.error('❌ Written disk report failed validation:', diskValidation.errors);
+        unitFailures++;
+      } else {
+        console.log('✅ PASS: writeReport successfully saved report to disk with valid schema.');
+      }
     }
-    return { status: 200, statusText: 'OK', headers: { get: (h) => h === 'content-type' ? 'video/mp4' : null } };
-  };
-
-  const itemSuccess = {
-    card_id: 'DSA-STRUCT-TREE-001',
-    file_path: 'decks/01-dsa/data-structures/trees-bst/DSA-STRUCT-TREE-001.md',
-    url: 'https://example.org/tree.mp4'
-  };
-  const resSuccess = await checkLink(itemSuccess, { timeout: 1000, retries: 0 }, customFetch);
-  if (!resSuccess.passed || resSuccess.http_status !== 200 || resSuccess.content_type !== 'video/mp4') {
-    console.error('❌ checkLink expected pass on HTTP 200, got:', resSuccess);
-    unitFailures++;
-  } else {
-    console.log('✅ PASS: checkLink correctly handled successful HTTP 200 media response.');
+  } finally {
+    if (fs.existsSync(testReportFile)) {
+      try { fs.unlinkSync(testReportFile); } catch {}
+    }
   }
 
-  const itemFail = {
-    card_id: 'DSA-STRUCT-TREE-002',
-    file_path: 'decks/01-dsa/data-structures/trees-bst/DSA-STRUCT-TREE-002.md',
-    url: 'https://example.org/notfound.mp4'
+  // 17. Test auditLinks batch execution with --deck filtering and mock fetch
+  const mockAllPassFetch = async (url) => {
+    return {
+      status: 200,
+      statusText: 'OK',
+      headers: { get: (h) => h === 'content-type' ? 'video/webm' : null }
+    };
   };
-  const resFail = await checkLink(itemFail, { timeout: 1000, retries: 0 }, customFetch);
-  if (resFail.passed || resFail.http_status !== 404 || !resFail.error_message) {
-    console.error('❌ checkLink expected failure on HTTP 404, got:', resFail);
+
+  const batchAuditResult = await auditLinks(
+    {
+      deck: '01-dsa',
+      report: 'scratch/test-dsa-batch-report.json',
+      backoffMs: 0
+    },
+    mockAllPassFetch
+  );
+
+  if (batchAuditResult.exitCode !== 0 || !batchAuditResult.report) {
+    console.error('❌ auditLinks batch execution returned non-zero exit code or null report:', batchAuditResult);
     unitFailures++;
   } else {
-    console.log('✅ PASS: checkLink correctly handled HTTP 404 error response.');
+    console.log(`✅ PASS: auditLinks batch filtering (--deck 01-dsa) executed successfully with exitCode 0 (${batchAuditResult.report.total_audited} items audited).`);
+  }
+
+  if (batchAuditResult.reportPath && fs.existsSync(batchAuditResult.reportPath)) {
+    try { fs.unlinkSync(batchAuditResult.reportPath); } catch {}
   }
 
   console.log('');
@@ -1257,6 +1526,52 @@ Como funciona a busca binária?
   return unitFailures;
 }
 
+function testUserStory4GracefulDegradationAndFallbackStyles() {
+  console.log('🧪 Running Unit Tests for US4: Graceful Degradation & Resilient Visual Fallback...\n');
+  let unitFailures = 0;
+
+  // 1. Verify cardCss includes layout shift prevention rules (min-height, aspect-ratio, contain)
+  if (!cardCss.includes('contain: layout style')) {
+    console.error('❌ cardCss missing "contain: layout style" for media containers to prevent layout shift!');
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: cardCss defines "contain: layout style" for media containers.');
+  }
+
+  if (!cardCss.includes('aspect-ratio: 16 / 9') && !cardCss.includes('aspect-ratio: 16/9')) {
+    console.error('❌ cardCss missing aspect-ratio for video elements to avoid layout shift!');
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: cardCss defines 16/9 aspect-ratio for video elements.');
+  }
+
+  if (!cardCss.includes('min-height: 120px')) {
+    console.error('❌ cardCss missing min-height for video/media container stability!');
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: cardCss defines min-height: 120px for resilient media containers.');
+  }
+
+  // 2. Verify fallback caption styling with semantic variables
+  if (!cardCss.includes('.media-caption') || !cardCss.includes('var(--text-muted)')) {
+    console.error('❌ cardCss missing resilient semantic caption styles with var(--text-muted)!');
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: cardCss defines semantic fallback caption styles using theme variables.');
+  }
+
+  // 3. Verify immediate display fallback for answers & responsive tables
+  if (!cardCss.includes('.table-responsive') || !cardCss.includes('-webkit-overflow-scrolling: touch')) {
+    console.error('❌ cardCss missing responsive touch table scrolling for offline/mobile readability!');
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: cardCss ensures table readability and touch scrolling.');
+  }
+
+  console.log('');
+  return unitFailures;
+}
+
 async function runTests() {
   console.log('🧪 Starting Automated Card & Manifest Validation...\n');
 
@@ -1267,9 +1582,10 @@ async function runTests() {
   failureCount += testAtomicDecomposer();
   failureCount += testMediaCatalog();
   failureCount += testRemoteHttpsAndLocalAssetIntegrity();
-  failureCount += await testLinkCheckerAndReportSchema();
+  failureCount += await testUserStory3LinkCheckerAndRetryLogic();
   failureCount += testUserStory1VideoStylesAndMobileFlags();
   failureCount += testUserStory2RegistrySchemaAndPlaceholderGuardrails();
+  failureCount += testUserStory4GracefulDegradationAndFallbackStyles();
 
   // 1. Validate Manifest
   if (!fs.existsSync(MANIFEST_PATH)) {

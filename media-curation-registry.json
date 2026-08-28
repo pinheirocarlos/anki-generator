@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2026-08-28T20:21:03.281Z",
+  "last_updated": "2026-08-28T20:27:57.604Z",
   "stats": {
     "total_cards": 424,
     "p1_video_count": 0,
@@ -3978,7 +3978,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Cache Stampede: múltiplas requisições simultâneas em cache miss bloqueadas por Mutex/Singleflight enquanto apenas 1 worker recalcula o dado.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-CACHE-ANOMALIES-001": {
       "card_id": "SYS-CACHE-ANOMALIES-001",
@@ -3990,7 +3990,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Filtro de Bloom intercepta consultas a chaves inexistentes (Penetration) e TTL jitter evita expiração simultânea em massa (Avalanche).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-CACHE-PATTERNS-000": {
       "card_id": "SYS-CACHE-PATTERNS-000",
@@ -4002,7 +4002,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Cache-Aside lê sob demanda da cache com lazy loading vs Write-Through atualizando cache e banco de dados de forma síncrona.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-CACHE-PATTERNS-001": {
       "card_id": "SYS-CACHE-PATTERNS-001",
@@ -4014,7 +4014,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Política W-TinyLFU combinando Window Cache para recência com Count-Min Sketch para frequência com 99% de hit ratio.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-CACHE-CDN-000": {
       "card_id": "SYS-CACHE-CDN-000",
@@ -4026,7 +4026,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Roteamento Anycast BGP direcionando requisições do cliente ao Point of Presence (PoP) de menor latência geográfica.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-CACHE-CDN-001": {
       "card_id": "SYS-CACHE-CDN-001",
@@ -4038,7 +4038,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Diretiva stale-while-revalidate servindo conteúdo em cache instantaneamente enquanto dispara revalidação assíncrona na origem.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-CACHE-REDIS-000": {
       "card_id": "SYS-CACHE-REDIS-000",
@@ -4050,7 +4050,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Event Loop do Redis operando em memória RAM física com multiplexador de I/O não-bloqueante (epoll/kqueue) sem contenção de locks.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-CACHE-REDIS-001": {
       "card_id": "SYS-CACHE-REDIS-001",
@@ -4062,7 +4062,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: SkipList probabilística do Redis ZSet permitindo buscas e inserções em O(log N) combinada com Hash Map para lookup em O(1).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-ACID-000": {
       "card_id": "SYS-DB-ACID-000",
@@ -4074,7 +4074,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Anomalias de concorrência ANSI SQL: leitura de dados não commitados (Dirty Read) e inserções invisíveis na mesma transação (Phantom Read).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-ACID-001": {
       "card_id": "SYS-DB-ACID-001",
@@ -4086,7 +4086,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Controle de Concorrência Multiversão (MVCC): leituras enxergam snapshot imutável baseado em xmin/xmax sem travar escritas.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-ACID-002": {
       "card_id": "SYS-DB-ACID-002",
@@ -4098,7 +4098,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Anomalia de Write Skew violando restrições de integridade cruzadas sob Snapshot Isolation e detecção de dependências no SSI.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-NOSQL-000": {
       "card_id": "SYS-DB-NOSQL-000",
@@ -4110,7 +4110,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Modelagem Single-Table no DynamoDB particionando por HASH (PK) e ordenando ranges por SORT (SK) para consultas ricas em 1 RTT.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-NOSQL-001": {
       "card_id": "SYS-DB-NOSQL-001",
@@ -4122,7 +4122,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Deleções no Cassandra gravando marcadores Tombstone e degradação de leitura durante varreduras em SSTables não compactadas.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-SCALING-000": {
       "card_id": "SYS-DB-SCALING-000",
@@ -4134,7 +4134,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Assincronia na replicação Leader-Follower gerando Replication Lag e leituras inconsistentes em réplicas secundárias.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-SCALING-001": {
       "card_id": "SYS-DB-SCALING-001",
@@ -4146,7 +4146,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Change Data Capture (CDC) lendo o Write-Ahead Log (WAL) do banco de dados e transmitindo streams de mutações em tempo real.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-SQLOPT-000": {
       "card_id": "SYS-DB-SQLOPT-000",
@@ -4158,7 +4158,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Índice Clustered contendo as páginas de dados na folha da B+Tree vs Índice Secundário apontando para a Primary Key.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-SQLOPT-001": {
       "card_id": "SYS-DB-SQLOPT-001",
@@ -4170,7 +4170,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Regra do Prefixo Mais à Esquerda navegando na B+Tree composta (A, B, C) apenas quando a coluna antecedente é filtrada.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-SQLOPT-002": {
       "card_id": "SYS-DB-SQLOPT-002",
@@ -4182,7 +4182,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Covering Index satisfazendo todas as colunas do SELECT e WHERE diretamente nos nós folhas sem acessar a tabela física.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-ENGINE-000": {
       "card_id": "SYS-DB-ENGINE-000",
@@ -4194,7 +4194,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: B+Tree com nós internos apenas como roteadores e folhas duplamente encadeadas otimizando range scans sequenciais.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-ENGINE-001": {
       "card_id": "SYS-DB-ENGINE-001",
@@ -4206,7 +4206,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: LSM-Tree gravando em WAL e MemTable em memória com flush assíncrono para SSTables imutáveis em disco.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-ENGINE-002": {
       "card_id": "SYS-DB-ENGINE-002",
@@ -4218,7 +4218,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Armazenamento colunar escaneando apenas as colunas solicitadas na agregação OLAP com alta taxa de compressão de dados.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-VECTOR-000": {
       "card_id": "SYS-DB-VECTOR-000",
@@ -4230,7 +4230,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Índice Invertido mapeando termos normalizados para Postings Lists com busca booleana e scoring BM25 em O(1).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DB-VECTOR-001": {
       "card_id": "SYS-DB-VECTOR-001",
@@ -4242,7 +4242,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Grafo multicamadas HNSW navegando por saltos longos na camada superior e busca de vizinhos densa na camada inferior.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-CONSISTENCY-000": {
       "card_id": "SYS-DIST-CONSISTENCY-000",
@@ -4254,7 +4254,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Teorema CAP: em caso de partição de rede (P), o sistema deve optar entre Consistência estrita (CP) ou Disponibilidade (AP).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-CONSISTENCY-001": {
       "card_id": "SYS-DIST-CONSISTENCY-001",
@@ -4266,7 +4266,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Teorema PACELC: Se houver partição (P) avalia-se A vs C; senão (E), avalia-se Latência (L) vs Consistência (C).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-CONSISTENCY-002": {
       "card_id": "SYS-DIST-CONSISTENCY-002",
@@ -4278,7 +4278,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Linearizabilidade simulando uma cópia única global atômica vs propagação assíncrona na consistência eventual.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-CONSENSUS-000": {
       "card_id": "SYS-DIST-CONSENSUS-000",
@@ -4290,7 +4290,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Eleição de líder no Raft: candidato dispara RequestVote após Election Timeout e conquista liderança com maioria de votos.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-CONSENSUS-001": {
       "card_id": "SYS-DIST-CONSENSUS-001",
@@ -4302,7 +4302,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Replicação de entradas de log do líder para os seguidores e confirmação de commit ao atingir o quorum da maioria.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-CONSENSUS-002": {
       "card_id": "SYS-DIST-CONSENSUS-002",
@@ -4314,7 +4314,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: A fórmula R + W > N garante que ao menos um nó no conjunto de leitura possui a versão mais recente escrita.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-LOCK-000": {
       "card_id": "SYS-DIST-LOCK-000",
@@ -4326,7 +4326,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Quebra de exclusão mútua quando uma pausa longa de GC no cliente faz o TTL do lock expirar antes do processamento terminar.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-LOCK-001": {
       "card_id": "SYS-DIST-LOCK-001",
@@ -4338,7 +4338,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Fencing Tokens monotonicamente crescentes rejeitando gravações de clientes antigos com tokens desatualizados.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-TX-000": {
       "card_id": "SYS-DIST-TX-000",
@@ -4350,7 +4350,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Protocolo Two-Phase Commit (2PC): fase Prepare obtendo votos de prontidão e fase Commit aplicando alterações atomicamente.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-TX-001": {
       "card_id": "SYS-DIST-TX-001",
@@ -4362,7 +4362,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Padrão Saga executando transações locais distribuídas com orquestrador central disparando transações compensatórias em falhas.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-TX-002": {
       "card_id": "SYS-DIST-TX-002",
@@ -4374,7 +4374,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Gravação atômica da mutação de negócio e do evento na tabela Outbox na mesma transação SQL com relay via CDC.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-SHARDING-000": {
       "card_id": "SYS-DIST-SHARDING-000",
@@ -4386,7 +4386,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Anel de Consistent Hashing remapeando apenas as chaves do segmento vizinho quando nós entram ou saem do cluster.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-SHARDING-001": {
       "card_id": "SYS-DIST-SHARDING-001",
@@ -4398,7 +4398,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Nós virtuais (Vnodes) espalhando múltiplos pontos de cada servidor pelo anel para distribuição uniforme de carga.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-TIME-000": {
       "card_id": "SYS-DIST-TIME-000",
@@ -4410,7 +4410,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Vector Clocks rastreando causalidade entre nós distribuídos e detectando conflitos de escrita concorrentes.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-TIME-001": {
       "card_id": "SYS-DIST-TIME-001",
@@ -4422,7 +4422,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Estrutura do Snowflake: 41 bits de timestamp, 10 bits de ID de máquina/datacenter e 12 bits de sequência local.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-DIST-TIME-002": {
       "card_id": "SYS-DIST-TIME-002",
@@ -4434,7 +4434,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: TrueTime API garantindo linearizabilidade global através de espera deliberada pela janela de incerteza [earliest, latest].",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-FILESTORE-000": {
       "card_id": "SYS-ARCH-FILESTORE-000",
@@ -4446,7 +4446,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Divisão de arquivos em blocos de 4MB com hash SHA-256 e sincronização delta transmitindo apenas blocos modificados.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-FILESTORE-001": {
       "card_id": "SYS-ARCH-FILESTORE-001",
@@ -4458,7 +4458,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Armazenamento endereçável por conteúdo (CAS) deduplicando blocos idênticos entre contas e bifurcando versões em conflito.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-SCHEDULER-000": {
       "card_id": "SYS-ARCH-SCHEDULER-000",
@@ -4470,7 +4470,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Agendador distribuído usando Redis Sorted Sets com score de timestamp para puxar tarefas prontas com baixa latência.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-SCHEDULER-001": {
       "card_id": "SYS-ARCH-SCHEDULER-001",
@@ -4482,7 +4482,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Coordenação de fluxos em DAG com monitoramento de heartbeat e reatribuição de tarefas órfãs após falha de worker.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-FLASHSALE-000": {
       "card_id": "SYS-ARCH-FLASHSALE-000",
@@ -4494,7 +4494,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Decremento atômico de estoque via script Lua em Redis prevenindo overselling em picos de alta concorrência.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-FLASHSALE-001": {
       "card_id": "SYS-ARCH-FLASHSALE-001",
@@ -4506,7 +4506,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Sala de espera virtual liberando tokens de compra gradualmente e devolvendo estoque não pago após expiração do TTL.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-METRICS-000": {
       "card_id": "SYS-ARCH-METRICS-000",
@@ -4518,7 +4518,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Algoritmo Gorilla comprimindo timestamps com delta-of-delta e valores float via XOR com os bits precedentes.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-METRICS-001": {
       "card_id": "SYS-ARCH-METRICS-001",
@@ -4530,7 +4530,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Coleta Pull por scraper central vs Push por agentes locais e agregação temporal (downsampling) para histórico de longo prazo.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-PAYMENT-000": {
       "card_id": "SYS-ARCH-PAYMENT-000",
@@ -4542,7 +4542,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Livro-razão imutável garantindo que toda transação financeira possua Débitos e Créditos equilibrados com soma zero.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-PAYMENT-001": {
       "card_id": "SYS-ARCH-PAYMENT-001",
@@ -4554,7 +4554,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Tabela de idempotência atômica interceptando retentativas e reconciliação noturna comparando extratos de adquirentes.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-CHAT-000": {
       "card_id": "SYS-ARCH-CHAT-000",
@@ -4566,7 +4566,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Servidores de WebSocket Gateway mantendo conexões TCP persistentes com heartbeat e presença agregada no Redis.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-CHAT-001": {
       "card_id": "SYS-ARCH-CHAT-001",
@@ -4578,7 +4578,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Roteamento de mensagens entre instâncias de WebSocket através de canais dedicados no Redis Pub/Sub.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-RIDE-000": {
       "card_id": "SYS-ARCH-RIDE-000",
@@ -4590,7 +4590,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Grade espacial hexagonal Uber H3 com anéis k-ring de vizinhança uniforme sem distorções de cantos.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-RIDE-001": {
       "card_id": "SYS-ARCH-RIDE-001",
@@ -4602,7 +4602,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Ingestão de localização de motoristas a cada 4 segundos com matching geoespacial por células H3 em tempo real.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-TYPEAHEAD-000": {
       "card_id": "SYS-ARCH-TYPEAHEAD-000",
@@ -4614,7 +4614,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Árvore Trie em memória armazenando as K sugestões mais frequentes em cada nó para retorno em O(1).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-TYPEAHEAD-001": {
       "card_id": "SYS-ARCH-TYPEAHEAD-001",
@@ -4626,7 +4626,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Esteira MapReduce calculando frequências de busca offline e particionando a Trie por prefixos em clusters distribuídos.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-FEED-000": {
       "card_id": "SYS-ARCH-FEED-000",
@@ -4638,7 +4638,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Fan-Out on Write gravando posts na caixa de entrada de cada seguidor vs Fan-Out on Read consultando na hora da leitura.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-FEED-001": {
       "card_id": "SYS-ARCH-FEED-001",
@@ -4650,7 +4650,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Arquitetura híbrida: push imediato para usuários regulares e pull sob demanda mesclado na leitura para contas com milhões de seguidores.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-URL-000": {
       "card_id": "SYS-ARCH-URL-000",
@@ -4662,7 +4662,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Conversão de identificador numérico de 64 bits em string alfanumérica compacta de 7 caracteres via Base62.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-URL-001": {
       "card_id": "SYS-ARCH-URL-001",
@@ -4674,7 +4674,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Redirecionamento HTTP 302 permitindo rastrear métricas de cliques em camada de cache Redis com taxa 100:1.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-STREAM-000": {
       "card_id": "SYS-ARCH-STREAM-000",
@@ -4686,7 +4686,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Upload de vídeo particionado em chunks com workers paralelos transcodificando múltiplos codecs e resoluções.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-STREAM-001": {
       "card_id": "SYS-ARCH-STREAM-001",
@@ -4698,7 +4698,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Player alternando dinamicamente entre perfis de qualidade através de arquivos de manifesto HLS (.m3u8).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-CRAWLER-000": {
       "card_id": "SYS-ARCH-CRAWLER-000",
@@ -4710,7 +4710,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: URL Frontier separando filas de prioridade e filas de polidez por hostname para evitar sobrecarga em servidores de destino.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-ARCH-CRAWLER-001": {
       "card_id": "SYS-ARCH-CRAWLER-001",
@@ -4722,7 +4722,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Filtros de Bloom descartando URLs já visitadas e SimHash detectando páginas com conteúdo quase idêntico (Near-Duplicates).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-LLD-CONCURRENCY-000": {
       "card_id": "SYS-LLD-CONCURRENCY-000",
@@ -4734,7 +4734,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Worker Pool distribuindo tarefas através de canal bufferizado para número fixo de goroutines controlando uso de CPU e memória.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-LLD-CONCURRENCY-001": {
       "card_id": "SYS-LLD-CONCURRENCY-001",
@@ -4746,7 +4746,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Fan-Out disparando múltiplos workers independentes e Fan-In agregando resultados em um canal único com sync.WaitGroup.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-LLD-PATTERNS-000": {
       "card_id": "SYS-LLD-PATTERNS-000",
@@ -4758,7 +4758,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Substituição de condicionais por polimorfismo instanciando algoritmos via Factory e executando via interface Strategy.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-LLD-PATTERNS-001": {
       "card_id": "SYS-LLD-PATTERNS-001",
@@ -4770,7 +4770,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Decorator adicionando responsabilidades em cadeia sem alterar a interface vs Adapter convertendo interfaces incompatíveis.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-LLD-CASES-000": {
       "card_id": "SYS-LLD-CASES-000",
@@ -4782,7 +4782,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Modelagem orientada a objetos de estacionamento com hierarquia de vagas, estratégia de alocação e cálculo de tarifas.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-LLD-CASES-001": {
       "card_id": "SYS-LLD-CASES-001",
@@ -4794,7 +4794,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Cache em memória com mutex RWMutex, limpeza ativa de chaves expiradas por worker em background e evicção LRU.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-LLD-SOLID-000": {
       "card_id": "SYS-LLD-SOLID-000",
@@ -4806,7 +4806,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Single Responsibility isolando motivos de mudança e Dependency Inversion fazendo o domínio depender de abstrações.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-LLD-SOLID-001": {
       "card_id": "SYS-LLD-SOLID-001",
@@ -4818,7 +4818,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Núcleo de domínio isolado de infraestrutura comunicando-se exclusivamente através de Portas de Entrada e Saída.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-MSG-GUARANTEES-000": {
       "card_id": "SYS-MSG-GUARANTEES-000",
@@ -4830,7 +4830,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: At-Least-Once com retentativas e confirmações (ACKs) vs Exactly-Once usando streams transacionais e chaves de idempotência.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-MSG-GUARANTEES-001": {
       "card_id": "SYS-MSG-GUARANTEES-001",
@@ -4842,7 +4842,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Inserção de chave de idempotência com chave única no banco de dados bloqueando processamento duplicado.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-MSG-EVENTS-000": {
       "card_id": "SYS-MSG-EVENTS-000",
@@ -4854,7 +4854,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Reidratação de estado de entidade reconstruindo a partir da sequência cronológica de eventos imutáveis.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-MSG-EVENTS-001": {
       "card_id": "SYS-MSG-EVENTS-001",
@@ -4866,7 +4866,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Separação estrita de modelo de escrita (Commands) e banco desnormalizado de leitura (Queries) via projeções assíncronas.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-MSG-KAFKA-000": {
       "card_id": "SYS-MSG-KAFKA-000",
@@ -4878,7 +4878,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Cada partição do Kafka é um log sequencial distribuído e lido de forma independente por consumidores.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-MSG-KAFKA-001": {
       "card_id": "SYS-MSG-KAFKA-001",
@@ -4890,7 +4890,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Thread de Cleaner do Kafka mantendo apenas o último valor de cada chave no log compactado.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-MSG-QUEUES-000": {
       "card_id": "SYS-MSG-QUEUES-000",
@@ -4902,7 +4902,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Fila Ponto a Ponto competindo por mensagens vs Fan-out Pub/Sub entregando cópia para múltiplos assinantes.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-MSG-QUEUES-001": {
       "card_id": "SYS-MSG-QUEUES-001",
@@ -4914,7 +4914,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Visibility Timeout escondendo mensagem em processamento e roteamento automático para DLQ após estourar limite de retentativas.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-RES-APIGW-000": {
       "card_id": "SYS-RES-APIGW-000",
@@ -4926,7 +4926,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: API Gateway agregando chamadas de microsserviços e BFF customizando respostas para interfaces mobile e web.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-RES-APIGW-001": {
       "card_id": "SYS-RES-APIGW-001",
@@ -4938,7 +4938,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Serialização binária compacta em Protobuf sobre HTTP/2 eliminando overhead textual de JSON e headers repetitivos.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-RES-FAULTTOL-000": {
       "card_id": "SYS-RES-FAULTTOL-000",
@@ -4950,7 +4950,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Circuit Breaker interrompendo requisições instantaneamente (Open) após limite de erros para evitar sobrecarga em cascata.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-RES-FAULTTOL-001": {
       "card_id": "SYS-RES-FAULTTOL-001",
@@ -4962,7 +4962,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Full Jitter aleatorizando tempos de espera entre retentativas dissipando tempestades de requisições sincronizadas.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-RES-LOADBAL-000": {
       "card_id": "SYS-RES-LOADBAL-000",
@@ -4974,7 +4974,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Load Balancer L4 operando por IP/Porta sem abrir payload vs L7 inspecionando cabeçalhos HTTP, cookies e rotas.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-RES-LOADBAL-001": {
       "card_id": "SYS-RES-LOADBAL-001",
@@ -4986,7 +4986,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Algoritmo Least Connections distribuindo conexões para o servidor com menor número de sessões ativas.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-RES-RATELIMIT-000": {
       "card_id": "SYS-RES-RATELIMIT-000",
@@ -4998,7 +4998,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Token Bucket permitindo rajadas até a capacidade máxima vs Leaky Bucket liberando vazão estritamente constante.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-RES-RATELIMIT-001": {
       "card_id": "SYS-RES-RATELIMIT-001",
@@ -5010,7 +5010,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Janela deslizante com Redis Sorted Set contando elementos com timestamp acima de (now - window) em script Lua atômico.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-RES-MESH-000": {
       "card_id": "SYS-RES-MESH-000",
@@ -5022,7 +5022,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Proxies Envoy Sidecar interceptando todo tráfego leste-oeste coordenados pelas políticas do Control Plane Istiod.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-RES-MESH-001": {
       "card_id": "SYS-RES-MESH-001",
@@ -5034,7 +5034,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Criptografia mTLS de ponta a ponta com certificados X.509 validados bilateralmente entre microsserviços.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-FND-ESTIMATION-000": {
       "card_id": "SYS-FND-ESTIMATION-000",
@@ -5046,7 +5046,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Comparação visual de latências de hardware: L1 Cache (0.5ns), RAM (100ns), SSD (100µs), Network RTT (150ms).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-FND-ESTIMATION-001": {
       "card_id": "SYS-FND-ESTIMATION-001",
@@ -5058,7 +5058,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Cálculo de dimensionamento convertendo DAU para QPS médio, pico de tráfego e armazenamento para 5 anos.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-FND-ESTIMATION-002": {
       "card_id": "SYS-FND-ESTIMATION-002",
@@ -5070,7 +5070,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Tabela de noves de disponibilidade: de 99.9% (8.7 horas de downtime/ano) a 99.999% (5 minutos de downtime/ano).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-FND-FRAMEWORK-000": {
       "card_id": "SYS-FND-FRAMEWORK-000",
@@ -5082,7 +5082,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Framework em 4 etapas: 1. Escopo e Requisitos, 2. Arquitetura em Alto Nível, 3. Deep Dive, 4. Gargalos e Escala.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     },
     "SYS-FND-FRAMEWORK-001": {
       "card_id": "SYS-FND-FRAMEWORK-001",
@@ -5094,7 +5094,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Análise estruturada de trade-offs arquiteturais: consistência vs latência, particionamento e pontos únicos de falha.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:21:03.281Z"
+      "last_verified": "2026-08-28T20:27:57.604Z"
     }
   }
 }

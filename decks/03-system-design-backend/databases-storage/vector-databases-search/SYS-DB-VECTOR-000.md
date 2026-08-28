@@ -21,11 +21,28 @@ Como a estrutura de Índice Invertido (Inverted Index) no Elasticsearch / Apache
   - **Document Length Normalization**: Penaliza documentos excessivamente longos.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/elasticsearch-inverted-index-postings-list-loop.webm">
-    <p>Visualização: Índice Invertido mapeando termos normalizados para Postings Lists com busca booleana e scoring BM25 em O(1).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Índice Invertido &amp; BM25 Scoring (Elasticsearch / Lucene)</text>
+  <g transform="translate(40, 50)">
+    <!-- Term Dictionary -->
+    <rect x="0" y="0" width="200" height="110" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="100" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Term Dictionary (FST)</text>
+    <text x="100" y="45" fill="#ffffff" font-size="10" font-family="monospace" text-anchor="middle">"distributed" →</text>
+    <text x="100" y="68" fill="#ffffff" font-size="10" font-family="monospace" text-anchor="middle">"consensus"   →</text>
+    <text x="100" y="90" fill="#ffffff" font-size="10" font-family="monospace" text-anchor="middle">"raft"        →</text>
+
+    <!-- Postings Lists -->
+    <rect x="230" y="0" width="370" height="110" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="415" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Postings Lists (DocID + Term Freq + Positions)</text>
+    <text x="415" y="45" fill="#86efac" font-size="10" font-family="monospace" text-anchor="middle">[Doc 1 (tf:3), Doc 4 (tf:1), Doc 9 (tf:2)]</text>
+    <text x="415" y="68" fill="#86efac" font-size="10" font-family="monospace" text-anchor="middle">[Doc 1 (tf:1), Doc 9 (tf:4)]</text>
+    <text x="415" y="90" fill="#86efac" font-size="10" font-family="monospace" text-anchor="middle">[Doc 9 (tf:5)]</text>
+  </g>
+  <text x="340" y="195" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Interseção booleana via Roaring Bitmaps e ranking BM25 ponderado por TF-IDF em sub-milissegundos.</text>
+
+</svg>
 
 | Termo Tokenizado | Posting List (IDs de Documentos com Frequência) |
 |---|---|

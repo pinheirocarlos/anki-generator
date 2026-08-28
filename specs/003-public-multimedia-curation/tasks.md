@@ -66,8 +66,8 @@
 - [X] T013a [P] [US2] Remediate Batch 2 (CS Fundamentals): Replace broken Wikimedia URLs and `<video src="...svg">` tags with verified responsive inline SVGs in `media-curation-registry.json`
 - [X] T014a [US2] Update Batch 2 (CS Fundamentals) cards in `decks/02-cs-fundamentals/**/*.md` with responsive inline SVGs and semantic captions (depends on T013a)
 - [X] T015 [P] [US2] Curate Batch 3 (System Design: 94 cards) in `media-curation-registry.json` and `src/utils/media-catalog.js` mapping distributed consensus, Kafka, caching, and scalability to verified public assets and responsive SVGs
-- [ ] T016 [US2] Update and replace all placeholder media URLs across 94 System Design cards in `decks/03-system-design-backend/**/*.md` with verified public assets, responsive SVGs, and semantic captions (depends on T015)
-- [ ] T017 [US2] Update aggregate stats and canonical entry mappings in `media-curation-registry.json`
+- [X] T016 [US2] Update and replace all placeholder media URLs across 94 System Design cards in `decks/03-system-design-backend/**/*.md` with verified public assets, responsive SVGs, and semantic captions (depends on T015)
+- [X] T017 [US2] Update aggregate stats and canonical entry mappings in `media-curation-registry.json`
 
 **Checkpoint**: User Story 2 complete — all 371 cards curated with single-concept visuals and zero placeholder URLs.
 
@@ -80,11 +80,11 @@
 **Independent Test**: Execute `npm run test:links` across all decks and assert exit code 0, 100% HTTP 200 responses, and valid media MIME types recorded in `link-health-report.json`.
 
 ### Tests for User Story 3
-- [ ] T018 [P] [US3] Add unit tests in `test/validate-cards.test.js` verifying `link-checker.js` CLI parameter parsing, retry logic on HTTP 429/5xx, and report generation
+- [X] T018 [P] [US3] Add unit tests in `test/validate-cards.test.js` verifying `link-checker.js` CLI parameter parsing, retry logic on HTTP 429/5xx, and report generation
 
 ### Implementation for User Story 3
-- [ ] T019 [US3] Add batch filtering CLI flag `--deck <path>` in `src/utils/link-checker.js` to enable targeted auditing of individual curricular batches
-- [ ] T020 [US3] Execute full network link audit via `npm run test:links` and verify 100% reachability across all curated cards, generating `link-health-report.json`
+- [X] T019 [US3] Add batch filtering CLI flag `--deck <path>` in `src/utils/link-checker.js` to enable targeted auditing of individual curricular batches
+- [X] T020 [US3] Execute full network link audit via `npm run test:links` and verify 100% reachability across all curated cards, generating `link-health-report.json`
 
 **Checkpoint**: User Story 3 complete — live link health auditor active and fully integrated into npm scripts.
 
@@ -97,9 +97,9 @@
 **Independent Test**: Simulate offline/slow network and verify cards remain 100% readable with no layout shift, and verify documentation in `README.md` and manifests.
 
 ### Implementation for User Story 4
-- [ ] T021 [P] [US4] Add CSS fallback styling for high-latency / offline video rendering in `src/generator.js` ensuring immediate display of quick answers and comparison tables without layout shift
-- [ ] T022 [P] [US4] Update `README.md` to document the Online-Enhanced media architecture, public curation standards, and `npm run test:links` execution guide
-- [ ] T023 [US4] Update `syllabus_manifest.json` metadata to reflect completed curation status across all curriculum phases
+- [X] T021 [P] [US4] Add CSS fallback styling for high-latency / offline video rendering in `src/generator.js` ensuring immediate display of quick answers and comparison tables without layout shift
+- [X] T022 [P] [US4] Update `README.md` to document the Online-Enhanced media architecture, public curation standards, and `npm run test:links` execution guide
+- [X] T023 [US4] Update `syllabus_manifest.json` metadata to reflect completed curation status across all curriculum phases
 
 **Checkpoint**: User Story 4 complete — graceful fallback verified and documentation updated.
 
@@ -109,10 +109,10 @@
 
 **Purpose**: End-to-end verification, quality audit, and compilation across all decks.
 
-- [ ] T024 [P] Run full offline validation suite via `npm test` verifying 550 cards, manifest, atomicity, LaTeX math, and zero placeholder domains
-- [ ] T025 [P] Run active link reachability audit via `npm run test:links` and validate generated `link-health-report.json` against [link-health-report.schema.json](./contracts/link-health-report.schema.json)
-- [ ] T026 Compile Master and Modular `.apkg` packages via `npm run build` verifying clean builds under 5 seconds and package size under 50MB
-- [ ] T027 Run quickstart validation scenarios per [quickstart.md](./quickstart.md)
+- [X] T024 [P] Run full offline validation suite via `npm test` verifying 550 cards, manifest, atomicity, LaTeX math, and zero placeholder domains
+- [X] T025 [P] Run active link reachability audit via `npm run test:links` and validate generated `link-health-report.json` against [link-health-report.schema.json](./contracts/link-health-report.schema.json)
+- [X] T026 Compile Master and Modular `.apkg` packages via `npm run build` verifying clean builds under 5 seconds and package size under 50MB
+- [X] T027 Run quickstart validation scenarios per [quickstart.md](./quickstart.md)
 
 ---
 

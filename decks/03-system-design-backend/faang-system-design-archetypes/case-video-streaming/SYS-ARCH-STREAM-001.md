@@ -21,11 +21,31 @@ Como os protocolos de streaming adaptativo HLS e MPEG-DASH alternam dinamicament
 - **Edge CDN Caching**: Como os chunks são arquivos estáticos imutáveis (`.ts` ou `.m4s`), a CDN atinge $>99\%$ de Cache Hit na borda.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/adaptive-bitrate-hls-dash-manifest-switch-loop.webm">
-    <p>Visualização: Player alternando dinamicamente entre perfis de qualidade através de arquivos de manifesto HLS (.m3u8).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Adaptive Bitrate Streaming (HLS / MPEG-DASH) &amp; Troca Dinâmica de Perfil</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="110" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="300" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Player ajusta qualidade a cada chunk de 6s baseado na vazão da rede e buffer</text>
+
+    <g transform="translate(20, 38)">
+      <rect x="0" y="0" width="170" height="55" rx="4" fill="#065f46"/>
+      <text x="85" y="22" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">Banda Alta (&gt; 15 Mbps)</text>
+      <text x="85" y="40" fill="#ffffff" font-size="9" text-anchor="middle">Pede chunks em 1080p / 4K</text>
+
+      <rect x="195" y="0" width="170" height="55" rx="4" fill="#78350f"/>
+      <text x="280" y="22" fill="#fde68a" font-size="10" font-weight="bold" text-anchor="middle">Oscilação (3G / Instável)</text>
+      <text x="280" y="40" fill="#ffffff" font-size="9" text-anchor="middle">Troca transparente para 720p/480p</text>
+
+      <rect x="390" y="0" width="170" height="55" rx="4" fill="#0369a1"/>
+      <text x="475" y="22" fill="#bae6fd" font-size="10" font-weight="bold" text-anchor="middle">Zero Buffering</text>
+      <text x="475" y="40" fill="#ffffff" font-size="9" text-anchor="middle">Playback 100% contínuo</text>
+    </g>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Arquivos de manifesto (.m3u8) apontam para URIs de chunks segmentados servidos diretamente da CDN.</text>
+
+</svg>
 
 | Estrutura de Arquivos | Formato / Extensão | Papel no Player |
 |---|---|---|

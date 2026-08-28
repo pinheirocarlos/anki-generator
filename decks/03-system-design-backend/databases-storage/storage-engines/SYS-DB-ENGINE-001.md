@@ -22,11 +22,32 @@ Como a arquitetura Log-Structured Merge-Tree (LSM-Tree) converte escritas aleat�
 - Maximiza o throughput de escrita ao eliminar *Random Disk Seeks*.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/system-design/lsm-tree-memtable-wal-sstable-compaction-loop.webm">
-    <p>Visualização: LSM-Tree gravando em WAL e MemTable em memória com flush assíncrono para SSTables imutáveis em disco.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="240" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">LSM-Tree (Log-Structured Merge-Tree): RocksDB, Cassandra, Kafka</text>
+  <g transform="translate(40, 50)">
+    <!-- Write Path (RAM) -->
+    <rect x="0" y="0" width="280" height="135" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Memória RAM (Escrita Rápida)</text>
+    <rect x="20" y="35" width="240" height="35" rx="4" fill="#0284c7"/>
+    <text x="140" y="57" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">MemTable (SkipList / Red-Black Tree)</text>
+    <rect x="20" y="80" width="240" height="35" rx="4" fill="#78350f"/>
+    <text x="140" y="102" fill="#fde68a" font-size="10" font-family="monospace" text-anchor="middle">WAL (Append-Only Disk Log)</text>
+
+    <!-- Flush & Disk SSTables -->
+    <rect x="320" y="0" width="280" height="135" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Disco Imutável (SSTables)</text>
+    <rect x="340" y="35" width="240" height="26" rx="4" fill="#065f46"/>
+    <text x="460" y="52" fill="#86efac" font-size="9" text-anchor="middle">L0: SSTables não compactadas</text>
+    <rect x="340" y="68" width="240" height="26" rx="4" fill="#047857"/>
+    <text x="460" y="85" fill="#a7f3d0" font-size="9" text-anchor="middle">L1: SSTables ordenadas e sem overlap</text>
+    <rect x="340" y="100" width="240" height="26" rx="4" fill="#065f46"/>
+    <text x="460" y="117" fill="#a7f3d0" font-size="9" text-anchor="middle">Compaction em Background (Purge)</text>
+  </g>
+  <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Gravações sequenciais no WAL/MemTable conferem à LSM-Tree taxa de escrita ordens de grandeza superior à B+Tree.</text>
+
+</svg>
 
 | Componente LSM | Localização | Papel Funcional |
 |---|---|---|
