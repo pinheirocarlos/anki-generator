@@ -22,11 +22,19 @@ Como a técnica de **Digit DP** conta números em um intervalo $[A, B]$ que sati
 - **Complexidade**: $O(\text{len}(\text{dígitos}) \times \text{estados})$, executando em menos de 1ms para números até $10^{18}$.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/tree-dp-post-order-subtree-loop.webm">
-    <p>Visualização: Agregação de respostas parciais de subárvores no retorno pós-ordem da travessia DFS.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Exponenciação Rápida de Matrizes para Recorrências em O(K³ log N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Matriz de Transição M elevado à potência N</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">[F(n+1), F(n)] = [[1, 1], [1, 0]]ⁿ · [F(1), F(0)].</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Calcula Mⁿ usando binary exponentiation (M^(N/2) · M^(N/2)) em O(log N).</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Calcula o N-ésimo Fibonacci para N = 10¹⁸ sob módulo em frações de microssegundo</text>
+
+</svg>
 
 | Parâmetro de Digit DP | Papel no Algoritmo | Efeito na Ramificação |
 |---|---|---|

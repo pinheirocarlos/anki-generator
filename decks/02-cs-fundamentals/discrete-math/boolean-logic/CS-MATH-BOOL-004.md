@@ -21,11 +21,35 @@ Como implementar um **Bitset / Bit Array** compacto de alta performance e realiz
 - **Operações Vetoriais**: Operações de conjunto (União com `|`, Interseção com `&`) processam **64 booleanos por ciclo de clock da ALU**, alcançando velocidade $64\times$ maior que loops iterativos.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/bitset-dense-array-indexing-loop.webm">
-    <p>Visualização: Indexação de booleanos comprimidos usando array[i / 64] & (1ULL << (i % 64)) com 8x menos memória.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Estrutura de Bitset / Bit Array de Alta Densidade</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="55" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Palavra uint64 (64 flags booleanas em 8 Bytes de memória)</text>
+    
+    <g transform="translate(40, 30)">
+      <rect x="0" y="0" width="15" height="15" fill="#10b981"/>
+      <rect x="16" y="0" width="15" height="15" fill="#334155"/>
+      <rect x="32" y="0" width="15" height="15" fill="#10b981"/>
+      <rect x="48" y="0" width="15" height="15" fill="#10b981"/>
+      <rect x="64" y="0" width="15" height="15" fill="#334155"/>
+      <rect x="80" y="0" width="15" height="15" fill="#334155"/>
+      <text x="120" y="12" fill="#94a3b8" font-size="10" font-family="monospace">... bits 0..63</text>
+    </g>
+  </g>
+  <g transform="translate(60, 115)">
+    <rect x="0" y="0" width="270" height="60" rx="5" fill="#0f172a" stroke="#10b981"/>
+    <text x="135" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Set(i): words[i/64] |= (1ULL &lt;&lt; (i%64))</text>
+    <text x="135" y="44" fill="#a7f3d0" font-size="10" text-anchor="middle">Liga o i-ésimo bit em tempo O(1)</text>
+
+    <rect x="290" y="0" width="270" height="60" rx="5" fill="#0f172a" stroke="#38bdf8"/>
+    <text x="425" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Test(i): (words[i/64] &amp; (1ULL &lt;&lt; (i%64))) != 0</text>
+    <text x="425" y="44" fill="#bae6fd" font-size="10" text-anchor="middle">Consulta o estado do bit em O(1)</text>
+  </g>
+
+</svg>
 
 | Estrutura de Booleans | Memória por 1.000.000 Bools | Custo de Interseção (AND) |
 |---|---|---|

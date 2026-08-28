@@ -21,11 +21,23 @@ Como modelar uma **Matriz 2D como um Grafo Implícito** para contar componentes 
 - **Complexidade**: $O(M \times N)$ tempo e $O(M \times N)$ espaço no pior caso de pilha de recursão.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/flood-fill-connected-components-grid-loop.webm">
-    <p>Visualização: Propagação em matriz 2D em 4 direções marcando células conectadas para contagem de componentes.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bidirectional BFS: Redução do Fator de Ramificação O(b^d) → O(b^(d/2))</text>
+  <g transform="translate(100, 50)">
+    <circle cx="80" cy="40" r="35" fill="none" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="80" cy="40" r="8" fill="#3b82f6"/><text x="80" y="25" fill="#38bdf8" font-size="9" text-anchor="middle">Origem</text>
+
+    <line x1="115" y1="40" x2="245" y2="40" stroke="#f59e0b" stroke-dasharray="4"/>
+    <circle cx="180" cy="40" r="10" fill="#f59e0b"/><text x="180" y="60" fill="#fcd34d" font-size="9" text-anchor="middle">Interseção</text>
+
+    <circle cx="280" cy="40" r="35" fill="none" stroke="#10b981" stroke-width="2"/>
+    <circle cx="280" cy="40" r="8" fill="#10b981"/><text x="280" y="25" fill="#34d399" font-size="9" text-anchor="middle">Destino</text>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Reduz nós explorados de 10⁶ para 2 × 10³ em problemas como Word Ladder</text>
+
+</svg>
 
 | Elemento de Matriz | Equivalente em Teoria dos Grafos |
 |---|---|

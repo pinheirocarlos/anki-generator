@@ -21,11 +21,26 @@ O que é o **TLB (Translation Lookaside Buffer)** e por que bancos de dados de a
 - **HugePages (2 MB / 1 GB)**: Reduz a quantidade total de entradas necessárias em até $512\times$ (para 2 MB) ou $262.144\times$ (para 1 GB), garantindo que quase todo o *Buffer Pool* caiba nas entradas do TLB, acelerando o throughput do banco em **10% a 30%**.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/virtual-memory-tlb-translation-loop.webm">
-    <p>Visualização: Cache L1 de traduções na MMU e uso de HugePages (2MB/1GB) aumentando a área de memória por entrada da TLB.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">TLB (Translation Lookaside Buffer) e HugePages (2 MB / 1 GB)</text>
+  <g transform="translate(50, 48)">
+    <rect x="0" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="135" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Páginas Padrão de 4 KB</text>
+    <text x="135" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">64 GB RAM = 16.000.000 páginas</text>
+    <text x="135" y="60" fill="#fca5a5" font-size="10" text-anchor="middle">TLB Miss frequente em bancos de dados</text>
+    <text x="135" y="76" fill="#94a3b8" font-size="9" text-anchor="middle">Page Table Walk de 4 níveis consome ciclos</text>
+
+    <rect x="310" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#10b981"/>
+    <text x="445" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">HugePages (2 MB ou 1 GB)</text>
+    <text x="445" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">64 GB RAM = apenas 32.000 páginas de 2MB</text>
+    <text x="445" y="60" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">TLB Hit rate sobe para ~99.9%!</text>
+    <text x="445" y="76" fill="#a7f3d0" font-size="9" text-anchor="middle">Padrão em PostgreSQL, Oracle, Redis</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">HugePages reduzem drasticamente a sobrecarga de tradução de endereços da MMU em heap pesados.</text>
+
+</svg>
 
 | Configuração de Página | Quantidade de Entradas para 64 GB | Cobertura Típica do TLB |
 |---|---|---|

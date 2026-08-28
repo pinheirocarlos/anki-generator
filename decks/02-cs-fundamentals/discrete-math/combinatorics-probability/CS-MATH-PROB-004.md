@@ -24,11 +24,28 @@ Como dimensionar o tamanho do vetor de bits ($m$) e a quantidade de funções ha
     $$k = \frac{m}{n} \ln 2 \approx 0.693 \cdot \frac{m}{n}$$
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/bloom-filter-false-positive-math-loop.webm">
-    <p>Visualização: Relação matemática entre número de hashes k = (m/n) ln 2 e taxa de falsos positivos no filtro probabilístico.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bloom Filter: Estrutura Probabilística de Pertencimento</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="85" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Vetor de m bits com k funções de hash independentes</text>
+    
+    <g transform="translate(50, 35)">
+      <rect x="0" y="0" width="22" height="22" fill="#334155" stroke="#475569"/>
+      <rect x="25" y="0" width="22" height="22" fill="#10b981" stroke="#34d399"/><text x="36" y="15" fill="#ffffff" font-size="10" text-anchor="middle">1</text>
+      <rect x="50" y="0" width="22" height="22" fill="#334155" stroke="#475569"/>
+      <rect x="75" y="0" width="22" height="22" fill="#10b981" stroke="#34d399"/><text x="86" y="15" fill="#ffffff" font-size="10" text-anchor="middle">1</text>
+      <rect x="100" y="0" width="22" height="22" fill="#334155" stroke="#475569"/>
+      <rect x="125" y="0" width="22" height="22" fill="#10b981" stroke="#34d399"/><text x="136" y="15" fill="#ffffff" font-size="10" text-anchor="middle">1</text>
+      <text x="220" y="15" fill="#94a3b8" font-size="10" font-family="monospace">... m bits no array</text>
+    </g>
+    <text x="280" y="75" fill="#fef3c7" font-size="10" text-anchor="middle">Falso Positivo Possível (Hash Collisions) | Falso Negativo IMPOSSÍVEL (Zero Falsos Negativos)</text>
+  </g>
+  <text x="340" y="165" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Se Bloom Filter diz 'NÃO': certeza absoluta de ausência (evita I/O de disco em Cassandra/RocksDB).</text>
+
+</svg>
 
 | Taxa de Falso Positivo ($p$) | Bits por Elemento ($m/n$) | Funções Hash Ótimas ($k$) |
 |---|---|---|

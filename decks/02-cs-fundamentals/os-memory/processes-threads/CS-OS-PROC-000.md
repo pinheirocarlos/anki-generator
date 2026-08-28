@@ -18,11 +18,19 @@ Qual é a diferença fundamental entre um **Processo** e uma **Thread** no siste
 - **Thread (Linha de Execução)**: É a menor unidade de escalonamento que o processador pode executar. Múltiplas threads pertencentes ao mesmo processo **compartilham o mesmo espaço de memória virtual (Heap, código, variáveis globais e FDs)**, possuindo apenas sua própria **Stack privativa** e conjunto de registradores de CPU.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/process-vs-thread-memory-space-loop.webm">
-    <p>Visualização: Processos com espaços de memória isolados (CR3 distinto) vs Threads compartilhando heap, código e dados.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Processo vs Thread: Isolamento de Recursos</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Processo: Unidade de Isolamento de Recursos (Espaço de Memória Virtual, FDs, PCB)</text>
+    <text x="280" y="44" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Threads dentro do mesmo processo compartilham: Heap, Código (Text) e Descritores de Arquivo</text>
+    <text x="280" y="66" fill="#f59e0b" font-size="10" text-anchor="middle">Cada Thread possui exclusivamente seu próprio: Stack (Pilha de execução), Registradores de CPU e Program Counter (PC).</text>
+  </g>
+  <text x="340" y="155" fill="#f43f5e" font-size="11" font-weight="bold" text-anchor="middle">Falha de segmentação (SIGSEGV) em uma thread derruba o processo inteiro e todas as suas threads irmãs.</text>
+
+</svg>
 
 | Recurso do Sistema | Compartilhado entre Threads do mesmo Processo? | Isolado por Processo? |
 |---|---|---|

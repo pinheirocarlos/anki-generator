@@ -21,11 +21,19 @@ Como funciona o mapeamento de arquivos em memória com a syscall **`mmap()`** e 
   3. **Compartilhamento Inter-Processos (IPC)**: Múltiplos processos podem mapear o mesmo arquivo com a flag `MAP_SHARED`, compartilhando dados em $O(1)$ sem pipes ou sockets.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/mmap-file-backed-virtual-memory-loop.webm">
-    <p>Visualização: Mapeamento de arquivo diretamente nas páginas virtuais do processo com lazy loading sob demanda na primeira leitura.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Mapeamento de Arquivos com mmap()</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">mmap(addr, length, prot, flags, fd, offset)</text>
+    <text x="280" y="45" fill="#f8fafc" font-size="10" text-anchor="middle">Projeta um arquivo de disco diretamente no espaço de endereçamento virtual da aplicação.</text>
+    <text x="280" y="65" fill="#10b981" font-size="10" font-weight="bold" text-anchor="middle">Acesso por ponteiros C/Go (*ptr) dispensando read() e write() manuais com paginação por demanda.</text>
+  </g>
+  <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Arquitetura de armazenamento do LMDB, Kafka (índices), SQLite e motores de busca baseados em Lucene.</text>
+
+</svg>
 
 | Estratégia de Leitura | Caminho dos Dados | Cópias de Memória |
 |---|---|---|

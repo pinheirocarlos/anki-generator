@@ -19,11 +19,26 @@ Como evitar a geração de subconjuntos e combinações duplicadas em Backtracki
 - **Por que funciona**: A condição `i > start` permite usar o mesmo número duplicado em níveis mais profundos (ramos filhos), mas impede escolher o mesmo número mais de uma vez como a primeira opção daquele nível de ramificação (irmãos).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/n-queens-bitmask-attack-vectors-loop.webm">
-    <p>Visualização: Rastreamento de colunas e diagonais ocupadas usando máscaras binárias e avanço por linhas.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Geração de Subconjuntos (Power Set O(2ᴺ)) vs Permutações (O(N!))</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="120" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Subsets (Escolha Binária)</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">Para cada item: inclui ou não inclui</text>
+    <text x="15" y="60" fill="#93c5fd" font-size="10">2ᴺ combinações totais</text>
+
+    <g transform="translate(280, 0)">
+      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Permutations (Troca de Posições)</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">Fixa cada elemento na posição i</text>
+      <text x="15" y="60" fill="#a7f3d0" font-size="10">N! ordenações distintas</text>
+    </g>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Subsets usam índice inicial 'start'; Permutações usam vetor 'used[]' ou swap in-place</text>
+
+</svg>
 
 | Nível de Decisão | Condição de Duplicata | Ação |
 |---|---|---|

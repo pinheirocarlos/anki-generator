@@ -20,11 +20,19 @@ Como a **BFS Bidirecional (Bidirectional BFS)** reduz a complexidade de espaço 
 - O número total de nós visitados cai drasticamente para $2 \times O(B^{d/2}) = O(B^{d/2})$. Para $B=10$ e $d=6$, reduz de $1.000.000$ para apenas $2.000$ nós avaliados ($500\times$ mais rápido).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dfs-recursion-depth-backtrack-loop.webm">
-    <p>Visualização: Descida contínua pelo ramo mais profundo até o nó folha antes de retroceder e visitar irmãos.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">DFS (Depth-First Search): Exploração em Profundidade com Pilha/Recursão</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Mergulho até as Folhas com Backtracking</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Visita um ramo completo até o final antes de retroceder e explorar irmãos.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Espaço de memória proporcional à profundidade máxima: O(h), ideal para grafos profundos.</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Base para detecção de ciclos, ordenação topológica e caminhos Eulerianos</text>
+
+</svg>
 
 | Técnica de BFS | Nós Avaliados ($B=10, d=6$) | Complexidade de Nós |
 |---|---|---|

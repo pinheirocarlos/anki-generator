@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LinkCheckerCLIContract",
+  "description": "Interface contract for the link-checker.js CLI tool",
+  "type": "object",
+  "properties": {
+    "command": {
+      "type": "string",
+      "enum": ["node src/utils/link-checker.js", "npm run test:links"]
+    },
+    "flags": {
+      "type": "object",
+      "properties": {
+        "--concurrency": {
+          "type": "integer",
+          "default": 8,
+          "description": "Max parallel HTTP requests (default: 8, range: 1-20)"
+        },
+        "--timeout": {
+          "type": "integer",
+          "default": 5000,
+          "description": "Request timeout in milliseconds (default: 5000ms)"
+        },
+        "--retries": {
+          "type": "integer",
+          "default": 2,
+          "description": "Number of retries on 429/5xx/timeout (default: 2)"
+        },
+        "--deck": {
+          "type": "string",
+          "description": "Filter by deck folder (e.g. decks/01-dsa)"
+        },
+        "--report": {
+          "type": "string",
+          "default": "link-health-report.json",
+          "description": "Path to write the JSON health report"
+        }
+      }
+    },
+    "exitCodes": {
+      "type": "object",
+      "properties": {
+        "0": "All media URLs passed HTTP 200 checks with valid MIME types",
+        "1": "One or more media URLs failed reachability, returned non-200 status, timed out, or had invalid MIME types"
+      }
+    }
+  }
+}

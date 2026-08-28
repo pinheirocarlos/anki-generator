@@ -19,11 +19,26 @@ Quais são as duas propriedades matemáticas fundamentais que qualificam um prob
 - A Programação Dinâmica resolve cada subproblema exatamente uma única vez, armazenando o resultado em cache para consultas futuras em $O(1)$.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dp-state-transition-loop.webm">
-    <p>Visualização: Memoização de subproblemas sobrepostos eliminando recálculos exponenciais O(2^N) -> O(N).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Paradigma de Programação Dinâmica: Subestrutura Ótima &amp; Sobreposição</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="120" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">1. Subestrutura Ótima</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">A solução ótima do problema maior</text>
+    <text x="15" y="60" fill="#93c5fd" font-size="10">contém soluções ótimas de subproblemas</text>
+
+    <g transform="translate(280, 0)">
+      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">2. Subproblemas Sobrepostos</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">Mesmos subproblemas resolvidos</text>
+      <text x="15" y="60" fill="#a7f3d0" font-size="10">repetidas vezes (memoization / tabela)</text>
+    </g>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Reduz árvores de recursão exponencial O(2ᴺ) para complexidade polinomial O(N)</text>
+
+</svg>
 
 | Propriedade de DP | Definição | Exemplo Canônico |
 |---|---|---|

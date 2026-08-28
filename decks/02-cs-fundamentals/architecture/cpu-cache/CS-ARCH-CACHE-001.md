@@ -19,11 +19,34 @@ O que é o fenômeno destrutivo de **False Sharing** em sistemas multi-core e co
 - **Mitigação**: Inserir **padding de 64 bytes** (ex: `[8]uint64` em Go ou `@Contended` em Java) ou alinhar as estruturas para garantir que variáveis concorrentes fiquem em Cache Lines isoladas.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-cache-line-64bytes-spatial-loop.webm">
-    <p>Visualização: Carregamento contíguo de 64 bytes da RAM para a cache L1 acelerando acessos sequenciais a vetores.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">False Sharing: Invalidação de Cache Line em Multi-Core</text>
+  <g transform="translate(40, 50)">
+    <!-- Core 1 -->
+    <rect x="0" y="0" width="280" height="65" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#f87171" font-size="12" font-weight="bold" text-anchor="middle">Core 0: Modifica threadA_count</text>
+    <rect x="20" y="32" width="110" height="24" rx="4" fill="#7f1d1d"/>
+    <text x="75" y="48" fill="#fca5a5" font-size="10" font-family="monospace" text-anchor="middle">var a (8B)</text>
+    <rect x="150" y="32" width="110" height="24" rx="4" fill="#334155"/>
+    <text x="205" y="48" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">var b (8B)</text>
+    
+    <!-- Core 2 -->
+    <rect x="320" y="0" width="280" height="65" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#f87171" font-size="12" font-weight="bold" text-anchor="middle">Core 1: Modifica threadB_count</text>
+    <rect x="340" y="32" width="110" height="24" rx="4" fill="#334155"/>
+    <text x="395" y="48" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">var a (8B)</text>
+    <rect x="470" y="32" width="110" height="24" rx="4" fill="#7f1d1d"/>
+    <text x="525" y="48" fill="#fca5a5" font-size="10" font-family="monospace" text-anchor="middle">var b (8B)</text>
+  </g>
+  <g transform="translate(60, 130)">
+    <rect x="0" y="0" width="560" height="35" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+    <text x="280" y="22" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Mesma Cache Line (64 Bytes) → Invalidação Contínua (Cache Bouncing / MESI ping-pong)</text>
+  </g>
+  <text x="340" y="190" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Solução: Padding de 64 bytes (Cache Line Alignment) isolando as variáveis em linhas distintas.</text>
+
+</svg>
 
 | Cenário Multi-Thread | Disposição na Memória | Impacto de Performance |
 |---|---|---|

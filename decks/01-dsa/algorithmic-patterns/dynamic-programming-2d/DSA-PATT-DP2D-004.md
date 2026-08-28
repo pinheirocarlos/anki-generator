@@ -21,11 +21,22 @@ Como o algoritmo de **Edit Distance (Distância de Levenshtein)** computa o núm
 - **Complexidade**: $O(M \times N)$ tempo e $O(M \times N)$ espaço (ou $O(N)$ comprimido).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/unique-paths-grid-accumulation-loop.webm">
-    <p>Visualização: Propagação de caminhos acumulando o número de rotas vindas de cima e da esquerda: dp[i][j] = dp[i-1][j] + dp[i][j-1].</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Unique Paths em Grid: dp[i][j] = dp[i-1][j] + dp[i][j-1]</text>
+  <g transform="translate(120, 50)">
+    <rect x="0" y="0" width="60" height="40" fill="#1e293b" stroke="#64748b" rx="3"/><text x="30" y="25" fill="#94a3b8" font-size="11" text-anchor="middle">Cima</text>
+    <text x="80" y="25" fill="#34d399" font-size="14" font-weight="bold">+</text>
+    <rect x="100" y="0" width="60" height="40" fill="#1e293b" stroke="#64748b" rx="3"/><text x="130" y="25" fill="#94a3b8" font-size="11" text-anchor="middle">Esq</text>
+    <text x="180" y="25" fill="#34d399" font-size="14" font-weight="bold">=</text>
+    <rect x="200" y="0" width="80" height="40" fill="#065f46" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="240" y="25" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">dp[i][j]</text>
+  </g>
+  <text x="340" y="145" fill="#38bdf8" font-size="11" text-anchor="middle">Se grid[i][j] é obstáculo: dp[i][j] = 0 (caminho bloqueado)</text>
+  <text x="340" y="170" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Reduzível a 1 único array 1D de tamanho N (dp[j] += dp[j-1]) com espaço O(N)</text>
+
+</svg>
 
 | Operação de Edição | Posição na Matriz DP | Racional |
 |---|---|---|

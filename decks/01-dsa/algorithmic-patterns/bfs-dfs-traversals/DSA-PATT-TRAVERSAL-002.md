@@ -21,11 +21,19 @@ Como a **Busca em Profundidade (DFS)** explora caminhos até o esgotamento antes
   - Ordenação Topológica e detecção de ciclos em grafos direcionados.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bfs-shortest-path-unweighted-loop.webm">
-    <p>Visualização: Primeira visita a um nó no BFS corresponde estritamente à distância mínima em número de arestas.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">BFS Multi-Fonte (Multi-Source BFS): Propagação Simultânea</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Inicialização da Fila com Múltiplos Pontos de Partida</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Enfileira todas as fontes iniciais (ex: laranjas podres, focos de incêndio) com dist = 0.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">A propagação em ondas concêntricas calcula a menor distância de qualquer fonte em O(R × C).</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Equivalente a criar um nó fantasma conectado a todas as fontes com peso 0</text>
+
+</svg>
 
 | Característica | DFS (Depth-First) | BFS (Breadth-First) |
 |---|---|---|

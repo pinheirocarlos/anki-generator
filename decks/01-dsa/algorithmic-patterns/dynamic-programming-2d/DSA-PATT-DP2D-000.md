@@ -23,11 +23,26 @@ Como modelar a função de transição de estados de uma DP 2D em matrizes de gr
 - **Complexidade**: $O(M \times N)$ tempo e $O(M \times N)$ espaço.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dp-2d-knapsack-grid-loop.webm">
-    <p>Visualização: Preenchimento de matriz bidimensional onde o estado atual depende de células vizinhas (cima, esquerda, diagonal).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Matriz de DP 2D: Grid de Estados dp[i][j]</text>
+  <g transform="translate(100, 50)">
+    <rect x="0" y="0" width="220" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="110" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Definição Bidimensional</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">i: índice do item / prefixo da string 1</text>
+    <text x="15" y="60" fill="#93c5fd" font-size="10">j: capacidade restante / prefixo da string 2</text>
+
+    <g transform="translate(260, 0)">
+      <rect x="0" y="0" width="220" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="110" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Ordem de Preenchimento</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">Linha por linha (Top → Bottom)</text>
+      <text x="15" y="60" fill="#a7f3d0" font-size="10">Garante que dp[i-1][j] já está calculado</text>
+    </g>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Base para problemas de Mochila, LCS, Distância de Edição e Caminhos em Grid</text>
+
+</svg>
 
 | Problema de Grade | Origem dos Subproblemas | Função de Agregação |
 |---|---|---|

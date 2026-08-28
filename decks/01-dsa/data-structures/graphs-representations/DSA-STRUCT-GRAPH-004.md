@@ -21,11 +21,33 @@ Como a estrutura **Compressed Sparse Row (CSR)** elimina ponteiros e atinge máx
 - **Benefício**: Zero ponteiros ou listas dinâmicas no Heap, compactação máxima de memória e vetorização SIMD de travessia na CPU/GPU.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/csr-sparse-graph-layout-loop.webm">
-    <p>Visualização: Três vetores contíguos (values, column_indices, row_offsets) compactando o grafo sem overhead de ponteiros.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Matriz Laplaciana de Grafo: L = D - A</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">D (Matriz de Graus) - A (Matriz de Adjacência)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Diagonal = grau do vértice | Fora da diagonal = -1 se existe aresta, 0 caso contrário.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">O número de autovalores zero corresponde exatamente ao número de componentes conexos.</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Base da Teoria Espectral de Grafos, particionamento de redes e clustering</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Matriz Laplaciana de Grafo: L = D - A</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">D (Matriz de Graus) - A (Matriz de Adjacência)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Diagonal = grau do vértice | Fora da diagonal = -1 se existe aresta, 0 caso contrário.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">O número de autovalores zero corresponde exatamente ao número de componentes conexos.</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Base da Teoria Espectral de Grafos, particionamento de redes e clustering</text>
+
+</svg>
 
 | Estrutura de Grafo | Disposição na Memória | Localidade de Cache |
 |---|---|---|

@@ -22,11 +22,19 @@ Como um **Monotonic Deque** obtém o valor máximo de cada janela deslizante em 
 - **Complexidade**: $O(N)$ tempo contra $O(N \log K)$ do Heap.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/trapping-rain-water-monotonic-loop.webm">
-    <p>Visualização: Cálculo do volume de água contida entre a barra atual e o limitador esquerdo desempilhado.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Daily Temperatures: Dias de Espera por Temperatura Mais Alta</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Diferença de Índices: wait_days[prev_day] = curr_day - prev_day</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Empilha índices de dias com temperaturas decrescentes.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Ao encontrar dia mais quente T[i] &gt; T[stack.top()], resolve todos os dias pendentes.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Execução linear O(N) com memória auxiliar O(N)</text>
+
+</svg>
 
 | Estrutura para Janela Máxima | Consulta do Máximo | Custo por Deslizamento |
 |---|---|---|

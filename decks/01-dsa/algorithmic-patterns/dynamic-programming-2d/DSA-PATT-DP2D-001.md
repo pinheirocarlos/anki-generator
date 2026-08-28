@@ -19,11 +19,19 @@ Como formular a Programação Dinâmica do problema da **Mochila 0/1 (0-1 Knapsa
 - **Otimização para Array 1D**: Ao comprimir para um array `dp[w]`, devemos iterar a capacidade $w$ de forma **estritamente decrescente** (de $W$ até $\text{wt}[i]$). Isso garante que o valor $DP[w - \text{wt}[i]]$ consultado venha da linha anterior ($i-1$) e impeça que o mesmo item seja reutilizado mais de uma vez.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/knapsack-01-state-decision-loop.webm">
-    <p>Visualização: Decisão de incluir o item (consumindo capacidade de peso) ou ignorar o item preservando o valor anterior.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">0/1 Knapsack: dp[i][w] = max(dp[i-1][w], dp[i-1][w-wt[i]] + val[i])</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Decisão Binária: Não Incluir vs Incluir Item i</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Opção 1 (Não levar): dp[i-1][w] (copia valor da linha anterior).</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Opção 2 (Levar): dp[i-1][w - wt[i]] + val[i] (consome peso wt[i] e soma valor).</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Tempo: O(N × W) | Espaço: O(W) quando otimizado com iteração reversa de w</text>
+
+</svg>
 
 | Tipo de Mochila | Ordem de Iteração da Capacidade $w$ | Reutilização de Itens |
 |---|---|---|

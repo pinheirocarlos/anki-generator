@@ -18,11 +18,28 @@ Por que acessos de I/O **Sequenciais** são ordens de grandeza mais rápidos que
 - **Em SSDs**: Embora não haja braço móvel, a memória Flash organiza dados em *Páginas (4-16 KB)* e *Blocos (2-8 MB)*. Leituras sequenciais ativam múltiplos canais NAND em paralelo e o *Read-Ahead* do controlador; escritas sequenciais evitam fragmentação e o custo severo de *Garbage Collection / Write Amplification* da controladora SSD.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/sequential-vs-random-disk-io-loop.webm">
-    <p>Visualização: Throughput de I/O sequencial atingindo GB/s comparado a dezenas de MB/s no I/O aleatório.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">I/O Sequencial vs I/O Aleatório: Throughput &amp; Mecânica</text>
+  <g transform="translate(50, 48)">
+    <!-- Sequential -->
+    <rect x="0" y="0" width="275" height="90" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="137" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">I/O Sequencial (Padrão Contíguo)</text>
+    <text x="137" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">HDD: Cabeça magnética não se desloca</text>
+    <text x="137" y="60" fill="#f8fafc" font-size="10" text-anchor="middle">SSD: Otimizado para blocos NAND grandes</text>
+    <text x="137" y="78" fill="#a7f3d0" font-size="11" font-weight="bold" text-anchor="middle">Throughput: ~500 MB/s (HDD) / 7.000 MB/s (NVMe)</text>
+
+    <!-- Random -->
+    <rect x="305" y="0" width="275" height="90" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="442" y="22" fill="#f87171" font-size="12" font-weight="bold" text-anchor="middle">I/O Aleatório (Saltos de Endereço)</text>
+    <text x="442" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">HDD: Tempo de busca mecânica (Seek Time 5-10ms)</text>
+    <text x="442" y="60" fill="#f8fafc" font-size="10" text-anchor="middle">SSD: Amplificação de escrita &amp; IOPS bound</text>
+    <text x="442" y="78" fill="#fca5a5" font-size="11" font-weight="bold" text-anchor="middle">Throughput: ~1-5 MB/s (HDD) / 800 MB/s (NVMe)</text>
+  </g>
+  <text x="340" y="175" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Regra de Ouro em Sistemas Distribuídos: Kafka e LSM-Trees estruturam toda ingestão em I/O sequencial.</text>
+
+</svg>
 
 | Tipo de Acesso | Comportamento em HDD | Comportamento em SSD NVMe |
 |---|---|---|

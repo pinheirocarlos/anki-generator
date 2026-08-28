@@ -21,11 +21,29 @@ Como funciona a arquitetura **G-M-P (Goroutine, Machine, Processor)** do escalon
 - **Work Stealing**: Quando a fila local de um $P$ esvazia, ele tenta roubar metade das goroutines da fila local de outro $P$ vizinho, mantendo todos os núcleos 100% ocupados sem contenção de lock global.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/go-gmp-scheduler-stealing-loop.webm">
-    <p>Visualização: Processador lógico ocioso roubando goroutines da fila local de outro processador no modelo GMP do Go.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Modelo GMP do Go Runtime: Goroutines (G), Threads (M) e Processadores (P)</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="170" height="75" rx="5" fill="#1e293b" stroke="#38bdf8"/>
+    <text x="85" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">G (Goroutine)</text>
+    <text x="85" y="44" fill="#f8fafc" font-size="9" text-anchor="middle">Stack de 2 KB + PC + status</text>
+    <text x="85" y="60" fill="#a7f3d0" font-size="9" text-anchor="middle">Milhões em memória</text>
+
+    <rect x="195" y="0" width="170" height="75" rx="5" fill="#1e293b" stroke="#10b981"/>
+    <text x="280" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">P (Processador Lógico)</text>
+    <text x="280" y="44" fill="#f8fafc" font-size="9" text-anchor="middle">Recurso de Execução</text>
+    <text x="280" y="60" fill="#34d399" font-size="9" font-weight="bold" text-anchor="middle">GOMAXPROCS (Fila Local LRQ)</text>
+
+    <rect x="390" y="0" width="170" height="75" rx="5" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="475" y="22" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">M (OS Thread Real)</text>
+    <text x="475" y="44" fill="#f8fafc" font-size="9" text-anchor="middle">Thread do Kernel do Linux</text>
+    <text x="475" y="60" fill="#fef3c7" font-size="9" text-anchor="middle">Executa instruções na CPU</text>
+  </g>
+  <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Work-Stealing: Se a fila local de um P esvazia, ele rouba 50% das Goroutines da fila de outro processador em O(1).</text>
+
+</svg>
 
 | Entidade GMP | O que Representa | Quantidade no Sistema |
 |---|---|---|

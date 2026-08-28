@@ -23,11 +23,47 @@ Como funciona o **redimensionamento dinâmico** de vetores (`ArrayList` / `slice
   3. O buffer antigo é liberado pelo Garbage Collector.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dynamic-array-realloc-copy-loop.webm">
-    <p>Visualização: Alocação de novo buffer contíguo de tamanho duplicado e cópia em bloco dos elementos.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Redimensionamento Dinâmico em Vetores (Length vs Capacity)</text>
+  <g transform="translate(70, 50)">
+    <rect x="0" y="0" width="240" height="80" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="6"/>
+    <text x="120" y="25" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Antes do Resize (Append)</text>
+    <text x="20" y="50" fill="#f8fafc" font-size="11">length = 4 (Ocupados)</text>
+    <text x="20" y="68" fill="#f87171" font-size="11">capacity = 4 (Buffer Cheio)</text>
+
+    <path d="M 260 40 L 300 40" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <rect x="320" y="0" width="260" height="80" fill="#1e293b" stroke="#10b981" stroke-width="1.5" rx="6"/>
+    <text x="450" y="25" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Após Resize 2x em Bloco Novo</text>
+    <text x="340" y="50" fill="#f8fafc" font-size="11">length = 5 (Novo item inserido)</text>
+    <text x="340" y="68" fill="#34d399" font-size="11">capacity = 8 (4 slots livres reservados)</text>
+  </g>
+  <text x="340" y="165" fill="#94a3b8" font-size="11" text-anchor="middle">Buffer antigo é coletado pelo GC após cópia em bloco (memmove / memcpy)</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Redimensionamento Dinâmico em Vetores (Length vs Capacity)</text>
+  <g transform="translate(70, 50)">
+    <rect x="0" y="0" width="240" height="80" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="6"/>
+    <text x="120" y="25" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Antes do Resize (Append)</text>
+    <text x="20" y="50" fill="#f8fafc" font-size="11">length = 4 (Ocupados)</text>
+    <text x="20" y="68" fill="#f87171" font-size="11">capacity = 4 (Buffer Cheio)</text>
+
+    <path d="M 260 40 L 300 40" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <rect x="320" y="0" width="260" height="80" fill="#1e293b" stroke="#10b981" stroke-width="1.5" rx="6"/>
+    <text x="450" y="25" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Após Resize 2x em Bloco Novo</text>
+    <text x="340" y="50" fill="#f8fafc" font-size="11">length = 5 (Novo item inserido)</text>
+    <text x="340" y="68" fill="#34d399" font-size="11">capacity = 8 (4 slots livres reservados)</text>
+  </g>
+  <text x="340" y="165" fill="#94a3b8" font-size="11" text-anchor="middle">Buffer antigo é coletado pelo GC após cópia em bloco (memmove / memcpy)</text>
+
+</svg>
 
 | Estado do Vetor | Dimensões (Len / Cap) | Ação de Alocação |
 |---|---|---|

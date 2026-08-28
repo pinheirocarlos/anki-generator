@@ -23,11 +23,19 @@ Como a **Monotonic Stack Crescente** resolve o clássico hard **Largest Rectangl
 - **Complexidade**: $O(N)$ tempo e $O(N)$ espaço.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/monotonic-stack-nge-loop.webm">
-    <p>Visualização: Cada elemento entra e sai da pilha no máximo uma vez, identificando o primeiro maior à direita em O(N).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Next Greater Element (NGE) com Armazenamento de Índices em O(N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Resolução com Pilha Monotônica de Índices</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Itera sobre o array; enquanto arr[i] &gt; arr[stack.top()]: ans[stack.pop()] = arr[i].</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Ao final, elementos restantes na pilha recebem -1 (não possuem NGE).</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Cada elemento é empilhado e desempilhado exatamente uma vez: Tempo estrito O(N)</text>
+
+</svg>
 
 | Elemento Desempilhado | Limites (Esq / Dir) | Cálculo de Largura |
 |---|---|---|

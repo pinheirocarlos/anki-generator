@@ -21,11 +21,29 @@ O que são **números Subnormais (Denormais)**, `NaN` e `Infinito` no padrão IE
 - **Penalidade de Performance**: Muitas CPUs não processam subnormais no pipeline veloz da FPU e disparam microcode traps, causando lentidão de **10x a 100x** em loops intensivos.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/ieee-754-subnormal-nan-infinity-loop.webm">
-    <p>Visualização: Expoente com todos os bits 1 (NaN / Infinito) e expoente 0 com mantissa não-nula (Subnormais).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Valores Especiais IEEE 754: NaN, Infinito e Subnormais</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="175" height="75" rx="5" fill="#1e293b" stroke="#f43f5e"/>
+    <text x="87" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">NaN (Not a Number)</text>
+    <text x="87" y="42" fill="#f8fafc" font-size="10" font-family="monospace" text-anchor="middle">0/0, sqrt(-1)</text>
+    <text x="87" y="60" fill="#fecaca" font-size="9" text-anchor="middle">NaN ≠ NaN (sempre falso)</text>
+
+    <rect x="190" y="0" width="180" height="75" rx="5" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="280" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Infinito (±Inf)</text>
+    <text x="280" y="42" fill="#f8fafc" font-size="10" font-family="monospace" text-anchor="middle">1.0 / 0.0 → +Inf</text>
+    <text x="280" y="60" fill="#fef3c7" font-size="9" text-anchor="middle">Exp = Todos 1, Mant = 0</text>
+
+    <rect x="385" y="0" width="175" height="75" rx="5" fill="#1e293b" stroke="#3b82f6"/>
+    <text x="472" y="22" fill="#60a5fa" font-size="11" font-weight="bold" text-anchor="middle">Subnormais (Denormais)</text>
+    <text x="472" y="42" fill="#f8fafc" font-size="10" font-family="monospace" text-anchor="middle">Exp = 0, Mant ≠ 0</text>
+    <text x="472" y="60" fill="#bfdbfe" font-size="9" text-anchor="middle">Penalidade grave de FPU</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Números subnormais podem tornar cálculos de FPU até 100x mais lentos se não tratados via flags FTZ/DAZ.</text>
+
+</svg>
 
 | Estado Especial | Padrão dos Bits | Comportamento em Execução |
 |---|---|---|

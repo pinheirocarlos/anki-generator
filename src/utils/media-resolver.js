@@ -2,9 +2,39 @@ import fs from 'fs';
 import path from 'path';
 
 /**
+ * Mandatory mobile playback flags for looping micro-videos across Anki Desktop and mobile WebViews.
+ */
+export const MANDATORY_MOBILE_VIDEO_FLAGS = [
+  'autoplay',
+  'loop',
+  'muted',
+  'playsinline',
+  'webkit-playsinline',
+  'disableRemotePlayback'
+];
+
+/**
+ * Normalizes video tag attributes to preserve all existing attributes
+ * while ensuring mandatory mobile flags are present and clean.
+ *
+ * @param {string} videoTagAttrs - Attributes string inside <video ...>
+ * @returns {string} - Clean normalized attributes string
+ */
+export function normalizeVideoAttributes(videoTagAttrs) {
+  let attrs = (videoTagAttrs || '').trim();
+  for (const flag of MANDATORY_MOBILE_VIDEO_FLAGS) {
+    const flagRegex = new RegExp(`(?:^|\\s)${flag}(?:\\s|=|$)`, 'i');
+    if (!flagRegex.test(attrs)) {
+      attrs = `${flag} ${attrs}`.trim();
+    }
+  }
+  return attrs;
+}
+
+/**
  * Crawls and extracts media references from card markdown content,
- * reads binary buffers for Anki export, and rewrites markdown image links
- * to flat Anki media references.
+ * reads binary buffers for Anki export, rewrites markdown/HTML media links
+ * to flat Anki media references, and preserves container and attribute integrity.
  *
  * @param {string} cardFilePath - Absolute or relative path to the markdown card file
  * @param {string} rawMarkdown - Card markdown content
@@ -71,6 +101,11 @@ export function resolveMedia(cardFilePath, rawMarkdown) {
           data: fs.readFileSync(fullAssetPath),
           sourcePath: fullAssetPath
         });
+      }
+      if (tag.toLowerCase() === 'video') {
+        const combinedAttrs = `${before}src="${filename}"${after}`;
+        const normalized = normalizeVideoAttributes(combinedAttrs);
+        return `<video ${normalized}>`;
       }
       return `<${tag} ${before}src="${filename}"${after}>`;
     }

@@ -1,9 +1,15 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { validateCard, validateManifest } from '../src/utils/validator.js';
-import { getMarkdownFiles } from '../src/generator.js';
-import { resolveMedia } from '../src/utils/media-resolver.js';
+import {
+  validateCard,
+  validateManifest,
+  validateMediaCurationRegistry,
+  isPlaceholderDomain,
+  PLACEHOLDER_DOMAINS
+} from '../src/utils/validator.js';
+import { getMarkdownFiles, cardCss, MANDATORY_VIDEO_ATTRIBUTES, ensureVideoAttributesAndContainers } from '../src/generator.js';
+import { resolveMedia, MANDATORY_MOBILE_VIDEO_FLAGS, normalizeVideoAttributes } from '../src/utils/media-resolver.js';
 import {
   auditCard,
   auditAllCards,
@@ -18,12 +24,22 @@ import {
   getAllPrioritySubtopics,
   SVG_GENERATORS
 } from '../src/utils/media-catalog.js';
+import {
+  parseArgs,
+  isValidContentType,
+  createReport,
+  validateReport,
+  writeReport,
+  checkLink,
+  DEFAULT_CONFIG
+} from '../src/utils/link-checker.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.join(__dirname, '..');
 const DECKS_DIR = path.join(ROOT_DIR, 'decks');
 const MANIFEST_PATH = path.join(ROOT_DIR, 'syllabus_manifest.json');
+const REGISTRY_PATH = path.join(ROOT_DIR, 'media-curation-registry.json');
 
 function testMediaCatalog() {
   console.log('🧪 Running Unit Tests for Priority Media Catalog (src/utils/media-catalog.js)...\n');
@@ -73,21 +89,22 @@ function testMediaCatalog() {
     }
   }
 
-  // Test 4: Verify DSA algorithmic cards contain valid micro-videos in loop
+  // Test 4: Verify DSA algorithmic cards contain valid micro-videos in loop and/or responsive SVGs
   const dsaFiles = getMarkdownFiles(path.join(DECKS_DIR, '01-dsa'));
-  let videoCardsCount = 0;
+  let dsaMediaCardsCount = 0;
   for (const file of dsaFiles) {
     const content = fs.readFileSync(file, 'utf8');
-    if (content.includes('<video ') && content.includes('autoplay') && content.includes('loop')) {
-      videoCardsCount++;
+    if ((content.includes('<video ') && content.includes('autoplay') && content.includes('loop')) ||
+        (content.includes('<svg ') && content.includes('viewBox'))) {
+      dsaMediaCardsCount++;
     }
   }
 
-  if (videoCardsCount < 150) {
-    console.error(`❌ Expected at least 150 DSA cards with micro-video loops, found ${videoCardsCount}`);
+  if (dsaMediaCardsCount < 180) {
+    console.error(`❌ Expected at least 180 DSA cards with multimedia, found ${dsaMediaCardsCount}`);
     unitFailures++;
   } else {
-    console.log(`✅ PASS: Verified ${videoCardsCount} DSA cards containing looping micro-videos (<video autoplay loop muted>).`);
+    console.log(`✅ PASS: Verified ${dsaMediaCardsCount} DSA cards containing looping micro-videos / SVGs.`);
   }
 
   // Test 5: Verify CS Fundamentals cards contain valid micro-videos in loop and/or responsive SVGs
@@ -419,6 +436,47 @@ Como funciona a busca binária?
     console.log('✅ PASS: validateCard correctly caught and rejected insecure HTTP media URL.');
   }
 
+  // 2b. Unit Test: validator rejects placeholder domains
+  const placeholderDomains = [
+    'assets.faang-anki.dev',
+    'example.com',
+    'example.org',
+    'localhost',
+    'placeholder.com'
+  ];
+
+  for (const domain of placeholderDomains) {
+    const placeholderCard = `---
+id: TEST-UNIT-PH-${domain.replace(/[^a-zA-Z0-9]/g, '').slice(0, 8).toUpperCase()}-001
+title: "Card with Placeholder Domain ${domain}"
+tags:
+  - level::l3-junior
+  - topic::dsa::trees-bst
+  - freq::high
+---
+
+## Pergunta
+Como funciona a busca?
+
+## Resposta
+### Quick Answer
+**Solução Direta**: O(log N).
+
+### Dual Coding Visual
+<video src="https://${domain}/media/dsa/test.webm" autoplay loop muted playsinline></video>
+`;
+    const resPh = validateCard('/virtual/card.md', placeholderCard);
+    if (resPh.valid) {
+      console.error(`❌ Expected card with placeholder domain "${domain}" to fail validation, but passed.`);
+      unitFailures++;
+    } else if (!resPh.errors.some(e => e.includes('placeholder domain') || e.includes('Prohibited placeholder'))) {
+      console.error(`❌ Placeholder card for "${domain}" failed but did not trigger placeholder error:`, resPh.errors);
+      unitFailures++;
+    } else {
+      console.log(`✅ PASS: validateCard correctly caught and rejected placeholder domain "${domain}".`);
+    }
+  }
+
   // 3. Unit Test: validator rejects missing local assets
   const missingAssetCard = `---
 id: TEST-UNIT-MISSING-001
@@ -615,7 +673,591 @@ Como uma rotação simples à direita funciona em árvores AVL?
   return unitFailures;
 }
 
-function runTests() {
+async function testLinkCheckerAndReportSchema() {
+  console.log('🧪 Running Unit Tests for Link Checker & JSON Report Schema (src/utils/link-checker.js)...\n');
+  let unitFailures = 0;
+
+  // 1. Test CLI Argument Parser
+  const parsedDefault = parseArgs([]);
+  if (parsedDefault.concurrency !== 8 || parsedDefault.timeout !== 5000 || parsedDefault.retries !== 2 || parsedDefault.report !== 'link-health-report.json') {
+    console.error('❌ parseArgs default values mismatch:', parsedDefault);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: parseArgs correctly initialized default parameters.');
+  }
+
+  const customArgs = ['--concurrency', '4', '--timeout', '3000', '--retries', '1', '--deck', 'decks/01-dsa', '--report', 'custom-report.json'];
+  const parsedCustom = parseArgs(customArgs);
+  if (parsedCustom.concurrency !== 4 || parsedCustom.timeout !== 3000 || parsedCustom.retries !== 1 || parsedCustom.deck !== 'decks/01-dsa' || parsedCustom.report !== 'custom-report.json') {
+    console.error('❌ parseArgs custom parameters mismatch:', parsedCustom);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: parseArgs correctly parsed custom CLI flags.');
+  }
+
+  // 2. Test Content-Type validator
+  if (!isValidContentType('video/mp4') || !isValidContentType('video/webm') || !isValidContentType('image/svg+xml')) {
+    console.error('❌ isValidContentType rejected valid media MIME types');
+    unitFailures++;
+  } else if (isValidContentType('text/html') || isValidContentType('application/json')) {
+    console.error('❌ isValidContentType accepted invalid media MIME types (text/html, application/json)');
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: isValidContentType correctly validated media MIME prefixes.');
+  }
+
+  // 3. Test Report Builder & Schema Validator
+  const sampleResults = [
+    {
+      card_id: 'DSA-STRUCT-ARRAY-000',
+      file_path: 'decks/01-dsa/data-structures/arrays-strings/DSA-STRUCT-ARRAY-000.md',
+      url: 'https://example.org/animation.webm',
+      http_status: 200,
+      content_type: 'video/webm',
+      latency_ms: 120.5,
+      passed: true
+    },
+    {
+      card_id: 'CS-OS-VMEM-001',
+      file_path: 'decks/02-cs-fundamentals/os-memory/virtual-memory/CS-OS-VMEM-001.md',
+      url: 'https://example.org/missing.mp4',
+      http_status: 404,
+      latency_ms: 85.2,
+      passed: false,
+      error_message: 'HTTP 404: Not Found'
+    }
+  ];
+
+  const report = createReport(sampleResults, 2, 350.75);
+  const reportValidation = validateReport(report);
+  if (!reportValidation.valid) {
+    console.error('❌ Generated report failed schema validation:', reportValidation.errors);
+    unitFailures++;
+  } else if (report.total_audited !== 2 || report.passed_count !== 1 || report.failed_count !== 1) {
+    console.error('❌ Report aggregates mismatch:', report);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: createReport generated valid schema-conforming LinkHealthReport structure.');
+  }
+
+  // 4. Test Report Schema Validator catches invalid report properties
+  const invalidReport = {
+    timestamp: 'not-a-date',
+    total_audited: -1,
+    passed_count: 0,
+    failed_count: 0,
+    duration_ms: 100,
+    results: [
+      {
+        card_id: 'INVALID_ID',
+        file_path: 123,
+        url: 'ftp://invalid',
+        http_status: '200',
+        passed: 'yes',
+        latency_ms: -5,
+        unexpected_key: true
+      }
+    ],
+    extra_field: 'disallowed'
+  };
+  const invalidValidation = validateReport(invalidReport);
+  if (invalidValidation.valid) {
+    console.error('❌ validateReport failed to reject invalid report structure!');
+    unitFailures++;
+  } else if (invalidValidation.errors.length < 5) {
+    console.error('❌ validateReport did not catch all schema violations:', invalidValidation.errors);
+    unitFailures++;
+  } else {
+    console.log(`✅ PASS: validateReport correctly caught ${invalidValidation.errors.length} schema violations in malformed report.`);
+  }
+
+  // 5. Test checkLink with custom mockFetch
+  const customFetch = async (url, opts) => {
+    if (url.includes('notfound')) {
+      return { status: 404, statusText: 'Not Found', headers: { get: () => 'text/html' } };
+    }
+    return { status: 200, statusText: 'OK', headers: { get: (h) => h === 'content-type' ? 'video/mp4' : null } };
+  };
+
+  const itemSuccess = {
+    card_id: 'DSA-STRUCT-TREE-001',
+    file_path: 'decks/01-dsa/data-structures/trees-bst/DSA-STRUCT-TREE-001.md',
+    url: 'https://example.org/tree.mp4'
+  };
+  const resSuccess = await checkLink(itemSuccess, { timeout: 1000, retries: 0 }, customFetch);
+  if (!resSuccess.passed || resSuccess.http_status !== 200 || resSuccess.content_type !== 'video/mp4') {
+    console.error('❌ checkLink expected pass on HTTP 200, got:', resSuccess);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: checkLink correctly handled successful HTTP 200 media response.');
+  }
+
+  const itemFail = {
+    card_id: 'DSA-STRUCT-TREE-002',
+    file_path: 'decks/01-dsa/data-structures/trees-bst/DSA-STRUCT-TREE-002.md',
+    url: 'https://example.org/notfound.mp4'
+  };
+  const resFail = await checkLink(itemFail, { timeout: 1000, retries: 0 }, customFetch);
+  if (resFail.passed || resFail.http_status !== 404 || !resFail.error_message) {
+    console.error('❌ checkLink expected failure on HTTP 404, got:', resFail);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: checkLink correctly handled HTTP 404 error response.');
+  }
+
+  console.log('');
+  return unitFailures;
+}
+
+function testUserStory1VideoStylesAndMobileFlags() {
+  console.log('🧪 Running Unit Tests for US1: Resilient CSS & Mobile Video Playback Flags...\n');
+  let unitFailures = 0;
+
+  // 1. Verify CSS rules for transparent video and container styling
+  if (!cardCss.includes('background-color: transparent')) {
+    console.error('❌ cardCss does not specify transparent background-color for video or media containers!');
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: cardCss includes background-color: transparent for video/containers.');
+  }
+
+  // Ensure no hardcoded black background for video elements
+  const blackBgMatch = cardCss.match(/video\s*\{[^}]*background(-color)?:\s*#000/i);
+  if (blackBgMatch) {
+    console.error('❌ cardCss contains hardcoded black background for video elements:', blackBgMatch[0]);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: cardCss does not contain #000 background for video tags.');
+  }
+
+  // Verify responsive video and container styles
+  if (!cardCss.includes('.video-wrapper') || !cardCss.includes('.media-container')) {
+    console.error('❌ cardCss missing .video-wrapper or .media-container classes!');
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: cardCss defines .video-wrapper and .media-container classes.');
+  }
+
+  // 2. Verify mandatory mobile video flags definition
+  const requiredFlags = [
+    'autoplay',
+    'loop',
+    'muted',
+    'playsinline',
+    'webkit-playsinline',
+    'disableRemotePlayback'
+  ];
+
+  for (const flag of requiredFlags) {
+    if (!MANDATORY_VIDEO_ATTRIBUTES.includes(flag)) {
+      console.error(`❌ MANDATORY_VIDEO_ATTRIBUTES is missing required flag: "${flag}"`);
+      unitFailures++;
+    }
+    if (!MANDATORY_MOBILE_VIDEO_FLAGS.includes(flag)) {
+      console.error(`❌ MANDATORY_MOBILE_VIDEO_FLAGS is missing required flag: "${flag}"`);
+      unitFailures++;
+    }
+  }
+  console.log(`✅ PASS: All 6 mandatory mobile flags verified in constants (${requiredFlags.join(', ')}).`);
+
+  // 3. Test ensureVideoAttributesAndContainers attribute injection and wrapper logic
+  const rawSampleVideoHtml = '<video src="https://example.org/dsa/tree.mp4"><p>Visualização: Árvore Binária</p></video>';
+  const processedHtml = ensureVideoAttributesAndContainers(rawSampleVideoHtml);
+
+  for (const flag of requiredFlags) {
+    if (!processedHtml.includes(flag)) {
+      console.error(`❌ ensureVideoAttributesAndContainers failed to inject flag "${flag}"! Output:`, processedHtml);
+      unitFailures++;
+    }
+  }
+
+  if (!processedHtml.includes('<div class="video-wrapper">') || !processedHtml.includes('</div>')) {
+    console.error('❌ ensureVideoAttributesAndContainers failed to wrap video in .video-wrapper!', processedHtml);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: ensureVideoAttributesAndContainers successfully injected mobile flags and container wrapper.');
+  }
+
+  // 4. Test idempotence (no duplicate wrappers or duplicate attributes)
+  const alreadyWrappedHtml = '<div class="media-container"><video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://example.org/dsa/tree.mp4"></video></div>';
+  const idempotentProcessed = ensureVideoAttributesAndContainers(alreadyWrappedHtml);
+  const wrapperCount = (idempotentProcessed.match(/class=["'](?:video-wrapper|media-container)["']/g) || []).length;
+  const autoplayCount = (idempotentProcessed.match(/autoplay/g) || []).length;
+
+  if (wrapperCount !== 1) {
+    console.error(`❌ Expected 1 container wrapper, got ${wrapperCount}:`, idempotentProcessed);
+    unitFailures++;
+  } else if (autoplayCount !== 1) {
+    console.error(`❌ Expected 1 autoplay attribute, got ${autoplayCount}:`, idempotentProcessed);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: ensureVideoAttributesAndContainers is idempotent and does not duplicate wrappers or attributes.');
+  }
+
+  // 5. Test normalizeVideoAttributes from media-resolver.js
+  const partialAttrs = 'controls src="assets/tree.mp4"';
+  const normalized = normalizeVideoAttributes(partialAttrs);
+  for (const flag of requiredFlags) {
+    if (!normalized.includes(flag)) {
+      console.error(`❌ normalizeVideoAttributes failed to include flag "${flag}" in:`, normalized);
+      unitFailures++;
+    }
+  }
+  if (!normalized.includes('controls') || !normalized.includes('src="assets/tree.mp4"')) {
+    console.error('❌ normalizeVideoAttributes lost existing attributes:', normalized);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: normalizeVideoAttributes preserved existing attributes and added all mobile flags.');
+  }
+
+  console.log('');
+  return unitFailures;
+}
+
+function testUserStory2RegistrySchemaAndPlaceholderGuardrails() {
+  console.log('🧪 Running Unit Tests for US2: Media Curation Registry Schema & 0 Placeholder Domains...\n');
+  let unitFailures = 0;
+
+  // 1. Verify media-curation-registry.json exists on disk and is valid
+  if (!fs.existsSync(REGISTRY_PATH)) {
+    console.error('❌ media-curation-registry.json not found on disk at:', REGISTRY_PATH);
+    unitFailures++;
+    return unitFailures;
+  }
+
+  let diskRegistry;
+  try {
+    diskRegistry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'));
+  } catch (err) {
+    console.error('❌ Failed to parse media-curation-registry.json as JSON:', err.message);
+    unitFailures++;
+    return unitFailures;
+  }
+
+  const diskValidation = validateMediaCurationRegistry(diskRegistry);
+  if (!diskValidation.valid) {
+    console.error('❌ media-curation-registry.json failed schema validation:');
+    diskValidation.errors.forEach(e => console.error(`   - ${e}`));
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: media-curation-registry.json passes schema validation.');
+  }
+
+  // 2. Assert 0 occurrences of placeholder domains in disk registry
+  let registryPlaceholderViolations = 0;
+  if (diskRegistry.cards && typeof diskRegistry.cards === 'object') {
+    for (const [cardId, entry] of Object.entries(diskRegistry.cards)) {
+      if (entry && entry.url && isPlaceholderDomain(entry.url)) {
+        console.error(`❌ Card "${cardId}" in media-curation-registry.json contains placeholder domain: ${entry.url}`);
+        registryPlaceholderViolations++;
+      }
+    }
+  }
+
+  if (registryPlaceholderViolations > 0) {
+    console.error(`❌ Found ${registryPlaceholderViolations} placeholder domain occurrence(s) in media-curation-registry.json!`);
+    unitFailures += registryPlaceholderViolations;
+  } else {
+    console.log('✅ PASS: media-curation-registry.json contains 0 occurrences of placeholder domains.');
+  }
+
+  // 3. Positive Test: Valid mock registry with entries across all tiers
+  const validMockRegistry = {
+    version: '1.0.0',
+    last_updated: '2026-08-24T00:00:00.000Z',
+    stats: {
+      total_cards: 4,
+      p1_video_count: 1,
+      p2_svg_count: 1,
+      p2_table_count: 1
+    },
+    cards: {
+      'DSA-STRUCT-ARRAY-000': {
+        card_id: 'DSA-STRUCT-ARRAY-000',
+        subtopic_id: 'arrays-dynamic',
+        concept: 'Contiguous Memory Array Indexing',
+        tier: 'P1_MICRO_VIDEO',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/dsa/array.webm',
+        media_type: 'video/webm',
+        attribution: 'Wikimedia Commons / Open Data Structures',
+        license: 'CC-BY-4.0',
+        caption: 'Visualização: Indexação O(1) em memória contígua.',
+        status: 'verified',
+        last_verified: '2026-08-24T12:00:00.000Z'
+      },
+      'CS-ARCH-CACHE-000': {
+        card_id: 'CS-ARCH-CACHE-000',
+        subtopic_id: 'caching-patterns',
+        concept: 'Cache-Aside Pattern Topology',
+        tier: 'P2_RESPONSIVE_SVG',
+        media_type: 'inline_svg',
+        attribution: 'FAANG Anki Engineering Team',
+        license: 'MIT',
+        caption: 'Visualização: Fluxo Cache-Aside com Fallback para Banco.',
+        status: 'verified'
+      },
+      'SYS-DIST-CONSENSUS-000': {
+        card_id: 'SYS-DIST-CONSENSUS-000',
+        subtopic_id: 'consensus-replication',
+        concept: 'Paxos vs Raft Leader Election Comparison',
+        tier: 'P2_TABLE_FALLBACK',
+        media_type: 'markdown_table',
+        attribution: 'Ongaro & Ousterhout / Raft Paper',
+        license: 'Public Domain',
+        caption: 'Comparação: Propriedades de eleição e termos de liderança no Raft vs Paxos.',
+        status: 'verified'
+      },
+      'DSA-STRUCT-TREE-001': {
+        card_id: 'DSA-STRUCT-TREE-001',
+        subtopic_id: 'trees-bst',
+        concept: 'AVL Single Right Rotation',
+        tier: 'LOCAL_ASSET',
+        media_type: 'image/svg+xml',
+        attribution: 'FAANG Anki Engineering Team',
+        license: 'MIT',
+        caption: 'Visualização: Rotação simples à direita restaurando balanceamento AVL.',
+        status: 'verified'
+      }
+    }
+  };
+
+  const validMockRes = validateMediaCurationRegistry(validMockRegistry);
+  if (!validMockRes.valid) {
+    console.error('❌ Expected valid mock registry to pass validation, but failed:', validMockRes.errors);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: Valid mock registry with all tiers passed schema validation.');
+  }
+
+  // 4. Negative Test: Schema violations
+  const negativeCases = [
+    {
+      name: 'Null or non-object registry',
+      data: null,
+      expectedErr: 'valid non-null JSON object'
+    },
+    {
+      name: 'Disallowed top-level property',
+      data: { ...validMockRegistry, extra_root_field: 'disallowed' },
+      expectedErr: 'disallowed top-level property'
+    },
+    {
+      name: 'Invalid version format',
+      data: { ...validMockRegistry, version: 'v1.0' },
+      expectedErr: 'invalid "version"'
+    },
+    {
+      name: 'Invalid last_updated timestamp',
+      data: { ...validMockRegistry, last_updated: 'not-a-timestamp' },
+      expectedErr: 'invalid "last_updated"'
+    },
+    {
+      name: 'Negative stats count',
+      data: { ...validMockRegistry, stats: { ...validMockRegistry.stats, total_cards: -5 } },
+      expectedErr: 'non-negative integer'
+    },
+    {
+      name: 'Disallowed stats property',
+      data: { ...validMockRegistry, stats: { ...validMockRegistry.stats, extra_stat: 10 } },
+      expectedErr: 'disallowed property'
+    },
+    {
+      name: 'Invalid card key format',
+      data: {
+        ...validMockRegistry,
+        cards: {
+          'invalid-key-format': {
+            ...validMockRegistry.cards['DSA-STRUCT-ARRAY-000'],
+            card_id: 'invalid-key-format'
+          }
+        }
+      },
+      expectedErr: 'Disallowed card key format'
+    },
+    {
+      name: 'Mismatch between card key and entry.card_id',
+      data: {
+        ...validMockRegistry,
+        cards: {
+          'DSA-STRUCT-ARRAY-000': {
+            ...validMockRegistry.cards['DSA-STRUCT-ARRAY-000'],
+            card_id: 'DSA-STRUCT-ARRAY-001'
+          }
+        }
+      },
+      expectedErr: 'does not match entry.card_id'
+    },
+    {
+      name: 'Invalid tier enum value',
+      data: {
+        ...validMockRegistry,
+        cards: {
+          'DSA-STRUCT-ARRAY-000': {
+            ...validMockRegistry.cards['DSA-STRUCT-ARRAY-000'],
+            tier: 'P3_UNKNOWN_TIER'
+          }
+        }
+      },
+      expectedErr: 'invalid "tier"'
+    },
+    {
+      name: 'Invalid media_type enum value',
+      data: {
+        ...validMockRegistry,
+        cards: {
+          'DSA-STRUCT-ARRAY-000': {
+            ...validMockRegistry.cards['DSA-STRUCT-ARRAY-000'],
+            media_type: 'application/pdf'
+          }
+        }
+      },
+      expectedErr: 'invalid "media_type"'
+    },
+    {
+      name: 'Invalid status enum value',
+      data: {
+        ...validMockRegistry,
+        cards: {
+          'DSA-STRUCT-ARRAY-000': {
+            ...validMockRegistry.cards['DSA-STRUCT-ARRAY-000'],
+            status: 'draft'
+          }
+        }
+      },
+      expectedErr: 'invalid "status"'
+    },
+    {
+      name: 'P1_MICRO_VIDEO missing url',
+      data: {
+        ...validMockRegistry,
+        cards: {
+          'DSA-STRUCT-ARRAY-000': {
+            ...validMockRegistry.cards['DSA-STRUCT-ARRAY-000'],
+            url: undefined
+          }
+        }
+      },
+      expectedErr: 'requires a valid "url"'
+    },
+    {
+      name: 'Insecure HTTP URL',
+      data: {
+        ...validMockRegistry,
+        cards: {
+          'DSA-STRUCT-ARRAY-000': {
+            ...validMockRegistry.cards['DSA-STRUCT-ARRAY-000'],
+            url: 'http://upload.wikimedia.org/video.mp4'
+          }
+        }
+      },
+      expectedErr: 'invalid "url" format'
+    },
+    {
+      name: 'Placeholder domain in registry URL',
+      data: {
+        ...validMockRegistry,
+        cards: {
+          'DSA-STRUCT-ARRAY-000': {
+            ...validMockRegistry.cards['DSA-STRUCT-ARRAY-000'],
+            url: 'https://assets.faang-anki.dev/media/dsa/array.webm'
+          }
+        }
+      },
+      expectedErr: 'prohibited placeholder domain'
+    },
+    {
+      name: 'Disallowed entry property (additionalProperties: false)',
+      data: {
+        ...validMockRegistry,
+        cards: {
+          'DSA-STRUCT-ARRAY-000': {
+            ...validMockRegistry.cards['DSA-STRUCT-ARRAY-000'],
+            extra_disallowed_field: true
+          }
+        }
+      },
+      expectedErr: 'contains disallowed property'
+    }
+  ];
+
+  for (const testCase of negativeCases) {
+    const res = validateMediaCurationRegistry(testCase.data);
+    if (res.valid) {
+      console.error(`❌ Expected "${testCase.name}" to fail validation, but it passed.`);
+      unitFailures++;
+    } else if (!res.errors.some(e => e.includes(testCase.expectedErr))) {
+      console.error(`❌ "${testCase.name}" failed but did not contain expected error "${testCase.expectedErr}":`, res.errors);
+      unitFailures++;
+    } else {
+      console.log(`✅ PASS: Correctly rejected "${testCase.name}".`);
+    }
+  }
+
+  // 5. Unit Tests for isPlaceholderDomain across known and edge cases
+  const placeholderTestCases = [
+    { input: 'assets.faang-anki.dev', expected: true },
+    { input: 'https://assets.faang-anki.dev/media/dsa/video.mp4', expected: true },
+    { input: 'example.com', expected: true },
+    { input: 'https://example.com/test.webm', expected: true },
+    { input: 'subdomain.example.com', expected: true },
+    { input: 'example.org', expected: true },
+    { input: 'https://example.org/sample.svg', expected: true },
+    { input: 'localhost', expected: true },
+    { input: 'http://localhost:3000/video.mp4', expected: true },
+    { input: 'placeholder.com', expected: true },
+    { input: 'https://sub.placeholder.com/img.png', expected: true },
+    { input: 'https://upload.wikimedia.org/wikipedia/commons/test.webm', expected: false },
+    { input: 'https://raw.githubusercontent.com/org/repo/main/asset.svg', expected: false },
+    { input: 'https://developer.mozilla.org/en-US/docs/Web/HTTP', expected: false },
+    { input: '', expected: false },
+    { input: null, expected: false }
+  ];
+
+  for (const tc of placeholderTestCases) {
+    const actual = isPlaceholderDomain(tc.input);
+    if (actual !== tc.expected) {
+      console.error(`❌ isPlaceholderDomain("${tc.input}") returned ${actual}, expected ${tc.expected}`);
+      unitFailures++;
+    }
+  }
+  console.log(`✅ PASS: isPlaceholderDomain correctly evaluated all ${placeholderTestCases.length} test domain variations.`);
+
+  // 6. Test validateCard strictly catches placeholder domain in markdown
+  const placeholderCardMarkdown = `---
+id: TEST-UNIT-PH-001
+title: "Card with Prohibited Placeholder Domain"
+tags:
+  - level::l3-junior
+  - topic::dsa::arrays
+  - freq::high
+---
+
+## Pergunta
+Como funciona a busca binária?
+
+## Resposta
+### Quick Answer
+**Solução Direta**: O(log N).
+
+### Dual Coding Visual
+<video src="https://assets.faang-anki.dev/media/dsa/binary-search.webm" autoplay loop muted playsinline></video>
+`;
+  const cardValidationRes = validateCard('/virtual/card.md', placeholderCardMarkdown);
+  if (cardValidationRes.valid) {
+    console.error('❌ validateCard failed to reject card with assets.faang-anki.dev!');
+    unitFailures++;
+  } else if (!cardValidationRes.errors.some(e => e.includes('placeholder domain') || e.includes('assets.faang-anki.dev'))) {
+    console.error('❌ validateCard failed with unexpected errors:', cardValidationRes.errors);
+    unitFailures++;
+  } else {
+    console.log('✅ PASS: validateCard correctly identified and rejected placeholder domain.');
+  }
+
+  console.log('');
+  return unitFailures;
+}
+
+async function runTests() {
   console.log('🧪 Starting Automated Card & Manifest Validation...\n');
 
   let failureCount = 0;
@@ -625,6 +1267,9 @@ function runTests() {
   failureCount += testAtomicDecomposer();
   failureCount += testMediaCatalog();
   failureCount += testRemoteHttpsAndLocalAssetIntegrity();
+  failureCount += await testLinkCheckerAndReportSchema();
+  failureCount += testUserStory1VideoStylesAndMobileFlags();
+  failureCount += testUserStory2RegistrySchemaAndPlaceholderGuardrails();
 
   // 1. Validate Manifest
   if (!fs.existsSync(MANIFEST_PATH)) {
@@ -671,18 +1316,20 @@ function runTests() {
 
     const result = validateCard(file, content);
 
+    if (result.frontmatter && result.frontmatter.id) {
+      if (diskCardIds.has(result.frontmatter.id)) {
+        console.error(`❌ Duplicate card ID on disk: "${result.frontmatter.id}" in ${relPath}`);
+        failureCount++;
+      }
+      diskCardIds.add(result.frontmatter.id);
+    }
+
     if (!result.valid) {
       console.error(`\n❌ Validation FAILED for [${relPath}]:`);
       result.errors.forEach(err => console.error(`   - ${err}`));
       failureCount++;
     } else {
       console.log(`✅ [${result.frontmatter.id}] ${relPath}`);
-
-      if (diskCardIds.has(result.frontmatter.id)) {
-        console.error(`❌ Duplicate card ID on disk: "${result.frontmatter.id}" in ${relPath}`);
-        failureCount++;
-      }
-      diskCardIds.add(result.frontmatter.id);
     }
   }
 

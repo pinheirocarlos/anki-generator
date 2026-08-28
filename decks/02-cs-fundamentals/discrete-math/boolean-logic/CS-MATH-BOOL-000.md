@@ -22,11 +22,39 @@ O que são as operações **bitwise fundamentais** (AND, OR, XOR, NOT, Shifts) e
   - **Shifts (`<<`, `>>`)**: Deslocam bits para esquerda (multiplica por $2^k$) ou direita (divide por $2^k$).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/bitwise-operations-masks-truth-loop.webm">
-    <p>Visualização: Aplicações de máscaras lógicas (AND para leitura, OR para ativação, XOR para alternância) em 1 ciclo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Operadores Bitwise Fundamentais na ALU</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="125" height="85" rx="5" fill="#1e293b" stroke="#3b82f6"/>
+    <text x="62" y="22" fill="#60a5fa" font-size="12" font-weight="bold" text-anchor="middle">AND (&amp;)</text>
+    <text x="62" y="44" fill="#cbd5e1" font-size="10" font-family="monospace" text-anchor="middle">1 &amp; 1 = 1</text>
+    <text x="62" y="60" fill="#cbd5e1" font-size="10" font-family="monospace" text-anchor="middle">1 &amp; 0 = 0</text>
+    <text x="62" y="76" fill="#94a3b8" font-size="9" text-anchor="middle">Máscara / Clear</text>
+
+    <rect x="145" y="0" width="125" height="85" rx="5" fill="#1e293b" stroke="#10b981"/>
+    <text x="207" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">OR (|)</text>
+    <text x="207" y="44" fill="#cbd5e1" font-size="10" font-family="monospace" text-anchor="middle">1 | 0 = 1</text>
+    <text x="207" y="60" fill="#cbd5e1" font-size="10" font-family="monospace" text-anchor="middle">0 | 0 = 0</text>
+    <text x="207" y="76" fill="#94a3b8" font-size="9" text-anchor="middle">Set Bit (Ligar)</text>
+
+    <rect x="290" y="0" width="125" height="85" rx="5" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="352" y="22" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">XOR (^)</text>
+    <text x="352" y="44" fill="#cbd5e1" font-size="10" font-family="monospace" text-anchor="middle">1 ^ 0 = 1</text>
+    <text x="352" y="60" fill="#cbd5e1" font-size="10" font-family="monospace" text-anchor="middle">1 ^ 1 = 0</text>
+    <text x="352" y="76" fill="#94a3b8" font-size="9" text-anchor="middle">Toggle / Diff</text>
+
+    <rect x="435" y="0" width="125" height="85" rx="5" fill="#1e293b" stroke="#a855f7"/>
+    <text x="497" y="22" fill="#c084fc" font-size="12" font-weight="bold" text-anchor="middle">NOT (~) &amp; Shift</text>
+    <text x="497" y="44" fill="#cbd5e1" font-size="10" font-family="monospace" text-anchor="middle">~0 = 1, ~1 = 0</text>
+    <text x="497" y="60" fill="#cbd5e1" font-size="10" font-family="monospace" text-anchor="middle">x &lt;&lt; 1 = x * 2</text>
+    <text x="497" y="76" fill="#94a3b8" font-size="9" text-anchor="middle">x &gt;&gt; 1 = x / 2</text>
+  </g>
+  <rect x="60" y="150" width="560" height="40" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>
+  <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Execução em 1 ciclo na ALU: base de flags booleanas de alto desempenho e compressão de dados.</text>
+
+</svg>
 
 | Operação Bitwise | Exemplo de Código | Efeito Prático na Flag |
 |---|---|---|

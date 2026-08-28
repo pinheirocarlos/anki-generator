@@ -22,11 +22,33 @@ Como a escolha entre Lista de Adjacência e Matriz de Adjacência altera a compl
   - *Com Array + Matriz*: $O(V^2)$ ótimo para grafos densos onde $E \approx V^2$ (pois $(V + V^2) \log V > V^2$).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/graph-traversal-complexity-compare-loop.webm">
-    <p>Visualização: Comparativo de travessia: O(V+E) com lista de adjacência vs O(V²) obrigatório com matriz.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Compressed Sparse Row (CSR): Grafos Estáticos de Alta Performance</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Armazenamento em 2 Arrays Contíguos (Zero Ponteiros na Heap)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">values/edges[]: lista sequencial de todos os destinos de arestas na memória contígua.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">row_ptr[v]: offset de início dos vizinhos do nó v no array de arestas.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Maximiza vetorização SIMD e elimina 100% dos overheads de ponteiros em Big Graph Analytics</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Compressed Sparse Row (CSR): Grafos Estáticos de Alta Performance</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Armazenamento em 2 Arrays Contíguos (Zero Ponteiros na Heap)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">values/edges[]: lista sequencial de todos os destinos de arestas na memória contígua.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">row_ptr[v]: offset de início dos vizinhos do nó v no array de arestas.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Maximiza vetorização SIMD e elimina 100% dos overheads de ponteiros em Big Graph Analytics</text>
+
+</svg>
 
 | Algoritmo | Complexidade (Lista de Adjacência) | Complexidade (Matriz de Adjacência) |
 |---|---|---|

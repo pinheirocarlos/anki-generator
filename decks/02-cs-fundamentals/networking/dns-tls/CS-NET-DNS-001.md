@@ -23,11 +23,28 @@ Como o **Handshake do TLS 1.3** reduziu a latência de estabelecimento seguro pa
 - **0-RTT Resumption (Early Data)**: Clientes que já visitaram o site anteriormente utilizam um *Pre-Shared Key (PSK)* para enviar dados criptografados na primeira mensagem, com **zero RTT** de espera.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/tls-13-handshake-keyshare-loop.webm">
-    <p>Visualização: Handshake TLS 1.3 de 1-RTT enviando parâmetros Diffie-Hellman na primeira mensagem.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Handshake TLS 1.3 (1-RTT) vs TLS 1.2 (2-RTT)</text>
+  <g transform="translate(50, 48)">
+    <!-- TLS 1.2 -->
+    <rect x="0" y="0" width="270" height="95" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="135" y="22" fill="#f87171" font-size="12" font-weight="bold" text-anchor="middle">TLS 1.2: 2-RTT de Negociação</text>
+    <text x="135" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">RTT 1: ClientHello / ServerHello + Cert</text>
+    <text x="135" y="60" fill="#f8fafc" font-size="10" text-anchor="middle">RTT 2: Key Exchange + Finished</text>
+    <text x="135" y="78" fill="#fca5a5" font-size="10" font-weight="bold" text-anchor="middle">Total: 2 RTTs antes de enviar HTTP GET</text>
+
+    <!-- TLS 1.3 -->
+    <rect x="310" y="0" width="270" height="95" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="445" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">TLS 1.3: 1-RTT (Zero Ciphers Fracas)</text>
+    <text x="445" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">RTT 1: ClientHello + Key Share (Diffie-Hellman)</text>
+    <text x="445" y="60" fill="#f8fafc" font-size="10" text-anchor="middle">ServerHello + Finished em 1 única ida e volta</text>
+    <text x="445" y="78" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Suporte a 0-RTT PSK para conexões prévias</text>
+  </g>
+  <text x="340" y="180" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Economia de 50% na latência de conexão segura e Forward Secrecy obrigatório por padrão.</text>
+
+</svg>
 
 | Versão TLS | RTTs de Handshake | Algoritmos Criptográficos Legados (RSA Key Exch, CBC, MD5) |
 |---|---|---|

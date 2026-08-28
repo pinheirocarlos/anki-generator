@@ -20,11 +20,33 @@ Como a **Segment Tree (Árvore de Segmentos)** decompõe intervalos para respond
 - Qualquer intervalo de consulta arbitrário $[Q_L, Q_R]$ pode ser decomposto em no máximo **$O(\log N)$ nós canônicos disjuntos** da árvore, calculando a resposta em $O(\log N)$.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/segment-tree-range-query-loop.webm">
-    <p>Visualização: Decomposição do intervalo [L, R] em no máximo 2 log N nós canônicos da árvore.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Fenwick Tree (Binary Indexed Tree / BIT): Operações com i &amp; (-i)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Navegação Bitwise pelo LSB (Least Significant Bit)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Soma de prefixo: idx -= (idx &amp; -idx) descendo para a esquerda em O(log N).</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Atualização pontual: idx += (idx &amp; -idx) subindo e atualizando os responsáveis em O(log N).</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Requer apenas 1 array de tamanho N (metade da memória da Segment Tree de 4N)</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Fenwick Tree (Binary Indexed Tree / BIT): Operações com i &amp; (-i)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Navegação Bitwise pelo LSB (Least Significant Bit)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Soma de prefixo: idx -= (idx &amp; -idx) descendo para a esquerda em O(log N).</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Atualização pontual: idx += (idx &amp; -idx) subindo e atualizando os responsáveis em O(log N).</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Requer apenas 1 array de tamanho N (metade da memória da Segment Tree de 4N)</text>
+
+</svg>
 
 | Nível da Segment Tree | Intervalo Coberto | Operação Agregada |
 |---|---|---|

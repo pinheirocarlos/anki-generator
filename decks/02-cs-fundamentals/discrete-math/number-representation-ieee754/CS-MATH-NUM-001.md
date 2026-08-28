@@ -23,11 +23,19 @@ Por que a expressão `0.1 + 0.2 == 0.3` avalia como `false` em ponto flutuante I
   2. Armazenar valores monetários como **inteiros na menor unidade fracionária** (ex: R$ 10,50 armazenado como `1050` centavos).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/floating-point-inaccuracy-01-02-loop.webm">
-    <p>Visualização: Dízimas periódicas binárias (0.1 + 0.2 = 0.30000000000000004) exigindo tipos decimais em sistemas contábeis.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Inexatidão de Float Binário: Por Que 0.1 + 0.2 ≠ 0.3</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="85" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#f87171" font-size="12" font-weight="bold" text-anchor="middle">0.1 em binário é uma dízima periódica infinita: 0.0001100110011...</text>
+    <text x="280" y="44" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">0.1 + 0.2 = 0.300000000000000044408920985006...</text>
+    <text x="280" y="70" fill="#fef3c7" font-size="11" font-weight="bold" text-anchor="middle">Regra para Finanças &amp; Bancos: NUNCA use float/double para valores monetários!</text>
+  </g>
+  <text x="340" y="165" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Solução: Inteiros representando centavos (int64) ou tipos decimais exatos (BigDecimal / shopspring/decimal).</text>
+
+</svg>
 
 | Abordagem de Cálculo | Representação Interna | Risco de Arredondamento Financeiro |
 |---|---|---|

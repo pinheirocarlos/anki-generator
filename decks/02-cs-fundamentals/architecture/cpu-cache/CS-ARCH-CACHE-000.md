@@ -21,11 +21,33 @@ O que é a **hierarquia de memória da CPU (L1/L2/L3)** e por que ela existe na 
   - **L3 (Shared/LLC)**: ~16-64 MB compartilhado entre todos os núcleos, latência de ~10-15 ns (40-60 ciclos).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-cache-false-sharing-mesi-loop.webm">
-    <p>Visualização: Invalidação de linha de cache compartilhada entre cores distintos durante escritas simultâneas em variáveis vizinhas.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Hierarquia de Caches da CPU: Escala de Capacidade vs Latência</text>
+  <g transform="translate(140, 45)">
+    <!-- Registers -->
+    <rect x="110" y="0" width="180" height="24" rx="4" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="200" y="16" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Registradores (~1 KB) | ~0.3 ns (1 ciclo)</text>
+    
+    <!-- L1 Cache -->
+    <rect x="80" y="32" width="240" height="26" rx="4" fill="#0369a1" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="200" y="49" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">L1 Cache (~64 KB) | ~1 ns (4 ciclos)</text>
+    
+    <!-- L2 Cache -->
+    <rect x="50" y="66" width="300" height="28" rx="4" fill="#075985" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="200" y="84" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">L2 Cache (~1 MB) | ~3-4 ns (12 ciclos)</text>
+    
+    <!-- L3 Cache -->
+    <rect x="20" y="102" width="360" height="30" rx="4" fill="#0c4a6e" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="200" y="121" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">L3 Cache Compartilhado (~32 MB) | ~10-15 ns (40 ciclos)</text>
+    
+    <!-- Main Memory RAM -->
+    <rect x="0" y="140" width="400" height="30" rx="4" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="200" y="159" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Memória RAM Principal (~32-128 GB) | ~60-80 ns (~200 ciclos)</text>
+  </g>
+
+</svg>
 
 | Nível de Memória | Tamanho Típico | Latência de Acesso |
 |---|---|---|

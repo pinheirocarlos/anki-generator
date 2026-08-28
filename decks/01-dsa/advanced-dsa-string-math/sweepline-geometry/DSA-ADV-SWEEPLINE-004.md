@@ -21,11 +21,33 @@ Como o algoritmo de Divisão e Conquista geométrico encontra o **Par de Pontos 
 - **Complexidade**: $T(N) = 2T(N/2) + O(N) = O(N \log N)$.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/rectangle-area-union-segment-tree-loop.webm">
-    <p>Visualização: Sweep line no eixo X combinada com Segment Tree no eixo Y mantendo o comprimento total ativo coberto.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Closest Pair of Points: Divisão e Conquista / Sweep-Line em O(N log N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Faixa Central de Largura 2d</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Calcula menor distância d nas metades esquerda e direita.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Na faixa central [-d, +d], cada ponto precisa ser comparado com no máximo 7 vizinhos ordenados por Y.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Elimina o custo quadrático O(N²) de comparação todos-contra-todos</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Closest Pair of Points: Divisão e Conquista / Sweep-Line em O(N log N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Faixa Central de Largura 2d</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Calcula menor distância d nas metades esquerda e direita.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Na faixa central [-d, +d], cada ponto precisa ser comparado com no máximo 7 vizinhos ordenados por Y.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Elimina o custo quadrático O(N²) de comparação todos-contra-todos</text>
+
+</svg>
 
 | Etapa do Algoritmo | Complexidade | Propriedade Chave |
 |---|---|---|

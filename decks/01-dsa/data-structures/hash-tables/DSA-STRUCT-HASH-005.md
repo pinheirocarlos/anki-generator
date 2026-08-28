@@ -21,11 +21,47 @@ Como estruturar a implementação completa de um **LRU Cache (Least Recently Use
 - **Fluxo de `put(key, value)`**: Se já existe, atualiza o valor e move para `head`. Se for novo e atingir `capacity`, remove `tail.prev` da lista e apaga sua entrada do mapa; em seguida insere o novo nó em `head`.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lru-cache-get-put-evict-loop.webm">
-    <p>Visualização: Remoção do nó menos recentemente usado (LRU) na cauda e movimentação para a cabeça no acesso em O(1).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Cuckoo Hashing: Duas Funções Hash e Busca O(1) no Pior Caso</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="220" height="80" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="110" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Tabela 1 (h1(key))</text>
+    <rect x="20" y="35" width="180" height="30" fill="#1e3a8a" rx="3"/>
+    <text x="110" y="54" fill="#93c5fd" font-size="10" text-anchor="middle">Chave reside no slot h1(k)...</text>
+
+    <g transform="translate(280, 0)">
+      <rect x="0" y="0" width="220" height="80" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="110" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Tabela 2 (h2(key))</text>
+      <rect x="20" y="35" width="180" height="30" fill="#065f46" rx="3"/>
+      <text x="110" y="54" fill="#a7f3d0" font-size="10" text-anchor="middle">...ou reside no slot h2(k)</text>
+    </g>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Busca inspeciona estritamente 2 posições: Custo O(1) garantido no pior caso</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Cuckoo Hashing: Duas Funções Hash e Busca O(1) no Pior Caso</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="220" height="80" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="110" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Tabela 1 (h1(key))</text>
+    <rect x="20" y="35" width="180" height="30" fill="#1e3a8a" rx="3"/>
+    <text x="110" y="54" fill="#93c5fd" font-size="10" text-anchor="middle">Chave reside no slot h1(k)...</text>
+
+    <g transform="translate(280, 0)">
+      <rect x="0" y="0" width="220" height="80" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="110" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Tabela 2 (h2(key))</text>
+      <rect x="20" y="35" width="180" height="30" fill="#065f46" rx="3"/>
+      <text x="110" y="54" fill="#a7f3d0" font-size="10" text-anchor="middle">...ou reside no slot h2(k)</text>
+    </g>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Busca inspeciona estritamente 2 posições: Custo O(1) garantido no pior caso</text>
+
+</svg>
 
 | Operação LRU | Composição (Mapa + Lista) | Complexidade |
 |---|---|---|

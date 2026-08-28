@@ -22,11 +22,38 @@ Como o protocolo de coerência de cache **MESI** coordena a consistência de dad
 - Quando um núcleo grava em uma linha no estado **Shared**, ele transmite uma mensagem de invalidação (*Bus Invalidate*) no barramento, forçando todos os outros núcleos a marcar sua cópia como **Invalid**.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-cache-l1-l2-l3-latency-loop.webm">
-    <p>Visualização: Comparação de latência: L1 (~1ns), L2 (~4ns), L3 (~15ns) e RAM principal (~80ns).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Protocolo de Coerência de Cache MESI: Máquina de Estados</text>
+  <g transform="translate(60, 45)">
+    <!-- Modified -->
+    <rect x="0" y="10" width="115" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+    <text x="57" y="32" fill="#fca5a5" font-size="12" font-weight="bold" text-anchor="middle">M (Modified)</text>
+    <text x="57" y="48" fill="#fecaca" font-size="9" text-anchor="middle">Dirty, Exclusivo</text>
+
+    <!-- Exclusive -->
+    <rect x="155" y="10" width="115" height="50" rx="6" fill="#14532d" stroke="#22c55e" stroke-width="2"/>
+    <text x="212" y="32" fill="#86efac" font-size="12" font-weight="bold" text-anchor="middle">E (Exclusive)</text>
+    <text x="212" y="48" fill="#bbf7d0" font-size="9" text-anchor="middle">Clean, 1 Núcleo</text>
+
+    <!-- Shared -->
+    <rect x="310" y="10" width="115" height="50" rx="6" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2"/>
+    <text x="367" y="32" fill="#93c5fd" font-size="12" font-weight="bold" text-anchor="middle">S (Shared)</text>
+    <text x="367" y="48" fill="#bfdbfe" font-size="9" text-anchor="middle">Clean, Multi-Core</text>
+
+    <!-- Invalid -->
+    <rect x="445" y="10" width="115" height="50" rx="6" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
+    <text x="502" y="32" fill="#cbd5e1" font-size="12" font-weight="bold" text-anchor="middle">I (Invalid)</text>
+    <text x="502" y="48" fill="#e2e8f0" font-size="9" text-anchor="middle">Dados Inválidos</text>
+  </g>
+  <g transform="translate(60, 125)">
+    <rect x="0" y="0" width="560" height="60" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+    <text x="280" y="24" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Transições de Escrita (BusRdX): Invalida todas as cópias 'S' em outros núcleos → Estado 'M'</text>
+    <text x="280" y="45" fill="#94a3b8" font-size="10" text-anchor="middle">Snooping no Barramento Compartilhado garante coerência estrita de memória entre todos os cores.</text>
+  </g>
+
+</svg>
 
 | Estado MESI | No Cache Local? | Modificado vs RAM? |
 |---|---|---|

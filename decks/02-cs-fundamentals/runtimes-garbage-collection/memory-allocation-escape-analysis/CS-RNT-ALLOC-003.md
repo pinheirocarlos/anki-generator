@@ -21,11 +21,19 @@ Como o padrão **`sync.Pool`** em Go reduz a pressão sobre o Garbage Collector 
 - **Impacto**: Reduz as alocações de memória por requisição de milhares de bytes para **zero (Zero-Allocation)**, eliminando pausas de GC.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/sync-pool-object-reuse-gc-loop.webm">
-    <p>Visualização: Pool de objetos pré-alocados reutilizados entre goroutines reduzindo drasticamente as alocações no heap.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Reutilização de Objetos com sync.Pool no Go</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="80" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">sync.Pool: Cache de objetos concorrente thread-safe sem travas globais</text>
+    <text x="280" y="45" fill="#f8fafc" font-size="10" text-anchor="middle">Pede com pool.Get() e devolve com pool.Put(buf) após o uso.</text>
+    <text x="280" y="65" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Recicla buffers de bytes e structs reduzindo a taxa de novas alocações na Heap a quase ZERO.</text>
+  </g>
+  <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Atenção: Objetos no pool são limpos automaticamente pelo GC a cada ciclo; não use para conexões persistentes.</text>
+
+</svg>
 
 | Estratégia de Buffers | Alocações no Heap por Requisição | Impacto no GC |
 |---|---|---|

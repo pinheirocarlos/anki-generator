@@ -21,11 +21,41 @@ Como funciona a resolução hierárquica do **DNS** e qual a diferença entre um
   4. **Servidor Autoritativo (ex: Route 53, Cloudflare DNS)**: O servidor oficial do dono do domínio que armazena os registros DNS finais (A, AAAA, CNAME) e entrega a resposta definitiva com autoridade.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/dns-recursive-authoritative-resolution-loop.webm">
-    <p>Visualização: Cascata de resolução: Root Server (.) -> TLD (.com) -> Servidor Autoritativo -> Cache no Resolvedor Recursivo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Resolução Hierárquica do DNS: Da Raiz ao Servidor Autoritativo</text>
+  <g transform="translate(40, 50)">
+    <!-- Client -->
+    <rect x="0" y="20" width="100" height="50" rx="5" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="50" y="45" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Cliente / App</text>
+    <text x="50" y="58" fill="#94a3b8" font-size="9" text-anchor="middle">Lookup Inicial</text>
+
+    <!-- Recursive Resolver -->
+    <rect x="140" y="20" width="120" height="50" rx="5" fill="#0369a1" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="200" y="42" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Resolvedor Recursivo</text>
+    <text x="200" y="58" fill="#bae6fd" font-size="9" text-anchor="middle">8.8.8.8 / 1.1.1.1</text>
+
+    <!-- Hierarchy Stack -->
+    <g transform="translate(300, 0)">
+      <rect x="0" y="0" width="140" height="26" rx="4" fill="#1e293b" stroke="#64748b"/>
+      <text x="70" y="17" fill="#f8fafc" font-size="10" text-anchor="middle">1. Root Server (.)</text>
+
+      <rect x="0" y="32" width="140" height="26" rx="4" fill="#1e293b" stroke="#64748b"/>
+      <text x="70" y="49" fill="#f8fafc" font-size="10" text-anchor="middle">2. TLD Server (.com)</text>
+
+      <rect x="0" y="64" width="140" height="26" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1.5"/>
+      <text x="70" y="81" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">3. Autoritativo (IP)</text>
+    </g>
+
+    <!-- Response -->
+    <rect x="480" y="20" width="120" height="50" rx="5" fill="#047857" stroke="#10b981" stroke-width="2"/>
+    <text x="540" y="42" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Resposta DNS A</text>
+    <text x="540" y="58" fill="#a7f3d0" font-size="10" font-family="monospace" text-anchor="middle">142.250.190.46</text>
+  </g>
+  <text x="340" y="180" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Cache em Múltiplas Camadas (OS, Browser, Resolver ISP) esconde a latência de consultas iterativas.</text>
+
+</svg>
 
 | Tipo de Servidor DNS | Papel no Fluxo de Resolução | Armazena Registros Definitivos? |
 |---|---|---|

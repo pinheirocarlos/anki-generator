@@ -19,11 +19,28 @@ Quais foram as limitações de performance do **HTTP/1.1** (como o Head-of-Line 
 - **Contornos Ineficientes**: Navegadores eram forçados a abrir **6 conexões TCP simultâneas por domínio**, exigindo 6 handshakes TCP/TLS separados e multiplicando a carga nos servidores.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/http11-head-of-line-blocking-loop.webm">
-    <p>Visualização: Bloqueio de cabeça de fila no HTTP/1.1 onde uma resposta lenta retém todas as requisições subsequentes na mesma conexão.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">HTTP/1.1: Head-of-Line (HoL) Blocking na Camada de Aplicação</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="75" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Conexão TCP Serial: 1 Requisição e 1 Resposta por vez</text>
+    
+    <g transform="translate(30, 32)">
+      <rect x="0" y="0" width="130" height="30" rx="4" fill="#7f1d1d" stroke="#ef4444"/>
+      <text x="65" y="20" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Req 1 (Lenta / DB)</text>
+
+      <rect x="150" y="0" width="130" height="30" rx="4" fill="#334155" stroke="#64748b"/>
+      <text x="215" y="20" fill="#cbd5e1" font-size="10" text-anchor="middle">Req 2 (Bloqueada)</text>
+
+      <rect x="300" y="0" width="130" height="30" rx="4" fill="#334155" stroke="#64748b"/>
+      <text x="365" y="20" fill="#cbd5e1" font-size="10" text-anchor="middle">Req 3 (Bloqueada)</text>
+    </g>
+  </g>
+  <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Workaround Histórico: Browsers abriam até 6 conexões TCP paralelas por domínio gerando sobrecarga de portas.</text>
+
+</svg>
 
 | Problema no HTTP/1.1 | Impacto de Performance | Solução Adotada no HTTP/2 |
 |---|---|---|

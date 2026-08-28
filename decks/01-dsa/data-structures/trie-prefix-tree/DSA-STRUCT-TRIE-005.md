@@ -22,11 +22,33 @@ Quais os trade-offs de velocidade e consumo de memória entre usar um **Array Fi
   - Pequeno overhead adicional de hashing e indireção de objetos.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/trie-node-memory-layout-loop.webm">
-    <p>Visualização: Array fixo de 26 ponteiros para velocidade direta vs Hash Map para economia em alfabetos esparsos.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Aho-Corasick Automaton: Busca de Múltiplos Padrões em O(N + M)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Trie + Failure Links (Suffix Automaton)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Ao falhar o casamento de caractere, o autômato salta pelo link de falha (maior sufixo que é prefixo).</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Localiza simultaneamente K palavras-chave em um texto em uma única passada O(N).</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Utilizado em filtros de spam, antivírus (ClamAV) e bioinformática (DNA search)</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Aho-Corasick Automaton: Busca de Múltiplos Padrões em O(N + M)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Trie + Failure Links (Suffix Automaton)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Ao falhar o casamento de caractere, o autômato salta pelo link de falha (maior sufixo que é prefixo).</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Localiza simultaneamente K palavras-chave em um texto em uma única passada O(N).</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Utilizado em filtros de spam, antivírus (ClamAV) e bioinformática (DNA search)</text>
+
+</svg>
 
 | Estratégia de Nós | Acesso por Caractere | Consumo de Memória |
 |---|---|---|

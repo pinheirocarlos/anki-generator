@@ -19,11 +19,34 @@ Por que **Unix Domain Sockets (UDS)** entregam o dobro do throughput e metade da
 - **POSIX Message Queues**: Diferente de sockets e pipes (que transmitem fluxos contínuos de bytes), as filas de mensagens transmitem pacotes delimitados (*message boundaries*) com suporte nativo a prioridades numéricas e notificações assíncronas via sinais Unix.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/linux-ipc-mechanisms-overview-loop.webm">
-    <p>Visualização: Espectro de IPC: Sockets UDS, Pipes, POSIX Queues e Memória Compartilhada classificados por latência.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Mecanismos de IPC no Linux: Latência vs Complexidade</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="24" rx="4" fill="#065f46"/>
+    <text x="15" y="16" fill="#ffffff" font-size="10" font-weight="bold">Shared Memory (shm_open / mmap)</text>
+    <text x="545" y="16" fill="#a7f3d0" font-size="10" font-family="monospace" text-anchor="end">&lt; 0.1 µs (Zero-Copy direto na RAM)</text>
+
+    <rect x="0" y="28" width="560" height="24" rx="4" fill="#0369a1"/>
+    <text x="15" y="44" fill="#ffffff" font-size="10" font-weight="bold">Unix Domain Sockets (AF_UNIX)</text>
+    <text x="545" y="44" fill="#bae6fd" font-size="10" font-family="monospace" text-anchor="end">~1 a 2 µs (Passagem de FDs, sem checksum)</text>
+
+    <rect x="0" y="56" width="560" height="24" rx="4" fill="#0284c7"/>
+    <text x="15" y="72" fill="#ffffff" font-size="10" font-weight="bold">Pipes / FIFOs</text>
+    <text x="545" y="72" fill="#bae6fd" font-size="10" font-family="monospace" text-anchor="end">~2 a 3 µs (Stream sequencial no Kernel)</text>
+
+    <rect x="0" y="84" width="560" height="24" rx="4" fill="#d97706"/>
+    <text x="15" y="100" fill="#ffffff" font-size="10" font-weight="bold">POSIX Message Queues (mq_send)</text>
+    <text x="545" y="100" fill="#fef3c7" font-size="10" font-family="monospace" text-anchor="end">~3 a 5 µs (Mensagens com prioridade)</text>
+
+    <rect x="0" y="112" width="560" height="24" rx="4" fill="#b91c1c"/>
+    <text x="15" y="128" fill="#ffffff" font-size="10" font-weight="bold">TCP Loopback (127.0.0.1)</text>
+    <text x="545" y="128" fill="#fecaca" font-size="10" font-family="monospace" text-anchor="end">~10 a 20 µs (Overhead de pilha TCP/IP)</text>
+  </g>
+  <text x="340" y="195" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Regra de ouro: Comunicação local no mesmo host deve usar Unix Domain Sockets ou Shared Memory.</text>
+
+</svg>
 
 | Primitiva IPC | Cópias de Dados na Memória | Latência Média de Transferência |
 |---|---|---|

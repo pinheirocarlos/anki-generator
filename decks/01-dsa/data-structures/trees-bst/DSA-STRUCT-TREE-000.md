@@ -21,11 +21,55 @@ O que define formalmente uma **Árvore Binária** e quais são suas propriedades
 - Em uma árvore binária perfeitamente balanceada de altura $H$, ela pode armazenar até $2^{H+1} - 1$ nós, garantindo $H = \lfloor \log_2 N \rfloor$.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/binary-tree-properties-loop.webm">
-    <p>Visualização: Divisão hierárquica por níveis k com até 2^k nós e capacidade máxima 2^(H+1)-1.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Propriedade Fundamental de BST: Left &lt; Root &lt; Right (Busca O(h))</text>
+  <g transform="translate(240, 50)">
+    <!-- Root -->
+    <circle cx="100" cy="20" r="18" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="100" y="25" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">8</text>
+
+    <!-- Left Subtree -->
+    <line x1="85" y1="30" x2="45" y2="65" stroke="#10b981" stroke-width="2"/>
+    <circle cx="40" cy="70" r="16" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="40" y="75" fill="#fff" font-size="11" text-anchor="middle">3</text>
+    <text x="15" y="95" fill="#34d399" font-size="9">&lt; 8 (Esq)</text>
+
+    <!-- Right Subtree -->
+    <line x1="115" y1="30" x2="155" y2="65" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="160" cy="70" r="16" fill="#b45309" stroke="#f59e0b" stroke-width="2"/>
+    <text x="160" y="75" fill="#fff" font-size="11" text-anchor="middle">10</text>
+    <text x="155" y="95" fill="#fcd34d" font-size="9">&gt; 8 (Dir)</text>
+  </g>
+  <text x="340" y="165" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">A cada decisão de descida, metade dos nós da subárvore é eliminada: O(log N)</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Propriedade Fundamental de BST: Left &lt; Root &lt; Right (Busca O(h))</text>
+  <g transform="translate(240, 50)">
+    <!-- Root -->
+    <circle cx="100" cy="20" r="18" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="100" y="25" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">8</text>
+
+    <!-- Left Subtree -->
+    <line x1="85" y1="30" x2="45" y2="65" stroke="#10b981" stroke-width="2"/>
+    <circle cx="40" cy="70" r="16" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="40" y="75" fill="#fff" font-size="11" text-anchor="middle">3</text>
+    <text x="15" y="95" fill="#34d399" font-size="9">&lt; 8 (Esq)</text>
+
+    <!-- Right Subtree -->
+    <line x1="115" y1="30" x2="155" y2="65" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="160" cy="70" r="16" fill="#b45309" stroke="#f59e0b" stroke-width="2"/>
+    <text x="160" y="75" fill="#fff" font-size="11" text-anchor="middle">10</text>
+    <text x="155" y="95" fill="#fcd34d" font-size="9">&gt; 8 (Dir)</text>
+  </g>
+  <text x="340" y="165" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">A cada decisão de descida, metade dos nós da subárvore é eliminada: O(log N)</text>
+
+</svg>
 
 | Propriedade de Árvore | Fórmula Matemática | Exemplo ($H = 3$) |
 |---|---|---|

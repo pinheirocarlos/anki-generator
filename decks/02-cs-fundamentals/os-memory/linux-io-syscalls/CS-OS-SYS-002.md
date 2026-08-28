@@ -23,11 +23,19 @@ Como a técnica de **Zero-Copy** com a syscall **`sendfile()`** transfere arquiv
   - O kernel transfere os dados diretamente do **Page Cache para a Placa de Rede (NIC)** via descritores de DMA com *Scatter-Gather*, sem transferir nenhum byte para a memória da aplicação.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/linux-zero-copy-sendfile-loop.webm">
-    <p>Visualização: Transferência direta de dados do Page Cache para o Socket Buffer via DMA sem passar pelo User Space.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Zero-Copy no Linux: A Syscall sendfile() / splice()</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="80" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="280" y="24" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">sendfile(out_fd, in_fd, offset, count)</text>
+    <text x="280" y="48" fill="#f8fafc" font-size="11" text-anchor="middle">Page Cache do Arquivo → DMA → Buffer da Placa de Rede (NIC) diretamente no Kernel</text>
+    <text x="280" y="68" fill="#a7f3d0" font-size="10" font-weight="bold" text-anchor="middle">Os dados NUNCA são copiados para o User Space! Reduz o uso de CPU em até 80%.</text>
+  </g>
+  <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Segredo do Throughput Monstruoso do Apache Kafka e Nginx ao servir arquivos e streams estáticos.</text>
+
+</svg>
 
 | Método de Transferência | Cópias de Dados na RAM | Trocas de Modo (Context Switches) |
 |---|---|---|

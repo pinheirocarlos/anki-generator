@@ -25,11 +25,33 @@ Como o **Crivo Linear (Crivo de Euler)** visita cada número composto exatamente
 - Como cada composto é marcado exclusivamente pelo seu **menor fator primo**, a complexidade é **estritamente $O(N)$**.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/extended-euclidean-gcd-modular-inverse-loop.webm">
-    <p>Visualização: Cálculo simultâneo do MDC e coeficientes inteiros de Bézout ax + by = gcd(a, b).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Inverso Modular via Pequeno Teorema de Fermat: A^(P - 2) ≡ A⁻¹ (mod P)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Divisão Modular Sob Módulo Primo P</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">(A / B) % P = (A · B⁻¹) % P = (A · power(B, P - 2, P)) % P.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Permite calcular combinações C(n, k) = n! / (k! · (n-k)!) sob módulo 10⁹ + 7 em O(log P).</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Essencial para problemas combinatórios e probabilidade em entrevistas avançadas</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Inverso Modular via Pequeno Teorema de Fermat: A^(P - 2) ≡ A⁻¹ (mod P)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Divisão Modular Sob Módulo Primo P</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">(A / B) % P = (A · B⁻¹) % P = (A · power(B, P - 2, P)) % P.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Permite calcular combinações C(n, k) = n! / (k! · (n-k)!) sob módulo 10⁹ + 7 em O(log P).</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Essencial para problemas combinatórios e probabilidade em entrevistas avançadas</text>
+
+</svg>
 
 | Algoritmo de Crivo | Visitas por Número Composto | Complexidade de Tempo |
 |---|---|---|

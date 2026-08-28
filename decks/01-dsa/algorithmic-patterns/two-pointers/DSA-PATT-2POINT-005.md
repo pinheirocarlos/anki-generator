@@ -26,11 +26,19 @@ Qual é a demonstração matemática que prova como encontrar o **nó exato de i
 - **Algoritmo**: Após o encontro, reiniciamos um ponteiro na cabeça (`p1 = head`) mantendo o outro no ponto de encontro (`p2 = fast`). Avançando ambos a 1 passo por vez, eles se encontrarão **exatamente no nó de início do ciclo** após $L_1$ passos.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/floyd-cycle-entry-point-proof-loop.webm">
-    <p>Visualização: Reinício de um ponteiro na cabeça e avanço sincronizado a 1x encontrando o nó exato de entrada do ciclo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Partição de Hoare no QuickSort com Dois Ponteiros Convergentes</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Dois Ponteiros em Direções Opostas Encontrando Inversões</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Ponteiro L avança enquanto arr[L] &lt; pivot; Ponteiro R recua enquanto arr[R] &gt; pivot.</text>
+    <text x="20" y="62" fill="#f59e0b" font-size="11">Quando ambos param, troca swap(arr[L], arr[R]) em O(1).</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Executa 3x menos trocas que o esquema de partição de Lomuto</text>
+
+</svg>
 
 | Ponteiro na Fase 2 | Posição Inicial | Ponto de Encontro Final |
 |---|---|---|

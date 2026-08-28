@@ -21,11 +21,33 @@ Por que a **SkipList Concorrente (ConcurrentSkipListMap)** é preferida em rela�
 - **Complexidade**: $O(\log N)$ tempo médio para busca, inserção e remoção com alta concorrência.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/michael-scott-queue-two-cas-loop.webm">
-    <p>Visualização: Fila encadeada com dois ponteiros atômicos (head e tail) com avanço do tail atrasado por threads concorrentes.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Treiber Lock-Free Stack: Push/Pop com CAS no Ponteiro Head</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Push: new_node.next = head; CAS(&amp;head, new_node.next, new_node)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Pop: CAS(&amp;head, old_head, old_head.next) em um loop de retry sem bloqueios.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Garante que múltiplas threads empilhem e desempilhem simultaneamente sem corromper ponteiros.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">A mais simples e elegante estrutura concorrente sem locks</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Treiber Lock-Free Stack: Push/Pop com CAS no Ponteiro Head</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Push: new_node.next = head; CAS(&amp;head, new_node.next, new_node)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Pop: CAS(&amp;head, old_head, old_head.next) em um loop de retry sem bloqueios.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Garante que múltiplas threads empilhem e desempilhem simultaneamente sem corromper ponteiros.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">A mais simples e elegante estrutura concorrente sem locks</text>
+
+</svg>
 
 | Estrutura Ordenada | Custo de Modificação Concorrente | Escalabilidade Multithread |
 |---|---|---|

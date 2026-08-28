@@ -21,11 +21,19 @@ Como o **Algoritmo de Kruskal** constrói a MST ordenando arestas e utilizando D
   4. Encerra ao acumular $V - 1$ arestas.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/kruskal-mst-dsu-loop.webm">
-    <p>Visualização: Ordenação de arestas por peso e adição gulosa descartando arestas com extremidades no mesmo conjunto DSU.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Algoritmo de Prim: Crescimento de Vértice com Min-Heap em O((V + E) log V)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Abordagem Baseada em Vértices (Crescimento de Árvore Conexa)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Inicia em um vértice arbitrário e adiciona suas arestas a um Min-Heap.</text>
+    <text x="20" y="62" fill="#f59e0b" font-size="11">A cada passo, extrai a aresta mais leve conectando a árvore a um nó não-visitado.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Estrutura idêntica ao Dijkstra; superior a Kruskal em grafos densos (com Fibonacci Heap O(E + V log V))</text>
+
+</svg>
 
 | Passo de Kruskal | Estrutura Envolvida | Complexidade |
 |---|---|---|

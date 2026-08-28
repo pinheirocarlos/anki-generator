@@ -20,11 +20,28 @@ O que é o padrão **Sliding Window (Janela Deslizante)** e como ele reduz a com
 - Como cada elemento entra e sai da janela exatamente uma única vez, o custo total é **$O(N)$ linear** com $O(1)$ por passo.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/sliding-window-loop.webm">
-    <p>Visualização: Janela deslizante de tamanho K adicionando elemento à direita e removendo à esquerda com atualização delta O(1).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Janela Deslizante de Tamanho Fixo K em O(N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="10" width="50" height="35" fill="#1e293b" stroke="#64748b" rx="3"/><text x="25" y="32" fill="#94a3b8" font-size="11" text-anchor="middle">1</text>
+    
+    <g transform="translate(60, 0)">
+      <rect x="0" y="0" width="180" height="55" fill="#065f46" stroke="#10b981" stroke-width="2" rx="6"/>
+      <text x="90" y="20" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Janela Ativa (K = 3)</text>
+      <text x="30" y="42" fill="#fff" font-size="12" text-anchor="middle">2</text>
+      <text x="90" y="42" fill="#fff" font-size="12" text-anchor="middle">3</text>
+      <text x="150" y="42" fill="#fff" font-size="12" text-anchor="middle">4</text>
+    </g>
+
+    <rect x="250" y="10" width="50" height="35" fill="#1e293b" stroke="#64748b" rx="3"/><text x="275" y="32" fill="#94a3b8" font-size="11" text-anchor="middle">5</text>
+    <rect x="310" y="10" width="50" height="35" fill="#1e293b" stroke="#64748b" rx="3"/><text x="335" y="32" fill="#94a3b8" font-size="11" text-anchor="middle">6</text>
+  </g>
+  <text x="340" y="145" fill="#34d399" font-size="11" font-family="monospace" text-anchor="middle">Nova Soma = Soma_Anterior - arr[i - K] + arr[i]</text>
+  <text x="340" y="170" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Atualização em tempo O(1) por passo → Complexidade total O(N)</text>
+
+</svg>
 
 | Abordagem | Cálculo por Deslizamento | Complexidade Total |
 |---|---|---|

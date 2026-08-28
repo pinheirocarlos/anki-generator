@@ -18,11 +18,19 @@ Por que a estratégia gulosa por **densidade de valor ($V/W$)** funciona perfeit
 - **0/1 Knapsack (Mochila Discreta)**: Como os itens são indivisíveis (0 ou 1), pegar um item de alta densidade pode deixar um espaço residual vazio que não cabe mais nenhum outro item valioso, gerando desperdício e tornando a escolha gulosa subótima (exige DP).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/jump-game-max-reachable-index-loop.webm">
-    <p>Visualização: Atualização contínua do índice máximo alcançável maxReach = max(maxReach, i + nums[i]) em tempo linear O(N).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Huffman Coding: Árvore de Prefixos Ótima com Min-Heap</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Caracteres Mais Frequentes Recebem Códigos Menores</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Insere nós de frequência em um Min-Heap.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">2. Combina os dois menores nós sucessivamente até restar uma única raiz em O(N log N).</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Garante compressão sem perdas com códigos livres de prefixo (prefix-free)</text>
+
+</svg>
 
 | Variante da Mochila | Divisibilidade dos Itens | Algoritmo Ótimo |
 |---|---|---|

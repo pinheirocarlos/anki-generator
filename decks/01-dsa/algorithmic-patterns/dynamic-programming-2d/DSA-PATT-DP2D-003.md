@@ -22,11 +22,19 @@ Como a Programação Dinâmica 2D resolve o problema **Longest Common Subsequenc
 - **Complexidade**: $O(M \times N)$ tempo e $O(M \times N)$ espaço (ou $O(\min(M, N))$ otimizado).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lcs-grid-matching-diagonal-loop.webm">
-    <p>Visualização: Se caracteres coincidem: soma diagonal +1; se divergem: máximo entre vizinho superior e esquerdo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Edit Distance (Levenshtein): Inserção, Deleção e Substituição</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Mínimo entre 3 Operações Elementares de Custo 1</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">dp[i][j] = 1 + min(dp[i][j-1] (Inserção), dp[i-1][j] (Deleção), dp[i-1][j-1] (Substituição)).</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Se s1[i-1] == s2[j-1]: dp[i][j] = dp[i-1][j-1] (custo zero).</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Complexidade: O(M × N) de tempo e espaço</text>
+
+</svg>
 
 | Comparação de Caracteres | Equação de Transição | Direção de Preenchimento |
 |---|---|---|

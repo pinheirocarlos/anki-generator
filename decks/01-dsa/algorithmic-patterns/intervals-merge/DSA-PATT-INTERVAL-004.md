@@ -21,11 +21,19 @@ Como o algoritmo de **Linha de Varredura (Chronological Sweep-Line)** calcula o 
 - **Complexidade**: $O(N \log N)$ tempo e $O(N)$ espaço contíguo (com menor constante de cache que o Heap).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/interval-intersections-two-pointers-loop.webm">
-    <p>Visualização: Dois ponteiros calculando a interseção [max(A_s, B_s), min(A_e, B_e)] e avançando o intervalo que termina primeiro.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Interval List Intersections: Interseção entre Duas Listas com Two Pointers</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Interseção Válida: start = max(A.start, B.start) ≤ end = min(A.end, B.end)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Se start ≤ end: adiciona intervalo [start, end] à lista de respostas.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Avança o ponteiro do intervalo que terminar primeiro: if A.end &lt; B.end → i++ else → j++.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Tempo total: O(M + N) em uma única passada sincronizada</text>
+
+</svg>
 
 | Evento Temporal | Ponteiro Avançado | Contador de Salas |
 |---|---|---|

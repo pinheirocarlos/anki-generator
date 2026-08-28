@@ -24,11 +24,19 @@ O que é **Análise de Escape (Escape Analysis)** e como o compilador determina 
     4. O tamanho da variável é dinâmico ou grande demais para a Stack.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/escape-analysis-stack-heap-loop.webm">
-    <p>Visualização: Ponteiros que não escapam do escopo da função são alocados diretamente no stack frame sem overhead de GC.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Análise de Escape (Escape Analysis) no Compilador</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">O Compilador rastreia se o ciclo de vida do objeto ultrapassa o escopo da função</text>
+    <text x="280" y="45" fill="#10b981" font-size="10" font-weight="bold" text-anchor="middle">NÃO escapa (Uso local) → Alocado 100% na Stack (Zero overhead de GC)</text>
+    <text x="280" y="65" fill="#f43f5e" font-size="10" font-weight="bold" text-anchor="middle">ESCAPA (Retorna ponteiro, interface{}, closure) → Move objeto para a Heap ("escapes to heap")</text>
+  </g>
+  <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">No Go: inspecione decisões com 'go build -gcflags="-m"'; reduza escapes para zerar pausas de runtime.</text>
+
+</svg>
 
 | Padrão de Código | O Objeto Escapa? | Local de Alocação |
 |---|---|---|

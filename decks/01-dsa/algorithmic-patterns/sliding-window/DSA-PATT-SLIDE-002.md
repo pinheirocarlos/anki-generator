@@ -21,11 +21,19 @@ Como estruturar uma **Sliding Window de tamanho fixo $K$** para calcular a soma 
 - **Complexidade**: $O(N)$ tempo e $O(1)$ espaço.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/fixed-sliding-window-k-sum-loop.webm">
-    <p>Visualização: Janela de amplitude constante K avançando a cada iteração mantendo o acumulador máximo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Longest Substring Without Repeating Characters (Set / Map na Janela)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Rastreamento da Última Posição Vista last_idx[char]</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Ao encontrar caractere repetido c: left = max(left, last_idx[c] + 1).</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Comprimento da maior substring: max_len = max(max_len, right - left + 1).</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Tempo: O(N) em uma única passada | Espaço: O(min(N, Σ)) onde Σ é o alfabeto</text>
+
+</svg>
 
 | Passo de Janela Fixa | Operação Delta | Complexidade de Passo |
 |---|---|---|

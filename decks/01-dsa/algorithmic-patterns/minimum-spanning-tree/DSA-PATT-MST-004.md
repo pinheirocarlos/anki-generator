@@ -22,11 +22,19 @@ Como modelar o problema **Min Cost to Connect All Points** (LeetCode 1584) como 
 - **Complexidade**: $O(N^2)$ tempo e $O(N)$ espaço auxiliar.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/kruskal-vs-prim-density-loop.webm">
-    <p>Visualização: Kruskal O(E log E) ideal para grafos esparsos vs Prim com heap Fibonacci O(E + V log V) para grafos densos.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Minimax Path: Aresta Gargalo na Árvore Geradora Mínima</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Minimiza o Peso Máximo de Aresta entre Qualquer Par de Nós</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">O caminho único entre u e v dentro da MST minimiza a maior aresta ao longo do percurso.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Consulta de menor aresta gargalo respondida em O(log V) com Binary Lifting / LCA.</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Aplicações em redes de telecomunicação para garantir largura de banda mínima de tráfego</text>
+
+</svg>
 
 | Abordagem no LeetCode 1584 | Complexidade de Tempo | Espaço de Memória |
 |---|---|---|

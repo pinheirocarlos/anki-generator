@@ -21,11 +21,19 @@ Como o **Algoritmo de Bellman-Ford** relaxa todas as arestas $V-1$ vezes e detec
 - **Complexidade**: $O(V \cdot E)$ tempo e $O(V)$ espaço.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bellman-ford-negative-cycle-loop.webm">
-    <p>Visualização: Relaxamento de todas as E arestas V-1 vezes com V-ésima passada detectando ciclos de custo negativo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">0-1 BFS com Deque em Tempo Linear O(V + E)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Substitui Min-Heap O((V+E) log V) por Deque O(V + E)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Ao relaxar aresta de peso 0: deque.push_front(v) (prioridade máxima imediata).</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Ao relaxar aresta de peso 1: deque.push_back(v) (próximo nível).</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Mantém a monotonicidade de distância do deque com custo O(1) por operação</text>
+
+</svg>
 
 | Rodada de Bellman-Ford | Propósito | Diagnóstico |
 |---|---|---|

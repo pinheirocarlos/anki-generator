@@ -22,11 +22,19 @@ Por que acoplar uma **Trie** ao Backtracking em **Word Search II** (LeetCode 212
   4. Uma única busca no tabuleiro valida todas as $K$ palavras em paralelo.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/subsets-permutations-deduplication-loop.webm">
-    <p>Visualização: Ordenação prévia e salto de elementos iguais consecutivos na árvore combinatória.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Knuth's Dancing Links (DLX): Algoritmo X para Cobertura Exata</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Listas Duplamente Ligadas Circulares em 4 Direções (L, R, U, D)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Remove colunas e linhas cobrindo nós em O(1); restaura perfeitamente no backtrack.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Resolve problemas complexos de pentaminós, Sudoku e Cobertura de Conjuntos em tempo recorde.</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Obra-prima de Donald Knuth para backtracking ultra-otimizado</text>
+
+</svg>
 
 | Abordagem | Número de Buscas no Tabuleiro | Complexidade |
 |---|---|---|

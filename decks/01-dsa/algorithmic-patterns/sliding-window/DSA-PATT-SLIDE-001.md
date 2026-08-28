@@ -35,11 +35,19 @@ Qual é o **template canônico universal** para resolver qualquer problema de Sl
   ```
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/sliding-window-template-expansion-loop.webm">
-    <p>Visualização: Laço externo expande ponteiro direito; laço interno contrai ponteiro esquerdo enquanto a condição for inválida.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Janela Deslizante Dinâmica (Expansão de Right &amp; Contração de Left)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Padrão Geral para Subarrays Contíguos Ótimos</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Expande a janela com right++ incluindo novos elementos.</text>
+    <text x="20" y="62" fill="#f87171" font-size="11">2. Enquanto a condição for violada, contrai com left++ e remove do estado da janela.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Cada índice é adicionado e removido no máximo 1 vez: Tempo amortizado O(2N) = O(N)</text>
+
+</svg>
 
 | Etapa do Template | Responsabilidade | Complexidade Amortizada |
 |---|---|---|

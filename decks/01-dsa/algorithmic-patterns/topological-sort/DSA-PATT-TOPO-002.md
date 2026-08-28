@@ -19,11 +19,19 @@ Como a Ordenação Topológica modela sistemas de resolução de dependências d
 - Se o algoritmo falhar em ordenar todos os nós, significa que foi detectada uma **Dependência Circular** fatal.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/build-dependency-graph-topo-loop.webm">
-    <p>Visualização: Sequenciamento de pacotes e tarefas respeitando restrições estritas de dependências upstream.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Topological Sort via DFS: Pilha de Pós-Ordem Invertida</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Empilhamento no Retorno da Recursão</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Executa DFS completa; empilha o vértice u estritamente após todos os seus descendentes serem visitados.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Ao final, desempilhar a pilha resulta na ordem topológica válida: Tempo O(V + E).</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Garante que qualquer dependência de u já apareça após u na sequência</text>
+
+</svg>
 
 | Elemento de Sistema | Modelagem em DAG |
 |---|---|

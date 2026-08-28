@@ -23,11 +23,19 @@ Como o **Algoritmo de Kahn (BFS In-Degree)** calcula a ordenação topológica e
 - **Complexidade**: $O(V + E)$ tempo e $O(V + E)$ espaço.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/topological-sort-kahn-loop.webm">
-    <p>Visualização: Enfileiramento de nós com grau de entrada 0 e decremento dos vizinhos até esvaziar o grafo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Kahn's Algorithm: Graus de Entrada (in_degree == 0) e Fila BFS</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Processamento por Eliminação de Pré-requisitos</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Enfileira todos os nós com in_degree == 0 (zero dependências pendentes).</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">2. Ao desenfileirar u: adiciona à ordem e decrementa in_degree[v]--; se zerar, enfileira v.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Se a ordem final contiver menos de V vértices → O GRAFO CONTÉM UM CICLO!</text>
+
+</svg>
 
 | Grau de Entrada (`in-degree`) | Significado de Negócio | Ação no Algoritmo |
 |---|---|---|

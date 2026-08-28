@@ -21,11 +21,63 @@ Como as rotações simples e duplas (LL, RR, LR, RL) reequilibram a altura de um
   - **Rotação Dupla (RL)**: Rotação à direita no filho direito seguida de rotação à esquerda na raiz.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/avl-rotation-loop.webm">
-    <p>Visualização: Rotação simples à direita O(1) reequilibrando a altura para O(log N) preservando a invariante BST.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Rotação Simples AVL (LL) à Direita O(1)</text>
+  <g transform="translate(100, 50)">
+    <!-- Unbalanced -->
+    <circle cx="80" cy="20" r="14" fill="#7f1d1d" stroke="#ef4444"/><text x="80" y="24" fill="#fff" font-size="10" text-anchor="middle">Y(+2)</text>
+    <line x1="70" y1="30" x2="40" y2="55" stroke="#64748b"/>
+    <circle cx="35" cy="65" r="14" fill="#1e293b" stroke="#f59e0b"/><text x="35" y="69" fill="#fff" font-size="10" text-anchor="middle">X(+1)</text>
+    <line x1="25" y1="75" x2="10" y2="95" stroke="#64748b"/>
+    <circle cx="10" cy="100" r="12" fill="#1e293b" stroke="#10b981"/><text x="10" y="104" fill="#fff" font-size="9" text-anchor="middle">Z</text>
+
+    <!-- Arrow -->
+    <path d="M 140 50 L 190 50" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="165" y="40" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">rotateRight</text>
+
+    <!-- Balanced -->
+    <g transform="translate(230, 0)">
+      <circle cx="80" cy="20" r="14" fill="#047857" stroke="#10b981"/><text x="80" y="24" fill="#fff" font-size="10" text-anchor="middle">X(0)</text>
+      <line x1="70" y1="30" x2="40" y2="55" stroke="#64748b"/>
+      <circle cx="35" cy="65" r="12" fill="#1e293b" stroke="#10b981"/><text x="35" y="69" fill="#fff" font-size="9" text-anchor="middle">Z</text>
+      <line x1="90" y1="30" x2="120" y2="55" stroke="#64748b"/>
+      <circle cx="125" cy="65" r="12" fill="#1e293b" stroke="#3b82f6"/><text x="125" y="69" fill="#fff" font-size="9" text-anchor="middle">Y</text>
+    </g>
+  </g>
+  <text x="340" y="170" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Preserva a invariante BST com estritamente 3 trocas de ponteiros O(1)</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Rotação Simples AVL (LL) à Direita O(1)</text>
+  <g transform="translate(100, 50)">
+    <!-- Unbalanced -->
+    <circle cx="80" cy="20" r="14" fill="#7f1d1d" stroke="#ef4444"/><text x="80" y="24" fill="#fff" font-size="10" text-anchor="middle">Y(+2)</text>
+    <line x1="70" y1="30" x2="40" y2="55" stroke="#64748b"/>
+    <circle cx="35" cy="65" r="14" fill="#1e293b" stroke="#f59e0b"/><text x="35" y="69" fill="#fff" font-size="10" text-anchor="middle">X(+1)</text>
+    <line x1="25" y1="75" x2="10" y2="95" stroke="#64748b"/>
+    <circle cx="10" cy="100" r="12" fill="#1e293b" stroke="#10b981"/><text x="10" y="104" fill="#fff" font-size="9" text-anchor="middle">Z</text>
+
+    <!-- Arrow -->
+    <path d="M 140 50 L 190 50" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="165" y="40" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">rotateRight</text>
+
+    <!-- Balanced -->
+    <g transform="translate(230, 0)">
+      <circle cx="80" cy="20" r="14" fill="#047857" stroke="#10b981"/><text x="80" y="24" fill="#fff" font-size="10" text-anchor="middle">X(0)</text>
+      <line x1="70" y1="30" x2="40" y2="55" stroke="#64748b"/>
+      <circle cx="35" cy="65" r="12" fill="#1e293b" stroke="#10b981"/><text x="35" y="69" fill="#fff" font-size="9" text-anchor="middle">Z</text>
+      <line x1="90" y1="30" x2="120" y2="55" stroke="#64748b"/>
+      <circle cx="125" cy="65" r="12" fill="#1e293b" stroke="#3b82f6"/><text x="125" y="69" fill="#fff" font-size="9" text-anchor="middle">Y</text>
+    </g>
+  </g>
+  <text x="340" y="170" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Preserva a invariante BST com estritamente 3 trocas de ponteiros O(1)</text>
+
+</svg>
 
 | Tipo de Desbalanceamento | Caso | Rotação Necessária |
 |---|---|---|

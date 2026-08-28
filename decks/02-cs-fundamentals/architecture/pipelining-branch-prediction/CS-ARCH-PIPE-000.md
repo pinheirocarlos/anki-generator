@@ -23,11 +23,40 @@ O que é o **Pipeline de Instruções** da CPU e como ele aumenta o throughput d
 - Em vez de esperar uma instrução completar todos os 5 ciclos para iniciar a próxima, a CPU inicia uma nova instrução a cada ciclo de clock, completando idealmente **1 instrução por ciclo (IPC = 1)** em regime contínuo.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-instruction-pipelining-stages-loop.webm">
-    <p>Visualização: Execução sobreposta de estágios IF, ID, EX, MEM e WB elevando o throughput para 1 instrução por ciclo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Pipeline Clássico de 5 Estágios da CPU (RISC)</text>
+  <g transform="translate(60, 50)">
+    <!-- Stage 1 -->
+    <rect x="0" y="0" width="95" height="60" rx="5" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="47" y="26" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">IF (Fetch)</text>
+    <text x="47" y="45" fill="#bae6fd" font-size="9" text-anchor="middle">Busca da RAM/L1I</text>
+
+    <!-- Stage 2 -->
+    <rect x="115" y="0" width="95" height="60" rx="5" fill="#0284c7" stroke="#38bdf8"/>
+    <text x="162" y="26" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">ID (Decode)</text>
+    <text x="162" y="45" fill="#bae6fd" font-size="9" text-anchor="middle">Decodifica &amp; Regs</text>
+
+    <!-- Stage 3 -->
+    <rect x="230" y="0" width="95" height="60" rx="5" fill="#0d9488" stroke="#2dd4bf"/>
+    <text x="277" y="26" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">EX (Execute)</text>
+    <text x="277" y="45" fill="#ccfbf1" font-size="9" text-anchor="middle">Cálculo na ALU</text>
+
+    <!-- Stage 4 -->
+    <rect x="345" y="0" width="95" height="60" rx="5" fill="#4f46e5" stroke="#818cf8"/>
+    <text x="392" y="26" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">MEM (Memory)</text>
+    <text x="392" y="45" fill="#e0e7ff" font-size="9" text-anchor="middle">Acesso L1 Dados</text>
+
+    <!-- Stage 5 -->
+    <rect x="460" y="0" width="95" height="60" rx="5" fill="#059669" stroke="#34d399"/>
+    <text x="507" y="26" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">WB (Writeback)</text>
+    <text x="507" y="45" fill="#d1fae5" font-size="9" text-anchor="middle">Grava Registrador</text>
+  </g>
+  <text x="340" y="145" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Throughput Ideal: 1 Instrução Concluída por Ciclo (CPI = 1.0)</text>
+  <text x="340" y="170" fill="#94a3b8" font-size="11" text-anchor="middle">Sobreposição temporal: 5 instruções diferentes sendo processadas simultaneamente em cada estágio.</text>
+
+</svg>
 
 | Estágio de Pipeline | Função Principal | Recurso de Hardware |
 |---|---|---|

@@ -21,11 +21,53 @@ Por que a travessia **In-order (Em-ordem)** visita os elementos de uma BST estri
 - Pela própria invariante da BST, esse padrão garante que nenhum elemento maior seja processado antes de seus predecessores menores, gerando uma sequência monotônica estritamente ordenada em tempo linear $O(N)$.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bst-inorder-sorted-traversal-loop.webm">
-    <p>Visualização: Visita recursiva esquerda -> raiz -> direita produzindo a sequência estritamente ordenada dos elementos.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Travessias em Árvore: In-Order (Ordenada), Pre-Order e Post-Order</text>
+  <g transform="translate(60, 50)">
+    <rect x="0" y="0" width="160" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="80" y="20" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">In-Order (E, R, D)</text>
+    <text x="15" y="42" fill="#f8fafc" font-size="10">Visita em ordem crescente</text>
+    <text x="15" y="60" fill="#a7f3d0" font-size="10">Usado para validar BST</text>
+
+    <rect x="180" y="0" width="160" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="20" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Pre-Order (R, E, D)</text>
+    <text x="195" y="42" fill="#f8fafc" font-size="10">Visita raiz primeiro</text>
+    <text x="195" y="60" fill="#93c5fd" font-size="10">Serialização e cópia</text>
+
+    <rect x="360" y="0" width="180" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="450" y="20" fill="#fcd34d" font-size="11" font-weight="bold" text-anchor="middle">Post-Order (E, D, R)</text>
+    <text x="375" y="42" fill="#f8fafc" font-size="10">Visita filhos primeiro</text>
+    <text x="375" y="60" fill="#fde68a" font-size="10">Deleção e cálculo de altura</text>
+  </g>
+  <text x="340" y="165" fill="#94a3b8" font-size="11" text-anchor="middle">Todas as travessias DFS clássicas executam em tempo O(N) e espaço O(h)</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Travessias em Árvore: In-Order (Ordenada), Pre-Order e Post-Order</text>
+  <g transform="translate(60, 50)">
+    <rect x="0" y="0" width="160" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="80" y="20" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">In-Order (E, R, D)</text>
+    <text x="15" y="42" fill="#f8fafc" font-size="10">Visita em ordem crescente</text>
+    <text x="15" y="60" fill="#a7f3d0" font-size="10">Usado para validar BST</text>
+
+    <rect x="180" y="0" width="160" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="20" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Pre-Order (R, E, D)</text>
+    <text x="195" y="42" fill="#f8fafc" font-size="10">Visita raiz primeiro</text>
+    <text x="195" y="60" fill="#93c5fd" font-size="10">Serialização e cópia</text>
+
+    <rect x="360" y="0" width="180" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="450" y="20" fill="#fcd34d" font-size="11" font-weight="bold" text-anchor="middle">Post-Order (E, D, R)</text>
+    <text x="375" y="42" fill="#f8fafc" font-size="10">Visita filhos primeiro</text>
+    <text x="375" y="60" fill="#fde68a" font-size="10">Deleção e cálculo de altura</text>
+  </g>
+  <text x="340" y="165" fill="#94a3b8" font-size="11" text-anchor="middle">Todas as travessias DFS clássicas executam em tempo O(N) e espaço O(h)</text>
+
+</svg>
 
 | Ordem de Travessia | Sequência de Passos | Propriedade em BST |
 |---|---|---|

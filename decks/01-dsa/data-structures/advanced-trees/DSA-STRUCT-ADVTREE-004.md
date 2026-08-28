@@ -21,11 +21,33 @@ Como estender a Fenwick Tree para uma **matriz bidimensional 2D** com consultas 
   $$\text{soma} = Q(r_2, c_2) - Q(r_1-1, c_2) - Q(r_2, c_1-1) + Q(r_1-1, c_1-1)$$
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/fenwick-tree-2d-grid-loop.webm">
-    <p>Visualização: Atualização em grade 2D navegando bits nos eixos X e Y em tempo O(log N * log M).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Splay Tree: Auto-Ajuste com Operação Splay Trazendo Nós à Raiz</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Princípio de Localidade Temporal (Zig-Zig &amp; Zig-Zag)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Todo nó acessado é promovido à raiz através de uma sequência de rotações duplas.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Custo amortizado de busca, inserção e deleção: O(log N).</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Ideal para caches de memória e alocadores onde certos nós são acessados frequentemente</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Splay Tree: Auto-Ajuste com Operação Splay Trazendo Nós à Raiz</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Princípio de Localidade Temporal (Zig-Zig &amp; Zig-Zag)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Todo nó acessado é promovido à raiz através de uma sequência de rotações duplas.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Custo amortizado de busca, inserção e deleção: O(log N).</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Ideal para caches de memória e alocadores onde certos nós são acessados frequentemente</text>
+
+</svg>
 
 | Operação 2D | Abordagem Força Bruta | Fenwick Tree 2D |
 |---|---|---|

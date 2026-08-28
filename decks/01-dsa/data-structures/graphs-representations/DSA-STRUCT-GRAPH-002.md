@@ -21,11 +21,51 @@ Como funciona a representação de grafos por **Matriz de Adjacência** e quais 
 - **Desvantagens**: Espaço de memória fixo quadrático $O(V^2)$ e iteração sobre vizinhos de um vértice custa sempre $O(V)$, mesmo em grafos esparsos.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/adjacency-matrix-lookup-loop.webm">
-    <p>Visualização: Verificação instantânea de adjacência em O(1) indexando a célula bidimensional matrix[u][v].</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Grafos Direcionados vs Não-Direcionados (In-Degree &amp; Out-Degree)</text>
+  <g transform="translate(80, 50)">
+    <!-- Directed -->
+    <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="120" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Direcionado (Arestas com Seta)</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">In-Degree: arestas que chegam ao nó</text>
+    <text x="15" y="60" fill="#93c5fd" font-size="10">Out-Degree: arestas que saem do nó</text>
+
+    <!-- Undirected -->
+    <g transform="translate(280, 0)">
+      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Não-Direcionado (Simétrico)</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">Aresta (u, v) implica (v, u)</text>
+      <text x="15" y="60" fill="#a7f3d0" font-size="10">Grau total = Σ vizinhos conectados</text>
+    </g>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">In-Degree == 0 é a condição inicial de Kahn para Ordenação Topológica</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Grafos Direcionados vs Não-Direcionados (In-Degree &amp; Out-Degree)</text>
+  <g transform="translate(80, 50)">
+    <!-- Directed -->
+    <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="120" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Direcionado (Arestas com Seta)</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">In-Degree: arestas que chegam ao nó</text>
+    <text x="15" y="60" fill="#93c5fd" font-size="10">Out-Degree: arestas que saem do nó</text>
+
+    <!-- Undirected -->
+    <g transform="translate(280, 0)">
+      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Não-Direcionado (Simétrico)</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">Aresta (u, v) implica (v, u)</text>
+      <text x="15" y="60" fill="#a7f3d0" font-size="10">Grau total = Σ vizinhos conectados</text>
+    </g>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">In-Degree == 0 é a condição inicial de Kahn para Ordenação Topológica</text>
+
+</svg>
 
 | Operação em Matriz | Complexidade | Observação |
 |---|---|---|

@@ -21,11 +21,19 @@ Como o algoritmo de **Coloração de 3 Estados (White, Gray, Black)** detecta ci
 - **Detecção de Ciclo**: Durante a travessia DFS a partir de um nó cinza, se encontrarmos um vizinho que **já é cinza (Gray)**, encontramos uma **Back-Edge** (aresta de retorno para um ancestral ativo na pilha), confirmando a existência de um **Ciclo Direcionado**.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/iddfs-iterative-deepening-loop.webm">
-    <p>Visualização: DFS com limite incremental de profundidade combinando a economia de memória do DFS com a otimalidade do BFS.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Iterative Deepening DFS (IDDFS): Espaço O(d) com Completude de BFS</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">DFS com Limite de Profundidade Iterativo: depth = 1, 2, 3, ... d</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Combina o baixo consumo de memória de DFS (O(d)) com a garantia de menor caminho de BFS.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">O reprocessamento de níveis superiores custa apenas um fator constante adicional insignificante.</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Padrão em motores de IA para xadrez e resolução de quebra-cabeças 15-Puzzle</text>
+
+</svg>
 
 | Cor do Vértice | Estado de Processamento | Ação ao Encontrar na DFS |
 |---|---|---|

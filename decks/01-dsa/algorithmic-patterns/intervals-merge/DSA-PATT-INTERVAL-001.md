@@ -22,11 +22,20 @@ Como utilizar um **Min-Heap de horários de término** para encontrar o número 
 - O tamanho máximo do heap representa o **número mínimo de salas simultâneas necessárias**.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/insert-interval-three-phases-loop.webm">
-    <p>Visualização: Inserção ordenada: 1) anteriores sem sobreposição; 2) fusão com sobrepostos; 3) posteriores restantes.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Insert Interval: Inserção Ordenada em Lista sem Sobreposições em O(N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Três Etapas em Varredura Linear</text>
+    <text x="20" y="42" fill="#94a3b8" font-size="10">1. Adiciona todos os intervalos que terminam antes de newInterval.start.</text>
+    <text x="20" y="56" fill="#34d399" font-size="10">2. Funde todos os intervalos sobrepostos expandindo newInterval.</text>
+    <text x="20" y="70" fill="#94a3b8" font-size="10">3. Adiciona os intervalos restantes que começam após newInterval.end.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Complexidade linear O(N) sem necessidade de re-ordenar o array</text>
+
+</svg>
 
 | Evento | Condição do Heap | Ação de Sala |
 |---|---|---|

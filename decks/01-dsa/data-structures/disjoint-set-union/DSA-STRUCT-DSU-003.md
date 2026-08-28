@@ -20,11 +20,33 @@ Como a operação **`union`** funde dois conjuntos no DSU e como ela verifica se
   3. Se `rootX != rootY`, faz uma raiz apontar para a outra (`parent[rootX] = rootY`), unificando os grupos e decrementando o total de componentes conexos.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dsu-union-by-rank-merge-loop.webm">
-    <p>Visualização: Conexão da raiz da árvore mais rasa à raiz da árvore mais profunda preservando o rank mínimo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Complexidade Quase-Linear com Função Inversa de Ackermann α(N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Combinação: Path Compression + Union by Rank</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Complexidade amortizada de M operações sobre N elementos: O(M · α(N)).</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Como α(N) &lt; 5 para qualquer N até o número de átomos no universo observável (10⁸⁰) → O(1) na prática.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Operações Find e Union são indistinguíveis de tempo constante no mundo real</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Complexidade Quase-Linear com Função Inversa de Ackermann α(N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Combinação: Path Compression + Union by Rank</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Complexidade amortizada de M operações sobre N elementos: O(M · α(N)).</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Como α(N) &lt; 5 para qualquer N até o número de átomos no universo observável (10⁸⁰) → O(1) na prática.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Operações Find e Union são indistinguíveis de tempo constante no mundo real</text>
+
+</svg>
 
 | Condição em `union(x, y)` | Ação | Conectividade |
 |---|---|---|

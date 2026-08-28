@@ -20,11 +20,19 @@ Como o algoritmo **TimSort** combina Insertion Sort e Mergesort para atingir per
 - **Complexidade**: $O(N)$ no melhor caso (dados já ordenados) e $O(N \log N)$ no pior caso, mantendo estrita estabilidade.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/master-theorem-cases-complexity-loop.webm">
-    <p>Visualização: Comparação entre o custo do trabalho local f(n) e a taxa de crescimento das folhas da árvore n^(log_b a).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Multiplicação Rápida de Karatsuba: O(N^(log₂ 3)) ≈ O(N^1.585)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Redução de 4 Multiplicações de Subproblemas para 3</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Divide números de N dígitos em partes altas e baixas: X = X1·10^(N/2) + X0.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Calcula z0 = X0·Y0, z2 = X1·Y1 e z1 = (X1+X0)·(Y1+Y0) - z2 - z0 com apenas 3 multiplicações.</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Base da biblioteca de números inteiros de precisão arbitrária (BigInt em Java/Python)</text>
+
+</svg>
 
 | Algoritmo | Complexidade (Melhor / Pior) | Estabilidade |
 |---|---|---|

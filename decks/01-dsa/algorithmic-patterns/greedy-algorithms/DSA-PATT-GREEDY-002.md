@@ -23,11 +23,19 @@ Por que o problema de **Seleção de Atividades (Interval Scheduling)** exige or
 - **Complexidade**: $O(N \log N)$ tempo e $O(1)$ espaço auxiliar.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/huffman-coding-tree-merge-loop.webm">
-    <p>Visualização: Fusão repetida dos dois nós de menor frequência gerando códigos binários mais curtos para caracteres mais frequentes.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Fractional Knapsack: Ordenação por Densidade de Valor (val / weight)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Itens Fracionáveis Permitem Abordagem Gulosa Ótima</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Ordena decrescentemente por densidade ratio = value / weight.</text>
+    <text x="20" y="62" fill="#f59e0b" font-size="11">Consome itens inteiros; no último item que não couber por completo, leva a fração restante W_rest / weight.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Mochila 0/1 exige DP O(N·W); Mochila Fracionária é resolvida gulosamente em O(N log N)</text>
+
+</svg>
 
 | Critério de Ordenação Guloso | Resultado | Status de Otimização |
 |---|---|---|

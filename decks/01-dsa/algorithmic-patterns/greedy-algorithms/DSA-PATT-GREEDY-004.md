@@ -22,11 +22,19 @@ Como provar que o problema **Gas Station (Postos de Combustível)** pode ser res
   - Reiniciamos `startStation = i + 1` e `currentTank = 0`.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/gas-station-circuit-greedy-loop.webm">
-    <p>Visualização: Se o saldo acumulado de combustível cair abaixo de 0, o ponto de partida deve ser estritamente posterior a esse índice.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Jump Game: Rastreamento Guloso da Máxima Posição Alcançável</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">max_reach = max(max_reach, i + nums[i])</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Se o índice atual i &gt; max_reach → impossível avançar (retorna false).</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Se max_reach &gt;= N - 1 → destino alcançado com sucesso (retorna true).</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Substitui DP O(N²) por varredura gulosa em tempo linear O(N) e espaço O(1)</text>
+
+</svg>
 
 | Métrica Rastreada | Condição de Teste | Ação |
 |---|---|---|

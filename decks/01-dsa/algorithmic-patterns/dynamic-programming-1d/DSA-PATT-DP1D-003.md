@@ -21,11 +21,26 @@ Como reduzir o espaço de memória de uma DP 1D de $O(N)$ para **tempo constante
 - **Complexidade**: Reduz o espaço de $O(N)$ para **$O(1)$** estrito mantendo o tempo em $O(N)$.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/house-robber-dp-state-choice-loop.webm">
-    <p>Visualização: Transição de estado escolhendo o máximo entre roubar a casa atual somando a dp[i-2] ou manter dp[i-1].</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Longest Increasing Subsequence (LIS): DP O(N²) vs Patience Sorting O(N log N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="120" y="22" fill="#fcd34d" font-size="11" font-weight="bold" text-anchor="middle">DP Clássico O(N²)</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">dp[i] = max(dp[j] + 1) para j &lt; i</text>
+    <text x="15" y="60" fill="#fde68a" font-size="10">Dois loops aninhados simples</text>
+
+    <g transform="translate(280, 0)">
+      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Patience Sorting O(N log N)</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">Mantém array 'tails' ordenado</text>
+      <text x="15" y="60" fill="#a7f3d0" font-size="10">Substitui com binary search (lower_bound)</text>
+    </g>
+  </g>
+  <text x="340" y="165" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Patience sorting escala com facilidade para N = 10⁵ elementos</text>
+
+</svg>
 
 | Abordagem | Consumo de Memória | Estrutura de Armazenamento |
 |---|---|---|

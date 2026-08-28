@@ -21,11 +21,24 @@ O que são **Memory Barriers / Fences** e por que a semântica `volatile` / *Hap
 - **Semântica `volatile` / Happens-Before**: Garante que qualquer escrita realizada antes da gravação de uma flag volátil se torne **imediatamente visível** para qualquer thread que leia essa flag em seguida.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/memory-barriers-happens-before-fences-loop.webm">
-    <p>Visualização: Instruções de barreira impedindo reordenação de instruções no compilador e na CPU (Happens-Before).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Memory Barriers (Fences) &amp; Reordenação de CPU (Happens-Before)</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="260" height="80" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="130" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Sem Memory Barrier</text>
+    <text x="130" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">CPU Out-of-Order Execution &amp; Compilador</text>
+    <text x="130" y="62" fill="#fca5a5" font-size="10" text-anchor="middle">podem inverter write(ready) antes de write(data)!</text>
+
+    <rect x="300" y="0" width="260" height="80" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="430" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Com Memory Barrier (MFENCE)</text>
+    <text x="430" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Garante ordem estrita de Store/Load Buffers</text>
+    <text x="430" y="62" fill="#a7f3d0" font-size="10" font-weight="bold" text-anchor="middle">Estabelece relação de Happens-Before</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Volatile em Java / atomic.Store em Go inserem barreiras de memória para forçar visibilidade imediata entre cores.</text>
+
+</svg>
 
 | Tipo de Barreira | Efeito na Ordem de Memória | Caso de Uso |
 |---|---|---|

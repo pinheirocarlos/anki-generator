@@ -24,11 +24,30 @@ Quais são as diferenças fundamentais de filosofia de design entre arquiteturas
   - 31 registradores de propósito geral (`X0` a `X30`).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/cpu-registers-pc-sp-flags-loop.webm">
-    <p>Visualização: Manipulação de registradores de estado: Program Counter (PC), Stack Pointer (SP) e Flags aritméticas (ZF, CF, OF).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Filosofia de ISA: CISC (x86-64) vs RISC (ARM64 / RISC-V)</text>
+  <g transform="translate(50, 48)">
+    <!-- CISC -->
+    <rect x="0" y="0" width="270" height="110" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="135" y="22" fill="#60a5fa" font-size="13" font-weight="bold" text-anchor="middle">x86-64 (CISC)</text>
+    <text x="135" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">• Instruções de comprimento variável (1 a 15 bytes)</text>
+    <text x="135" y="62" fill="#f8fafc" font-size="10" text-anchor="middle">• Operações diretas memória-registrador (add [rax], rbx)</text>
+    <text x="135" y="80" fill="#f8fafc" font-size="10" text-anchor="middle">• Decodificadores complexos (hardware traduz p/ micro-ops)</text>
+    <text x="135" y="98" fill="#94a3b8" font-size="9" text-anchor="middle">Foco: Densidade de código &amp; Retrocompatibilidade</text>
+
+    <!-- RISC -->
+    <rect x="310" y="0" width="270" height="110" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="445" y="22" fill="#34d399" font-size="13" font-weight="bold" text-anchor="middle">ARM64 / Apple Silicon (RISC)</text>
+    <text x="445" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">• Instruções de tamanho fixo (estritamente 4 bytes)</text>
+    <text x="445" y="62" fill="#f8fafc" font-size="10" text-anchor="middle">• Arquitetura Load/Store (apenas LDR/STR tocam na RAM)</text>
+    <text x="445" y="80" fill="#f8fafc" font-size="10" text-anchor="middle">• Decodificação paralela ultra-larga (8+ decoders simples)</text>
+    <text x="445" y="98" fill="#94a3b8" font-size="9" text-anchor="middle">Foco: Eficiência energética &amp; Alto paralelismo IPC</text>
+  </g>
+  <text x="340" y="185" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Convergência: Processadores modernos x86 quebram CISC em micro-ops RISC internamente.</text>
+
+</svg>
 
 | Característica | x86-64 (Intel / AMD) | ARM64 / AArch64 (Graviton / Apple) |
 |---|---|---|

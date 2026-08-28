@@ -20,7 +20,8 @@
                 "DSA-STRUCT-ARRAY-002",
                 "DSA-STRUCT-ARRAY-003",
                 "DSA-STRUCT-ARRAY-004",
-                "DSA-STRUCT-ARRAY-005"
+                "DSA-STRUCT-ARRAY-005",
+                "DSA-STRUCT-ARRAY-006"
               ]
             },
             {
@@ -33,7 +34,8 @@
                 "DSA-STRUCT-LIST-002",
                 "DSA-STRUCT-LIST-003",
                 "DSA-STRUCT-LIST-004",
-                "DSA-STRUCT-LIST-005"
+                "DSA-STRUCT-LIST-005",
+                "DSA-STRUCT-LIST-006"
               ]
             },
             {
@@ -46,7 +48,8 @@
                 "DSA-STRUCT-STACK-002",
                 "DSA-STRUCT-STACK-003",
                 "DSA-STRUCT-STACK-004",
-                "DSA-STRUCT-STACK-005"
+                "DSA-STRUCT-STACK-005",
+                "DSA-STRUCT-STACK-006"
               ]
             },
             {
@@ -59,7 +62,8 @@
                 "DSA-STRUCT-TREE-002",
                 "DSA-STRUCT-TREE-003",
                 "DSA-STRUCT-TREE-004",
-                "DSA-STRUCT-TREE-005"
+                "DSA-STRUCT-TREE-005",
+                "DSA-STRUCT-TREE-006"
               ]
             },
             {
@@ -72,7 +76,8 @@
                 "DSA-STRUCT-HEAP-002",
                 "DSA-STRUCT-HEAP-003",
                 "DSA-STRUCT-HEAP-004",
-                "DSA-STRUCT-HEAP-005"
+                "DSA-STRUCT-HEAP-005",
+                "DSA-STRUCT-HEAP-006"
               ]
             },
             {
@@ -85,7 +90,8 @@
                 "DSA-STRUCT-GRAPH-002",
                 "DSA-STRUCT-GRAPH-003",
                 "DSA-STRUCT-GRAPH-004",
-                "DSA-STRUCT-GRAPH-005"
+                "DSA-STRUCT-GRAPH-005",
+                "DSA-STRUCT-GRAPH-006"
               ]
             },
             {
@@ -98,7 +104,8 @@
                 "DSA-STRUCT-TRIE-002",
                 "DSA-STRUCT-TRIE-003",
                 "DSA-STRUCT-TRIE-004",
-                "DSA-STRUCT-TRIE-005"
+                "DSA-STRUCT-TRIE-005",
+                "DSA-STRUCT-TRIE-006"
               ]
             },
             {
@@ -111,7 +118,8 @@
                 "DSA-STRUCT-HASH-002",
                 "DSA-STRUCT-HASH-003",
                 "DSA-STRUCT-HASH-004",
-                "DSA-STRUCT-HASH-005"
+                "DSA-STRUCT-HASH-005",
+                "DSA-STRUCT-HASH-006"
               ]
             },
             {
@@ -124,7 +132,8 @@
                 "DSA-STRUCT-ADVTREE-002",
                 "DSA-STRUCT-ADVTREE-003",
                 "DSA-STRUCT-ADVTREE-004",
-                "DSA-STRUCT-ADVTREE-005"
+                "DSA-STRUCT-ADVTREE-005",
+                "DSA-STRUCT-ADVTREE-006"
               ]
             },
             {
@@ -137,7 +146,8 @@
                 "DSA-STRUCT-DSU-002",
                 "DSA-STRUCT-DSU-003",
                 "DSA-STRUCT-DSU-004",
-                "DSA-STRUCT-DSU-005"
+                "DSA-STRUCT-DSU-005",
+                "DSA-STRUCT-DSU-006"
               ]
             }
           ]
@@ -156,7 +166,8 @@
                 "DSA-PATT-2POINT-002",
                 "DSA-PATT-2POINT-003",
                 "DSA-PATT-2POINT-004",
-                "DSA-PATT-2POINT-005"
+                "DSA-PATT-2POINT-005",
+                "DSA-PATT-2POINT-006"
               ]
             },
             {
@@ -169,7 +180,8 @@
                 "DSA-PATT-SLIDE-002",
                 "DSA-PATT-SLIDE-003",
                 "DSA-PATT-SLIDE-004",
-                "DSA-PATT-SLIDE-005"
+                "DSA-PATT-SLIDE-005",
+                "DSA-PATT-SLIDE-006"
               ]
             },
             {
@@ -182,7 +194,8 @@
                 "DSA-PATT-BSEARCH-002",
                 "DSA-PATT-BSEARCH-003",
                 "DSA-PATT-BSEARCH-004",
-                "DSA-PATT-BSEARCH-005"
+                "DSA-PATT-BSEARCH-005",
+                "DSA-PATT-BSEARCH-006"
               ]
             },
             {
@@ -195,7 +208,8 @@
                 "DSA-PATT-MONOSTACK-002",
                 "DSA-PATT-MONOSTACK-003",
                 "DSA-PATT-MONOSTACK-004",
-                "DSA-PATT-MONOSTACK-005"
+                "DSA-PATT-MONOSTACK-005",
+                "DSA-PATT-MONOSTACK-006"
               ]
             },
             {
@@ -208,7 +222,8 @@
                 "DSA-PATT-TRAVERSAL-002",
                 "DSA-PATT-TRAVERSAL-003",
                 "DSA-PATT-TRAVERSAL-004",
-                "DSA-PATT-TRAVERSAL-005"
+                "DSA-PATT-TRAVERSAL-005",
+                "DSA-PATT-TRAVERSAL-006"
               ]
             },
             {
@@ -221,7 +236,8 @@
                 "DSA-PATT-TOPO-002",
                 "DSA-PATT-TOPO-003",
                 "DSA-PATT-TOPO-004",
-                "DSA-PATT-TOPO-005"
+                "DSA-PATT-TOPO-005",
+                "DSA-PATT-TOPO-006"
               ]
             },
             {
@@ -234,7 +250,8 @@
                 "DSA-PATT-SPATH-002",
                 "DSA-PATT-SPATH-003",
                 "DSA-PATT-SPATH-004",
-                "DSA-PATT-SPATH-005"
+                "DSA-PATT-SPATH-005",
+                "DSA-PATT-SPATH-006"
               ]
             },
             {
@@ -247,7 +264,8 @@
                 "DSA-PATT-MST-002",
                 "DSA-PATT-MST-003",
                 "DSA-PATT-MST-004",
-                "DSA-PATT-MST-005"
+                "DSA-PATT-MST-005",
+                "DSA-PATT-MST-006"
               ]
             },
             {
@@ -260,7 +278,8 @@
                 "DSA-PATT-DP1D-002",
                 "DSA-PATT-DP1D-003",
                 "DSA-PATT-DP1D-004",
-                "DSA-PATT-DP1D-005"
+                "DSA-PATT-DP1D-005",
+                "DSA-PATT-DP1D-006"
               ]
             },
             {
@@ -273,7 +292,8 @@
                 "DSA-PATT-DP2D-002",
                 "DSA-PATT-DP2D-003",
                 "DSA-PATT-DP2D-004",
-                "DSA-PATT-DP2D-005"
+                "DSA-PATT-DP2D-005",
+                "DSA-PATT-DP2D-006"
               ]
             },
             {
@@ -286,7 +306,8 @@
                 "DSA-PATT-DPADV-002",
                 "DSA-PATT-DPADV-003",
                 "DSA-PATT-DPADV-004",
-                "DSA-PATT-DPADV-005"
+                "DSA-PATT-DPADV-005",
+                "DSA-PATT-DPADV-006"
               ]
             },
             {
@@ -299,7 +320,8 @@
                 "DSA-PATT-BACKTRACK-002",
                 "DSA-PATT-BACKTRACK-003",
                 "DSA-PATT-BACKTRACK-004",
-                "DSA-PATT-BACKTRACK-005"
+                "DSA-PATT-BACKTRACK-005",
+                "DSA-PATT-BACKTRACK-006"
               ]
             },
             {
@@ -312,7 +334,8 @@
                 "DSA-PATT-GREEDY-002",
                 "DSA-PATT-GREEDY-003",
                 "DSA-PATT-GREEDY-004",
-                "DSA-PATT-GREEDY-005"
+                "DSA-PATT-GREEDY-005",
+                "DSA-PATT-GREEDY-006"
               ]
             },
             {
@@ -325,7 +348,8 @@
                 "DSA-PATT-INTERVAL-002",
                 "DSA-PATT-INTERVAL-003",
                 "DSA-PATT-INTERVAL-004",
-                "DSA-PATT-INTERVAL-005"
+                "DSA-PATT-INTERVAL-005",
+                "DSA-PATT-INTERVAL-006"
               ]
             },
             {
@@ -338,7 +362,8 @@
                 "DSA-PATT-BIT-002",
                 "DSA-PATT-BIT-003",
                 "DSA-PATT-BIT-004",
-                "DSA-PATT-BIT-005"
+                "DSA-PATT-BIT-005",
+                "DSA-PATT-BIT-006"
               ]
             },
             {
@@ -351,7 +376,8 @@
                 "DSA-PATT-DIVCONQ-002",
                 "DSA-PATT-DIVCONQ-003",
                 "DSA-PATT-DIVCONQ-004",
-                "DSA-PATT-DIVCONQ-005"
+                "DSA-PATT-DIVCONQ-005",
+                "DSA-PATT-DIVCONQ-006"
               ]
             }
           ]
@@ -370,7 +396,8 @@
                 "DSA-ADV-STRING-002",
                 "DSA-ADV-STRING-003",
                 "DSA-ADV-STRING-004",
-                "DSA-ADV-STRING-005"
+                "DSA-ADV-STRING-005",
+                "DSA-ADV-STRING-006"
               ]
             },
             {
@@ -383,7 +410,8 @@
                 "DSA-ADV-GAMETHEORY-002",
                 "DSA-ADV-GAMETHEORY-003",
                 "DSA-ADV-GAMETHEORY-004",
-                "DSA-ADV-GAMETHEORY-005"
+                "DSA-ADV-GAMETHEORY-005",
+                "DSA-ADV-GAMETHEORY-006"
               ]
             },
             {
@@ -396,7 +424,8 @@
                 "DSA-ADV-SWEEPLINE-002",
                 "DSA-ADV-SWEEPLINE-003",
                 "DSA-ADV-SWEEPLINE-004",
-                "DSA-ADV-SWEEPLINE-005"
+                "DSA-ADV-SWEEPLINE-005",
+                "DSA-ADV-SWEEPLINE-006"
               ]
             },
             {
@@ -409,7 +438,8 @@
                 "DSA-ADV-CONCURRENT-002",
                 "DSA-ADV-CONCURRENT-003",
                 "DSA-ADV-CONCURRENT-004",
-                "DSA-ADV-CONCURRENT-005"
+                "DSA-ADV-CONCURRENT-005",
+                "DSA-ADV-CONCURRENT-006"
               ]
             }
           ]
@@ -433,7 +463,8 @@
                 "CS-ARCH-CACHE-001",
                 "CS-ARCH-CACHE-002",
                 "CS-ARCH-CACHE-003",
-                "CS-ARCH-CACHE-004"
+                "CS-ARCH-CACHE-004",
+                "CS-ARCH-CACHE-006"
               ]
             },
             {
@@ -444,7 +475,8 @@
                 "CS-ARCH-PIPE-000",
                 "CS-ARCH-PIPE-001",
                 "CS-ARCH-PIPE-002",
-                "CS-ARCH-PIPE-003"
+                "CS-ARCH-PIPE-003",
+                "CS-ARCH-PIPE-006"
               ]
             },
             {
@@ -455,7 +487,8 @@
                 "CS-ARCH-CPU-000",
                 "CS-ARCH-CPU-001",
                 "CS-ARCH-CPU-002",
-                "CS-ARCH-CPU-003"
+                "CS-ARCH-CPU-003",
+                "CS-ARCH-CPU-006"
               ]
             },
             {
@@ -468,7 +501,8 @@
                 "CS-ARCH-IO-002",
                 "CS-ARCH-IO-003",
                 "CS-ARCH-IO-004",
-                "CS-ARCH-IO-005"
+                "CS-ARCH-IO-005",
+                "CS-ARCH-IO-006"
               ]
             }
           ]
@@ -486,7 +520,8 @@
                 "CS-OS-VMEM-001",
                 "CS-OS-VMEM-002",
                 "CS-OS-VMEM-003",
-                "CS-OS-VMEM-005"
+                "CS-OS-VMEM-005",
+                "CS-OS-VMEM-006"
               ]
             },
             {
@@ -497,7 +532,8 @@
                 "CS-OS-PROC-000",
                 "CS-OS-PROC-001",
                 "CS-OS-PROC-002",
-                "CS-OS-PROC-003"
+                "CS-OS-PROC-003",
+                "CS-OS-PROC-006"
               ]
             },
             {
@@ -509,7 +545,8 @@
                 "CS-OS-SYNC-001",
                 "CS-OS-SYNC-002",
                 "CS-OS-SYNC-003",
-                "CS-OS-SYNC-004"
+                "CS-OS-SYNC-004",
+                "CS-OS-SYNC-006"
               ]
             },
             {
@@ -520,7 +557,8 @@
                 "CS-OS-ATOM-000",
                 "CS-OS-ATOM-001",
                 "CS-OS-ATOM-002",
-                "CS-OS-ATOM-004"
+                "CS-OS-ATOM-004",
+                "CS-OS-ATOM-006"
               ]
             },
             {
@@ -531,7 +569,8 @@
                 "CS-OS-SYS-000",
                 "CS-OS-SYS-001",
                 "CS-OS-SYS-002",
-                "CS-OS-SYS-003"
+                "CS-OS-SYS-003",
+                "CS-OS-SYS-006"
               ]
             },
             {
@@ -542,7 +581,8 @@
                 "CS-OS-KERN-000",
                 "CS-OS-KERN-001",
                 "CS-OS-KERN-002",
-                "CS-OS-KERN-003"
+                "CS-OS-KERN-003",
+                "CS-OS-KERN-006"
               ]
             },
             {
@@ -553,7 +593,8 @@
                 "CS-OS-IPC-000",
                 "CS-OS-IPC-001",
                 "CS-OS-IPC-002",
-                "CS-OS-IPC-003"
+                "CS-OS-IPC-003",
+                "CS-OS-IPC-006"
               ]
             }
           ]
@@ -570,7 +611,8 @@
                 "CS-RNT-JVM-000",
                 "CS-RNT-JVM-001",
                 "CS-RNT-JVM-002",
-                "CS-RNT-JVM-003"
+                "CS-RNT-JVM-003",
+                "CS-RNT-JVM-006"
               ]
             },
             {
@@ -580,7 +622,8 @@
               "card_ids": [
                 "CS-RNT-GO-000",
                 "CS-RNT-GO-001",
-                "CS-RNT-GO-002"
+                "CS-RNT-GO-002",
+                "CS-RNT-GO-006"
               ]
             },
             {
@@ -590,7 +633,8 @@
               "card_ids": [
                 "CS-RNT-ALLOC-000",
                 "CS-RNT-ALLOC-002",
-                "CS-RNT-ALLOC-003"
+                "CS-RNT-ALLOC-003",
+                "CS-RNT-ALLOC-006"
               ]
             }
           ]
@@ -608,7 +652,8 @@
                 "CS-NET-TCP-001",
                 "CS-NET-TCP-002",
                 "CS-NET-TCP-003",
-                "CS-NET-TCP-004"
+                "CS-NET-TCP-004",
+                "CS-NET-TCP-006"
               ]
             },
             {
@@ -619,7 +664,8 @@
                 "CS-NET-HTTP-000",
                 "CS-NET-HTTP-001",
                 "CS-NET-HTTP-002",
-                "CS-NET-HTTP-003"
+                "CS-NET-HTTP-003",
+                "CS-NET-HTTP-006"
               ]
             },
             {
@@ -629,7 +675,8 @@
               "card_ids": [
                 "CS-NET-DNS-000",
                 "CS-NET-DNS-001",
-                "CS-NET-DNS-002"
+                "CS-NET-DNS-002",
+                "CS-NET-DNS-006"
               ]
             },
             {
@@ -639,7 +686,8 @@
               "card_ids": [
                 "CS-NET-SOCK-000",
                 "CS-NET-SOCK-001",
-                "CS-NET-SOCK-002"
+                "CS-NET-SOCK-002",
+                "CS-NET-SOCK-006"
               ]
             },
             {
@@ -650,7 +698,8 @@
                 "CS-NET-API-000",
                 "CS-NET-API-001",
                 "CS-NET-API-002",
-                "CS-NET-API-003"
+                "CS-NET-API-003",
+                "CS-NET-API-006"
               ]
             }
           ]
@@ -668,7 +717,8 @@
                 "CS-MATH-BOOL-001",
                 "CS-MATH-BOOL-002",
                 "CS-MATH-BOOL-003",
-                "CS-MATH-BOOL-004"
+                "CS-MATH-BOOL-004",
+                "CS-MATH-BOOL-006"
               ]
             },
             {
@@ -680,7 +730,8 @@
                 "CS-MATH-NUM-001",
                 "CS-MATH-NUM-002",
                 "CS-MATH-NUM-003",
-                "CS-MATH-NUM-004"
+                "CS-MATH-NUM-004",
+                "CS-MATH-NUM-006"
               ]
             },
             {
@@ -691,7 +742,8 @@
                 "CS-MATH-PROB-000",
                 "CS-MATH-PROB-001",
                 "CS-MATH-PROB-002",
-                "CS-MATH-PROB-004"
+                "CS-MATH-PROB-004",
+                "CS-MATH-PROB-006"
               ]
             },
             {
@@ -703,7 +755,8 @@
                 "CS-MATH-GRAPH-001",
                 "CS-MATH-GRAPH-002",
                 "CS-MATH-GRAPH-003",
-                "CS-MATH-GRAPH-004"
+                "CS-MATH-GRAPH-004",
+                "CS-MATH-GRAPH-006"
               ]
             }
           ]
@@ -725,7 +778,8 @@
               "card_ids": [
                 "SYS-FND-ESTIMATION-000",
                 "SYS-FND-ESTIMATION-001",
-                "SYS-FND-ESTIMATION-002"
+                "SYS-FND-ESTIMATION-002",
+                "SYS-FND-ESTIMATION-006"
               ]
             },
             {
@@ -734,7 +788,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-FND-FRAMEWORK-000",
-                "SYS-FND-FRAMEWORK-001"
+                "SYS-FND-FRAMEWORK-001",
+                "SYS-FND-FRAMEWORK-006"
               ]
             }
           ]
@@ -750,7 +805,8 @@
               "card_ids": [
                 "SYS-DIST-CONSISTENCY-000",
                 "SYS-DIST-CONSISTENCY-001",
-                "SYS-DIST-CONSISTENCY-002"
+                "SYS-DIST-CONSISTENCY-002",
+                "SYS-DIST-CONSISTENCY-006"
               ]
             },
             {
@@ -760,7 +816,8 @@
               "card_ids": [
                 "SYS-DIST-CONSENSUS-000",
                 "SYS-DIST-CONSENSUS-001",
-                "SYS-DIST-CONSENSUS-002"
+                "SYS-DIST-CONSENSUS-002",
+                "SYS-DIST-CONSENSUS-006"
               ]
             },
             {
@@ -770,7 +827,8 @@
               "card_ids": [
                 "SYS-DIST-TX-000",
                 "SYS-DIST-TX-001",
-                "SYS-DIST-TX-002"
+                "SYS-DIST-TX-002",
+                "SYS-DIST-TX-006"
               ]
             },
             {
@@ -779,7 +837,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-DIST-SHARDING-000",
-                "SYS-DIST-SHARDING-001"
+                "SYS-DIST-SHARDING-001",
+                "SYS-DIST-SHARDING-006"
               ]
             },
             {
@@ -788,7 +847,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-DIST-LOCK-000",
-                "SYS-DIST-LOCK-001"
+                "SYS-DIST-LOCK-001",
+                "SYS-DIST-LOCK-006"
               ]
             },
             {
@@ -798,7 +858,8 @@
               "card_ids": [
                 "SYS-DIST-TIME-000",
                 "SYS-DIST-TIME-001",
-                "SYS-DIST-TIME-002"
+                "SYS-DIST-TIME-002",
+                "SYS-DIST-TIME-006"
               ]
             }
           ]
@@ -814,7 +875,8 @@
               "card_ids": [
                 "SYS-DB-ENGINE-000",
                 "SYS-DB-ENGINE-001",
-                "SYS-DB-ENGINE-002"
+                "SYS-DB-ENGINE-002",
+                "SYS-DB-ENGINE-006"
               ]
             },
             {
@@ -824,7 +886,8 @@
               "card_ids": [
                 "SYS-DB-SQLOPT-000",
                 "SYS-DB-SQLOPT-001",
-                "SYS-DB-SQLOPT-002"
+                "SYS-DB-SQLOPT-002",
+                "SYS-DB-SQLOPT-006"
               ]
             },
             {
@@ -834,7 +897,8 @@
               "card_ids": [
                 "SYS-DB-ACID-000",
                 "SYS-DB-ACID-001",
-                "SYS-DB-ACID-002"
+                "SYS-DB-ACID-002",
+                "SYS-DB-ACID-006"
               ]
             },
             {
@@ -843,7 +907,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-DB-NOSQL-000",
-                "SYS-DB-NOSQL-001"
+                "SYS-DB-NOSQL-001",
+                "SYS-DB-NOSQL-006"
               ]
             },
             {
@@ -852,7 +917,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-DB-VECTOR-000",
-                "SYS-DB-VECTOR-001"
+                "SYS-DB-VECTOR-001",
+                "SYS-DB-VECTOR-006"
               ]
             },
             {
@@ -861,7 +927,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-DB-SCALING-000",
-                "SYS-DB-SCALING-001"
+                "SYS-DB-SCALING-001",
+                "SYS-DB-SCALING-006"
               ]
             }
           ]
@@ -876,7 +943,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-CACHE-PATTERNS-000",
-                "SYS-CACHE-PATTERNS-001"
+                "SYS-CACHE-PATTERNS-001",
+                "SYS-CACHE-PATTERNS-006"
               ]
             },
             {
@@ -885,7 +953,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-CACHE-ANOMALIES-000",
-                "SYS-CACHE-ANOMALIES-001"
+                "SYS-CACHE-ANOMALIES-001",
+                "SYS-CACHE-ANOMALIES-006"
               ]
             },
             {
@@ -894,7 +963,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-CACHE-REDIS-000",
-                "SYS-CACHE-REDIS-001"
+                "SYS-CACHE-REDIS-001",
+                "SYS-CACHE-REDIS-006"
               ]
             },
             {
@@ -903,7 +973,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-CACHE-CDN-000",
-                "SYS-CACHE-CDN-001"
+                "SYS-CACHE-CDN-001",
+                "SYS-CACHE-CDN-006"
               ]
             }
           ]
@@ -918,7 +989,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-MSG-QUEUES-000",
-                "SYS-MSG-QUEUES-001"
+                "SYS-MSG-QUEUES-001",
+                "SYS-MSG-QUEUES-006"
               ]
             },
             {
@@ -927,7 +999,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-MSG-KAFKA-000",
-                "SYS-MSG-KAFKA-001"
+                "SYS-MSG-KAFKA-001",
+                "SYS-MSG-KAFKA-006"
               ]
             },
             {
@@ -936,7 +1009,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-MSG-GUARANTEES-000",
-                "SYS-MSG-GUARANTEES-001"
+                "SYS-MSG-GUARANTEES-001",
+                "SYS-MSG-GUARANTEES-006"
               ]
             },
             {
@@ -945,7 +1019,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-MSG-EVENTS-000",
-                "SYS-MSG-EVENTS-001"
+                "SYS-MSG-EVENTS-001",
+                "SYS-MSG-EVENTS-006"
               ]
             }
           ]
@@ -960,7 +1035,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-RES-LOADBAL-000",
-                "SYS-RES-LOADBAL-001"
+                "SYS-RES-LOADBAL-001",
+                "SYS-RES-LOADBAL-006"
               ]
             },
             {
@@ -969,7 +1045,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-RES-RATELIMIT-000",
-                "SYS-RES-RATELIMIT-001"
+                "SYS-RES-RATELIMIT-001",
+                "SYS-RES-RATELIMIT-006"
               ]
             },
             {
@@ -978,7 +1055,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-RES-FAULTTOL-000",
-                "SYS-RES-FAULTTOL-001"
+                "SYS-RES-FAULTTOL-001",
+                "SYS-RES-FAULTTOL-006"
               ]
             },
             {
@@ -987,7 +1065,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-RES-APIGW-000",
-                "SYS-RES-APIGW-001"
+                "SYS-RES-APIGW-001",
+                "SYS-RES-APIGW-006"
               ]
             },
             {
@@ -996,7 +1075,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-RES-MESH-000",
-                "SYS-RES-MESH-001"
+                "SYS-RES-MESH-001",
+                "SYS-RES-MESH-006"
               ]
             }
           ]
@@ -1011,7 +1091,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-LLD-SOLID-000",
-                "SYS-LLD-SOLID-001"
+                "SYS-LLD-SOLID-001",
+                "SYS-LLD-SOLID-006"
               ]
             },
             {
@@ -1020,7 +1101,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-LLD-PATTERNS-000",
-                "SYS-LLD-PATTERNS-001"
+                "SYS-LLD-PATTERNS-001",
+                "SYS-LLD-PATTERNS-006"
               ]
             },
             {
@@ -1029,7 +1111,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-LLD-CONCURRENCY-000",
-                "SYS-LLD-CONCURRENCY-001"
+                "SYS-LLD-CONCURRENCY-001",
+                "SYS-LLD-CONCURRENCY-006"
               ]
             },
             {
@@ -1038,7 +1121,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-LLD-CASES-000",
-                "SYS-LLD-CASES-001"
+                "SYS-LLD-CASES-001",
+                "SYS-LLD-CASES-006"
               ]
             }
           ]
@@ -1053,7 +1137,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-URL-000",
-                "SYS-ARCH-URL-001"
+                "SYS-ARCH-URL-001",
+                "SYS-ARCH-URL-006"
               ]
             },
             {
@@ -1062,7 +1147,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-FEED-000",
-                "SYS-ARCH-FEED-001"
+                "SYS-ARCH-FEED-001",
+                "SYS-ARCH-FEED-006"
               ]
             },
             {
@@ -1071,7 +1157,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-STREAM-000",
-                "SYS-ARCH-STREAM-001"
+                "SYS-ARCH-STREAM-001",
+                "SYS-ARCH-STREAM-006"
               ]
             },
             {
@@ -1080,7 +1167,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-CHAT-000",
-                "SYS-ARCH-CHAT-001"
+                "SYS-ARCH-CHAT-001",
+                "SYS-ARCH-CHAT-006"
               ]
             },
             {
@@ -1089,7 +1177,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-RIDE-000",
-                "SYS-ARCH-RIDE-001"
+                "SYS-ARCH-RIDE-001",
+                "SYS-ARCH-RIDE-006"
               ]
             },
             {
@@ -1098,7 +1187,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-FLASHSALE-000",
-                "SYS-ARCH-FLASHSALE-001"
+                "SYS-ARCH-FLASHSALE-001",
+                "SYS-ARCH-FLASHSALE-006"
               ]
             },
             {
@@ -1107,7 +1197,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-CRAWLER-000",
-                "SYS-ARCH-CRAWLER-001"
+                "SYS-ARCH-CRAWLER-001",
+                "SYS-ARCH-CRAWLER-006"
               ]
             },
             {
@@ -1116,7 +1207,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-FILESTORE-000",
-                "SYS-ARCH-FILESTORE-001"
+                "SYS-ARCH-FILESTORE-001",
+                "SYS-ARCH-FILESTORE-006"
               ]
             },
             {
@@ -1125,7 +1217,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-METRICS-000",
-                "SYS-ARCH-METRICS-001"
+                "SYS-ARCH-METRICS-001",
+                "SYS-ARCH-METRICS-006"
               ]
             },
             {
@@ -1134,7 +1227,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-TYPEAHEAD-000",
-                "SYS-ARCH-TYPEAHEAD-001"
+                "SYS-ARCH-TYPEAHEAD-001",
+                "SYS-ARCH-TYPEAHEAD-006"
               ]
             },
             {
@@ -1143,7 +1237,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-SCHEDULER-000",
-                "SYS-ARCH-SCHEDULER-001"
+                "SYS-ARCH-SCHEDULER-001",
+                "SYS-ARCH-SCHEDULER-006"
               ]
             },
             {
@@ -1152,7 +1247,8 @@
               "status": "completed",
               "card_ids": [
                 "SYS-ARCH-PAYMENT-000",
-                "SYS-ARCH-PAYMENT-001"
+                "SYS-ARCH-PAYMENT-001",
+                "SYS-ARCH-PAYMENT-006"
               ]
             }
           ]
@@ -1177,7 +1273,8 @@
                 "BEH-LEAD-STAR-002",
                 "BEH-LEAD-STAR-003",
                 "BEH-LEAD-STAR-004",
-                "BEH-LEAD-STAR-005"
+                "BEH-LEAD-STAR-005",
+                "BEH-LEAD-STAR-006"
               ]
             },
             {
@@ -1190,7 +1287,8 @@
                 "BEH-LEAD-AMAZON-002",
                 "BEH-LEAD-AMAZON-003",
                 "BEH-LEAD-AMAZON-004",
-                "BEH-LEAD-AMAZON-005"
+                "BEH-LEAD-AMAZON-005",
+                "BEH-LEAD-AMAZON-006"
               ]
             },
             {
@@ -1203,7 +1301,8 @@
                 "BEH-LEAD-CULTURE-002",
                 "BEH-LEAD-CULTURE-003",
                 "BEH-LEAD-CULTURE-004",
-                "BEH-LEAD-CULTURE-005"
+                "BEH-LEAD-CULTURE-005",
+                "BEH-LEAD-CULTURE-006"
               ]
             },
             {
@@ -1216,7 +1315,8 @@
                 "BEH-LEAD-CONFLICT-002",
                 "BEH-LEAD-CONFLICT-003",
                 "BEH-LEAD-CONFLICT-004",
-                "BEH-LEAD-CONFLICT-005"
+                "BEH-LEAD-CONFLICT-005",
+                "BEH-LEAD-CONFLICT-006"
               ]
             },
             {
@@ -1229,7 +1329,8 @@
                 "BEH-LEAD-FAILURE-002",
                 "BEH-LEAD-FAILURE-003",
                 "BEH-LEAD-FAILURE-004",
-                "BEH-LEAD-FAILURE-005"
+                "BEH-LEAD-FAILURE-005",
+                "BEH-LEAD-FAILURE-006"
               ]
             }
           ]
@@ -1248,7 +1349,8 @@
                 "BEH-SRE-PILARS-002",
                 "BEH-SRE-PILARS-003",
                 "BEH-SRE-PILARS-004",
-                "BEH-SRE-PILARS-005"
+                "BEH-SRE-PILARS-005",
+                "BEH-SRE-PILARS-006"
               ]
             },
             {
@@ -1261,7 +1363,8 @@
                 "BEH-SRE-SLI-002",
                 "BEH-SRE-SLI-003",
                 "BEH-SRE-SLI-004",
-                "BEH-SRE-SLI-005"
+                "BEH-SRE-SLI-005",
+                "BEH-SRE-SLI-006"
               ]
             },
             {
@@ -1274,7 +1377,8 @@
                 "BEH-SRE-INCIDENT-002",
                 "BEH-SRE-INCIDENT-003",
                 "BEH-SRE-INCIDENT-004",
-                "BEH-SRE-INCIDENT-005"
+                "BEH-SRE-INCIDENT-005",
+                "BEH-SRE-INCIDENT-006"
               ]
             },
             {
@@ -1287,7 +1391,8 @@
                 "BEH-SRE-CHAOS-002",
                 "BEH-SRE-CHAOS-003",
                 "BEH-SRE-CHAOS-004",
-                "BEH-SRE-CHAOS-005"
+                "BEH-SRE-CHAOS-005",
+                "BEH-SRE-CHAOS-006"
               ]
             }
           ]
@@ -1305,7 +1410,8 @@
                 "BEH-SEC-DEPLOY-001",
                 "BEH-SEC-DEPLOY-002",
                 "BEH-SEC-DEPLOY-003",
-                "BEH-SEC-DEPLOY-004"
+                "BEH-SEC-DEPLOY-004",
+                "BEH-SEC-DEPLOY-006"
               ]
             },
             {
@@ -1317,7 +1423,8 @@
                 "BEH-SEC-PYRAMID-001",
                 "BEH-SEC-PYRAMID-002",
                 "BEH-SEC-PYRAMID-003",
-                "BEH-SEC-PYRAMID-004"
+                "BEH-SEC-PYRAMID-004",
+                "BEH-SEC-PYRAMID-006"
               ]
             },
             {
@@ -1331,7 +1438,8 @@
                 "BEH-SEC-OWASP-003",
                 "BEH-SEC-OWASP-004",
                 "BEH-SEC-OWASP-005",
-                "BEH-SEC-OWASP-006"
+                "BEH-SEC-OWASP-006",
+                "BEH-SEC-OWASP-007"
               ]
             }
           ]

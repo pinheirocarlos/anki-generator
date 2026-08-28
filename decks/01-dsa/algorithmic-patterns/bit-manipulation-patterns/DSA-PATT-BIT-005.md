@@ -25,11 +25,19 @@ Como iterar estritamente sobre todos os subconjuntos de uma máscara binária us
   $$\sum_{k=0}^N \binom{N}{k} 2^k = (1 + 2)^N = 3^N$$
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bit-shifts-multiplication-division-loop.webm">
-    <p>Visualização: Deslocamento de bits à esquerda (n << k = n * 2^k) e à direita (n >> k = floor(n / 2^k)) com custo O(1).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Swap de Duas Variáveis sem Memória Temporária via XOR</text>
+  <g transform="translate(100, 50)">
+    <rect x="0" y="0" width="480" height="70" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="240" y="25" fill="#34d399" font-size="11" font-family="monospace" text-anchor="middle">a = a ^ b;   // a guarda a diferença bitwise</text>
+    <text x="240" y="45" fill="#38bdf8" font-size="11" font-family="monospace" text-anchor="middle">b = a ^ b;   // (a ^ b) ^ b = a  (b recebe valor original de a)</text>
+    <text x="240" y="65" fill="#f59e0b" font-size="11" font-family="monospace" text-anchor="middle">a = a ^ b;   // (a ^ b) ^ a = b  (a recebe valor original de b)</text>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="11" text-anchor="middle">Atenção: Se &amp;a == &amp;b (mesmo endereço de memória), o valor é zerado; use if (&amp;a != &amp;b)</text>
+
+</svg>
 
 | Abordagem | Estados Avaliados | Complexidade para todas as máscaras |
 |---|---|---|

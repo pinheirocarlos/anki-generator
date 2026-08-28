@@ -19,11 +19,34 @@ Como o controlador **DMA (Direct Memory Access)** transfere dados entre armazena
 - **Com DMA**: A CPU apenas programa o controlador DMA com o endereço de origem, destino e tamanho do bloco, liberando-se imediatamente para executar outros processos. Quando a transferência termina, o DMA emite uma **interrupção de hardware (IRQ)** avisando a CPU.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/architecture/dma-direct-memory-access-transfer-loop.webm">
-    <p>Visualização: Controlador DMA transferindo blocos entre periféricos e RAM liberando a CPU para outras tarefas.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Mecanismo DMA (Direct Memory Access): Desafogando a CPU</text>
+  <g transform="translate(60, 48)">
+    <!-- CPU -->
+    <rect x="0" y="0" width="140" height="60" rx="5" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="70" y="26" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">CPU Principal</text>
+    <text x="70" y="44" fill="#94a3b8" font-size="9" text-anchor="middle">Apenas inicia o comando</text>
+
+    <!-- DMA Controller -->
+    <rect x="210" y="0" width="140" height="60" rx="5" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="280" y="26" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">DMA Controller</text>
+    <text x="280" y="44" fill="#a7f3d0" font-size="9" text-anchor="middle">Assume o Barramento</text>
+
+    <!-- RAM & Disk -->
+    <rect x="420" y="0" width="140" height="60" rx="5" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="490" y="24" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">RAM &lt;=&gt; Disco / NIC</text>
+    <text x="490" y="44" fill="#94a3b8" font-size="9" text-anchor="middle">Transferência em Bloco</text>
+
+    <path d="M 145 30 L 205 30" stroke="#38bdf8" stroke-width="2"/>
+    <path d="M 355 30 L 415 30" stroke="#10b981" stroke-width="2"/>
+  </g>
+  <rect x="60" y="135" width="560" height="50" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+  <text x="340" y="155" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Sem DMA: CPU move byte a byte (100% de uso de core). Com DMA: CPU livre para computar;</text>
+  <text x="340" y="172" fill="#94a3b8" font-size="10" text-anchor="middle">o controlador DMA gera uma interrupção (IRQ) somente quando a transferência completa.</text>
+
+</svg>
 
 | Método de Transferência | Intervenção da CPU Durante a Transferência | Carga de CPU |
 |---|---|---|

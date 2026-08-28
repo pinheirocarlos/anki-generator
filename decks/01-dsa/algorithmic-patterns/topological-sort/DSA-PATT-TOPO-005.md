@@ -19,11 +19,19 @@ Como modelar as relações de dependência dos problemas **Course Schedule I (Le
 - Em ambos, a aresta de dependência $[u, v]$ onde $v$ é pré-requisito de $u$ deve ser modelada como aresta $v \to u$, garantindo que `in-degree[u]++` represente a quantidade de pré-requisitos pendentes.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/course-schedule-kahn-dsa-loop.webm">
-    <p>Visualização: Verificação de viabilidade curricular contando vértices processados contra total de disciplinas V.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Caminho Mais Longo em DAG (Critical Path Method) em O(V + E)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Em DAGs, o Caminho Mais Longo NÃO é NP-Difícil!</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Encontra a ordenação topológica dos nós do DAG.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">2. Relaxa na ordem topológica buscando máximo: dist[v] = max(dist[v], dist[u] + weight).</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Identifica o caminho crítico e o tempo mínimo de conclusão de projetos em O(V + E)</text>
+
+</svg>
 
 | Problema LeetCode | Pergunta Respondida | Retorno Esperado |
 |---|---|---|

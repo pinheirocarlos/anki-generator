@@ -25,11 +25,33 @@ Como a combinação de **Linha de Varredura** com **Árvore de Segmentos (Segmen
 - **Complexidade**: $O(N \log N)$ tempo contra $O(N^2)$ da abordagem sem Segment Tree.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/graham-scan-convex-hull-cross-product-loop.webm">
-    <p>Visualização: Ordenação angular e verificação de curvas à esquerda com produto vetorial (Cross Product) desempilhando pontos côncavos.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Área de União de Retângulos: Sweep-Line + Segment Tree em O(N log N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Discretização de Coordenadas Y</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Linha vertical varre eventos de início e fim de retângulos no eixo X.</text>
+    <text x="20" y="62" fill="#f59e0b" font-size="11">Segment Tree mantém o comprimento total coberto no eixo Y: Área += ΔX · Y_covered.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Resolve sobreposição massiva de milhares de retângulos em tempo O(N log N)</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Área de União de Retângulos: Sweep-Line + Segment Tree em O(N log N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Discretização de Coordenadas Y</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Linha vertical varre eventos de início e fim de retângulos no eixo X.</text>
+    <text x="20" y="62" fill="#f59e0b" font-size="11">Segment Tree mantém o comprimento total coberto no eixo Y: Área += ΔX · Y_covered.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Resolve sobreposição massiva de milhares de retângulos em tempo O(N log N)</text>
+
+</svg>
 
 | Evento no Eixo $X$ | Atualização na Segment Tree | Cálculo da Área da Faixa |
 |---|---|---|

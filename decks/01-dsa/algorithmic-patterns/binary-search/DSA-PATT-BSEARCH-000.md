@@ -22,11 +22,24 @@ Como a **Busca Binária (Binary Search)** divide o espaço de busca pela metade 
 - **Complexidade**: $O(\log N)$ tempo e $O(1)$ espaço.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/binary-search-bisect-loop.webm">
-    <p>Visualização: Cálculo do ponto médio M = L + (R-L)/2 e descarte imediato da metade do espaço de busca a cada iteração.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Busca Binária: Eliminação de Metade do Espaço de Busca O(log N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="15" width="60" height="35" fill="#1e293b" stroke="#64748b" rx="3"/><text x="30" y="37" fill="#94a3b8" text-anchor="middle">1</text>
+    <rect x="65" y="15" width="60" height="35" fill="#1e293b" stroke="#64748b" rx="3"/><text x="95" y="37" fill="#94a3b8" text-anchor="middle">3</text>
+    
+    <rect x="130" y="15" width="60" height="35" fill="#047857" stroke="#10b981" stroke-width="2" rx="3"/><text x="160" y="37" fill="#fff" font-weight="bold" text-anchor="middle">7 (Mid)</text>
+    
+    <rect x="195" y="15" width="60" height="35" fill="#7f1d1d" stroke="#ef4444" rx="3" opacity="0.4"/><text x="225" y="37" fill="#fecaca" text-anchor="middle">11</text>
+    <rect x="260" y="15" width="60" height="35" fill="#7f1d1d" stroke="#ef4444" rx="3" opacity="0.4"/><text x="290" y="37" fill="#fecaca" text-anchor="middle">15</text>
+    <rect x="325" y="15" width="60" height="35" fill="#7f1d1d" stroke="#ef4444" rx="3" opacity="0.4"/><text x="355" y="37" fill="#fecaca" text-anchor="middle">19</text>
+  </g>
+  <text x="340" y="145" fill="#f87171" font-size="11" text-anchor="middle">Se Target = 3 (&lt; Mid 7) → Descarta toda a metade direita [mid, right] em O(1)</text>
+  <text x="340" y="170" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">1 milhão de elementos são pesquisados em no máximo 20 comparações (log₂ 10⁶ ≈ 20)</text>
+
+</svg>
 
 | Fórmula de Cálculo de Mid | Risco de Overflow | Segurança em 32-bit |
 |---|---|---|

@@ -24,11 +24,19 @@ Como o algoritmo de partição binária encontra a **Mediana de Dois Arrays Orde
 - A mediana é computada em $O(1)$ a partir dos extremos da partição.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/rotated-sorted-array-binary-search-loop.webm">
-    <p>Visualização: Identificação da metade estritamente ordenada e verificação se o alvo reside nela antes de descartar.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Binary Search on Answer (Busca Binária na Resposta Monotônica)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Predicado Monotônico: F, F, F, ..., V, V, V</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Quando a função de viabilidade isPossible(X) é monotônica (se X funciona, X+1 também funciona).</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Aplica busca binária no espaço de possíveis respostas [min_ans, max_ans] em O(log(Range) · f(N)).</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Resolve problemas clássicos de alocação de capacidade (ex: Koko Eating Bananas, Capacity to Ship)</text>
+
+</svg>
 
 | Metade Esquerda | Metade Direita | Condição de Validade |
 |---|---|---|

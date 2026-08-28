@@ -20,11 +20,33 @@ Como a **Fenwick Tree (Binary Indexed Tree - BIT)** utiliza a operação bitwise
 - **Vantagem sobre Segment Tree**: Consome apenas **$1N$** de espaço (contra $4N$) e seu código possui menos de 10 linhas.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/fenwick-tree-lsb-jumps-loop.webm">
-    <p>Visualização: Navegação por saltos de índices usando isolamento do bit menos significativo i & (-i).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Treap (Tree + Heap): Balanceamento Probabilístico com Prioridades Aleatórias</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Invariante Dupla: BST na Chave + Max-Heap na Prioridade</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Cada nó gera uma prioridade aleatória rand(). Insere como BST e restaura Heap com rotações.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Garante altura esperada de O(log N) sem algoritmos complexos de rebalanceamento.</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Facilita operações poderosas de Split(k) e Merge(T1, T2) em tempo O(log N)</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Treap (Tree + Heap): Balanceamento Probabilístico com Prioridades Aleatórias</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Invariante Dupla: BST na Chave + Max-Heap na Prioridade</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Cada nó gera uma prioridade aleatória rand(). Insere como BST e restaura Heap com rotações.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Garante altura esperada de O(log N) sem algoritmos complexos de rebalanceamento.</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Facilita operações poderosas de Split(k) e Merge(T1, T2) em tempo O(log N)</text>
+
+</svg>
 
 | Operação em Fenwick | Operação Bitwise de Passo | Complexidade |
 |---|---|---|

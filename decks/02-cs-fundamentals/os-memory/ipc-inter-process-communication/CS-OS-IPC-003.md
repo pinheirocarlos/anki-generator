@@ -22,11 +22,28 @@ Por que a **Memória Compartilhada (Shared Memory / `shm_open`)** é o mecanismo
 - **Desafio**: Como o kernel não faz mediação, os processos são responsáveis por sincronizar o acesso concorrente usando Mutexes compartilhados ou primitivas Atômicas Lock-Free.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/posix-shared-memory-shm-loop.webm">
-    <p>Visualização: Mapeamento do mesmo bloco de memória física nos espaços virtuais de dois processos para transferência em O(1).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Memória Compartilhada POSIX (shm_open) para Transferência em O(1)</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="15" width="130" height="55" rx="5" fill="#1e293b" stroke="#38bdf8"/>
+    <text x="65" y="40" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Processo A</text>
+    <text x="65" y="55" fill="#94a3b8" font-size="9" text-anchor="middle">Espaço Virtual A</text>
+
+    <!-- Shared Physical Memory -->
+    <rect x="180" y="0" width="200" height="85" rx="6" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="280" y="26" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">RAM Física Compartilhada</text>
+    <text x="280" y="48" fill="#f8fafc" font-size="10" text-anchor="middle">Mesmo PFN mapeado em ambos</text>
+    <text x="280" y="68" fill="#a7f3d0" font-size="10" font-weight="bold" text-anchor="middle">Zero-Copy Absoluto</text>
+
+    <rect x="430" y="15" width="130" height="55" rx="5" fill="#1e293b" stroke="#38bdf8"/>
+    <text x="495" y="40" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Processo B</text>
+    <text x="495" y="55" fill="#94a3b8" font-size="9" text-anchor="middle">Espaço Virtual B</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Processo A grava na memória e o Processo B lê instantaneamente; sincronização exige semáforos POSIX ou Mutex robustos.</text>
+
+</svg>
 
 | Mecanismo de IPC | Cópias de Dados por Mensagem | Envolve Syscalls a cada Mensagem? |
 |---|---|---|

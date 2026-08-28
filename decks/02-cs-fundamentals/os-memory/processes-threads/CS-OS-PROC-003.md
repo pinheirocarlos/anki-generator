@@ -26,11 +26,19 @@ Quais informações essenciais são salvas no **PCB (Process Control Block)** e 
   - Prioridade de escalonamento e afinidade de CPU.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/pcb-tcb-kernel-structs-loop.webm">
-    <p>Visualização: Estruturas do Kernel armazenando estado de execução, prioridade, descritores de arquivo e mapeamento de memória.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Estruturas do Kernel: PCB (task_struct) e TCB</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="280" y="24" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">No Kernel do Linux, tanto processos quanto threads são instâncias de struct task_struct</text>
+    <text x="280" y="48" fill="#f8fafc" font-size="10" text-anchor="middle">Contém: PID/TID, Estado de execução, Registradores de CPU, mm_struct (Ponteiro de Memória) e files_struct (FDs).</text>
+    <text x="280" y="66" fill="#10b981" font-size="10" font-weight="bold" text-anchor="middle">Threads do mesmo processo compartilham os mesmos ponteiros mm e files (flag CLONE_VM | CLONE_FILES em clone()).</text>
+  </g>
+  <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">A flexibilidade da syscall clone() permite implementar desde threads POSIX até contêineres (Namespaces/Cgroups).</text>
+
+</svg>
 
 | Estrutura do Kernel | Dados Armazenados | Escopo |
 |---|---|---|

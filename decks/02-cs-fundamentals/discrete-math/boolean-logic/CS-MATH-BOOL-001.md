@@ -19,11 +19,27 @@ Como o algoritmo de **Brian Kernighan** utiliza a expressão `n & (n - 1)` para 
 - **Complexidade**: Enquanto o loop ingênuo testa todos os 32 ou 64 bits em $O(\text{total\_bits})$, Brian Kernighan executa em **$O(K)$ iterações**, onde $K$ é a quantidade exata de bits 1 ativos ($K \le \text{total\_bits}$).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/bitwise-brian-kernighan-popcount-loop.webm">
-    <p>Visualização: A operação n & (n-1) desliga o bit 1 menos significativo em cada iteração contando os bits ativos.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Algoritmo de Brian Kernighan: n &amp; (n - 1) para Popcount</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="260" height="85" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="130" y="22" fill="#60a5fa" font-size="12" font-weight="bold" text-anchor="middle">Passo 1: n = 12 (0b1100)</text>
+    <text x="130" y="44" fill="#f8fafc" font-size="11" font-family="monospace" text-anchor="middle">n     = 0b1100</text>
+    <text x="130" y="60" fill="#f8fafc" font-size="11" font-family="monospace" text-anchor="middle">n - 1 = 0b1011</text>
+    <text x="130" y="78" fill="#10b981" font-size="11" font-family="monospace" font-weight="bold" text-anchor="middle">n &amp; (n-1) = 0b1000 (clear bit 2)</text>
+
+    <rect x="300" y="0" width="260" height="85" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="430" y="22" fill="#60a5fa" font-size="12" font-weight="bold" text-anchor="middle">Passo 2: n = 8 (0b1000)</text>
+    <text x="430" y="44" fill="#f8fafc" font-size="11" font-family="monospace" text-anchor="middle">n     = 0b1000</text>
+    <text x="430" y="60" fill="#f8fafc" font-size="11" font-family="monospace" text-anchor="middle">n - 1 = 0b0111</text>
+    <text x="430" y="78" fill="#10b981" font-size="11" font-family="monospace" font-weight="bold" text-anchor="middle">n &amp; (n-1) = 0b0000 (clear bit 3)</text>
+  </g>
+  <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Complexidade: O(k), onde k é a quantidade de bits 1 (set bits), e não O(32) ou O(64)!</text>
+  <text x="340" y="188" fill="#94a3b8" font-size="10" text-anchor="middle">Cada iteração desliga exatamente o bit 1 menos significativo (LSB set bit) em O(1).</text>
+
+</svg>
 
 | Valor de `n` | Binário Original | Resultado `n & (n - 1)` |
 |---|---|---|

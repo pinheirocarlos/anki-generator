@@ -24,11 +24,19 @@ Como um **Monotonic Deque** acelera a transição de DP $DP[i] = nums[i] + \max_
 - **Complexidade**: $O(N)$ tempo e $O(N)$ espaço.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/daily-temperatures-index-diff-loop.webm">
-    <p>Visualização: Armazenamento de índices na pilha monotônica calculando a diferença de dias curr_index - popped_index.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Shortest Subarray with Sum at Least K (Monotonic Deque + Prefix Sums)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Suporte a Números Negativos no Array</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Calcula vetor de somas prefixas P[i]. Mantém Deque de índices com P[i] estritamente crescente.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Enquanto P[i] - P[deque.front()] &gt;= K: min_len = min(min_len, i - deque.pop_front()).</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Supera a limitação de Two Pointers para arrays com valores negativos em O(N)</text>
+
+</svg>
 
 | Abordagem de DP | Busca do Máximo nos Últimos $K$ | Complexidade Total |
 |---|---|---|

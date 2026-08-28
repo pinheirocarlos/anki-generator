@@ -24,11 +24,19 @@ Como o algoritmo de **Patience Sorting + Busca Binária** otimiza o cálculo de 
 - O comprimento da LIS é exatamente o tamanho final do array `tails[]`.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lis-patience-sorting-binary-search-loop.webm">
-    <p>Visualização: Manutenção de array de menores caudas de subsequências com busca binária substituindo elementos em O(N log N).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Kadane's Algorithm: Subarray de Soma Máxima em Tempo O(N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Decisão Local: Estender Subarray Anterior ou Iniciar Novo a Partir de num</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">current_max = max(num, current_max + num).</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">global_max = max(global_max, current_max).</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Execução em uma única passada sem alocação de memória auxiliar</text>
+
+</svg>
 
 | Algoritmo de LIS | Complexidade de Tempo | Espaço de Memória |
 |---|---|---|

@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node src/generator.js",
     "test": "node test/validate-cards.test.js",
+    "test:links": "node src/utils/link-checker.js",
     "audit:atomic": "node src/utils/atomic-decomposer.js"
   },
   "keywords": [

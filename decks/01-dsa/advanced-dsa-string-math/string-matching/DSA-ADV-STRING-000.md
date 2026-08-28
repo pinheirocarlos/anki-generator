@@ -22,11 +22,33 @@ Como o **Algoritmo de Rabin-Karp** utiliza **Rolling Hash polinomial** para busc
 - **Complexidade**: $O(N + M)$ tempo médio e $O(1)$ espaço.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/kmp-lps-automaton-loop.webm">
-    <p>Visualização: Tabela LPS permite saltar caracteres redundantes sem retroceder o ponteiro do texto principal.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Knuth-Morris-Pratt (KMP): Tabela de Prefixo π (LPS) em Tempo O(N + M)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Longest Proper Prefix which is also Suffix (LPS)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Ao ocorrer mismatch no caractere j do padrão: j = lps[j - 1].</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">O ponteiro do texto NUNCA retrocede; salta diretamente para o prefixo coincidente.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Elimina o recuo quadrático O(N · M) da busca ingênua (brute force)</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Knuth-Morris-Pratt (KMP): Tabela de Prefixo π (LPS) em Tempo O(N + M)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Longest Proper Prefix which is also Suffix (LPS)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Ao ocorrer mismatch no caractere j do padrão: j = lps[j - 1].</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">O ponteiro do texto NUNCA retrocede; salta diretamente para o prefixo coincidente.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Elimina o recuo quadrático O(N · M) da busca ingênua (brute force)</text>
+
+</svg>
 
 | Algoritmo | Custo por Janela | Complexidade de Tempo Médio |
 |---|---|---|

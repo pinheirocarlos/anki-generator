@@ -20,11 +20,19 @@ O que é o estado **TIME_WAIT** no encerramento de conexões TCP e por que o ker
   2. **Drenagem de pacotes fantasmas**: Garante que qualquer pacote atrasado ou duplicado da conexão anterior morra na rede antes que uma nova conexão use a mesma porta.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/tcp-timewait-2msl-drain-loop.webm">
-    <p>Visualização: Retenção do socket por 2MSL garantindo que o ACK final chegue ao servidor e pacotes obsoletos na rede expirem.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Estado TIME_WAIT e Período 2MSL no Encerramento TCP</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="85" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">O lado que inicia o encerramento ativo (FIN) entra em TIME_WAIT</text>
+    <text x="280" y="46" fill="#f8fafc" font-size="11" text-anchor="middle">Duração: 2MSL (Maximum Segment Lifetime = ~60 a 120 segundos)</text>
+    <text x="280" y="70" fill="#10b981" font-size="10" font-weight="bold" text-anchor="middle">Finalidade: 1) Garantir que último ACK chegue | 2) Drenar pacotes duplicados atrasados na rede</text>
+  </g>
+  <text x="340" y="165" fill="#f43f5e" font-size="11" font-weight="bold" text-anchor="middle">Perigo em Microservices: Milhares de conexões curtas sem Keep-Alive esgotam a tabela de portas efêmeras (Port Exhaustion).</text>
+
+</svg>
 
 | Lado do Encerramento | Sequência de Estados de Término | Assume TIME_WAIT? |
 |---|---|---|

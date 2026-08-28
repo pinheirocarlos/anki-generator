@@ -19,6 +19,60 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.join(__dirname, '..');
 const DECKS_DIR = path.join(ROOT_DIR, 'decks');
 
+/**
+ * Mandatory mobile playback flags for looping micro-videos across Anki Desktop and mobile WebViews.
+ */
+export const MANDATORY_VIDEO_ATTRIBUTES = [
+  'autoplay',
+  'loop',
+  'muted',
+  'playsinline',
+  'webkit-playsinline',
+  'disableRemotePlayback'
+];
+
+/**
+ * Ensures all <video> tags contain mandatory mobile playback attributes
+ * (autoplay loop muted playsinline webkit-playsinline disableRemotePlayback)
+ * and are wrapped in responsive container classes (.video-wrapper / .media-container).
+ *
+ * @param {string} html - Raw or parsed HTML content
+ * @returns {string} - Post-processed HTML with resilient video attributes and wrappers
+ */
+export function ensureVideoAttributesAndContainers(html) {
+  if (!html || typeof html !== 'string' || !html.includes('<video')) {
+    return html;
+  }
+
+  // 1. Inject missing mandatory mobile attributes into opening <video> tags
+  let processed = html.replace(/<video(\s+[^>]*)?>/gi, (match, attrs = '') => {
+    let cleanAttrs = (attrs || '').trim();
+    for (const attr of MANDATORY_VIDEO_ATTRIBUTES) {
+      const attrRegex = new RegExp(`(?:^|\\s)${attr}(?:\\s|=|$)`, 'i');
+      if (!attrRegex.test(cleanAttrs)) {
+        cleanAttrs = `${attr} ${cleanAttrs}`.trim();
+      }
+    }
+    return `<video ${cleanAttrs}>`;
+  });
+
+  // 2. Wrap any unwrapped <video ...>...</video> elements into responsive <div class="video-wrapper">
+  processed = processed.replace(
+    /(<div\s+class=["'][^"']*\b(?:video-wrapper|media-container)\b[^"']*["'][^>]*>[\s\S]*?<\/div>)|(<video[\s\S]*?<\/video>)/gi,
+    (fullMatch, wrappedBlock, unwrappedVideo) => {
+      if (wrappedBlock) {
+        return wrappedBlock;
+      }
+      if (unwrappedVideo) {
+        return `<div class="video-wrapper">\n  ${unwrappedVideo}\n</div>`;
+      }
+      return fullMatch;
+    }
+  );
+
+  return processed;
+}
+
 // Read KaTeX CSS for zero-CDN offline embedding
 let katexCss = '';
 try {
@@ -646,15 +700,23 @@ details[open] summary {
   margin: 12px auto;
   text-align: center;
   overflow: hidden;
+  border-radius: 8px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 img, svg, video {
-  max-width: 100%;
+  max-width: 100% !important;
+  max-height: 360px !important;
+  width: auto;
   height: auto;
   display: block;
   margin: 12px auto;
   border-radius: 8px;
   box-sizing: border-box;
+  object-fit: contain;
 }
 
 img, video {
@@ -663,7 +725,15 @@ img, video {
 
 video {
   width: 100%;
-  background-color: #000;
+  background-color: transparent;
+  object-fit: contain;
+}
+
+.card-container video,
+.card-container .media-container video,
+.card-container .video-wrapper video {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
 }
 
 /* Key Lists */
@@ -784,8 +854,8 @@ export async function buildDecks(options = {}) {
     let questionRaw = parts[0].replace(/^##\s+Pergunta\b/im, '').trim();
     let answerRaw = parts.length > 1 ? parts[1].trim() : 'Nenhuma resposta fornecida.';
 
-    const questionHtml = marked.parse(questionRaw);
-    const answerHtml = marked.parse(answerRaw);
+    const questionHtml = ensureVideoAttributesAndContainers(marked.parse(questionRaw));
+    const answerHtml = ensureVideoAttributesAndContainers(marked.parse(answerRaw));
 
     const tags = (frontmatter && frontmatter.tags) || [];
     const tagsHtml = tags

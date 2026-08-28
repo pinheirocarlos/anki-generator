@@ -21,11 +21,28 @@ O que são **Goroutines / Green Threads (Threads de Userspace)** e por que elas 
 - Permite que um único servidor execute **centenas de milhares de Goroutines simultâneas** consumindo poucos gigabytes de RAM.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/goroutines-m-to-n-scheduler-loop.webm">
-    <p>Visualização: Goroutines leves (2KB) escalonadas em User Space vs Threads do Kernel (1-2MB) com sobrecarga de syscall.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Goroutines e Green Threads vs Threads do Kernel do OS</text>
+  <g transform="translate(50, 48)">
+    <!-- Kernel Threads -->
+    <rect x="0" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="135" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">OS Kernel Threads (Modelo 1:1)</text>
+    <text x="135" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Stack fixo grande: ~1 a 8 MB por thread</text>
+    <text x="135" y="60" fill="#fca5a5" font-size="10" text-anchor="middle">Escalonamento via Kernel Syscall (~1.000 ns)</text>
+    <text x="135" y="76" fill="#94a3b8" font-size="9" text-anchor="middle">Limite prático: ~5.000 a 10.000 threads ativas</text>
+
+    <!-- Goroutines -->
+    <rect x="310" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="445" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Goroutines (Modelo M:N em User Space)</text>
+    <text x="445" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Stack dinâmico contíguo: Começa com apenas 2 KB</text>
+    <text x="445" y="60" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Escalonamento em User Space (~10 a 20 ns)</text>
+    <text x="445" y="76" fill="#a7f3d0" font-size="9" text-anchor="middle">Capacidade: Milhões de Goroutines concorrentes</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">O runtime do Go gerencia cooperativamente pontos de preempção em chamadas de função e I/O de rede não-bloqueante.</text>
+
+</svg>
 
 | Característica | OS Kernel Thread | Goroutine (Go Runtime) |
 |---|---|---|

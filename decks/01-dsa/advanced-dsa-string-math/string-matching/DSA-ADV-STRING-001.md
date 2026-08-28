@@ -21,11 +21,33 @@ Como o **Autômato de Aho-Corasick** combina uma Trie com links de falha (*failu
 - **Complexidade**: $O(|T| + \sum |P_i|)$ tempo linear absoluto, independentemente do número de palavras no dicionário.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/lps-array-construction-pointers-loop.webm">
-    <p>Visualização: Dois ponteiros computando o maior prefixo próprio que também é sufixo para cada prefixo do padrão.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Rabin-Karp: Rolling Hash Polinomial com Módulo Primo</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Atualização de Hash da Janela em Tempo O(1)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">hash_next = ((hash_prev - text[i] · B^(M-1)) · B + text[i+M]) % MOD.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Compara a string apenas se o hash coincidir: Tempo Médio O(N + M).</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Ideal para detecção de plágio e busca de múltiplos padrões com mesmo tamanho</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Rabin-Karp: Rolling Hash Polinomial com Módulo Primo</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Atualização de Hash da Janela em Tempo O(1)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">hash_next = ((hash_prev - text[i] · B^(M-1)) · B + text[i+M]) % MOD.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Compara a string apenas se o hash coincidir: Tempo Médio O(N + M).</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Ideal para detecção de plágio e busca de múltiplos padrões com mesmo tamanho</text>
+
+</svg>
 
 | Abordagem Multi-Padrão | Custo com $K$ Palavras | Escalabilidade |
 |---|---|---|

@@ -22,11 +22,28 @@ Como funciona a compressão de cabeçalhos **HPACK** no HTTP/2 e por que o HTTP/
 - **QPACK (HTTP/3)**: Separa os fluxos em **Encoder Stream** e **Decoder Stream** dedicados, permitindo decodificação não-bloqueante mesmo com perda de pacotes.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/hpack-qpack-header-compression-loop.webm">
-    <p>Visualização: Tabela dinâmica de cabeçalhos e codificação de Huffman eliminando bytes redundantes em requisições contínuas.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Compressão de Headers: HPACK (HTTP/2) vs QPACK (HTTP/3)</text>
+  <g transform="translate(50, 48)">
+    <!-- HPACK -->
+    <rect x="0" y="0" width="270" height="95" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="135" y="22" fill="#60a5fa" font-size="12" font-weight="bold" text-anchor="middle">HPACK (HTTP/2)</text>
+    <text x="135" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Tabela Estática (61 campos pré-definidos)</text>
+    <text x="135" y="60" fill="#f8fafc" font-size="10" text-anchor="middle">Tabela Dinâmica baseada em conexão TCP</text>
+    <text x="135" y="78" fill="#fca5a5" font-size="10" text-anchor="middle">Problema: Se perder pacote, tabela dessincroniza</text>
+
+    <!-- QPACK -->
+    <rect x="310" y="0" width="270" height="95" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="445" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">QPACK (HTTP/3 sobre QUIC)</text>
+    <text x="445" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Projetado para streams UDP não-ordenados</text>
+    <text x="445" y="60" fill="#f8fafc" font-size="10" text-anchor="middle">Encoder/Decoder control streams independentes</text>
+    <text x="445" y="78" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Zero HoL Blocking entre cabeçalhos de streams</text>
+  </g>
+  <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Reduz o tamanho dos cabeçalhos repetidos (Cookies, User-Agent, Auth) em até 85% por requisição.</text>
+
+</svg>
 
 | Mecanismo de Compressão | Protocolo | Tolerância a Entrega Fora de Ordem |
 |---|---|---|

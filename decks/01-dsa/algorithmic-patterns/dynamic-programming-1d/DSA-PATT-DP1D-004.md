@@ -22,11 +22,19 @@ Como a Programação Dinâmica 1D resolve o problema **Coin Change** (número m�
 - **Complexidade**: $O(N \times \text{amount})$ tempo e $O(\text{amount})$ espaço (variante de Mochila Não-Limitada / *Unbounded Knapsack*).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/coin-change-min-coins-dp-loop.webm">
-    <p>Visualização: Preenchimento de valores de 1 até T computando min(dp[amount - coin] + 1) para cada moeda disponível.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">House Robber: Otimização de Espaço O(N) → Duas Variáveis O(1)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Equação de Bellman: dp[i] = max(dp[i-1], dp[i-2] + nums[i])</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">A decisão depende estritamente dos dois estados imediatamente anteriores.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Rastreia apenas prev1 e prev2: temp = max(prev1, prev2 + num); prev2 = prev1; prev1 = temp.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Elimina o vetor de DP completo: Tempo O(N), Espaço Auxiliar O(1) estrito</text>
+
+</svg>
 
 | Quantia Alvo $a$ | Relação de Recorrência | Caso Impossível |
 |---|---|---|

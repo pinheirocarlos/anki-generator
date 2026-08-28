@@ -21,11 +21,19 @@ O que é **Probabilidade Condicional** e como o **Teorema de Bayes** calcula a p
 - Base para classificadores Naive Bayes (filtros anti-spam, detecção de fraude e diagnósticos de falhas em sistemas distribuídos).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/bayes-theorem-conditional-probability-loop.webm">
-    <p>Visualização: Atualização da probabilidade a posteriori P(A|B) combinando verossimilhança e probabilidade a priori.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Probabilidade Condicional e Teorema de Bayes em Sistemas</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="85" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="280" y="26" fill="#60a5fa" font-size="14" font-weight="bold" font-family="monospace" text-anchor="middle">P(A|B) = [ P(B|A) * P(A) ] / P(B)</text>
+    <text x="280" y="52" fill="#f8fafc" font-size="11" text-anchor="middle">• P(A|B): Probabilidade a posteriori (hipótese A após observar a evidência B)</text>
+    <text x="280" y="70" fill="#a1a1aa" font-size="10" text-anchor="middle">• P(A): Prior | P(B|A): Likelihood (Verossimilhança) | P(B): Evidência marginal</text>
+  </g>
+  <text x="340" y="165" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Aplicações Reais: Filtros Anti-Spam Bayesianos, Detecção de Fraude e Diagnóstico de Anomalias SRE.</text>
+
+</svg>
 
 | Termo Bayesiano | Significado no Sistema | Exemplo em Filtro Anti-Spam |
 |---|---|---|

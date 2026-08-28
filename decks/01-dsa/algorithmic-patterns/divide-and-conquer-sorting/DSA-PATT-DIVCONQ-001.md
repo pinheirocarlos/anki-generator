@@ -23,11 +23,19 @@ Como o algoritmo **Quickselect** localiza o $K$-ésimo menor elemento de um arra
   $$N + \frac{N}{2} + \frac{N}{4} + \dots < 2N = O(N) \text{ linear}$$
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/mergesort-divide-merge-loop.webm">
-    <p>Visualização: Divisão recursiva até tamanho 1 e intercalação ordenada estável com dois ponteiros usando memória auxiliar O(N).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">QuickSort: Pivô e Partição In-Place (O(N log N) Médio, Espaço O(log N))</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Escolha de Pivô e Partição em Menores / Maiores</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Posiciona todos os itens &lt; pivot à esquerda e todos &gt; pivot à direita em tempo linear O(N).</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Recursão sobre as duas metades in-place: Excelente localidade de cache L1 da CPU.</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Pior caso O(N²) evitado com pivô aleatório ou mediana-de-três</text>
+
+</svg>
 
 | Algoritmo | Chamadas Recursivas por Nível | Complexidade de Tempo Médio |
 |---|---|---|

@@ -22,11 +22,19 @@ Como a técnica de **Array de Rolamento (Rolling Array)** reduz o consumo de mem
 - **Complexidade**: Reduz o espaço de $O(M \times N)$ para **$O(N)$** mantendo o tempo em $O(M \times N)$.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/knapsack-1d-space-reverse-loop.webm">
-    <p>Visualização: Iteração reversa da capacidade máxima até o peso do item prevenindo reuso múltiplo do mesmo item.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Longest Common Subsequence (LCS) e Reconstrução da Solução</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Transição de Caracteres</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Se s1[i-1] == s2[j-1]: dp[i][j] = dp[i-1][j-1] + 1 (diagonal + 1).</text>
+    <text x="20" y="62" fill="#f59e0b" font-size="11">Se s1[i-1] != s2[j-1]: dp[i][j] = max(dp[i-1][j], dp[i][j-1]).</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Backtracking a partir de dp[M][N] reconstrói a sequência em tempo O(M + N) (base do git diff)</text>
+
+</svg>
 
 | Estrutura de Armazenamento | Consumo de Memória | Acesso ao Vizinho de Cima |
 |---|---|---|

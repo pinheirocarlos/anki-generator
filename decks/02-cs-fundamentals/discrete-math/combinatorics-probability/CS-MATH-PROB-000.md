@@ -21,11 +21,26 @@ Qual é a diferença matemática fundamental entre **Permutações** e **Combina
 - A divisão por $k!$ nas combinações cancela todas as permutações equivalentes do mesmo subconjunto.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/permutations-vs-combinations-tree-loop.webm">
-    <p>Visualização: A ordem importa nas permutações P(n,k) = n!/(n-k)! vs indiferença de ordem em combinações C(n,k).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Permutações vs Combinações e Explosão Combinatória</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="265" height="85" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="132" y="22" fill="#60a5fa" font-size="12" font-weight="bold" text-anchor="middle">Permutação: A Ordem IMPORTA</text>
+    <text x="132" y="44" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">P(n, k) = n! / (n - k)!</text>
+    <text x="132" y="62" fill="#94a3b8" font-size="10" text-anchor="middle">Exemplo: [A, B] ≠ [B, A] (Senhas, Filas)</text>
+    <text x="132" y="76" fill="#fca5a5" font-size="9" text-anchor="middle">Complexidade: O(n!) — Impraticável p/ n > 12</text>
+
+    <rect x="295" y="0" width="265" height="85" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="427" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Combinação: A Ordem NÃO Importa</text>
+    <text x="427" y="44" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">C(n, k) = n! / (k! * (n - k)!)</text>
+    <text x="427" y="62" fill="#94a3b8" font-size="10" text-anchor="middle">Exemplo: {A, B} ≡ {B, A} (Subconjuntos, Loterias)</text>
+    <text x="427" y="76" fill="#a7f3d0" font-size="9" text-anchor="middle">Coeficiente Binomial (Triângulo de Pascal)</text>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Identificação de Gargalos: Problemas O(n!) e O(2^n) exigem poda por Branch &amp; Bound ou DP.</text>
+
+</svg>
 
 | Conceito | Importa a Ordem? | Exemplo com `{A,B,C}` ($k=2$) |
 |---|---|---|

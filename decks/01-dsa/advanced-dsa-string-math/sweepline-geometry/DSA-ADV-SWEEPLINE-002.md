@@ -25,11 +25,33 @@ Como a técnica de **Sweep-Line com TreeMap de contagem de alturas** resolve **T
 - **Complexidade**: $O(N \log N)$ tempo e $O(N)$ espaço.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/shamos-hoey-sweep-line-tree-loop.webm">
-    <p>Visualização: Manutenção de árvore BST balanceada dos segmentos ativos testando apenas vizinhos adjacentes na linha de varredura.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Skyline Problem: Contorno de Edifícios com Sweep-Line + Max-Heap</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Eventos de Início e Fim de Edifícios (Li, Ri, Hi)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Início de edifício: adiciona altura ao Max-Heap.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Fim de edifício: remove altura. Se max_height mudar → registra ponto crítico no contorno.</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Complexidade total: O(N log N) com armazenamento proporcional aos edifícios</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Skyline Problem: Contorno de Edifícios com Sweep-Line + Max-Heap</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Eventos de Início e Fim de Edifícios (Li, Ri, Hi)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Início de edifício: adiciona altura ao Max-Heap.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Fim de edifício: remove altura. Se max_height mudar → registra ponto crítico no contorno.</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Complexidade total: O(N log N) com armazenamento proporcional aos edifícios</text>
+
+</svg>
 
 | Evento de Edifício | Modificação no TreeMap | Condição de Ponto no Skyline |
 |---|---|---|

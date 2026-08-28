@@ -29,11 +29,19 @@ Como funciona o mecanismo de **Upgrade de Conexão HTTP para WebSocket** via cab
   3. A partir deste momento, o socket abandona o protocolo HTTP e passa a transmitir **frames binários WebSocket bidirecionais** sobre o mesmo túnel TCP.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/websocket-handshake-upgrade-loop.webm">
-    <p>Visualização: Handshake inicial HTTP com cabeçalho Connection: Upgrade transicionando para frames bidirecionais TCP.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Upgrade de Protocolo HTTP para WebSocket (101 Switching Protocols)</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="85" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Handshake Inicial HTTP GET com Headers de Upgrade</text>
+    <text x="280" y="44" fill="#ffffff" font-size="10" font-family="monospace" text-anchor="middle">GET /ws HTTP/1.1 | Upgrade: websocket | Connection: Upgrade | Sec-WebSocket-Key: ...</text>
+    <text x="280" y="68" fill="#10b981" font-size="11" font-weight="bold" font-family="monospace" text-anchor="middle">HTTP/1.1 101 Switching Protocols → Socket bidirecional TCP estabelecido!</text>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Após o status 101, os headers HTTP são descartados e a comunicação passa a ser puramente por frames WS (2B overhead).</text>
+
+</svg>
 
 | Fase da Conexão | Protocolo Ativo | Código de Status HTTP |
 |---|---|---|

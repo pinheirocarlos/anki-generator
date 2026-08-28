@@ -20,11 +20,49 @@ Como a arquitetura **Swiss Table (Google Abseil Flat Hash Map)** utiliza control
 - **Vetorização SIMD**: Carrega 16 bytes de controle em um registrador SSE/AVX de 128-bit e compara 16 buckets simultaneamente em **uma única instrução de CPU**, eliminando comparações caras de chave para buckets vazios.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/swiss-tables-simd-ctrl-bytes-loop.webm">
-    <p>Visualização: Comparação paralela de 16 bytes de controle (H2) em um único ciclo de instrução SIMD.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Consistent Hashing com Anel Virtual de Tokens</text>
+  <g transform="translate(100, 45)">
+    <circle cx="100" cy="50" r="42" fill="none" stroke="#3b82f6" stroke-width="4"/>
+    <circle cx="100" cy="8" r="6" fill="#10b981"/><text x="100" y="0" fill="#10b981" font-size="9" text-anchor="middle">Node A</text>
+    <circle cx="140" cy="65" r="6" fill="#f59e0b"/><text x="165" y="68" fill="#f59e0b" font-size="9">Node B</text>
+    <circle cx="60" cy="65" r="6" fill="#a855f7"/><text x="35" y="68" fill="#a855f7" font-size="9">Node C</text>
+
+    <!-- Key mapping arrow -->
+    <g transform="translate(230, 10)">
+      <rect x="0" y="0" width="250" height="70" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="125" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Roteamento no Sentido Horário</text>
+      <text x="15" y="42" fill="#f8fafc" font-size="10">hash(key) cai entre A e B → Node B</text>
+      <text x="15" y="58" fill="#94a3b8" font-size="10">Ao adicionar nó, apenas K/N chaves migram</text>
+    </g>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Base de sharding distribuído em DynamoDB, Cassandra e Memcached</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Consistent Hashing com Anel Virtual de Tokens</text>
+  <g transform="translate(100, 45)">
+    <circle cx="100" cy="50" r="42" fill="none" stroke="#3b82f6" stroke-width="4"/>
+    <circle cx="100" cy="8" r="6" fill="#10b981"/><text x="100" y="0" fill="#10b981" font-size="9" text-anchor="middle">Node A</text>
+    <circle cx="140" cy="65" r="6" fill="#f59e0b"/><text x="165" y="68" fill="#f59e0b" font-size="9">Node B</text>
+    <circle cx="60" cy="65" r="6" fill="#a855f7"/><text x="35" y="68" fill="#a855f7" font-size="9">Node C</text>
+
+    <!-- Key mapping arrow -->
+    <g transform="translate(230, 10)">
+      <rect x="0" y="0" width="250" height="70" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="125" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Roteamento no Sentido Horário</text>
+      <text x="15" y="42" fill="#f8fafc" font-size="10">hash(key) cai entre A e B → Node B</text>
+      <text x="15" y="58" fill="#94a3b8" font-size="10">Ao adicionar nó, apenas K/N chaves migram</text>
+    </g>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Base de sharding distribuído em DynamoDB, Cassandra e Memcached</text>
+
+</svg>
 
 | Técnica de Tabela Hash | Comparação por Passo | Instrução CPU |
 |---|---|---|

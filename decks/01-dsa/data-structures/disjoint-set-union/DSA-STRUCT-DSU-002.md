@@ -21,11 +21,33 @@ Como a operação **`find`** localiza a raiz canônica de um elemento em um DSU 
   - Retorna esse nó raiz representativo.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dsu-find-representative-loop.webm">
-    <p>Visualização: Travessia recursiva de ponteiros parent[x] localizando o líder do componente conexo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">União por Rank ou Tamanho (Union by Rank)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Regra: Conecta a raiz da árvore mais rasa sob a raiz da mais profunda</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Se rank(rootA) &lt; rank(rootB) → parent[rootA] = rootB (altura total não cresce).</text>
+    <text x="20" y="62" fill="#f59e0b" font-size="11">Se rank(rootA) == rank(rootB) → parent[rootB] = rootA; rank(rootA)++.</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Garante altura máxima de O(log N) mesmo sem compressão de caminhos</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">União por Rank ou Tamanho (Union by Rank)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Regra: Conecta a raiz da árvore mais rasa sob a raiz da mais profunda</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Se rank(rootA) &lt; rank(rootB) → parent[rootA] = rootB (altura total não cresce).</text>
+    <text x="20" y="62" fill="#f59e0b" font-size="11">Se rank(rootA) == rank(rootB) → parent[rootB] = rootA; rank(rootA)++.</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Garante altura máxima de O(log N) mesmo sem compressão de caminhos</text>
+
+</svg>
 
 | Estado de Nó | Condição no Array | Papel Estrutural |
 |---|---|---|

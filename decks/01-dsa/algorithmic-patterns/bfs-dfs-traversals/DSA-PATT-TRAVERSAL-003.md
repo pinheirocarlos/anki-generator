@@ -19,11 +19,19 @@ Quais os trade-offs de consumo de memória entre BFS ($O(W)$ largura máxima) e 
 - Em grafos muito largos e rasos, DFS consome muito menos memória; em grafos profundos e estreitos, a BFS é mais estável contra StackOverflow.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dfs-tri-color-cycle-detection-loop.webm">
-    <p>Visualização: Marcação tri-color (Branco=Não visitado, Cinza=Na pilha de recursão, Preto=Concluído) detectando back-edges.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Componentes Conexos (Flood Fill / Number of Islands)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Varredura de Matriz 2D com Marcação de Visitados</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Para cada célula '1' (terra): incrementa contador de ilhas e dispara DFS/BFS.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Substitui '1' por '0' in-place para eliminar necessidade de matriz 'visited' separada.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Tempo total: O(M × N) — Cada célula é processada no máximo 4 vezes (4 direções)</text>
+
+</svg>
 
 | Formato da Árvore | Consumo de Memória (BFS vs DFS) | Escolha Ideal |
 |---|---|---|

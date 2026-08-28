@@ -20,11 +20,19 @@ Como a **Bitmask DP** representa subconjuntos de elementos como inteiros binári
 - **Complexidade**: Reduz o custo da força bruta fatorial $O(N!)$ para **$O(N^2 2^N)$**, tornando o problema tratável para $N \le 20$.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/digit-dp-tight-constraint-tree-loop.webm">
-    <p>Visualização: Construção dígito a dígito rastreando flag booleana isTight que restringe o limite numérico superior.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Tree DP (DP em Árvores): Re-Rooting e Subárvores</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Duas Passadas DFS (Subindo e Descendo)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">DFS 1 (Bottom-Up): Calcula as respostas parciais de cada subárvore a partir das folhas.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">DFS 2 (Top-Down): Transfere a contribuição do pai ao re-enraizar a árvore para cada vizinho.</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Calcula a resposta para TODAS as N possíveis raízes em tempo O(N) ao invés de O(N²)</text>
+
+</svg>
 
 | Representação de Conjunto | Formato Binário | Custo do Algoritmo |
 |---|---|---|

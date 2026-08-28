@@ -22,11 +22,19 @@ Como o **Algoritmo de Floyd-Warshall** computa o caminho mais curto entre todos 
 - **Complexidade**: $O(V^3)$ tempo e $O(V^2)$ espaço em matriz contígua.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/floyd-warshall-all-pairs-matrix-loop.webm">
-    <p>Visualização: Programação dinâmica tridimensional atualizando matriz de adjacência dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Johnson's Algorithm: Reponderação de Arestas Negativas em Grafos Esparsos</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">1× Bellman-Ford + V× Dijkstra em O(V · E + V · E log V)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Executa Bellman-Ford a partir de nó fonte artificial para computar potenciais h(v).</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">2. Transforma pesos: w'(u, v) = w(u, v) + h(u) - h(v) ≥ 0, viabilizando V execuções de Dijkstra.</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Supera Floyd-Warshall O(V³) em grafos esparsos (onde E ≪ V²)</text>
+
+</svg>
 
 | Algoritmo All-Pairs | Estrutura de Código | Complexidade |
 |---|---|---|

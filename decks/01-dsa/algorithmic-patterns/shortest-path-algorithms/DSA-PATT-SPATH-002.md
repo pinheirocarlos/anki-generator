@@ -23,11 +23,19 @@ Como o **Algoritmo de Dijkstra** utiliza o Min-Heap e a técnica de **Relaxament
 - Encerra quando o heap esvaziar, com `dist[]` contendo o menor caminho de `src` para todos os vértices.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/shortest-path-reconstruction-parent-loop.webm">
-    <p>Visualização: Reconstrução do caminho ótimo partindo do destino até a origem usando o vetor parent[v].</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Floyd-Warshall: Todos os Pares de Caminhos Mínimos em O(V³)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">DP 3D: dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]) para cada intermediário k</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">3 loops aninhados simples: k (nó intermediário), i (origem), j (destino).</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Calcula caminhos mais curtos entre qualquer par de nós em grafos densos.</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Se a diagonal dist[i][i] &lt; 0 ao final → existe ciclo de peso negativo no grafo</text>
+
+</svg>
 
 | Operação de Dijkstra | Ação | Complexidade |
 |---|---|---|

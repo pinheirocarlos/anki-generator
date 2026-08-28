@@ -19,11 +19,19 @@ Por que a estratégia gulosa de Dijkstra falha em encontrar o caminho correto qu
 - Para grafos com pesos negativos, deve-se utilizar o **Algoritmo de Bellman-Ford** ($O(V \cdot E)$).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dijkstra-negative-edge-failure-loop.webm">
-    <p>Visualização: A premissa gulosa de que a menor distância já finalizada é imutável quebra na presença de pesos negativos.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">A* Search: Busca Heurística Admissível f(n) = g(n) + h(n)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">g(n) (Custo Real Acumulado) + h(n) (Estimativa Heurística até o Alvo)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Heurística admissível (h(n) nunca superestima o custo real) garante caminho ótimo.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Min-Heap ordena por menor f(n), direcionando a busca radial diretamente para o objetivo.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Explora frações mínimas dos nós explorados por Dijkstra em mapas 2D/3D (GPS routing)</text>
+
+</svg>
 
 | Algoritmo | Suporte a Pesos Negativos | Complexidade de Tempo |
 |---|---|---|

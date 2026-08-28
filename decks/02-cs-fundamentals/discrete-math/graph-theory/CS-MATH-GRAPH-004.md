@@ -25,11 +25,24 @@ O que é uma **Relação de Equivalência** e como a estrutura **Disjoint Set Un
 - **Complexidade**: Amortizado **$O(\alpha(N))$ por operação** (onde $\alpha$ é a Função de Ackermann Inversa, $\alpha(N) < 5$ para qualquer $N$ no universo observável).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/equivalence-relation-dsu-partition-loop.webm">
-    <p>Visualização: Particionamento do conjunto em classes de equivalência disjuntas mantidas com árvores de apontadores.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Disjoint Set Union (DSU / Union-Find) com Path Compression</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="265" height="80" rx="6" fill="#1e293b" stroke="#3b82f6"/>
+    <text x="132" y="24" fill="#60a5fa" font-size="11" font-weight="bold" text-anchor="middle">Find(x) com Path Compression</text>
+    <text x="132" y="48" fill="#f8fafc" font-size="10" font-family="monospace" text-anchor="middle">parent[x] = find(parent[x])</text>
+    <text x="132" y="66" fill="#a7f3d0" font-size="9" text-anchor="middle">Achata a árvore diretamente na raiz</text>
+
+    <rect x="295" y="0" width="265" height="80" rx="6" fill="#1e293b" stroke="#10b981"/>
+    <text x="427" y="24" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Union(x, y) por Rank / Size</text>
+    <text x="427" y="48" fill="#f8fafc" font-size="10" text-anchor="middle">Árvore menor acoplada sob a maior</text>
+    <text x="427" y="66" fill="#a7f3d0" font-size="9" text-anchor="middle">Mantém a altura controlada em O(log N)</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Complexidade Amortizada: O(α(N)) por operação (Função Inversa de Ackermann ≤ 4 para qualquer N prático).</text>
+
+</svg>
 
 | Operação DSU | Sem Otimização | Com Path Compression & Union-by-Rank |
 |---|---|---|

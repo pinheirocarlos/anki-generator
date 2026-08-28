@@ -23,11 +23,28 @@ O que é o **Problema ABA** em estruturas de dados Lock-Free e como ponteiros ve
   - O CAS passa a validar o par completo: `Double-Word CAS (DCAS / CMPXCHG16B)`. Mesmo que o ponteiro volte para $A$, a versão será diferente ($A_1 \to B_2 \to A_3 \neq A_1$), fazendo o CAS falhar com segurança.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/lock-free-cas-aba-tagged-loop.webm">
-    <p>Visualização: Incremento atômico de versão em tagged pointer impedindo que mudanças ABA passem despercebidas pelo CAS.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Problema ABA em Pilhas Lock-Free &amp; Solução por Tagged Pointers</text>
+  <g transform="translate(50, 48)">
+    <!-- ABA Problem -->
+    <rect x="0" y="0" width="270" height="95" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="135" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Problema ABA</text>
+    <text x="135" y="42" fill="#f8fafc" font-size="10" text-anchor="middle">1. Thread 1 lê ponteiro A</text>
+    <text x="135" y="58" fill="#f8fafc" font-size="10" text-anchor="middle">2. Thread 2 muda A → B e depois B → A</text>
+    <text x="135" y="78" fill="#fca5a5" font-size="10" font-weight="bold" text-anchor="middle">CAS(A) sucede falsamente com estado corrompido</text>
+
+    <!-- Tagged Pointer -->
+    <rect x="310" y="0" width="270" height="95" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="445" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Solução: Tagged Pointer (Ponteiro + Versão)</text>
+    <text x="445" y="42" fill="#f8fafc" font-size="10" text-anchor="middle">Armazena (Ponteiro 48b + Versão 16b)</text>
+    <text x="445" y="58" fill="#f8fafc" font-size="10" text-anchor="middle">Transição: (A, v1) → (B, v2) → (A, v3)</text>
+    <text x="445" y="78" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">CAS((A, v1)) falha corretamente!</text>
+  </g>
+  <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">No x86-64, instruções de 128-bit (CMPXCHG16B) realizam CAS atômico de ponteiro e contador de versão juntos.</text>
+
+</svg>
 
 | Linha do Tempo | Ação Concorrente | Estado da Pilha |
 |---|---|---|

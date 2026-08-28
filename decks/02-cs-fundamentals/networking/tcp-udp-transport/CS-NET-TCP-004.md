@@ -21,11 +21,19 @@ Como o mecanismo de **Janela Deslizante (Sliding Window)** e **Window Scaling** 
 - **Window Scaling (RFC 1323)**: O cabeçalho TCP padrão limita o campo de janela a 16 bits (máximo 64 KB). A opção Window Scale multiplica esse valor por potências de 2 (até $2^{14}$), permitindo janelas de até **1 GB**, viabilizando alta vazão em conexões de alta velocidade.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/tcp-sliding-window-bdp-scaling-loop.webm">
-    <p>Visualização: Buffer de transmissão dimensionado pelo produto Largura de Banda x Atraso (BDP = Bandwidth * RTT).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="210" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Janela Deslizante (Sliding Window) e Produto BDP</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="85" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Bandwidth-Delay Product (BDP) = Largura de Banda × RTT</text>
+    <text x="280" y="44" fill="#f8fafc" font-size="11" font-family="monospace" text-anchor="middle">Exemplo: 10 Gbps × 40ms RTT = 50 MB de dados em trânsito no cabo</text>
+    <text x="280" y="68" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">TCP Window Scaling (RFC 7323) expande o teto da janela de 64 KB para até 1 GB.</text>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Se o buffer TCP for menor que o BDP, o link de alta velocidade fica subutilizado com a conexão ociosa aguardando ACKs.</text>
+
+</svg>
 
 | Tipo de Janela | Tamanho Máximo de Janela | Vazão Máxima em Link com 50ms RTT |
 |---|---|---|

@@ -73,10 +73,10 @@
 
 ### Implementation for User Story 3
 - [X] T020 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/01-dsa/`
-- [ ] T021 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/02-cs-fundamentals/`
-- [ ] T022 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/03-system-design-backend/`
-- [ ] T023 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/04-behavioral-engineering/`
-- [ ] T024 [US3] Registrar os novos `card_ids` L2 no `syllabus_manifest.json` e validar via `npm test`
+- [X] T021 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/02-cs-fundamentals/`
+- [X] T022 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/03-system-design-backend/`
+- [X] T023 [P] [US3] Redigir e integrar cartões `level::l2-fundamental` para subtópicos de `decks/04-behavioral-engineering/`
+- [X] T024 [US3] Registrar os novos `card_ids` L2 no `syllabus_manifest.json` e validar via `npm test`
 
 **Checkpoint**: Nível de fundamentos completo, cobrindo todos os 108 subtópicos.
 
@@ -86,11 +86,11 @@
 
 **Purpose**: Compilação final dos baralhos, validação e documentação
 
-- [ ] T025 [P] Atualizar documentação em `README.md` com a nova taxonomia L2, diretrizes multimídia e contagem atualizada de cards
-- [ ] T026 Executar suíte completa de testes automatizados `npm test`
-- [ ] T027 Executar compilação consolidada `npm run build` gerando `MAANG_Engineering_Mastery.apkg`
-- [ ] T028 [P] Executar compilações modulares por fase (`node src/generator.js --phase <fase>`)
-- [ ] T029 Validar importação no Anki Desktop e AnkiDroid seguindo `quickstart.md`
+- [X] T025 [P] Atualizar documentação em `README.md` com a nova taxonomia L2, diretrizes multimídia e contagem atualizada de cards
+- [X] T026 Executar suíte completa de testes automatizados `npm test`
+- [X] T027 Executar compilação consolidada `npm run build` gerando `MAANG_Engineering_Mastery.apkg`
+- [X] T028 [P] Executar compilações modulares por fase (`node src/generator.js --phase <fase>`)
+- [X] T029 Validar importação no Anki Desktop e AnkiDroid seguindo `quickstart.md`
 
 ---
 

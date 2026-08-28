@@ -21,11 +21,19 @@ O que caracteriza um **Componente Fortemente Conexo (SCC)** em grafos direcionad
 - Quando a DFS completa a exploração de um nó raiz onde `ids[u] == low[u]`, todos os vértices acima de $u$ na pilha da DFS formam um SCC completo e são desempilhados juntos.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/tarjan-strongly-connected-components-loop.webm">
-    <p>Visualização: Busca em profundidade com low-link values identificando componentes fortemente conexos em tempo O(V+E).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Componentes Fortemente Conexos (SCC) &amp; Algoritmo de Tarjan</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="280" y="24" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Algoritmo de Tarjan: DFS com Pilha e Low-Link Values em O(V + E)</text>
+    <text x="280" y="48" fill="#f8fafc" font-size="10" text-anchor="middle">Identifica subgrafos direcionados onde todo vértice é alcançável a partir de qualquer outro.</text>
+    <text x="280" y="66" fill="#10b981" font-size="10" font-family="monospace" text-anchor="middle">low[u] = min(ids[u], ids[v]) | Raiz do SCC identificada quando low[u] == ids[u]</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Permite condensar grafos complexos em um supergrafo DAG para análise de dependências circulares.</text>
+
+</svg>
 
 | Métrica no Algoritmo de Tarjan | Significado | Ação ao Completar DFS do Nó |
 |---|---|---|

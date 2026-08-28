@@ -25,11 +25,33 @@ Como o algoritmo **Monotone Chain de Andrew** constrói o Fecho Convexo (Convex 
   - Se $> 0$: Curva para a esquerda (anti-horário, válido). Se $\le 0$: Curva para a direita ou colinear (inválido).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/skyline-problem-events-heap-loop.webm">
-    <p>Visualização: Eventos de início e término de prédios inserindo e removendo alturas da Priority Queue detectando pontos de contorno.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Interseção de Segmentos com Algoritmo de Bentley-Ottmann</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">BST Balanceada Mantendo Segmentos Ativos Cortados pela Linha</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Apenas segmentos vizinhos adjacentes na BST de status podem se cruzar.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Testa interseção apenas entre vizinhos ao inserir/remover: Tempo O((N + K) log N).</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Reduz teste quadrático O(N²) para quase-linear quando o número de interseções K é pequeno</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Interseção de Segmentos com Algoritmo de Bentley-Ottmann</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">BST Balanceada Mantendo Segmentos Ativos Cortados pela Linha</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Apenas segmentos vizinhos adjacentes na BST de status podem se cruzar.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Testa interseção apenas entre vizinhos ao inserir/remover: Tempo O((N + K) log N).</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Reduz teste quadrático O(N²) para quase-linear quando o número de interseções K é pequeno</text>
+
+</svg>
 
 | Sinal do Produto Vetorial | Orientação dos 3 Pontos | Ação na Pilha Monótona |
 |---|---|---|

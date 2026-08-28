@@ -21,11 +21,33 @@ Como as técnicas de **Read-Copy-Update (RCU)** e **Copy-On-Write (COW)** garant
 - **Read-Copy-Update (RCU)**: Padrão similar utilizado no Kernel Linux, onde leitores não sofrem bloqueio e os dados antigos são desalocados após um período de graça (*grace period*).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/hazard-pointers-safe-memory-reclaim-loop.webm">
-    <p>Visualização: Registro de ponteiros protegidos impedindo que threads leitoras acessem memória liberada por outra thread.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Read-Copy-Update (RCU): Leituras com Custo Zero de Sincronização</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Escritores Alocam Cópia Modificada; Leitores Acessam sem Lock</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Escritor substitui o ponteiro global atomicamente; espera período de graça (Grace Period).</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Versão antiga liberada apenas após todas as threads leitoras ativas terminarem.</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Espinha dorsal de concorrência no Linux Kernel para tabelas de roteamento e drivers</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Read-Copy-Update (RCU): Leituras com Custo Zero de Sincronização</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Escritores Alocam Cópia Modificada; Leitores Acessam sem Lock</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Escritor substitui o ponteiro global atomicamente; espera período de graça (Grace Period).</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Versão antiga liberada apenas após todas as threads leitoras ativas terminarem.</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Espinha dorsal de concorrência no Linux Kernel para tabelas de roteamento e drivers</text>
+
+</svg>
 
 | Operação | Copy-On-Write Performance | Mecanismo |
 |---|---|---|

@@ -24,11 +24,26 @@ O que é **Direct I/O (`O_DIRECT`)** e por que bancos de dados relacionais trans
   - O banco de dados assume o controle total dos algoritmos de substituição de cache (LRU/Clock) e da ordem de gravação no WAL (*Write-Ahead Log*).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/buffered-vs-direct-io-pagecache-loop.webm">
-    <p>Visualização: Acesso mediado pelo Page Cache na RAM vs I/O direto via O_DIRECT sem duplicação de buffers.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Direct I/O (O_DIRECT) vs Buffered I/O e Page Cache</text>
+  <g transform="translate(50, 48)">
+    <rect x="0" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="135" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Buffered I/O (Padrão do OS)</text>
+    <text x="135" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">read() copia do Page Cache para buffer da app</text>
+    <text x="135" y="60" fill="#a7f3d0" font-size="10" text-anchor="middle">Cache transparente de leituras repetidas</text>
+    <text x="135" y="76" fill="#94a3b8" font-size="9" text-anchor="middle">Custo: Cópia extra de memória CPU</text>
+
+    <rect x="310" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#10b981"/>
+    <text x="445" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Direct I/O (flag O_DIRECT)</text>
+    <text x="445" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">DMA transfere direto do disco para buffer da app</text>
+    <text x="445" y="60" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Zero sobrecarga no Page Cache do OS</text>
+    <text x="445" y="76" fill="#a7f3d0" font-size="9" text-anchor="middle">Exige alinhamento estrito em 4 KB (Setores de Disco)</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Bancos de dados profissionais implementam seus próprios caches inteligentes sobre Direct I/O.</text>
+
+</svg>
 
 | Modo de I/O | Passa pelo Page Cache do SO? | Risco de Duplicação de Memória |
 |---|---|---|

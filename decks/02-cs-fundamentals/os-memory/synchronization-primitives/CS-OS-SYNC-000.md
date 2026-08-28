@@ -19,11 +19,19 @@ O que é uma **Race Condition (Condição de Corrida)** e por que seções crít
 - **Exclusão Mútua**: Regra que garante que **no máximo 1 thread** possa executar dentro da seção crítica em qualquer instante de tempo, impedindo que operações compostas não-atômicas (como `read-modify-write`) sejam intercaladas destrutivamente.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/race-condition-critical-section-loop.webm">
-    <p>Visualização: Acesso concorrente a recurso compartilhado sem sincronização levando a corrupção de estado inconsistente.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Race Conditions e Proteção de Seção Crítica</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="80" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="280" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Seção Crítica: Trecho de código que acessa recursos compartilhados mutáveis</text>
+    <text x="280" y="45" fill="#f8fafc" font-size="10" text-anchor="middle">Propriedades Obrigatórias:</text>
+    <text x="280" y="65" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">1. Exclusão Mútua (Mutual Exclusion) | 2. Progresso (Liveness) | 3. Espera Limitada (Bounded Waiting)</text>
+  </g>
+  <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Sem exclusão mútua, a ordem de escalonamento não-determinística da CPU corrompe o estado dos dados.</text>
+
+</svg>
 
 | Thread 1 (Lê saldo = 100) | Thread 2 (Lê saldo = 100) | Saldo Real Gravado |
 |---|---|---|

@@ -23,11 +23,26 @@ Como as variáveis de ambiente **`GOGC`** e **`GOMEMLIMIT`** controlam a frequê
   - Permite que o Go rode com `GOGC` alto para poupar CPU quando a memória estiver livre, mas se o uso se aproximar do teto, o runtime dispara GCs de emergência para **evitar o OOM Killer do Linux**.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/go-gc-tuning-gomemlimit-loop.webm">
-    <p>Visualização: Controle da frequência de disparo do GC em percentual de crescimento e limite rígido de memória anti-OOM.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Tuning de GC no Go: GOGC e GOMEMLIMIT (Go 1.19+)</text>
+  <g transform="translate(50, 48)">
+    <rect x="0" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="135" y="22" fill="#60a5fa" font-size="11" font-weight="bold" text-anchor="middle">GOGC (Padrão 100)</text>
+    <text x="135" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Dispara GC quando a Heap cresce 100%</text>
+    <text x="135" y="60" fill="#fca5a5" font-size="10" text-anchor="middle">Problema: Não sabe o limite de RAM do contêiner</text>
+    <text x="135" y="76" fill="#94a3b8" font-size="9" text-anchor="middle">Causa OOM Kills em picos de tráfego</text>
+
+    <rect x="310" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="445" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">GOMEMLIMIT (Soft Memory Limit)</text>
+    <text x="445" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Define teto de memória (ex: GOMEMLIMIT=3800MiB)</text>
+    <text x="445" y="60" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Ajusta o GC dinamicamente para evitar OOM</text>
+    <text x="445" y="76" fill="#a7f3d0" font-size="9" text-anchor="middle">Permite elevar GOGC para economizar CPU</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Boas Práticas em Kubernetes: Defina GOMEMLIMIT em ~90% do Memory Limit do Pod.</text>
+
+</svg>
 
 | Variável | Papel Principal | Risco se Configurado Incorretamente |
 |---|---|---|

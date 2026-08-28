@@ -19,11 +19,37 @@ O que define um **Grafo Direcionado Acíclico (DAG)** e como a **Ordenação Top
 - **Aplicações**: Resolução de ordem de compilação de pacotes (npm/Go modules), pipelines de CI/CD, escalonamento de queries em bancos de dados distribuídos e DAGs de orquestração (Apache Airflow / Spark).
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/math/dag-topological-ordering-proof-loop.webm">
-    <p>Visualização: Existência de ao menos um nó com in-degree 0 em todo DAG permitindo linearização causal das tarefas.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Grafo Direcionado Acíclico (DAG) &amp; Ordenação Topológica</text>
+  <g transform="translate(80, 50)">
+    <!-- Nodes -->
+    <circle cx="40" cy="30" r="18" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <text x="40" y="35" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">A</text>
+
+    <path d="M 60 30 L 140 30" stroke="#38bdf8" stroke-width="2"/>
+
+    <circle cx="160" cy="30" r="18" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <text x="160" y="35" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">B</text>
+
+    <path d="M 180 30 L 260 30" stroke="#38bdf8" stroke-width="2"/>
+
+    <circle cx="280" cy="30" r="18" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <text x="280" y="35" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">C</text>
+
+    <path d="M 300 30 L 380 30" stroke="#38bdf8" stroke-width="2"/>
+
+    <circle cx="400" cy="30" r="18" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <text x="400" y="35" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">D</text>
+  </g>
+  <g transform="translate(60, 115)">
+    <rect x="0" y="0" width="560" height="55" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+    <text x="280" y="24" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Algoritmo de Kahn (In-Degree) / DFS Post-Order Reverso: Tempo O(V + E)</text>
+    <text x="280" y="44" fill="#94a3b8" font-size="10" text-anchor="middle">Aplicações: Ordem de compilação (Make/Bazel), execução de DAGs em Airflow e resolução de dependências.</text>
+  </g>
+
+</svg>
 
 | Estrutura de Grafo | Possui Ciclo? | Suporta Ordenação Topológica? |
 |---|---|---|

@@ -22,11 +22,19 @@ Como o escalonador **CFS (Completely Fair Scheduler)** do Linux prioriza tarefas
 - **OOM Killer**: Quando o sistema ou Cgroup atinge o limite de memória física e swap, o kernel calcula o `oom_score` (baseado em `% RAM usada + oom_score_adj`) e dispara `SIGKILL` no processo com maior pontuação.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/cfs-scheduler-vruntime-rbtree-loop.webm">
-    <p>Visualização: Seleção da tarefa com menor tempo virtual de execução (vruntime) na extrema esquerda da Red-Black Tree.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Escalonador CFS (Completely Fair Scheduler) e vruntime</text>
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="560" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="280" y="24" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Red-Black Tree ordenada por vruntime (Virtual Runtime)</text>
+    <text x="280" y="48" fill="#f8fafc" font-size="10" text-anchor="middle">CFS sempre escolhe o nó mais à esquerda da árvore (menor vruntime) em O(1).</text>
+    <text x="280" y="66" fill="#10b981" font-size="10" font-family="monospace" text-anchor="middle">vruntime += delta_exec * (NICE_0_LOAD / weight)</text>
+  </g>
+  <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Processos com maior prioridade (nice negativo) acumulam vruntime mais lentamente, recebendo mais fatias de CPU.</text>
+
+</svg>
 
 | Mecanismo / Fenômeno | Estrutura no Kernel | Impacto Prático em Produção |
 |---|---|---|

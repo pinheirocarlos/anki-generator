@@ -1692,7 +1692,713 @@ export const SVG_GENERATORS = {
   <path d="M 390 120 L 440 120" stroke="#10b981" stroke-width="2"/>
 
   <text x="340" y="252" fill="#a1a1aa" font-size="11" text-anchor="middle">Fencing Tokens monotonicamente crescentes impedem corrupção de dados sob pausas de GC</text>
+</svg>`,
+  cacheAnomaliesStampede: () => `<svg viewBox="0 0 680 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="240" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Cache Stampede (Thundering Herd) &amp; Singleflight / Mutex Lock</text>
+  <g transform="translate(40, 50)">
+    <!-- Stampede Problem -->
+    <rect x="0" y="0" width="280" height="150" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="140" y="24" fill="#f87171" font-size="12" font-weight="bold" text-anchor="middle">Sem Proteção: Cache Miss Simultâneo</text>
+    <text x="140" y="55" fill="#fca5a5" font-size="11" text-anchor="middle">50.000 QPS → Chave Hot Expira</text>
+    <path d="M 40 75 L 240 75" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4"/>
+    <text x="140" y="105" fill="#fca5a5" font-size="11" text-anchor="middle">50.000 queries disparam ao DB</text>
+    <text x="140" y="130" fill="#f43f5e" font-size="11" font-weight="bold" text-anchor="middle">💥 Colapso por Sobrecarga de I/O</text>
+
+    <!-- Singleflight Solution -->
+    <rect x="320" y="0" width="280" height="150" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="24" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Com Singleflight / Mutex em Go</text>
+    <text x="460" y="55" fill="#86efac" font-size="11" text-anchor="middle">1 Goroutine adquire o Lock e calcula</text>
+    <rect x="350" y="75" width="220" height="28" rx="4" fill="#065f46"/>
+    <text x="460" y="94" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">49.999 requisições aguardam na RAM</text>
+    <text x="460" y="130" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">✅ Exatamente 1 query ao DB primário</text>
+  </g>
+  <text x="340" y="222" fill="#94a3b8" font-size="11" text-anchor="middle">XFetch Probabilístico: recálculo antecipado assíncrono antes do TTL expirar.</text>
+
+</svg>`,
+  cdnAnycastRouting: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">CDN Edge Caching &amp; Roteamento Anycast BGP</text>
+  <g transform="translate(40, 50)">
+    <!-- Client SP -->
+    <circle cx="50" cy="50" r="28" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="50" y="54" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Cliente SP</text>
+
+    <!-- PoP SP -->
+    <rect x="170" y="20" width="130" height="60" rx="6" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="235" y="44" fill="#86efac" font-size="11" font-weight="bold" text-anchor="middle">Edge PoP (SP)</text>
+    <text x="235" y="62" fill="#a7f3d0" font-size="9" text-anchor="middle">RTT: ~3 ms (Hit)</text>
+
+    <!-- Client NY -->
+    <circle cx="50" cy="120" r="28" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="50" y="124" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Cliente NY</text>
+
+    <!-- PoP NY -->
+    <rect x="170" y="90" width="130" height="60" rx="6" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="235" y="114" fill="#86efac" font-size="11" font-weight="bold" text-anchor="middle">Edge PoP (NY)</text>
+    <text x="235" y="132" fill="#a7f3d0" font-size="9" text-anchor="middle">RTT: ~2 ms (Hit)</text>
+
+    <!-- Origin DC -->
+    <rect x="420" y="45" width="160" height="80" rx="8" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+    <text x="500" y="75" fill="#fde68a" font-size="12" font-weight="bold" text-anchor="middle">Origin Data Center</text>
+    <text x="500" y="95" fill="#fef3c7" font-size="9" text-anchor="middle">(BGP Anycast IP único)</text>
+    <text x="500" y="112" fill="#cbd5e1" font-size="9" text-anchor="middle">Acessado apenas em Miss</text>
+
+    <!-- Lines -->
+    <line x1="80" y1="50" x2="170" y2="50" stroke="#38bdf8" stroke-width="2"/>
+    <line x1="80" y1="120" x2="170" y2="120" stroke="#38bdf8" stroke-width="2"/>
+    <line x1="300" y1="50" x2="420" y2="70" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4"/>
+    <line x1="300" y1="120" x2="420" y2="100" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4"/>
+  </g>
+  <text x="340" y="212" fill="#94a3b8" font-size="10" text-anchor="middle">BGP Anycast anuncia o mesmo IP globalmente; roteadores da Internet direcionam para o PoP topologicamente mais próximo.</text>
+
+</svg>`,
+  redisEventLoop: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Event Loop Single-Threaded do Redis &amp; I/O Multiplexing (epoll)</text>
+  <g transform="translate(40, 50)">
+    <!-- Socket Connections -->
+    <rect x="0" y="0" width="150" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="75" y="24" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">10.000+ Conexões TCP</text>
+    <text x="75" y="50" fill="#cbd5e1" font-size="10" text-anchor="middle">Socket Client 1 (read)</text>
+    <text x="75" y="70" fill="#cbd5e1" font-size="10" text-anchor="middle">Socket Client 2 (write)</text>
+    <text x="75" y="90" fill="#cbd5e1" font-size="10" text-anchor="middle">Socket Client N (idle)</text>
+
+    <!-- Epoll Multiplexer -->
+    <rect x="180" y="25" width="130" height="70" rx="6" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="245" y="52" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">I/O Multiplexer</text>
+    <text x="245" y="72" fill="#e0f2fe" font-size="9" text-anchor="middle">epoll / kqueue (O(1))</text>
+
+    <!-- Single Thread Event Loop -->
+    <rect x="340" y="0" width="260" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="470" y="24" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Single-Threaded Execution Engine</text>
+    <text x="470" y="50" fill="#86efac" font-size="10" text-anchor="middle">1. Pega evento pronto da fila</text>
+    <text x="470" y="70" fill="#86efac" font-size="10" text-anchor="middle">2. Executa comando em RAM pura (O(1))</text>
+    <text x="470" y="90" fill="#86efac" font-size="10" text-anchor="middle">3. Zero Locks, Zero Context Switch, Zero Race</text>
+  </g>
+  <text x="340" y="210" fill="#94a3b8" font-size="11" text-anchor="middle">Gargalo do Redis é largura de banda de rede e memória RAM, nunca contenção de threads de CPU.</text>
+
+</svg>`,
+  acidIsolationMatrix: () => `<svg viewBox="0 0 680 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="240" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Níveis de Isolamento ANSI SQL vs Anomalias de Concorrência</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="140" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+    <!-- Table Header -->
+    <rect x="0" y="0" width="600" height="30" rx="6" fill="#0284c7"/>
+    <text x="100" y="20" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Nível de Isolamento</text>
+    <text x="260" y="20" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Dirty Read</text>
+    <text x="400" y="20" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Non-Repeatable Read</text>
+    <text x="530" y="20" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Phantom Read</text>
+
+    <!-- Rows -->
+    <text x="100" y="55" fill="#f87171" font-size="10" text-anchor="middle">Read Uncommitted</text>
+    <text x="260" y="55" fill="#f87171" font-size="10" text-anchor="middle">Permite ❌</text>
+    <text x="400" y="55" fill="#f87171" font-size="10" text-anchor="middle">Permite ❌</text>
+    <text x="530" y="55" fill="#f87171" font-size="10" text-anchor="middle">Permite ❌</text>
+
+    <text x="100" y="82" fill="#fbbf24" font-size="10" text-anchor="middle">Read Committed</text>
+    <text x="260" y="82" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+    <text x="400" y="82" fill="#f87171" font-size="10" text-anchor="middle">Permite ❌</text>
+    <text x="530" y="82" fill="#f87171" font-size="10" text-anchor="middle">Permite ❌</text>
+
+    <text x="100" y="108" fill="#38bdf8" font-size="10" text-anchor="middle">Repeatable Read</text>
+    <text x="260" y="108" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+    <text x="400" y="108" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+    <text x="530" y="108" fill="#fbbf24" font-size="10" text-anchor="middle">Possível ⚠️</text>
+
+    <text x="100" y="132" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Serializable</text>
+    <text x="260" y="132" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+    <text x="400" y="132" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+    <text x="530" y="132" fill="#34d399" font-size="10" text-anchor="middle">Bloqueia ✅</text>
+  </g>
+  <text x="340" y="218" fill="#94a3b8" font-size="10" text-anchor="middle">PostgreSQL e MySQL InnoDB utilizam MVCC para prevenir Phantom Reads em Repeatable Read sem locks em tabela.</text>
+
+</svg>`,
+  dynamoDbSingleTable: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">DynamoDB Single-Table Design: Partition Key (PK) &amp; Sort Key (SK)</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="125" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+    <!-- Header -->
+    <rect x="0" y="0" width="600" height="28" rx="6" fill="#0284c7"/>
+    <text x="80" y="19" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">PK (Hash)</text>
+    <text x="220" y="19" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">SK (Range / Sort)</text>
+    <text x="360" y="19" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Data / Attributes</text>
+    <text x="510" y="19" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">GSI1-PK / GSI1-SK</text>
+
+    <!-- Rows -->
+    <text x="80" y="48" fill="#38bdf8" font-size="9" font-family="monospace" text-anchor="middle">USER#101</text>
+    <text x="220" y="48" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">METADATA</text>
+    <text x="360" y="48" fill="#cbd5e1" font-size="9" text-anchor="middle">Name: "Carlos", email: "..."</text>
+    <text x="510" y="48" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">STATUS#ACTIVE</text>
+
+    <text x="80" y="73" fill="#38bdf8" font-size="9" font-family="monospace" text-anchor="middle">USER#101</text>
+    <text x="220" y="73" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">ORDER#2026-08#991</text>
+    <text x="360" y="73" fill="#cbd5e1" font-size="9" text-anchor="middle">Total: $450.00, Status: PAID</text>
+    <text x="510" y="73" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">DATE#2026-08-28</text>
+
+    <text x="80" y="98" fill="#38bdf8" font-size="9" font-family="monospace" text-anchor="middle">USER#101</text>
+    <text x="220" y="98" fill="#fbbf24" font-size="9" font-family="monospace" text-anchor="middle">ORDER#2026-08#992</text>
+    <text x="360" y="98" fill="#cbd5e1" font-size="9" text-anchor="middle">Total: $89.00, Status: SHIPPED</text>
+    <text x="510" y="98" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">DATE#2026-08-28</text>
+  </g>
+  <text x="340" y="208" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Uma única Query(PK=USER#101, SK begins_with ORDER#) retorna usuário e histórico em 1 RTT O(1).</text>
+
+</svg>`,
+  databaseReplicationLag: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Replicação de Banco de Dados: Replication Lag em Leader-Follower</text>
+  <g transform="translate(40, 50)">
+    <!-- Leader -->
+    <rect x="0" y="20" width="160" height="90" rx="6" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="80" y="45" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">Leader (Primary)</text>
+    <text x="80" y="68" fill="#e0f2fe" font-size="10" text-anchor="middle">Write t=0: balance=$200</text>
+    <text x="80" y="88" fill="#86efac" font-size="9" text-anchor="middle">WAL gravado imediatamente</text>
+
+    <!-- Async Replication Stream -->
+    <path d="M 160 65 L 340 65" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4"/>
+    <text x="250" y="55" fill="#fbbf24" font-size="9" font-weight="bold" text-anchor="middle">Binlog / WAL Stream (Async)</text>
+    <text x="250" y="80" fill="#f87171" font-size="9" text-anchor="middle">Lag: ~250 ms</text>
+
+    <!-- Follower Replica -->
+    <rect x="340" y="20" width="160" height="90" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="420" y="45" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">Follower Replica</text>
+    <text x="420" y="68" fill="#fca5a5" font-size="10" text-anchor="middle">Read t=50ms: balance=$100</text>
+    <text x="420" y="88" fill="#f87171" font-size="9" text-anchor="middle">⚠️ Inconsistência de Leitura</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Solução Read-Your-Own-Writes: Roteia leituras do próprio usuário que alterou para o Leader por 5 segundos.</text>
+
+</svg>`,
+  sqlClusteredVsSecondary: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Índice Clustered (PK) vs Índice Secundário (Non-Clustered)</text>
+  <g transform="translate(40, 50)">
+    <!-- Clustered Index -->
+    <rect x="0" y="0" width="280" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Índice Clustered (B+Tree)</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Nós folhas = Linhas de dados completas</text>
+    <text x="140" y="65" fill="#86efac" font-size="10" text-anchor="middle">Apenas 1 por tabela (organiza o disco)</text>
+    <text x="140" y="90" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Busca por PK: 1 travessia na árvore</text>
+
+    <!-- Secondary Index -->
+    <rect x="320" y="0" width="280" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Índice Secundário (ex: email)</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Nós folhas contêm: (email, PK_id)</text>
+    <text x="460" y="65" fill="#f87171" font-size="10" text-anchor="middle">Exige 'Table Lookup' / 'Bookmark Lookup'</text>
+    <text x="460" y="90" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">2 travessias: Secundário → Clustered</text>
+  </g>
+  <text x="340" y="200" fill="#94a3b8" font-size="10" text-anchor="middle">No InnoDB, a chave primária curta (ex: BIGINT) reduz o tamanho de todos os índices secundários da tabela.</text>
+
+</svg>`,
+  vectorSearchHNSW: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bancos de Dados Vetoriais &amp; Grafo HNSW (Hierarchical Navigable Small World)</text>
+  <g transform="translate(40, 50)">
+    <!-- Layer 2 (Express) -->
+    <rect x="0" y="0" width="600" height="35" rx="4" fill="#0c4a6e" stroke="#38bdf8" stroke-width="1"/>
+    <text x="50" y="22" fill="#38bdf8" font-size="10" font-weight="bold">Layer 2</text>
+    <text x="300" y="22" fill="#ffffff" font-size="10" text-anchor="middle">Saltos Longos (Conexões Esparsas Globais) → Início da Busca ANN</text>
+
+    <!-- Layer 1 (Medium) -->
+    <rect x="0" y="45" width="600" height="35" rx="4" fill="#075985" stroke="#38bdf8" stroke-width="1"/>
+    <text x="50" y="67" fill="#38bdf8" font-size="10" font-weight="bold">Layer 1</text>
+    <text x="300" y="67" fill="#ffffff" font-size="10" text-anchor="middle">Conexões Intermediárias (Aproximação do Cluster Semântico)</text>
+
+    <!-- Layer 0 (Dense) -->
+    <rect x="0" y="90" width="600" height="35" rx="4" fill="#0369a1" stroke="#10b981" stroke-width="1.5"/>
+    <text x="50" y="112" fill="#86efac" font-size="10" font-weight="bold">Layer 0</text>
+    <text x="300" y="112" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Grafo Denso com Todos os Vetores (Busca K-NN Exata por Similaridade de Cosseno)</text>
+  </g>
+  <text x="340" y="205" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">HNSW atinge complexidade O(log N) para busca de vizinhos mais próximos em embeddings de 1536 dimensões.</text>
+
+</svg>`,
+  twitterSnowflake: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Twitter Snowflake: Gerador de IDs de 64 Bits Distribuído</text>
+  <g transform="translate(40, 50)">
+    <!-- 64 Bits Layout -->
+    <rect x="0" y="0" width="600" height="60" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    
+    <!-- 1 bit unused -->
+    <rect x="5" y="10" width="30" height="40" rx="4" fill="#334155"/>
+    <text x="20" y="34" fill="#94a3b8" font-size="9" text-anchor="middle">1b</text>
+
+    <!-- 41 bits timestamp -->
+    <rect x="40" y="10" width="320" height="40" rx="4" fill="#0284c7"/>
+    <text x="200" y="28" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">41 Bits: Timestamp em Milissegundos</text>
+    <text x="200" y="44" fill="#e0f2fe" font-size="9" text-anchor="middle">~69 anos de duração a partir de epoch customizada</text>
+
+    <!-- 10 bits worker id -->
+    <rect x="365" y="10" width="120" height="40" rx="4" fill="#78350f"/>
+    <text x="425" y="28" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">10 Bits: Machine ID</text>
+    <text x="425" y="44" fill="#fef3c7" font-size="9" text-anchor="middle">1024 nós/datacenters</text>
+
+    <!-- 12 bits sequence -->
+    <rect x="490" y="10" width="105" height="40" rx="4" fill="#065f46"/>
+    <text x="542" y="28" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">12b: Sequence</text>
+    <text x="542" y="44" fill="#a7f3d0" font-size="9" text-anchor="middle">4096 IDs/ms/nó</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Capacidade: 4.096.000 IDs únicos ordenáveis por tempo por nó a cada segundo sem coordenação central.</text>
+
+</svg>`,
+  distributedFileStorage: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Google Drive / Dropbox: Chunking de 4MB &amp; Sincronização Delta</text>
+  <g transform="translate(40, 50)">
+    <!-- File -->
+    <rect x="0" y="20" width="130" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="65" y="45" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Arquivo (16MB)</text>
+    <text x="65" y="70" fill="#cbd5e1" font-size="9" text-anchor="middle">4 Chunks de 4MB</text>
+
+    <!-- Chunks with SHA-256 -->
+    <g transform="translate(160, 0)">
+      <rect x="0" y="0" width="180" height="28" rx="4" fill="#0284c7"/>
+      <text x="90" y="18" fill="#ffffff" font-size="9" font-family="monospace" text-anchor="middle">Chunk 1: SHA-256(a1...)</text>
+
+      <rect x="0" y="32" width="180" height="28" rx="4" fill="#0284c7"/>
+      <text x="90" y="50" fill="#ffffff" font-size="9" font-family="monospace" text-anchor="middle">Chunk 2: SHA-256(b2...)</text>
+
+      <rect x="0" y="64" width="180" height="28" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1.5"/>
+      <text x="90" y="82" fill="#86efac" font-size="9" font-family="monospace" font-weight="bold" text-anchor="middle">Chunk 3: MODIFICADO (c3*)</text>
+
+      <rect x="0" y="96" width="180" height="28" rx="4" fill="#0284c7"/>
+      <text x="90" y="114" fill="#ffffff" font-size="9" font-family="monospace" text-anchor="middle">Chunk 4: SHA-256(d4...)</text>
+    </g>
+
+    <!-- Cloud Sync -->
+    <rect x="380" y="20" width="220" height="80" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="490" y="45" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Sincronização Delta</text>
+    <text x="490" y="68" fill="#86efac" font-size="10" text-anchor="middle">Upload APENAS do Chunk 3 (4MB)</text>
+    <text x="490" y="88" fill="#a7f3d0" font-size="9" text-anchor="middle">Economia de 75% de banda e tempo</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Algoritmo Rsync / FastCDC calcula blocos variáveis identificando alterações mesmo com inserções no meio do arquivo.</text>
+
+</svg>`,
+  metricsTsdbGorilla: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bancos TSDB: Compressão Gorilla (XOR Float + Delta-of-Delta)</text>
+  <g transform="translate(40, 50)">
+    <!-- Timestamp Compression -->
+    <rect x="0" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Timestamps: Delta-of-Delta</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">t0 = 100, t1 = 160 (delta: 60)</text>
+    <text x="140" y="65" fill="#cbd5e1" font-size="10" text-anchor="middle">t2 = 220 (delta: 60 → D_of_D = 0)</text>
+    <text x="140" y="90" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Armazena exatamente 1 bit '0'</text>
+
+    <!-- Value Compression -->
+    <rect x="320" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Valores Float64: XOR Bitwise</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Métricas variam suavemente</text>
+    <text x="460" y="65" fill="#cbd5e1" font-size="10" text-anchor="middle">V_current XOR V_prev tem zeros à esq/dir</text>
+    <text x="460" y="90" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Comprime 16B para ~1.37 Bytes</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Redução de 12x no consumo de memória RAM e disco em sistemas como Prometheus e Facebook Gorilla TSDB.</text>
+
+</svg>`,
+  paymentLedgerDoubleEntry: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Sistema de Pagamentos (Stripe): Livro-Razão de Partidas Dobradas</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="115" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="300" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Invariante Fundamental: SUM(Débitos) - SUM(Créditos) == 0</text>
+
+    <!-- Entry Example -->
+    <rect x="20" y="38" width="560" height="60" rx="4" fill="#0f172a" stroke="#0284c7" stroke-width="1"/>
+    <text x="150" y="60" fill="#f87171" font-size="10" font-family="monospace" text-anchor="middle">Conta Origem (Cliente): -$100 (Débito)</text>
+    <text x="430" y="60" fill="#34d399" font-size="10" font-family="monospace" text-anchor="middle">Conta Destino (Merchant): +$97 (Crédito)</text>
+    <text x="430" y="80" fill="#fbbf24" font-size="10" font-family="monospace" text-anchor="middle">Taxa Plataforma (Fee): +$3 (Crédito)</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Livro-razão é estritamente append-only e imutável; correções exigem lançamentos de estorno equilibrados.</text>
+
+</svg>`,
+  typeaheadTrie: () => `<svg viewBox="0 0 680 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="240" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Search Autocomplete (Google Typeahead): Trie em Memória com Top-K Cache</text>
+  <g transform="translate(40, 50)">
+    <!-- Root -->
+    <circle cx="100" cy="20" r="14" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="100" y="24" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">ROOT</text>
+
+    <!-- Node 's' -->
+    <line x1="100" y1="34" x2="60" y2="70" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="60" cy="70" r="12" fill="#0369a1" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="60" y="74" fill="#ffffff" font-size="9" text-anchor="middle">'s'</text>
+
+    <!-- Node 'sy' -->
+    <line x1="60" y1="82" x2="60" y2="115" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="60" cy="115" r="12" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="60" y="119" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">'y'</text>
+
+    <!-- Top-K Cache Box in Node 'sy' -->
+    <rect x="180" y="40" width="420" height="95" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="390" y="62" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Top-5 Sugestões Pré-computadas no Nó 'sy'</text>
+    <text x="390" y="84" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">1. "system design" (Freq: 50.000.000)</text>
+    <text x="390" y="102" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">2. "system design interview" (Freq: 28.000.000)</text>
+    <text x="390" y="120" fill="#86efac" font-size="9" font-family="monospace" text-anchor="middle">3. "synchronization" (Freq: 15.000.000)</text>
+  </g>
+  <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Retorno em tempo O(p) onde p é o tamanho do prefixo digitado (ex: 2 caracteres), independente do tamanho do dicionário.</text>
+
+</svg>`,
+  webCrawlerFrontier: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Web Crawler Distribuído (Googlebot): URL Frontier &amp; Políticas de Polidez</text>
+  <g transform="translate(40, 50)">
+    <!-- Priority Queues -->
+    <rect x="0" y="0" width="180" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="90" y="22" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Prioritization (PageRank)</text>
+    <rect x="15" y="35" width="150" height="22" rx="3" fill="#0284c7"/>
+    <text x="90" y="50" fill="#ffffff" font-size="9" text-anchor="middle">Fila Alta Prioridade (F0)</text>
+    <rect x="15" y="62" width="150" height="22" rx="3" fill="#0369a1"/>
+    <text x="90" y="77" fill="#ffffff" font-size="9" text-anchor="middle">Fila Média (F1)</text>
+    <rect x="15" y="88" width="150" height="22" rx="3" fill="#075985"/>
+    <text x="90" y="103" fill="#ffffff" font-size="9" text-anchor="middle">Fila Baixa (F2)</text>
+
+    <!-- Politeness Queues by Hostname -->
+    <rect x="220" y="0" width="380" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="410" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Politeness Queues (Mapeadas por Hostname)</text>
+    <rect x="240" y="35" width="340" height="22" rx="3" fill="#065f46"/>
+    <text x="410" y="50" fill="#86efac" font-size="9" text-anchor="middle">Queue: wikipedia.org (1 worker com delay de 1000ms)</text>
+    <rect x="240" y="62" width="340" height="22" rx="3" fill="#065f46"/>
+    <text x="410" y="77" fill="#86efac" font-size="9" text-anchor="middle">Queue: github.com (1 worker com delay de 500ms)</text>
+    <rect x="240" y="88" width="340" height="22" rx="3" fill="#065f46"/>
+    <text x="410" y="103" fill="#86efac" font-size="9" text-anchor="middle">Queue: nytimes.com (Respeita robots.txt)</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A URL Frontier isola hostnames garantindo que o crawler nunca cause negação de serviço (DDoS) no servidor alvo.</text>
+
+</svg>`,
+  concurrencyWorkerPool: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Worker Pool em Go: Bounded Channels &amp; Controle Fixo de Goroutines</text>
+  <g transform="translate(40, 50)">
+    <!-- Task Queue -->
+    <rect x="0" y="20" width="160" height="90" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="80" y="42" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Jobs Channel</text>
+    <text x="80" y="65" fill="#cbd5e1" font-size="9" font-family="monospace" text-anchor="middle">jobs := make(chan Job, 100)</text>
+    <text x="80" y="85" fill="#86efac" font-size="9" text-anchor="middle">Buffer finito limita RAM</text>
+
+    <!-- 3 Fixed Workers -->
+    <g transform="translate(200, 0)">
+      <rect x="0" y="0" width="180" height="36" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="90" y="22" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">Worker 1 (Goroutine fixa)</text>
+
+      <rect x="0" y="45" width="180" height="36" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="90" y="67" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">Worker 2 (Goroutine fixa)</text>
+
+      <rect x="0" y="90" width="180" height="36" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="90" y="112" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">Worker 3 (Goroutine fixa)</text>
+    </g>
+
+    <!-- Results Channel -->
+    <rect x="420" y="20" width="160" height="90" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="500" y="42" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Results Channel</text>
+    <text x="500" y="65" fill="#cbd5e1" font-size="9" font-family="monospace" text-anchor="middle">results &lt;- process(job)</text>
+    <text x="500" y="85" fill="#86efac" font-size="9" text-anchor="middle">sync.WaitGroup sincroniza</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Evita o antipadrão 'go func()' descontrolado que causa OOM e sobrecarga do Go Runtime Scheduler.</text>
+
+</svg>`,
+  designPatternsStrategyFactory: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Padrão Strategy + Factory: Eliminação de Switch Cases Gigantes</text>
+  <g transform="translate(40, 50)">
+    <!-- Factory -->
+    <rect x="0" y="20" width="160" height="90" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="80" y="42" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">PaymentFactory</text>
+    <text x="80" y="65" fill="#cbd5e1" font-size="9" font-family="monospace" text-anchor="middle">GetStrategy(type)</text>
+    <text x="80" y="85" fill="#86efac" font-size="9" text-anchor="middle">Instanciação dinâmica</text>
+
+    <!-- Interface -->
+    <rect x="200" y="20" width="180" height="90" rx="6" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="290" y="45" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;interface&gt;&gt; PaymentStrategy</text>
+    <text x="290" y="72" fill="#e0f2fe" font-size="10" font-family="monospace" text-anchor="middle">+ Pay(amount) error</text>
+
+    <!-- Concrete Strategies -->
+    <g transform="translate(420, 0)">
+      <rect x="0" y="0" width="160" height="34" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="80" y="22" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">CreditCardStrategy</text>
+
+      <rect x="0" y="42" width="160" height="34" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="80" y="64" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">PixPaymentStrategy</text>
+
+      <rect x="0" y="84" width="160" height="34" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1"/>
+      <text x="80" y="106" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">CryptoPaymentStrategy</text>
+    </g>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Adesão perfeita ao Open/Closed Principle (OCP): novos métodos de pagamento são adicionados sem alterar código existente.</text>
+
+</svg>`,
+  lldParkingLotCache: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">LLD Case Study: Sistema de Estacionamento Orientado a Objetos (Parking Lot)</text>
+  <g transform="translate(40, 50)">
+    <!-- ParkingLot Hierarchy -->
+    <rect x="0" y="0" width="180" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="90" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">ParkingLot (Singleton)</text>
+    <text x="90" y="45" fill="#cbd5e1" font-size="9" text-anchor="middle">- List&lt;ParkingFloor&gt;</text>
+    <text x="90" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">- EntrancePanels</text>
+    <text x="90" y="85" fill="#cbd5e1" font-size="9" text-anchor="middle">- ExitPanels</text>
+    <text x="90" y="105" fill="#86efac" font-size="9" text-anchor="middle">+ AssignTicket(Vehicle)</text>
+
+    <!-- ParkingSpot Hierarchy -->
+    <rect x="210" y="0" width="180" height="120" rx="6" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+    <text x="300" y="22" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;abstract&gt;&gt; ParkingSpot</text>
+    <text x="300" y="45" fill="#e0f2fe" font-size="9" text-anchor="middle">- CompactSpot</text>
+    <text x="300" y="65" fill="#e0f2fe" font-size="9" text-anchor="middle">- LargeSpot (Trucks)</text>
+    <text x="300" y="85" fill="#e0f2fe" font-size="9" text-anchor="middle">- ElectricSpot (Charger)</text>
+    <text x="300" y="105" fill="#86efac" font-size="9" text-anchor="middle">+ IsFree() / Occupy()</text>
+
+    <!-- Pricing Strategy -->
+    <rect x="420" y="0" width="180" height="120" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="510" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">PricingStrategy</text>
+    <text x="510" y="45" fill="#cbd5e1" font-size="9" text-anchor="middle">- HourlyPricing</text>
+    <text x="510" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">- DynamicSurgePricing</text>
+    <text x="510" y="85" fill="#cbd5e1" font-size="9" text-anchor="middle">- FlatRatePricing</text>
+    <text x="510" y="105" fill="#34d399" font-size="9" text-anchor="middle">+ CalculateFee(Ticket)</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Separação estrita de responsabilidades: concorrência protegida por Mutex por vaga ou andar.</text>
+
+</svg>`,
+  hexagonalCleanArchitecture: () => `<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Arquitetura Hexagonal (Ports &amp; Adapters / Clean Architecture)</text>
+  <g transform="translate(40, 50)">
+    <!-- Adapters In -->
+    <rect x="0" y="20" width="140" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="70" y="45" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Primary Adapters</text>
+    <text x="70" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">HTTP Controller</text>
+    <text x="70" y="85" fill="#cbd5e1" font-size="9" text-anchor="middle">gRPC / CLI Handler</text>
+
+    <!-- Domain Core -->
+    <rect x="180" y="0" width="240" height="120" rx="8" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="300" y="32" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Domain Core (Puro)</text>
+    <text x="300" y="55" fill="#ffffff" font-size="10" text-anchor="middle">Entities &amp; Use Cases</text>
+    <text x="300" y="75" fill="#86efac" font-size="9" text-anchor="middle">&lt;&lt;interface&gt;&gt; Input / Output Ports</text>
+    <text x="300" y="98" fill="#a7f3d0" font-size="9" text-anchor="middle">Zero dependência externa</text>
+
+    <!-- Adapters Out -->
+    <rect x="460" y="20" width="140" height="80" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="530" y="45" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">Secondary Adapters</text>
+    <text x="530" y="65" fill="#cbd5e1" font-size="9" text-anchor="middle">PostgresRepository</text>
+    <text x="530" y="85" fill="#cbd5e1" font-size="9" text-anchor="middle">KafkaEventPublisher</text>
+  </g>
+  <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A inversão de controle permite trocar o banco de dados Postgres por MongoDB sem encostar em 1 linha de Use Case.</text>
+
+</svg>`,
+  messageDeliveryGuarantees: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Garantias de Entrega de Mensagens: At-Least-Once vs Exactly-Once</text>
+  <g transform="translate(40, 50)">
+    <!-- At-Least-Once -->
+    <rect x="0" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">At-Least-Once (Padrão de Mercado)</text>
+    <text x="140" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Retentativas automáticas em timeout</text>
+    <text x="140" y="65" fill="#fca5a5" font-size="10" text-anchor="middle">Mensagens podem ser duplicadas</text>
+    <text x="140" y="90" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Exige Consumidor Idempotente</text>
+
+    <!-- Exactly-Once -->
+    <rect x="320" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Exactly-Once Semantics (EOS)</text>
+    <text x="460" y="45" fill="#cbd5e1" font-size="10" text-anchor="middle">Kafka Transactions (read-process-write)</text>
+    <text x="460" y="65" fill="#86efac" font-size="10" text-anchor="middle">Producer ID + Sequence Number monotônico</text>
+    <text x="460" y="90" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">Custo extra de coordenação/latência</text>
+  </g>
+  <text x="340" y="198" fill="#94a3b8" font-size="10" text-anchor="middle">A regra de ouro de sistemas distribuídos: Transporte At-Least-Once + Processamento Idempotente = Robustez Total.</text>
+
+</svg>`,
+  messageQueuesDLQ: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Amazon SQS: Visibility Timeout &amp; Dead Letter Queue (DLQ)</text>
+  <g transform="translate(40, 50)">
+    <!-- SQS Queue -->
+    <rect x="0" y="0" width="260" height="120" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="130" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Fila Principal SQS</text>
+    <text x="130" y="48" fill="#cbd5e1" font-size="10" text-anchor="middle">Worker pega msg → Invisível por 30s</text>
+    <text x="130" y="68" fill="#f87171" font-size="10" text-anchor="middle">Se Worker falhar sem dar DeleteMsg:</text>
+    <text x="130" y="90" fill="#fbbf24" font-size="10" text-anchor="middle">Msg reaparece na fila (ReceiveCount++)</text>
+
+    <!-- Dead Letter Queue -->
+    <rect x="340" y="0" width="260" height="120" rx="6" fill="#1e293b" stroke="#f43f5e" stroke-width="2"/>
+    <text x="470" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Dead Letter Queue (DLQ)</text>
+    <text x="470" y="48" fill="#fca5a5" font-size="10" text-anchor="middle">Após maxReceiveCount = 3 falhas:</text>
+    <text x="470" y="70" fill="#f87171" font-size="10" font-weight="bold" text-anchor="middle">Msg 'Poison Pill' movida para DLQ</text>
+    <text x="470" y="92" fill="#86efac" font-size="9" text-anchor="middle">Impede bloqueio e alerta equipe de SRE</text>
+
+    <!-- Flow Arrow -->
+    <line x1="260" y1="60" x2="340" y2="60" stroke="#f43f5e" stroke-width="2"/>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A DLQ isola mensagens defeituosas que quebram o código do consumidor, garantindo fluidez para o resto da fila.</text>
+
+</svg>`,
+  apiGatewayBFF: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">API Gateway Pattern &amp; Backend for Frontend (BFF)</text>
+  <g transform="translate(30, 50)">
+    <!-- Clients -->
+    <g transform="translate(0, 10)">
+      <rect x="0" y="0" width="110" height="35" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <text x="55" y="22" fill="#38bdf8" font-size="9" font-weight="bold" text-anchor="middle">Mobile iOS/Android</text>
+
+      <rect x="0" y="55" width="110" height="35" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <text x="55" y="77" fill="#38bdf8" font-size="9" font-weight="bold" text-anchor="middle">Desktop Web App</text>
+    </g>
+
+    <!-- BFF Layer -->
+    <g transform="translate(150, 0)">
+      <rect x="0" y="0" width="150" height="45" rx="6" fill="#0284c7"/>
+      <text x="75" y="24" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">BFF Mobile Gateway</text>
+      <text x="75" y="38" fill="#bae6fd" font-size="8" text-anchor="middle">Payload compacto / 5G</text>
+
+      <rect x="0" y="60" width="150" height="45" rx="6" fill="#0284c7"/>
+      <text x="75" y="84" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">BFF Web Gateway</text>
+      <text x="75" y="98" fill="#bae6fd" font-size="8" text-anchor="middle">Payload rico desnormalizado</text>
+    </g>
+
+    <!-- Microservices -->
+    <g transform="translate(350, 0)">
+      <rect x="0" y="0" width="250" height="110" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+      <text x="125" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Microsserviços Internos</text>
+      <text x="125" y="48" fill="#86efac" font-size="9" text-anchor="middle">• User Service (Auth / Profile)</text>
+      <text x="125" y="70" fill="#86efac" font-size="9" text-anchor="middle">• Order &amp; Payment Service</text>
+      <text x="125" y="92" fill="#86efac" font-size="9" text-anchor="middle">• Inventory &amp; Catalog Service</text>
+    </g>
+  </g>
+  <text x="340" y="198" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">O API Gateway centraliza SSL Termination, Rate Limiting, Autenticação JWT e agregação de chamadas.</text>
+
+</svg>`,
+  loadBalancersL4L7: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Load Balancers: Camada L4 (Transporte) vs Camada L7 (Aplicação)</text>
+  <g transform="translate(40, 50)">
+    <!-- L4 -->
+    <rect x="0" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="140" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">L4 Load Balancer (IP / Porta TCP)</text>
+    <text x="140" y="48" fill="#cbd5e1" font-size="10" text-anchor="middle">Não abre payload HTTP (Zero SSL decrypt)</text>
+    <text x="140" y="70" fill="#86efac" font-size="10" font-weight="bold" text-anchor="middle">Throughput altíssimo (Milhões de QPS)</text>
+    <text x="140" y="92" fill="#94a3b8" font-size="9" text-anchor="middle">Exemplos: AWS NLB, Linux IPVS, HAProxy TCP</text>
+
+    <!-- L7 -->
+    <rect x="320" y="0" width="280" height="115" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="460" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">L7 Load Balancer (HTTP / HTTPS / gRPC)</text>
+    <text x="460" y="48" fill="#cbd5e1" font-size="10" text-anchor="middle">Inspeciona Headers, Cookies, Path (/api/v2)</text>
+    <text x="460" y="70" fill="#86efac" font-size="10" text-anchor="middle">Roteamento inteligente por URL e SSL Termination</text>
+    <text x="460" y="92" fill="#94a3b8" font-size="9" text-anchor="middle">Exemplos: AWS ALB, NGINX, Envoy, Traefik</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Topologia clássica: L4 na borda distribuindo para um pool de proxies reversos L7 escalonados horizontalmente.</text>
+
+</svg>`,
+  serviceMeshZeroTrust: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Service Mesh (Istio &amp; Envoy Sidecar): Tráfego Leste-Oeste</text>
+  <g transform="translate(40, 50)">
+    <!-- Pod A -->
+    <rect x="0" y="0" width="260" height="120" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="130" y="24" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Kubernetes Pod A</text>
+    <rect x="15" y="40" width="105" height="65" rx="4" fill="#0284c7"/>
+    <text x="67" y="68" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">App Service A</text>
+    <rect x="135" y="40" width="110" height="65" rx="4" fill="#78350f"/>
+    <text x="190" y="68" fill="#fde68a" font-size="9" font-weight="bold" text-anchor="middle">Envoy Proxy</text>
+
+    <!-- Pod B -->
+    <rect x="340" y="0" width="260" height="120" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="470" y="24" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Kubernetes Pod B</text>
+    <rect x="355" y="40" width="110" height="65" rx="4" fill="#78350f"/>
+    <text x="410" y="68" fill="#fde68a" font-size="9" font-weight="bold" text-anchor="middle">Envoy Proxy</text>
+    <rect x="480" y="40" width="105" height="65" rx="4" fill="#065f46"/>
+    <text x="532" y="68" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">App Service B</text>
+
+    <!-- Envoy to Envoy mTLS -->
+    <line x1="245" y1="72" x2="355" y2="72" stroke="#10b981" stroke-width="2"/>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Envoy Sidecar intercepta todo tráfego via iptables: injeta Circuit Breaking, Retries, Métricas e mTLS de forma transparente.</text>
+
+</svg>`,
+  backOfEnvelopeEstimations: () => `<svg viewBox="0 0 680 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="240" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Latências de Hardware de Jeff Dean: Ordens de Grandeza</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="600" height="135" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    
+    <rect x="20" y="15" width="200" height="24" rx="3" fill="#0284c7"/>
+    <text x="30" y="31" fill="#ffffff" font-size="10" font-weight="bold">L1 Cache Reference</text>
+    <text x="210" y="31" fill="#e0f2fe" font-size="10" text-anchor="end">0.5 ns</text>
+
+    <rect x="20" y="43" width="260" height="24" rx="3" fill="#0369a1"/>
+    <text x="30" y="59" fill="#ffffff" font-size="10" font-weight="bold">Main Memory (RAM) Reference</text>
+    <text x="270" y="59" fill="#e0f2fe" font-size="10" text-anchor="end">100 ns (200x L1)</text>
+
+    <rect x="20" y="71" width="360" height="24" rx="3" fill="#78350f"/>
+    <text x="30" y="87" fill="#ffffff" font-size="10" font-weight="bold">SSD Random Read</text>
+    <text x="370" y="87" fill="#fde68a" font-size="10" text-anchor="end">100.000 ns (100 µs)</text>
+
+    <rect x="20" y="99" width="560" height="24" rx="3" fill="#7f1d1d"/>
+    <text x="30" y="115" fill="#ffffff" font-size="10" font-weight="bold">Cross-Continent Round Trip (CA to Netherlands)</text>
+    <text x="570" y="115" fill="#fca5a5" font-size="10" text-anchor="end">150.000.000 ns (150 ms)</text>
+  </g>
+  <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Acessar a memória RAM é 1000x mais rápido que ler do SSD e 1.500.000x mais rápido que uma chamada de rede transatlântica.</text>
+
+</svg>`,
+  systemDesign4StepFramework: () => `<svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="230" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Framework de 4 Etapas para Entrevistas de System Design (FAANG / Top Tech)</text>
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="135" height="115" rx="6" fill="#0284c7"/>
+    <text x="67" y="24" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Etapa 1 (3-5 min)</text>
+    <text x="67" y="48" fill="#e0f2fe" font-size="9" font-weight="bold" text-anchor="middle">Escopo &amp; Requisitos</text>
+    <text x="67" y="70" fill="#bae6fd" font-size="8" text-anchor="middle">• Funcionais vs Não-Func</text>
+    <text x="67" y="88" fill="#bae6fd" font-size="8" text-anchor="middle">• Escala (DAU, QPS, SLA)</text>
+    <text x="67" y="104" fill="#ffffff" font-size="8" text-anchor="middle">• Esclarecer premissas</text>
+
+    <rect x="155" y="0" width="135" height="115" rx="6" fill="#0369a1"/>
+    <text x="222" y="24" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Etapa 2 (10-15 min)</text>
+    <text x="222" y="48" fill="#e0f2fe" font-size="9" font-weight="bold" text-anchor="middle">High-Level Design</text>
+    <text x="222" y="70" fill="#bae6fd" font-size="8" text-anchor="middle">• Diagrama de blocos</text>
+    <text x="222" y="88" fill="#bae6fd" font-size="8" text-anchor="middle">• APIs &amp; Esquema de BD</text>
+    <text x="222" y="104" fill="#ffffff" font-size="8" text-anchor="middle">• Fluxo ponta a ponta</text>
+
+    <rect x="310" y="0" width="135" height="115" rx="6" fill="#065f46"/>
+    <text x="377" y="24" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Etapa 3 (15-20 min)</text>
+    <text x="377" y="48" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">Design Deep Dive</text>
+    <text x="377" y="70" fill="#a7f3d0" font-size="8" text-anchor="middle">• Gargalos específicos</text>
+    <text x="377" y="88" fill="#a7f3d0" font-size="8" text-anchor="middle">• Algoritmos &amp; Caches</text>
+    <text x="377" y="104" fill="#ffffff" font-size="8" text-anchor="middle">• Consistência &amp; Falhas</text>
+
+    <rect x="465" y="0" width="135" height="115" rx="6" fill="#047857"/>
+    <text x="532" y="24" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Etapa 4 (5 min)</text>
+    <text x="532" y="48" fill="#86efac" font-size="9" font-weight="bold" text-anchor="middle">Wrap-up &amp; Escala</text>
+    <text x="532" y="70" fill="#a7f3d0" font-size="8" text-anchor="middle">• Single Points of Failure</text>
+    <text x="532" y="88" fill="#a7f3d0" font-size="8" text-anchor="middle">• Monitoramento &amp; SRE</text>
+    <text x="532" y="104" fill="#ffffff" font-size="8" text-anchor="middle">• Resumo de trade-offs</text>
+  </g>
+  <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Conduza a entrevista como uma sessão de colaboração técnica entre pares de engenharia sênior.</text>
+
 </svg>`
+
 };
 
 /**
@@ -1703,382 +2409,227 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
   'trees-bst': {
     theme: 'Árvores & Estruturas Hierárquicas',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Rotações Simples (LL, RR) e Duplas (LR, RL) em Árvores Auto-Balanceadas AVL / Red-Black',
-    targetCards: ['DSA-STRUCT-TREE-000', 'DSA-STRUCT-TREE-001', 'DSA-STRUCT-TREE-002', 'DSA-STRUCT-TREE-003', 'DSA-STRUCT-TREE-004', 'DSA-STRUCT-TREE-005'],
-    svgGenerator: SVG_GENERATORS.avlRotations,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/avl-rotation-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Rotações AVL preservam a altura O(log N) através de trocas locais de ponteiros O(1).'
-    }
+    targetCards: ['DSA-STRUCT-TREE-000', 'DSA-STRUCT-TREE-001', 'DSA-STRUCT-TREE-002', 'DSA-STRUCT-TREE-003', 'DSA-STRUCT-TREE-004', 'DSA-STRUCT-TREE-005', 'DSA-STRUCT-TREE-006'],
+    svgGenerator: SVG_GENERATORS.avlRotations
   },
   'advanced-trees': {
     theme: 'Árvores Avançadas & Índices',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Estrutura de Segment Tree para Range Queries e B-Tree Node Splits',
-    targetCards: ['DSA-STRUCT-ADVTREE-000', 'DSA-STRUCT-ADVTREE-001', 'DSA-STRUCT-ADVTREE-002', 'DSA-STRUCT-ADVTREE-003', 'DSA-STRUCT-ADVTREE-004', 'DSA-STRUCT-ADVTREE-005'],
-    svgGenerator: SVG_GENERATORS.avlRotations,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/segment-tree-range-query-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Decomposição do intervalo [L, R] em nós canônicos da Segment Tree em O(log N).'
-    }
+    targetCards: ['DSA-STRUCT-ADVTREE-000', 'DSA-STRUCT-ADVTREE-001', 'DSA-STRUCT-ADVTREE-002', 'DSA-STRUCT-ADVTREE-003', 'DSA-STRUCT-ADVTREE-004', 'DSA-STRUCT-ADVTREE-005', 'DSA-STRUCT-ADVTREE-006'],
+    svgGenerator: SVG_GENERATORS.avlRotations
   },
   'trie-prefix-tree': {
     theme: 'Tries & Busca por Prefixo',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Grafo de caminhos de caracteres com flag de terminação de palavra isEndOfWord',
-    targetCards: ['DSA-STRUCT-TRIE-000', 'DSA-STRUCT-TRIE-001', 'DSA-STRUCT-TRIE-002', 'DSA-STRUCT-TRIE-003', 'DSA-STRUCT-TRIE-004', 'DSA-STRUCT-TRIE-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/trie-prefix-sharing-loop.webm',
-      durationSeconds: 7,
-      fallbackText: 'Compartilhamento de nós de prefixos comuns entre palavras reduzindo redundância estrutural.'
-    }
+    targetCards: ['DSA-STRUCT-TRIE-000', 'DSA-STRUCT-TRIE-001', 'DSA-STRUCT-TRIE-002', 'DSA-STRUCT-TRIE-003', 'DSA-STRUCT-TRIE-004', 'DSA-STRUCT-TRIE-005', 'DSA-STRUCT-TRIE-006']
   },
   'heaps-priority-queues': {
     theme: 'Heaps & Filas de Prioridade',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Min-Heap Sift-Down / Sift-Up e reconstrução Heapify em O(N)',
-    targetCards: ['DSA-STRUCT-HEAP-000', 'DSA-STRUCT-HEAP-001', 'DSA-STRUCT-HEAP-002', 'DSA-STRUCT-HEAP-003', 'DSA-STRUCT-HEAP-004', 'DSA-STRUCT-HEAP-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/min-max-heap-property-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Invariante de Heap: o nó pai é sempre menor ou igual a todos os seus filhos.'
-    }
+    targetCards: ['DSA-STRUCT-HEAP-000', 'DSA-STRUCT-HEAP-001', 'DSA-STRUCT-HEAP-002', 'DSA-STRUCT-HEAP-003', 'DSA-STRUCT-HEAP-004', 'DSA-STRUCT-HEAP-005', 'DSA-STRUCT-HEAP-006']
   },
   'arrays-strings': {
     theme: 'Vetores Dinâmicos & Buffers Contíguos',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Acesso Indexado O(1), Duplicação Geométrica e Ring Buffer',
-    targetCards: ['DSA-STRUCT-ARRAY-000', 'DSA-STRUCT-ARRAY-001', 'DSA-STRUCT-ARRAY-002', 'DSA-STRUCT-ARRAY-003', 'DSA-STRUCT-ARRAY-004', 'DSA-STRUCT-ARRAY-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/dynamic-array-amortized-growth-loop.webm',
-      durationSeconds: 6,
-      fallbackText: 'Duplicação geométrica da capacidade e redistribuição de créditos amortizados O(1).'
-    }
+    targetCards: ['DSA-STRUCT-ARRAY-000', 'DSA-STRUCT-ARRAY-001', 'DSA-STRUCT-ARRAY-002', 'DSA-STRUCT-ARRAY-003', 'DSA-STRUCT-ARRAY-004', 'DSA-STRUCT-ARRAY-005', 'DSA-STRUCT-ARRAY-006']
   },
   'linked-lists': {
     theme: 'Listas Encadeadas & Skip Lists',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Ponteiros Sentinela, Reversão In-Place e LRU Doubly-Linked List',
-    targetCards: ['DSA-STRUCT-LIST-000', 'DSA-STRUCT-LIST-001', 'DSA-STRUCT-LIST-002', 'DSA-STRUCT-LIST-003', 'DSA-STRUCT-LIST-004', 'DSA-STRUCT-LIST-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/linked-list-insert-delete-loop.webm',
-      durationSeconds: 6,
-      fallbackText: 'Troca local de ponteiros prev e next em tempo O(1) sem deslocamento de elementos.'
-    }
+    targetCards: ['DSA-STRUCT-LIST-000', 'DSA-STRUCT-LIST-001', 'DSA-STRUCT-LIST-002', 'DSA-STRUCT-LIST-003', 'DSA-STRUCT-LIST-004', 'DSA-STRUCT-LIST-005', 'DSA-STRUCT-LIST-006']
   },
   'stacks-queues': {
     theme: 'Pilhas, Filas & Deques',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Disciplinas LIFO vs FIFO, MinStack O(1) e Monotonic Stack',
-    targetCards: ['DSA-STRUCT-STACK-000', 'DSA-STRUCT-STACK-001', 'DSA-STRUCT-STACK-002', 'DSA-STRUCT-STACK-003', 'DSA-STRUCT-STACK-004', 'DSA-STRUCT-STACK-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/lifo-stack-fifo-queue-loop.webm',
-      durationSeconds: 7,
-      fallbackText: 'Comparação visual de disciplinas de acesso: topo da pilha (LIFO) vs início e fim da fila (FIFO).'
-    }
+    targetCards: ['DSA-STRUCT-STACK-000', 'DSA-STRUCT-STACK-001', 'DSA-STRUCT-STACK-002', 'DSA-STRUCT-STACK-003', 'DSA-STRUCT-STACK-004', 'DSA-STRUCT-STACK-005', 'DSA-STRUCT-STACK-006']
   },
   'hash-tables': {
     theme: 'Tabelas Hash & Swiss Tables',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Resolução de Colisões, Rehashing e Vetorização SIMD',
-    targetCards: ['DSA-STRUCT-HASH-000', 'DSA-STRUCT-HASH-001', 'DSA-STRUCT-HASH-002', 'DSA-STRUCT-HASH-003', 'DSA-STRUCT-HASH-004', 'DSA-STRUCT-HASH-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/hash-function-bucket-index-loop.webm',
-      durationSeconds: 7,
-      fallbackText: 'Cálculo determinístico de bucket index via hash(key) % N.'
-    }
+    targetCards: ['DSA-STRUCT-HASH-000', 'DSA-STRUCT-HASH-001', 'DSA-STRUCT-HASH-002', 'DSA-STRUCT-HASH-003', 'DSA-STRUCT-HASH-004', 'DSA-STRUCT-HASH-005', 'DSA-STRUCT-HASH-006']
   },
 
   // 2. Grafos & Algoritmos de Exploração
   'graph-algorithms-core': {
     theme: 'Grafos & Caminho Mínimo',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Relaxamento de arestas no Algoritmo de Dijkstra e Ordenação Topológica com Kahn / DFS',
-    targetCards: ['DSA-PATT-SPATH-000', 'DSA-PATT-SPATH-001', 'DSA-PATT-SPATH-002', 'DSA-PATT-SPATH-003', 'DSA-PATT-SPATH-004', 'DSA-PATT-SPATH-005'],
-    svgGenerator: SVG_GENERATORS.dijkstraRelaxation,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/dijkstra-wavefront-loop.webm',
-      durationSeconds: 10,
-      fallbackText: 'Dijkstra seleciona o nó de menor custo no Min-Heap e relaxa suas arestas adjacentes.'
-    }
+    targetCards: ['DSA-PATT-SPATH-000', 'DSA-PATT-SPATH-001', 'DSA-PATT-SPATH-002', 'DSA-PATT-SPATH-003', 'DSA-PATT-SPATH-004', 'DSA-PATT-SPATH-005', 'DSA-PATT-SPATH-006'],
+    svgGenerator: SVG_GENERATORS.dijkstraRelaxation
   },
   'graphs-representations': {
     theme: 'Representações de Grafos & CSR',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Matriz vs Lista de Adjacência e Compressed Sparse Row',
-    targetCards: ['DSA-STRUCT-GRAPH-000', 'DSA-STRUCT-GRAPH-001', 'DSA-STRUCT-GRAPH-002', 'DSA-STRUCT-GRAPH-003', 'DSA-STRUCT-GRAPH-004', 'DSA-STRUCT-GRAPH-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/adj-list-vs-matrix-density-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Matriz O(V²) para grafos densos vs Lista O(V+E) para grafos esparsos.'
-    }
+    targetCards: ['DSA-STRUCT-GRAPH-000', 'DSA-STRUCT-GRAPH-001', 'DSA-STRUCT-GRAPH-002', 'DSA-STRUCT-GRAPH-003', 'DSA-STRUCT-GRAPH-004', 'DSA-STRUCT-GRAPH-005', 'DSA-STRUCT-GRAPH-006']
   },
   'disjoint-set-union': {
     theme: 'Disjoint Set Union (DSU / Union-Find)',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Compressão de Caminhos e União por Rank gerando complexidade quase linear O(α(N))',
-    targetCards: ['DSA-STRUCT-DSU-000', 'DSA-STRUCT-DSU-001', 'DSA-STRUCT-DSU-002', 'DSA-STRUCT-DSU-003', 'DSA-STRUCT-DSU-004', 'DSA-STRUCT-DSU-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/dsu-path-compression-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Achatamento da árvore de apontadores diretamente para a raiz na chamada find().'
-    }
+    targetCards: ['DSA-STRUCT-DSU-000', 'DSA-STRUCT-DSU-001', 'DSA-STRUCT-DSU-002', 'DSA-STRUCT-DSU-003', 'DSA-STRUCT-DSU-004', 'DSA-STRUCT-DSU-005', 'DSA-STRUCT-DSU-006']
   },
   'shortest-path-algorithms': {
     theme: 'Algoritmos de Caminho Mínimo',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Dijkstra com Min-Heap, Bellman-Ford e Floyd-Warshall',
-    targetCards: ['DSA-PATT-SPATH-000', 'DSA-PATT-SPATH-001', 'DSA-PATT-SPATH-002', 'DSA-PATT-SPATH-003', 'DSA-PATT-SPATH-004', 'DSA-PATT-SPATH-005'],
-    svgGenerator: SVG_GENERATORS.dijkstraRelaxation,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/dijkstra-wavefront-loop.webm',
-      durationSeconds: 10,
-      fallbackText: 'Seleção do nó com menor distância na Fila de Prioridade e relaxamento de arestas.'
-    }
+    targetCards: ['DSA-PATT-SPATH-000', 'DSA-PATT-SPATH-001', 'DSA-PATT-SPATH-002', 'DSA-PATT-SPATH-003', 'DSA-PATT-SPATH-004', 'DSA-PATT-SPATH-005', 'DSA-PATT-SPATH-006'],
+    svgGenerator: SVG_GENERATORS.dijkstraRelaxation
   },
   'topological-sort': {
     theme: 'Ordenação Topológica & DAGs',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Algoritmo de Kahn com fila de in-degree e DFS pós-ordem reversa',
-    targetCards: ['DSA-PATT-TOPO-000', 'DSA-PATT-TOPO-001', 'DSA-PATT-TOPO-002', 'DSA-PATT-TOPO-003', 'DSA-PATT-TOPO-004', 'DSA-PATT-TOPO-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/topological-sort-kahn-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Enfileiramento de nós com grau de entrada 0 e decremento dos vizinhos.'
-    }
+    targetCards: ['DSA-PATT-TOPO-000', 'DSA-PATT-TOPO-001', 'DSA-PATT-TOPO-002', 'DSA-PATT-TOPO-003', 'DSA-PATT-TOPO-004', 'DSA-PATT-TOPO-005', 'DSA-PATT-TOPO-006']
   },
   'minimum-spanning-tree': {
     theme: 'Árvore Geradora Mínima (MST)',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Algoritmo de Kruskal com DSU e Algoritmo de Prim com Min-Heap',
-    targetCards: ['DSA-PATT-MST-000', 'DSA-PATT-MST-001', 'DSA-PATT-MST-002', 'DSA-PATT-MST-003', 'DSA-PATT-MST-004', 'DSA-PATT-MST-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/kruskal-mst-dsu-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'Processamento guloso de arestas ordenadas adicionando à MST via DSU.'
-    }
+    targetCards: ['DSA-PATT-MST-000', 'DSA-PATT-MST-001', 'DSA-PATT-MST-002', 'DSA-PATT-MST-003', 'DSA-PATT-MST-004', 'DSA-PATT-MST-005', 'DSA-PATT-MST-006']
   },
 
   // 3. Padrões Algorítmicos Dinâmicos
   'two-pointers': {
     theme: 'Two Pointers & Floyd Cycle Detection',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Ponteiros Convergentes e Algoritmo de Floyd (Tortoise and Hare)',
-    targetCards: ['DSA-PATT-2POINT-000', 'DSA-PATT-2POINT-001', 'DSA-PATT-2POINT-002', 'DSA-PATT-2POINT-003', 'DSA-PATT-2POINT-004', 'DSA-PATT-2POINT-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/floyd-cycle-detection-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Ponteiro rápido (2x) e lento (1x) reduzindo a distância relativa no ciclo a cada passo.'
-    }
+    targetCards: ['DSA-PATT-2POINT-000', 'DSA-PATT-2POINT-001', 'DSA-PATT-2POINT-002', 'DSA-PATT-2POINT-003', 'DSA-PATT-2POINT-004', 'DSA-PATT-2POINT-005', 'DSA-PATT-2POINT-006']
   },
   'sliding-window': {
     theme: 'Sliding Window Fixo & Dinâmico',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Expansão à direita e contração à esquerda com cálculo delta O(1)',
-    targetCards: ['DSA-PATT-SLIDE-000', 'DSA-PATT-SLIDE-001', 'DSA-PATT-SLIDE-002', 'DSA-PATT-SLIDE-003', 'DSA-PATT-SLIDE-004', 'DSA-PATT-SLIDE-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/sliding-window-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Janela deslizante de tamanho K adicionando à direita e removendo à esquerda em O(1).'
-    }
+    targetCards: ['DSA-PATT-SLIDE-000', 'DSA-PATT-SLIDE-001', 'DSA-PATT-SLIDE-002', 'DSA-PATT-SLIDE-003', 'DSA-PATT-SLIDE-004', 'DSA-PATT-SLIDE-005', 'DSA-PATT-SLIDE-006']
   },
   'binary-search': {
     theme: 'Busca Binária & Espaço de Respostas',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Descarte logarítmico de metade do espaço e busca monotônica por predicado',
-    targetCards: ['DSA-PATT-BSEARCH-000', 'DSA-PATT-BSEARCH-001', 'DSA-PATT-BSEARCH-002', 'DSA-PATT-BSEARCH-003', 'DSA-PATT-BSEARCH-004', 'DSA-PATT-BSEARCH-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/binary-search-bisect-loop.webm',
-      durationSeconds: 7,
-      fallbackText: 'Cálculo do ponto médio M e descarte da metade do espaço a cada iteração.'
-    }
+    targetCards: ['DSA-PATT-BSEARCH-000', 'DSA-PATT-BSEARCH-001', 'DSA-PATT-BSEARCH-002', 'DSA-PATT-BSEARCH-003', 'DSA-PATT-BSEARCH-004', 'DSA-PATT-BSEARCH-005', 'DSA-PATT-BSEARCH-006']
   },
   'bfs-dfs-traversals': {
     theme: 'Travessias BFS & DFS',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Expansão de Fronteira por Níveis (BFS) e Recursão em Profundidade (DFS)',
-    targetCards: ['DSA-PATT-TRAVERSAL-000', 'DSA-PATT-TRAVERSAL-001', 'DSA-PATT-TRAVERSAL-002', 'DSA-PATT-TRAVERSAL-003', 'DSA-PATT-TRAVERSAL-004', 'DSA-PATT-TRAVERSAL-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/bfs-wavefront-expansion-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Expansão da fronteira de busca nível por nível em anéis concêntricos usando fila FIFO.'
-    }
+    targetCards: ['DSA-PATT-TRAVERSAL-000', 'DSA-PATT-TRAVERSAL-001', 'DSA-PATT-TRAVERSAL-002', 'DSA-PATT-TRAVERSAL-003', 'DSA-PATT-TRAVERSAL-004', 'DSA-PATT-TRAVERSAL-005', 'DSA-PATT-TRAVERSAL-006']
   },
   'backtracking': {
     theme: 'Backtracking & Poda de Estados',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Árvore de decisão com Choose-Explore-Unchoose e poda de ramos inválidos',
-    targetCards: ['DSA-PATT-BACKTRACK-000', 'DSA-PATT-BACKTRACK-001', 'DSA-PATT-BACKTRACK-002', 'DSA-PATT-BACKTRACK-003', 'DSA-PATT-BACKTRACK-004', 'DSA-PATT-BACKTRACK-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/backtracking-pruning-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'Exploração de escolhas candidatas com retrocesso imediato ao violar restrições.'
-    }
+    targetCards: ['DSA-PATT-BACKTRACK-000', 'DSA-PATT-BACKTRACK-001', 'DSA-PATT-BACKTRACK-002', 'DSA-PATT-BACKTRACK-003', 'DSA-PATT-BACKTRACK-004', 'DSA-PATT-BACKTRACK-005', 'DSA-PATT-BACKTRACK-006']
   },
   'monotonic-stack-queue': {
     theme: 'Monotonic Stack & Deque',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Next Greater Element em O(N) e Sliding Window Maximum com Deque',
-    targetCards: ['DSA-PATT-MONOSTACK-000', 'DSA-PATT-MONOSTACK-001', 'DSA-PATT-MONOSTACK-002', 'DSA-PATT-MONOSTACK-003', 'DSA-PATT-MONOSTACK-004', 'DSA-PATT-MONOSTACK-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/monotonic-stack-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Desempilhamento contínuo de elementos menores para manter a pilha decrescente.'
-    }
+    targetCards: ['DSA-PATT-MONOSTACK-000', 'DSA-PATT-MONOSTACK-001', 'DSA-PATT-MONOSTACK-002', 'DSA-PATT-MONOSTACK-003', 'DSA-PATT-MONOSTACK-004', 'DSA-PATT-MONOSTACK-005', 'DSA-PATT-MONOSTACK-006']
   },
   'divide-and-conquer-sorting': {
     theme: 'Dividir & Conquistar / Ordenação',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'QuickSort In-Place Partitioning e MergeSort Intercalação Estável',
-    targetCards: ['DSA-PATT-DIVCONQ-000', 'DSA-PATT-DIVCONQ-001', 'DSA-PATT-DIVCONQ-002', 'DSA-PATT-DIVCONQ-003', 'DSA-PATT-DIVCONQ-004', 'DSA-PATT-DIVCONQ-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/quicksort-partition-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Escolha de pivô e reorganização in-place com menores à esquerda e maiores à direita.'
-    }
+    targetCards: ['DSA-PATT-DIVCONQ-000', 'DSA-PATT-DIVCONQ-001', 'DSA-PATT-DIVCONQ-002', 'DSA-PATT-DIVCONQ-003', 'DSA-PATT-DIVCONQ-004', 'DSA-PATT-DIVCONQ-005', 'DSA-PATT-DIVCONQ-006']
   },
   'dynamic-programming-1d': {
     theme: 'Programação Dinâmica 1D',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Transições de estado, memoização e otimização de espaço para O(1)',
-    targetCards: ['DSA-PATT-DP1D-000', 'DSA-PATT-DP1D-001', 'DSA-PATT-DP1D-002', 'DSA-PATT-DP1D-003', 'DSA-PATT-DP1D-004', 'DSA-PATT-DP1D-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/dp-state-transition-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'Memoização de subproblemas sobrepostos eliminando recálculos exponenciais O(2^N) -> O(N).'
-    }
+    targetCards: ['DSA-PATT-DP1D-000', 'DSA-PATT-DP1D-001', 'DSA-PATT-DP1D-002', 'DSA-PATT-DP1D-003', 'DSA-PATT-DP1D-004', 'DSA-PATT-DP1D-005', 'DSA-PATT-DP1D-006']
   },
   'dynamic-programming-2d': {
     theme: 'Programação Dinâmica 2D',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: '0/1 Knapsack, Longest Common Subsequence e Grid Paths',
-    targetCards: ['DSA-PATT-DP2D-000', 'DSA-PATT-DP2D-001', 'DSA-PATT-DP2D-002', 'DSA-PATT-DP2D-003', 'DSA-PATT-DP2D-004', 'DSA-PATT-DP2D-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/dp-2d-knapsack-grid-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'Preenchimento de matriz bidimensional onde o estado atual depende de células vizinhas.'
-    }
+    targetCards: ['DSA-PATT-DP2D-000', 'DSA-PATT-DP2D-001', 'DSA-PATT-DP2D-002', 'DSA-PATT-DP2D-003', 'DSA-PATT-DP2D-004', 'DSA-PATT-DP2D-005', 'DSA-PATT-DP2D-006']
   },
   'dynamic-programming-advanced': {
     theme: 'Programação Dinâmica Avançada',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Bitmask DP, Traveling Salesperson, Digit DP e Tree DP',
-    targetCards: ['DSA-PATT-DPADV-000', 'DSA-PATT-DPADV-001', 'DSA-PATT-DPADV-002', 'DSA-PATT-DPADV-003', 'DSA-PATT-DPADV-004', 'DSA-PATT-DPADV-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/dp-bitmask-tsp-loop.webm',
-      durationSeconds: 10,
-      fallbackText: 'Inteiro de 32 bits utilizado como conjunto de elementos visitados indexando a DP.'
-    }
+    targetCards: ['DSA-PATT-DPADV-000', 'DSA-PATT-DPADV-001', 'DSA-PATT-DPADV-002', 'DSA-PATT-DPADV-003', 'DSA-PATT-DPADV-004', 'DSA-PATT-DPADV-005', 'DSA-PATT-DPADV-006']
   },
   'greedy-algorithms': {
     theme: 'Algoritmos Gulosos & Huffman',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Interval Scheduling, Codificação de Huffman e Alcance no Jump Game',
-    targetCards: ['DSA-PATT-GREEDY-000', 'DSA-PATT-GREEDY-001', 'DSA-PATT-GREEDY-002', 'DSA-PATT-GREEDY-003', 'DSA-PATT-GREEDY-004', 'DSA-PATT-GREEDY-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/greedy-interval-scheduling-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Seleção gulosa de intervalos que terminam mais cedo liberando recursos.'
-    }
+    targetCards: ['DSA-PATT-GREEDY-000', 'DSA-PATT-GREEDY-001', 'DSA-PATT-GREEDY-002', 'DSA-PATT-GREEDY-003', 'DSA-PATT-GREEDY-004', 'DSA-PATT-GREEDY-005', 'DSA-PATT-GREEDY-006']
   },
   'intervals-merge': {
     theme: 'Fusão & Manipulação de Intervalos',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Merge Intervals, Insert Interval e Min-Heap para Meeting Rooms',
-    targetCards: ['DSA-PATT-INTERVAL-000', 'DSA-PATT-INTERVAL-001', 'DSA-PATT-INTERVAL-002', 'DSA-PATT-INTERVAL-003', 'DSA-PATT-INTERVAL-004', 'DSA-PATT-INTERVAL-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/intervals-merge-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Ordenação por início e fusão de intervalos sobrepostos estendendo o ponto final.'
-    }
+    targetCards: ['DSA-PATT-INTERVAL-000', 'DSA-PATT-INTERVAL-001', 'DSA-PATT-INTERVAL-002', 'DSA-PATT-INTERVAL-003', 'DSA-PATT-INTERVAL-004', 'DSA-PATT-INTERVAL-005', 'DSA-PATT-INTERVAL-006']
   },
   'bit-manipulation-patterns': {
     theme: 'Manipulação de Bits & Bitmasks',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Brian Kernighan LSB, Cancelamento de XOR e Iteração de Subconjuntos',
-    targetCards: ['DSA-PATT-BIT-000', 'DSA-PATT-BIT-001', 'DSA-PATT-BIT-002', 'DSA-PATT-BIT-003', 'DSA-PATT-BIT-004', 'DSA-PATT-BIT-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/bit-manipulation-lsb-loop.webm',
-      durationSeconds: 7,
-      fallbackText: 'A operação n & (n-1) limpa o bit menos significativo em cada passo.'
-    }
+    targetCards: ['DSA-PATT-BIT-000', 'DSA-PATT-BIT-001', 'DSA-PATT-BIT-002', 'DSA-PATT-BIT-003', 'DSA-PATT-BIT-004', 'DSA-PATT-BIT-005', 'DSA-PATT-BIT-006']
   },
   'concurrent-data-structures': {
     theme: 'Estruturas de Dados Concorrentes & Lock-Free',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Lock-Free CAS Loops, Tagged Pointers para ABA e Disruptor Ring Buffer',
-    targetCards: ['DSA-ADV-CONCURRENT-000', 'DSA-ADV-CONCURRENT-001', 'DSA-ADV-CONCURRENT-002', 'DSA-ADV-CONCURRENT-003', 'DSA-ADV-CONCURRENT-004', 'DSA-ADV-CONCURRENT-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/lock-free-cas-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'Laços otimistas de Compare-And-Swap (CAS) eliminando context switches e travas de mutex.'
-    }
+    targetCards: ['DSA-ADV-CONCURRENT-000', 'DSA-ADV-CONCURRENT-001', 'DSA-ADV-CONCURRENT-002', 'DSA-ADV-CONCURRENT-003', 'DSA-ADV-CONCURRENT-004', 'DSA-ADV-CONCURRENT-005', 'DSA-ADV-CONCURRENT-006']
   },
   'string-matching': {
     theme: 'Algoritmos de Casamento de Strings',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'KMP com Tabela LPS, Rabin-Karp Rolling Hash e Z-Algorithm',
-    targetCards: ['DSA-ADV-STRING-000', 'DSA-ADV-STRING-001', 'DSA-ADV-STRING-002', 'DSA-ADV-STRING-003', 'DSA-ADV-STRING-004', 'DSA-ADV-STRING-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/kmp-lps-automaton-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'Tabela LPS permite saltar caracteres redundantes sem retroceder o texto principal.'
-    }
+    targetCards: ['DSA-ADV-STRING-000', 'DSA-ADV-STRING-001', 'DSA-ADV-STRING-002', 'DSA-ADV-STRING-003', 'DSA-ADV-STRING-004', 'DSA-ADV-STRING-005', 'DSA-ADV-STRING-006']
   },
   'sweepline-geometry': {
     theme: 'Geometria Computacional & Sweep Line',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Fila de eventos no eixo X, Skyline Problem com Heap e Graham Scan',
-    targetCards: ['DSA-ADV-SWEEPLINE-000', 'DSA-ADV-SWEEPLINE-001', 'DSA-ADV-SWEEPLINE-002', 'DSA-ADV-SWEEPLINE-003', 'DSA-ADV-SWEEPLINE-004', 'DSA-ADV-SWEEPLINE-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/sweepline-events-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'Linha imaginária varrendo o plano 2D processando eventos em ordem cronológica.'
-    }
+    targetCards: ['DSA-ADV-SWEEPLINE-000', 'DSA-ADV-SWEEPLINE-001', 'DSA-ADV-SWEEPLINE-002', 'DSA-ADV-SWEEPLINE-003', 'DSA-ADV-SWEEPLINE-004', 'DSA-ADV-SWEEPLINE-005', 'DSA-ADV-SWEEPLINE-006']
   },
   'game-theory-math': {
     theme: 'Teoria dos Jogos & Algoritmos Matemáticos',
     phase: '01-dsa',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Nim-Sum XOR, Teorema de Sprague-Grundy e Minimax com Alpha-Beta',
-    targetCards: ['DSA-ADV-GAMETHEORY-000', 'DSA-ADV-GAMETHEORY-001', 'DSA-ADV-GAMETHEORY-002', 'DSA-ADV-GAMETHEORY-003', 'DSA-ADV-GAMETHEORY-004', 'DSA-ADV-GAMETHEORY-005'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/dsa/game-theory-nim-sum-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Cálculo do XOR de todas as pilhas para determinação de posições vencedoras e perdedoras.'
-    }
+    targetCards: ['DSA-ADV-GAMETHEORY-000', 'DSA-ADV-GAMETHEORY-001', 'DSA-ADV-GAMETHEORY-002', 'DSA-ADV-GAMETHEORY-003', 'DSA-ADV-GAMETHEORY-004', 'DSA-ADV-GAMETHEORY-005', 'DSA-ADV-GAMETHEORY-006']
   },
 
   // 3. Redes de Computadores & Protocolos de Transporte
@@ -2087,10 +2638,10 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'TCP 3-Way Handshake, 4-Way Teardown, Janela Deslizante e Controle de Congestionamento (Slow Start)',
-    targetCards: ['CS-NET-TCP-000', 'CS-NET-TCP-001', 'CS-NET-TCP-002', 'CS-NET-TCP-003', 'CS-NET-TCP-004'],
+    targetCards: ['CS-NET-TCP-000', 'CS-NET-TCP-001', 'CS-NET-TCP-002', 'CS-NET-TCP-003', 'CS-NET-TCP-004', 'CS-NET-TCP-006'],
     svgGenerator: SVG_GENERATORS.tcpHandshake,
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/networking/tcp-handshake-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Sliding_window_mechanism.svg',
       durationSeconds: 6,
       fallbackText: 'O handshake de 3 vias sincroniza números de sequência iniciais (ISN) entre cliente e servidor.'
     }
@@ -2100,10 +2651,10 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Multiplexação de Streams no HTTP/2 vs Remoção do Head-of-Line Blocking no HTTP/3 (QUIC/UDP)',
-    targetCards: ['CS-NET-HTTP-000', 'CS-NET-HTTP-001', 'CS-NET-HTTP-002', 'CS-NET-HTTP-003'],
+    targetCards: ['CS-NET-HTTP-000', 'CS-NET-HTTP-001', 'CS-NET-HTTP-002', 'CS-NET-HTTP-003', 'CS-NET-HTTP-006'],
     svgGenerator: SVG_GENERATORS.httpMultiplex,
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/networking/http2-multiplexing-streams-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Sliding_window_mechanism.svg',
       durationSeconds: 8,
       fallbackText: 'Streams binárias independentes multiplexadas sobre uma única conexão TCP no HTTP/2 e sobre QUIC no HTTP/3.'
     }
@@ -2113,10 +2664,10 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Resolução Recursiva DNS e Handshake TLS 1.3 de 1-RTT com troca de chaves ECDHE',
-    targetCards: ['CS-NET-DNS-000', 'CS-NET-DNS-001', 'CS-NET-DNS-002'],
+    targetCards: ['CS-NET-DNS-000', 'CS-NET-DNS-001', 'CS-NET-DNS-002', 'CS-NET-DNS-006'],
     svgGenerator: SVG_GENERATORS.tlsHandshake,
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/networking/tls-13-handshake-keyshare-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/b/be/Trie_example.svg',
       durationSeconds: 7,
       fallbackText: 'Handshake TLS 1.3 de 1-RTT enviando parâmetros Diffie-Hellman na primeira mensagem.'
     }
@@ -2126,9 +2677,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'REST vs WebSockets vs SSE e Serialização Binária Protobuf no gRPC',
-    targetCards: ['CS-NET-API-000', 'CS-NET-API-001', 'CS-NET-API-002', 'CS-NET-API-003'],
+    targetCards: ['CS-NET-API-000', 'CS-NET-API-001', 'CS-NET-API-002', 'CS-NET-API-003', 'CS-NET-API-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/networking/grpc-protobuf-binary-framing-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Vector_reserve.svg',
       durationSeconds: 8,
       fallbackText: 'Mensagens codificadas em binário compacto Protobuf trafegando em streams multiplexadas HTTP/2.'
     }
@@ -2138,10 +2689,10 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Ciclo de vida de sockets, TCP_NODELAY, TIME_WAIT e epoll O(1)',
-    targetCards: ['CS-NET-SOCK-000', 'CS-NET-SOCK-001', 'CS-NET-SOCK-002'],
+    targetCards: ['CS-NET-SOCK-000', 'CS-NET-SOCK-001', 'CS-NET-SOCK-002', 'CS-NET-SOCK-006'],
     svgGenerator: SVG_GENERATORS.epollEventLoop,
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/networking/epoll-event-ready-list-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Data_Queue.svg',
       durationSeconds: 8,
       fallbackText: 'Linux epoll notificando em tempo O(1) apenas descritores de arquivo que receberam eventos de I/O.'
     }
@@ -2153,10 +2704,10 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Tradução VPN -> PFN via TLB, Page Tables Multinível e Page Faults',
-    targetCards: ['CS-OS-VMEM-000', 'CS-OS-VMEM-001', 'CS-OS-VMEM-002', 'CS-OS-VMEM-003', 'CS-OS-VMEM-005'],
+    targetCards: ['CS-OS-VMEM-000', 'CS-OS-VMEM-001', 'CS-OS-VMEM-002', 'CS-OS-VMEM-003', 'CS-OS-VMEM-005', 'CS-OS-VMEM-006'],
     svgGenerator: SVG_GENERATORS.virtualMemory,
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/os/virtual-memory-tlb-translation-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Segment_tree.svg',
       durationSeconds: 9,
       fallbackText: 'Divisão de endereço virtual em VPN e Offset com busca ultrarrápida na TLB em hardware.'
     }
@@ -2166,10 +2717,10 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Ciclo de vida de processos, sobrecarga de context switch e Green Threads',
-    targetCards: ['CS-OS-PROC-000', 'CS-OS-PROC-001', 'CS-OS-PROC-002', 'CS-OS-PROC-003'],
+    targetCards: ['CS-OS-PROC-000', 'CS-OS-PROC-001', 'CS-OS-PROC-002', 'CS-OS-PROC-003', 'CS-OS-PROC-006'],
     svgGenerator: SVG_GENERATORS.processLifecycle,
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/os/process-context-switch-pcb-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Directed_acyclic_graph_2.svg',
       durationSeconds: 8,
       fallbackText: 'Troca de contexto salvando registradores, stack pointer e atualizando CR3 na troca de processos.'
     }
@@ -2179,9 +2730,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Spinlock vs Mutex vs Futex, Semáforos e Condições de Coffman',
-    targetCards: ['CS-OS-SYNC-000', 'CS-OS-SYNC-001', 'CS-OS-SYNC-002', 'CS-OS-SYNC-003', 'CS-OS-SYNC-004'],
+    targetCards: ['CS-OS-SYNC-000', 'CS-OS-SYNC-001', 'CS-OS-SYNC-002', 'CS-OS-SYNC-003', 'CS-OS-SYNC-004', 'CS-OS-SYNC-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/os/futex-fast-userspace-mutex-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Data_stack.svg',
       durationSeconds: 8,
       fallbackText: 'Tentativa rápida de lock em User Space via CAS com fallback para syscall futex no Kernel apenas em contenção.'
     }
@@ -2191,9 +2742,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Instrução Compare-And-Swap (CAS), Memory Barriers e Problema ABA com Tagged Pointers',
-    targetCards: ['CS-OS-ATOM-000', 'CS-OS-ATOM-001', 'CS-OS-ATOM-002', 'CS-OS-ATOM-004'],
+    targetCards: ['CS-OS-ATOM-000', 'CS-OS-ATOM-001', 'CS-OS-ATOM-002', 'CS-OS-ATOM-004', 'CS-OS-ATOM-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/os/lock-free-cas-aba-tagged-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Singly-linked-list.svg',
       durationSeconds: 8,
       fallbackText: 'Incremento atômico de versão em tagged pointer impedindo que mudanças ABA passem despercebidas pelo CAS.'
     }
@@ -2203,9 +2754,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'fork() Copy-On-Write (COW), Escalonador CFS com RB-Tree e Processos Zumbis',
-    targetCards: ['CS-OS-KERN-000', 'CS-OS-KERN-001', 'CS-OS-KERN-002', 'CS-OS-KERN-003'],
+    targetCards: ['CS-OS-KERN-000', 'CS-OS-KERN-001', 'CS-OS-KERN-002', 'CS-OS-KERN-003', 'CS-OS-KERN-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/os/linux-fork-copy-on-write-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Directed_acyclic_graph_2.svg',
       durationSeconds: 8,
       fallbackText: 'Compartilhamento de páginas físicas marcadas como read-only duplicando apenas na primeira tentativa de escrita.'
     }
@@ -2215,10 +2766,10 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Transição Ring 3 -> Ring 0, Direct I/O, Zero-Copy sendfile() e Page Cache',
-    targetCards: ['CS-OS-SYS-000', 'CS-OS-SYS-001', 'CS-OS-SYS-002', 'CS-OS-SYS-003'],
+    targetCards: ['CS-OS-SYS-000', 'CS-OS-SYS-001', 'CS-OS-SYS-002', 'CS-OS-SYS-003', 'CS-OS-SYS-006'],
     svgGenerator: SVG_GENERATORS.epollEventLoop,
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/os/linux-zero-copy-sendfile-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Data_Queue.svg',
       durationSeconds: 8,
       fallbackText: 'Transferência direta de dados do Page Cache para o Socket Buffer via DMA sem passar pelo User Space.'
     }
@@ -2228,9 +2779,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Pipes, Unix Domain Sockets e Memória Compartilhada POSIX shm_open',
-    targetCards: ['CS-OS-IPC-000', 'CS-OS-IPC-001', 'CS-OS-IPC-002', 'CS-OS-IPC-003'],
+    targetCards: ['CS-OS-IPC-000', 'CS-OS-IPC-001', 'CS-OS-IPC-002', 'CS-OS-IPC-003', 'CS-OS-IPC-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/os/posix-shared-memory-shm-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Data_Queue.svg',
       durationSeconds: 7,
       fallbackText: 'Mapeamento do mesmo bloco de memória física nos espaços virtuais de dois processos para transferência em O(1).'
     }
@@ -2242,10 +2793,10 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Linhas de Cache de 64 bytes, Protocolo MESI, False Sharing e Write-Through/Back',
-    targetCards: ['CS-ARCH-CACHE-000', 'CS-ARCH-CACHE-001', 'CS-ARCH-CACHE-002', 'CS-ARCH-CACHE-003', 'CS-ARCH-CACHE-004'],
+    targetCards: ['CS-ARCH-CACHE-000', 'CS-ARCH-CACHE-001', 'CS-ARCH-CACHE-002', 'CS-ARCH-CACHE-003', 'CS-ARCH-CACHE-004', 'CS-ARCH-CACHE-006'],
     svgGenerator: SVG_GENERATORS.cpuCacheMESI,
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/architecture/cpu-cache-false-sharing-mesi-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg',
       durationSeconds: 9,
       fallbackText: 'Invalidação de linha de cache compartilhada entre cores distintos durante escritas simultâneas em variáveis vizinhas.'
     }
@@ -2255,9 +2806,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Von Neumann vs Harvard, Ciclo Fetch-Decode-Execute, CISC vs RISC e Registradores',
-    targetCards: ['CS-ARCH-CPU-000', 'CS-ARCH-CPU-001', 'CS-ARCH-CPU-002', 'CS-ARCH-CPU-003'],
+    targetCards: ['CS-ARCH-CPU-000', 'CS-ARCH-CPU-001', 'CS-ARCH-CPU-002', 'CS-ARCH-CPU-003', 'CS-ARCH-CPU-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/architecture/cpu-fetch-decode-execute-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Data_stack.svg',
       durationSeconds: 8,
       fallbackText: 'Ciclo de instrução da CPU buscando comando no PC, decodificando na Control Unit e executando na ALU.'
     }
@@ -2267,9 +2818,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Pipelining de Instruções, Hazards Estruturais/Dados, Branch Prediction e SIMD',
-    targetCards: ['CS-ARCH-PIPE-000', 'CS-ARCH-PIPE-001', 'CS-ARCH-PIPE-002', 'CS-ARCH-PIPE-003'],
+    targetCards: ['CS-ARCH-PIPE-000', 'CS-ARCH-PIPE-001', 'CS-ARCH-PIPE-002', 'CS-ARCH-PIPE-003', 'CS-ARCH-PIPE-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/architecture/cpu-pipeline-branch-flush-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Data_Queue.svg',
       durationSeconds: 8,
       fallbackText: 'Previsão especulativa de ramificação mantendo o pipeline cheio e penalidade de flush em caso de erro.'
     }
@@ -2279,10 +2830,10 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'HDD vs SSD NVMe, Append-Only Logs, I/O Sequencial vs Aleatório e DMA',
-    targetCards: ['CS-ARCH-IO-000', 'CS-ARCH-IO-001', 'CS-ARCH-IO-002', 'CS-ARCH-IO-003', 'CS-ARCH-IO-004', 'CS-ARCH-IO-005'],
+    targetCards: ['CS-ARCH-IO-000', 'CS-ARCH-IO-001', 'CS-ARCH-IO-002', 'CS-ARCH-IO-003', 'CS-ARCH-IO-004', 'CS-ARCH-IO-005', 'CS-ARCH-IO-006'],
     svgGenerator: SVG_GENERATORS.storageHierarchy,
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/architecture/memory-storage-latency-pyramid-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Vector_reserve.svg',
       durationSeconds: 8,
       fallbackText: 'Diferenças de ordens de magnitude na latência de acesso: L1 Cache (~1ns) vs RAM (~100ns) vs NVMe (~20µs) vs HDD (~5ms).'
     }
@@ -2294,10 +2845,10 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Tri-Color Concurrent Mark-Sweep, Modelo GMP com Work-Stealing e GOMEMLIMIT',
-    targetCards: ['CS-RNT-GO-000', 'CS-RNT-GO-001', 'CS-RNT-GO-002'],
+    targetCards: ['CS-RNT-GO-000', 'CS-RNT-GO-001', 'CS-RNT-GO-002', 'CS-RNT-GO-006'],
     svgGenerator: SVG_GENERATORS.goGMP,
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/runtimes/go-gmp-scheduler-stealing-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Directed_acyclic_graph_2.svg',
       durationSeconds: 9,
       fallbackText: 'Processador lógico ocioso roubando goroutines da fila local de outro processador no modelo GMP do Go.'
     }
@@ -2307,10 +2858,10 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Heap Generacional (Eden, S0/S1, Tenured), Metaspace, G1GC vs ZGC e Pausas STW',
-    targetCards: ['CS-RNT-JVM-000', 'CS-RNT-JVM-001', 'CS-RNT-JVM-002', 'CS-RNT-JVM-003'],
+    targetCards: ['CS-RNT-JVM-000', 'CS-RNT-JVM-001', 'CS-RNT-JVM-002', 'CS-RNT-JVM-003', 'CS-RNT-JVM-006'],
     svgGenerator: SVG_GENERATORS.jvmGenerationalHeap,
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/runtimes/jvm-generational-gc-promotion-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Vector_reserve.svg',
       durationSeconds: 9,
       fallbackText: 'Objetos sobreviventes promovidos de Eden para Survivor e posteriormente para Tenured no ciclo de GC da JVM.'
     }
@@ -2320,9 +2871,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Stack vs Heap, Escape Analysis do Compilador e sync.Pool para Reúso',
-    targetCards: ['CS-RNT-ALLOC-000', 'CS-RNT-ALLOC-002', 'CS-RNT-ALLOC-003'],
+    targetCards: ['CS-RNT-ALLOC-000', 'CS-RNT-ALLOC-002', 'CS-RNT-ALLOC-003', 'CS-RNT-ALLOC-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/runtimes/escape-analysis-stack-heap-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Data_stack.svg',
       durationSeconds: 8,
       fallbackText: 'Ponteiros que não escapam do escopo da função são alocados diretamente no stack frame sem overhead de GC.'
     }
@@ -2334,9 +2885,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Operações Bitwise, Algoritmo de Brian Kernighan, Leis de De Morgan e Bitsets',
-    targetCards: ['CS-MATH-BOOL-000', 'CS-MATH-BOOL-001', 'CS-MATH-BOOL-002', 'CS-MATH-BOOL-003', 'CS-MATH-BOOL-004'],
+    targetCards: ['CS-MATH-BOOL-000', 'CS-MATH-BOOL-001', 'CS-MATH-BOOL-002', 'CS-MATH-BOOL-003', 'CS-MATH-BOOL-004', 'CS-MATH-BOOL-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/math/bitwise-brian-kernighan-popcount-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Vector_reserve.svg',
       durationSeconds: 7,
       fallbackText: 'A operação n & (n-1) desliga o bit 1 menos significativo em cada iteração contando os bits ativos.'
     }
@@ -2346,9 +2897,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Permutações vs Combinações, Paradoxo do Aniversário e Bloom Filters',
-    targetCards: ['CS-MATH-PROB-000', 'CS-MATH-PROB-001', 'CS-MATH-PROB-002', 'CS-MATH-PROB-004'],
+    targetCards: ['CS-MATH-PROB-000', 'CS-MATH-PROB-001', 'CS-MATH-PROB-002', 'CS-MATH-PROB-004', 'CS-MATH-PROB-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/math/birthday-paradox-hash-collision-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg',
       durationSeconds: 8,
       fallbackText: 'Crescimento exponencial da probabilidade de colisão atingindo 50% em apenas sqrt(N) elementos.'
     }
@@ -2358,9 +2909,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'DAGs, Princípio da Casa dos Pombos, SCCs com Tarjan e DSU',
-    targetCards: ['CS-MATH-GRAPH-000', 'CS-MATH-GRAPH-001', 'CS-MATH-GRAPH-002', 'CS-MATH-GRAPH-003', 'CS-MATH-GRAPH-004'],
+    targetCards: ['CS-MATH-GRAPH-000', 'CS-MATH-GRAPH-001', 'CS-MATH-GRAPH-002', 'CS-MATH-GRAPH-003', 'CS-MATH-GRAPH-004', 'CS-MATH-GRAPH-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/math/tarjan-strongly-connected-components-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/6n-graf.svg',
       durationSeconds: 9,
       fallbackText: 'Busca em profundidade com low-link values identificando componentes fortemente conexos em tempo O(V+E).'
     }
@@ -2370,9 +2921,9 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
     phase: '02-cs-fundamentals',
     tier: MEDIA_TIERS.DUAL,
     visualConcept: 'Complemento de Dois, Endianness e IEEE 754 (Sinal, Expoente, Mantissa)',
-    targetCards: ['CS-MATH-NUM-000', 'CS-MATH-NUM-001', 'CS-MATH-NUM-002', 'CS-MATH-NUM-003', 'CS-MATH-NUM-004'],
+    targetCards: ['CS-MATH-NUM-000', 'CS-MATH-NUM-001', 'CS-MATH-NUM-002', 'CS-MATH-NUM-003', 'CS-MATH-NUM-004', 'CS-MATH-NUM-006'],
     videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/math/ieee-754-floating-point-layout-loop.webm',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Vector_reserve.svg',
       durationSeconds: 8,
       fallbackText: 'Decomposição binária em 1 bit de sinal, 8 bits de expoente com bias e 23 bits de mantissa normalizada.'
     }
@@ -2382,550 +2933,360 @@ export const PRIORITY_SUBTOPIC_MAPPINGS = {
   'caching-patterns': {
     theme: 'Estratégias & Padrões de Caching',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Fluxo comparativo: Cache-Aside vs Write-Through vs Write-Back e Estrutura LRU (Map + Doubly-Linked List)',
     targetCards: ['SYS-CACHE-PATTERNS-000', 'SYS-CACHE-PATTERNS-001'],
-    svgGenerator: SVG_GENERATORS.cacheAsidePattern,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/cache-aside-vs-write-through-loop.webm',
-      durationSeconds: 7,
-      fallbackText: 'Cache-Aside lê sob demanda da cache com lazy loading vs Write-Through atualizando cache e banco de dados de forma síncrona.'
-    }
+    svgGenerator: SVG_GENERATORS.cacheAsidePattern
   },
   'cache-invalidation-anomalies': {
     theme: 'Anomalias de Cache & Invalidação',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Cache Stampede com Mutex / Singleflight e Cache Penetration com Bloom Filter',
     targetCards: ['SYS-CACHE-ANOMALIES-000', 'SYS-CACHE-ANOMALIES-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/cache-stampede-mutex-singleflight-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Cache Stampede: múltiplas requisições simultâneas em cache miss bloqueadas por Mutex/Singleflight enquanto apenas 1 worker recalcula o dado.'
-    }
+    svgGenerator: SVG_GENERATORS.cacheAnomaliesStampede
   },
   'cdn-edge-caching': {
     theme: 'CDNs & Edge Caching',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Roteamento Anycast BGP para PoPs e diretiva HTTP stale-while-revalidate',
     targetCards: ['SYS-CACHE-CDN-000', 'SYS-CACHE-CDN-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/cdn-anycast-bgp-pop-routing-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Roteamento Anycast BGP direcionando requisições do cliente ao Point of Presence (PoP) de menor latência geográfica.'
-    }
+    svgGenerator: SVG_GENERATORS.cdnAnycastRouting
   },
   'redis-internals': {
     theme: 'Redis Internals & Estruturas de Dados',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Event Loop Single-Threaded com epoll e SkipLists probabilísticas em ZSets',
     targetCards: ['SYS-CACHE-REDIS-000', 'SYS-CACHE-REDIS-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/redis-single-thread-event-loop-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Event Loop do Redis operando em memória RAM física com multiplexador de I/O não-bloqueante (epoll/kqueue) sem contenção de locks.'
-    }
+    svgGenerator: SVG_GENERATORS.redisEventLoop
   },
 
   // 5. Bancos de Dados & Storage Engines
   'acid-isolation-levels': {
     theme: 'Níveis de Isolamento ACID & MVCC',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Anomalias ANSI SQL (Dirty, Non-Repeatable, Phantom Read), MVCC e Write Skew',
     targetCards: ['SYS-DB-ACID-000', 'SYS-DB-ACID-001', 'SYS-DB-ACID-002'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/mvcc-snapshot-isolation-xmin-xmax-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'Controle de Concorrência Multiversão (MVCC): leituras enxergam snapshot imutável baseado em xmin/xmax sem travar escritas.'
-    }
+    svgGenerator: SVG_GENERATORS.acidIsolationMatrix
   },
   'nosql-data-modeling': {
     theme: 'Modelagem NoSQL (DynamoDB & Cassandra)',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'DynamoDB Single-Table Design (PK/SK) e Cassandra Tombstone Storms',
     targetCards: ['SYS-DB-NOSQL-000', 'SYS-DB-NOSQL-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/dynamodb-single-table-design-pk-sk-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Modelagem Single-Table no DynamoDB particionando por HASH (PK) e ordenando ranges por SORT (SK) para consultas ricas em 1 RTT.'
-    }
+    svgGenerator: SVG_GENERATORS.dynamoDbSingleTable
   },
   'scaling-replication-cdc': {
     theme: 'Replicação de BD & Change Data Capture (CDC)',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Replication Lag em Leader-Follower e Debezium lendo WAL/Binlog',
     targetCards: ['SYS-DB-SCALING-000', 'SYS-DB-SCALING-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/cdc-debezium-wal-binlog-streaming-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Change Data Capture (CDC) lendo o Write-Ahead Log (WAL) do banco de dados e transmitindo streams de mutações em tempo real.'
-    }
+    svgGenerator: SVG_GENERATORS.databaseReplicationLag
   },
   'sql-indexing-optimization': {
     theme: 'Índices SQL & Otimização de Consultas',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Índice Clustered vs Secundário, Leftmost Prefix Rule e Covering Index',
     targetCards: ['SYS-DB-SQLOPT-000', 'SYS-DB-SQLOPT-001', 'SYS-DB-SQLOPT-002'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/sql-covering-index-zero-table-lookup-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Covering Index satisfazendo todas as colunas do SELECT e WHERE diretamente nos nós folhas sem acessar a tabela física.'
-    }
+    svgGenerator: SVG_GENERATORS.sqlClusteredVsSecondary
   },
   'storage-engines': {
     theme: 'Storage Engines: B+Tree vs LSM-Tree vs Colunar',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'B+Tree vs LSM-Tree (MemTable, WAL, SSTables, Compaction) vs Formato Colunar (Parquet)',
     targetCards: ['SYS-DB-ENGINE-000', 'SYS-DB-ENGINE-001', 'SYS-DB-ENGINE-002'],
-    svgGenerator: SVG_GENERATORS.lsmTreeEngine,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/lsm-tree-memtable-wal-sstable-compaction-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'LSM-Tree gravando em WAL e MemTable em memória com flush assíncrono para SSTables imutáveis em disco.'
-    }
+    svgGenerator: SVG_GENERATORS.lsmTreeEngine
   },
   'vector-databases-search': {
     theme: 'Bancos Vetoriais & Busca Textual',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Elasticsearch Inverted Index & BM25 vs Grafo HNSW para Busca Vetorial',
     targetCards: ['SYS-DB-VECTOR-000', 'SYS-DB-VECTOR-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/hnsw-vector-graph-ann-search-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'Grafo multicamadas HNSW navegando por saltos longos na camada superior e busca de vizinhos densa na camada inferior.'
-    }
+    svgGenerator: SVG_GENERATORS.vectorSearchHNSW
   },
 
   // 6. Sistemas Distribuídos & Consenso
   'cap-pacelc-consistency': {
     theme: 'Teoremas CAP & PACELC',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Trade-off CAP em partição de rede e Espectro de Consistência (Linearizability vs Eventual)',
     targetCards: ['SYS-DIST-CONSISTENCY-000', 'SYS-DIST-CONSISTENCY-001', 'SYS-DIST-CONSISTENCY-002'],
-    svgGenerator: SVG_GENERATORS.capPacelcMatrix,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/cap-theorem-network-partition-tradeoff-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Teorema CAP: em caso de partição de rede (P), o sistema deve optar entre Consistência estrita (CP) ou Disponibilidade (AP).'
-    }
+    svgGenerator: SVG_GENERATORS.capPacelcMatrix
   },
   'consensus-replication': {
     theme: 'Consenso & Replicação de Estado',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Protocolo Raft: Estados (Follower, Candidate, Leader), Heartbeats de Keep-Alive e Replicação de Log',
     targetCards: ['SYS-DIST-CONSENSUS-000', 'SYS-DIST-CONSENSUS-001', 'SYS-DIST-CONSENSUS-002'],
-    svgGenerator: SVG_GENERATORS.raftConsensus,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/raft-leader-election-loop.webm',
-      durationSeconds: 12,
-      fallbackText: 'Followers disparam eleição após Election Timeout e tornam-se Líder com maioria estrita de votos.'
-    }
+    svgGenerator: SVG_GENERATORS.raftConsensus
   },
   'distributed-locking-coordination': {
     theme: 'Locks Distribuídos & Coordenação',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Redis SETNX, Risco de GC Pauses e Fencing Tokens Monotônicos',
     targetCards: ['SYS-DIST-LOCK-000', 'SYS-DIST-LOCK-001'],
-    svgGenerator: SVG_GENERATORS.distributedLockRedlock,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/fencing-tokens-monotonic-resource-protection-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Fencing Tokens monotonicamente crescentes rejeitando gravações de clientes antigos com tokens desatualizados.'
-    }
+    svgGenerator: SVG_GENERATORS.distributedLockRedlock
   },
   'distributed-transactions': {
     theme: 'Transações Distribuídas & Sagas',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Two-Phase Commit (2PC), Saga Orchestration e Transactional Outbox Pattern',
     targetCards: ['SYS-DIST-TX-000', 'SYS-DIST-TX-001', 'SYS-DIST-TX-002'],
-    svgGenerator: SVG_GENERATORS.twoPhaseCommit,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/two-phase-commit-2pc-prepare-commit-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'Protocolo Two-Phase Commit (2PC): fase Prepare obtendo votos de prontidão e fase Commit aplicando alterações atomicamente.'
-    }
+    svgGenerator: SVG_GENERATORS.twoPhaseCommit
   },
   'sharding-consistent-hashing': {
     theme: 'Particionamento & Consistent Hashing',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Anel de Hash com Nós Virtuais (Virtual Nodes) para balanceamento uniforme e minimização de migração de chaves',
     targetCards: ['SYS-DIST-SHARDING-000', 'SYS-DIST-SHARDING-001'],
-    svgGenerator: SVG_GENERATORS.consistentHashingRing,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/consistent-hashing-ring-node-add-remove-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Anel de Consistent Hashing remapeando apenas as chaves do segmento vizinho quando nós entram ou saem do cluster.'
-    }
+    svgGenerator: SVG_GENERATORS.consistentHashingRing
   },
   'time-clocks-id-generation': {
     theme: 'Relógios Lógicos & Geração de IDs',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Vector Clocks, Twitter Snowflake 64-bit e Google TrueTime API',
     targetCards: ['SYS-DIST-TIME-000', 'SYS-DIST-TIME-001', 'SYS-DIST-TIME-002'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/twitter-snowflake-64bit-id-structure-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Estrutura do Snowflake: 41 bits de timestamp, 10 bits de ID de máquina/datacenter e 12 bits de sequência local.'
-    }
+    svgGenerator: SVG_GENERATORS.twitterSnowflake
   },
 
   // 7. Arquétipos FAANG de System Design
   'case-distributed-file-storage': {
     theme: 'Arquétipo: Armazenamento Distribuído de Arquivos',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Chunking de 4MB, Sincronização Delta e Deduplicação CAS',
     targetCards: ['SYS-ARCH-FILESTORE-000', 'SYS-ARCH-FILESTORE-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/google-drive-chunking-delta-sync-pipeline-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Divisão de arquivos em blocos de 4MB com hash SHA-256 e sincronização delta transmitindo apenas blocos modificados.'
-    }
+    svgGenerator: SVG_GENERATORS.distributedFileStorage
   },
   'case-distributed-task-scheduler': {
     theme: 'Arquétipo: Agendador de Tarefas Distribuído',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Delay Queues com Redis ZSet, Orquestração de DAGs e Heartbeats',
     targetCards: ['SYS-ARCH-SCHEDULER-000', 'SYS-ARCH-SCHEDULER-001'],
-    svgGenerator: SVG_GENERATORS.distributedTaskScheduler,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/distributed-task-scheduler-delay-queue-redis-zset-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Agendador distribuído usando Redis Sorted Sets com score de timestamp para puxar tarefas prontas com baixa latência.'
-    }
+    svgGenerator: SVG_GENERATORS.distributedTaskScheduler
   },
   'case-flash-sale-inventory': {
     theme: 'Arquétipo: Vendas Relâmpago & Alta Concorrência',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Reserva Atômica via Redis Lua, Virtual Waiting Room e Desacoplamento por Fila',
     targetCards: ['SYS-ARCH-FLASHSALE-000', 'SYS-ARCH-FLASHSALE-001'],
-    svgGenerator: SVG_GENERATORS.flashSaleInventoryTopology,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/flash-sale-redis-lua-atomic-decrement-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Decremento atômico de estoque via script Lua em Redis prevenindo overselling em picos de alta concorrência.'
-    }
+    svgGenerator: SVG_GENERATORS.flashSaleInventoryTopology
   },
   'case-metrics-monitoring': {
     theme: 'Arquétipo: Métricas & Séries Temporais (TSDB)',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Compressão Gorilla (Delta-of-Delta + Float XOR) e Prometheus Pull vs Push',
     targetCards: ['SYS-ARCH-METRICS-000', 'SYS-ARCH-METRICS-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/gorilla-tsdb-delta-of-delta-float-xor-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Algoritmo Gorilla comprimindo timestamps com delta-of-delta e valores float via XOR com os bits precedentes.'
-    }
+    svgGenerator: SVG_GENERATORS.metricsTsdbGorilla
   },
   'case-payment-system-ledger': {
     theme: 'Arquétipo: Sistema de Pagamentos & Livro-Razão',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Double-Entry Bookkeeping Ledger, Idempotency Keys e Reconciliação Noturna',
     targetCards: ['SYS-ARCH-PAYMENT-000', 'SYS-ARCH-PAYMENT-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/double-entry-bookkeeping-ledger-debit-credit-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Livro-razão imutável garantindo que toda transação financeira possua Débitos e Créditos equilibrados com soma zero.'
-    }
+    svgGenerator: SVG_GENERATORS.paymentLedgerDoubleEntry
   },
   'case-realtime-chat': {
     theme: 'Arquétipo: Chat em Tempo Real (WhatsApp/Discord)',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'WebSocket Gateways, Camada de Presença e Roteamento via Redis Pub/Sub',
     targetCards: ['SYS-ARCH-CHAT-000', 'SYS-ARCH-CHAT-001'],
-    svgGenerator: SVG_GENERATORS.realtimeChatTopology,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/websocket-gateway-presence-heartbeat-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Servidores de WebSocket Gateway mantendo conexões TCP persistentes com heartbeat e presença agregada no Redis.'
-    }
+    svgGenerator: SVG_GENERATORS.realtimeChatTopology
   },
   'case-ride-hailing-geospatial': {
     theme: 'Arquétipo: Mobilidade Urbana & Geoespacial',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Grade Hexagonal Uber H3 e Ingestão de GPS em Tempo Real para Matching',
     targetCards: ['SYS-ARCH-RIDE-000', 'SYS-ARCH-RIDE-001'],
-    svgGenerator: SVG_GENERATORS.rideHailingGeospatial,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/uber-h3-hexagonal-spatial-index-rings-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Grade espacial hexagonal Uber H3 com anéis k-ring de vizinhança uniforme sem distorções de cantos.'
-    }
+    svgGenerator: SVG_GENERATORS.rideHailingGeospatial
   },
   'case-search-autocomplete': {
     theme: 'Arquétipo: Autocompletar de Busca (Typeahead)',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Árvore Trie em Memória com Top-K Cache e Agregação Offline MapReduce',
     targetCards: ['SYS-ARCH-TYPEAHEAD-000', 'SYS-ARCH-TYPEAHEAD-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/typeahead-trie-topk-cache-lookup-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Árvore Trie em memória armazenando as K sugestões mais frequentes em cada nó para retorno em O(1).'
-    }
+    svgGenerator: SVG_GENERATORS.typeaheadTrie
   },
   'case-social-timeline-feed': {
     theme: 'Arquétipo: Feed Social (Twitter/Instagram)',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Fan-Out on Write (Push) vs Fan-Out on Read (Pull) e Arquitetura Híbrida',
     targetCards: ['SYS-ARCH-FEED-000', 'SYS-ARCH-FEED-001'],
-    svgGenerator: SVG_GENERATORS.socialTimelineTopology,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/social-feed-fanout-push-vs-pull-timeline-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Fan-Out on Write gravando posts na caixa de entrada de cada seguidor vs Fan-Out on Read consultando na hora da leitura.'
-    }
+    svgGenerator: SVG_GENERATORS.socialTimelineTopology
   },
   'case-url-shortener': {
     theme: 'Arquétipo: Encurtador de URLs (TinyURL)',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Codificação Base62, KGS e Cache Redis com Razão 100:1',
     targetCards: ['SYS-ARCH-URL-000', 'SYS-ARCH-URL-001'],
-    svgGenerator: SVG_GENERATORS.urlShortenerTopology,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/tinyurl-base62-encoding-id-generator-loop.webm',
-      durationSeconds: 7,
-      fallbackText: 'Conversão de identificador numérico de 64 bits em string alfanumérica compacta de 7 caracteres via Base62.'
-    }
+    svgGenerator: SVG_GENERATORS.urlShortenerTopology
   },
   'case-video-streaming': {
     theme: 'Arquétipo: Streaming de Vídeo (YouTube/Netflix)',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Chunking de Vídeo, Transcodificação DAG e Streaming Adaptativo HLS/DASH',
     targetCards: ['SYS-ARCH-STREAM-000', 'SYS-ARCH-STREAM-001'],
-    svgGenerator: SVG_GENERATORS.videoStreamingPipeline,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/video-ingestion-chunking-transcoding-dag-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Upload de vídeo particionado em chunks com workers paralelos transcodificando múltiplos codecs e resoluções.'
-    }
+    svgGenerator: SVG_GENERATORS.videoStreamingPipeline
   },
   'case-web-crawler-search': {
     theme: 'Arquétipo: Web Crawler Distribuído (Googlebot)',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'URL Frontier com Filas de Polidez e Deduplicação via Bloom Filter & SimHash',
     targetCards: ['SYS-ARCH-CRAWLER-000', 'SYS-ARCH-CRAWLER-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/web-crawler-url-frontier-politeness-queue-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'URL Frontier separando filas de prioridade e filas de polidez por hostname para evitar sobrecarga em servidores de destino.'
-    }
+    svgGenerator: SVG_GENERATORS.webCrawlerFrontier
   },
 
   // 8. Low-Level Design & Padrões de Projeto
   'concurrency-patterns-backend': {
     theme: 'Padrões de Concorrência Backend',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Worker Pools Bounded e Fan-Out / Fan-In Multiplexing em Go',
     targetCards: ['SYS-LLD-CONCURRENCY-000', 'SYS-LLD-CONCURRENCY-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/concurrency-worker-pool-bounded-channels-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Worker Pool distribuindo tarefas através de canal bufferizado para número fixo de goroutines controlando uso de CPU e memória.'
-    }
+    svgGenerator: SVG_GENERATORS.concurrencyWorkerPool
   },
   'design-patterns-gang-of-four': {
     theme: 'Design Patterns GoF no Backend',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Strategy + Factory para eliminar condicionais e Decorator vs Adapter',
     targetCards: ['SYS-LLD-PATTERNS-000', 'SYS-LLD-PATTERNS-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/design-patterns-strategy-factory-polymorphism-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Substituição de condicionais por polimorfismo instanciando algoritmos via Factory e executando via interface Strategy.'
-    }
+    svgGenerator: SVG_GENERATORS.designPatternsStrategyFactory
   },
   'lld-case-studies': {
     theme: 'Estudos de Caso em Low-Level Design',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Estacionamento (Parking Lot) Polimórfico e In-Memory Cache Thread-Safe',
     targetCards: ['SYS-LLD-CASES-000', 'SYS-LLD-CASES-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/lld-in-memory-cache-threadsafe-ttl-eviction-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Cache em memória com mutex RWMutex, limpeza ativa de chaves expiradas por worker em background e evicção LRU.'
-    }
+    svgGenerator: SVG_GENERATORS.lldParkingLotCache
   },
   'solid-clean-architecture': {
     theme: 'SOLID & Arquitetura Hexagonal',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Princípios SRP & DIP e Arquitetura Hexagonal (Ports & Adapters)',
     targetCards: ['SYS-LLD-SOLID-000', 'SYS-LLD-SOLID-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/hexagonal-architecture-ports-and-adapters-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Núcleo de domínio isolado de infraestrutura comunicando-se exclusivamente através de Portas de Entrada e Saída.'
-    }
+    svgGenerator: SVG_GENERATORS.hexagonalCleanArchitecture
   },
 
   // 9. Mensageria & Streaming
   'delivery-guarantees-idempotency': {
     theme: 'Garantias de Entrega & Idempotência',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Garantias At-Least-Once vs Exactly-Once e Deduplicação por Idempotency Key',
     targetCards: ['SYS-MSG-GUARANTEES-000', 'SYS-MSG-GUARANTEES-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/idempotency-key-consumer-deduplication-sql-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Inserção de chave de idempotência com chave única no banco de dados bloqueando processamento duplicado.'
-    }
+    svgGenerator: SVG_GENERATORS.messageDeliveryGuarantees
   },
   'event-sourcing-cqrs': {
     theme: 'Event Sourcing & CQRS',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Event Store Append-Only, Reidratação de Entidades e Projeções de Leitura CQRS',
     targetCards: ['SYS-MSG-EVENTS-000', 'SYS-MSG-EVENTS-001'],
-    svgGenerator: SVG_GENERATORS.eventSourcingCQRS,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/event-sourcing-append-only-log-rehydration-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Reidratação de estado de entidade reconstruindo a partir da sequência cronológica de eventos imutáveis.'
-    }
+    svgGenerator: SVG_GENERATORS.eventSourcingCQRS
   },
   'kafka-internals': {
     theme: 'Apache Kafka & Streaming',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Append-Only Partition Log, Consumer Groups, Offset Tracking e Log Compaction',
     targetCards: ['SYS-MSG-KAFKA-000', 'SYS-MSG-KAFKA-001'],
-    svgGenerator: SVG_GENERATORS.kafkaPartitioning,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/kafka-partition-stream-loop.webm',
-      durationSeconds: 9,
-      fallbackText: 'Cada partição do Kafka é um log sequencial distribuído e lido de forma independente por consumidores.'
-    }
+    svgGenerator: SVG_GENERATORS.kafkaPartitioning
   },
   'message-queues': {
     theme: 'Filas de Mensagens (RabbitMQ & SQS)',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Modelos Point-to-Point vs Pub/Sub e Visibility Timeout com Dead Letter Queues (DLQ)',
     targetCards: ['SYS-MSG-QUEUES-000', 'SYS-MSG-QUEUES-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/sqs-visibility-timeout-dead-letter-queue-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Visibility Timeout escondendo mensagem em processamento e roteamento automático para DLQ após estourar limite de retentativas.'
-    }
+    svgGenerator: SVG_GENERATORS.messageQueuesDLQ
   },
 
   // 10. Resiliência, Tráfego & Service Mesh
   'api-design-gateways': {
     theme: 'API Gateways & Protocolos de Comunicação',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'API Gateway com Backend-For-Frontend (BFF) e gRPC Protobuf sobre HTTP/2 vs REST',
     targetCards: ['SYS-RES-APIGW-000', 'SYS-RES-APIGW-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/grpc-protobuf-vs-rest-json-framing-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Serialização binária compacta em Protobuf sobre HTTP/2 eliminando overhead textual de JSON e headers repetitivos.'
-    }
+    svgGenerator: SVG_GENERATORS.apiGatewayBFF
   },
   'fault-tolerance-resilience': {
     theme: 'Tolerância a Falhas & Resiliência',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Máquina de Estados do Circuit Breaker (Closed, Open, Half-Open) com Retries e Exponential Jitter',
     targetCards: ['SYS-RES-FAULTTOL-000', 'SYS-RES-FAULTTOL-001'],
-    svgGenerator: SVG_GENERATORS.circuitBreaker,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/circuit-breaker-state-transitions-closed-open-half-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Circuit Breaker interrompendo requisições instantaneamente (Open) após limite de erros para evitar sobrecarga em cascata.'
-    }
+    svgGenerator: SVG_GENERATORS.circuitBreaker
   },
   'load-balancing-proxies': {
     theme: 'Balanceamento de Carga & Proxies',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Load Balancers L4 vs L7 e Algoritmos de Balanceamento (Round Robin, Least Connections, IP Hash)',
     targetCards: ['SYS-RES-LOADBAL-000', 'SYS-RES-LOADBAL-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/load-balancer-l4-transport-vs-l7-application-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Load Balancer L4 operando por IP/Porta sem abrir payload vs L7 inspecionando cabeçalhos HTTP, cookies e rotas.'
-    }
+    svgGenerator: SVG_GENERATORS.loadBalancersL4L7
   },
   'rate-limiting-throttling': {
     theme: 'Rate Limiting & Throttling',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Token Bucket vs Leaky Bucket e Sliding Window Counter Distribuído no Redis com Lua',
     targetCards: ['SYS-RES-RATELIMIT-000', 'SYS-RES-RATELIMIT-001'],
-    svgGenerator: SVG_GENERATORS.rateLimiterTokenBucket,
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/rate-limiting-token-bucket-vs-leaky-bucket-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Token Bucket permitindo rajadas até a capacidade máxima vs Leaky Bucket liberando vazão estritamente constante.'
-    }
+    svgGenerator: SVG_GENERATORS.rateLimiterTokenBucket
   },
   'service-mesh-discovery': {
     theme: 'Service Mesh & Segurança mTLS',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Istio Control Plane vs Envoy Sidecar e Autenticação Zero Trust mTLS',
     targetCards: ['SYS-RES-MESH-000', 'SYS-RES-MESH-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/zero-trust-mutual-tls-mtls-handshake-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Criptografia mTLS de ponta a ponta com certificados X.509 validados bilateralmente entre microsserviços.'
-    }
+    svgGenerator: SVG_GENERATORS.serviceMeshZeroTrust
   },
 
   // 11. Fundamentos de System Design & Entrevistas
   'back-of-the-envelope-estimations': {
     theme: 'Estimativas Back-of-the-Envelope',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Latências de Jeff Dean, Dimensionamento de QPS/Storage e Tabela de Noves de Disponibilidade',
     targetCards: ['SYS-FND-ESTIMATION-000', 'SYS-FND-ESTIMATION-001', 'SYS-FND-ESTIMATION-002'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/jeff-dean-latency-numbers-orders-of-magnitude-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Comparação visual de latências de hardware: L1 Cache (0.5ns), RAM (100ns), SSD (100µs), Network RTT (150ms).'
-    }
+    svgGenerator: SVG_GENERATORS.backOfEnvelopeEstimations
   },
   'system-design-interview-framework': {
     theme: 'Framework de Entrevista de System Design',
     phase: '03-system-design-backend',
-    tier: MEDIA_TIERS.DUAL,
+    tier: MEDIA_TIERS.P2_RESPONSIVE_SVG,
     visualConcept: 'Framework de 4 Etapas e Condução de Deep Dives com Análise de Trade-offs',
     targetCards: ['SYS-FND-FRAMEWORK-000', 'SYS-FND-FRAMEWORK-001'],
-    videoConfig: {
-      url: 'https://assets.faang-anki.dev/media/system-design/system-design-interview-4-step-framework-loop.webm',
-      durationSeconds: 8,
-      fallbackText: 'Framework em 4 etapas: 1. Escopo e Requisitos, 2. Arquitetura em Alto Nível, 3. Deep Dive, 4. Gargalos e Escala.'
-    }
+    svgGenerator: SVG_GENERATORS.systemDesign4StepFramework
   }
 };
 

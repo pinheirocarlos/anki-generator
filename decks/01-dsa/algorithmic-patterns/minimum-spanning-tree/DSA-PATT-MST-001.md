@@ -21,11 +21,19 @@ Quais os critérios de escolha entre **Kruskal** e **Prim** com base na densidad
 - Para problemas geométricos em 2D com $N$ pontos onde todas as $N^2$ conexões existem (*Min Cost to Connect All Points*), Prim com array plano é a solução mais rápida.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/mst-cut-property-proof-loop.webm">
-    <p>Visualização: A aresta de menor peso que cruza qualquer corte entre dois conjuntos de vértices pertence obrigatoriamente à MST.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Algoritmo de Kruskal: Ordenação de Arestas + DSU em O(E log E)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Abordagem Baseada em Arestas</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Ordena todas as E arestas por peso crescente.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">2. Para cada aresta (u, v): se find(u) != find(v) → union(u, v) e adiciona à MST.</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Ideal para grafos esparsos (E ≈ V); para assim que V - 1 arestas forem incluídas</text>
+
+</svg>
 
 | Densidade do Grafo | Algoritmo Recomendado | Complexidade Assintótica |
 |---|---|---|

@@ -23,11 +23,33 @@ Como o **Algoritmo de Manacher** calcula o maior raio palíndromo centrado em ca
 - **Complexidade**: $O(N)$ linear estrito, pois a borda direita $R$ avança monotonicamente.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/manachers-palindrome-radius-loop.webm">
-    <p>Visualização: Inserção de delimitadores e reaproveitamento do raio de simetria do centro mais à direita expandindo em O(N).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Suffix Automaton: Grafo Acíclico de Fatores em Tempo Linear O(N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Representação Mínima de Todas as Substrings de uma String</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Contém no máximo 2N - 1 estados e 3N - 4 transições para uma string de tamanho N.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Resolve ocorrência de substrings, número de substrings distintas e menor fator cíclico em O(N).</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Estrutura de dados textual mais poderosa da ciência da computação</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Suffix Automaton: Grafo Acíclico de Fatores em Tempo Linear O(N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Representação Mínima de Todas as Substrings de uma String</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Contém no máximo 2N - 1 estados e 3N - 4 transições para uma string de tamanho N.</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Resolve ocorrência de substrings, número de substrings distintas e menor fator cíclico em O(N).</text>
+  </g>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Estrutura de dados textual mais poderosa da ciência da computação</text>
+
+</svg>
 
 | Algoritmo de Palíndromos | Complexidade de Tempo | Tratamento de Tamanho Par/Ímpar |
 |---|---|---|

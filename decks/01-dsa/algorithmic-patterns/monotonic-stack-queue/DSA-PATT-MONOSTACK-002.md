@@ -23,11 +23,19 @@ Como a **Monotonic Stack** resolve o problema **Daily Temperatures** (dias de es
 - **Complexidade**: $O(N)$ tempo e $O(N)$ espaço.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/largest-rectangle-histogram-stack-loop.webm">
-    <p>Visualização: Cálculo da largura máxima quando a barra atual limita a altura de expansão dos elementos empilhados.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Largest Rectangle in Histogram com Pilha Monotônica em O(N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Cálculo de Área de Barra como Altura Mínima</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Ao desempilhar barra de altura H: largura = i - stack.peek() - 1.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Área = H × largura. Rastreia max_area em uma única passada linear.</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Substitui a abordagem quadrática O(N²) por complexidade linear ótima O(N)</text>
+
+</svg>
 
 | Estado da Pilha | Temperatura Atual $T[i]$ | Ação |
 |---|---|---|

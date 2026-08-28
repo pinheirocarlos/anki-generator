@@ -21,11 +21,33 @@ Como uma **Bitwise Trie (Trie Binária de Bits)** resolve o problema clássico d
 - **Complexidade**: $O(32N) = O(N)$ linear contra $O(N^2)$ da força bruta com pares.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/bitwise-trie-maximum-xor-loop.webm">
-    <p>Visualização: Escolha gulosa do bit oposto (1 vs 0) a cada nível da trie binária de 32 bits maximizando o XOR.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bitwise Trie: Consulta de Maximum XOR de Pares em O(32)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Trie Binária (Filhos 0 e 1)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Para maximizar o XOR com o número X bit a bit (do bit 31 ao 0):</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Se o bit atual de X é 0, escolhe descer pelo ramo 1 (e vice-versa). Custo = O(32 × N) = O(N).</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Transforma busca por força bruta O(N²) de XOR em tempo linear O(N)</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bitwise Trie: Consulta de Maximum XOR de Pares em O(32)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Trie Binária (Filhos 0 e 1)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Para maximizar o XOR com o número X bit a bit (do bit 31 ao 0):</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Se o bit atual de X é 0, escolhe descer pelo ramo 1 (e vice-versa). Custo = O(32 × N) = O(N).</text>
+  </g>
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Transforma busca por força bruta O(N²) de XOR em tempo linear O(N)</text>
+
+</svg>
 
 | Abordagem | Tempo de Execução | Decisão de Bit em Cada Passo |
 |---|---|---|

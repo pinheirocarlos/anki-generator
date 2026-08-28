@@ -22,11 +22,22 @@ Como o padrão de **Two Pointers Opostos** resolve o problema de soma de dois n�
 - Como o array está ordenado, descartamos com segurança uma linha ou coluna inteira de combinações a cada iteração, reduzindo o tempo de $O(N^2)$ para **$O(N)$**.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/two-pointers-converging-sum-loop.webm">
-    <p>Visualização: Ponteiros left e right convergindo em direção ao centro com avanço condicional pela soma.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Dois Ponteiros Convergentes para Soma-Alvo (Two Sum Ordenado)</text>
+  <g transform="translate(100, 50)">
+    <rect x="0" y="20" width="60" height="40" fill="#047857" stroke="#10b981" stroke-width="2" rx="4"/><text x="30" y="45" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">2</text><text x="30" y="10" fill="#10b981" font-size="10" font-weight="bold" text-anchor="middle">L →</text>
+    <rect x="80" y="20" width="60" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="110" y="45" fill="#94a3b8" font-size="13" text-anchor="middle">7</text>
+    <rect x="160" y="20" width="60" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="190" y="45" fill="#94a3b8" font-size="13" text-anchor="middle">11</text>
+    <rect x="240" y="20" width="60" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="270" y="45" fill="#94a3b8" font-size="13" text-anchor="middle">15</text>
+    <rect x="320" y="20" width="60" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="350" y="45" fill="#94a3b8" font-size="13" text-anchor="middle">19</text>
+    <rect x="400" y="20" width="60" height="40" fill="#b45309" stroke="#f59e0b" stroke-width="2" rx="4"/><text x="430" y="45" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">23</text><text x="430" y="10" fill="#f59e0b" font-size="10" font-weight="bold" text-anchor="middle">← R</text>
+  </g>
+  <text x="340" y="145" fill="#34d399" font-size="11" text-anchor="middle">Soma = 2 + 23 = 25. Se Target = 26 (Soma &lt; Target) → Incrementa L (L++)</text>
+  <text x="340" y="170" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Varredura completa em O(N) de tempo e O(1) de memória</text>
+
+</svg>
 
 | Comparação de Soma | Ação no Ponteiro | Racional |
 |---|---|---|

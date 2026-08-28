@@ -21,11 +21,47 @@ Como projetar um **Ring Buffer (Buffer Circular)** contíguo de alta performance
 - Essa operação executa em **1 único ciclo de clock** da CPU contra 15–40 ciclos da instrução `DIV`.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/circular-ring-buffer-bitwise-loop.webm">
-    <p>Visualização: Avanço modular dos ponteiros head e tail com máscara bitwise (i & (N-1)) sobre array contíguo.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Ring Buffers Circulares com Máscara Bitwise (head/tail)</text>
+  <g transform="translate(120, 50)">
+    <circle cx="220" cy="55" r="50" fill="none" stroke="#475569" stroke-width="12" stroke-dasharray="35 5"/>
+    <rect x="180" y="-10" width="80" height="25" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/>
+    <text x="220" y="7" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Head (Read)</text>
+
+    <rect x="250" y="80" width="80" height="25" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="290" y="97" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Tail (Write)</text>
+  </g>
+  <g transform="translate(360, 60)">
+    <rect x="0" y="0" width="240" height="70" fill="#1e293b" stroke="#3b82f6" stroke-width="1" rx="6"/>
+    <text x="120" y="25" fill="#f8fafc" font-size="11" font-family="monospace" text-anchor="middle">idx = (idx + 1) &amp; (N - 1)</text>
+    <text x="120" y="50" fill="#38bdf8" font-size="10" text-anchor="middle">Substitui módulo % por bitwise AND</text>
+  </g>
+  <text x="340" y="170" fill="#a1a1aa" font-size="11" text-anchor="middle">Utilizado em buffers IPC de áudio, sockets de rede e filas LMAX Disruptor</text>
+
+</svg>
+
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Ring Buffers Circulares com Máscara Bitwise (head/tail)</text>
+  <g transform="translate(120, 50)">
+    <circle cx="220" cy="55" r="50" fill="none" stroke="#475569" stroke-width="12" stroke-dasharray="35 5"/>
+    <rect x="180" y="-10" width="80" height="25" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/>
+    <text x="220" y="7" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Head (Read)</text>
+
+    <rect x="250" y="80" width="80" height="25" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="290" y="97" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Tail (Write)</text>
+  </g>
+  <g transform="translate(360, 60)">
+    <rect x="0" y="0" width="240" height="70" fill="#1e293b" stroke="#3b82f6" stroke-width="1" rx="6"/>
+    <text x="120" y="25" fill="#f8fafc" font-size="11" font-family="monospace" text-anchor="middle">idx = (idx + 1) &amp; (N - 1)</text>
+    <text x="120" y="50" fill="#38bdf8" font-size="10" text-anchor="middle">Substitui módulo % por bitwise AND</text>
+  </g>
+  <text x="340" y="170" fill="#a1a1aa" font-size="11" text-anchor="middle">Utilizado em buffers IPC de áudio, sockets de rede e filas LMAX Disruptor</text>
+
+</svg>
 
 | Estratégia de Avanço | Instrução CPU | Ciclos de Clock |
 |---|---|---|

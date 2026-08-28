@@ -22,11 +22,19 @@ Como a técnica de **Profile DP (Broken Profile)** modela o preenchimento exato 
 - **Complexidade**: $O(M \cdot N \cdot 2^M)$, permitindo preenchimento de grades com $M \le 12$ e $N$ grande em tempo submilisegundo.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dp-divide-conquer-quadrangle-loop.webm">
-    <p>Visualização: Monotonicidade dos pontos de divisão ótima opt[i][j] reduzindo complexidade de O(K * N²) para O(K * N log N).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Knuth-Yao e Divide and Conquer DP Optimization: Redução O(N³) → O(N²)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Monotonicidade do Ponto de Divisão Ótimo: opt[i][j-1] ≤ opt[i][j] ≤ opt[i+1][j]</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Aplica-se quando o custo satisfaz a desigualdade do quadrilátero (Quadrangle Inequality).</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Restringe o espaço de busca do índice k ao intervalo [opt[i][j-1], opt[i+1][j]], somando O(N²).</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Reduz a complexidade de problemas de Árvore de Busca Binária Ótima de O(N³) para O(N²)</text>
+
+</svg>
 
 | Estratégia de Transição | Estado Rastreado | Complexidade |
 |---|---|---|

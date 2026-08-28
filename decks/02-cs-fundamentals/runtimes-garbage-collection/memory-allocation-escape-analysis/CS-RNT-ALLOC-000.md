@@ -24,11 +24,28 @@ Qual é a diferença fundamental entre **Stack Allocation** e **Heap Allocation*
   - Cria trabalho contínuo de rastreamento e varredura para o **Garbage Collector**, impactando a latência da aplicação.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/runtimes/stack-vs-heap-memory-allocation-loop.webm">
-    <p>Visualização: Alocação e liberação instantânea por avanço de ponteiro (Stack) vs alocação dinâmica com gerenciamento de fragmentação (Heap).</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Alocação de Memória: Stack vs Heap</text>
+  <g transform="translate(50, 48)">
+    <!-- Stack -->
+    <rect x="0" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="135" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Stack Allocation (Pilha)</text>
+    <text x="135" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Custo de Alocação: O(1) (Apenas move RSP)</text>
+    <text x="135" y="60" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Desalocação Gratuita no retorno da função</text>
+    <text x="135" y="76" fill="#a7f3d0" font-size="9" text-anchor="middle">Localidade de Cache L1/L2 perfeita | Sem GC</text>
+
+    <!-- Heap -->
+    <rect x="310" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="445" y="22" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">Heap Allocation (Monte)</text>
+    <text x="445" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Custo de Alocação: Gerenciamento de blocos livres</text>
+    <text x="445" y="60" fill="#fca5a5" font-size="10" font-weight="bold" text-anchor="middle">Exige Garbage Collection ou free() manual</text>
+    <text x="445" y="76" fill="#94a3b8" font-size="9" text-anchor="middle">Risco de fragmentação e pressão sobre o GC</text>
+  </g>
+  <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Alocar na Stack é dezenas de vezes mais rápido que alocar na Heap em qualquer linguagem moderna.</text>
+
+</svg>
 
 | Métrica | Stack Allocation | Heap Allocation |
 |---|---|---|

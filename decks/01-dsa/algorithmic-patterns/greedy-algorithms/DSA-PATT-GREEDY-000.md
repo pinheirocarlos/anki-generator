@@ -19,11 +19,19 @@ Qual é a diferença conceitual e de garantias entre a **Escolha Gulosa (Greedy)
 - **Quando usar Greedy**: Somente quando for possível provar matematicamente a **Propriedade da Escolha Gulosa** e a **Subestrutura Ótima**.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/greedy-choice-property-step-loop.webm">
-    <p>Visualização: Escolha local ótima a cada passo sem reavaliação ou backtracking em problemas com propriedade gulosa.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Algoritmos Gulosos: Escolha Gulosa Local &amp; Subestrutura Ótima</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Decisão Local Ótima sem Backtracking (Irreversível)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">A cada passo, seleciona a melhor opção imediata sem reavaliar escolhas passadas.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Corretude provada por argumento de troca (Exchange Argument) demonstrando que não há solução superior.</text>
+  </g>
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Tempo de execução frequentemente dominado pela ordenação inicial: O(N log N)</text>
+
+</svg>
 
 | Paradigma | Decisão e Exploração | Custo Típico |
 |---|---|---|

@@ -24,11 +24,28 @@ Qual é a diferença funcional entre **Pipes Anônimos** e **Named Pipes (FIFOs)
   - O tráfego de dados continua ocorrendo 100% na memória RAM do kernel, sem escrita física no disco.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/os/ipc-anonymous-vs-named-pipes-loop.webm">
-    <p>Visualização: Comunicação unidirecional em buffer do kernel entre processos pai-filho vs arquivo FIFO no filesystem.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Pipes Anônimos vs Named Pipes (FIFOs)</text>
+  <g transform="translate(50, 48)">
+    <!-- Anonymous Pipe -->
+    <rect x="0" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="135" y="22" fill="#60a5fa" font-size="11" font-weight="bold" text-anchor="middle">Pipe Anônimo (pipe())</text>
+    <text x="135" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Unidirecional / Buffer em RAM no Kernel</text>
+    <text x="135" y="60" fill="#f8fafc" font-size="10" text-anchor="middle">Apenas entre processos com parentesco (fork)</text>
+    <text x="135" y="76" fill="#94a3b8" font-size="9" text-anchor="middle">Exemplo: ls | grep foo no Bash</text>
+
+    <!-- Named Pipe -->
+    <rect x="310" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="445" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Named Pipe (FIFO - mkfifo)</text>
+    <text x="445" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Possui ponto de entrada no filesystem</text>
+    <text x="445" y="60" fill="#f8fafc" font-size="10" text-anchor="middle">Comunicação entre processos arbitrários sem parentesco</text>
+    <text x="445" y="76" fill="#a7f3d0" font-size="9" text-anchor="middle">Dados continuam trafegando 100% na RAM</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Buffer padrão do Linux: 64 KB (ajustável via fcntl F_SETPIPE_SZ). Escritas > 4 KB não são atômicas.</text>
+
+</svg>
 
 | Tipo de Pipe | Existe no Sistema de Arquivos? | Exige Relação de Parentesco (Pai/Filho)? |
 |---|---|---|

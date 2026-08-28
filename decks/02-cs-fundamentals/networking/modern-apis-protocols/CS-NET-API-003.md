@@ -20,11 +20,28 @@ Como o **GraphQL** resolve os problemas clássicos de *Over-fetching* e *Under-f
   - *Solução GraphQL*: Uma **única requisição HTTP** recupera toda a árvore de dados aninhados em 1 único RTT.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/networking/graphql-query-payload-exact-loop.webm">
-    <p>Visualização: O cliente especifica exatamente os campos desejados retornando a resposta exata em uma única requisição.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">GraphQL: Solução para Over-fetching e Under-fetching</text>
+  <g transform="translate(50, 48)">
+    <!-- REST Issues -->
+    <rect x="0" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="135" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">REST Clássico</text>
+    <text x="135" y="44" fill="#fca5a5" font-size="10" text-anchor="middle">Over-fetching: Traz 50 campos quando precisa de 2</text>
+    <text x="135" y="62" fill="#fca5a5" font-size="10" text-anchor="middle">Under-fetching: Requer N chamadas sequenciais</text>
+    <text x="135" y="78" fill="#94a3b8" font-size="9" text-anchor="middle">GET /users/1 + GET /posts?user=1</text>
+
+    <!-- GraphQL -->
+    <rect x="310" y="0" width="270" height="85" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="445" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">GraphQL Query</text>
+    <text x="445" y="44" fill="#f8fafc" font-size="10" text-anchor="middle">Cliente pede a forma exata dos dados</text>
+    <text x="445" y="62" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">1 única requisição trazendo exatamente o necessário</text>
+    <text x="445" y="78" fill="#a7f3d0" font-size="9" text-anchor="middle">Atenção ao problema N+1 em resolvers (DataLoader)</text>
+  </g>
+  <text x="340" y="165" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Trade-off: GraphQL dificulta caching HTTP de borda (CDN) porque quase todas as requisições usam método POST.</text>
+
+</svg>
 
 | Problema em REST | Sintoma em Clientes Móveis | Resolução com GraphQL |
 |---|---|---|

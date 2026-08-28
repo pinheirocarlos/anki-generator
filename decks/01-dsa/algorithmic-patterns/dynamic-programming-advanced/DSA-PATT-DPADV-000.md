@@ -22,11 +22,19 @@ Como a **Programação Dinâmica em Árvores (Tree DP)** calcula valores ótimos
 - **Complexidade**: $O(N)$ tempo (visita cada nó 1 vez) e $O(H)$ espaço de pilha.
 
 ### Dual Coding Visual
-<div class="video-wrapper">
-  <video autoplay loop muted playsinline webkit-playsinline disableRemotePlayback src="https://assets.faang-anki.dev/media/dsa/dp-bitmask-tsp-loop.webm">
-    <p>Visualização: Inteiro de 32 bits utilizado como conjunto de elementos visitados indexando o estado da DP.</p>
-  </video>
-</div>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bitmask DP: Problema do Caixeiro Viajante (TSP) em O(2ᴺ · N²)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Estado: dp[mask][curr_city] onde mask representa cidades visitadas</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Se o bit k da mask é 1: cidade k já foi visitada no percurso.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Transição: dp[mask | (1&lt;&lt;nxt)][nxt] = min(dp[mask][curr] + dist[curr][nxt]).</text>
+  </g>
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Reduz a complexidade fatorial de força bruta O(N!) para O(2ᴺ · N²)</text>
+
+</svg>
 
 | Estado Retornado | Relação com Filhos | Fórmula de Ganho |
 |---|---|---|
