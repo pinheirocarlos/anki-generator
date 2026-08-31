@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AnkiConnectRPCSchema",
+  "description": "JSON-RPC 2.0 schema for communication with local Anki-Connect API",
+  "type": "object",
+  "required": ["action", "version"],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": ["version", "importPackage", "sync", "deleteDecks", "deckNames", "getDeckNames"]
+    },
+    "version": {
+      "type": "integer",
+      "enum": [6]
+    },
+    "params": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Absolute path to .apkg file for importPackage"
+        },
+        "decks": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of deck names for deleteDecks"
+        },
+        "cardsToo": {
+          "type": "boolean",
+          "description": "Flag to delete cards when deleting deck"
+        }
+      }
+    }
+  }
+}

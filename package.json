@@ -6,6 +6,8 @@
   "scripts": {
     "build": "node src/generator.js",
     "test": "node test/validate-cards.test.js",
+    "test:e2e": "node src/e2e/orchestrator.js",
+    "test:e2e:local": "node src/e2e/local-runner.js",
     "test:links": "node src/utils/link-checker.js",
     "audit:atomic": "node src/utils/atomic-decomposer.js"
   },
@@ -21,10 +23,14 @@
   "description": "Pedagogical Anki Deck Generator & Engine for Engineering Mastery",
   "dependencies": {
     "anki-apkg-export": "^4.0.3",
+    "dotenv": "^17.4.2",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.12.0",
     "katex": "^0.18.4",
     "marked": "^18.0.9",
     "sql.js": "^1.14.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
   }
 }

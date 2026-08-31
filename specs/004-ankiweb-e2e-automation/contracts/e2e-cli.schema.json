@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "E2ECLIOptionsSchema",
+  "description": "Schema defining CLI flags and options for E2E test runners",
+  "type": "object",
+  "properties": {
+    "cleanup": {
+      "type": "boolean",
+      "default": false,
+      "description": "Delete MAANG_E2E_Sanity deck from Anki Desktop and sync after test completion"
+    },
+    "headed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Run Playwright in headed browser mode for visual inspection"
+    },
+    "updateSnapshots": {
+      "type": "boolean",
+      "default": false,
+      "description": "Update golden baseline visual snapshot images"
+    },
+    "phase": {
+      "type": "string",
+      "enum": ["01-dsa", "02-cs-fundamentals", "03-system-design-backend", "04-behavioral-engineering"],
+      "description": "Filter dynamic sampling to a specific phase directory"
+    },
+    "sampleCount": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 8,
+      "description": "Maximum number of cards to sample for sanity deck"
+    },
+    "reportDir": {
+      "type": "string",
+      "default": "reports/e2e",
+      "description": "Output directory for structured reports and screenshots"
+    }
+  }
+}

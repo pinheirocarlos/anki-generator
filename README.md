@@ -257,17 +257,30 @@ anki-generator/
 │   └── 04-behavioral-engineering/              # 83 cards
 ├── src/
 │   ├── generator.js                            # Pipeline de compilação e packaging .apkg
+│   ├── e2e/                                    # Suíte de automação E2E e guardrails de layout
+│   │   ├── orchestrator.js                     # CLI & orquestrador central do pipeline E2E
+│   │   ├── local-runner.js                     # Runner local in-memory headless ultra-rápido (<3s)
+│   │   ├── ankiweb-runner.js                   # Controlador Playwright do AnkiWeb e sessão de estudo
+│   │   ├── guardrails.js                       # Assertions DOM/CSS (overflow 360px, touch target, KaTeX)
+│   │   └── sanity-sampler.js                   # Amostrador dinâmico cobrindo 100% das tipologias
 │   └── utils/
+│       ├── anki-connect.js                     # Cliente JSON-RPC Anki-Connect (import, sync, teardown)
 │       ├── validator.js                        # Validador de esquemas, atomicidade e constituição
 │       ├── link-checker.js                     # Auditor ativo de alcance HTTP 200 e MIME types
 │       ├── media-catalog.js                    # Catálogo de mídias prioritárias e geradores SVG
 │       ├── media-resolver.js                   # Extrator de mídias e reescritor de URLs
 │       └── atomic-decomposer.js                # Auditoria e decomposição atômica de cards
 ├── test/
-│   └── validate-cards.test.js                  # Suíte automatizada de testes e schemas
+│   ├── validate-cards.test.js                  # Suíte automatizada de validação de esquemas e contratos
+│   └── e2e/                                    # Testes Playwright e baselines de regressão visual
+│       ├── e2e-guardrails.test.js              # Especificação de testes de regressão visual multi-viewport
+│       └── baselines/                          # Screenshots golden de referência (360x640, 390x844, 1280x720)
+├── reports/e2e/                                # Relatórios estruturados JSON e evidências de screenshots
+├── playwright.config.js                        # Configuração multi-viewport do Playwright
 ├── media-curation-registry.json                 # Catálogo canônico central de curadoria de mídias
 ├── link-health-report.json                      # Relatório de auditoria de links gerado
 ├── syllabus_manifest.json                      # Catálogo central de currículo e IDs (550 cards)
+├── .env.example                                # Modelo de variáveis de ambiente para AnkiWeb
 ├── package.json
 └── README.md
 ```
@@ -285,18 +298,77 @@ Para viabilizar a escalabilidade para centenas de cards sem duplicações:
 
 ## 🚀 Como Executar, Testar e Compilar
 
-### 1. Instalar Dependências
+### 1. Instalar Dependências & Navegadores Playwright
 ```bash
 npm install
+npx playwright install chromium
 ```
 
 ### 2. Executar Testes Automatizados de Validação (Offline)
-Valida todos os 550 cards contra os esquemas da constituição, atomicidade de perguntas, tags obrigatórias, cabeçalhos, tabelas responsivas, resolução de imagens/vídeos e catálogo curricular:
+Valida todos os 550 cards contra os esquemas da constituição, atomicidade de perguntas, tags obrigatórias, cabeçalhos, tabelas responsivas, resolução de imagens/vídeos, segurança (`.env`/`.auth` ignorados) e integridade do catálogo curricular:
 ```bash
 npm test
 ```
 
-### 3. Executar Auditoria Ativa de Mídias Públicas (Online)
+### 3. Fast Local Component Runner (Feedback Instantâneo < 3s)
+Executa em memória via Playwright headless a verificação completa de guardrails visuais e DOM em cards representativos de **100% das 8 tipologias**, com **0 dependências externas** (sem necessidade de Anki Desktop aberto ou credenciais de rede):
+```bash
+npm run test:e2e:local
+```
+**Guardrails Auditados:**
+- 📐 **Zero Overflow a 360px:** `scrollWidth === clientWidth` em telas móveis estreitas.
+- 👆 **Touch Target $\ge 44$px:** Elementos interativos `<details><summary>` com área para toque confortável (*fat-finger proof*).
+- 🎨 **Dark Modern Tokens:** Realce sintático pré-compilado sem JavaScript em runtime.
+- 🔢 **Zero KaTeX Errors:** Fórmulas matemáticas livres da classe `.katex-error`.
+- 🎬 **Atributos de Micro-Vídeo:** Tags `<video>` com `autoplay loop muted playsinline`.
+- 📊 **SVGs & Tabelas:** SVGs com `viewBox` responsivo e tabelas compactas $\le 3$ colunas.
+
+### 4. Full AnkiWeb E2E Pipeline (Validação em Nuvem)
+Executa o ciclo completo end-to-end:
+1. Amostragem dinâmica de baralho de sanidade (`MAANG_E2E_Sanity.apkg`).
+2. Importação e sincronização com AnkiWeb via Anki-Connect.
+3. Autenticação segura no AnkiWeb com persistência de sessão em `.auth/ankiweb-session.json`.
+4. Navegação automatizada no navegador (frente/verso de cada card) e comparação de regressão visual com imagens golden baselines.
+5. Geração de relatório JSON em `reports/e2e/e2e-report.json`.
+
+```bash
+npm run test:e2e
+```
+
+#### Flags e Opções da CLI:
+| Flag | Descrição | Padrão |
+|---|---|---|
+| `--cleanup` | Deleta o baralho de teste `MAANG_E2E_Sanity` do Anki Desktop e sincroniza com AnkiWeb ao final | `false` (preserva baralho) |
+| `--no-cleanup` | Preserva explicitamente o baralho de sanidade para inspeção manual | `true` |
+| `--headed` | Executa o Playwright com navegador visível para acompanhar cliques e transições | `false` (headless) |
+| `--update-snapshots` | Atualiza os screenshots de referência golden em `test/e2e/baselines/` | `false` |
+| `--phase <fase>` | Filtra a amostragem para uma fase específica (ex: `--phase 01-dsa`) | Todas as fases |
+| `--sample-count <n>` | Quantidade de cards amostrados para o baralho de sanidade (1 a 50) | `8` |
+| `--report-dir <dir>` | Diretório para saída do relatório estruturado e capturas de tela | `reports/e2e` |
+| `-h, --help` | Exibe o menu de ajuda da CLI com todas as opções | — |
+
+**Exemplos de Uso:**
+```bash
+# Execução padrão com preservação de baralho
+npm run test:e2e
+
+# Executar com navegador visível e limpeza automática ao final
+npm run test:e2e -- --headed --cleanup
+
+# Atualizar imagens golden de baseline
+npm run test:e2e -- --update-snapshots
+
+# Filtrar para fase curricular de Estruturas de Dados
+npm run test:e2e -- --phase 01-dsa
+```
+
+### 5. Suíte Playwright de Regressão Visual Multi-Viewport
+Executa testes de regressão visual multi-resolução (`mobile-small` 360x640, `mobile-standard` 390x844, `desktop-hd` 1280x720) contra todos os baselines de referência:
+```bash
+npx playwright test
+```
+
+### 6. Executar Auditoria Ativa de Mídias Públicas (Online)
 Audita ativamente todas as URLs de mídias na internet garantindo HTTP 200 e MIME types válidos:
 ```bash
 # Auditar todos os decks do repositório
@@ -311,13 +383,13 @@ node src/utils/link-checker.js --deck decks/03-system-design-backend
 node src/utils/link-checker.js --concurrency 8 --timeout 5000 --retries 2 --report link-health-report.json
 ```
 
-### 4. Compilar o Baralho Consolidado Master
+### 7. Compilar o Baralho Consolidado Master
 ```bash
 npm run build
 ```
 Gera `MAANG_Engineering_Mastery.apkg` na raiz do projeto contendo todos os 550 cards e mídias embutidas (< 50MB, compilação em < 5s).
 
-### 5. Compilar Baralhos Modulares por Fase
+### 8. Compilar Baralhos Modulares por Fase
 ```bash
 node src/generator.js --phase 01-dsa
 node src/generator.js --phase 02-cs-fundamentals
@@ -326,7 +398,41 @@ node src/generator.js --phase 04-behavioral-engineering
 ```
 Gera os arquivos `.apkg` modulares correspondentes na raiz para sincronizações parciais.
 
-### 6. Como Importar no Anki
+### 9. Como Importar no Anki
 1. Abra o **Anki** no desktop ou aplicativo móvel (*AnkiDroid* / *AnkiMobile*).
 2. Clique em **Arquivo -> Importar** (ou abra diretamente o arquivo `.apkg` no celular).
 3. O baralho será importado com todos os estilos mobile-first, tags hierárquicas, badges coloridos por senioridade, realce sintático Dark Modern e mídias 100% responsivas e resilientes.
+
+---
+
+## 🛠️ Diagnóstico & Resolução de Problemas (Troubleshooting)
+
+### 1. Erro de Conexão com Anki-Connect (`ECONNREFUSED` na porta 8765)
+Se o Anki Desktop não estiver em execução ou o complemento Anki-Connect estiver inativo, o orquestrador aborta imediatamente com instruções claras:
+```text
+❌ Anki-Connect Connection Error (ECONNREFUSED)
+   Unable to connect to Anki-Connect at http://127.0.0.1:8765.
+
+Resolution Steps:
+   1. Ensure Anki Desktop is running on this machine.
+   2. Verify that add-on 'Anki-Connect' (code 2055492159) is enabled (Tools -> Add-ons).
+   3. Check that no firewall or antivirus is blocking port 8765.
+```
+
+### 2. Autenticação & Renovação de Sessão AnkiWeb
+- As credenciais de login são lidas do arquivo `.env` (`ANKIWEB_USER` e `ANKIWEB_PASSWORD`).
+- A sessão e os cookies autenticados são cacheados em `.auth/ankiweb-session.json`.
+- Caso os cookies expirem, o runner realiza login automático de forma transparente e atualiza o arquivo de sessão.
+
+### 3. Divergências em Snapshots Visuais (Visual Diff Mismatch)
+Se houver alterações intencionais de CSS ou layout que causem falhas nos testes de regressão visual:
+1. Inspecione as imagens de diferença em `reports/e2e/screenshots/*-diff.png`.
+2. Após validar as mudanças de design, atualize os baselines com:
+   ```bash
+   npm run test:e2e -- --update-snapshots
+   ```
+   ou
+   ```bash
+   npx playwright test --update-snapshots
+   ```
+

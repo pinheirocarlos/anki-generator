@@ -162,6 +162,27 @@ export const mathBlockExtension = {
   }
 };
 
+export const svgBlockExtension = {
+  name: 'svgBlock',
+  level: 'block',
+  start(src) {
+    return src.indexOf('<svg');
+  },
+  tokenizer(src, tokens) {
+    const match = src.match(/^<svg[\s\S]*?<\/svg>(?:\n+|$)/i);
+    if (match) {
+      return {
+        type: 'svgBlock',
+        raw: match[0],
+        text: match[0].trim()
+      };
+    }
+  },
+  renderer(token) {
+    return `\n<div class="svg-wrapper">\n${token.text}\n</div>\n`;
+  }
+};
+
 // Configure custom marked renderer for Syntax Highlighting and Responsive Tables
 const renderer = new marked.Renderer();
 
@@ -249,7 +270,7 @@ renderer.table = function (token) {
 
 marked.use({
   renderer,
-  extensions: [mathBlockExtension, mathInlineExtension],
+  extensions: [mathBlockExtension, mathInlineExtension, svgBlockExtension],
   gfm: true,
   breaks: true
 });
@@ -336,6 +357,10 @@ export const cardCss = `
   }
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -355,6 +380,7 @@ html, body {
   margin: 0;
   box-sizing: border-box;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .card-container {
@@ -366,6 +392,7 @@ html, body {
   margin: 0 auto;
   box-sizing: border-box;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow-x: hidden;
 }
 
 /* Tag Pills & Seniority Badges */
@@ -530,11 +557,13 @@ html, body {
 /* Responsive Table Wrapper */
 .table-responsive {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin: 12px 0;
   border-radius: 8px;
   border: 1px solid var(--table-border);
+  box-sizing: border-box;
 }
 
 table {
@@ -542,6 +571,7 @@ table {
   border-collapse: collapse;
   margin: 0;
   font-size: 13px;
+  box-sizing: border-box;
 }
 
 th {
@@ -571,6 +601,8 @@ tr:nth-child(even) td {
   border-radius: 8px;
   margin: 12px 0;
   overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .code-header {
@@ -595,11 +627,14 @@ pre {
   padding: 10px 12px;
   background: transparent;
   overflow-x: auto;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 pre code {
   white-space: pre-wrap !important;
   word-break: break-word !important;
+  overflow-wrap: break-word !important;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 12.5px;
   line-height: 1.5;
@@ -646,6 +681,8 @@ code {
   padding: 2px 5px;
   border-radius: 4px;
   border: 1px solid var(--border-color);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Accordion (<details>) - Fat Finger Friendly (min 44px touch) */
@@ -655,6 +692,10 @@ details {
   border-radius: 8px;
   margin-top: 14px;
   padding: 0 12px 10px 12px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 summary {
@@ -816,25 +857,227 @@ export function getMarkdownFiles(dir, fileList = []) {
 }
 
 /**
- * Main packaging and compilation routine.
+ * Splits raw card markdown into question and answer components.
+ *
+ * @param {string} markdown - Full markdown string of the card
+ * @returns {{ questionRaw: string, answerRaw: string }}
  */
-export async function buildDecks(options = {}) {
-  const { phaseFilter = null, deckName = 'MAANG Engineering Mastery' } = options;
+export function splitCardContent(markdown = '') {
+  if (!markdown || typeof markdown !== 'string') {
+    return { questionRaw: '', answerRaw: 'Nenhuma resposta fornecida.' };
+  }
+  const parts = markdown.split(/^##\s+Resposta\b/im);
+  const questionRaw = parts[0].replace(/^##\s+Pergunta\b/im, '').trim();
+  const answerRaw = parts.length > 1 ? parts[1].trim() : 'Nenhuma resposta fornecida.';
+  return { questionRaw, answerRaw };
+}
 
-  let targetDir = DECKS_DIR;
-  let outputFile = path.join(ROOT_DIR, 'MAANG_Engineering_Mastery.apkg');
+/**
+ * Renders an array of card tags into HTML badges with level-specific styles.
+ *
+ * @param {string[]} [tags=[]] - Array of tag strings
+ * @returns {string} - Rendered HTML badges
+ */
+export function renderTagsHtml(tags = []) {
+  if (!Array.isArray(tags)) return '';
+  return tags
+    .map(t => {
+      const isLevel = typeof t === 'string' && t.startsWith('level::');
+      let levelClass = '';
+      if (t === 'level::l2-fundamental') levelClass = 'tag-level-l2';
+      else if (t === 'level::l3-junior') levelClass = 'tag-level-l3';
+      else if (t === 'level::l4-pleno') levelClass = 'tag-level-l4';
+      else if (t === 'level::l5-senior') levelClass = 'tag-level-l5';
+      return `<span class="tag ${isLevel ? 'tag-level ' + levelClass : ''}">${t}</span>`;
+    })
+    .join('');
+}
 
-  if (phaseFilter) {
-    targetDir = path.join(DECKS_DIR, phaseFilter);
-    outputFile = path.join(ROOT_DIR, `MAANG_${phaseFilter}.apkg`);
+/**
+ * Converts markdown text into sanitized, mobile-ready HTML with KaTeX,
+ * Highlight.js, responsive tables, and resilient video containers.
+ *
+ * @param {string} markdown - Markdown string
+ * @returns {string} - Rendered HTML
+ */
+export function renderMarkdownToHtml(markdown = '') {
+  if (!markdown || typeof markdown !== 'string') return '';
+  const parsed = marked.parse(markdown);
+  return ensureVideoAttributesAndContainers(parsed);
+}
+
+/**
+ * Wraps card HTML in a complete, standalone HTML document containing the design system CSS.
+ *
+ * @param {string} cardInnerHtml - HTML inside .card or .card-container
+ * @param {object} [options]
+ * @param {boolean} [options.isNightMode=false] - Whether to apply .nightMode class to body
+ * @param {string} [options.title='FAANG Anki Card'] - Document title
+ * @param {string} [options.customCss=''] - Additional CSS to inject
+ * @returns {string} - Full HTML document string
+ */
+export function wrapInCardDocument(cardInnerHtml, options = {}) {
+  const { isNightMode = false, title = 'FAANG Anki Card', customCss = '' } = options;
+  const nightClass = isNightMode ? 'nightMode' : '';
+
+  return `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>${title}</title>
+  <style>
+${cardCss}
+${customCss}
+  </style>
+</head>
+<body class="${nightClass}">
+  <div class="card">
+    ${cardInnerHtml}
+  </div>
+</body>
+</html>`;
+}
+
+/**
+ * Renders a card (from file path, raw markdown, or parsed card entity) into structured front and back HTML.
+ *
+ * @param {string|object} cardInput - File path, raw markdown string, or card entity object
+ * @param {object} [options]
+ * @param {boolean} [options.resolveLocalMedia=false] - Whether to rewrite local media relative to card file
+ * @returns {object} - Rendered card HTML representations and metadata
+ */
+export function renderCard(cardInput, options = {}) {
+  let frontmatter = {};
+  let content = '';
+  let filePath = null;
+
+  if (typeof cardInput === 'string') {
+    if (fs.existsSync(cardInput) && fs.statSync(cardInput).isFile()) {
+      filePath = path.resolve(cardInput);
+      const raw = fs.readFileSync(cardInput, 'utf8');
+      const parsed = matter(raw);
+      frontmatter = parsed.data || {};
+      content = parsed.content || '';
+    } else {
+      const parsed = matter(cardInput);
+      frontmatter = parsed.data || {};
+      content = parsed.content || '';
+    }
+  } else if (cardInput && typeof cardInput === 'object') {
+    frontmatter = cardInput.frontmatter || {};
+    content = cardInput.content || cardInput.rawContent || '';
+    filePath = cardInput.filePath ? path.resolve(cardInput.filePath) : null;
   }
 
-  const mdFiles = getMarkdownFiles(targetDir);
-  console.log(`\n🔍 Found ${mdFiles.length} markdown card(s) in "${targetDir}"`);
+  let finalMarkdown = content;
+  let mediaFiles = [];
+
+  if (options.resolveLocalMedia && filePath) {
+    const resolved = resolveMedia(filePath, content);
+    finalMarkdown = resolved.rewrittenMarkdown;
+    mediaFiles = resolved.mediaFiles;
+  }
+
+  const { questionRaw, answerRaw } = splitCardContent(finalMarkdown);
+  const questionHtml = renderMarkdownToHtml(questionRaw);
+  const answerHtml = renderMarkdownToHtml(answerRaw);
+
+  const tags = (frontmatter && frontmatter.tags) || [];
+  const tagsHtml = renderTagsHtml(tags);
+
+  const front = `
+      <div class="card-container">
+        <div class="tags">${tagsHtml}</div>
+        <div class="question-title">Pergunta</div>
+        <div class="question-text">${questionHtml}</div>
+      </div>
+    `;
+
+  const back = `
+      <div class="card-container">
+        <div class="tags">${tagsHtml}</div>
+        <div class="question-title">Pergunta</div>
+        <div class="question-compact">${questionHtml}</div>
+        <div class="answer-section">${answerHtml}</div>
+      </div>
+    `;
+
+  const frontDocument = wrapInCardDocument(front, { title: (frontmatter.title || 'Card') + ' - Front' });
+  const backDocument = wrapInCardDocument(back, { title: (frontmatter.title || 'Card') + ' - Back' });
+
+  return {
+    front,
+    back,
+    frontDocument,
+    backDocument,
+    tags,
+    tagsHtml,
+    questionHtml,
+    answerHtml,
+    questionRaw,
+    answerRaw,
+    frontmatter,
+    mediaFiles
+  };
+}
+
+/**
+ * Main packaging and compilation routine.
+ * Supports packaging all cards, a filtered phase, or a custom list of files (e.g. sanity deck).
+ *
+ * @param {object} [options]
+ * @param {string[]} [options.files] - Explicit list of markdown files to package
+ * @param {string} [options.phaseFilter] - Subfolder filter under decks/
+ * @param {string} [options.deckName='MAANG Engineering Mastery'] - Anki deck name
+ * @param {string} [options.outputFile] - Custom destination .apkg path
+ * @param {string} [options.decksDir] - Custom decks directory (defaults to decks/)
+ * @param {boolean} [options.silent=false] - Suppress console log output
+ * @returns {Promise<{ count: number, outputFile: string, deckName: string }>}
+ */
+export async function buildDecks(options = {}) {
+  const {
+    phaseFilter = null,
+    deckName = 'MAANG Engineering Mastery',
+    files = null,
+    outputFile: customOutputFile = null,
+    decksDir = DECKS_DIR,
+    silent = false
+  } = options;
+
+  let targetDir = decksDir;
+  let outputFile = customOutputFile;
+
+  if (!outputFile) {
+    if (deckName === 'MAANG_E2E_Sanity') {
+      outputFile = path.join(ROOT_DIR, 'MAANG_E2E_Sanity.apkg');
+    } else if (phaseFilter) {
+      targetDir = path.join(decksDir, phaseFilter);
+      outputFile = path.join(ROOT_DIR, `MAANG_${phaseFilter}.apkg`);
+    } else {
+      const sanitizedDeckName = deckName.replace(/[^a-zA-Z0-9_-]/g, '_');
+      outputFile = path.join(ROOT_DIR, `${sanitizedDeckName}.apkg`);
+    }
+  } else if (!path.isAbsolute(outputFile)) {
+    outputFile = path.resolve(ROOT_DIR, outputFile);
+  }
+
+  const mdFiles = Array.isArray(files) && files.length > 0
+    ? files
+    : getMarkdownFiles(targetDir);
+
+  const log = (...args) => {
+    if (!silent) console.log(...args);
+  };
+  const warn = (...args) => {
+    if (!silent) console.warn(...args);
+  };
+
+  log(`\n🔍 Packaging ${mdFiles.length} markdown card(s) for deck "${deckName}" -> ${path.relative(ROOT_DIR, outputFile) || outputFile}`);
 
   if (mdFiles.length === 0) {
-    console.warn('⚠️ No markdown flashcards found to compile.');
-    return { count: 0, outputFile };
+    warn('⚠️ No markdown flashcards found to compile.');
+    return { count: 0, outputFile, deckName };
   }
 
   const SQL = await initSqlJs();
@@ -858,8 +1101,8 @@ export async function buildDecks(options = {}) {
     // Validate card schema
     const validation = validateCard(file, rawContent);
     if (!validation.valid) {
-      console.warn(`\n⚠️ Card validation warnings for ${path.relative(ROOT_DIR, file)}:`);
-      validation.errors.forEach(err => console.warn(`   - ${err}`));
+      warn(`\n⚠️ Card validation warnings for ${path.relative(ROOT_DIR, file)}:`);
+      validation.errors.forEach(err => warn(`   - ${err}`));
     }
 
     const { frontmatter, content } = validation.frontmatter ? validation : matter(rawContent);
@@ -875,43 +1118,11 @@ export async function buildDecks(options = {}) {
       }
     }
 
-    // Split Pergunta / Resposta
-    const parts = rewrittenMarkdown.split(/^##\s+Resposta\b/im);
-    let questionRaw = parts[0].replace(/^##\s+Pergunta\b/im, '').trim();
-    let answerRaw = parts.length > 1 ? parts[1].trim() : 'Nenhuma resposta fornecida.';
-
-    const questionHtml = ensureVideoAttributesAndContainers(marked.parse(questionRaw));
-    const answerHtml = ensureVideoAttributesAndContainers(marked.parse(answerRaw));
-
-    const tags = (frontmatter && frontmatter.tags) || [];
-    const tagsHtml = tags
-      .map(t => {
-        const isLevel = t.startsWith('level::');
-        let levelClass = '';
-        if (t === 'level::l2-fundamental') levelClass = 'tag-level-l2';
-        else if (t === 'level::l3-junior') levelClass = 'tag-level-l3';
-        else if (t === 'level::l4-pleno') levelClass = 'tag-level-l4';
-        else if (t === 'level::l5-senior') levelClass = 'tag-level-l5';
-        return `<span class="tag ${isLevel ? 'tag-level ' + levelClass : ''}">${t}</span>`;
-      })
-      .join('');
-
-    const front = `
-      <div class="card-container">
-        <div class="tags">${tagsHtml}</div>
-        <div class="question-title">Pergunta</div>
-        <div class="question-text">${questionHtml}</div>
-      </div>
-    `;
-
-    const back = `
-      <div class="card-container">
-        <div class="tags">${tagsHtml}</div>
-        <div class="question-title">Pergunta</div>
-        <div class="question-compact">${questionHtml}</div>
-        <div class="answer-section">${answerHtml}</div>
-      </div>
-    `;
+    const { front, back, tags } = renderCard({
+      frontmatter,
+      content: rewrittenMarkdown,
+      filePath: file
+    });
 
     apkg.addCard(front, back, { tags });
     processedCount++;
@@ -919,9 +1130,13 @@ export async function buildDecks(options = {}) {
 
   try {
     const zip = await apkg.save();
+    const outputDir = path.dirname(outputFile);
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
     fs.writeFileSync(outputFile, zip, 'binary');
-    console.log(`✅ Successfully generated ${outputFile} with ${processedCount} cards.\n`);
-    return { count: processedCount, outputFile };
+    log(`✅ Successfully generated ${outputFile} with ${processedCount} cards.\n`);
+    return { count: processedCount, outputFile, deckName };
   } catch (err) {
     console.error('❌ Error generating .apkg package:', err.stack || err);
     throw err;
@@ -932,15 +1147,23 @@ export async function buildDecks(options = {}) {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
   let phaseFilter = null;
+  let deckName = 'MAANG Engineering Mastery';
+  let outputFile = null;
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--phase' && args[i + 1]) {
       phaseFilter = args[i + 1];
       i++;
+    } else if ((args[i] === '--deck' || args[i] === '--deck-name') && args[i + 1]) {
+      deckName = args[i + 1];
+      i++;
+    } else if ((args[i] === '--output' || args[i] === '-o') && args[i + 1]) {
+      outputFile = path.resolve(args[i + 1]);
+      i++;
     }
   }
 
-  buildDecks({ phaseFilter }).catch(err => {
+  buildDecks({ phaseFilter, deckName, outputFile }).catch(err => {
     process.exit(1);
   });
 }

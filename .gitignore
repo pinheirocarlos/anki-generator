@@ -22,10 +22,14 @@ lerna-debug.log*
 .env.local
 .env.*.local
 *.env
+.auth/
 
 # Testing & Coverage
 coverage/
 .nyc_output/
+reports/
+test-results/
+playwright-report/
 
 # IDEs and Editors (JetBrains IntelliJ / WebStorm & VS Code)
 .idea/

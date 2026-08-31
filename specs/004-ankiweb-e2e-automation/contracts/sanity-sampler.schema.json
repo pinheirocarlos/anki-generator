@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SanitySamplerManifestSchema",
+  "description": "Schema for the dynamically sampled sanity deck manifest",
+  "type": "object",
+  "required": ["deckName", "generatedAt", "totalCards", "coverageMatrix", "cards", "outputApkgPath"],
+  "properties": {
+    "deckName": {
+      "type": "string",
+      "enum": ["MAANG_E2E_Sanity"]
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "totalCards": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "coverageMatrix": {
+      "type": "object",
+      "description": "Mapping from typology enum to canonical card ID",
+      "required": [
+        "L2_FUNDAMENTAL",
+        "L3_JUNIOR",
+        "L4_PLENO_CODE",
+        "MICRO_VIDEO",
+        "RESPONSIVE_SVG",
+        "COMPACT_TABLE",
+        "KATEX_MATH",
+        "DETAILS_ACCORDION"
+      ],
+      "properties": {
+        "L2_FUNDAMENTAL": { "type": "string" },
+        "L3_JUNIOR": { "type": "string" },
+        "L4_PLENO_CODE": { "type": "string" },
+        "MICRO_VIDEO": { "type": "string" },
+        "RESPONSIVE_SVG": { "type": "string" },
+        "COMPACT_TABLE": { "type": "string" },
+        "KATEX_MATH": { "type": "string" },
+        "DETAILS_ACCORDION": { "type": "string" }
+      }
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "filePath", "phase", "subtopic", "typologiesCovered"],
+        "properties": {
+          "id": { "type": "string" },
+          "filePath": { "type": "string" },
+          "phase": { "type": "string" },
+          "subtopic": { "type": "string" },
+          "typologiesCovered": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "outputApkgPath": {
+      "type": "string"
+    }
+  }
+}
