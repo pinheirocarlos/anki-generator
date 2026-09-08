@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2026-08-28T20:27:57.604Z",
+  "last_updated": "2026-09-05T04:10:00.000Z",
   "stats": {
     "total_cards": 424,
     "p1_video_count": 0,
@@ -5046,7 +5046,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Comparação visual de latências de hardware: L1 Cache (0.5ns), RAM (100ns), SSD (100µs), Network RTT (150ms).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:27:57.604Z"
+      "last_verified": "2026-09-05T03:42:52.437Z"
     },
     "SYS-FND-ESTIMATION-001": {
       "card_id": "SYS-FND-ESTIMATION-001",
@@ -5058,7 +5058,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Cálculo de dimensionamento convertendo DAU para QPS médio, pico de tráfego e armazenamento para 5 anos.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:27:57.604Z"
+      "last_verified": "2026-09-05T03:42:52.437Z"
     },
     "SYS-FND-ESTIMATION-002": {
       "card_id": "SYS-FND-ESTIMATION-002",
@@ -5070,7 +5070,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Tabela de noves de disponibilidade: de 99.9% (8.7 horas de downtime/ano) a 99.999% (5 minutos de downtime/ano).",
       "status": "verified",
-      "last_verified": "2026-08-28T20:27:57.604Z"
+      "last_verified": "2026-09-05T03:42:52.437Z"
     },
     "SYS-FND-FRAMEWORK-000": {
       "card_id": "SYS-FND-FRAMEWORK-000",
@@ -5082,7 +5082,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Framework em 4 etapas: 1. Escopo e Requisitos, 2. Arquitetura em Alto Nível, 3. Deep Dive, 4. Gargalos e Escala.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:27:57.604Z"
+      "last_verified": "2026-09-05T03:42:52.437Z"
     },
     "SYS-FND-FRAMEWORK-001": {
       "card_id": "SYS-FND-FRAMEWORK-001",
@@ -5094,7 +5094,7 @@
       "license": "CC-BY-SA-4.0",
       "caption": "Visualização: Análise estruturada de trade-offs arquiteturais: consistência vs latência, particionamento e pontos únicos de falha.",
       "status": "verified",
-      "last_verified": "2026-08-28T20:27:57.604Z"
+      "last_verified": "2026-09-05T03:42:52.437Z"
     }
   }
 }
