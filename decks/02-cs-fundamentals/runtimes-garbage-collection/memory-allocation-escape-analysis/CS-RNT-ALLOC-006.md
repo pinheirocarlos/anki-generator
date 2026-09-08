@@ -47,6 +47,7 @@ Qual é a diferença fundamental entre alocar memória na Stack (Pilha) vs na He
 
   <text x="300" y="160" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Regra de Performance: Quanto mais alocações ficarem na Stack, mais rápido seu código roda!</text>
 </svg>
+<p>Visualização: Metáfora intuitiva comparando a Stack (a mochila pessoal descartável a custo zero) e a Heap (o galpão alugado compartilhado com custo contínuo de manutenção e coleta de lixo).</p>
 
 | Espaço de Memória | Custo e Limpeza | Analogia no Trabalho |
 |---|---|---|

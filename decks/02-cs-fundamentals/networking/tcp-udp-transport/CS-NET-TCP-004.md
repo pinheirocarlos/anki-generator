@@ -34,6 +34,7 @@ Como o mecanismo de **Janela Deslizante (Sliding Window)** e **Window Scaling** 
   <text x="340" y="165" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Se o buffer TCP for menor que o BDP, o link de alta velocidade fica subutilizado com a conexão ociosa aguardando ACKs.</text>
 
 </svg>
+<p>Visualização: Dinâmica da Janela Deslizante e Bandwidth-Delay Product (BDP) dimensionando a quantidade de dados em trânsito sem confirmação prévia.</p>
 
 | Tipo de Janela | Tamanho Máximo de Janela | Vazão Máxima em Link com 50ms RTT |
 |---|---|---|

@@ -22,32 +22,16 @@ Como a combinação de **Suffix Array** e **LCP Array (Longest Common Prefix)** 
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Manacher's Algorithm: Maior Substring Palindrômica em Tempo Estrito O(N)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Suffix Array &amp; LCP Array: Indexação de Substrings em O(N log N)</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
-    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Simetria em Torno do Centro do Palíndromo</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Insere '#' entre caracteres para unificar palíndromos pares e ímpares: "^#a#b#a#$".</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Espelha os raios P[i] em relação ao centro C: P[i] = min(R - i, P[2*C - i]).</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Ordenação Lexicográfica de Todos os Sufixos + Longest Common Prefix</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">SA[i] armazena o índice inicial do i-ésimo menor sufixo da string.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">LCP[i] registra o tamanho do prefixo compartilhado entre SA[i] e SA[i-1].</text>
   </g>
-  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Supera a expansão ingênua O(N²) alcançando complexidade linear estrita O(N)</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Permite busca binária de padrões em O(M log N) e contagem de substrings únicas</text>
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Manacher's Algorithm: Maior Substring Palindrômica em Tempo Estrito O(N)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
-    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Simetria em Torno do Centro do Palíndromo</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Insere '#' entre caracteres para unificar palíndromos pares e ímpares: "^#a#b#a#$".</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Espelha os raios P[i] em relação ao centro C: P[i] = min(R - i, P[2*C - i]).</text>
-  </g>
-  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Supera a expansão ingênua O(N²) alcançando complexidade linear estrita O(N)</text>
-
-</svg>
-
+<p>Visualização: Suffix Array ordenando lexicograficamente todos os sufixos da string com vetor LCP de prefixos comuns adjacentes.</p>
 | Estrutura de Sufixos | Memória de Armazenamento | Propósito Principal |
 |---|---|---|
 | **Suffix Tree** | $O(N)$ (Constante alta ~20 bytes/nó) | Consultas complexas em grafos |

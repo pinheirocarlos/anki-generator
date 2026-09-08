@@ -24,16 +24,22 @@ Como o algoritmo de **Linha de Varredura (Chronological Sweep-Line)** calcula o 
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Interval List Intersections: Interseção entre Duas Listas com Two Pointers</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Interseção Válida: start = max(A.start, B.start) ≤ end = min(A.end, B.end)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Se start ≤ end: adiciona intervalo [start, end] à lista de respostas.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Avança o ponteiro do intervalo que terminar primeiro: if A.end &lt; B.end → i++ else → j++.</text>
-  </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Tempo total: O(M + N) em uma única passada sincronizada</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Linha de Varredura (Sweep-Line): Pontos de Evento Cronológicos (+1 e -1)</text>
+  <g transform="translate(60, 45)">
+    <!-- Linha do tempo -->
+    <line x1="20" y1="50" x2="540" y2="50" stroke="#475569" stroke-width="3"/>
 
+    <!-- Eventos -->
+    <circle cx="60" cy="50" r="8" fill="#10b981"/><text x="60" y="32" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">+1 (Start)</text><text x="60" y="72" fill="#94a3b8" font-size="9" text-anchor="middle">t=0</text>
+    <circle cx="160" cy="50" r="8" fill="#10b981"/><text x="160" y="32" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">+1 (Start)</text><text x="160" y="72" fill="#94a3b8" font-size="9" text-anchor="middle">t=5</text>
+    <circle cx="280" cy="50" r="8" fill="#f43f5e"/><text x="280" y="32" fill="#f87171" font-size="10" font-weight="bold" text-anchor="middle">-1 (End)</text><text x="280" y="72" fill="#94a3b8" font-size="9" text-anchor="middle">t=10</text>
+    <circle cx="380" cy="50" r="8" fill="#10b981"/><text x="380" y="32" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">+1 (Start)</text><text x="380" y="72" fill="#94a3b8" font-size="9" text-anchor="middle">t=15</text>
+    <circle cx="480" cy="50" r="8" fill="#f43f5e"/><text x="480" y="32" fill="#f87171" font-size="10" font-weight="bold" text-anchor="middle">-1 (End)</text><text x="480" y="72" fill="#94a3b8" font-size="9" text-anchor="middle">t=20</text>
+  </g>
+  <text x="340" y="150" fill="#34d399" font-size="11" text-anchor="middle">Contagem cumulativa: t=0: 1 sala | t=5: 2 salas (Pico!) | t=10: 1 sala | t=15: 2 salas</text>
+  <text x="340" y="170" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Salas Máximas Simultâneas = max(contagem acumulada) = 2 em O(N log N)</text>
 </svg>
+<p>Visualização: Linha de varredura cronológica registrando eventos de entrada (+1) e saída (-1) para detectar picos de concorrência.</p>
 
 | Evento Temporal | Ponteiro Avançado | Contador de Salas |
 |---|---|---|

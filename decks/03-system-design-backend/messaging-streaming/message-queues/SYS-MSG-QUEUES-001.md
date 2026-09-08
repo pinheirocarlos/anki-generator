@@ -47,6 +47,7 @@ Como o mecanismo de Visibility Timeout e Dead Letter Queue (DLQ) previne perda d
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A DLQ isola mensagens defeituosas que quebram o código do consumidor, garantindo fluidez para o resto da fila.</text>
 
 </svg>
+<p>Visualização: Visibility Timeout escondendo mensagem em processamento e roteamento automático para DLQ após estourar limite de retentativas.</p>
 
 | Parâmetro SQS | Finalidade | Comportamento sob Falha |
 |---|---|---|

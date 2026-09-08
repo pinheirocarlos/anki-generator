@@ -52,6 +52,7 @@ O que é o **TTL (Time to Live)** em registros DNS e quais as diferenças fundam
   <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">CNAME na zona raiz (@) é proibido pela RFC 1034; provedores modernos usam registros ALIAS/ANAME virtuais.</text>
 
 </svg>
+<p>Visualização: Mapeamento de tipos fundamentais de registros DNS (A, AAAA, CNAME) e papel do TTL no controle de cache e failover.</p>
 
 | Registro DNS | Tipo de Destino | Permite Raiz Apex (`exemplo.com`)? |
 |---|---|---|

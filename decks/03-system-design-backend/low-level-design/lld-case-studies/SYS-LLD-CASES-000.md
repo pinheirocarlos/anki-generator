@@ -55,6 +55,7 @@ Como modelar as classes, enums e regras de alocação de vagas para um Estaciona
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Separação estrita de responsabilidades: concorrência protegida por Mutex por vaga ou andar.</text>
 
 </svg>
+<p>Visualização: Modelagem orientada a objetos de estacionamento com hierarquia de vagas, estratégia de alocação e cálculo de tarifas.</p>
 
 | Classe | Responsabilidade Central | Relacionamentos |
 |---|---|---|

@@ -64,6 +64,7 @@ Como uma Tabela Hash consegue encontrar, inserir e remover pares Chave-Valor em 
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Acesso O(1) Instantâneo sem Percorrer Outros Itens</text>
 </svg>
+<p>Visualização: Analogia do guarda-volumes onde a função hash calcula instantaneamente o compartimento exato da chave sem varredura sequencial.</p>
 
 | Operação | Tempo Médio | Como Funciona |
 |---|---|---|

@@ -64,6 +64,7 @@ Qual é a intuição fundamental por trás do algoritmo Token Bucket para Rate L
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Em clusters, o estado do Token Bucket é compartilhado em memória no Redis!</text>
 </svg>
+<p>Visualização: Algoritmo Token Bucket em analogia a balde com fichas: reposição em taxa constante com suporte a rajadas transitórias de requisições.</p>
 
 | Algoritmo de Rate Limit | Vantagem Principal | Desvantagem |
 |---|---|---|

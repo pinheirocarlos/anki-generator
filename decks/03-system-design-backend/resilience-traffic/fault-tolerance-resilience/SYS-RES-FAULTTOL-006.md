@@ -61,6 +61,7 @@ Qual é a intuição fundamental do padrão Circuit Breaker (Disjuntor) e como e
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Combinado com Retries + Exponential Backoff com Jitter para não sobrecarregar!</text>
 </svg>
+<p>Visualização: Máquina de estados do Circuit Breaker operando como disjuntor de segurança: isolamento de falhas catastróficas e restabelecimento gradual do serviço.</p>
 
 | Mecanismo de Resiliência | O que Faz | Analogia do Cotidiano |
 |---|---|---|

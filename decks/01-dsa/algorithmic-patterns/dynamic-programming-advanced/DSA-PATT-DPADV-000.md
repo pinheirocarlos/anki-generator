@@ -24,18 +24,16 @@ Como a **Programação Dinâmica em Árvores (Tree DP)** calcula valores ótimos
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bitmask DP: Problema do Caixeiro Viajante (TSP) em O(2ᴺ · N²)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Tree DP (House Robber III): Par de Estados [rob, not_rob] em Pós-Ordem</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Estado: dp[mask][curr_city] onde mask representa cidades visitadas</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Se o bit k da mask é 1: cidade k já foi visitada no percurso.</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Transição: dp[mask | (1&lt;&lt;nxt)][nxt] = min(dp[mask][curr] + dist[curr][nxt]).</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Propagação Bottom-Up dos Filhos para os Pais</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">rob = root.val + left.not_rob + right.not_rob (não rouba filhos diretos).</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">not_rob = max(left.rob, left.not_rob) + max(right.rob, right.not_rob).</text>
   </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Reduz a complexidade fatorial de força bruta O(N!) para O(2ᴺ · N²)</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">DFS única em pós-ordem resolvendo a árvore inteira em tempo linear estrito O(N)</text>
 </svg>
-
+<p>Visualização: Programação Dinâmica em Árvore computando recursivamente pares de estados (rob, not_rob) em pós-ordem O(N).</p>
 | Estado Retornado | Relação com Filhos | Fórmula de Ganho |
 |---|---|---|
 | **Roubar Raiz** | Obriga a NÃO roubar filhos | $\text{node.val} + \text{filhos.notRob}$ |

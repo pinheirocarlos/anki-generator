@@ -21,6 +21,7 @@ import {
   assertTouchTargets,
   assertKatexErrors,
   assertSvgIntegrity,
+  assertImageIntegrity,
   assertVideoAttributes,
   assertCodeHighlighting,
   assertAccordionInteraction,
@@ -65,7 +66,14 @@ test.describe('E2E Visual Layout Guardrails & Regression Suite (User Story 2)', 
             `SVG rendering or leakage error on Front of ${card.id}:\n${svgResult.errors.join('\n')}`
           ).toBe(true);
 
-          // 4. Assert video attributes if video present on Front
+          // 4. Assert image integrity if images present on Front
+          const imgResult = await assertImageIntegrity(page);
+          expect(
+            imgResult.passed,
+            `Image rendering error on Front of ${card.id}:\n${imgResult.errors.join('\n')}`
+          ).toBe(true);
+
+          // 5. Assert video attributes if video present on Front
           const videoResult = await assertVideoAttributes(page);
           expect(
             videoResult.passed,
@@ -132,7 +140,14 @@ test.describe('E2E Visual Layout Guardrails & Regression Suite (User Story 2)', 
             `SVG rendering or leakage error on Back of ${card.id}:\n${svgResult.errors.join('\n')}`
           ).toBe(true);
 
-          // 5. Assert video playback attributes (Principle I)
+          // 5. Assert image integrity if images present on Back
+          const imgResult = await assertImageIntegrity(page);
+          expect(
+            imgResult.passed,
+            `Image rendering error on Back of ${card.id}:\n${imgResult.errors.join('\n')}`
+          ).toBe(true);
+
+          // 6. Assert video playback attributes (Principle I)
           const videoResult = await assertVideoAttributes(page);
           expect(
             videoResult.passed,
@@ -297,6 +312,18 @@ test.describe('E2E Visual Layout Guardrails & Regression Suite (User Story 2)', 
       expect(svgResult.passed, `Responsive SVG integrity failed on ${svgCardId}:\n${svgResult.errors.join('\n')}`).toBe(true);
       expect(svgResult.svgElementCount).toBeGreaterThanOrEqual(1);
       expect(svgResult.leakedSvgInCodeBlocks).toBe(false);
+    });
+
+    test('Animated media cards render valid media with non-zero dimensions', async ({ page }) => {
+      const mediaCardId = manifest.coverageMatrix.MICRO_VIDEO;
+      const card = sampledCards.find(c => c.id === mediaCardId);
+      expect(card).toBeDefined();
+
+      const rendered = renderCard(card.filePath, { resolveLocalMedia: true });
+      await page.setContent(rendered.backDocument, { waitUntil: 'domcontentloaded' });
+
+      const imgResult = await assertImageIntegrity(page);
+      expect(imgResult.passed, `Media integrity failed on ${mediaCardId}:\n${imgResult.errors.join('\n')}`).toBe(true);
     });
   });
 });

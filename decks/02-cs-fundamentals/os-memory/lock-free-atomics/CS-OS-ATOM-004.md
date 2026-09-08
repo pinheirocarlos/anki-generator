@@ -45,6 +45,7 @@ O que é o **Problema ABA** em estruturas de dados Lock-Free e como ponteiros ve
   <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">No x86-64, instruções de 128-bit (CMPXCHG16B) realizam CAS atômico de ponteiro e contador de versão juntos.</text>
 
 </svg>
+<p>Visualização: Detecção e resolução do Problema ABA através de Tagged Pointers combinando o endereço de memória a um contador monotônico de versão.</p>
 
 | Linha do Tempo | Ação Concorrente | Estado da Pilha |
 |---|---|---|

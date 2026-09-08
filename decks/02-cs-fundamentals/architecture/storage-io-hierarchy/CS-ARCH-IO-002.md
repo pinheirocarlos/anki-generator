@@ -40,6 +40,7 @@ Por que acessos de I/O **Sequenciais** são ordens de grandeza mais rápidos que
   <text x="340" y="175" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Regra de Ouro em Sistemas Distribuídos: Kafka e LSM-Trees estruturam toda ingestão em I/O sequencial.</text>
 
 </svg>
+<p>Visualização: Vantagem de throughput de I/O sequencial sobre aleatório em HDDs e SSDs.</p>
 
 | Tipo de Acesso | Comportamento em HDD | Comportamento em SSD NVMe |
 |---|---|---|

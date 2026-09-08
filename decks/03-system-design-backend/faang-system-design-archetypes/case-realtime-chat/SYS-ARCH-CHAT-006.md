@@ -52,6 +52,7 @@ Qual é a intuição fundamental da arquitetura de mensageria instantânea (como
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Se o usuário B estiver offline, a mensagem é salva no banco e enviada via Push Notification!</text>
 </svg>
+<p>Visualização: Conexões persistentes bi-direcionais via WebSockets interconectadas por barramento Redis Pub/Sub para entrega instantânea de mensagens.</p>
 
 | Protocolo | Como Funciona | Consumo de Bateria e Rede |
 |---|---|---|

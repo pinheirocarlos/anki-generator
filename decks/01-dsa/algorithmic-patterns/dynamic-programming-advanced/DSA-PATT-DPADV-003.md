@@ -24,18 +24,16 @@ Como a técnica de **Digit DP** conta números em um intervalo $[A, B]$ que sati
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Exponenciação Rápida de Matrizes para Recorrências em O(K³ log N)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Digit DP: dp(index, is_tight, is_started, mask/sum)</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Matriz de Transição M elevado à potência N</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">[F(n+1), F(n)] = [[1, 1], [1, 0]]ⁿ · [F(1), F(0)].</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Calcula Mⁿ usando binary exponentiation (M^(N/2) · M^(N/2)) em O(log N).</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Construção Dígito a Dígito com Prefixo Restrito (is_tight)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">is_tight = true: limite superior é str[index] (ex: 7); false: dígitos livres de 0 a 9.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Resolve consultas de contagem no intervalo [L, R] via f(R) - f(L - 1) em O(log₁₀(N)).</text>
   </g>
-  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Calcula o N-ésimo Fibonacci para N = 10¹⁸ sob módulo em frações de microssegundo</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Elimina varreduras lineares quando N alcança até 10¹⁸</text>
 </svg>
-
+<p>Visualização: Digit DP processando dígitos da esquerda para a direita controlando a flag de limite superior e restrições acumuladas.</p>
 | Parâmetro de Digit DP | Papel no Algoritmo | Efeito na Ramificação |
 |---|---|---|
 | `isLimit == true` | Prefixo coincide com $N$ | Dígito limitado a $[0, N[i]]$ |

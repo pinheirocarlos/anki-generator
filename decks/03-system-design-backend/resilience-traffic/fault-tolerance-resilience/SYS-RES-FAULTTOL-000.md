@@ -51,6 +51,7 @@ Como o padrão Circuit Breaker protege microsserviços contra falhas em cascata 
   <text x="340" y="210" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Evita esgotamento de threads (Cascading Failure) isolando serviços downstream degradados.</text>
 
 </svg>
+<p>Visualização: Circuit Breaker interrompendo requisições instantaneamente (Open) após limite de erros para evitar sobrecarga em cascata.</p>
 
 | Estado do Circuito | Comportamento das Chamadas | Próxima Transição |
 |---|---|---|

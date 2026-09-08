@@ -63,6 +63,7 @@ Qual é a intuição fundamental para resolver problemas de Low-Level Design (LL
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Evite código espaguete: mantenha classes pequenas e com responsabilidades únicas!</text>
 </svg>
+<p>Visualização: Framework estruturado de quatro etapas para entrevistas de Low-Level Design (LLD): Entidades, Contratos, Relacionamentos e Concorrência.</p>
 
 | Etapa de LLD | O que Entregar | Analogia do Cotidiano |
 |---|---|---|

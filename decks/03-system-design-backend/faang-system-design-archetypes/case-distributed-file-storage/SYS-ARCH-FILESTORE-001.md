@@ -43,6 +43,7 @@ Como o Content-Addressable Storage (CAS) permite Deduplicação Global entre mil
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Resolução de conflito: se dois clientes salvam versões conflitantes simultaneamente, cria-se 'Arquivo (Cópia em Conflito)'.</text>
 
 </svg>
+<p>Visualização: Armazenamento endereçável por conteúdo (CAS) deduplicando blocos idênticos entre contas e bifurcando versões em conflito.</p>
 
 | Cenário de Sincronização | Ação do Sistema | Resultado de Storage |
 |---|---|---|

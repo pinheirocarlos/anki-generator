@@ -34,6 +34,7 @@ O que é **Probabilidade Condicional** e como o **Teorema de Bayes** calcula a p
   <text x="340" y="165" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Aplicações Reais: Filtros Anti-Spam Bayesianos, Detecção de Fraude e Diagnóstico de Anomalias SRE.</text>
 
 </svg>
+<p>Visualização: Teorema de Bayes decompondo a probabilidade a posteriori a partir da verossimilhança, prior e evidência marginal.</p>
 
 | Termo Bayesiano | Significado no Sistema | Exemplo em Filtro Anti-Spam |
 |---|---|---|

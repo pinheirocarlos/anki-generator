@@ -69,6 +69,9 @@ Qual é a diferença conceitual fundamental entre a disciplina de acesso de uma 
   </g>
 </svg>
 
+<p>Visualização: Pilha de pratos (LIFO) vs Fila do banco (FIFO).</p>
+
+
 | Estrutura | Regra de Acesso | Exemplo Prático |
 |---|---|---|
 | **Pilha (Stack)** | LIFO (Último entra, 1º sai no Topo) | Histórico do Browser, Ctrl+Z |

@@ -49,6 +49,7 @@ Qual foi a motivação fundamental para a evolução do protocolo HTTP da versã
 
   <text x="300" y="155" fill="#10b981" font-size="11" font-family="monospace" text-anchor="middle">Resultado: Páginas web carregam de 2x a 5x mais rápido em redes móveis/instáveis!</text>
 </svg>
+<p>Visualização: Evolução arquitetural do protocolo HTTP desde o transporte serial em texto puro até fluxos binários multiplexados sobre QUIC.</p>
 
 | Versão do HTTP | Principal Inovação | Analogia no Trânsito |
 |---|---|---|

@@ -26,23 +26,24 @@ Como funciona o paradigma de **Binary Search on Answer** para encontrar o valor 
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Cálculo Seguro do Ponto Médio sem Overflow de Inteiros</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="240" height="75" fill="#7f1d1d" stroke="#ef4444" rx="6"/>
-    <text x="120" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Incorreto (Bug Clássico do Java):</text>
-    <text x="20" y="45" fill="#fecaca" font-size="10" font-family="monospace">mid = (low + high) / 2</text>
-    <text x="20" y="62" fill="#fca5a5" font-size="9">Causa integer overflow para &gt; 2³¹ - 1</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Binary Search on Answer (Busca Binária na Resposta Monotônica)</text>
+  <g transform="translate(60, 50)">
+    <rect x="0" y="15" width="80" height="35" fill="#7f1d1d" stroke="#ef4444" rx="4"/><text x="40" y="37" fill="#fff" font-size="11" text-anchor="middle">F (inválido)</text>
+    <rect x="90" y="15" width="80" height="35" fill="#7f1d1d" stroke="#ef4444" rx="4"/><text x="130" y="37" fill="#fff" font-size="11" text-anchor="middle">F (inválido)</text>
+    <rect x="180" y="15" width="80" height="35" fill="#7f1d1d" stroke="#ef4444" rx="4"/><text x="220" y="37" fill="#fff" font-size="11" text-anchor="middle">F (inválido)</text>
 
-    <g transform="translate(280, 0)">
-      <rect x="0" y="0" width="240" height="75" fill="#065f46" stroke="#10b981" rx="6"/>
-      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Seguro em Produção:</text>
-      <text x="20" y="45" fill="#ffffff" font-size="10" font-family="monospace">mid = low + (high - low) / 2</text>
-      <text x="20" y="62" fill="#a7f3d0" font-size="9">Ou bitwise: mid = (low + high) &gt;&gt;&gt; 1</text>
-    </g>
+    <!-- Fronteira da Resposta Ótima -->
+    <rect x="290" y="10" width="85" height="45" fill="#047857" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="332" y="32" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">V (Mínimo)</text>
+    <text x="332" y="47" fill="#34d399" font-size="9" text-anchor="middle">Resposta Ótima</text>
+
+    <rect x="395" y="15" width="80" height="35" fill="#065f46" stroke="#10b981" rx="4"/><text x="435" y="37" fill="#fff" font-size="11" text-anchor="middle">V (válido)</text>
+    <rect x="485" y="15" width="80" height="35" fill="#065f46" stroke="#10b981" rx="4"/><text x="525" y="37" fill="#fff" font-size="11" text-anchor="middle">V (válido)</text>
   </g>
-  <text x="340" y="165" fill="#38bdf8" font-size="11" text-anchor="middle">Regra fundamental para código robusto em C++, Java, Go e Rust</text>
-
+  <text x="340" y="150" fill="#34d399" font-size="11" text-anchor="middle">Se isValid(mid) == true ➔ tenta valor ainda menor à esquerda (right = mid)</text>
+  <text x="340" y="170" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Converte problemas de otimização em decisão monotônica: O(log(MaxVal) × CheckCost)</text>
 </svg>
+<p>Visualização: Busca binária no espaço de soluções sobre predicado booleano monotônico [F, F, V, V].</p>
 
 | Propriedade de Resposta | Espaço de Teste | Direção de Busca |
 |---|---|---|

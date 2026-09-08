@@ -20,23 +20,8 @@ Em quais classes de problemas lineares o padrão Two Pointers permite reduzir o 
   3. **Reversão de Strings / Palíndromos**: Troca caracteres simétricos nas pontas até que `left >= right`.
 
 ### Dual Coding Visual
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Container With Most Water: Escolha Gulosa com Two Pointers</text>
-  <g transform="translate(140, 50)">
-    <rect x="0" y="20" width="20" height="70" fill="#3b82f6" rx="2"/>
-    <text x="10" y="12" fill="#38bdf8" font-size="10" text-anchor="middle">h[L]=8</text>
-
-    <rect x="20" y="45" width="240" height="45" fill="#0284c7" opacity="0.4"/>
-    <text x="140" y="70" fill="#e0f2fe" font-size="11" font-weight="bold" text-anchor="middle">Área = min(h[L], h[R]) × (R - L)</text>
-
-    <rect x="260" y="45" width="20" height="45" fill="#f59e0b" rx="2"/>
-    <text x="270" y="37" fill="#fcd34d" font-size="10" text-anchor="middle">h[R]=5 (Menor)</text>
-  </g>
-  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Mover a barra mais alta nunca aumentará a área; logo, move-se sempre o ponteiro menor (R--)</text>
-
-</svg>
+<img src="assets/DSA-PATT-2POINT-003.gif" alt="Remove Duplicates In-Place" style="max-width: 100%; height: auto; border-radius: 8px; margin: 12px 0;" />
+<p>Visualização: Ponteiros rápido e lento compactando elementos únicos in-place em tempo linear O(N).</p>
 
 | Problema Linear | Abordagem com Array Extra | Abordagem Two Pointers In-Place |
 |---|---|---|

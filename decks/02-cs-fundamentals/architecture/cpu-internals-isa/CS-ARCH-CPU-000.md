@@ -43,6 +43,7 @@ Qual é o papel dos **Registradores de Propósito Geral** e como a **Calling Con
   <text x="340" y="180" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">System V AMD64 ABI: Argumentos 1 a 6 em RDI, RSI, RDX, RCX, R8, R9. Retorno em RAX.</text>
 
 </svg>
+<p>Visualização: Preservação de registradores callee-saved e caller-saved durante chamadas de função.</p>
 
 | Categoria de Registrador | Registradores Típicos (x86-64) | Responsabilidade de Preservação |
 |---|---|---|

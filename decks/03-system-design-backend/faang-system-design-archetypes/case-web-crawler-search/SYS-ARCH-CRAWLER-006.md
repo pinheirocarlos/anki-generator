@@ -54,6 +54,7 @@ Qual é a intuição fundamental da arquitetura de um Web Crawler distribuído (
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">O Bloom Filter permite verificar bilhões de URLs ocupando frações de megabytes de RAM!</text>
 </svg>
+<p>Visualização: Fluxo contínuo de rastreamento com URL Frontier controlando polidez por domínio e Filtro de Bloom evitando downloads repetidos.</p>
 
 | Componente | Função | Analogia do Cotidiano |
 |---|---|---|

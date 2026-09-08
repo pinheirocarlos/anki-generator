@@ -59,6 +59,7 @@ Qual é a intuição fundamental para escolher entre os diferentes estilos de AP
 
   <text x="300" y="160" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Não existe bala de prata: use gRPC internamente e REST/GraphQL para clientes externos!</text>
 </svg>
+<p>Visualização: Guia de decisão de protocolos e padrões de API selecionando a tecnologia ideal baseada em latência, flexibilidade e consumo de banda.</p>
 
 | Protocolo / Estilo | Formato & Transporte | Quando Escolher |
 |---|---|---|

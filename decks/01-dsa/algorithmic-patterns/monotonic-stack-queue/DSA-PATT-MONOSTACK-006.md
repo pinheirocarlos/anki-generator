@@ -53,6 +53,9 @@ Qual é o modelo mental de uma Pilha Monotônica (Monotonic Stack) e como ela en
   <text x="440" y="100" fill="#94a3b8" font-size="11" font-family="sans-serif">para 3 e para 5!</text>
 </svg>
 
+<p>Visualização: Analogia dos prédios no horizonte onde elementos maiores ocultam e eliminam os menores da pilha.</p>
+
+
 | Abordagem | Complexidade de Tempo | Como Encontra o Próximo Maior |
 |---|---|---|
 | **Dois Loops Aninhados (Força Bruta)** | $O(N^2)$ | Para cada item, varre todos os itens à frente |

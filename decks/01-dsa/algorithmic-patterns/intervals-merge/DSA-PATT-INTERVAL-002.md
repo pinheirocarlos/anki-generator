@@ -25,16 +25,23 @@ Como implementar o algoritmo de **Merge Intervals** (LeetCode 56) fundindo inter
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Meeting Rooms II: Mínimo de Salas Simultâneas com Min-Heap</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
-    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Rastreia Horários de Término de Reuniões em Andamento</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Ordena reuniões por tempo de início (start_time).</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">2. Se meeting.start &gt;= heap.peek() → reutiliza sala (heap.pop()). Adiciona novo término: heap.push(meeting.end).</text>
-  </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Tamanho máximo do heap ao final = quantidade mínima de salas necessárias: O(N log N)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Merge Overlapping Intervals: Ordenação por Início e Fusão em O(N log N)</text>
+  <g transform="translate(100, 45)">
+    <!-- Linha do Tempo e Barras -->
+    <rect x="0" y="15" width="120" height="24" fill="#3b82f6" rx="4"/><text x="60" y="31" fill="#fff" font-size="11" text-anchor="middle">[1, 4]</text>
+    <rect x="80" y="45" width="140" height="24" fill="#f59e0b" rx="4"/><text x="150" y="61" fill="#fff" font-size="11" text-anchor="middle">[3, 8]</text>
 
+    <!-- Seta de fusão -->
+    <path d="M 240 45 L 290 45" stroke="#10b981" stroke-width="2.5"/>
+
+    <!-- Intervalo Fundido -->
+    <rect x="305" y="30" width="175" height="28" fill="#047857" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="392" y="48" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">[1, 8] Fundido</text>
+  </g>
+  <text x="340" y="145" fill="#34d399" font-size="11" text-anchor="middle">Condição de Sobreposição: se prox.start &lt;= atual.end ➔ atual.end = max(atual.end, prox.end)</text>
+  <text x="340" y="170" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Garante fusão ótima após ordenação em O(N log N) tempo e O(N) espaço</text>
 </svg>
+<p>Visualização: Algoritmo de fusão sequencial consolidando intervalos sobrepostos em uma única passagem linear O(N).</p>
 
 | Condição com Intervalo Atual | Ação de Fusão | Resultado |
 |---|---|---|

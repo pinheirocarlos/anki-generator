@@ -44,6 +44,7 @@ Por que números decimais com vírgula (como 0.1) sofrem pequenos erros de preci
   <text x="300" y="145" fill="#f8fafc" font-size="12" font-family="monospace" text-anchor="middle">Fórmula: (-1)^Sinal × 1.Mantissa × 2^(Expoente - 1023)</text>
   <text x="300" y="172" fill="#ef4444" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">Regra de Ouro: NUNCA use float/double para dinheiro! Use inteiros (centavos) ou BigDecimal.</text>
 </svg>
+<p>Visualização: Notação científica binária em IEEE 754 Double Precision demonstrando o limite finito de 53 bits da mantissa.</p>
 
 | Tipo Numérico | Como Armazena | Melhor Caso de Uso |
 |---|---|---|

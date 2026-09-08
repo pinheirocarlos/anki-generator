@@ -45,6 +45,7 @@ Por que sistemas de mobilidade urbana (Uber / Lyft) utilizam células hexagonais
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Uber H3 indexa a Terra em 16 resoluções hierárquicas através de números inteiros compactos de 64 bits (uint64).</text>
 
 </svg>
+<p>Visualização: Grade espacial hexagonal Uber H3 com anéis k-ring de vizinhança uniforme sem distorções de cantos.</p>
 
 | Sistema Geoespacial | Formato da Célula | Distância para Todos os Vizinhos |
 |---|---|---|

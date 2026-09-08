@@ -54,6 +54,7 @@ Qual é a intuição fundamental de por que relógios físicos não são confiá
 
   <text x="300" y="185" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Resultado: IDs únicos, 100% numéricos, rápidos e ordenáveis cronologicamente!</text>
 </svg>
+<p>Visualização: Estrutura do Twitter Snowflake com timestamp nos bits mais significativos, ID de máquina e sequência local gerando IDs únicos e ordenáveis.</p>
 
 | Tipo de Identificador | Propriedade de Ordenação | Risco de Gargalo |
 |---|---|---|

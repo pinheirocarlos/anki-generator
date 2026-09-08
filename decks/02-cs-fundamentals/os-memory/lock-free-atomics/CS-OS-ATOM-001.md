@@ -39,6 +39,7 @@ O que são **Memory Barriers / Fences** e por que a semântica `volatile` / *Hap
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Volatile em Java / atomic.Store em Go inserem barreiras de memória para forçar visibilidade imediata entre cores.</text>
 
 </svg>
+<p>Visualização: Barreira de Memória (Memory Fence) impedindo a reordenação de instruções de escrita e garantindo a relação formal de Happens-Before entre núcleos.</p>
 
 | Tipo de Barreira | Efeito na Ordem de Memória | Caso de Uso |
 |---|---|---|

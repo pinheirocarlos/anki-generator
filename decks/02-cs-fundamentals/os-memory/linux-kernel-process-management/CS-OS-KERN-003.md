@@ -44,6 +44,7 @@ Qual é a diferença entre os sinais **SIGTERM (15)** e **SIGKILL (9)** e como i
   <text x="340" y="160" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Kubernetes envia SIGTERM, aguarda o período terminationGracePeriodSeconds (padrão 30s) e então envia SIGKILL.</text>
 
 </svg>
+<p>Visualização: Comparação de tratamento entre SIGTERM (sinal interceptável para graceful shutdown) e SIGKILL (terminação incondicional e imediata pelo kernel).</p>
 
 | Sinal Unix | Pode ser Capturado pelo App? | Ação Realizada pelo Processo |
 |---|---|---|

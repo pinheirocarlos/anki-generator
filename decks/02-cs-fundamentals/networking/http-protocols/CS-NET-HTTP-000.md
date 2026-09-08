@@ -41,6 +41,7 @@ Quais foram as limitações de performance do **HTTP/1.1** (como o Head-of-Line 
   <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Workaround Histórico: Browsers abriam até 6 conexões TCP paralelas por domínio gerando sobrecarga de portas.</text>
 
 </svg>
+<p>Visualização: Head-of-Line Blocking no HTTP/1.1 em que requisições subsequentes são serializadas e bloqueadas por respostas anteriores lentas.</p>
 
 | Problema no HTTP/1.1 | Impacto de Performance | Solução Adotada no HTTP/2 |
 |---|---|---|

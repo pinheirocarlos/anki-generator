@@ -57,6 +57,7 @@ Qual é o modelo mental de um grafo e como ele modela qualquer problema de conex
 
   <text x="300" y="160" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Árvores são apenas grafos especiais: conexos e sem nenhum ciclo!</text>
 </svg>
+<p>Visualização: Modelagem intuitiva de grafos conectando vértices (entidades) e arestas direcionadas ou bidirecionais (relações).</p>
 
 | Tipo de Grafo | Característica | Analogia do Cotidiano |
 |---|---|---|

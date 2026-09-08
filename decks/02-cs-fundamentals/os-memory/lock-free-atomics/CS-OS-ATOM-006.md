@@ -51,6 +51,7 @@ Qual é o modelo mental de uma operação atômica e como a instrução Compare-
 
   <text x="300" y="155" fill="#10b981" font-size="11" font-family="monospace" text-anchor="middle">Sem Mutex, sem chamada ao Kernel, sem perda de milissegundos!</text>
 </svg>
+<p>Visualização: Intuição do ciclo Compare-And-Swap demonstrando a validação indivisível do valor esperado antes da mutação concorrente.</p>
 
 | Abordagem | Comportamento na Colisão | Vantagens / Desvantagens |
 |---|---|---|

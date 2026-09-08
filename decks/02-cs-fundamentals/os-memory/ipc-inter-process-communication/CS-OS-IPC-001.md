@@ -47,6 +47,7 @@ Por que **Unix Domain Sockets (UDS)** entregam o dobro do throughput e metade da
   <text x="340" y="195" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Regra de ouro: Comunicação local no mesmo host deve usar Unix Domain Sockets ou Shared Memory.</text>
 
 </svg>
+<p>Visualização: Espectro de mecanismos de IPC no Linux comparando latência e complexidade, desde Memória Compartilhada (<0.1 µs) até Filas POSIX e Sockets.</p>
 
 | Primitiva IPC | Cópias de Dados na Memória | Latência Média de Transferência |
 |---|---|---|

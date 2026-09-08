@@ -43,6 +43,7 @@ Qual é a intuição fundamental da diferença entre motores de armazenamento B+
 
   <text x="300" y="175" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">A física do disco: Gravar sequencialmente é até 100x mais rápido que gravar aleatório!</text>
 </svg>
+<p>Visualização: Analogia intuitiva de storage engines comparando o modelo B+Tree (leitura instantânea com escrita in-place) versus LSM-Tree (escrita ultra-rápida append-only com compaction em segundo plano).</p>
 
 | Motor de Armazenamento | Ponto Forte | Analogia do Cotidiano |
 |---|---|---|

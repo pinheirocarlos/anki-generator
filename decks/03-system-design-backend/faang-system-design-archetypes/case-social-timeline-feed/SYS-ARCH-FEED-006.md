@@ -44,6 +44,7 @@ Qual é a intuição fundamental da escolha entre Fan-Out on Write (Push) e Fan-
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">A arquitetura híbrida resolve o problema das celebridades mantendo o app rápido!</text>
 </svg>
+<p>Visualização: Modelo híbrido de timeline: entrega push na caixa dos seguidores para usuários comuns e busca pull sob demanda para celebridades.</p>
 
 | Abordagem | Vantagem | Desafio Crítico |
 |---|---|---|

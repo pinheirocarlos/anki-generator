@@ -51,6 +51,7 @@ O que é um **Deadlock** e quais são as 4 condições necessárias de Coffman p
   <text x="340" y="165" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Prevenção Canônica: Hierarquia Global de Locks (Adquirir múltiplos locks sempre em ordem estrita de endereço/ID).</text>
 
 </svg>
+<p>Visualização: Grafo de alocação de recursos ilustrando o surgimento de Deadlock quando as quatro condições de Coffman ocorrem simultaneamente.</p>
 
 | Thread | Recursos Retidos | Recursos Aguardados |
 |---|---|---|

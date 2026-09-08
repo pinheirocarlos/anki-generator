@@ -59,6 +59,7 @@ Qual é a intuição fundamental por trás da indexação geoespacial (como Geoh
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Uber H3 usa hexágonos porque a distância entre o centro e todos os 6 vizinhos é idêntica!</text>
 </svg>
+<p>Visualização: Particionamento do mapa em células geoespaciais discretas limitando a busca por motoristas próximos a quadrículas vizinhas indexadas.</p>
 
 | Estrutura Espacial | Como Representa o Espaço | Vantagem Principal |
 |---|---|---|

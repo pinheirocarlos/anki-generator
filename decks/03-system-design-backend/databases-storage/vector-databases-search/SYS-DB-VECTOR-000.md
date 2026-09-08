@@ -43,6 +43,7 @@ Como a estrutura de Índice Invertido (Inverted Index) no Elasticsearch / Apache
   <text x="340" y="195" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Interseção booleana via Roaring Bitmaps e ranking BM25 ponderado por TF-IDF em sub-milissegundos.</text>
 
 </svg>
+<p>Visualização: Índice Invertido mapeando termos normalizados para Postings Lists com busca booleana e scoring BM25 em O(1).</p>
 
 | Termo Tokenizado | Posting List (IDs de Documentos com Frequência) |
 |---|---|

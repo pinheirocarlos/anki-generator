@@ -63,6 +63,7 @@ Qual é a intuição fundamental por trás do Teorema CAP e por que não é poss
 
   <text x="300" y="185" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Partições são inevitáveis na internet: você escolhe a precisão ou o uptime!</text>
 </svg>
+<p>Visualização: Dilema do Teorema CAP com partição de rede entre servidores: escolha entre precisão consistente (CP) ou disponibilidade com dados estagnados (AP).</p>
 
 | Modelo | Comportamento sob Falha de Rede | Analogia do Cotidiano |
 |---|---|---|

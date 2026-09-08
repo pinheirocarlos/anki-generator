@@ -35,6 +35,7 @@ Como o escalonador **CFS (Completely Fair Scheduler)** do Linux prioriza tarefas
   <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Processos com maior prioridade (nice negativo) acumulam vruntime mais lentamente, recebendo mais fatias de CPU.</text>
 
 </svg>
+<p>Visualização: Estrutura da Red-Black Tree no escalonador CFS ordenando tarefas por vruntime e elegendo a próxima thread a executar em O(1).</p>
 
 | Mecanismo / Fenômeno | Estrutura no Kernel | Impacto Prático em Produção |
 |---|---|---|

@@ -22,16 +22,29 @@ Quais os trade-offs de consumo de memória entre BFS ($O(W)$ largura máxima) e 
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Componentes Conexos (Flood Fill / Number of Islands)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Varredura de Matriz 2D com Marcação de Visitados</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Para cada célula '1' (terra): incrementa contador de ilhas e dispara DFS/BFS.</text>
-    <text x="20" y="62" fill="#38bdf8" font-size="11">Substitui '1' por '0' in-place para eliminar necessidade de matriz 'visited' separada.</text>
-  </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Tempo total: O(M × N) — Cada célula é processada no máximo 4 vezes (4 direções)</text>
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Consumo de Memória: BFS Fila O(W) vs DFS Pilha O(H)</text>
 
+  <!-- Painel BFS -->
+  <g transform="translate(40, 45)">
+    <rect x="0" y="0" width="280" height="110" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="6"/>
+    <text x="140" y="22" fill="#60a5fa" font-size="12" font-weight="bold" text-anchor="middle">BFS: Fila FIFO O(W) — Largura</text>
+    <text x="20" y="46" fill="#94a3b8" font-size="11">• Árvore balanceada com N nós:</text>
+    <text x="30" y="66" fill="#f87171" font-size="11" font-weight="bold">Último nível W = N / 2 nós na fila</text>
+    <text x="20" y="88" fill="#94a3b8" font-size="10">Exige O(2^H) de RAM (Crítico em ramos largos)</text>
+  </g>
+
+  <!-- Painel DFS -->
+  <g transform="translate(360, 45)">
+    <rect x="0" y="0" width="280" height="110" fill="#1e293b" stroke="#10b981" stroke-width="1.5" rx="6"/>
+    <text x="140" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">DFS: Pilha Call Stack O(H) — Altura</text>
+    <text x="20" y="46" fill="#94a3b8" font-size="11">• Árvore balanceada com N nós:</text>
+    <text x="30" y="66" fill="#34d399" font-size="11" font-weight="bold">Pilha retém apenas o caminho ativo: O(log N)</text>
+    <text x="20" y="88" fill="#94a3b8" font-size="10">Pior caso (degenerada em lista linear): O(N)</text>
+  </g>
+
+  <text x="340" y="178" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Regra de Ouro: Árvore larga ➔ DFS poupa memória; Solução próxima da raiz ➔ BFS poupa tempo</text>
 </svg>
+<p>Visualização: Trade-offs de memória: BFS armazena a largura máxima O(W) na fila FIFO, enquanto DFS retém apenas a altura do ramo O(H) na pilha de recursão.</p>
 
 | Formato da Árvore | Consumo de Memória (BFS vs DFS) | Escolha Ideal |
 |---|---|---|

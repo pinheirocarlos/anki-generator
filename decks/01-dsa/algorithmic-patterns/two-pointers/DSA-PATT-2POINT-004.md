@@ -26,16 +26,16 @@ Como implementar o algoritmo **3Sum** em tempo $O(N^2)$ e espaço $O(1)$ garanti
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Trapping Rain Water com Two Pointers em Tempo O(N) e Espaço O(1)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">3Sum O(N²) com Two Pointers após Ordenação</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Rastreamento de left_max e right_max</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Se left_max &lt; right_max: água retida é left_max - height[L]; avança L++.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Caso contrário: água retida é right_max - height[R]; retrocede R--.</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Fixa nums[i] e resolve 2Sum no restante [i+1, N-1]</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Ordena o array em O(N log N). Ignora elementos duplicados adjacentes.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">2. Two Pointers para nums[L] + nums[R] == -nums[i]. Custo total: N × O(N) = O(N²).</text>
   </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Elimina os arrays auxiliares prefix/suffix: Tempo O(N), Espaço Auxiliar O(1) estrito</text>
-
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Reduz a busca por força bruta cúbica O(N³) para quadrática O(N²)</text>
 </svg>
+<p>Visualização: Varredura de 3Sum fixando cada elemento e convergindo dois ponteiros em O(N²).</p>
 
 | Elemento da Tripla | Ponto de Deduplicação | Ação de Salto |
 |---|---|---|

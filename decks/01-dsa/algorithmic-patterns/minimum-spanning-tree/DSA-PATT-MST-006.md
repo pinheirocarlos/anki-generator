@@ -64,6 +64,8 @@ Qual é o objetivo de uma Árvore Geradora Mínima (MST) e como o Algoritmo de K
   <text x="300" y="165" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Custo Total Mínimo: 1 + 2 + 3 = 6 (Zero desperdício de energia e sem redundância)</text>
 </svg>
 
+<p>Visualização: Algoritmo de Kruskal conectando casas na rede elétrica pelo menor custo acumulado e descartando arestas redundantes que geram ciclos.</p>
+
 | Algoritmo | Abordagem | Complexidade |
 |---|---|---|
 | **Kruskal** | Ordena todas as arestas e conecta florestas usando DSU | $O(E \log E)$ |

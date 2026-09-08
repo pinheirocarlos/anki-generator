@@ -27,16 +27,25 @@ Quais as regras de término e atualização de limites para os dois templates cl
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Busca Ternária para Extremos de Funções Unimodais em O(log₃ N)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
-    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Dois Pontos Médios: m1 = L + (R-L)/3  |  m2 = R - (R-L)/3</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Se f(m1) &lt; f(m2) (buscando máximo) → descarta o terço esquerdo [L, m1].</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Reduz o espaço de busca por um fator de 2/3 a cada iteração.</text>
-  </g>
-  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Ideal para otimização contínua e geometria computacional sem cálculo de derivadas</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Comparativo de Templates: while (left &lt;= right) vs while (left &lt; right)</text>
+  <g transform="translate(60, 45)">
+    <!-- Template 1 -->
+    <rect x="0" y="0" width="260" height="85" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="130" y="20" fill="#60a5fa" font-size="11" font-weight="bold" text-anchor="middle">Intervalo Fechado: [left, right]</text>
+    <text x="15" y="40" fill="#f8fafc" font-size="10">Condição: while (left &lt;= right)</text>
+    <text x="15" y="56" fill="#94a3b8" font-size="10">left = mid + 1; right = mid - 1;</text>
+    <text x="15" y="72" fill="#34d399" font-size="10">Retorno: mid ao encontrar alvo direto</text>
 
+    <!-- Template 2 -->
+    <rect x="300" y="0" width="260" height="85" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="430" y="20" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Intervalo Semi-Aberto: [left, right)</text>
+    <text x="315" y="40" fill="#f8fafc" font-size="10">Condição: while (left &lt; right)</text>
+    <text x="315" y="56" fill="#94a3b8" font-size="10">left = mid + 1; right = mid;</text>
+    <text x="315" y="72" fill="#34d399" font-size="10">Retorno: left converge para a fronteira</text>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Mid seguro contra overflow: mid = left + (right - left) / 2</text>
 </svg>
+<p>Visualização: Comparação de invariantes de loop em busca binária: intervalo fechado [L, R] vs semi-aberto [L, R).</p>
 
 | Template | Condição / Atualização | Condição de Parada |
 |---|---|---|

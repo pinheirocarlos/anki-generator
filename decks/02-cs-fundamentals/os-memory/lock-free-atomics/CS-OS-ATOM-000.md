@@ -44,6 +44,7 @@ Por que uma operação simples como `count++` não é atômica no nível de hard
   <text x="340" y="160" fill="#f43f5e" font-size="11" font-weight="bold" text-anchor="middle">Sem instrução atômica (LOCK XADD), duas threads intercaladas sobrescrevem o resultado gerando perda de dados.</text>
 
 </svg>
+<p>Visualização: Decomposição da operação count++ nas 3 etapas de máquina (Read-Modify-Write) evidenciando a janela de race condition em multiprocessamento.</p>
 
 | Ciclo de CPU | Thread 1 vs Thread 2 | Memória `count` |
 |---|---|---|

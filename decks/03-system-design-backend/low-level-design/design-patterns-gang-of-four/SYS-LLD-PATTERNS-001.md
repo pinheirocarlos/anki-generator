@@ -42,6 +42,7 @@ Qual é a diferença de intenção arquitetural entre o padrão Decorator e o pa
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Decorator adiciona responsabilidade sem herança; Adapter traduz uma assinatura de método em outra.</text>
 
 </svg>
+<p>Visualização: Decorator adicionando responsabilidades em cadeia sem alterar a interface vs Adapter convertendo interfaces incompatíveis.</p>
 
 | Padrão GoF | Relação de Interface | Intenção Primária |
 |---|---|---|

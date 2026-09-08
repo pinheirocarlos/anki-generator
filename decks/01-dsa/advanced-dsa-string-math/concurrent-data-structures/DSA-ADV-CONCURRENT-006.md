@@ -18,35 +18,25 @@ Qual é a diferença conceitual fundamental entre proteger dados com travas excl
 - **Sem Travas (Lock-Free / CAS)**: É como uma **catraca eletrônica rápida (Compare-And-Swap)**: a thread prepara o novo dado e tenta aplicá-lo em uma única instrução atômica em hardware; se outra thread alterou o dado antes, ela apenas tenta novamente sem nunca dormir.
 
 ### Dual Coding Visual
-<svg viewBox="0 0 600 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-  <rect width="600" height="190" fill="#0f172a" rx="10" />
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Intuição Concorrente: Porta Trancada (Lock) vs Catraca Automática (Lock-Free)</text>
+  <g transform="translate(60, 50)">
+    <rect x="0" y="0" width="260" height="75" fill="#1e293b" stroke="#ef4444" rx="6"/>
+    <text x="130" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Com Cadeado (Lock-Based)</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">Apenas 1 passa; todos os outros dormem.</text>
+    <text x="15" y="60" fill="#fca5a5" font-size="10">Se quem tem a chave morre, tudo trava.</text>
 
-  <!-- Lado Esquerdo: Lock Baseado -->
-  <g transform="translate(30, 20)">
-    <text x="110" y="20" fill="#ef4444" font-size="12" font-family="sans-serif" font-weight="bold" text-anchor="middle">Lock-Based (Com Cadeado)</text>
-    
-    <rect x="30" y="40" width="160" height="70" fill="#1e293b" stroke="#ef4444" stroke-width="1.5" rx="6" />
-    <text x="110" y="65" fill="#fca5a5" font-size="11" text-anchor="middle">🔒 Seção Crítica Trancada</text>
-    <text x="110" y="85" fill="#94a3b8" font-size="9" text-anchor="middle">Thread 1 trabalhando</text>
-    <text x="110" y="100" fill="#ef4444" font-size="9" font-weight="bold" text-anchor="middle">Threads 2, 3, 4 DORMEM (Bloqueadas)</text>
-    <text x="110" y="145" fill="#ef4444" font-size="10" text-anchor="middle">Gargalo de contenção e troca de contexto</text>
+    <g transform="translate(300, 0)">
+      <rect x="0" y="0" width="260" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="130" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Catraca Rotativa (Lock-Free)</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">Alguém sempre passa a cada giro.</text>
+      <text x="15" y="60" fill="#a7f3d0" font-size="10">Se colidir, tenta de novo sem fila parada.</text>
+    </g>
   </g>
-
-  <!-- Divisor -->
-  <line x1="280" y1="20" x2="280" y2="175" stroke="#334155" stroke-width="2" stroke-dasharray="4,4" />
-
-  <!-- Lado Direito: Lock-Free -->
-  <g transform="translate(320, 20)">
-    <text x="120" y="20" fill="#10b981" font-size="12" font-family="sans-serif" font-weight="bold" text-anchor="middle">Lock-Free / CAS (Sem Bloqueio)</text>
-
-    <rect x="30" y="40" width="180" height="70" fill="#065f46" stroke="#10b981" stroke-width="1.5" rx="6" />
-    <text x="120" y="65" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">⚡ Compare-And-Swap (CAS)</text>
-    <text x="120" y="85" fill="#a7f3d0" font-size="9" text-anchor="middle">"Se o valor ainda for X, mude para Y"</text>
-    <text x="120" y="100" fill="#34d399" font-size="9" text-anchor="middle">1 ciclo de CPU! Ninguém dorme</text>
-    <text x="120" y="145" fill="#10b981" font-size="10" text-anchor="middle">Progresso global do sistema garantido</text>
-  </g>
+  <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Lock-Free garante progresso global do sistema sob qualquer condição de escalonamento</text>
 </svg>
-
+<p>Visualização: Intuição da catraca rotativa: o progresso global é contínuo mesmo que threads individuais precisem repetir tentativas.</p>
 | Abordagem | O que ocorre na colisão? | Vantagem / Risco |
 |---|---|---|
 | **Lock / Mutex** | Threads perdedoras dormem no SO | Alto custo de contexto, risco de deadlock |

@@ -64,6 +64,7 @@ Qual é a intuição fundamental da arquitetura do Apache Kafka baseada em um Lo
 
   <text x="300" y="185" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Zero-Copy + Gravação Sequencial em Disco = Milhões de eventos por segundo!</text>
 </svg>
+<p>Visualização: Log sequencial imutável do Kafka: offsets ordenados gravados em disco com ponteiros de leitura independentes por grupo de consumidores.</p>
 
 | Característica | Fila Tradicional (RabbitMQ) | Apache Kafka (Log Distribuído) |
 |---|---|---|

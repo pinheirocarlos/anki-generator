@@ -54,6 +54,7 @@ Como o protocolo de coerência de cache **MESI** coordena a consistência de dad
   </g>
 
 </svg>
+<p>Visualização: Transições de estado Modified, Exclusive, Shared e Invalid no protocolo MESI.</p>
 
 | Estado MESI | No Cache Local? | Modificado vs RAM? |
 |---|---|---|

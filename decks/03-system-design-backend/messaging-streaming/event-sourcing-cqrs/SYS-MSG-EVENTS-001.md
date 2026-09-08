@@ -47,6 +47,7 @@ Como o padrão CQRS segrega os modelos de escrita (Commands) e leitura (Queries)
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Escalabilidade independente: escalonamento horizontal extremo da camada de leitura sem onerar o banco de escrita.</text>
 
 </svg>
+<p>Visualização: Separação estrita de modelo de escrita (Commands) e banco desnormalizado de leitura (Queries) via projeções assíncronas.</p>
 
 | Dimensão CQRS | Lado de Comando (Command) | Lado de Consulta (Query) |
 |---|---|---|

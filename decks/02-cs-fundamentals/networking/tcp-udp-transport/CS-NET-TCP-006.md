@@ -42,6 +42,7 @@ Qual é a diferença conceitual e de garantias entre os protocolos da camada de 
 
   <text x="300" y="160" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Regra: Se perder dados é inaceitável use TCP; se atraso é inaceitável use UDP!</text>
 </svg>
+<p>Visualização: Analogia intuitiva entre TCP (entrega registrada e com rastreamento) e UDP (transmissão contínua em tempo real sem confirmações).</p>
 
 | Característica | TCP | UDP |
 |---|---|---|

@@ -41,6 +41,9 @@ Qual é a invariante estrutural de uma **Monotonic Stack** e quando escolher uma
 
 </svg>
 
+<p>Visualização: Remoção de elementos dominados mantendo a ordem estrita crescente ou decrescente.</p>
+
+
 | Tipo de Pilha Monótona | Ordem da Base ao Topo | Objetivo de Busca |
 |---|---|---|
 | **Crescente** | Valores aumentam | Próximo / Anterior **Menor** |

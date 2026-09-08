@@ -42,6 +42,7 @@ Como a esteira de agregação offline e o particionamento de Trie em servidores 
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Cache local de 1 hora no navegador do cliente (Cache-Control) absorve até 40% das requisições de autocomplete.</text>
 
 </svg>
+<p>Visualização: Esteira MapReduce calculando frequências de busca offline e particionando a Trie por prefixos em clusters distribuídos.</p>
 
 | Camada | Função | Tecnologia |
 |---|---|---|

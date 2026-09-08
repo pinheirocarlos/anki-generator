@@ -44,6 +44,7 @@ O que é **Direct I/O (`O_DIRECT`)** e por que bancos de dados relacionais trans
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Bancos de dados profissionais implementam seus próprios caches inteligentes sobre Direct I/O.</text>
 
 </svg>
+<p>Visualização: Fluxo de dados comparando Buffered I/O (intermediação transparente pelo Page Cache) e Direct I/O O_DIRECT (transferência direta via DMA para a aplicação).</p>
 
 | Modo de I/O | Passa pelo Page Cache do SO? | Risco de Duplicação de Memória |
 |---|---|---|

@@ -53,41 +53,7 @@ O que é uma **Trie (Árvore de Prefixos)** e como ela compartilha prefixos comu
   <text x="340" y="175" fill="#38bdf8" font-size="11" text-anchor="middle">Busca e inserção em O(L), onde L é o comprimento da palavra, independente de N</text>
 
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Estrutura do Nó de Trie: children[26] e flag isEndOfWord</text>
-  <g transform="translate(140, 50)">
-    <!-- Root -->
-    <circle cx="100" cy="20" r="16" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
-    <text x="100" y="24" fill="#38bdf8" font-size="10" font-weight="bold" text-anchor="middle">Root</text>
-
-    <!-- Branch 'c' -->
-    <line x1="85" y1="30" x2="40" y2="65" stroke="#10b981" stroke-width="2"/>
-    <text x="50" y="45" fill="#10b981" font-size="10" font-weight="bold">'c'</text>
-    <circle cx="35" cy="75" r="14" fill="#1e293b" stroke="#10b981"/><text x="35" y="79" fill="#fff" font-size="10" text-anchor="middle">c</text>
-
-    <!-- Branch 'a' -->
-    <line x1="35" y1="90" x2="35" y2="120" stroke="#10b981" stroke-width="2"/>
-    <text x="45" y="108" fill="#10b981" font-size="10" font-weight="bold">'a'</text>
-    <circle cx="35" cy="130" r="14" fill="#1e293b" stroke="#10b981"/><text x="35" y="134" fill="#fff" font-size="10" text-anchor="middle">a</text>
-
-    <!-- Branch 't' -->
-    <line x1="35" y1="145" x2="35" y2="175" stroke="#10b981" stroke-width="2"/>
-    <text x="45" y="163" fill="#10b981" font-size="10" font-weight="bold">'t'</text>
-    <circle cx="35" cy="185" r="14" fill="#047857" stroke="#34d399" stroke-width="2"/>
-    <text x="35" y="189" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">t*</text>
-  </g>
-  <g transform="translate(360, 60)">
-    <rect x="0" y="0" width="240" height="70" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Nó Folha t*:</text>
-    <text x="20" y="42" fill="#f8fafc" font-size="10">isEndOfWord = true</text>
-    <text x="20" y="58" fill="#94a3b8" font-size="10">Palavra completa: "cat"</text>
-  </g>
-  <text x="340" y="175" fill="#38bdf8" font-size="11" text-anchor="middle">Busca e inserção em O(L), onde L é o comprimento da palavra, independente de N</text>
-
-</svg>
+<p>Visualização: Caminho compartilhado de caracteres a partir da raiz com flag isEndOfWord demarcando palavras completas.</p>
 
 | Estrutura de Busca | Custo de Busca por Palavra de Tam $L$ | Busca por Prefixo |
 |---|---|---|

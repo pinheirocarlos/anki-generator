@@ -24,32 +24,16 @@ Como o **Teorema de Sprague-Grundy** e a função **MEX (Minimum Excluded Value)
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Crivo de Eratóstenes: Primos até N em Tempo O(N log log N)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Teorema de Sprague-Grundy: Redução de Jogos Imparciais a Nim via MEX</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
-    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Marcação de Múltiplos com Array Booleano is_prime[]</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Para cada primo p de 2 até √N: marca múltiplos p², p²+p, p²+2p... como compostos.</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Permite consultas de primalidade O(1) e fatoração em fatores primos em O(log N).</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Função Grundy: G(u) = mex({ G(v) para toda jogada válida u → v })</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">mex(S) é o menor inteiro não-negativo que não pertence ao conjunto S.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Jogo composto por múltiplos jogos independentes: G_total = G(jogo₁) ⊕ G(jogo₂) ⊕ ...</text>
   </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Calcula todos os primos até 10⁷ em menos de 100 milissegundos</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Unifica qualquer jogo imparcial acíclico normal diretamente ao problema de Nim</text>
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Crivo de Eratóstenes: Primos até N em Tempo O(N log log N)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
-    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Marcação de Múltiplos com Array Booleano is_prime[]</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Para cada primo p de 2 até √N: marca múltiplos p², p²+p, p²+2p... como compostos.</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Permite consultas de primalidade O(1) e fatoração em fatores primos em O(log N).</text>
-  </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Calcula todos os primos até 10⁷ em menos de 100 milissegundos</text>
-
-</svg>
-
+<p>Visualização: Teorema de Sprague-Grundy calculando a função MEX (menor inteiro não-negativo ausente) para unificar múltiplos jogos combinados.</p>
 | Componente | Definição Matemática | Papel no Jogo |
 |---|---|---|
 | **MEX** | Menor inteiro $\ge 0$ ausente | Atribui valor ao estado |

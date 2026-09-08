@@ -50,6 +50,7 @@ O que representa a métrica de disponibilidade em 'noves' (99.9% vs 99.999%) e q
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Atingir 99.999% exige failover automático multi-região ativo-ativo sem intervenção humana manual.</text>
 
 </svg>
+<p>Visualização: Tabela de noves de disponibilidade: de 99.9% (8.7 horas de downtime/ano) a 99.999% (5 minutos de downtime/ano).</p>
 
 | Disponibilidade (Nines) | Downtime / Mês | Downtime / Ano |
 |---|---|---|

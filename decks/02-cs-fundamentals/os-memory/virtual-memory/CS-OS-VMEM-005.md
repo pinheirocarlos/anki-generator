@@ -34,6 +34,7 @@ Como funciona o mapeamento de arquivos em memória com a syscall **`mmap()`** e 
   <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Arquitetura de armazenamento do LMDB, Kafka (índices), SQLite e motores de busca baseados em Lucene.</text>
 
 </svg>
+<p>Visualização: Mapeamento de arquivo em memória via syscall mmap() associando blocos de disco diretamente a endereços virtuais acessados via ponteiros.</p>
 
 | Estratégia de Leitura | Caminho dos Dados | Cópias de Memória |
 |---|---|---|

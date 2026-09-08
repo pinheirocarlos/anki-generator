@@ -61,6 +61,7 @@ Qual é a intuição fundamental do padrão Service Mesh (Envoy Sidecar) e Servi
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">A aplicação ignora a complexidade da rede; o sidecar cuida de toda a segurança e métricas!</text>
 </svg>
+<p>Visualização: Padrão Sidecar em Service Mesh: proxy Envoy gerenciando comunicação, segurança mTLS e telemetria transparente para o container da aplicação.</p>
 
 | Abordagem | Onde Fica a Lógica de Rede e Segurança | Desvantagem |
 |---|---|---|

@@ -59,6 +59,7 @@ Como o Single Responsibility Principle (SRP) e o Dependency Inversion Principle 
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">DIP é o alicerce da Arquitetura Hexagonal: o domínio central nunca importa pacotes de infraestrutura.</text>
 
 </svg>
+<p>Visualização: Single Responsibility isolando motivos de mudança e Dependency Inversion fazendo o domínio depender de abstrações.</p>
 
 | Princípio SOLID | Violação Comum | Design Correto |
 |---|---|---|

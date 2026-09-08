@@ -54,6 +54,7 @@ Qual é a diferença conceitual entre as anomalias de Cache Penetration, Cache B
   <text x="340" y="212" fill="#94a3b8" font-size="10" text-anchor="middle">TTL Jitter: TTL_final = Base_TTL + rand(0, delta) para dispersar a expiração temporal.</text>
 
 </svg>
+<p>Visualização: Filtro de Bloom intercepta consultas a chaves inexistentes (Penetration) e TTL jitter evita expiração simultânea em massa (Avalanche).</p>
 
 | Anomalia | Causa Raiz | Mitigação Principal |
 |---|---|---|

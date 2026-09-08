@@ -54,6 +54,7 @@ Por que relógios físicos de parede (Time of Day via NTP) são inadequados para
   <text x="340" y="200" fill="#94a3b8" font-size="10" text-anchor="middle">Dois vetores são concorrentes se nenhum domina estritamente todos os índices do outro.</text>
 
 </svg>
+<p>Visualização: Vector Clocks rastreando causalidade entre nós distribuídos e detectando conflitos de escrita concorrentes.</p>
 
 | Tipo de Relógio | Garantia Oferecida | Limitação Principal |
 |---|---|---|

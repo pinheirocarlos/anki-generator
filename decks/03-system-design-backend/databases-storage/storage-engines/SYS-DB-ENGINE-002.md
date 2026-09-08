@@ -43,6 +43,7 @@ Por que formatos colunares (como Apache Parquet e ClickHouse) superam bancos ori
   <text x="340" y="195" fill="#94a3b8" font-size="10" text-anchor="middle">Compressão homogênea por coluna + SIMD vectorization aceleram agregações analíticas em centenas de vezes.</text>
 
 </svg>
+<p>Visualização: Armazenamento colunar escaneando apenas as colunas solicitadas na agregação OLAP com alta taxa de compressão de dados.</p>
 
 | Dimensão de Comparação | Row-Store (MySQL / Postgres) | Column-Store (Parquet / ClickHouse) |
 |---|---|---|

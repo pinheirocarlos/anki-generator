@@ -36,8 +36,8 @@ Como o padrão de **Two Pointers Opostos** resolve o problema de soma de dois n�
   </g>
   <text x="340" y="145" fill="#34d399" font-size="11" text-anchor="middle">Soma = 2 + 23 = 25. Se Target = 26 (Soma &lt; Target) → Incrementa L (L++)</text>
   <text x="340" y="170" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Varredura completa em O(N) de tempo e O(1) de memória</text>
-
 </svg>
+<p>Visualização: Ponteiros convergentes nas extremidades esquerda e direita para Two Sum ordenado em tempo linear O(N) e espaço O(1).</p>
 
 | Comparação de Soma | Ação no Ponteiro | Racional |
 |---|---|---|

@@ -45,6 +45,7 @@ Como a codificação Base62 converte IDs inteiros numéricos únicos de 64 bits 
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Evita funções de Hash (MD5/SHA) que exigem truncamento e loops de verificação de colisão caros no banco.</text>
 
 </svg>
+<p>Visualização: Conversão de identificador numérico de 64 bits em string alfanumérica compacta de 7 caracteres via Base62.</p>
 
 | Comprimento da Chave (Base62) | Combinações Únicas Possíveis | Espaço de Endereçamento |
 |---|---|---|

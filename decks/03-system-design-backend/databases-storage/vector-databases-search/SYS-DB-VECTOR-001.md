@@ -45,6 +45,7 @@ Como o algoritmo Hierarchical Navigable Small World (HNSW) viabiliza buscas por 
   <text x="340" y="205" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">HNSW atinge complexidade O(log N) para busca de vizinhos mais próximos em embeddings de 1536 dimensões.</text>
 
 </svg>
+<p>Visualização: Grafo multicamadas HNSW navegando por saltos longos na camada superior e busca de vizinhos densa na camada inferior.</p>
 
 | Algoritmo de Busca Vetorial | Complexidade de Tempo | Trade-off Operacional |
 |---|---|---|

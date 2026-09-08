@@ -48,6 +48,7 @@ Como o pipeline de instruções e a previsão de desvios (branch prediction) per
 
   <text x="300" y="165" fill="#10b981" font-size="11" font-family="monospace" text-anchor="middle">Vantagem: A CPU conclui 1 instrução por ciclo (IPC = 1.0+) em vez de 1 a cada 4 ciclos!</text>
 </svg>
+<p>Visualização: Linha de montagem industrial operando em fluxo contínuo sem paradas.</p>
 
 | Conceito | Como Funciona | Analogia do Cotidiano |
 |---|---|---|

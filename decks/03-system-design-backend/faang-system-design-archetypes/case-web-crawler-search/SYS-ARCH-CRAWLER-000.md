@@ -50,6 +50,7 @@ Como a arquitetura da URL Frontier equilibra prioridade de rastreamento com pol�
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A URL Frontier isola hostnames garantindo que o crawler nunca cause negação de serviço (DDoS) no servidor alvo.</text>
 
 </svg>
+<p>Visualização: URL Frontier separando filas de prioridade e filas de polidez por hostname para evitar sobrecarga em servidores de destino.</p>
 
 | Módulo da URL Frontier | Estrutura | Responsabilidade |
 |---|---|---|

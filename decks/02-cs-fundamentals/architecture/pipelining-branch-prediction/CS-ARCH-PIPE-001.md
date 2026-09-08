@@ -41,6 +41,7 @@ Por que a penalidade de **Branch Misprediction** degrada a performance da CPU e 
   <text x="340" y="175" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Otimização Branchless (CMOV, Bitwise): Elimina saltos condicionais em laços críticos de performance.</text>
 
 </svg>
+<p>Visualização: Branch predictor especulando caminhos condicionais e custo de pipeline flush.</p>
 
 | Estratégia | Instruções Geradas | Penalidade em Dados Aleatórios |
 |---|---|---|

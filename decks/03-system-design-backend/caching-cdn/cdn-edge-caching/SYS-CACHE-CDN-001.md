@@ -48,6 +48,7 @@ Qual é a diferença entre as diretivas `max-age`, `s-maxage` e `stale-while-rev
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">stale-while-revalidate elimina latência percebida pelo usuário final durante atualizações de cache.</text>
 
 </svg>
+<p>Visualização: Diretiva stale-while-revalidate servindo conteúdo em cache instantaneamente enquanto dispara revalidação assíncrona na origem.</p>
 
 | Diretiva HTTP | Onde se Aplica | Efeito Prático |
 |---|---|---|

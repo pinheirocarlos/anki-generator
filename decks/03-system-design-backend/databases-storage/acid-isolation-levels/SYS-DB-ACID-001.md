@@ -51,6 +51,7 @@ Como o Multi-Version Concurrency Control (MVCC) permite que leituras e escritas 
   <text x="340" y="205" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Regra de Ouro do MVCC: Leituras nunca bloqueiam Escritas; Escritas nunca bloqueiam Leituras.</text>
 
 </svg>
+<p>Visualização: Controle de Concorrência Multiversão (MVCC): leituras enxergam snapshot imutável baseado em xmin/xmax sem travar escritas.</p>
 
 | Ação Concorrente | Com Locks Tradicionais (2PL) | Com MVCC |
 |---|---|---|

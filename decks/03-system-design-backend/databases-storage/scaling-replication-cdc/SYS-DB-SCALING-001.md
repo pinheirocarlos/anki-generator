@@ -62,6 +62,7 @@ Por que ferramentas de Change Data Capture (CDC) baseadas na leitura de logs de 
   <text x="340" y="195" fill="#94a3b8" font-size="10" text-anchor="middle">CDC desacopla a gravação de banco primário da sincronização de caches e mecanismos de busca em tempo real.</text>
 
 </svg>
+<p>Visualização: Change Data Capture (CDC) lendo o Write-Ahead Log (WAL) do banco de dados e transmitindo streams de mutações em tempo real.</p>
 
 | Estratégia de Captura | Impacto no Banco Primário | Captura Deleções? |
 |---|---|---|

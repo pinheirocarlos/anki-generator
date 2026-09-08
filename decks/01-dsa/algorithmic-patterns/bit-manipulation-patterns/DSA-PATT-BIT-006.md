@@ -20,33 +20,35 @@ Qual é o modelo mental das operações bitwise (AND, OR, XOR) e como a propried
   - **XOR (`^`)**: Dá 1 se forem diferentes. Possui a propriedade mágica de **auto-cancelamento**: $A \oplus A = 0$ e $A \oplus 0 = A$.
 
 ### Dual Coding Visual
-<svg viewBox="0 0 600 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-  <rect width="600" height="190" fill="#0f172a" rx="10" />
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">O Poder do XOR: Pares Duplicados se Cancelam e Resta o Elemento Único</text>
+  <g transform="translate(140, 50)">
+    <g transform="translate(0, 0)">
+      <circle cx="40" cy="30" r="16" fill="#1e293b" stroke="#64748b"/>
+      <text x="40" y="34" fill="#94a3b8" font-size="11" text-anchor="middle">Luz 0</text>
+      <text x="40" y="60" fill="#64748b" font-size="10" text-anchor="middle">Apagada</text>
+    </g>
 
-  <text x="300" y="24" fill="#10b981" font-size="13" font-family="sans-serif" font-weight="bold" text-anchor="middle">O Poder do XOR: Pares Duplicados se Cancelam e Resta o Elemento Único</text>
+    <text x="95" y="35" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">^ 1 →</text>
 
-  <!-- Array com Duplicatas: [4, 1, 2, 1, 2] -->
-  <g transform="translate(40, 50)">
-    <!-- Operação Acumulada -->
-    <rect x="0" y="0" width="340" height="55" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="6" />
-    <text x="170" y="25" fill="#93c5fd" font-size="11" font-family="sans-serif" text-anchor="middle">XOR em cadeia na lista: [4, 1, 2, 1, 2]</text>
-    <text x="170" y="45" fill="#f8fafc" font-size="13" font-family="monospace" font-weight="bold" text-anchor="middle">4 ^ (1 ^ 1) ^ (2 ^ 2)</text>
+    <g transform="translate(130, 0)">
+      <circle cx="40" cy="30" r="16" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+      <text x="40" y="34" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">Luz 1</text>
+      <text x="40" y="60" fill="#a7f3d0" font-size="10" text-anchor="middle">Acesa</text>
+    </g>
+
+    <text x="225" y="35" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">^ 1 →</text>
+
+    <g transform="translate(260, 0)">
+      <circle cx="40" cy="30" r="16" fill="#1e293b" stroke="#64748b"/>
+      <text x="40" y="34" fill="#94a3b8" font-size="11" text-anchor="middle">Luz 0</text>
+      <text x="40" y="60" fill="#64748b" font-size="10" text-anchor="middle">Apagada</text>
+    </g>
   </g>
-
-  <!-- Seta -->
-  <path d="M 395 78 L 435 78" fill="none" stroke="#10b981" stroke-width="3" />
-  <polygon points="440,78 430,73 430,83" fill="#10b981" />
-
-  <!-- Resultado Final -->
-  <g transform="translate(445, 50)">
-    <rect x="0" y="0" width="115" height="55" fill="#065f46" stroke="#10b981" stroke-width="2" rx="6" />
-    <text x="57" y="22" fill="#a7f3d0" font-size="10" text-anchor="middle">Cancelamento:</text>
-    <text x="57" y="42" fill="#ffffff" font-size="14" font-family="monospace" font-weight="bold" text-anchor="middle">4 ^ 0 ^ 0 = 4</text>
-  </g>
-
-  <text x="300" y="150" fill="#94a3b8" font-size="11" font-family="sans-serif" text-anchor="middle">Single Number Problem: Resolvido em O(N) de tempo e O(1) de memória (sem precisar de HashMap!)</text>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Interruptor de duas vias: acionar duas vezes retorna ao estado original (x ^ 1 ^ 1 = x)</text>
 </svg>
-
+<p>Visualização: Intuição do interruptor: cada operação XOR inverte o estado lógico do bit, cancelando ações repetidas em pares.</p>
 | Operador | Regra Lógica | Uso Clássico |
 |---|---|---|
 | **AND (`&`)** | `1 & 1 = 1`, resto `0` | Testar se é ímpar (`x & 1`) ou limpar bit |

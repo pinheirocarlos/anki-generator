@@ -18,40 +18,8 @@ Qual é a intuição fundamental do paradigma de Divisão e Conquista (Merge Sor
 - Garante tempo assintótico previsível de **$O(N \log N)$**, evitando o custo quadrático lento ($O(N^2)$) de algoritmos ingênuos como Bubble Sort.
 
 ### Dual Coding Visual
-<svg viewBox="0 0 600 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-  <rect width="600" height="190" fill="#0f172a" rx="10" />
-
-  <text x="300" y="24" fill="#10b981" font-size="13" font-family="sans-serif" font-weight="bold" text-anchor="middle">Merge Sort: Divide até Elementos Únicos ➔ Intercala Ordenando</text>
-
-  <!-- Nível 1: Array Original [8, 3, 2, 9] -->
-  <g transform="translate(210, 40)">
-    <rect x="0" y="0" width="180" height="28" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="3" />
-    <text x="90" y="19" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">[ 8, 3, 2, 9 ]</text>
-  </g>
-
-  <!-- Divisão para Nível 2 -->
-  <path d="M 270 70 L 200 90" fill="none" stroke="#64748b" stroke-width="1.5" />
-  <path d="M 330 70 L 400 90" fill="none" stroke="#64748b" stroke-width="1.5" />
-
-  <g transform="translate(130, 90)">
-    <rect x="0" y="0" width="120" height="25" fill="#1e293b" stroke="#64748b" stroke-width="1" rx="3" />
-    <text x="60" y="17" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">[ 8, 3 ]</text>
-  </g>
-
-  <g transform="translate(350, 90)">
-    <rect x="0" y="0" width="120" height="25" fill="#1e293b" stroke="#64748b" stroke-width="1" rx="3" />
-    <text x="60" y="17" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">[ 2, 9 ]</text>
-  </g>
-
-  <!-- Fusão e Ordenação (Merge) para Nível 3 -->
-  <path d="M 190 120 L 260 140" fill="none" stroke="#10b981" stroke-width="2" />
-  <path d="M 410 120 L 340 140" fill="none" stroke="#10b981" stroke-width="2" />
-
-  <g transform="translate(210, 140)">
-    <rect x="0" y="0" width="180" height="30" fill="#065f46" stroke="#10b981" stroke-width="2" rx="4" />
-    <text x="90" y="20" fill="#ffffff" font-size="12" font-family="monospace" font-weight="bold" text-anchor="middle">[ 2, 3, 8, 9 ] ✓</text>
-  </g>
-</svg>
+<img src="assets/DSA-PATT-DIVCONQ-006.gif" alt="Intuição de Divisão e Conquista (Merge Sort)" style="max-width: 100%; height: auto; border-radius: 8px; margin: 12px 0;" />
+<p>Visualização: Divisão recursiva em metades menores até unidades individuais e fusão ordenada (Merge) em O(N log N).</p>
 
 | Algoritmo | Complexidade Média | Principal Característica |
 |---|---|---|

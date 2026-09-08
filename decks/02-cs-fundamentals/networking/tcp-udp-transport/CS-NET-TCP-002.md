@@ -53,6 +53,7 @@ Como funciona o **Three-Way Handshake (SYN, SYN-ACK, ACK)** do TCP e por que sã
   <text x="340" y="180" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">O ISN (Initial Sequence Number) é gerado de forma pseudorandômica para evitar ataques de injeção e session hijacking.</text>
 
 </svg>
+<p>Visualização: Fluxo do Three-Way Handshake TCP (SYN, SYN-ACK, ACK) sincronizando números de sequência iniciais (ISN) em 1 RTT.</p>
 
 | Etapa do Handshake | Origem $\to$ Destino | Flags e Números de Sequência |
 |---|---|---|

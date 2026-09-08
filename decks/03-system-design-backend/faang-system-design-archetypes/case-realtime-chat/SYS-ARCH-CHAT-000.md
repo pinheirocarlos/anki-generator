@@ -49,6 +49,7 @@ Como os servidores de WebSocket Gateway mantêm conexões bidirecionais persiste
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Se o cliente perder a conexão e não enviar heartbeat, o TTL do Redis expira e marca status 'offline'.</text>
 
 </svg>
+<p>Visualização: Servidores de WebSocket Gateway mantendo conexões TCP persistentes com heartbeat e presença agregada no Redis.</p>
 
 | Protocolo / Mecanismo | Overhead de Cabeçalho por Mensagem | Tipo de Comunicação |
 |---|---|---|

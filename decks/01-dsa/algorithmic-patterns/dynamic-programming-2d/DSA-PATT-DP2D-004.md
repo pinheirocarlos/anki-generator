@@ -23,21 +23,23 @@ Como o algoritmo de **Edit Distance (Distância de Levenshtein)** computa o núm
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Edit Distance (Levenshtein): 1 + min(Inserção, Deleção, Substituição)</text>
+  <g transform="translate(100, 50)">
+    <rect x="0" y="15" width="120" height="50" fill="#1e293b" stroke="#ef4444" rx="4"/>
+    <text x="60" y="35" fill="#fca5a5" font-size="10" text-anchor="middle">Deleção (Cima)</text>
+    <text x="60" y="52" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">dp[i-1][j]</text>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Unique Paths em Grid: dp[i][j] = dp[i-1][j] + dp[i][j-1]</text>
-  <g transform="translate(120, 50)">
-    <rect x="0" y="0" width="60" height="40" fill="#1e293b" stroke="#64748b" rx="3"/><text x="30" y="25" fill="#94a3b8" font-size="11" text-anchor="middle">Cima</text>
-    <text x="80" y="25" fill="#34d399" font-size="14" font-weight="bold">+</text>
-    <rect x="100" y="0" width="60" height="40" fill="#1e293b" stroke="#64748b" rx="3"/><text x="130" y="25" fill="#94a3b8" font-size="11" text-anchor="middle">Esq</text>
-    <text x="180" y="25" fill="#34d399" font-size="14" font-weight="bold">=</text>
-    <rect x="200" y="0" width="80" height="40" fill="#065f46" stroke="#10b981" stroke-width="2" rx="4"/>
-    <text x="240" y="25" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">dp[i][j]</text>
+    <rect x="180" y="0" width="120" height="50" fill="#1e293b" stroke="#f59e0b" rx="4"/>
+    <text x="240" y="20" fill="#fde68a" font-size="10" text-anchor="middle">Substituição (Diagonal)</text>
+    <text x="240" y="38" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">dp[i-1][j-1]</text>
+
+    <rect x="360" y="15" width="120" height="50" fill="#1e293b" stroke="#3b82f6" rx="4"/>
+    <text x="420" y="35" fill="#93c5fd" font-size="10" text-anchor="middle">Inserção (Esquerda)</text>
+    <text x="420" y="52" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">dp[i][j-1]</text>
   </g>
-  <text x="340" y="145" fill="#38bdf8" font-size="11" text-anchor="middle">Se grid[i][j] é obstáculo: dp[i][j] = 0 (caminho bloqueado)</text>
-  <text x="340" y="170" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Reduzível a 1 único array 1D de tamanho N (dp[j] += dp[j-1]) com espaço O(N)</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Se s1[i-1] == s2[j-1]: custo zero dp[i-1][j-1] sem incremento de operação</text>
 </svg>
-
+<p>Visualização: Matriz de distância de edição (Levenshtein) avaliando os custos de inserção, deleção e substituição de caracteres.</p>
 | Operação de Edição | Posição na Matriz DP | Racional |
 |---|---|---|
 | **Substituição** | Diagonal $DP[i-1][j-1]$ | Troca o caractere correspondente |

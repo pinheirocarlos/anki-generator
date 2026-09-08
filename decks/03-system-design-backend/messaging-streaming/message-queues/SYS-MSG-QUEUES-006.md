@@ -56,6 +56,7 @@ Qual é a intuição fundamental de por que usamos Filas de Mensagens (Message Q
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Se o consumidor cair, as mensagens continuam salvas na fila sem perda de dados!</text>
 </svg>
+<p>Visualização: Desacoplamento assíncrono com fila intermediária amortecendo picos de tráfego de pedidos e protegendo microsserviços de downstream.</p>
 
 | Modelo de Comunicação | Comportamento sob Sobrecarga | Analogia do Cotidiano |
 |---|---|---|

@@ -24,32 +24,30 @@ Quais os critérios rigorosos de engenharia para escolher entre Lista de Adjacê
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Lista de Adjacência: Eficiência de Memória O(V + E) para Grafos Esparsos</text>
-  <g transform="translate(100, 50)">
-    <rect x="0" y="0" width="480" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="20" y="25" fill="#34d399" font-size="11" font-family="monospace">adj[0] → [ 1, 2 ]</text>
-    <text x="20" y="45" fill="#38bdf8" font-size="11" font-family="monospace">adj[1] → [ 0 ]</text>
-    <text x="20" y="65" fill="#f59e0b" font-size="11" font-family="monospace">adj[2] → [ 0 ]</text>
-    <text x="250" y="45" fill="#f8fafc" font-size="11">Iteração sobre vizinhos em O(grau(u))</text>
-  </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Padrão da indústria para algoritmos BFS, DFS, Dijkstra e Tarjan</text>
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Critérios de Escolha: Lista de Adjacência O(V+E) vs Matriz de Adjacência O(V²)</text>
+  
+  <g transform="translate(45, 45)">
+    <!-- Painel Lista -->
+    <rect x="0" y="0" width="280" height="100" fill="#1e293b" stroke="#10b981" stroke-width="1.5" rx="6"/>
+    <text x="140" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Lista de Adjacência: O(V + E)</text>
+    <text x="15" y="42" fill="#f8fafc" font-size="10">• Domínio: Grafos Esparsos (E ≪ V²)</text>
+    <text x="15" y="60" fill="#94a3b8" font-size="10">• Memória: Aloca apenas arestas reais existentes</text>
+    <text x="15" y="78" fill="#38bdf8" font-size="10">• Iteração de vizinhos: O(grau(u)) ideal para BFS/DFS</text>
 
+    <!-- Painel Matriz -->
+    <g transform="translate(310, 0)">
+      <rect x="0" y="0" width="280" height="100" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="6"/>
+      <text x="140" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Matriz de Adjacência: O(V²)</text>
+      <text x="15" y="42" fill="#f8fafc" font-size="10">• Domínio: Grafos Densos (E ≈ V²) ou V pequeno</text>
+      <text x="15" y="60" fill="#94a3b8" font-size="10">• Consulta hasEdge(u, v): O(1) instantâneo</text>
+      <text x="15" y="78" fill="#f59e0b" font-size="10">• Desvantagem: O(V²) de memória mesmo vazia</text>
+    </g>
+  </g>
+
+  <text x="340" y="175" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Decisão FAANG: Se V &gt; 10⁴ e grafo é esparso (redes sociais, web), a Matriz causa Out-of-Memory</text>
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Lista de Adjacência: Eficiência de Memória O(V + E) para Grafos Esparsos</text>
-  <g transform="translate(100, 50)">
-    <rect x="0" y="0" width="480" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="20" y="25" fill="#34d399" font-size="11" font-family="monospace">adj[0] → [ 1, 2 ]</text>
-    <text x="20" y="45" fill="#38bdf8" font-size="11" font-family="monospace">adj[1] → [ 0 ]</text>
-    <text x="20" y="65" fill="#f59e0b" font-size="11" font-family="monospace">adj[2] → [ 0 ]</text>
-    <text x="250" y="45" fill="#f8fafc" font-size="11">Iteração sobre vizinhos em O(grau(u))</text>
-  </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Padrão da indústria para algoritmos BFS, DFS, Dijkstra e Tarjan</text>
-
-</svg>
+<p>Visualização: Trade-offs de engenharia entre Lista O(V+E) para esparsidade e Matriz O(V²) para grafos densos com consulta O(1).</p>
 
 | Métrica | Grafo Esparso ($V=10^5, E=10^6$) | Grafo Denso ($V=10^4, E=10^8$) |
 |---|---|---|

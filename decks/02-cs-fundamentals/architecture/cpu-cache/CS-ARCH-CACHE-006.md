@@ -64,6 +64,7 @@ Qual é a intuição fundamental por trás da hierarquia de caches da CPU (L1, L
   <text x="540" y="155" fill="#818cf8" font-size="10" font-family="sans-serif" text-anchor="end">📦 Maior Capacidade &amp; Mais Longe</text>
   <text x="300" y="180" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Princípio de Localidade: 95%+ dos acessos são resolvidos em L1/L2/L3!</text>
 </svg>
+<p>Visualização: Analogia da mesa de trabalho (L1), gaveta (L3) e biblioteca distante (RAM).</p>
 
 | Nível de Memória | Latência / Velocidade | Analogia do Cotidiano |
 |---|---|---|

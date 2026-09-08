@@ -34,6 +34,7 @@ Como adaptar a Busca Binária para encontrar um alvo em um **array rotacionado e
   <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Complexidade mantida em O(log N) mesmo com rotação circular</text>
 
 </svg>
+<p>Visualização: Busca binária em vetor rotacionado identificando a metade monotônica ordenada para direcionar o descarte.</p>
 
 | Metade Ordenada | Condição de Teste | Regra de Descarte |
 |---|---|---|

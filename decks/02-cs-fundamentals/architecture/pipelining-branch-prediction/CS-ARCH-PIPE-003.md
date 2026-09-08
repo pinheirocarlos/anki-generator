@@ -49,6 +49,7 @@ O que é uma **Instrução SIMD** (*Single Instruction, Multiple Data*) e como e
   <text x="340" y="165" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Aceleração de até 8x a 16x em Processamento de Imagens, Álgebra Linear e Machine Learning.</text>
 
 </svg>
+<p>Visualização: Instruções vetoriais SIMD operando em múltiplos elementos em um único ciclo.</p>
 
 | Modelo de Execução | Largura de Registrador | Elementos Processados por Ciclo |
 |---|---|---|

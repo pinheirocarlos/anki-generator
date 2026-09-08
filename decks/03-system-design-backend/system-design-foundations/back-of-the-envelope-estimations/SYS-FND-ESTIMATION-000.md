@@ -49,6 +49,7 @@ Quais são os números de latência de hardware fundamentais de Jeff Dean que to
   <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Acessar a memória RAM é 1000x mais rápido que ler do SSD e 1.500.000x mais rápido que uma chamada de rede transatlântica.</text>
 
 </svg>
+<p>Visualização: Comparação visual de latências de hardware: L1 Cache (0.5ns), RAM (100ns), SSD (100µs), Network RTT (150ms).</p>
 
 | Nível de Acesso | Latência Típica | Fator de Escala Relativo |
 |---|---|---|

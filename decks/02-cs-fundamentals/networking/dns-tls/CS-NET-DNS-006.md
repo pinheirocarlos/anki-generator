@@ -42,6 +42,7 @@ Como o DNS e o TLS trabalham juntos para permitir que um navegador encontre um s
 
   <text x="300" y="160" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Segurança Moderna: TLS 1.3 reduz o handshake para apenas 1 Round-Trip (1-RTT)!</text>
 </svg>
+<p>Visualização: Analogia intuitiva do DNS como catálogo de endereçamento e TLS como canal lacrado com criptografia assimétrica e simétrica.</p>
 
 | Etapa / Protocolo | O que Faz na Rede | Analogia do Cotidiano |
 |---|---|---|

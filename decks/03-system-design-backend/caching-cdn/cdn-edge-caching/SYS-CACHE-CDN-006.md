@@ -56,6 +56,7 @@ Qual é a intuição fundamental de por que Content Delivery Networks (CDNs) red
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">CDNs também absorvem ataques DDoS com gigabits de banda na borda!</text>
 </svg>
+<p>Visualização: Analogia intuitiva da CDN demonstrando a redução drástica de RTT ao servir assets a partir de PoPs na borda geográfica (~5 ms) versus requisições oceânicas à origem (~180 ms).</p>
 
 | Recurso Web | Onde Deve Ficar | Analogia do Cotidiano |
 |---|---|---|

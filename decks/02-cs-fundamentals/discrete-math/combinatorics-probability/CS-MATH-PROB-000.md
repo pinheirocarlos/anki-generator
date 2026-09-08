@@ -41,6 +41,7 @@ Qual é a diferença matemática fundamental entre **Permutações** e **Combina
   <text x="340" y="165" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Identificação de Gargalos: Problemas O(n!) e O(2^n) exigem poda por Branch &amp; Bound ou DP.</text>
 
 </svg>
+<p>Visualização: Comparação entre Permutações (onde a ordem importa) e Combinações (agrupamentos não ordenados) na contagem de arranjos.</p>
 
 | Conceito | Importa a Ordem? | Exemplo com `{A,B,C}` ($k=2$) |
 |---|---|---|

@@ -41,6 +41,7 @@ O que estabelecem os **Teoremas de De Morgan** e como aplicá-los para simplific
   <text x="340" y="167" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Aplicação Prática: Refatoração de condicionais complexas e otimização de queries SQL (WHERE clauses).</text>
 
 </svg>
+<p>Visualização: Leis de De Morgan demonstrando a dualidade entre conjunção e disjunção através da inversão lógica.</p>
 
 | Expressão com Negação Externa | Forma Equivalente De Morgan | Legibilidade em Código |
 |---|---|---|

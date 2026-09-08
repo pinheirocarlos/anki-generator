@@ -45,6 +45,7 @@ Qual é a diferença entre um **Minor Page Fault** e um **Major Page Fault** no 
   <text x="340" y="160" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Monitoramento de Major Faults no Prometheus é crucial para detectar Thrashing de memória e pressão de Swap.</text>
 
 </svg>
+<p>Visualização: Fluxograma comparativo entre Minor Page Fault (resolução rápida em RAM via Page Cache) e Major Page Fault (bloqueio por I/O síncrono de disco).</p>
 
 | Tipo de Page Fault | Origem do Dado | Latência Típica |
 |---|---|---|

@@ -25,18 +25,16 @@ Como a **Otimização Convex Hull Trick (CHT)** reduz a complexidade de transiç
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Convex Hull Trick (CHT): Otimização de Transições de DP de O(N²) → O(N log N)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Convex Hull Trick (CHT): Otimização de DP de O(N²) → O(N log N) / O(N)</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
-    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Transições na Forma de Retas: dp[i] = min_{j} (m_j · x_i + c_j)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Mantém a envoltória convexa inferior das retas candidatas.</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Busca a melhor reta em tempo O(log N) com binary search ou O(1) se as inclinações forem monotônicas.</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Invólucro Convexo de Retas: y = m_j · x + c_j</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Transição de DP no formato dp[i] = min_{j &lt; i} (m_j · x_i + c_j).</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Descarta retas dominadas mantendo apenas o casco convexo com deque ou busca binária.</text>
   </g>
-  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Técnica padrão para problemas de partição de custos quadráticos em competições avançadas</text>
-
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Reduz transições quadráticas pesadas para tempo linear amortizado O(1) por consulta</text>
 </svg>
-
+<p>Visualização: Otimização Convex Hull Trick mantendo o invólucro de retas para encontrar o mínimo em tempo amortizado O(1).</p>
 | Abordagem de Transição | Custo por Estado | Complexidade Total |
 |---|---|---|
 | **DP Quadrática Padrão** | Varre todos os $j < i$ | $O(N^2)$ |

@@ -65,6 +65,7 @@ Qual é a intuição fundamental por trás de algoritmos de consenso (como Raft 
 
   <text x="300" y="180" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Mesmo perdendo 2 máquinas, o sistema continua operando com 100% de precisão!</text>
 </svg>
+<p>Visualização: Quórum de consenso por maioria simples em cluster de 5 nós tolerando até 2 falhas simultâneas sem inconsistências.</p>
 
 | Elemento de Consenso | Função no Cluster | Analogia do Cotidiano |
 |---|---|---|

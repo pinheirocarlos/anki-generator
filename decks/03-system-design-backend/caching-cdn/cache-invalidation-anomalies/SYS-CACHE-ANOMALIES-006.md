@@ -44,6 +44,7 @@ Qual é a intuição fundamental por trás do efeito Cache Stampede (Thundering 
 
   <text x="300" y="175" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Estratégia: Adicione Jitter (variação aleatória) nos TTLs para evitar expiração simultânea!</text>
 </svg>
+<p>Visualização: Analogia intuitiva do Cache Stampede comparando o colapso por avalanche de consultas simultâneas no banco de dados com a estabilização resiliente via Mutex / Single-Flight.</p>
 
 | Anomalia de Cache | O que Acontece | Analogia do Cotidiano |
 |---|---|---|

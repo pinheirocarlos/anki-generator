@@ -43,6 +43,7 @@ Como as variáveis de ambiente **`GOGC`** e **`GOMEMLIMIT`** controlam a frequê
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Boas Práticas em Kubernetes: Defina GOMEMLIMIT em ~90% do Memory Limit do Pod.</text>
 
 </svg>
+<p>Visualização: Estratégia de tuning de Garbage Collection em Go equilibrando a meta proporcional de crescimento de Heap (GOGC) com o teto absoluto suave (GOMEMLIMIT) para prevenir quedas por OOM Killer em contêineres.</p>
 
 | Variável | Papel Principal | Risco se Configurado Incorretamente |
 |---|---|---|

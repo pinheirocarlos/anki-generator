@@ -43,6 +43,7 @@ Como implementar processamento idempotente de pagamentos utilizando Chaves de Id
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">O cliente recebe exatamente a mesma resposta HTTP sem duplicar operações financeiras.</text>
 
 </svg>
+<p>Visualização: Inserção de chave de idempotência com chave única no banco de dados bloqueando processamento duplicado.</p>
 
 | Tentativa de Execução | Ação na Tabela de Idempotência | Efeito no Negócio |
 |---|---|---|

@@ -20,43 +20,8 @@ O que é a propriedade estrutural e a invariante de ordenação de um **Heap Bin
 - A estrutura não impõe ordenação horizontal estrita entre nós irmãos, apenas vertical entre pais e descendentes.
 
 ### Dual Coding Visual
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Representação de Heap Binário em Array Contíguo</text>
-  <g transform="translate(60, 50)">
-    <rect x="0" y="0" width="70" height="40" fill="#047857" stroke="#10b981" rx="4"/><text x="35" y="25" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">100 [0]</text>
-    <rect x="80" y="0" width="70" height="40" fill="#1e293b" stroke="#3b82f6" rx="4"/><text x="115" y="25" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">19 [1]</text>
-    <rect x="160" y="0" width="70" height="40" fill="#1e293b" stroke="#3b82f6" rx="4"/><text x="195" y="25" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">36 [2]</text>
-    <rect x="240" y="0" width="70" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="275" y="25" fill="#94a3b8" font-size="13" text-anchor="middle">17 [3]</text>
-    <rect x="320" y="0" width="70" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="355" y="25" fill="#94a3b8" font-size="13" text-anchor="middle">3 [4]</text>
-    <rect x="400" y="0" width="70" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="435" y="25" fill="#94a3b8" font-size="13" text-anchor="middle">25 [5]</text>
-    <rect x="480" y="0" width="70" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="515" y="25" fill="#94a3b8" font-size="13" text-anchor="middle">1 [6]</text>
-  </g>
-  <rect x="100" y="115" width="480" height="40" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
-  <text x="340" y="133" fill="#34d399" font-size="11" font-weight="bold" font-family="monospace" text-anchor="middle">Pai(i) = (i - 1) / 2  |  FilhoEsq(i) = 2i + 1  |  FilhoDir(i) = 2i + 2</text>
-  <text x="340" y="148" fill="#94a3b8" font-size="10" text-anchor="middle">Acesso a parentes via aritmética de índices sem alocar ponteiros extras</text>
-
-</svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Representação de Heap Binário em Array Contíguo</text>
-  <g transform="translate(60, 50)">
-    <rect x="0" y="0" width="70" height="40" fill="#047857" stroke="#10b981" rx="4"/><text x="35" y="25" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">100 [0]</text>
-    <rect x="80" y="0" width="70" height="40" fill="#1e293b" stroke="#3b82f6" rx="4"/><text x="115" y="25" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">19 [1]</text>
-    <rect x="160" y="0" width="70" height="40" fill="#1e293b" stroke="#3b82f6" rx="4"/><text x="195" y="25" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">36 [2]</text>
-    <rect x="240" y="0" width="70" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="275" y="25" fill="#94a3b8" font-size="13" text-anchor="middle">17 [3]</text>
-    <rect x="320" y="0" width="70" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="355" y="25" fill="#94a3b8" font-size="13" text-anchor="middle">3 [4]</text>
-    <rect x="400" y="0" width="70" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="435" y="25" fill="#94a3b8" font-size="13" text-anchor="middle">25 [5]</text>
-    <rect x="480" y="0" width="70" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="515" y="25" fill="#94a3b8" font-size="13" text-anchor="middle">1 [6]</text>
-  </g>
-  <rect x="100" y="115" width="480" height="40" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
-  <text x="340" y="133" fill="#34d399" font-size="11" font-weight="bold" font-family="monospace" text-anchor="middle">Pai(i) = (i - 1) / 2  |  FilhoEsq(i) = 2i + 1  |  FilhoDir(i) = 2i + 2</text>
-  <text x="340" y="148" fill="#94a3b8" font-size="10" text-anchor="middle">Acesso a parentes via aritmética de índices sem alocar ponteiros extras</text>
-
-</svg>
+<img src="assets/DSA-STRUCT-HEAP-000.gif" alt="Operação Sift-Up em Heap Binário" style="max-width: 100%; height: auto; border-radius: 8px; margin: 12px 0;" />
+<p>Visualização: Operação Sift-Up (Swim) promovendo o novo elemento na árvore binária até restaurar a invariante heap.</p>
 
 | Tipo de Heap | Invariante de Nó | Elemento na Raiz |
 |---|---|---|

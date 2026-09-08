@@ -48,6 +48,7 @@ Como os padrões Fan-Out e Fan-In aceleram tarefas computacionalmente intensivas
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Utiliza sync.WaitGroup para fechar o canal de saída de forma segura somente após todos os workers terminarem.</text>
 
 </svg>
+<p>Visualização: Fan-Out disparando múltiplos workers independentes e Fan-In agregando resultados em um canal único com sync.WaitGroup.</p>
 
 | Etapa do Fluxo | Ação Estrutural | Cardinalidade de Canais |
 |---|---|---|

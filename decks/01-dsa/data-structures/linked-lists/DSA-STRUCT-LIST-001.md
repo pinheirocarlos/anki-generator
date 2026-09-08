@@ -45,36 +45,9 @@ Como o padrão de **Nós Sentinela (Dummy Head / Dummy Tail)** elimina condiçõ
   </g>
   <text x="340" y="155" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Elimina checagens if (head == null) e simplifica inserções/remoções na cabeça da lista</text>
   <text x="340" y="175" fill="#94a3b8" font-size="11" text-anchor="middle">Retorno padrão da função: return dummy.next</text>
-
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Nós Sentinela (Dummy Nodes) para Eliminação de Edge Cases</text>
-  <g transform="translate(80, 60)">
-    <!-- Sentinel Dummy Node -->
-    <rect x="0" y="0" width="60" height="45" fill="#3b0764" stroke="#a855f7" stroke-width="2" rx="4"/>
-    <text x="30" y="20" fill="#e9d5ff" font-size="10" font-weight="bold" text-anchor="middle">DUMMY</text>
-    <text x="30" y="36" fill="#a855f7" font-size="9" text-anchor="middle">val: -1</text>
-    <rect x="60" y="0" width="30" height="45" fill="#581c87" rx="2"/><text x="75" y="28" fill="#f3e8ff" font-size="10" text-anchor="middle">&amp;N1</text>
-
-    <line x1="90" y1="22" x2="140" y2="22" stroke="#a855f7" stroke-width="2"/>
-
-    <!-- Head Node 1 -->
-    <rect x="140" y="0" width="50" height="45" fill="#1e293b" stroke="#3b82f6" rx="4"/><text x="165" y="28" fill="#fff" font-size="12" text-anchor="middle">Head</text>
-    <rect x="190" y="0" width="30" height="45" fill="#0f766e" rx="2"/><text x="205" y="28" fill="#a7f3d0" font-size="10" text-anchor="middle">&amp;N2</text>
-
-    <line x1="220" y1="22" x2="270" y2="22" stroke="#3b82f6" stroke-width="2"/>
-
-    <!-- Node 2 -->
-    <rect x="270" y="0" width="50" height="45" fill="#1e293b" stroke="#3b82f6" rx="4"/><text x="295" y="28" fill="#fff" font-size="12" text-anchor="middle">Node 2</text>
-    <rect x="320" y="0" width="30" height="45" fill="#0f766e" rx="2"/><text x="335" y="28" fill="#a7f3d0" font-size="10" text-anchor="middle">NULL</text>
-  </g>
-  <text x="340" y="155" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Elimina checagens if (head == null) e simplifica inserções/remoções na cabeça da lista</text>
-  <text x="340" y="175" fill="#94a3b8" font-size="11" text-anchor="middle">Retorno padrão da função: return dummy.next</text>
-
-</svg>
+<p>Visualização: Nós sentinela eliminando verificações de ponteiro nulo na cabeça e cauda.</p>
 
 | Estrutura de Lista | Inserção no Início | Remoção do Último Item |
 |---|---|---|

@@ -37,6 +37,8 @@ Como o **Algoritmo de Kahn (BFS In-Degree)** calcula a ordenação topológica e
 
 </svg>
 
+<p>Visualização: Algoritmo de Kahn decrementando graus de entrada e enfileirando nós com in-degree 0 para produzir a ordem topológica.</p>
+
 | Grau de Entrada (`in-degree`) | Significado de Negócio | Ação no Algoritmo |
 |---|---|---|
 | `in-degree == 0` | Pré-requisitos 100% satisfeitos | Enfileira para execução |

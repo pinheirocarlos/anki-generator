@@ -43,6 +43,7 @@ Como gateways de pagamento garantem que nenhuma cobrança seja duplicada sob fal
   <text x="340" y="195" fill="#94a3b8" font-size="10" text-anchor="middle">Reconciliação é o teste definitivo da integridade dos registros contábeis da instituição financeira.</text>
 
 </svg>
+<p>Visualização: Tabela de idempotência atômica interceptando retentativas e reconciliação noturna comparando extratos de adquirentes.</p>
 
 | Mecanismo de Segurança | Momento de Atuação | Objetivo |
 |---|---|---|

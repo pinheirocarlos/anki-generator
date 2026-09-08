@@ -24,18 +24,23 @@ Como a Programação Dinâmica 2D resolve o problema **Longest Common Subsequenc
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Edit Distance (Levenshtein): Inserção, Deleção e Substituição</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Longest Common Subsequence (LCS): Correspondência Diagonal vs Máximo</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
-    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Mínimo entre 3 Operações Elementares de Custo 1</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">dp[i][j] = 1 + min(dp[i][j-1] (Inserção), dp[i-1][j] (Deleção), dp[i-1][j-1] (Substituição)).</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Se s1[i-1] == s2[j-1]: dp[i][j] = dp[i-1][j-1] (custo zero).</text>
+    <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Match: s1[i-1] == s2[j-1]</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">dp[i][j] = dp[i-1][j-1] + 1</text>
+    <text x="15" y="60" fill="#a7f3d0" font-size="10">Avanço diagonal na matriz 2D</text>
+
+    <g transform="translate(280, 0)">
+      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
+      <text x="120" y="22" fill="#fcd34d" font-size="11" font-weight="bold" text-anchor="middle">Mismatch: s1[i-1] != s2[j-1]</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">dp[i][j] = max(dp[i-1][j], dp[i][j-1])</text>
+      <text x="15" y="60" fill="#fde68a" font-size="10">Propagação do melhor caminho</text>
+    </g>
   </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Complexidade: O(M × N) de tempo e espaço</text>
-
+  <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Reconstrução do alinhamento ótimo seguindo os ponteiros diagonais em O(M + N)</text>
 </svg>
-
+<p>Visualização: Matriz 2D de Longest Common Subsequence computando correspondências diagonais e propagando valores máximos em O(M·N).</p>
 | Comparação de Caracteres | Equação de Transição | Direção de Preenchimento |
 |---|---|---|
 | $S_1[i-1] == S_2[j-1]$ | $1 + DP[i-1][j-1]$ | Diagonal Superior |

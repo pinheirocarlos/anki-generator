@@ -44,6 +44,7 @@ Por que a comunicação via **Unix Domain Sockets (UDS)** é até 2x mais rápid
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">UDS entrega até 2x mais throughput e metade da latência em comparação com conexões de loopback.</text>
 
 </svg>
+<p>Visualização: Comparação entre Unix Domain Sockets (cópia direta de buffers no kernel e passagem de FDs) e TCP Loopback (overhead de framing, checksum e TCP stack).</p>
 
 | Característica | TCP Loopback (`127.0.0.1`) | Unix Domain Socket (`AF_UNIX`) |
 |---|---|---|

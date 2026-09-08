@@ -54,6 +54,7 @@ Qual é a intuição fundamental de por que usamos padrões de projeto (Design P
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Composição é sempre preferível à herança profunda!</text>
 </svg>
+<p>Visualização: As três famílias clássicas de Design Patterns do Gang of Four (GoF): Criacionais, Estruturais e Comportamentais.</p>
 
 | Pattern Clássico | Problema que Resolve | Analogia do Cotidiano |
 |---|---|---|

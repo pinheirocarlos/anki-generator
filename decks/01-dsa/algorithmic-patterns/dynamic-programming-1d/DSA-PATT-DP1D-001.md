@@ -24,25 +24,33 @@ Como modelar a equação de recorrência e a escolha binária (roubar vs não ro
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Top-Down (Memoization) vs Bottom-Up (Tabulation)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">House Robber: Decisão Binária em Cada Casa (Roubar vs Pular)</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="120" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Top-Down (Recursão + Cache)</text>
-    <text x="15" y="45" fill="#f8fafc" font-size="10">Inicia no problema N e desce</text>
-    <text x="15" y="60" fill="#93c5fd" font-size="10">Resolve apenas subestados necessários</text>
+    <rect x="0" y="15" width="80" height="45" fill="#1e293b" stroke="#64748b" rx="4"/>
+    <text x="40" y="35" fill="#94a3b8" font-size="11" text-anchor="middle">Casa i-2</text>
+    <text x="40" y="50" fill="#cbd5e1" font-size="12" font-weight="bold" text-anchor="middle">dp[i-2]</text>
 
-    <g transform="translate(280, 0)">
-      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Bottom-Up (Iterativo / Array)</text>
-      <text x="15" y="45" fill="#f8fafc" font-size="10">Inicia nos casos base: dp[0], dp[1]...</text>
-      <text x="15" y="60" fill="#a7f3d0" font-size="10">Zero overhead de stack frame, mais rápido</text>
-    </g>
+    <text x="110" y="42" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">+</text>
+
+    <rect x="130" y="15" width="80" height="45" fill="#065f46" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="170" y="35" fill="#a7f3d0" font-size="11" text-anchor="middle">Casa i</text>
+    <text x="170" y="50" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">nums[i]</text>
+
+    <text x="245" y="42" fill="#38bdf8" font-size="13" font-weight="bold" text-anchor="middle">vs</text>
+
+    <rect x="280" y="15" width="90" height="45" fill="#1e293b" stroke="#3b82f6" rx="4"/>
+    <text x="325" y="35" fill="#93c5fd" font-size="11" text-anchor="middle">Casa i-1</text>
+    <text x="325" y="50" fill="#60a5fa" font-size="12" font-weight="bold" text-anchor="middle">dp[i-1] (Pular i)</text>
+
+    <text x="400" y="42" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">→</text>
+
+    <rect x="425" y="10" width="95" height="55" fill="#1e1b4b" stroke="#818cf8" stroke-width="2" rx="6"/>
+    <text x="472" y="33" fill="#a5b4fc" font-size="11" text-anchor="middle">Decisão Ótima</text>
+    <text x="472" y="52" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">dp[i] = max(...)</text>
   </g>
-  <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Bottom-Up frequentemente permite otimização de espaço eliminando a tabela completa</text>
-
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Invariante: Casas adjacentes nunca são roubadas simultaneamente (Tempo O(N), Espaço O(1))</text>
 </svg>
-
+<p>Visualização: Transição de estados do House Robber escolhendo entre roubar a casa atual somada a dp[i-2] ou manter o acumulado dp[i-1].</p>
 | Decisão na Casa $i$ | Restrição Aplicada | Ganho Acumulado |
 |---|---|---|
 | **Roubar Casa $i$** | Não pode roubar $i-1$ | $DP[i-2] + A[i]$ |

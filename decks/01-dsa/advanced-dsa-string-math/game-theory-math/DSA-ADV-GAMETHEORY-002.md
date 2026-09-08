@@ -25,32 +25,16 @@ Como o **Teorema de Bouton** utiliza a **Soma de Nim (XOR acumulado das pilhas)*
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Algoritmo de Euclides Estendido: Coeficientes de Bézout a·x + b·y = gcd(a, b)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Jogo de Nim: Teorema de Bouton e a Nim-Sum via XOR em O(N)</text>
   <g transform="translate(80, 50)">
     <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Cálculo de Inversos Modulares e Equações Diofantinas Lineares</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Recursão clássica: gcd(a, b) = gcd(b, a % b).</text>
-    <text x="20" y="62" fill="#38bdf8" font-size="11">No retorno, atualiza: x = y1, y = x1 - (a / b) · y1 em tempo O(log(min(a, b))).</text>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Nim-Sum S = p₁ ⊕ p₂ ⊕ ... ⊕ pₖ</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Se S != 0: Posição N (Vencedora) ➔ sempre existe uma jogada que transforma S em 0.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Se S == 0: Posição P (Perdedora) ➔ qualquer movimento resultará obrigatoriamente em S != 0.</text>
   </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Pedra fundamental da criptografia de chave pública RSA e ECC</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Permite determinar o vencedor de qualquer configuração de Nim em tempo linear O(N) e espaço O(1)</text>
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Algoritmo de Euclides Estendido: Coeficientes de Bézout a·x + b·y = gcd(a, b)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Cálculo de Inversos Modulares e Equações Diofantinas Lineares</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Recursão clássica: gcd(a, b) = gcd(b, a % b).</text>
-    <text x="20" y="62" fill="#38bdf8" font-size="11">No retorno, atualiza: x = y1, y = x1 - (a / b) · y1 em tempo O(log(min(a, b))).</text>
-  </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Pedra fundamental da criptografia de chave pública RSA e ECC</text>
-
-</svg>
-
+<p>Visualização: Teorema de Bouton aplicando o operador XOR cumulativo (Nim-Sum) sobre as pilhas de moedas para identificar posições vencedoras.</p>
 | Soma de Nim ($S = \bigoplus x_i$) | Tipo de Posição | Destino do Primeiro Jogador |
 |---|---|---|
 | $S = 0$ | P-Position | Derrota garantida contra jogo perfeito |

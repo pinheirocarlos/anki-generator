@@ -23,18 +23,19 @@ Como as propriedades comutativa e associativa do **XOR** encontram o único elem
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Subsets via Bitmask: Enumeração de 0 a 2ᴺ - 1 em O(N · 2ᴺ)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
-    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Cada Inteiro de 0 a 2ᴺ - 1 Mapeia 1 Subconjunto Único</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Se o bit j da máscara (mask &amp; (1 &lt;&lt; j)) é 1: inclui o elemento nums[j] no subconjunto.</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Iteração iterativa limpa sem pilha de recursão ou chamadas de função.</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Single Number: XOR Cumulativo para Cancelar Elementos Duplicados</text>
+  <g transform="translate(100, 50)">
+    <rect x="0" y="15" width="80" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="40" y="40" fill="#94a3b8" font-size="12" text-anchor="middle">4 ^ 1 ^ 2</text>
+    <text x="105" y="40" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">^</text>
+    <rect x="130" y="15" width="80" height="40" fill="#1e293b" stroke="#475569" rx="4"/><text x="170" y="40" fill="#94a3b8" font-size="12" text-anchor="middle">1 ^ 2</text>
+    <text x="235" y="40" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">=</text>
+    <rect x="260" y="10" width="200" height="50" fill="#065f46" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="360" y="32" fill="#a7f3d0" font-size="10" text-anchor="middle">(1 ^ 1) ^ (2 ^ 2) ^ 4 = 0 ^ 0 ^ 4</text>
+    <text x="360" y="48" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">Resultado = 4</text>
   </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Ideal para gerar combinações e particionamentos de conjuntos de tamanho N ≤ 20</text>
-
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Propriedades: x ^ x = 0 e x ^ 0 = x (Comutativo e Associativo em tempo O(N) e espaço O(1))</text>
 </svg>
-
+<p>Visualização: Propriedades do XOR (comutatividade e auto-anulação x ^ x = 0) isolando o elemento único sem memória auxiliar.</p>
 | Abordagem | Tempo | Memória Auxiliar |
 |---|---|---|
 | **Hash Set** | $O(N)$ | $O(N)$ Conjunto de elementos |

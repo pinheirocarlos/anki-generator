@@ -42,6 +42,7 @@ Como funciona o mecanismo de **Upgrade de Conexão HTTP para WebSocket** via cab
   <text x="340" y="165" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Após o status 101, os headers HTTP são descartados e a comunicação passa a ser puramente por frames WS (2B overhead).</text>
 
 </svg>
+<p>Visualização: Mecanismo de handshake HTTP com resposta 101 Switching Protocols promovendo a conexão TCP para o protocolo full-duplex WebSocket.</p>
 
 | Fase da Conexão | Protocolo Ativo | Código de Status HTTP |
 |---|---|---|

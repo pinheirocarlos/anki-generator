@@ -61,6 +61,7 @@ Qual é a intuição fundamental por trás dos padrões de concorrência backend
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Controle de Concorrência: Recursos previsíveis e zero risco de Out-Of-Memory!</text>
 </svg>
+<p>Visualização: Padrão Worker Pool desacoplando produtores de tarefas e workers concorrentes através de um canal de fila com capacidade finita.</p>
 
 | Padrão de Concorrência | Como Opera | Analogia do Cotidiano |
 |---|---|---|

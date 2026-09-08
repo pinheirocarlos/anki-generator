@@ -42,6 +42,7 @@ Por que servidores modernos utilizam multiplexação de I/O orientada a eventos 
 
   <text x="300" y="160" fill="#10b981" font-size="11" font-family="monospace" text-anchor="middle">Fundação de alta performance do Nginx, Redis, Netty e Node.js!</text>
 </svg>
+<p>Visualização: Comparação de escalabilidade I/O entre o modelo bloqueante de 1 thread por conexão e a multiplexação dirigida a eventos com epoll O(1).</p>
 
 | Modelo de I/O | Comportamento | Analogia de Restaurante |
 |---|---|---|

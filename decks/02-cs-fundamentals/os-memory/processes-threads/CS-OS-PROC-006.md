@@ -52,6 +52,7 @@ Qual é a diferença conceitual e prática essencial entre um processo e uma thr
 
   <text x="300" y="168" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Vantagem das Threads: Comunicação ultrarrápida via memória compartilhada!</text>
 </svg>
+<p>Visualização: Metáfora visual do processo como condomínio isolado e threads como trabalhadores que compartilham áreas comuns mas mantêm mesas individuais de trabalho.</p>
 
 | Característica | Processo | Thread |
 |---|---|---|

@@ -23,38 +23,42 @@ Como funciona a representação por **Lista de Adjacência** e por que ela é o 
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Grafos Ponderados: Representação de Custos e Pesos em Arestas</text>
-  <g transform="translate(140, 50)">
-    <circle cx="50" cy="40" r="16" fill="#1e293b" stroke="#3b82f6"/><text x="50" y="44" fill="#fff" font-size="11" text-anchor="middle">U</text>
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Lista de Adjacência: Eficiência Espacial O(V + E) e Iteração O(deg(u))</text>
+  
+  <g transform="translate(60, 45)">
+    <!-- Visualização de nós e ponteiros -->
+    <rect x="0" y="0" width="560" height="105" fill="#1e293b" stroke="#10b981" stroke-width="1.5" rx="6"/>
     
-    <line x1="68" y1="40" x2="232" y2="40" stroke="#f59e0b" stroke-width="2.5"/>
-    <rect x="130" y="28" width="40" height="24" fill="#1e293b" stroke="#f59e0b" rx="4"/>
-    <text x="150" y="44" fill="#fcd34d" font-size="11" font-weight="bold" text-anchor="middle">w=7</text>
+    <!-- Linhas da Lista de Adjacência -->
+    <g transform="translate(25, 20)">
+      <text x="0" y="16" fill="#34d399" font-size="12" font-family="monospace" font-weight="bold">adj[0] ➔</text>
+      <rect x="75" y="3" width="30" height="18" fill="#0f172a" stroke="#38bdf8" rx="3"/>
+      <text x="90" y="16" fill="#fff" font-size="11" font-family="monospace" text-anchor="middle">1</text>
+      <text x="110" y="16" fill="#64748b" font-size="11">➔</text>
+      <rect x="125" y="3" width="30" height="18" fill="#0f172a" stroke="#38bdf8" rx="3"/>
+      <text x="140" y="16" fill="#fff" font-size="11" font-family="monospace" text-anchor="middle">2</text>
 
-    <circle cx="250" cy="40" r="16" fill="#1e293b" stroke="#10b981"/><text x="250" y="44" fill="#fff" font-size="11" text-anchor="middle">V</text>
+      <text x="0" y="42" fill="#34d399" font-size="12" font-family="monospace" font-weight="bold">adj[1] ➔</text>
+      <rect x="75" y="29" width="30" height="18" fill="#0f172a" stroke="#38bdf8" rx="3"/>
+      <text x="90" y="42" fill="#fff" font-size="11" font-family="monospace" text-anchor="middle">0</text>
+      <text x="110" y="42" fill="#64748b" font-size="11">➔</text>
+      <rect x="125" y="29" width="30" height="18" fill="#0f172a" stroke="#38bdf8" rx="3"/>
+      <text x="140" y="42" fill="#fff" font-size="11" font-family="monospace" text-anchor="middle">3</text>
+
+      <text x="0" y="68" fill="#34d399" font-size="12" font-family="monospace" font-weight="bold">adj[2] ➔</text>
+      <rect x="75" y="55" width="30" height="18" fill="#0f172a" stroke="#38bdf8" rx="3"/>
+      <text x="90" y="68" fill="#fff" font-size="11" font-family="monospace" text-anchor="middle">0</text>
+
+      <text x="250" y="25" fill="#f8fafc" font-size="11">• Vetor dinâmico adj[u] armazena apenas vizinhos reais</text>
+      <text x="250" y="45" fill="#94a3b8" font-size="11">• Custo de memória total: 2 × |E| inteiros alocados</text>
+      <text x="250" y="65" fill="#38bdf8" font-size="11">• BFS/DFS visitam cada aresta exatamente uma vez: O(V + E)</text>
+    </g>
   </g>
-  <text x="340" y="145" fill="#34d399" font-size="11" font-family="monospace" text-anchor="middle">Lista de adjacência: adj[u].push_back({ v, weight = 7 })</text>
-  <text x="340" y="170" fill="#94a3b8" font-size="11" text-anchor="middle">Modelagem de redes de computadores (latência), mapas de trânsito e fluxo de capacidade</text>
 
+  <text x="340" y="175" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Padrão dominante na indústria para modelar grafos esparsos do mundo real</text>
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Grafos Ponderados: Representação de Custos e Pesos em Arestas</text>
-  <g transform="translate(140, 50)">
-    <circle cx="50" cy="40" r="16" fill="#1e293b" stroke="#3b82f6"/><text x="50" y="44" fill="#fff" font-size="11" text-anchor="middle">U</text>
-    
-    <line x1="68" y1="40" x2="232" y2="40" stroke="#f59e0b" stroke-width="2.5"/>
-    <rect x="130" y="28" width="40" height="24" fill="#1e293b" stroke="#f59e0b" rx="4"/>
-    <text x="150" y="44" fill="#fcd34d" font-size="11" font-weight="bold" text-anchor="middle">w=7</text>
-
-    <circle cx="250" cy="40" r="16" fill="#1e293b" stroke="#10b981"/><text x="250" y="44" fill="#fff" font-size="11" text-anchor="middle">V</text>
-  </g>
-  <text x="340" y="145" fill="#34d399" font-size="11" font-family="monospace" text-anchor="middle">Lista de adjacência: adj[u].push_back({ v, weight = 7 })</text>
-  <text x="340" y="170" fill="#94a3b8" font-size="11" text-anchor="middle">Modelagem de redes de computadores (latência), mapas de trânsito e fluxo de capacidade</text>
-
-</svg>
+<p>Visualização: Lista de adjacência mapeando cada vértice apenas aos seus vizinhos diretos em espaço ótimo O(V + E).</p>
 
 | Representação | Consumo de Memória | Iteração de Vizinhos de $u$ |
 |---|---|---|

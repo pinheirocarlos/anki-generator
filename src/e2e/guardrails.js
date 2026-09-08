@@ -313,6 +313,67 @@ export async function assertSvgIntegrity(page, options = {}) {
 }
 
 /**
+ * Asserts image rendering integrity across cards.
+ * Validates that all <img> elements load successfully without error,
+ * have non-zero natural dimensions when complete, and have valid non-empty src attributes.
+ *
+ * @param {import('@playwright/test').Page} page - Playwright Page instance
+ * @param {object} [options]
+ * @param {boolean} [options.requireImage=false] - Whether to require at least one image element
+ * @returns {Promise<{
+ *   imageCount: number,
+ *   brokenImages: Array<{ index: number, src: string, reason: string }>,
+ *   passed: boolean,
+ *   errors: string[]
+ * }>}
+ */
+export async function assertImageIntegrity(page, options = {}) {
+  const { requireImage = false } = options;
+
+  const data = await page.evaluate((reqImg) => {
+    const imgEls = Array.from(document.querySelectorAll('img'));
+    if (imgEls.length === 0) {
+      return {
+        imageCount: 0,
+        brokenImages: [],
+        requiredImageMissing: reqImg
+      };
+    }
+
+    const broken = [];
+    for (let i = 0; i < imgEls.length; i++) {
+      const img = imgEls[i];
+      const src = img.getAttribute('src') || '';
+      if (!src) {
+        broken.push({ index: i + 1, src: '', reason: 'Empty src attribute' });
+      } else if (img.complete && img.naturalWidth === 0) {
+        broken.push({ index: i + 1, src, reason: 'Image failed to load (naturalWidth === 0)' });
+      }
+    }
+
+    return {
+      imageCount: imgEls.length,
+      brokenImages: broken,
+      requiredImageMissing: false
+    };
+  }, requireImage);
+
+  const errors = [];
+  if (data.requiredImageMissing) {
+    errors.push('Card is expected to render an image, but no <img> element was found in the DOM');
+  }
+  for (const b of data.brokenImages) {
+    errors.push(`Image #${b.index} (${b.src}): ${b.reason}`);
+  }
+
+  return {
+    ...data,
+    passed: errors.length === 0,
+    errors
+  };
+}
+
+/**
  * Asserts that all `<video>` elements contain mandatory mobile playback flags (Principle I).
  * Required: autoplay, loop, muted, playsinline, webkit-playsinline, disableRemotePlayback.
  *
@@ -596,6 +657,7 @@ export async function runCardGuardrails(page, context) {
     testAccordion = (side === 'back'),
     requireSvg = false,
     requireVideo = false,
+    requireImage = false,
     visualDiffRatio
   } = options;
 
@@ -620,15 +682,19 @@ export async function runCardGuardrails(page, context) {
   const svgRes = await assertSvgIntegrity(page, { requireSvg });
   allErrors.push(...svgRes.errors);
 
-  // 5. Video Attributes Guardrail (Principle I)
+  // 5. Image & Animated GIF Integrity Guardrail
+  const imageRes = await assertImageIntegrity(page, { requireImage });
+  allErrors.push(...imageRes.errors);
+
+  // 6. Video Attributes Guardrail (Principle I)
   const videoRes = await assertVideoAttributes(page, { requireVideo });
   allErrors.push(...videoRes.errors);
 
-  // 6. Code Highlighting Guardrail (Principle III)
+  // 7. Code Highlighting Guardrail (Principle III)
   const codeRes = await assertCodeHighlighting(page);
   allErrors.push(...codeRes.errors);
 
-  // 7. Accordion Interactive Toggle (if requested and details present)
+  // 8. Accordion Interactive Toggle (if requested and details present)
   if (testAccordion && touchRes.summaryCount > 0) {
     const accordionRes = await assertAccordionInteraction(page, {
       expectedViewportWidth: viewport?.width
@@ -636,7 +702,7 @@ export async function runCardGuardrails(page, context) {
     allErrors.push(...accordionRes.errors);
   }
 
-  // 8. Visual Diff Ratio check (if provided)
+  // 9. Visual Diff Ratio check (if provided)
   if (typeof visualDiffRatio === 'number' && visualDiffRatio > MAX_DIFF_PIXEL_RATIO) {
     allErrors.push(
       `Visual regression diff ratio ${visualDiffRatio} exceeds maximum allowed threshold of ${MAX_DIFF_PIXEL_RATIO}`
@@ -649,6 +715,7 @@ export async function runCardGuardrails(page, context) {
     hasHorizontalOverflow: overflowRes.hasHorizontalOverflow,
     katexErrorCount: katexRes.katexErrorCount,
     svgElementCount: svgRes.svgElementCount,
+    imageElementCount: imageRes.imageCount,
     videoMissingAttributes: videoRes.videoMissingAttributes,
     videoElementCount: videoRes.videoElementCount,
     highlightJsTokensFound: codeRes.highlightJsTokensFound

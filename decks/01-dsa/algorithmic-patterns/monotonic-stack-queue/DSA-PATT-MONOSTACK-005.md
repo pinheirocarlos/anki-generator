@@ -24,19 +24,38 @@ Como um **Monotonic Deque** acelera a transição de DP $DP[i] = nums[i] + \max_
 - **Complexidade**: $O(N)$ tempo e $O(N)$ espaço.
 
 ### Dual Coding Visual
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+<svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="220" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Shortest Subarray with Sum at Least K (Monotonic Deque + Prefix Sums)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
-    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Suporte a Números Negativos no Array</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Calcula vetor de somas prefixas P[i]. Mantém Deque de índices com P[i] estritamente crescente.</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Enquanto P[i] - P[deque.front()] &gt;= K: min_len = min(min_len, i - deque.pop_front()).</text>
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Constrained Subsequence Sum (LeetCode 1425): DP + Monotonic Deque</text>
+  
+  <g transform="translate(45, 45)">
+    <!-- DP Formula -->
+    <rect x="0" y="0" width="240" height="115" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="120" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Equação de Recorrência DP:</text>
+    <text x="15" y="48" fill="#f8fafc" font-size="10">DP[i] = nums[i] + max(0, max_DP)</text>
+    <text x="15" y="70" fill="#fde68a" font-size="10">Onde max_DP = max(DP[j])</text>
+    <text x="15" y="86" fill="#fde68a" font-size="10">para j ∈ [i - K, i - 1]</text>
+    <text x="15" y="104" fill="#94a3b8" font-size="9">Linear scan = O(N × K) TLE</text>
+
+    <!-- Arrow -->
+    <path d="M 255 60 L 285 60" stroke="#f59e0b" stroke-width="2.5"/>
+
+    <!-- Monotonic Deque Optimization -->
+    <g transform="translate(300, 0)">
+      <rect x="0" y="0" width="290" height="115" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="145" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Otimização com Deque Monótono:</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">1. Remove índices expirados: j &lt; i - K</text>
+      <text x="15" y="65" fill="#34d399" font-size="10" font-weight="bold">2. max_DP = DP[deque.peekFirst()] em O(1)</text>
+      <text x="15" y="85" fill="#f8fafc" font-size="10">3. Remove do fim DP[last] &lt;= DP[i]</text>
+      <text x="15" y="105" fill="#38bdf8" font-size="10">4. Adiciona i ao fim do Deque</text>
+    </g>
   </g>
-  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Supera a limitação de Two Pointers para arrays com valores negativos em O(N)</text>
-
+  <text x="340" y="200" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Aceleração de O(N · K) para O(N) com consulta instantânea do máximo em O(1)</text>
 </svg>
+
+<p>Visualização: Transição de Programação Dinâmica acelerada por Monotonic Deque de O(N·K) para O(N).</p>
+
 
 | Abordagem de DP | Busca do Máximo nos Últimos $K$ | Complexidade Total |
 |---|---|---|

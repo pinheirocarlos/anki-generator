@@ -46,6 +46,7 @@ Como implementar um Distributed Lock no Redis com comando atômico `SET resource
   <text x="340" y="200" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Redlock puro sem fencing tokens não garante correção sob pausas de GC e assincronia de rede.</text>
 
 </svg>
+<p>Visualização: Quebra de exclusão mútua quando uma pausa longa de GC no cliente faz o TTL do lock expirar antes do processamento terminar.</p>
 
 | Linha do Tempo | Estado dos Processos | Estado do Lock no Redis |
 |---|---|---|

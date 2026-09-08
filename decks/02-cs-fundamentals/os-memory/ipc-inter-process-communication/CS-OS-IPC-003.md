@@ -44,6 +44,7 @@ Por que a **Memória Compartilhada (Shared Memory / `shm_open`)** é o mecanismo
   <text x="340" y="160" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Processo A grava na memória e o Processo B lê instantaneamente; sincronização exige semáforos POSIX ou Mutex robustos.</text>
 
 </svg>
+<p>Visualização: Mapeamento de memória compartilhada POSIX conectando espaços virtuais distintos ao mesmo quadro físico de RAM com transferência O(1) Zero-Copy.</p>
 
 | Mecanismo de IPC | Cópias de Dados por Mensagem | Envolve Syscalls a cada Mensagem? |
 |---|---|---|

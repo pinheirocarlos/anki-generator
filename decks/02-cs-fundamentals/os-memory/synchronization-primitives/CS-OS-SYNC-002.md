@@ -46,6 +46,7 @@ Qual é a diferença essencial de comportamento e caso de uso entre um **Mutex**
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Semáforos também são amplamente utilizados para sinalização e sincronização produtor-consumidor entre threads.</text>
 
 </svg>
+<p>Visualização: Distinção entre Mutex (bloqueio exclusivo 1:1 com propriedade estrita de liberação) e Semáforo Contador (gerenciamento de pool de N recursos compartilhados).</p>
 
 | Característica | Mutex | Semáforo Contador ($N$) |
 |---|---|---|

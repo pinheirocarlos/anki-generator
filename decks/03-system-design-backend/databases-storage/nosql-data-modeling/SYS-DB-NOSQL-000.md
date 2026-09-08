@@ -53,6 +53,7 @@ Como a combinação de Partition Key (HASH) e Sort Key (RANGE) viabiliza o padr�
   <text x="340" y="208" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Uma única Query(PK=USER#101, SK begins_with ORDER#) retorna usuário e histórico em 1 RTT O(1).</text>
 
 </svg>
+<p>Visualização: Modelagem Single-Table no DynamoDB particionando por HASH (PK) e ordenando ranges por SORT (SK) para consultas ricas em 1 RTT.</p>
 
 | Chave da Tabela | Formato de Exemplo | Finalidade |
 |---|---|---|

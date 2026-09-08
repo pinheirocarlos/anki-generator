@@ -24,28 +24,8 @@ Como o paradigma de **Divisão e Conquista (Divide and Conquer)** decompõe prob
   - Se $d > \log_b a \implies T(N) = O(N^d)$ (Raiz domina).
 
 ### Dual Coding Visual
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Merge Sort: Divisão ao Meio e Intercalação Estável O(N log N)</text>
-  <g transform="translate(120, 50)">
-    <rect x="0" y="0" width="180" height="30" fill="#1e293b" stroke="#3b82f6" rx="4"/><text x="90" y="20" fill="#38bdf8" font-size="11" text-anchor="middle">Array [38, 27, 43, 3, 9, 82]</text>
-    <line x1="90" y1="30" x2="45" y2="55" stroke="#3b82f6"/>
-    <line x1="90" y1="30" x2="135" y2="55" stroke="#3b82f6"/>
-
-    <rect x="0" y="55" width="90" height="24" fill="#1e293b" stroke="#64748b" rx="3"/><text x="45" y="71" fill="#94a3b8" font-size="9" text-anchor="middle">[38, 27, 43]</text>
-    <rect x="100" y="55" width="90" height="24" fill="#1e293b" stroke="#64748b" rx="3"/><text x="145" y="71" fill="#94a3b8" font-size="9" text-anchor="middle">[3, 9, 82]</text>
-
-    <g transform="translate(240, 15)">
-      <path d="M 0 35 L 40 35" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow)"/>
-      <rect x="50" y="15" width="190" height="40" fill="#065f46" stroke="#10b981" stroke-width="2" rx="4"/>
-      <text x="145" y="38" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">Merge([27,38,43], [3,9,82])</text>
-      <text x="145" y="68" fill="#34d399" font-size="10" font-family="monospace" text-anchor="middle">→ [3, 9, 27, 38, 43, 82]</text>
-    </g>
-  </g>
-  <text x="340" y="170" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Garante O(N log N) no pior caso e estabilidade de ordem com espaço O(N)</text>
-
-</svg>
+<img src="assets/DSA-PATT-DIVCONQ-000.gif" alt="Particionamento QuickSort In-Place" style="max-width: 100%; height: auto; border-radius: 8px; margin: 12px 0;" />
+<p>Visualização: Particionamento in-place do QuickSort organizando elementos menores à esquerda e maiores à direita do pivô.</p>
 
 | Algoritmo | Recorrência e Parâmetros | Complexidade Final |
 |---|---|---|

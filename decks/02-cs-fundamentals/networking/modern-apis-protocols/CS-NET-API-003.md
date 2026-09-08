@@ -42,6 +42,7 @@ Como o **GraphQL** resolve os problemas clássicos de *Over-fetching* e *Under-f
   <text x="340" y="165" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Trade-off: GraphQL dificulta caching HTTP de borda (CDN) porque quase todas as requisições usam método POST.</text>
 
 </svg>
+<p>Visualização: Resolução de over-fetching e under-fetching com GraphQL permitindo consultas declarativas de dados exatos em uma única viagem de rede.</p>
 
 | Problema em REST | Sintoma em Clientes Móveis | Resolução com GraphQL |
 |---|---|---|

@@ -52,6 +52,7 @@ Como a combinação dos padrões Strategy e Factory Method substitui blocos comp
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Adesão perfeita ao Open/Closed Principle (OCP): novos métodos de pagamento são adicionados sem alterar código existente.</text>
 
 </svg>
+<p>Visualização: Substituição de condicionais por polimorfismo instanciando algoritmos via Factory e executando via interface Strategy.</p>
 
 | Abordagem | Manutenibilidade | Aderência ao OCP |
 |---|---|---|

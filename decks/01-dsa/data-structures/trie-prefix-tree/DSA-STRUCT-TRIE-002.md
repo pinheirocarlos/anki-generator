@@ -22,30 +22,24 @@ Como uma Trie executa as operações de **inserção**, **busca exata** e **`sta
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Autocomplete e Sugestões com DFS na Subárvore de Prefixo</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Busca de Prefixo (startsWith) vs Busca de Palavra Completa (search)</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Algoritmo de Sugestão de Busca:</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Navega até o nó do prefixo digitado (ex: "app") em O(L).</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">2. Executa DFS a partir deste nó para coletar todas as palavras filhas ("apple", "apply", "app").</text>
+    <rect x="0" y="0" width="230" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="115" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">startsWith("ca")</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">Percorre 'c' → 'a'</text>
+    <text x="15" y="60" fill="#34d399" font-size="10">Retorna true se o nó existe</text>
+
+    <g transform="translate(280, 0)">
+      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">search("ca")</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">Percorre 'c' → 'a'</text>
+      <text x="15" y="60" fill="#f87171" font-size="10">Retorna node.isEndOfWord (false se só "cat")</text>
+    </g>
   </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Base de motores typeahead de buscas e corretores ortográficos</text>
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Compartilhamento de prefixos reduz drasticamente a redundância na memória</text>
 
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Autocomplete e Sugestões com DFS na Subárvore de Prefixo</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Algoritmo de Sugestão de Busca:</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Navega até o nó do prefixo digitado (ex: "app") em O(L).</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">2. Executa DFS a partir deste nó para coletar todas as palavras filhas ("apple", "apply", "app").</text>
-  </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Base de motores typeahead de buscas e corretores ortográficos</text>
-
-</svg>
+<p>Visualização: Comparação entre startsWith (verifica apenas existência do caminho) e search (exige confirmação da flag isEndOfWord).</p>
 
 | Operação em Trie | Critério de Sucesso | Complexidade de Tempo |
 |---|---|---|

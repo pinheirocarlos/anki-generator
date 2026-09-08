@@ -46,6 +46,7 @@ Quais são os trade-offs de tempo e espaço entre representar grafos via **Matri
   <text x="340" y="165" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Em entrevistas FAANG: Lista de Adjacência é o padrão de implementação para BFS, DFS e Dijkstra.</text>
 
 </svg>
+<p>Visualização: Comparativo estrutural de consumo de memória e latência de consulta entre Matriz de Adjacência e Lista de Adjacência.</p>
 
 | Operação | Matriz de Adjacência | Lista de Adjacência |
 |---|---|---|

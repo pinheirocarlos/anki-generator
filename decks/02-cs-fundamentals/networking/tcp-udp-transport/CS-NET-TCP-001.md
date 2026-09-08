@@ -45,6 +45,7 @@ Como operam os algoritmos de controle de congestionamento TCP baseados em perda 
   <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">BBR é o padrão adotado pelo YouTube, Cloudflare e Google Cloud para links de alta latência e perda residual.</text>
 
 </svg>
+<p>Visualização: Algoritmos de controle de congestionamento comparando a curva cúbica reativa a perdas do CUBIC com o modelo de gargalo preditivo do BBR.</p>
 
 | Algoritmo | Sinal Primário de Congestionamento | Comportamento sob Bufferbloat |
 |---|---|---|

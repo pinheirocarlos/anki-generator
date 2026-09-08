@@ -43,6 +43,7 @@ Como o mecanismo de Fencing Tokens (proposto por Martin Kleppmann) protege stora
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">O Storage valida last_token monotônico: gravações com tokens obsoletos são descartadas atomicamente.</text>
 
 </svg>
+<p>Visualização: Fencing Tokens monotonicamente crescentes rejeitando gravações de clientes antigos com tokens desatualizados.</p>
 
 | Origem da Operação | Token Apresentado | Decisão do Storage |
 |---|---|---|

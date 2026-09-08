@@ -49,6 +49,7 @@ Como uma Árvore de Prefixos (Trie) em memória combinada com pré-computação 
   <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Retorno em tempo O(p) onde p é o tamanho do prefixo digitado (ex: 2 caracteres), independente do tamanho do dicionário.</text>
 
 </svg>
+<p>Visualização: Árvore Trie em memória armazenando as K sugestões mais frequentes em cada nó para retorno em O(1).</p>
 
 | Estrutura de Autocomplete | Tempo de Resposta | Complexidade Algorítmica |
 |---|---|---|

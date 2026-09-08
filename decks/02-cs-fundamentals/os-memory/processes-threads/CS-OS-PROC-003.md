@@ -39,6 +39,7 @@ Quais informações essenciais são salvas no **PCB (Process Control Block)** e 
   <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">A flexibilidade da syscall clone() permite implementar desde threads POSIX até contêineres (Namespaces/Cgroups).</text>
 
 </svg>
+<p>Visualização: Estrutura interna da task_struct no kernel Linux compartilhando descritores de memória e arquivos entre threads irmãs.</p>
 
 | Estrutura do Kernel | Dados Armazenados | Escopo |
 |---|---|---|

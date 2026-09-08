@@ -58,6 +58,8 @@ Qual é a intuição fundamental por trás do armazenamento de dados em um array
   <text x="230" y="32" fill="#10b981" font-size="11" font-family="sans-serif">Pulo Direto O(1)</text>
 </svg>
 
+<p>Visualização: Analogia do armário sequencial permitindo acesso direto instantâneo O(1).</p>
+
 | Característica | Array Contíguo | Analogia do Cotidiano |
 |---|---|---|
 | **Acesso por Posição** | $O(1)$ Instantâneo | Ir direto ao escaninho número 20 |

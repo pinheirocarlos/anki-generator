@@ -35,6 +35,7 @@ Como a otimização de **Copy-On-Write (COW)** torna a syscall **`fork()`** prat
   <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Base do snapshotting do Redis (BGSAVE) e isolamento instantâneo de processos em contêineres Linux.</text>
 
 </svg>
+<p>Visualização: Mecanismo de Copy-On-Write (COW) no fork() compartilhando frames físicos de memória como read-only até a ocorrência de uma escrita.</p>
 
 | Fase do Processo | Estado das Páginas na MMU | Memória RAM Física |
 |---|---|---|

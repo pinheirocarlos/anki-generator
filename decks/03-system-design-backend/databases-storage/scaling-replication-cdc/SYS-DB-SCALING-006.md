@@ -63,6 +63,7 @@ Qual é a intuição fundamental de como escalar bancos de dados relacionais usa
 
   <text x="300" y="180" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Escalabilidade de leitura multiplicada por 10x a 50x!</text>
 </svg>
+<p>Visualização: Analogia intuitiva de escala de banco de dados ilustrando o nó primário exclusivo para gravações replicando assincronamente para read replicas e sistemas downstream via CDC.</p>
 
 | Estratégia de Escala | Função Principal | Analogia do Cotidiano |
 |---|---|---|

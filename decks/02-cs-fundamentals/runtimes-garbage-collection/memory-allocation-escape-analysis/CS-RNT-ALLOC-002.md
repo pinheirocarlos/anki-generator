@@ -37,6 +37,7 @@ O que é **Análise de Escape (Escape Analysis)** e como o compilador determina 
   <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">No Go: inspecione decisões com 'go build -gcflags="-m"'; reduza escapes para zerar pausas de runtime.</text>
 
 </svg>
+<p>Visualização: Análise de Escape do compilador rastreando o ciclo de vida dos objetos para decidir alocação sem custo na Stack ou transferência para a Heap quando há escape por ponteiros ou interfaces.</p>
 
 | Padrão de Código | O Objeto Escapa? | Local de Alocação |
 |---|---|---|

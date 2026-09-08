@@ -55,6 +55,7 @@ Qual é a intuição fundamental da arquitetura de sistemas de sugestão de busc
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Os cálculos de popularidade (Top-K) são agregados em lote offline via MapReduce/Spark!</text>
 </svg>
+<p>Visualização: Árvore Trie em memória armazenando as sugestões Top-K mais populares em cada nó para autocompletar em tempo O(1).</p>
 
 | Abordagem | Tempo de Resposta | Viabilidade para Escala Google |
 |---|---|---|

@@ -44,6 +44,7 @@ Como funciona a arquitetura **G-M-P (Goroutine, Machine, Processor)** do escalon
   <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Work-Stealing: Se a fila local de um P esvazia, ele rouba 50% das Goroutines da fila de outro processador em O(1).</text>
 
 </svg>
+<p>Visualização: Arquitetura de escalonamento M:N do Go Runtime coordenando Goroutines leves (G), Processadores lógicos com filas locais de execução (P) e OS Threads do kernel (M) com algoritmo de Work-Stealing.</p>
 
 | Entidade GMP | O que Representa | Quantidade no Sistema |
 |---|---|---|

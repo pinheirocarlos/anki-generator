@@ -45,6 +45,7 @@ Como funciona a política de Log Compaction no Apache Kafka para manter apenas a
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A thread Cleaner purga registros antigos mantendo o estado final snapshot de cada chave (ex: saldo, status de usuário).</text>
 
 </svg>
+<p>Visualização: Thread de Cleaner do Kafka mantendo apenas o último valor de cada chave no log compactado.</p>
 
 | Estratégia de Retenção | Critério de Limpeza | Caso de Uso |
 |---|---|---|

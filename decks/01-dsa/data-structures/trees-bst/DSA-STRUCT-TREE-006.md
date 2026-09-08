@@ -64,6 +64,8 @@ Qual é o princípio fundamental de ordenação de uma Árvore Binária de Busca
   <text x="370" y="70" fill="#f59e0b" font-size="10" font-family="sans-serif">Maiores &gt;</text>
 </svg>
 
+<p>Visualização: Árvore genealógica bifurcada onde ramos à esquerda são menores.</p>
+
 | Operação | Complexidade Média | Comportamento |
 |---|---|---|
 | **Busca (Search)** | $O(\log N)$ | Corta metade da árvore a cada nível |

@@ -57,6 +57,7 @@ Como a técnica de Janela Deslizante (Sliding Window) reaproveita cálculos ante
 
   <text x="300" y="160" fill="#a7f3d0" font-size="11" font-family="sans-serif" text-anchor="middle">Janela anterior: [2, 5, 1] (Soma = 8) ➔ Nova Janela: [5, 1, 8] ➔ Cálculo: 8 - 2 + 8 = 14 (Instantâneo!)</text>
 </svg>
+<p>Visualização: Moldura de lupa deslizando sobre uma régua de números mantendo o foco ativo.</p>
 
 | Tipo de Janela | Comportamento | Exemplo Típico |
 |---|---|---|

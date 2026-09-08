@@ -48,6 +48,7 @@ Como ordenar intervalos pelo horário de início simplifica a fusão de compromi
     <text x="195" y="24" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">Bloco Ocupado: [10:00 ➔ 14:00]</text>
   </g>
 </svg>
+<p>Visualização: Blocos de agenda sobrepostos fundindo em reuniões contínuas sem duplicidade de horários.</p>
 
 | Operação com Intervalos | Passo Chave | Complexidade |
 |---|---|---|

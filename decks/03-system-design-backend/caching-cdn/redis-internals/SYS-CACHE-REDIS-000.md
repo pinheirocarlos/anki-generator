@@ -47,6 +47,7 @@ Por que o Redis consegue processar mais de 100.000 operações por segundo utili
   <text x="340" y="210" fill="#94a3b8" font-size="11" text-anchor="middle">Gargalo do Redis é largura de banda de rede e memória RAM, nunca contenção de threads de CPU.</text>
 
 </svg>
+<p>Visualização: Event Loop do Redis operando em memória RAM física com multiplexador de I/O não-bloqueante (epoll/kqueue) sem contenção de locks.</p>
 
 | Paradigma de Execução | Overhead de Sincronização | Desempenho em Memória |
 |---|---|---|

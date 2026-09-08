@@ -56,6 +56,7 @@ Como a divisão de arquivos em blocos (Chunking de 4 MB) e a Sincronização Del
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Algoritmo Rsync / FastCDC calcula blocos variáveis identificando alterações mesmo com inserções no meio do arquivo.</text>
 
 </svg>
+<p>Visualização: Divisão de arquivos em blocos de 4MB com hash SHA-256 e sincronização delta transmitindo apenas blocos modificados.</p>
 
 | Estratégia de Upload | Upload ao Modificar 1 Linha em 100 MB | Consumo de Rede e Tempo |
 |---|---|---|

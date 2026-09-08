@@ -25,32 +25,16 @@ Como o **Algoritmo de Bentley-Ottmann** encontra todas as $K$ interseções entr
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Convex Hull: Algoritmo de Monotone Chain (Andrew / Graham Scan) em O(N log N)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Interseção de Segmentos com Algoritmo de Bentley-Ottmann</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
-    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Produto Vetorial (Cross Product) para Verificar Curvas à Esquerda</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Ordena pontos por coordenadas (x, y).</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">2. Constrói envoltória inferior e superior desempilhando pontos que formam curvas à direita em O(N).</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">BST de Segmentos Ativos Ordenados pelo Eixo Y</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Apenas segmentos adjacentes na árvore BST podem se cruzar.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Ao detectar cruzamento, insere o ponto de interseção como novo evento na fila.</text>
   </g>
-  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Garante a menor fronteira convexa contendo todos os N pontos no plano</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Reduz a comparação quadrática ingênua O(N²) para tempo eficiente O((N + K) log N)</text>
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Convex Hull: Algoritmo de Monotone Chain (Andrew / Graham Scan) em O(N log N)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
-    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Produto Vetorial (Cross Product) para Verificar Curvas à Esquerda</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Ordena pontos por coordenadas (x, y).</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">2. Constrói envoltória inferior e superior desempilhando pontos que formam curvas à direita em O(N).</text>
-  </g>
-  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Garante a menor fronteira convexa contendo todos os N pontos no plano</text>
-
-</svg>
-
+<p>Visualização: Algoritmo de Bentley-Ottmann detectando interseções entre segmentos adjacentes na estrutura de estado ativa em O((N + K) log N).</p>
 | Abordagem | Pares Testados | Complexidade de Tempo |
 |---|---|---|
 | **Força Bruta** | Todos os $\binom{N}{2}$ pares | $O(N^2)$ |

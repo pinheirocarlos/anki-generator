@@ -35,6 +35,7 @@ Como utilizar **Indução Matemática** e o **Princípio da Casa dos Pombos** pa
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Base matemática da prova de colisões inevitáveis em tabelas hash finitas e algoritmos de compressão sem perda.</text>
 
 </svg>
+<p>Visualização: Princípio da Casa dos Pombos garantindo matematicamente a existência de colisões quando n itens superam m recipientes.</p>
 
 | Método de Prova | Estrutura Lógica | Aplicação em Engenharia de Software |
 |---|---|---|

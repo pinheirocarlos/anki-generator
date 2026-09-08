@@ -44,6 +44,7 @@ O que é o fenômeno de **Head-of-Line (HoL) Blocking** na camada de transporte 
   <text x="340" y="155" fill="#f43f5e" font-size="11" font-weight="bold" text-anchor="middle">A aplicação NÃO recebe os pacotes 3 e 4 até que o pacote 2 seja retransmitido com sucesso!</text>
 
 </svg>
+<p>Visualização: Head-of-Line Blocking no TCP onde a perda do pacote 2 retém no buffer do kernel os pacotes subsequentes 3 e 4 até a retransmissão.</p>
 
 | Situação da Rede | Comportamento no Kernel do Receptor | Impacto no App |
 |---|---|---|

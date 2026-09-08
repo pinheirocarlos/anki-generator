@@ -36,6 +36,7 @@ Por que a expressão `0.1 + 0.2 == 0.3` avalia como `false` em ponto flutuante I
   <text x="340" y="165" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Solução: Inteiros representando centavos (int64) ou tipos decimais exatos (BigDecimal / shopspring/decimal).</text>
 
 </svg>
+<p>Visualização: Inexatidão de ponto flutuante binário por dízima periódica (0.1 + 0.2 != 0.3) e adoção de tipos decimais de precisão exata.</p>
 
 | Abordagem de Cálculo | Representação Interna | Risco de Arredondamento Financeiro |
 |---|---|---|

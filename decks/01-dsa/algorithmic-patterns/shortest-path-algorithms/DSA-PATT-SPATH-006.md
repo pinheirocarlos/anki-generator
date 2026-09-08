@@ -61,6 +61,8 @@ Qual é a intuição fundamental do algoritmo de Dijkstra para encontrar a rota 
   <text x="300" y="165" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Caminho mais curto: Origem ➔ B ➔ Destino = 5km (Em vez de passar por C = 7km)</text>
 </svg>
 
+<p>Visualização: Expansão da fronteira de Dijkstra através do Min-Heap selecionando a menor distância acumulada primeiro.</p>
+
 | Algoritmo | Tipo de Pesos | Complexidade & Uso |
 |---|---|---|
 | **BFS** | Todas arestas iguais (peso 1) | $O(V + E)$ - Menor número de conexões |

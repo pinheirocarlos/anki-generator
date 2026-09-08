@@ -23,32 +23,16 @@ Como o **Autômato de Aho-Corasick** combina uma Trie com links de falha (*failu
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Rabin-Karp: Rolling Hash Polinomial com Módulo Primo</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Aho-Corasick: Trie com Failure Links para Múltiplos Padrões em O(N + Σ|M|)</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Atualização de Hash da Janela em Tempo O(1)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">hash_next = ((hash_prev - text[i] · B^(M-1)) · B + text[i+M]) % MOD.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Compara a string apenas se o hash coincidir: Tempo Médio O(N + M).</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Construção com BFS: Transições Diretas + Links de Falha</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Failure link aponta para o nó correspondente ao maior sufixo próprio que é prefixo no Trie.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Processa o texto em uma única passagem sem retrocesso encontrando todos os padrões simultaneamente.</text>
   </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Ideal para detecção de plágio e busca de múltiplos padrões com mesmo tamanho</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">A espinha dorsal de filtros de antivírus, detecção de spam e bioinformática</text>
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Rabin-Karp: Rolling Hash Polinomial com Módulo Primo</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Atualização de Hash da Janela em Tempo O(1)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">hash_next = ((hash_prev - text[i] · B^(M-1)) · B + text[i+M]) % MOD.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Compara a string apenas se o hash coincidir: Tempo Médio O(N + M).</text>
-  </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Ideal para detecção de plágio e busca de múltiplos padrões com mesmo tamanho</text>
-
-</svg>
-
+<p>Visualização: Autômato de Aho-Corasick combinando árvore Trie com links de falha para busca simultânea de múltiplos padrões em tempo linear.</p>
 | Abordagem Multi-Padrão | Custo com $K$ Palavras | Escalabilidade |
 |---|---|---|
 | **$K \times$ KMP** | $O(K \cdot N)$ | Degrada com dicionários grandes |

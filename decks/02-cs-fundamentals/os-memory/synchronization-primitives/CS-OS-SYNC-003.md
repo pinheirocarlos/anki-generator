@@ -43,6 +43,7 @@ O que é um **Read-Write Lock (RW-Lock)** e em que cenários de tráfego ele ent
   <text x="340" y="160" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Se a proporção de leituras for &lt; 80%, um Mutex simples costuma ser mais rápido devido ao menor overhead atômico.</text>
 
 </svg>
+<p>Visualização: Funcionamento do Read-Write Lock permitindo múltiplos leitores simultâneos concorrentes e isolando escritas sob exclusividade estrita.</p>
 
 | Modo do Lock | Múltiplos Leitores Simultâneos? | Escritores Simultâneos? |
 |---|---|---|

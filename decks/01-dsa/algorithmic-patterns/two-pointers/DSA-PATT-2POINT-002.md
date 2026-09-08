@@ -25,16 +25,19 @@ Como o padrão **Fast & Slow Pointers (Algoritmo de Floyd / Tartaruga e Lebre)**
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">3Sum O(N²) com Two Pointers após Ordenação</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Fixa nums[i] e resolve 2Sum no restante [i+1, N-1]</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Ordena o array em O(N log N). Ignora elementos duplicados adjacentes.</text>
-    <text x="20" y="62" fill="#38bdf8" font-size="11">2. Two Pointers para nums[L] + nums[R] == -nums[i]. Custo total: N × O(N) = O(N²).</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Ponteiros Rápido e Lento (Fast &amp; Slow / Floyd's Cycle Detection)</text>
+  <g transform="translate(100, 50)">
+    <rect x="0" y="20" width="80" height="35" fill="#1e293b" stroke="#3b82f6" rx="4"/><text x="40" y="42" fill="#fff" font-size="11" text-anchor="middle">Node 1</text>
+    <line x1="80" y1="37" x2="130" y2="37" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="130" y="20" width="80" height="35" fill="#1e293b" stroke="#3b82f6" rx="4"/><text x="170" y="42" fill="#fff" font-size="11" text-anchor="middle">Node 2</text>
+    
+    <circle cx="320" cy="37" r="35" fill="none" stroke="#10b981" stroke-width="3"/>
+    <circle cx="320" cy="2" r="6" fill="#f43f5e"/><text x="320" y="-8" fill="#f43f5e" font-size="9" text-anchor="middle">Fast (2 passos)</text>
+    <circle cx="320" cy="72" r="6" fill="#38bdf8"/><text x="320" y="90" fill="#38bdf8" font-size="9" text-anchor="middle">Slow (1 passo)</text>
   </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Reduz a busca por força bruta cúbica O(N³) para quadrática O(N²)</text>
-
+  <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Garante colisão dentro do ciclo em O(N) sem usar Hash Set (Espaço O(1))</text>
 </svg>
+<p>Visualização: Ponteiros rápido e lento (Floyd) colidindo dentro do ciclo em tempo O(N) sem espaço auxiliar.</p>
 
 | Estado da Lista | Comportamento de `fast` | Diagnóstico |
 |---|---|---|

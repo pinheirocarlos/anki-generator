@@ -51,6 +51,7 @@ Como a Arquitetura Hexagonal (Ports & Adapters) organiza os limites do software 
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A inversão de controle permite trocar o banco de dados Postgres por MongoDB sem encostar em 1 linha de Use Case.</text>
 
 </svg>
+<p>Visualização: Núcleo de domínio isolado de infraestrutura comunicando-se exclusivamente através de Portas de Entrada e Saída.</p>
 
 | Componente Hexagonal | Natureza | Exemplo Concreto |
 |---|---|---|

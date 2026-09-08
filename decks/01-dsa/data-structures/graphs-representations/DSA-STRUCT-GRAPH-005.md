@@ -25,30 +25,30 @@ Como a escolha entre Lista de Adjacência e Matriz de Adjacência altera a compl
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Compressed Sparse Row (CSR): Grafos Estáticos de Alta Performance</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Armazenamento em 2 Arrays Contíguos (Zero Ponteiros na Heap)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">values/edges[]: lista sequencial de todos os destinos de arestas na memória contígua.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">row_ptr[v]: offset de início dos vizinhos do nó v no array de arestas.</text>
-  </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Maximiza vetorização SIMD e elimina 100% dos overheads de ponteiros em Big Graph Analytics</text>
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Complexidade Assintótica: Lista de Adjacência vs Matriz de Adjacência</text>
+  
+  <g transform="translate(45, 45)">
+    <!-- Coluna Lista -->
+    <rect x="0" y="0" width="280" height="100" fill="#1e293b" stroke="#10b981" stroke-width="1.5" rx="6"/>
+    <text x="140" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Com Lista de Adjacência</text>
+    <text x="15" y="44" fill="#f8fafc" font-size="10">• BFS / DFS: <tspan fill="#34d399" font-weight="bold">O(V + E)</tspan> (visita nós e arestas 1x)</text>
+    <text x="15" y="64" fill="#f8fafc" font-size="10">• Dijkstra (Min-Heap): <tspan fill="#34d399" font-weight="bold">O((V + E) log V)</tspan></text>
+    <text x="15" y="84" fill="#94a3b8" font-size="10">• Eficiência máxima para grafos esparsos</text>
 
+    <!-- Coluna Matriz -->
+    <g transform="translate(310, 0)">
+      <rect x="0" y="0" width="280" height="100" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" rx="6"/>
+      <text x="140" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Com Matriz de Adjacência</text>
+      <text x="15" y="44" fill="#f8fafc" font-size="10">• BFS / DFS: <tspan fill="#ef4444" font-weight="bold">O(V²)</tspan> (varre V colunas por nó)</text>
+      <text x="15" y="64" fill="#f8fafc" font-size="10">• Dijkstra (Array): <tspan fill="#fbbf24" font-weight="bold">O(V²)</tspan> (ótimo se E ≈ V²)</text>
+      <text x="15" y="84" fill="#94a3b8" font-size="10">• Ineficiente se E ≪ V² (tempo ocioso em zeros)</text>
+    </g>
+  </g>
+
+  <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Em entrevistas FAANG: declare O(V + E) como padrão, assumindo sempre representação por lista</text>
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Compressed Sparse Row (CSR): Grafos Estáticos de Alta Performance</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Armazenamento em 2 Arrays Contíguos (Zero Ponteiros na Heap)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">values/edges[]: lista sequencial de todos os destinos de arestas na memória contígua.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">row_ptr[v]: offset de início dos vizinhos do nó v no array de arestas.</text>
-  </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Maximiza vetorização SIMD e elimina 100% dos overheads de ponteiros em Big Graph Analytics</text>
-
-</svg>
+<p>Visualização: Comparação assintótica de algoritmos de travessia e menor caminho em listas de adjacência versus matrizes.</p>
 
 | Algoritmo | Complexidade (Lista de Adjacência) | Complexidade (Matriz de Adjacência) |
 |---|---|---|

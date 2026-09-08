@@ -40,6 +40,7 @@ Como calcular a taxa de requisições por segundo (QPS médio e pico) e a capaci
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A regra de bolso 80-20 de Pareto: 20% das chaves geram 80% do tráfego → Memória RAM para cache de 20% do volume diário (600 GB).</text>
 
 </svg>
+<p>Visualização: Cálculo de dimensionamento convertendo DAU para QPS médio, pico de tráfego e armazenamento para 5 anos.</p>
 
 | Parâmetro de Cálculo | Fórmula Simplificada | Regra Prática FAANG |
 |---|---|---|

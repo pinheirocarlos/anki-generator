@@ -54,6 +54,7 @@ Qual é a intuição fundamental por trás dos princípios SOLID e da Clean Arch
 
   <text x="300" y="190" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">O segredo dos testes unitários rápidos: plugar um mock de banco em 1 linha de código!</text>
 </svg>
+<p>Visualização: Arquitetura Limpa (Clean Architecture) com camadas concêntricas e regra de dependência orientada estritamente para o domínio interno.</p>
 
 | Princípio | O que Evita | Analogia do Cotidiano |
 |---|---|---|

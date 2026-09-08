@@ -67,6 +67,7 @@ Qual é a intuição fundamental por trás do Consistent Hashing e por que ele e
 
   <text x="300" y="195" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Escalabilidade suave: sem tempestades de migração de dados no cluster!</text>
 </svg>
+<p>Visualização: Anel de Consistent Hashing com busca no sentido horário limitando a migração a apenas 1/N das chaves vizinhas.</p>
 
 | Estratégia de Particionamento | Impacto ao Mudar Nós ($N \to N+1$) | Analogia do Cotidiano |
 |---|---|---|

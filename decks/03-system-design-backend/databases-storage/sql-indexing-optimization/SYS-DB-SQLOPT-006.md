@@ -44,6 +44,7 @@ Qual é a intuição fundamental de como um índice acelera consultas em bancos 
 
   <text x="300" y="175" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Índices são o canivete suíço de otimização de consultas SQL!</text>
 </svg>
+<p>Visualização: Analogia intuitiva de índices SQL comparando o Full Table Scan com leitura linear exaustiva (O(N)) versus o Index Seek com navegação logarítmica instantânea em B+Tree (O(log N)).</p>
 
 | Operação de Banco | Impacto com Índice | Analogia do Cotidiano |
 |---|---|---|

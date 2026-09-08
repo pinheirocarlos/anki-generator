@@ -45,6 +45,7 @@ O que é o fenômeno Cache Stampede (Thundering Herd) que ocorre após a expira�
   <text x="340" y="222" fill="#94a3b8" font-size="11" text-anchor="middle">XFetch Probabilístico: recálculo antecipado assíncrono antes do TTL expirar.</text>
 
 </svg>
+<p>Visualização: Cache Stampede: múltiplas requisições simultâneas em cache miss bloqueadas por Mutex/Singleflight enquanto apenas 1 worker recalcula o dado.</p>
 
 | Estratégia contra Stampede | Mecânica | Impacto no Banco de Dados |
 |---|---|---|

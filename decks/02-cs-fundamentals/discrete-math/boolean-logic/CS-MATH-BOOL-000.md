@@ -55,6 +55,7 @@ O que são as operações **bitwise fundamentais** (AND, OR, XOR, NOT, Shifts) e
   <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Execução em 1 ciclo na ALU: base de flags booleanas de alto desempenho e compressão de dados.</text>
 
 </svg>
+<p>Visualização: Operações bitwise fundamentais (AND, OR, XOR, NOT, Shifts) executadas em 1 ciclo na ALU para controle e teste de flags.</p>
 
 | Operação Bitwise | Exemplo de Código | Efeito Prático na Flag |
 |---|---|---|

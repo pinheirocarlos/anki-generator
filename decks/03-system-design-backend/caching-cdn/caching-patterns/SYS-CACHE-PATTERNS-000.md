@@ -55,6 +55,7 @@ Qual é a diferença operacional entre o padrão Cache-Aside (Lazy Loading) e o 
   <text x="340" y="220" fill="#94a3b8" font-size="10" text-anchor="middle">Trade-off clássico: consistência imediata vs performance extrema de gravação.</text>
 
 </svg>
+<p>Visualização: Cache-Aside lê sob demanda da cache com lazy loading vs Write-Through atualizando cache e banco de dados de forma síncrona.</p>
 
 | Padrão de Cache | Responsável pela Integração | Comportamento na Escrita |
 |---|---|---|

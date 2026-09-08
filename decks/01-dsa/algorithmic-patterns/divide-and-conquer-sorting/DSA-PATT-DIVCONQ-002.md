@@ -19,20 +19,8 @@ Por que o **Mergesort** garante complexidade $O(N \log N)$ em todos os casos (me
 - **Desvantagem**: Exige $O(N)$ de memória auxiliar para o buffer temporário de fusão.
 
 ### Dual Coding Visual
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Teorema Mestre para Relações de Recorrência: T(N) = a T(N/b) + f(N)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Comparação entre f(N) e N^(log_b a)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="10">Caso 1: f(N) &lt; N^(log_b a) → T(N) = Θ(N^(log_b a)) [Custo dominado pelas folhas]</text>
-    <text x="20" y="58" fill="#10b981" font-size="10">Caso 2: f(N) = Θ(N^(log_b a)) → T(N) = Θ(N^(log_b a) · log N) [Custo equilibrado por nível]</text>
-    <text x="20" y="71" fill="#f59e0b" font-size="10">Caso 3: f(N) &gt; N^(log_b a) → T(N) = Θ(f(N)) [Custo dominado pela raiz]</text>
-  </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Exemplo: Merge Sort T(N) = 2T(N/2) + O(N) → Caso 2 → O(N log N)</text>
-
-</svg>
+<img src="assets/DSA-PATT-DIVCONQ-002.gif" alt="Divisão e Intercalação Estável no MergeSort" style="max-width: 100%; height: auto; border-radius: 8px; margin: 12px 0;" />
+<p>Visualização: Divisão recursiva em metades balanceadas e intercalação ordenada estável em tempo O(N log N).</p>
 
 | Caso de Execução | Tempo Mergesort | Tempo Quicksort |
 |---|---|---|

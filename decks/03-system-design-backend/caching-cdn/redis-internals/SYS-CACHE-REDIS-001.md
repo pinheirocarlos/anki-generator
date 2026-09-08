@@ -62,6 +62,7 @@ Como o Redis implementa Sorted Sets (ZSet) combinando internamente uma SkipList 
   <text x="340" y="200" fill="#94a3b8" font-size="11" text-anchor="middle">ZSet combina Hash Map (lookup O(1) por membro) com SkipList (consultas de range por score O(log N + M)).</text>
 
 </svg>
+<p>Visualização: SkipList probabilística do Redis ZSet permitindo buscas e inserções em O(log N) combinada com Hash Map para lookup em O(1).</p>
 
 | Operação no ZSet | Estrutura Interna Utilizada | Complexidade de Tempo |
 |---|---|---|

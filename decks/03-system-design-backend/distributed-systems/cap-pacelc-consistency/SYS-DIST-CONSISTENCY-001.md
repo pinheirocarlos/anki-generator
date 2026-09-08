@@ -43,6 +43,7 @@ Como o Teorema PACELC expande o CAP ao definir trade-offs de Latência versus Co
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Cassandra é PA/EL (prioriza latência); MongoDB/Postgres são PC/EC (priorizam consistência).</text>
 
 </svg>
+<p>Visualização: Teorema PACELC: Se houver partição (P) avalia-se A vs C; senão (E), avalia-se Latência (L) vs Consistência (C).</p>
 
 | Classificação PACELC | Trade-off Operacional | Exemplo de Banco |
 |---|---|---|

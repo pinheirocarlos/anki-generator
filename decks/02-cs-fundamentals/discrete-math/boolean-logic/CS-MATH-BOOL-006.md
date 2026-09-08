@@ -63,6 +63,7 @@ Como operações lógicas simples (AND, OR, NOT, XOR) se transformam em circuito
 
   <text x="300" y="160" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Leis de De Morgan: !(A &amp;&amp; B) é matematicamente idêntico a (!A || !B)!</text>
 </svg>
+<p>Visualização: Analogia física dos interruptores elétricos em série (AND) e em paralelo (OR) modelando circuitos lógicos.</p>
 
 | Porta Lógica | Condição de Saída Verdadeira (`1`) | Circuito Elétrico Equivalente |
 |---|---|---|

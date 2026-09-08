@@ -43,6 +43,7 @@ Como a modelagem orientada a consultas (Query-First) funciona no Apache Cassandr
   <text x="340" y="195" fill="#94a3b8" font-size="10" text-anchor="middle">Major Compaction mescla SSTables e purga tombstones após expiração do gc_grace_seconds (padrão 10 dias).</text>
 
 </svg>
+<p>Visualização: Deleções no Cassandra gravando marcadores Tombstone e degradação de leitura durante varreduras em SSTables não compactadas.</p>
 
 | Conceito Cassandra | Comportamento | Impacto de Performance |
 |---|---|---|

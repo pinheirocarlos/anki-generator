@@ -56,6 +56,7 @@ Qual é a intuição fundamental de um Load Balancer (Balanceador de Carga) e qu
 
   <text x="300" y="185" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Algoritmos comuns: Round-Robin, Menos Conexões (Least Connections) e IP Hash!</text>
 </svg>
+<p>Visualização: Roteamento inteligente de requisições em Camada 7 (L7) inspecionando caminhos HTTP e cabeçalhos para balancear tráfego entre frotas de servidores.</p>
 
 | Tipo de Load Balancer | Nível de Inspeção | Analogia do Cotidiano |
 |---|---|---|

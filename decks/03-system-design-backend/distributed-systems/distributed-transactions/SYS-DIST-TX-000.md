@@ -44,6 +44,7 @@ Como funciona o protocolo Two-Phase Commit (2PC) e por que ele é classificado c
   <text x="340" y="215" fill="#94a3b8" font-size="10" text-anchor="middle">2PC é bloqueante (Blocking Protocol): se o coordenador morrer na fase 2, participantes ficam travados indefinidamente.</text>
 
 </svg>
+<p>Visualização: Protocolo Two-Phase Commit (2PC): fase Prepare obtendo votos de prontidão e fase Commit aplicando alterações atomicamente.</p>
 
 | Fase do 2PC | Ação do Coordenador | Ação dos Participantes |
 |---|---|---|

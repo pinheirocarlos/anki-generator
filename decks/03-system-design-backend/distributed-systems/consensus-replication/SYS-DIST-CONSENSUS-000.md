@@ -53,6 +53,7 @@ Como o algoritmo de consenso Raft realiza a eleição de um novo líder utilizan
   <text x="340" y="210" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Randomized Election Timeout (150ms a 300ms) previne empates de voto entre candidatos simultâneos (Split Vote).</text>
 
 </svg>
+<p>Visualização: Eleição de líder no Raft: candidato dispara RequestVote após Election Timeout e conquista liderança com maioria de votos.</p>
 
 | Estado no Raft | Responsabilidade Principal | Transição |
 |---|---|---|

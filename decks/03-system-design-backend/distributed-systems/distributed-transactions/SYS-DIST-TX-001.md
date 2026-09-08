@@ -48,6 +48,7 @@ Como o padrão Saga garante consistência eventual entre múltiplos microsservi�
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Saga garante consistência eventual sem reter locks distribuídos em bancos de dados distintos.</text>
 
 </svg>
+<p>Visualização: Padrão Saga executando transações locais distribuídas com orquestrador central disparando transações compensatórias em falhas.</p>
 
 | Modelo de Saga | Prós | Contras |
 |---|---|---|

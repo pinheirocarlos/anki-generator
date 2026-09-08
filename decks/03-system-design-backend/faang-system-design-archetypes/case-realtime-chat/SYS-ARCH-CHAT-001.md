@@ -51,6 +51,7 @@ Como o sistema roteia uma mensagem de chat quando o Remetente e o Destinatário 
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Se Bob estiver offline, a mensagem é gravada no banco de histórico (Cassandra/ScyllaDB) e disparada via Push Notification (FCM/APNS).</text>
 
 </svg>
+<p>Visualização: Roteamento de mensagens entre instâncias de WebSocket através de canais dedicados no Redis Pub/Sub.</p>
 
 | Estado do Destinatário | Caminho de Entrega | Latência Típica |
 |---|---|---|

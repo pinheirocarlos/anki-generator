@@ -24,18 +24,16 @@ Como a técnica de **Profile DP (Broken Profile)** modela o preenchimento exato 
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Knuth-Yao e Divide and Conquer DP Optimization: Redução O(N³) → O(N²)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Profile DP (Broken Profile / Tiling): Cobertura Célula a Célula</text>
   <g transform="translate(80, 50)">
     <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Monotonicidade do Ponto de Divisão Ótimo: opt[i][j-1] ≤ opt[i][j] ≤ opt[i+1][j]</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Aplica-se quando o custo satisfaz a desigualdade do quadrilátero (Quadrangle Inequality).</text>
-    <text x="20" y="62" fill="#38bdf8" font-size="11">Restringe o espaço de busca do índice k ao intervalo [opt[i][j-1], opt[i+1][j]], somando O(N²).</text>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Fronteira Ativa com Máscara de N bits</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Processa a grade célula (r, c) em ordem lexicográfica mantendo o perfil quebrado.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Decisões de dominó: horizontal 1×2 ou vertical 2×1 preenchendo vazios sem sobreposição.</text>
   </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Reduz a complexidade de problemas de Árvore de Busca Binária Ótima de O(N³) para O(N²)</text>
-
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Complexidade: O(N · M · 2ᴺ) viabilizando contagens combinatórias exatas</text>
 </svg>
-
+<p>Visualização: Profile DP (broken profile) cobrindo uma grade célula a célula rastreando a fronteira de preenchimento via máscara de bits.</p>
 | Estratégia de Transição | Estado Rastreado | Complexidade |
 |---|---|---|
 | **Coluna por Coluna** | $2^M \times 2^M$ transições | $O(N \cdot 4^M)$ |

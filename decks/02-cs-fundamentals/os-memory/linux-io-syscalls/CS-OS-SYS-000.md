@@ -43,6 +43,7 @@ O que acontece na CPU durante a transição de **User Mode (Ring 3)** para **Ker
   <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Custo de transição: ~50 a 100 ns por chamada. I/O multiplexado (epoll/io_uring) reduz o volume de syscalls.</text>
 
 </svg>
+<p>Visualização: Transição de privilégio do User Space (Ring 3) para o Kernel Space (Ring 0) via instrução SYSCALL com indexação na Syscall Table.</p>
 
 | Nível de Privilégio | Acesso a Hardware | Estrutura de Stack Ativa |
 |---|---|---|

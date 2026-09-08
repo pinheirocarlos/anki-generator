@@ -48,6 +48,7 @@ Como o **HTTP/2 Multiplexing** permite trafegar centenas de requisições e resp
   <text x="340" y="170" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Elimina o HoL blocking de aplicação: streams prioritários trafegam sem esperar o fim dos secundários.</text>
 
 </svg>
+<p>Visualização: Multiplexação HTTP/2 intercalando frames binários de múltiplos streams lógicos dentro de uma única conexão TCP.</p>
 
 | Camada de Mensagem | HTTP/1.1 | HTTP/2 |
 |---|---|---|

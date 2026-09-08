@@ -46,6 +46,7 @@ Como conduzir a fase de 'Deep Dive' em System Design demonstrando senioridade t�
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Articular prós, contras e alternativas descartadas demonstra maturidade de engenharia de nível Staff+.</text>
 
 </svg>
+<p>Visualização: Análise estruturada de trade-offs arquiteturais: consistência vs latência, particionamento e pontos únicos de falha.</p>
 
 | Dimensão de Decisão | Opção A | Opção B |
 |---|---|---|

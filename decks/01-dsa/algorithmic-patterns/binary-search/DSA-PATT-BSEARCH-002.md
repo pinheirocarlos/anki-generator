@@ -39,6 +39,7 @@ Qual é a diferença conceitual e de invariante entre **Lower Bound** (primeira 
   <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Contagem de ocorrências de X em array ordenado: count = upper_bound(X) - lower_bound(X)</text>
 
 </svg>
+<p>Visualização: Invariantes de limites de busca binária: lower_bound (primeiro >= x) vs upper_bound (primeiro > x).</p>
 
 | Algoritmo | Condição de Encolhimento para a Esquerda | Retorno Típico |
 |---|---|---|

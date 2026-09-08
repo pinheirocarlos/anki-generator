@@ -46,6 +46,7 @@ Como dimensionar o tamanho do vetor de bits ($m$) e a quantidade de funções ha
   <text x="340" y="165" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Se Bloom Filter diz 'NÃO': certeza absoluta de ausência (evita I/O de disco em Cassandra/RocksDB).</text>
 
 </svg>
+<p>Visualização: Bloom Filter utilizando vetor de m bits e k hashes determinísticos para busca de pertencimento com zero falsos negativos.</p>
 
 | Taxa de Falso Positivo ($p$) | Bits por Elemento ($m/n$) | Funções Hash Ótimas ($k$) |
 |---|---|---|

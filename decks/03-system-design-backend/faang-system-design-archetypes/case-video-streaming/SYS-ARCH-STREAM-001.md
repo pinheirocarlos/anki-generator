@@ -46,6 +46,7 @@ Como os protocolos de streaming adaptativo HLS e MPEG-DASH alternam dinamicament
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Arquivos de manifesto (.m3u8) apontam para URIs de chunks segmentados servidos diretamente da CDN.</text>
 
 </svg>
+<p>Visualização: Player alternando dinamicamente entre perfis de qualidade através de arquivos de manifesto HLS (.m3u8).</p>
 
 | Estrutura de Arquivos | Formato / Extensão | Papel no Player |
 |---|---|---|

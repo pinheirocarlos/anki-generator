@@ -25,17 +25,16 @@ Como utilizar um **Min-Heap de horários de término** para encontrar o número 
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Insert Interval: Inserção Ordenada em Lista sem Sobreposições em O(N)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Meeting Rooms II: Mínimo de Salas Simultâneas com Min-Heap</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Três Etapas em Varredura Linear</text>
-    <text x="20" y="42" fill="#94a3b8" font-size="10">1. Adiciona todos os intervalos que terminam antes de newInterval.start.</text>
-    <text x="20" y="56" fill="#34d399" font-size="10">2. Funde todos os intervalos sobrepostos expandindo newInterval.</text>
-    <text x="20" y="70" fill="#94a3b8" font-size="10">3. Adiciona os intervalos restantes que começam após newInterval.end.</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Min-Heap armazena os horários de término das reuniões ativas</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Se start_atual &gt;= heap.peek(): sala foi liberada ➔ reaproveita com heap.poll().</text>
+    <text x="20" y="62" fill="#34d399" font-size="11">Caso contrário: conflito de horário ➔ aloca nova sala com heap.offer(end_atual).</text>
   </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Complexidade linear O(N) sem necessidade de re-ordenar o array</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Resultado Final: heap.size() é o número mínimo de salas necessárias: O(N log N)</text>
 </svg>
+<p>Visualização: Min-heap de horários de término determinando o número mínimo de salas simultâneas em O(N log N).</p>
 
 | Evento | Condição do Heap | Ação de Sala |
 |---|---|---|

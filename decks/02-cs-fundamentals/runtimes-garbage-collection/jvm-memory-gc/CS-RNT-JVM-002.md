@@ -39,6 +39,7 @@ O que afirma a **Hipótese Geracional Fraca (Weak Generational Hypothesis)** e c
   <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">A separação geracional evita que o coletor precise varrer a memória inteira a cada ciclo de alocação.</text>
 
 </svg>
+<p>Visualização: A Hipótese Geracional Fraca fundamentando a separação entre Young Generation (limpeza rápida de objetos de vida efêmera via Minor GC) e Old Generation (objetos de longa permanência submetidos a Major GC).</p>
 
 | Tipo de Coleta | Frequência | Tempo de Pausa Típico |
 |---|---|---|

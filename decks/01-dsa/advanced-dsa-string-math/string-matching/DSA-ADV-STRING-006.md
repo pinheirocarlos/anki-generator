@@ -18,57 +18,18 @@ Qual é o princípio fundamental do algoritmo KMP (Knuth-Morris-Pratt) para busc
 - Reduz o tempo de busca no texto de pior caso $O(N \times M)$ (força bruta) para tempo puramente linear de **$O(N + M)$**.
 
 ### Dual Coding Visual
-<svg viewBox="0 0 600 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-  <rect width="600" height="190" fill="#0f172a" rx="10" />
-
-  <text x="300" y="24" fill="#10b981" font-size="13" font-family="sans-serif" font-weight="bold" text-anchor="middle">KMP: Aproveita Letras Iguais Já Lidas e Salta sem Retrocesso</text>
-
-  <!-- Texto Principal -->
-  <g transform="translate(60, 45)">
-    <text x="-10" y="20" fill="#94a3b8" font-size="11" font-family="sans-serif">Texto:</text>
-    <!-- A B A B C -->
-    <rect x="50" y="5" width="40" height="26" fill="#1e293b" stroke="#3b82f6" rx="2" />
-    <text x="70" y="22" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">A</text>
-
-    <rect x="95" y="5" width="40" height="26" fill="#1e293b" stroke="#3b82f6" rx="2" />
-    <text x="115" y="22" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">B</text>
-
-    <rect x="140" y="5" width="40" height="26" fill="#1e293b" stroke="#3b82f6" rx="2" />
-    <text x="160" y="22" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">A</text>
-
-    <rect x="185" y="5" width="40" height="26" fill="#1e293b" stroke="#3b82f6" rx="2" />
-    <text x="205" y="22" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">B</text>
-
-    <rect x="230" y="5" width="40" height="26" fill="#991b1b" stroke="#ef4444" stroke-width="2" rx="2" />
-    <text x="250" y="22" fill="#fca5a5" font-size="12" font-family="monospace" font-weight="bold" text-anchor="middle">X</text>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">KMP: Aproveita Letras Iguais Já Lidas e Salta sem Retrocesso</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Metáfora do Gabarito Deslizante</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Ao errar uma letra no final da palavra, você não recomeça a ler o texto do início.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Você desliza o gabarito até o maior prefixo coincidente que você já comprovou que existe.</text>
   </g>
-
-  <!-- Padrão Sendo Comparado -->
-  <g transform="translate(60, 90)">
-    <text x="-10" y="20" fill="#94a3b8" font-size="11" font-family="sans-serif">Padrão:</text>
-    <rect x="50" y="5" width="40" height="26" fill="#065f46" stroke="#10b981" rx="2" />
-    <text x="70" y="22" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">A</text>
-
-    <rect x="95" y="5" width="40" height="26" fill="#065f46" stroke="#10b981" rx="2" />
-    <text x="115" y="22" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">B</text>
-
-    <rect x="140" y="5" width="40" height="26" fill="#065f46" stroke="#10b981" rx="2" />
-    <text x="160" y="22" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">A</text>
-
-    <rect x="185" y="5" width="40" height="26" fill="#065f46" stroke="#10b981" rx="2" />
-    <text x="205" y="22" fill="#ffffff" font-size="12" font-family="monospace" text-anchor="middle">B</text>
-
-    <rect x="230" y="5" width="40" height="26" fill="#991b1b" stroke="#ef4444" stroke-width="2" rx="2" />
-    <text x="250" y="22" fill="#fca5a5" font-size="12" font-family="monospace" font-weight="bold" text-anchor="middle">C</text>
-  </g>
-
-  <!-- Seta de Salto Inteligente -->
-  <path d="M 240 120 Q 150 160 110 120" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="3,3" />
-  <polygon points="105,120 115,115 115,125" fill="#10b981" />
-  <text x="350" y="105" fill="#a7f3d0" font-size="10" font-family="sans-serif">Erro no 'C' vs 'X'!</text>
-  <text x="350" y="125" fill="#34d399" font-size="10" font-family="sans-serif">KMP sabe que "AB" já casou ➔ Pula direto sem reler do zero!</text>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">O ponteiro do texto avança estritamente para a frente em tempo O(N + M)</text>
 </svg>
-
+<p>Visualização: Intuição do KMP: reaproveitar informações de letras já lidas evita recuos desnecessários no texto de entrada.</p>
 | Algoritmo | Complexidade de Tempo | Abordagem |
 |---|---|---|
 | **Busca Ingênua (Naive)** | $O(N \times M)$ | Ao errar letra, volta o texto para o início |

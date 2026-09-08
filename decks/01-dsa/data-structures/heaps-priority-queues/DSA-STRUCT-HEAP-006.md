@@ -55,6 +55,8 @@ Qual problema prático uma Fila de Prioridade (Heap) resolve e qual é a metáfo
   <text x="300" y="185" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Regra: Cada Pai ≥ Seus Filhos (Não exige ordenação entre irmãos)</text>
 </svg>
 
+<p>Visualização: Triagem hospitalar com paciente mais grave no topo do Max-Heap sem ordenação total dos demais.</p>
+
 | Operação | Complexidade | Explicação Prática |
 |---|---|---|
 | **Ver o topo (`peek`)** | $O(1)$ | O elemento de maior urgência está sempre na raiz |

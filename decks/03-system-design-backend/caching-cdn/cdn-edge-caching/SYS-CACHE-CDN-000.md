@@ -58,6 +58,7 @@ Como Redes de Entrega de Conteúdo (CDNs) utilizam Anycast BGP e Pontos de Prese
   <text x="340" y="212" fill="#94a3b8" font-size="10" text-anchor="middle">BGP Anycast anuncia o mesmo IP globalmente; roteadores da Internet direcionam para o PoP topologicamente mais próximo.</text>
 
 </svg>
+<p>Visualização: Roteamento Anycast BGP direcionando requisições do cliente ao Point of Presence (PoP) de menor latência geográfica.</p>
 
 | Tipo de Requisição | Roteamento e Término | Latência de RTT Típica |
 |---|---|---|

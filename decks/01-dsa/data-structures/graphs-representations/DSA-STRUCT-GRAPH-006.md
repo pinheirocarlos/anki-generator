@@ -52,6 +52,8 @@ Qual é o modelo mental de um Grafo e como ele representa conexões e relacionam
   <text x="300" y="188" fill="#a7f3d0" font-size="10" font-family="sans-serif" text-anchor="middle">Grafo Ponderado: Nós (Cidades) + Arestas com Pesos (Custo de Voo)</text>
 </svg>
 
+<p>Visualização: Analogia da malha aérea modelando cidades como vértices e voos comerciais com custos como arestas ponderadas.</p>
+
 | Elemento | Conceito Técnico | Exemplo do Mundo Real |
 |---|---|---|
 | **Vértice (Nó)** | Entidade individual | Usuário do Instagram, Cidade no GPS, Servidor |

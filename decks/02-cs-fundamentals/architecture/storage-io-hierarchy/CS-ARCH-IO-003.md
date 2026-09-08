@@ -51,6 +51,7 @@ Como o **OS Page Cache** do kernel Linux acelera leituras e gravações de arqui
   <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">write() retorna instantaneamente após gravar no Page Cache; fsync() força o flush para a mídia física.</text>
 
 </svg>
+<p>Visualização: OS Page Cache intermediando operações de leitura e escrita na RAM livre para amortecer acessos ao disco.</p>
 
 | Operação de I/O | Fluxo com Page Cache (Padrão) | Latência Percebida pelo App |
 |---|---|---|

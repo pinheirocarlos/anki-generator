@@ -15,7 +15,7 @@ export const DEFAULT_CONFIG = {
   retries: 2,
   report: 'link-health-report.json',
   deck: null,
-  userAgent: 'FAANG-Anki-LinkChecker/1.0 (Educational flashcard media auditor)'
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) FAANG-Anki-Media-Curator/1.0 (https://faang-anki.dev; info@faang-anki.dev)'
 };
 
 /**
@@ -221,6 +221,7 @@ export async function checkLink(item, options = {}, customFetch = fetch) {
   let lastStatus = 0;
   let lastError = '';
   let lastContentType = undefined;
+  let lastRetryAfterSec = null;
   let totalLatency = 0;
 
   while (attempt <= maxRetries) {
@@ -233,7 +234,10 @@ export async function checkLink(item, options = {}, customFetch = fetch) {
       try {
         response = await customFetch(item.url, {
           method: 'HEAD',
-          headers: { 'User-Agent': userAgent },
+          headers: {
+            'User-Agent': userAgent,
+            'Accept': 'image/*,video/*,*/*'
+          },
           signal: AbortSignal.timeout(timeout)
         });
       } catch (headErr) {
@@ -247,6 +251,7 @@ export async function checkLink(item, options = {}, customFetch = fetch) {
           method: 'GET',
           headers: {
             'User-Agent': userAgent,
+            'Accept': 'image/*,video/*,*/*',
             'Range': 'bytes=0-1024'
           },
           signal: AbortSignal.timeout(timeout)
@@ -291,6 +296,15 @@ export async function checkLink(item, options = {}, customFetch = fetch) {
       if (response.status === 429 || (response.status >= 500 && response.status <= 599)) {
         isRetryable = true;
         lastError = `HTTP ${response.status}: ${response.statusText || 'Server Error'}`;
+        if (response.status === 429 && response.headers?.get) {
+          const ra = response.headers.get('retry-after');
+          if (ra) {
+            const parsed = parseInt(ra, 10);
+            if (!isNaN(parsed) && parsed > 0 && parsed <= 10) {
+              lastRetryAfterSec = parsed;
+            }
+          }
+        }
       } else {
         // Non-transient failure (e.g. 404 Not Found, 410 Gone)
         const result = {
@@ -318,9 +332,12 @@ export async function checkLink(item, options = {}, customFetch = fetch) {
     attempt++;
     if (attempt <= maxRetries && isRetryable) {
       // Exponential / stepped backoff: 500ms on first retry, 1500ms on second (or override via options.backoffMs)
+      const defaultBackoff = (lastStatus === 429 && lastRetryAfterSec)
+        ? (lastRetryAfterSec * 1000 + 400 + Math.floor(Math.random() * 400))
+        : (attempt === 1 ? 500 : 1500);
       const backoffMs = options.backoffMs !== undefined
         ? options.backoffMs
-        : (attempt === 1 ? 500 : 1500);
+        : defaultBackoff;
       if (backoffMs > 0) {
         await sleep(backoffMs);
       }

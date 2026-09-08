@@ -47,6 +47,7 @@ O que é o fenômeno destrutivo de **False Sharing** em sistemas multi-core e co
   <text x="340" y="190" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Solução: Padding de 64 bytes (Cache Line Alignment) isolando as variáveis em linhas distintas.</text>
 
 </svg>
+<p>Visualização: Padding de cache line isolando variáveis concorrentes para eliminar false sharing.</p>
 
 | Cenário Multi-Thread | Disposição na Memória | Impacto de Performance |
 |---|---|---|

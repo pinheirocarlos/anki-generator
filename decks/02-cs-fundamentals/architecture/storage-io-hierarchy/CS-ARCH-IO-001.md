@@ -50,6 +50,7 @@ Por que sistemas como **Kafka** e motores **LSM-Trees (RocksDB)** convertem toda
   <text x="340" y="172" fill="#94a3b8" font-size="10" text-anchor="middle">Garante durabilidade ACID (fsync no commit) sem pagar o custo de reorganizar árvores B-Tree no disco.</text>
 
 </svg>
+<p>Visualização: Append-Only Log (WAL) convertendo mutações em gravações sequenciais contíguas no disco.</p>
 
 | Estrutura de Armazenamento | Padrão de Escrita em Disco | Otimizado Para |
 |---|---|---|

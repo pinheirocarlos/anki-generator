@@ -54,6 +54,7 @@ Como o padrão Worker Pool gerencia o consumo de recursos limitando o número m�
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Evita o antipadrão 'go func()' descontrolado que causa OOM e sobrecarga do Go Runtime Scheduler.</text>
 
 </svg>
+<p>Visualização: Worker Pool distribuindo tarefas através de canal bufferizado para número fixo de goroutines controlando uso de CPU e memória.</p>
 
 | Abordagem Concorrente | Uso de Memória e Conexões sob Pico | Risco Operacional |
 |---|---|---|

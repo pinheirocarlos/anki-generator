@@ -46,6 +46,7 @@ Como o algoritmo de compressão Gorilla (desenvolvido pelo Facebook/Meta) compri
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Redução de 12x no consumo de memória RAM e disco em sistemas como Prometheus e Facebook Gorilla TSDB.</text>
 
 </svg>
+<p>Visualização: Algoritmo Gorilla comprimindo timestamps com delta-of-delta e valores float via XOR com os bits precedentes.</p>
 
 | Campo da Métrica | Formato Bruto sem Compressão | Formato Comprimido Gorilla |
 |---|---|---|

@@ -52,6 +52,7 @@ Como o paradigma de Backtracking explora todas as soluções possíveis e por qu
   <circle cx="480" cy="150" r="12" fill="#065f46" stroke="#10b981" stroke-width="1.5" />
   <text x="480" y="154" fill="#ffffff" font-size="9" text-anchor="middle">Sol 2</text>
 </svg>
+<p>Visualização: Explorador no labirinto que deixa marcas e retrocede imediatamente ao atingir becos sem saída.</p>
 
 | Etapa do Backtracking | Ação no Código | Analogia do Mundo Real |
 |---|---|---|

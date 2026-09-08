@@ -45,6 +45,7 @@ Qual é a diferença entre retornar HTTP 301 Moved Permanently versus HTTP 302 F
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Modelagem de dados: chave primária curta no DynamoDB ou Cassandra permite leituras em &lt; 2ms.</text>
 
 </svg>
+<p>Visualização: Redirecionamento HTTP 302 permitindo rastrear métricas de cliques em camada de cache Redis com taxa 100:1.</p>
 
 | Status HTTP | Cache no Navegador | Rastreamento Analítico de Cliques |
 |---|---|---|

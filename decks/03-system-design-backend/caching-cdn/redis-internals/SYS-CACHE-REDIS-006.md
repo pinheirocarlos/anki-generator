@@ -54,6 +54,7 @@ Qual é a intuição fundamental de por que o Redis consegue processar mais de 1
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Como as operações duram nanossegundos, uma única thread é mais rápida que muitas threads brigando por locks!</text>
 </svg>
+<p>Visualização: Analogia intuitiva da arquitetura do Redis ilustrando a multiplexação de I/O não-bloqueante (epoll) alimentando o motor single-thread em RAM sem contenção de locks.</p>
 
 | Arquitetura | Onde Gasta Tempo | Analogia do Cotidiano |
 |---|---|---|

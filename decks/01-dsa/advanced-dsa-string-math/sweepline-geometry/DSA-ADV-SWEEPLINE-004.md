@@ -23,32 +23,16 @@ Como o algoritmo de Divisão e Conquista geométrico encontra o **Par de Pontos 
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
   <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Closest Pair of Points: Divisão e Conquista / Sweep-Line em O(N log N)</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Faixa Central de Largura 2d</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Calcula menor distância d nas metades esquerda e direita.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Na faixa central [-d, +d], cada ponto precisa ser comparado com no máximo 7 vizinhos ordenados por Y.</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Divisão em Metades e Faixa Central de Largura 2d</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">d = min(d_esquerda, d_direita). Filtra pontos cuja distância até a reta média é &lt; d.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Ordena faixa por Y: cada ponto precisa ser comparado com no máximo 7 vizinhos próximos.</text>
   </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Elimina o custo quadrático O(N²) de comparação todos-contra-todos</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Garante complexidade temporal O(N log N) através do Teorema Mestre T(N) = 2T(N/2) + O(N)</text>
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Closest Pair of Points: Divisão e Conquista / Sweep-Line em O(N log N)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Faixa Central de Largura 2d</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Calcula menor distância d nas metades esquerda e direita.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Na faixa central [-d, +d], cada ponto precisa ser comparado com no máximo 7 vizinhos ordenados por Y.</text>
-  </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Elimina o custo quadrático O(N²) de comparação todos-contra-todos</text>
-
-</svg>
-
+<p>Visualização: Divisão e conquista no problema do par mais próximo restringindo comparações a uma faixa de largura 2d ao redor do corte.</p>
 | Etapa do Algoritmo | Complexidade | Propriedade Chave |
 |---|---|---|
 | **Divisão e Conquista** | $2T(N/2)$ | Resolve metades esquerda e direita |

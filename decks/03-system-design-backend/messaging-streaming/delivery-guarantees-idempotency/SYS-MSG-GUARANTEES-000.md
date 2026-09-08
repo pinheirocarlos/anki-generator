@@ -41,6 +41,7 @@ Qual é a diferença entre as garantias de entrega At-Most-Once, At-Least-Once e
   <text x="340" y="198" fill="#94a3b8" font-size="10" text-anchor="middle">A regra de ouro de sistemas distribuídos: Transporte At-Least-Once + Processamento Idempotente = Robustez Total.</text>
 
 </svg>
+<p>Visualização: At-Least-Once com retentativas e confirmações (ACKs) vs Exactly-Once usando streams transacionais e chaves de idempotência.</p>
 
 | Garantia de Entrega | Características de Risco | Padrão da Indústria |
 |---|---|---|

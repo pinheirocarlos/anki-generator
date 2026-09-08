@@ -45,6 +45,7 @@ Quais são as diferenças fundamentais de modelo de comunicação entre **HTTP R
   <text x="340" y="165" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">SSE roda nativamente sobre HTTP padrão com reconexão automática; WebSockets requer infra dedicada de state.</text>
 
 </svg>
+<p>Visualização: Comparação de arquitetura e direção de tráfego entre REST (unidirecional pontual), WebSockets (bidirecional full-duplex) e SSE (streaming unidirecional).</p>
 
 | Protocolo | Direção da Comunicação | Protocolo Base |
 |---|---|---|

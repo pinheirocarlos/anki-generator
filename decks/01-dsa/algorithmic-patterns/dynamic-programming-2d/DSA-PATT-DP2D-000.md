@@ -25,25 +25,24 @@ Como modelar a função de transição de estados de uma DP 2D em matrizes de gr
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Matriz de DP 2D em Grade: dp[i][j] = dp[i-1][j] + dp[i][j-1]</text>
+  <g transform="translate(160, 50)">
+    <rect x="0" y="0" width="80" height="40" fill="#1e293b" stroke="#64748b" rx="4"/>
+    <text x="40" y="25" fill="#cbd5e1" font-size="11" text-anchor="middle">dp[i-1][j]</text>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Matriz de DP 2D: Grid de Estados dp[i][j]</text>
-  <g transform="translate(100, 50)">
-    <rect x="0" y="0" width="220" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="110" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Definição Bidimensional</text>
-    <text x="15" y="45" fill="#f8fafc" font-size="10">i: índice do item / prefixo da string 1</text>
-    <text x="15" y="60" fill="#93c5fd" font-size="10">j: capacidade restante / prefixo da string 2</text>
+    <text x="40" y="65" fill="#38bdf8" font-size="16" font-weight="bold" text-anchor="middle">↓</text>
 
-    <g transform="translate(260, 0)">
-      <rect x="0" y="0" width="220" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-      <text x="110" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Ordem de Preenchimento</text>
-      <text x="15" y="45" fill="#f8fafc" font-size="10">Linha por linha (Top → Bottom)</text>
-      <text x="15" y="60" fill="#a7f3d0" font-size="10">Garante que dp[i-1][j] já está calculado</text>
-    </g>
+    <rect x="100" y="0" width="80" height="40" fill="#1e293b" stroke="#64748b" rx="4"/>
+    <text x="140" y="25" fill="#cbd5e1" font-size="11" text-anchor="middle">dp[i][j-1]</text>
+
+    <text x="100" y="65" fill="#38bdf8" font-size="16" font-weight="bold" text-anchor="middle">→</text>
+
+    <rect x="120" y="45" width="120" height="45" fill="#047857" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="180" y="68" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">dp[i][j] (Destino)</text>
   </g>
-  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Base para problemas de Mochila, LCS, Distância de Edição e Caminhos em Grid</text>
-
+  <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Fluxo acíclico da esquerda para a direita e de cima para baixo em tempo O(M × N)</text>
 </svg>
-
+<p>Visualização: Matriz de DP em grade 2D agregando caminhos válidos a partir das células superior e esquerda.</p>
 | Problema de Grade | Origem dos Subproblemas | Função de Agregação |
 |---|---|---|
 | **Unique Paths** | Cima $(r-1, c)$ e Esquerda $(r, c-1)$ | Soma ($+$) |

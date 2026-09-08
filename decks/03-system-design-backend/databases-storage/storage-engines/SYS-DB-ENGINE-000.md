@@ -60,6 +60,7 @@ Por que bancos de dados relacionais (OLTP) utilizam B+Trees em vez de B-Trees co
   <text x="340" y="200" fill="#94a3b8" font-size="10" text-anchor="middle">Folhas duplamente encadeadas permitem Range Scans sequenciais contíguos em disco sem subir na árvore.</text>
 
 </svg>
+<p>Visualização: B+Tree com nós internos apenas como roteadores e folhas duplamente encadeadas otimizando range scans sequenciais.</p>
 
 | Estrutura de Índice | Altura Típica ($N=10^9$) | Eficiência em Range Query (`BETWEEN`) |
 |---|---|---|

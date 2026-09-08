@@ -58,6 +58,8 @@ Qual problema prático uma Árvore de Segmentos (Segment Tree) resolve ao lidar 
   <text x="300" y="178" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Consulta de soma no intervalo [0..2]: Basta somar bloco [0..1] (15) + A[2] (7) = 22</text>
 </svg>
 
+<p>Visualização: Índice de livro com sumário por capítulos e seções para busca rápida.</p>
+
 | Abordagem | Consulta de Soma de Intervalo | Atualização de 1 Valor |
 |---|---|---|
 | **Array Simples** | $O(N)$ (lento para consultar) | $O(1)$ (rápido para atualizar) |

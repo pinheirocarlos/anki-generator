@@ -60,6 +60,7 @@ Qual é a intuição fundamental da arquitetura de armazenamento e sincronizaç�
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">O banco relacional guarda apenas os metadados; os blocos brutos vão para o S3/GCS!</text>
 </svg>
+<p>Visualização: Fatiamento do arquivo em blocos de 4 MB identificados por hash SHA-256, sincronizando apenas blocos alterados via delta sync.</p>
 
 | Camada do Sistema | O que Armazena | Tecnologia Típica |
 |---|---|---|

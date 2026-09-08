@@ -46,6 +46,7 @@ Qual é a diferença fundamental entre **Stack Allocation** e **Heap Allocation*
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Alocar na Stack é dezenas de vezes mais rápido que alocar na Heap em qualquer linguagem moderna.</text>
 
 </svg>
+<p>Visualização: Alocação de memória comparando a Stack (deslocamento O(1) do ponteiro RSP e desalocação automática no retorno) com a Heap (gerenciamento dinâmico de blocos livres sujeito a fragmentação e overhead de GC).</p>
 
 | Métrica | Stack Allocation | Heap Allocation |
 |---|---|---|

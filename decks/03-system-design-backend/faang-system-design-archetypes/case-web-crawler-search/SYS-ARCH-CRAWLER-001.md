@@ -42,6 +42,7 @@ Como crawlers em escala de petabytes eliminam URLs repetidas e páginas quase id
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Reduz em até 30% o volume de páginas processadas na esteira de indexação sem perda de qualidade.</text>
 
 </svg>
+<p>Visualização: Filtros de Bloom descartando URLs já visitadas e SimHash detectando páginas com conteúdo quase idêntico (Near-Duplicates).</p>
 
 | Técnica de Deduplicação | O que Deduplica | Estrutura Utilizada |
 |---|---|---|

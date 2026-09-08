@@ -22,48 +22,25 @@ Como ocorrem as operações de **inserção (`push`)** e **remoção do extremo 
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Top-K Elementos Usando Min-Heap de Tamanho Fixo K</text>
-  <g transform="translate(60, 50)">
-    <rect x="0" y="0" width="180" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="90" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Stream de N Itens</text>
-    <text x="15" y="45" fill="#f8fafc" font-size="10">Itera sobre N elementos</text>
-    <text x="15" y="60" fill="#94a3b8" font-size="10">Para cada item num...</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Operações Heapify-Up (Push) e Heapify-Down (Pop) O(log N)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="230" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="115" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Heapify-Up (Push O(log N))</text>
+    <text x="15" y="42" fill="#f8fafc" font-size="10">Insere elemento no final do array</text>
+    <text x="15" y="60" fill="#93c5fd" font-size="10">Flutua trocando com o pai se maior</text>
 
-    <path d="M 195 37 L 245 37" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrow)"/>
-
-    <g transform="translate(250, 0)">
-      <rect x="0" y="0" width="290" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-      <text x="145" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Min-Heap (Capacidade K)</text>
-      <text x="15" y="42" fill="#f8fafc" font-size="10">Se num &gt; heap.peek():</text>
-      <text x="15" y="60" fill="#34d399" font-size="10">heap.pop(); heap.push(num) em O(log K)</text>
+    <g transform="translate(280, 0)">
+      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Heapify-Down (Pop O(log N))</text>
+      <text x="15" y="42" fill="#f8fafc" font-size="10">Move último item para a raiz</text>
+      <text x="15" y="60" fill="#a7f3d0" font-size="10">Afunda trocando com o maior filho</text>
     </g>
   </g>
-  <text x="340" y="165" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Complexidade de Tempo: O(N log K) | Complexidade de Espaço: O(K)</text>
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">A altura do heap é estritamente log₂ N, limitando o número máximo de swaps</text>
 
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Top-K Elementos Usando Min-Heap de Tamanho Fixo K</text>
-  <g transform="translate(60, 50)">
-    <rect x="0" y="0" width="180" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="90" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Stream de N Itens</text>
-    <text x="15" y="45" fill="#f8fafc" font-size="10">Itera sobre N elementos</text>
-    <text x="15" y="60" fill="#94a3b8" font-size="10">Para cada item num...</text>
-
-    <path d="M 195 37 L 245 37" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrow)"/>
-
-    <g transform="translate(250, 0)">
-      <rect x="0" y="0" width="290" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-      <text x="145" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Min-Heap (Capacidade K)</text>
-      <text x="15" y="42" fill="#f8fafc" font-size="10">Se num &gt; heap.peek():</text>
-      <text x="15" y="60" fill="#34d399" font-size="10">heap.pop(); heap.push(num) em O(log K)</text>
-    </g>
-  </g>
-  <text x="340" y="165" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Complexidade de Tempo: O(N log K) | Complexidade de Espaço: O(K)</text>
-
-</svg>
+<p>Visualização: Mecânica de subida (Heapify-Up no push) e descida (Heapify-Down no pop) limitadas pela altura O(log N).</p>
 
 | Operação | Mecânica de Reajuste | Complexidade |
 |---|---|---|

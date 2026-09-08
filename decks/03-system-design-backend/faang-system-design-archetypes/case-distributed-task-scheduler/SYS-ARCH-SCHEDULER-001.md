@@ -43,6 +43,7 @@ Como orquestradores de fluxo (Temporal / Apache Airflow) coordenam a execução 
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Tarefas idempotentes garantem que retentativas em workers secundários não corrompem o resultado final do pipeline.</text>
 
 </svg>
+<p>Visualização: Coordenação de fluxos em DAG com monitoramento de heartbeat e reatribuição de tarefas órfãs após falha de worker.</p>
 
 | Mecanismo de Resiliência | Gatilho de Disparo | Ação do Orquestrador |
 |---|---|---|

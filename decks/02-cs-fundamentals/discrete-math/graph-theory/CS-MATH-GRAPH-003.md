@@ -34,6 +34,7 @@ O que caracteriza um **Componente Fortemente Conexo (SCC)** em grafos direcionad
   <text x="340" y="160" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Permite condensar grafos complexos em um supergrafo DAG para análise de dependências circulares.</text>
 
 </svg>
+<p>Visualização: Algoritmo de Tarjan identificando Componentes Fortemente Conexos (SCC) em passo único de DFS com pilha e low-link values.</p>
 
 | Métrica no Algoritmo de Tarjan | Significado | Ação ao Completar DFS do Nó |
 |---|---|---|

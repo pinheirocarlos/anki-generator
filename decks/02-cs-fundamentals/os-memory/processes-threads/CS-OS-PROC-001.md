@@ -47,6 +47,7 @@ O que torna a **Troca de Contexto (Context Switch)** de um processo significativ
   <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">A preservação da TLB é a principal razão pela qual threads são muito mais leves para troca de contexto que processos.</text>
 
 </svg>
+<p>Visualização: Custos de troca de contexto comparando a sobrecarga de substituição do registrador CR3 e flush da TLB contra a troca leve de TCB entre threads.</p>
 
 | Operação de Troca de Contexto | Entre Threads do mesmo Processo | Entre Processos Distintos |
 |---|---|---|

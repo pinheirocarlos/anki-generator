@@ -36,6 +36,7 @@ Como a técnica de **Zero-Copy** com a syscall **`sendfile()`** transfere arquiv
   <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Segredo do Throughput Monstruoso do Apache Kafka e Nginx ao servir arquivos e streams estáticos.</text>
 
 </svg>
+<p>Visualização: Operação Zero-Copy via sendfile() transferindo blocos do Page Cache diretamente para os buffers do socket de rede via DMA sem travessia para o User Space.</p>
 
 | Método de Transferência | Cópias de Dados na RAM | Trocas de Modo (Context Switches) |
 |---|---|---|

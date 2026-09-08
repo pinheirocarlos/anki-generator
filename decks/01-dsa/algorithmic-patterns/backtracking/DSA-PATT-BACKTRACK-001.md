@@ -24,16 +24,27 @@ Como otimizar a verificação de segurança de rainhas no **Problema das N-Rainh
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Poda de Ramos (Pruning): Eliminação Antecipada de Ramos Inválidos</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#ef4444" rx="6"/>
-    <text x="260" y="22" fill="#f87171" font-size="12" font-weight="bold" text-anchor="middle">Poda de Subárvores Inviáveis antes da Chamada Recursiva</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Se current_sum + candidate &gt; target: aborta imediatamente com continue/return.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Reduz o espaço de busca de O(2ᴺ) ou O(N!) para frações minúsculas executáveis em ms.</text>
-  </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Diferença entre Time Limit Exceeded (TLE) e aprovação em testes de Big Tech</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Problema das N-Rainhas: Validação O(1) com Vetores de Colunas e Diagonais</text>
+  <g transform="translate(100, 45)">
+    <!-- Tabuleiro 4x4 compacto -->
+    <rect x="0" y="0" width="120" height="100" fill="#1e293b" stroke="#475569" rx="4"/>
+    <rect x="0" y="0" width="30" height="25" fill="#334155"/>
+    <rect x="60" y="0" width="30" height="25" fill="#334155"/>
+    <rect x="30" y="25" width="30" height="25" fill="#334155"/>
+    <rect x="90" y="25" width="30" height="25" fill="#334155"/>
+    <circle cx="45" cy="12" r="8" fill="#f59e0b"/><text x="45" y="16" fill="#fff" font-size="9" font-weight="bold" text-anchor="middle">Q</text>
+    <circle cx="105" cy="37" r="8" fill="#f59e0b"/><text x="105" y="41" fill="#fff" font-size="9" font-weight="bold" text-anchor="middle">Q</text>
 
+    <!-- Fórmulas de Diagonais -->
+    <rect x="160" y="0" width="320" height="100" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="320" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Identificadores de Linha de Ataque:</text>
+    <text x="180" y="45" fill="#f8fafc" font-size="10">• Coluna: col</text>
+    <text x="180" y="65" fill="#38bdf8" font-size="10">• Diagonal Principal: row - col (constante)</text>
+    <text x="180" y="85" fill="#fcd34d" font-size="10">• Diagonal Secundária: row + col (constante)</text>
+  </g>
+  <text x="340" y="170" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Permite validação de segurança da posição da rainha em O(1) de tempo</text>
 </svg>
+<p>Visualização: Validação instantânea O(1) de ataques em N-Queens via vetores de colunas e diagonais principais e secundárias.</p>
 
 | Linha de Ataque da Rainha | Propriedade Matemática em $(r, c)$ | Rastreamento em $O(1)$ |
 |---|---|---|

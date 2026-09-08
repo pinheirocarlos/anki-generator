@@ -55,6 +55,7 @@ Qual é o papel fundamental do processador (CPU) e de seu Conjunto de Instruçõ
   <!-- Legenda inferior -->
   <text x="300" y="160" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">ISA (ex: x86 / ARM): O catálogo de opcodes binários que a CPU aceita!</text>
 </svg>
+<p>Visualização: O ciclo fundamental da CPU de busca, decodificação e execução de instruções.</p>
 
 | Componente / Conceito | Função no Processador | Analogia na Cozinha |
 |---|---|---|

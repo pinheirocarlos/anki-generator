@@ -52,6 +52,7 @@ Qual é a intuição fundamental por trás dos bloqueios distribuídos (Distribu
 
   <text x="300" y="175" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Segurança: O TTL garante que se o Worker 1 morrer, a chave nunca ficará presa para sempre!</text>
 </svg>
+<p>Visualização: Coordenação central de locks distribuídos com TTL/Lease garantindo exclusão mútua e prevenindo deadlocks eternos.</p>
 
 | Mecanismo de Lock | Como Funciona | Analogia do Cotidiano |
 |---|---|---|

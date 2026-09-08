@@ -42,6 +42,7 @@ Como a TrueTime API do Google Spanner utiliza relógios atômicos e GPS para for
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Se Tx2 começa após o término de Tx1 no mundo real, o timestamp de Tx2 é estritamente maior que o de Tx1.</text>
 
 </svg>
+<p>Visualização: TrueTime API garantindo linearizabilidade global através de espera deliberada pela janela de incerteza [earliest, latest].</p>
 
 | Mecanismo de Tempo | Tratamento de Incerteza | Garantia Oferecida |
 |---|---|---|

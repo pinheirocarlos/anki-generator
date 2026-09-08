@@ -24,30 +24,30 @@ Como a operação **`find`** localiza a raiz canônica de um elemento em um DSU 
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">União por Rank ou Tamanho (Union by Rank)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Regra: Conecta a raiz da árvore mais rasa sob a raiz da mais profunda</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Se rank(rootA) &lt; rank(rootB) → parent[rootA] = rootB (altura total não cresce).</text>
-    <text x="20" y="62" fill="#f59e0b" font-size="11">Se rank(rootA) == rank(rootB) → parent[rootB] = rootA; rank(rootA)++.</text>
-  </g>
-  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Garante altura máxima de O(log N) mesmo sem compressão de caminhos</text>
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Operação find(x): Travessia de Pais até a Raiz Canônica (parent[root] == root)</text>
+  
+  <g transform="translate(60, 45)">
+    <!-- Vetor parent -->
+    <rect x="0" y="0" width="260" height="95" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="6"/>
+    <text x="130" y="20" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Vetor parent[]</text>
+    <text x="25" y="42" fill="#94a3b8" font-size="11" font-family="monospace">Índice i:  0   1   2   3</text>
+    <text x="25" y="62" fill="#34d399" font-size="11" font-family="monospace">parent[i]: 0   0   1   3</text>
+    <text x="25" y="82" fill="#fcd34d" font-size="10">Raízes: parent[0]=0, parent[3]=3</text>
 
+    <!-- Execução find(2) -->
+    <g transform="translate(290, 0)">
+      <rect x="0" y="0" width="270" height="95" fill="#1e293b" stroke="#10b981" stroke-width="1.5" rx="6"/>
+      <text x="135" y="20" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Rastreio de find(2)</text>
+      <text x="15" y="40" fill="#f8fafc" font-size="10">1. Inicia em x = 2 (parent[2] = 1)</text>
+      <text x="15" y="58" fill="#f8fafc" font-size="10">2. Sobe para x = 1 (parent[1] = 0)</text>
+      <text x="15" y="76" fill="#38bdf8" font-size="10" font-weight="bold">3. Chega em x = 0 (parent[0] == 0) ➔ Retorna 0</text>
+    </g>
+  </g>
+
+  <text x="340" y="175" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Dois nós u e v estão no mesmo conjunto se e somente se find(u) == find(v)</text>
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">União por Rank ou Tamanho (Union by Rank)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Regra: Conecta a raiz da árvore mais rasa sob a raiz da mais profunda</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Se rank(rootA) &lt; rank(rootB) → parent[rootA] = rootB (altura total não cresce).</text>
-    <text x="20" y="62" fill="#f59e0b" font-size="11">Se rank(rootA) == rank(rootB) → parent[rootB] = rootA; rank(rootA)++.</text>
-  </g>
-  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Garante altura máxima de O(log N) mesmo sem compressão de caminhos</text>
-
-</svg>
+<p>Visualização: Operação find percorrendo a cadeia de pais no array parent até alcançar a raiz canônica auto-referenciada.</p>
 
 | Estado de Nó | Condição no Array | Papel Estrutural |
 |---|---|---|

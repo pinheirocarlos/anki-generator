@@ -47,6 +47,7 @@ Como o controlador **DMA (Direct Memory Access)** transfere dados entre armazena
   <text x="340" y="172" fill="#94a3b8" font-size="10" text-anchor="middle">o controlador DMA gera uma interrupção (IRQ) somente quando a transferência completa.</text>
 
 </svg>
+<p>Visualização: Controlador DMA transferindo blocos entre dispositivo e RAM sem sobrecarregar a CPU.</p>
 
 | Método de Transferência | Intervenção da CPU Durante a Transferência | Carga de CPU |
 |---|---|---|

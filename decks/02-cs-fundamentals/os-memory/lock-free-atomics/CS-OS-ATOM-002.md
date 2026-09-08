@@ -34,6 +34,7 @@ Como a instrução de hardware **Compare-And-Swap (CAS)** permite atualizar vari
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Elimina o custo de context switches de mutex; sob altíssima contenção, o overhead de CPU do loop pode subir.</text>
 
 </svg>
+<p>Visualização: Mecânica da primitiva atômica Compare-And-Swap (CAS) executada em loop otimista para atualização de estado sem bloqueio de kernel.</p>
 
 | Etapa do CAS Loop | Operação | Resultado se Houver Colisão |
 |---|---|---|

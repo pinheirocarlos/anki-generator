@@ -35,6 +35,7 @@ Como o **Paradoxo do Aniversário (Birthday Paradox)** explica por que colisões
   <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Impacto em Arquitetura: UUIDs de 64 bits colidem rápido; UUIDv4 (128 bits) garante segurança.</text>
 
 </svg>
+<p>Visualização: Curva de probabilidade do Paradoxo do Aniversário mostrando 50% de chance de colisão de hash com k ≈ 1.177 * √N.</p>
 
 | Espaço de Hash ($N$) | Raiz Quadrada ($\sqrt{N}$) | Inserções para 50% de Risco de Colisão |
 |---|---|---|

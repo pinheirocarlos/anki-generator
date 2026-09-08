@@ -24,32 +24,16 @@ Como o **Algoritmo de Rabin-Karp** utiliza **Rolling Hash polinomial** para busc
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Knuth-Morris-Pratt (KMP): Tabela de Prefixo π (LPS) em Tempo O(N + M)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Rabin-Karp: Rolling Hash Polinomial com Módulo Primo em O(1)</text>
   <g transform="translate(80, 50)">
     <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Longest Proper Prefix which is also Suffix (LPS)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Ao ocorrer mismatch no caractere j do padrão: j = lps[j - 1].</text>
-    <text x="20" y="62" fill="#38bdf8" font-size="11">O ponteiro do texto NUNCA retrocede; salta diretamente para o prefixo coincidente.</text>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Atualização Deslizante: H_novo = ((H_ant - S[i]·B^(M-1))·B + S[i+M]) mod P</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Subtrai o caractere saint da esquerda, multiplica pela base B e soma o novo caractere.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Compara caracteres literais apenas quando H_janela == H_padrao para eliminar colisões espúrias.</text>
   </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Elimina o recuo quadrático O(N · M) da busca ingênua (brute force)</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Complexidade: Tempo médio O(N + M) e espaço auxiliar estrito O(1)</text>
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Knuth-Morris-Pratt (KMP): Tabela de Prefixo π (LPS) em Tempo O(N + M)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Longest Proper Prefix which is also Suffix (LPS)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Ao ocorrer mismatch no caractere j do padrão: j = lps[j - 1].</text>
-    <text x="20" y="62" fill="#38bdf8" font-size="11">O ponteiro do texto NUNCA retrocede; salta diretamente para o prefixo coincidente.</text>
-  </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Elimina o recuo quadrático O(N · M) da busca ingênua (brute force)</text>
-
-</svg>
-
+<p>Visualização: Algoritmo de Rabin-Karp atualizando o hash polinomial da janela deslizante em tempo estrito O(1).</p>
 | Algoritmo | Custo por Janela | Complexidade de Tempo Médio |
 |---|---|---|
 | **Busca Ingênua** | $O(M)$ Comparações | $O(N \cdot M)$ |

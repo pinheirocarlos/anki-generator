@@ -45,6 +45,7 @@ Como salas de espera virtuais (Virtual Waiting Room) e expiração automática d
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Garante que inventário bloqueado por desistência volta automaticamente à venda para outros clientes.</text>
 
 </svg>
+<p>Visualização: Sala de espera virtual liberando tokens de compra gradualmente e devolvendo estoque não pago após expiração do TTL.</p>
 
 | Componente | Papel Arquitetural | Proteção do Sistema |
 |---|---|---|

@@ -54,6 +54,7 @@ Como a arquitetura **NUMA (Non-Uniform Memory Access)** impacta a latência em s
   <text x="340" y="176" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Acesso Remoto (Node 0 acessando RAM do Node 1): ~100-140 ns (Penalidade NUMA de ~2x)</text>
 
 </svg>
+<p>Visualização: Topologia NUMA com acesso local ultrarrápido vs acesso remoto inter-socket.</p>
 
 | Tipo de Acesso NUMA | Caminho do Barramento | Latência Típica |
 |---|---|---|

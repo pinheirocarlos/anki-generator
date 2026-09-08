@@ -57,6 +57,7 @@ Qual é a intuição fundamental da arquitetura de um agendador distribuído de 
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Execução garantida mesmo diante de falhas de hardware ou reinicialização de containers!</text>
 </svg>
+<p>Visualização: Fila de atraso (Delay Queue) despachando tarefas prontas para workers protegidos por heartbeats periódicos.</p>
 
 | Modelo de Agendamento | Resiliência | Escalabilidade |
 |---|---|---|

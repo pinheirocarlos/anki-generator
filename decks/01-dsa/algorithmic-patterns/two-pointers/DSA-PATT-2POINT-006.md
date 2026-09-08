@@ -54,6 +54,7 @@ Qual é o modelo mental do padrão Two Pointers e como mover dois marcadores sim
 
   <text x="300" y="160" fill="#f8fafc" font-size="11" font-family="sans-serif" text-anchor="middle">Se Alvo = 18 e Soma = 2 + 20 = 22 (maior que o alvo) ➔ Recue o ponteiro Right para a esquerda!</text>
 </svg>
+<p>Visualização: Dois corredores em pistas fechando o cerco nas duas pontas em busca do alvo da soma.</p>
 
 | Cenário de Decisão | Ação do Algoritmo | Por quê? |
 |---|---|---|

@@ -49,6 +49,7 @@ Como implementar um Rate Limiter distribuído de Janela Deslizante (Sliding Wind
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Elimina o problema de borda (Boundary Burst) do contador de janela fixa que permitia 2x o limite no cruzamento do minuto.</text>
 
 </svg>
+<p>Visualização: Janela deslizante com Redis Sorted Set contando elementos com timestamp acima de (now - window) em script Lua atômico.</p>
 
 | Etapa no ZSet do Redis | Comando Executado | Efeito |
 |---|---|---|

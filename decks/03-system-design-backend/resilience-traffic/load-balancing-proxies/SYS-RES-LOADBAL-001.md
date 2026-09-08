@@ -50,6 +50,7 @@ Quando escolher entre os algoritmos de balanceamento Round Robin, Weighted Least
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Weighted Least Connections é o algoritmo padrão para tráfego heterogêneo em produção.</text>
 
 </svg>
+<p>Visualização: Algoritmo Least Connections distribuindo conexões para o servidor com menor número de sessões ativas.</p>
 
 | Algoritmo | Critério de Decisão | Cenário Recomendado |
 |---|---|---|

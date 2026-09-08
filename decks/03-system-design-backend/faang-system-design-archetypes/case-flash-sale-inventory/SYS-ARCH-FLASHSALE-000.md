@@ -40,6 +40,7 @@ Como a pré-alocação de inventário em Redis com scripts Lua atômicos previne
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Single-thread do Redis garante zero race condition e zero overselling sem travar o banco relacional.</text>
 
 </svg>
+<p>Visualização: Decremento atômico de estoque via script Lua em Redis prevenindo overselling em picos de alta concorrência.</p>
 
 | Estratégia de Reserva | Throughput Máximo Suportado | Risco de Overselling |
 |---|---|---|

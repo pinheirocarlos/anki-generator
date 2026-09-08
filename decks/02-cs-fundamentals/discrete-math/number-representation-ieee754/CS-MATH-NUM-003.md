@@ -47,6 +47,7 @@ Como o padrão **IEEE 754** divide números de ponto flutuante em *Sinal, Expoen
   </g>
 
 </svg>
+<p>Visualização: Particionamento de bits do padrão IEEE 754 Float32 em 1 bit de sinal, 8 bits de expoente com bias e 23 bits de fração normalizada.</p>
 
 | Tipo IEEE 754 | Expoente com Bias | Mantissa / Fração |
 |---|---|---|

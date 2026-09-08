@@ -65,6 +65,8 @@ Qual é o modelo mental do Disjoint Set Union (Union-Find) para agrupar elemento
   <text x="300" y="180" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Find(2) == Líder 1 | Find(3) == Líder 1 ➔ Mesma família instantaneamente!</text>
 </svg>
 
+<p>Visualização: Modelo mental de clãs independentes onde cada elemento aponta para ancestrais até o líder supremo representativo.</p>
+
 | Operação | Tempo com Otimizações | O que faz |
 |---|---|---|
 | **`find(x)`** | Quase $O(1)$ ($\alpha(N)$) | Sobe a cadeia de pais até achar o líder raiz |

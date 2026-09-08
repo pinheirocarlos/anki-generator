@@ -49,6 +49,7 @@ Como a regra do Prefixo Mais à Esquerda (*Leftmost Prefix Rule*) determina a ef
   <text x="340" y="195" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">A B+Tree é ordenada lexicograficamente: colunas sem o prefixo inicial quebram a navegação na árvore.</text>
 
 </svg>
+<p>Visualização: Regra do Prefixo Mais à Esquerda navegando na B+Tree composta (A, B, C) apenas quando a coluna antecedente é filtrada.</p>
 
 | Cláusula WHERE | Uso do Índice `(A, B, C)` | Tipo de Execução |
 |---|---|---|

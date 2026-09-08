@@ -73,6 +73,7 @@ Qual é a intuição fundamental por trás do framework estruturado de 4 passos 
 
   <text x="300" y="175" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">A regra de ouro: Nunca pule para a solução técnica antes de travar o escopo!</text>
 </svg>
+<p>Visualização: O funil progressivo em 4 fases de System Design: Requisitos, Escopo, Alto Nível e Deep Dives.</p>
 
 | Etapa do Framework | Foco Principal | Analogia da Construção |
 |---|---|---|

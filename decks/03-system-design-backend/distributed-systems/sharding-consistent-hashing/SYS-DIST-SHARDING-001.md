@@ -47,6 +47,7 @@ Por que a técnica de Nós Virtuais (Virtual Nodes / Vnodes) é essencial no Con
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Vnodes garantem distribuição de carga homogênea com desvio padrão inferior a 3% entre partições.</text>
 
 </svg>
+<p>Visualização: Nós virtuais (Vnodes) espalhando múltiplos pontos de cada servidor pelo anel para distribuição uniforme de carga.</p>
 
 | Abordagem | Distribuição de Chaves | Tratamento de Hardware Heterogêneo |
 |---|---|---|

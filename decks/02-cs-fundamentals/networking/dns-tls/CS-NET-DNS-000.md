@@ -56,6 +56,7 @@ Como funciona a resolução hierárquica do **DNS** e qual a diferença entre um
   <text x="340" y="180" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Cache em Múltiplas Camadas (OS, Browser, Resolver ISP) esconde a latência de consultas iterativas.</text>
 
 </svg>
+<p>Visualização: Arquitetura em árvore hierárquica do DNS percorrendo Root, TLD e servidor Autoritativo com suporte a cache multicamadas.</p>
 
 | Tipo de Servidor DNS | Papel no Fluxo de Resolução | Armazena Registros Definitivos? |
 |---|---|---|

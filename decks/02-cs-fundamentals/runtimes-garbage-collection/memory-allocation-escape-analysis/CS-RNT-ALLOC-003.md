@@ -34,6 +34,7 @@ Como o padrão **`sync.Pool`** em Go reduz a pressão sobre o Garbage Collector 
   <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Atenção: Objetos no pool são limpos automaticamente pelo GC a cada ciclo; não use para conexões persistentes.</text>
 
 </svg>
+<p>Visualização: Padrão de reciclagem com sync.Pool reutilizando buffers e estruturas temporárias em cache concorrente para minimizar alocações na Heap e mitigar a pressão sobre o Garbage Collector.</p>
 
 | Estratégia de Buffers | Alocações no Heap por Requisição | Impacto no GC |
 |---|---|---|

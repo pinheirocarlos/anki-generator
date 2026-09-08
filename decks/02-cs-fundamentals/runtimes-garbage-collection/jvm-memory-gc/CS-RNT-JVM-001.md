@@ -47,6 +47,7 @@ Qual é a diferença arquitetural entre o **G1GC** e o **ZGC (Z Garbage Collecto
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">No Java 21 LTS: Ative com '-XX:+UseZGC -XX:+ZGenerational' para eliminar pausas perceptíveis de Garbage Collection.</text>
 
 </svg>
+<p>Visualização: Comparação de coletores modernos da JVM contrastando o G1GC (particionamento regional com pausas controladas de 10-50 ms) e o ZGC (marcação e realocação concorrente com colored pointers e pausas inferiores a 1 ms).</p>
 
 | Coletor de GC | Pausa Típica de STW | Escala Máxima de Heap |
 |---|---|---|

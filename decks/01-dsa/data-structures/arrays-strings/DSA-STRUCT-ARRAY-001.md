@@ -44,34 +44,9 @@ Como provar formalmente que o custo de inserção (`append`) em um vetor dinâmi
     <rect x="525" y="0" width="50" height="24" fill="#1e293b" stroke="#475569" rx="3"/>
   </g>
   <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Custo Total de N inserções = 1 + 2 + 4 + ... + N = 2N → Custo Amortizado = O(1)</text>
-
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Crescimento Amortizado de Vetores Dinâmicos: Duplicação Geométrica 2x</text>
-  <g transform="translate(60, 50)">
-    <text x="0" y="15" fill="#94a3b8" font-size="11">Capacidade = 4 (Cheio):</text>
-    <rect x="140" y="0" width="50" height="24" fill="#3b82f6" rx="3"/>
-    <rect x="195" y="0" width="50" height="24" fill="#3b82f6" rx="3"/>
-    <rect x="250" y="0" width="50" height="24" fill="#3b82f6" rx="3"/>
-    <rect x="305" y="0" width="50" height="24" fill="#3b82f6" rx="3"/>
-  </g>
-  <g transform="translate(60, 90)">
-    <text x="0" y="15" fill="#10b981" font-size="11">Capacidade = 8 (Realloc 2x):</text>
-    <rect x="140" y="0" width="50" height="24" fill="#10b981" rx="3"/>
-    <rect x="195" y="0" width="50" height="24" fill="#10b981" rx="3"/>
-    <rect x="250" y="0" width="50" height="24" fill="#10b981" rx="3"/>
-    <rect x="305" y="0" width="50" height="24" fill="#10b981" rx="3"/>
-    <rect x="360" y="0" width="50" height="24" fill="#047857" rx="3"/>
-    <rect x="415" y="0" width="50" height="24" fill="#1e293b" stroke="#475569" rx="3"/>
-    <rect x="470" y="0" width="50" height="24" fill="#1e293b" stroke="#475569" rx="3"/>
-    <rect x="525" y="0" width="50" height="24" fill="#1e293b" stroke="#475569" rx="3"/>
-  </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Custo Total de N inserções = 1 + 2 + 4 + ... + N = 2N → Custo Amortizado = O(1)</text>
-
-</svg>
+<p>Visualização: Duplicação geométrica (2x/1.5x) garantindo custo amortizado O(1).</p>
 
 | Operação | Custo Real | Saldo Acumulado |
 |---|---|---|

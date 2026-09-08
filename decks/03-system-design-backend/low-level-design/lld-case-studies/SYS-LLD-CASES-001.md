@@ -47,6 +47,7 @@ Como projetar um Cache em Memória Thread-Safe de alta performance com suporte a
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Sharded Cache (ex: 32 partições de locks independentes) reduz contenção de threads em 96%.</text>
 
 </svg>
+<p>Visualização: Cache em memória com mutex RWMutex, limpeza ativa de chaves expiradas por worker em background e evicção LRU.</p>
 
 | Mecanismo de Expiração | Gatilho | Finalidade |
 |---|---|---|

@@ -50,6 +50,7 @@ Quais são as principais formas de comunicação entre processos independentes (
 
   <text x="300" y="155" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Escolha: Pipes para simplicidade, Shared Memory para alta taxa de dados!</text>
 </svg>
+<p>Visualização: Analogia intuitiva dos padrões de IPC comparando o Tubo Pneumático (Pipes), a Lousa Comunitária (Shared Memory) e a Sirene de Alarme (Signals).</p>
 
 | Mecanismo de IPC | Velocidade & Características | Analogia do Mundo Real |
 |---|---|---|

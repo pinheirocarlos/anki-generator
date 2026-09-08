@@ -51,6 +51,7 @@ Como o líder no algoritmo Raft garante a consistência do log replicado e deter
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Quorum de Maioria (2 de 3 nós confirmaram) → Entrada considerada Comitted e aplicada na State Machine.</text>
 
 </svg>
+<p>Visualização: Replicação de entradas de log do líder para os seguidores e confirmação de commit ao atingir o quorum da maioria.</p>
 
 | Fase da Replicação | Estado da Entrada de Log | Visibilidade para o Cliente |
 |---|---|---|

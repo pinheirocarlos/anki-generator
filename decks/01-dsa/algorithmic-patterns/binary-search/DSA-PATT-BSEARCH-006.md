@@ -64,6 +64,7 @@ Por que dividir o espaço de busca pela metade (Busca Binária) é tão incrivel
   <text x="130" y="150" fill="#ef4444" font-size="11" font-family="sans-serif">❌ Toda metade esquerda eliminada</text>
   <text x="410" y="150" fill="#10b981" font-size="11" font-family="sans-serif">✓ Nova busca apenas na metade direita</text>
 </svg>
+<p>Visualização: Abertura e corte ao meio descartando 50% dos dados a cada palpite no espaço de busca ordenado.</p>
 
 | Quantidade de Itens ($N$) | Busca Linear ($O(N)$) | Busca Binária ($O(\log N)$) |
 |---|---|---|

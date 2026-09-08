@@ -55,6 +55,7 @@ Qual é a intuição fundamental da arquitetura de streaming de vídeo (como You
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">O arquivo de índice (.m3u8) diz ao player quais pedaços baixar a cada segundo!</text>
 </svg>
+<p>Visualização: Esteira de vídeo fatiando conteúdo em chunks indexados por manifesto HLS para streaming adaptativo via rede CDN.</p>
 
 | Componente de Streaming | Papel na Arquitetura | Analogia do Cotidiano |
 |---|---|---|

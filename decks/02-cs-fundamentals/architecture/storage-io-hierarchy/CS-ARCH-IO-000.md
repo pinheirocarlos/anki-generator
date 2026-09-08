@@ -46,6 +46,7 @@ Qual a diferença fundamental de mecânica e latência entre um **HDD mecânico*
   <text x="340" y="195" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Analogia: 1 ciclo de CPU = 1 segundo → NVMe = 1 dia | HDD = 4 meses de espera.</text>
 
 </svg>
+<p>Visualização: Pirâmide de latência de armazenamento: Registradores (0.3ns) até HDDs (5ms).</p>
 
 | Meio de Armazenamento | Latência Típica | IOPS Típico |
 |---|---|---|

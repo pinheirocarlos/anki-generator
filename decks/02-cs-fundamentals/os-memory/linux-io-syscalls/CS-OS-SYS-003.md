@@ -45,6 +45,7 @@ Por que a API **`epoll`** do Linux escala em tempo **$O(1)$** com milhões de co
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Motor fundamental por trás de Netty, Node.js (libuv), Go Netpoller, Redis e Nginx.</text>
 
 </svg>
+<p>Visualização: Comparação de escalabilidade I/O entre a varredura linear O(N) do select/poll e o monitoramento dirigido a eventos em O(1) do epoll no Linux.</p>
 
 | API de I/O | Custo por Evento | Comportamento com 100.000 Sockets Ociosos |
 |---|---|---|

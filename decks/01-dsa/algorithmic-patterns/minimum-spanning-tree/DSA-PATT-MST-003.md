@@ -27,16 +27,48 @@ Como o **Algoritmo de Prim** expande a MST incrementalmente a partir de um vért
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Borůvka's Algorithm: Seleção Paralela de Arestas Mínimas em O(E log V)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
-    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Fusão Simultânea de Componentes em Cada Rodada</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Cada componente conectado escolhe concorrentemente sua aresta incidente de menor peso.</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">O número de componentes reduz pela metade a cada fase: estritamente log₂ V fases.</text>
-  </g>
-  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">O algoritmo de MST mais naturalmente paralelizável em GPUs e computação distribuída (MapReduce)</text>
+  <text x="340" y="24" fill="#38bdf8" font-size="13" font-weight="bold" text-anchor="middle">Algoritmo de Prim: Expansão da MST Nó a Nó via Min-Heap O(E log V)</text>
 
+  <!-- Componente em Crescimento (Corte) -->
+  <g transform="translate(60, 45)">
+    <!-- Árvore Atual (Visitados) -->
+    <rect x="0" y="0" width="130" height="100" fill="#065f46" stroke="#10b981" stroke-width="1.5" rx="6"/>
+    <text x="65" y="18" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Árvore MST (Visitados)</text>
+    <circle cx="35" cy="50" r="14" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <text x="35" y="54" fill="#fff" font-size="10" text-anchor="middle">A</text>
+    <line x1="49" y1="50" x2="81" y2="50" stroke="#10b981" stroke-width="2"/>
+    <circle cx="95" cy="50" r="14" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <text x="95" y="54" fill="#fff" font-size="10" text-anchor="middle">B</text>
+    <text x="65" y="85" fill="#a7f3d0" font-size="9" text-anchor="middle">Custo MST = 2</text>
+
+    <!-- Arestas de Corte -->
+    <line x1="95" y1="64" x2="195" y2="75" stroke="#10b981" stroke-width="2.5"/>
+    <text x="145" y="65" fill="#34d399" font-size="10" font-weight="bold">w=3 (Min)</text>
+
+    <line x1="95" y1="36" x2="195" y2="25" stroke="#64748b" stroke-width="1.5"/>
+    <text x="145" y="25" fill="#94a3b8" font-size="10">w=7</text>
+
+    <!-- Nós Não Visitados -->
+    <rect x="180" y="0" width="130" height="100" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="6"/>
+    <text x="245" y="18" fill="#60a5fa" font-size="10" font-weight="bold" text-anchor="middle">Não Visitados</text>
+    <circle cx="215" cy="25" r="14" fill="#0f172a" stroke="#64748b" stroke-width="1.5"/>
+    <text x="215" y="29" fill="#94a3b8" font-size="10" text-anchor="middle">C</text>
+    <circle cx="215" cy="75" r="14" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <text x="215" y="79" fill="#fff" font-size="10" text-anchor="middle">D</text>
+  </g>
+
+  <!-- Painel Min-Heap -->
+  <g transform="translate(410, 45)">
+    <rect x="0" y="0" width="220" height="100" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" rx="6"/>
+    <text x="110" y="20" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Min-Heap das Arestas do Corte</text>
+    <text x="15" y="42" fill="#a7f3d0" font-size="10" font-family="monospace">1. [B-D, w=3] ➔ Extrai (Menor)</text>
+    <text x="15" y="60" fill="#94a3b8" font-size="10" font-family="monospace">2. [B-C, w=7]</text>
+    <text x="15" y="78" fill="#f8fafc" font-size="10">Adiciona D à MST e insere vizinhos de D no Min-Heap.</text>
+  </g>
+
+  <text x="340" y="175" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Prim mantém uma única árvore em expansão; Kruskal une florestas independentes via DSU</text>
 </svg>
+<p>Visualização: Algoritmo de Prim crescendo uma única árvore a partir do nó inicial via corte de menor peso mantido no Min-Heap.</p>
 
 | Algoritmo de MST | Estratégia de Construção | Estrutura Auxiliar Principal |
 |---|---|---|

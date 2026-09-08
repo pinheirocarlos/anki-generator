@@ -52,6 +52,7 @@ Como agendadores de tarefas distribuídos escalam a execução de milhões de ti
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Script Lua atômico (ZRANGEBYSCORE + ZREM) garante que cada tarefa é entregue a exatamente 1 worker.</text>
 
 </svg>
+<p>Visualização: Agendador distribuído usando Redis Sorted Sets com score de timestamp para puxar tarefas prontas com baixa latência.</p>
 
 | Componente do Agendador | Estrutura | Responsabilidade |
 |---|---|---|

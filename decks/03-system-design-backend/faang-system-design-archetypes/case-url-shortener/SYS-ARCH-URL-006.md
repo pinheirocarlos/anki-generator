@@ -52,6 +52,7 @@ Qual é a intuição fundamental da arquitetura de um encurtador de URLs (TinyUR
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Como o sistema lê 100x mais do que grava, o cache Redis absorve 99% do tráfego!</text>
 </svg>
+<p>Visualização: Ciclo do encurtador: mapeamento de ID numérico em token Base62 de 7 caracteres com redirecionamento de alta velocidade via cache.</p>
 
 | Código HTTP | Significado | Quando Usar |
 |---|---|---|

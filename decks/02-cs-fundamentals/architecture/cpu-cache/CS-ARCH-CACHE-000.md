@@ -48,6 +48,7 @@ O que é a **hierarquia de memória da CPU (L1/L2/L3)** e por que ela existe na 
   </g>
 
 </svg>
+<p>Visualização: Hierarquia L1/L2/L3 com latências de ~1ns a ~15ns contra ~80ns da RAM.</p>
 
 | Nível de Memória | Tamanho Típico | Latência de Acesso |
 |---|---|---|

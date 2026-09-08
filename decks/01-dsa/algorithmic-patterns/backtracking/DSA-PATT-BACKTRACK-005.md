@@ -25,16 +25,27 @@ Por que acoplar uma **Trie** ao Backtracking em **Word Search II** (LeetCode 212
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Knuth's Dancing Links (DLX): Algoritmo X para Cobertura Exata</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
-    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Listas Duplamente Ligadas Circulares em 4 Direções (L, R, U, D)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Remove colunas e linhas cobrindo nós em O(1); restaura perfeitamente no backtrack.</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Resolve problemas complexos de pentaminós, Sudoku e Cobertura de Conjuntos em tempo recorde.</text>
-  </g>
-  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Obra-prima de Donald Knuth para backtracking ultra-otimizado</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Word Search II: Backtracking em Grid 2D com Prefix-Tree (Trie)</text>
+  <g transform="translate(60, 45)">
+    <!-- Matriz 2D -->
+    <rect x="0" y="0" width="160" height="85" fill="#1e293b" stroke="#3b82f6" rx="4"/>
+    <text x="80" y="18" fill="#60a5fa" font-size="10" font-weight="bold" text-anchor="middle">Grade 2D (Board)</text>
+    <rect x="15" y="28" width="25" height="22" fill="#065f46" stroke="#10b981" rx="2"/><text x="27" y="43" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">O</text>
+    <rect x="45" y="28" width="25" height="22" fill="#065f46" stroke="#10b981" rx="2"/><text x="57" y="43" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">A</text>
+    <rect x="75" y="28" width="25" height="22" fill="#065f46" stroke="#10b981" rx="2"/><text x="87" y="43" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">T</text>
+    <rect x="105" y="28" width="25" height="22" fill="#065f46" stroke="#10b981" rx="2"/><text x="117" y="43" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">H</text>
+    <text x="80" y="72" fill="#34d399" font-size="9" text-anchor="middle">Marca '#' in-place e desfaz</text>
 
+    <!-- Trie Sync -->
+    <rect x="200" y="0" width="360" height="85" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="380" y="20" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Navegação Conjunta no Trie: O ➔ A ➔ T ➔ H (Word!)</text>
+    <text x="215" y="42" fill="#f8fafc" font-size="10">• Se nó do Trie não tem filho para o caractere ➔ Poda imediata!</text>
+    <text x="215" y="58" fill="#fcd34d" font-size="10">• Ao encontrar palavra: adiciona à resposta e desmarca nó</text>
+    <text x="215" y="74" fill="#38bdf8" font-size="10">• Evita verificar palavras inexistentes: de O(M×N×4ᴸ) para O(M×N×3ᴸ)</text>
+  </g>
+  <text x="340" y="165" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Acoplamento do Trie poda milhares de ramos antes mesmo de explorar o grid</text>
 </svg>
+<p>Visualização: Backtracking em matriz 2D guiado por Trie com marcação in-place da célula visitada e restauração no desempilhamento.</p>
 
 | Abordagem | Número de Buscas no Tabuleiro | Complexidade |
 |---|---|---|

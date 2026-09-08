@@ -23,30 +23,30 @@ Como a operação **`union`** funde dois conjuntos no DSU e como ela verifica se
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Complexidade Quase-Linear com Função Inversa de Ackermann α(N)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
-    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Combinação: Path Compression + Union by Rank</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Complexidade amortizada de M operações sobre N elementos: O(M · α(N)).</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Como α(N) &lt; 5 para qualquer N até o número de átomos no universo observável (10⁸⁰) → O(1) na prática.</text>
-  </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Operações Find e Union são indistinguíveis de tempo constante no mundo real</text>
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Operação union(x, y): Fusão de Componentes e Union by Rank</text>
+  
+  <g transform="translate(45, 45)">
+    <!-- Caso 1: Já Conectados -->
+    <rect x="0" y="0" width="280" height="100" fill="#1e293b" stroke="#ef4444" stroke-width="1.5" rx="6"/>
+    <text x="140" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Caso 1: rootX == rootY</text>
+    <text x="15" y="44" fill="#f8fafc" font-size="10">• find(x) e find(y) retornam a mesma raiz</text>
+    <text x="15" y="62" fill="#f87171" font-size="10">• Nós já pertencem ao mesmo conjunto!</text>
+    <text x="15" y="80" fill="#94a3b8" font-size="10">• Retorna false (detecta ciclo / redundância)</text>
 
+    <!-- Caso 2: Diferentes Componentes -->
+    <g transform="translate(310, 0)">
+      <rect x="0" y="0" width="280" height="100" fill="#1e293b" stroke="#10b981" stroke-width="1.5" rx="6"/>
+      <text x="140" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Caso 2: rootX != rootY (Fusão)</text>
+      <text x="15" y="44" fill="#f8fafc" font-size="10">• Conecta árvore de menor rank sob a maior</text>
+      <text x="15" y="62" fill="#34d399" font-size="10">• parent[rootX] = rootY (ou vice-versa)</text>
+      <text x="15" y="80" fill="#38bdf8" font-size="10">• Decrementa o número total de componentes</text>
+    </g>
+  </g>
+
+  <text x="340" y="175" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">União por Rank garante altura máxima O(log N) das árvores da floresta</text>
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Complexidade Quase-Linear com Função Inversa de Ackermann α(N)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
-    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Combinação: Path Compression + Union by Rank</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Complexidade amortizada de M operações sobre N elementos: O(M · α(N)).</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Como α(N) &lt; 5 para qualquer N até o número de átomos no universo observável (10⁸⁰) → O(1) na prática.</text>
-  </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Operações Find e Union são indistinguíveis de tempo constante no mundo real</text>
-
-</svg>
+<p>Visualização: Operação union conectando a raiz de uma árvore sob a outra com união por rank para evitar degeneração de altura.</p>
 
 | Condição em `union(x, y)` | Ação | Conectividade |
 |---|---|---|

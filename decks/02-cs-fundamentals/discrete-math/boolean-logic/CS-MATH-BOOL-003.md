@@ -46,6 +46,7 @@ Quais são as propriedades algébricas fundamentais do **XOR ($oplus$)** e como 
   <text x="340" y="155" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Single Number Problem (LeetCode 136): Reduz array de O(N) espaço para O(1) com acumulador XOR.</text>
 
 </svg>
+<p>Visualização: Propriedades matemáticas do operador XOR com auto-anulação (x ^ x = 0) e elemento neutro (x ^ 0 = x).</p>
 
 | Propriedade XOR | Expressão Matemática | Efeito em Bits |
 |---|---|---|

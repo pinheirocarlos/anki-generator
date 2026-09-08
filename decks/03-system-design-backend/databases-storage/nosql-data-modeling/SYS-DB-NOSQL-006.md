@@ -51,6 +51,7 @@ Qual é a intuição fundamental da modelagem NoSQL (Documentos e Chave-Valor) e
 
   <text x="300" y="175" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Regra NoSQL: Modele seus dados no formato exato em que a tela do usuário precisa consumir!</text>
 </svg>
+<p>Visualização: Analogia intuitiva comparando o modelo SQL normalizado (múltiplos JOINs custosos) com o modelo NoSQL orientado a documentos agregados (leitura direta em I/O único).</p>
 
 | Tipo de Banco | Quando Brilha | Analogia do Cotidiano |
 |---|---|---|

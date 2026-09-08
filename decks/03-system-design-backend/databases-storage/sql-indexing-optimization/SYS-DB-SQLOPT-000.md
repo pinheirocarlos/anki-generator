@@ -45,6 +45,7 @@ Qual é a diferença fundamental entre um Índice Clustered e um Índice Secund�
   <text x="340" y="200" fill="#94a3b8" font-size="10" text-anchor="middle">No InnoDB, a chave primária curta (ex: BIGINT) reduz o tamanho de todos os índices secundários da tabela.</text>
 
 </svg>
+<p>Visualização: Índice Clustered contendo as páginas de dados na folha da B+Tree vs Índice Secundário apontando para a Primary Key.</p>
 
 | Tipo de Índice | O que contém nas Folhas da B+Tree | Quantidade por Tabela |
 |---|---|---|

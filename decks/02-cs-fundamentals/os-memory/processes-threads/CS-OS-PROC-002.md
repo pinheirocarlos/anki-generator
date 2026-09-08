@@ -43,6 +43,7 @@ O que são **Goroutines / Green Threads (Threads de Userspace)** e por que elas 
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">O runtime do Go gerencia cooperativamente pontos de preempção em chamadas de função e I/O de rede não-bloqueante.</text>
 
 </svg>
+<p>Visualização: Arquitetura de concorrência comparando threads 1:1 do kernel com o modelo M:N de green threads/goroutines gerenciadas em espaço de usuário.</p>
 
 | Característica | OS Kernel Thread | Goroutine (Go Runtime) |
 |---|---|---|

@@ -46,6 +46,7 @@ Qual é a diferença funcional entre **Pipes Anônimos** e **Named Pipes (FIFOs)
   <text x="340" y="160" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Buffer padrão do Linux: 64 KB (ajustável via fcntl F_SETPIPE_SZ). Escritas > 4 KB não são atômicas.</text>
 
 </svg>
+<p>Visualização: Comparação entre Pipe Anônimo (unidirecional em memória para processos com parentesco) e Named Pipe FIFO (acessível via filesystem para processos arbitrários).</p>
 
 | Tipo de Pipe | Existe no Sistema de Arquivos? | Exige Relação de Parentesco (Pai/Filho)? |
 |---|---|---|

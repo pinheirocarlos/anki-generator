@@ -70,7 +70,10 @@
             "image/gif",
             "image/png",
             "inline_svg",
-            "markdown_table"
+            "markdown_table",
+            "mp4",
+            "webm",
+            "gif"
           ]
         },
         "attribution": {
@@ -90,7 +93,7 @@
         },
         "status": {
           "type": "string",
-          "enum": ["verified", "pending", "deprecated"]
+          "enum": ["verified", "pending", "pending_injection", "deprecated"]
         },
         "last_verified": {
           "type": "string",

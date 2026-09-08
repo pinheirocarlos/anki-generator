@@ -48,6 +48,7 @@ Quais são as diferenças fundamentais de filosofia de design entre arquiteturas
   <text x="340" y="185" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Convergência: Processadores modernos x86 quebram CISC em micro-ops RISC internamente.</text>
 
 </svg>
+<p>Visualização: Filosofia CISC (instruções variáveis complexas) vs RISC (instruções atômicas de ciclo único).</p>
 
 | Característica | x86-64 (Intel / AMD) | ARM64 / AArch64 (Graviton / Apple) |
 |---|---|---|

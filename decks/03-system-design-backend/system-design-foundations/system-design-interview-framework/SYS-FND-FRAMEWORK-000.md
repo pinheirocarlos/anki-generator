@@ -56,6 +56,7 @@ Qual é o framework padrão em 4 etapas utilizado para estruturar uma entrevista
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Conduza a entrevista como uma sessão de colaboração técnica entre pares de engenharia sênior.</text>
 
 </svg>
+<p>Visualização: Framework em 4 etapas: 1. Escopo e Requisitos, 2. Arquitetura em Alto Nível, 3. Deep Dive, 4. Gargalos e Escala.</p>
 
 | Etapa do Framework | Duração Sugerida | Objetivo Central |
 |---|---|---|

@@ -45,6 +45,7 @@ Qual é a diferença fundamental entre um **Processo Zumbi (`defunct`)** e um **
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Em contêineres Docker, usar tini ou dumb-init como PID 1 previne o acúmulo de processos zumbis.</text>
 
 </svg>
+<p>Visualização: Ciclo de vida diferenciando Processos Zumbis (terminados aguardando wait() do pai) de Processos Órfãos (adotados pelo init/systemd PID 1).</p>
 
 | Tipo de Processo | O Processo ainda Roda Código? | Causa Raiz do Problema |
 |---|---|---|

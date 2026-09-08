@@ -50,6 +50,7 @@ Qual é a intuição fundamental por trás da Hipótese Geracional do Garbage Co
 
   <text x="300" y="165" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Benefício: Limpar apenas o Eden é 100x mais rápido do que varrer a memória inteira!</text>
 </svg>
+<p>Visualização: Analogia intuitiva do ciclo geracional da JVM retratando o berçário (Eden) para consumo rápido e descarte eficiente versus o arquivo permanente (Tenured) para retenção duradoura de dados.</p>
 
 | Região da Memória | Vida Útil Típica | Analogia do Cotidiano |
 |---|---|---|

@@ -22,18 +22,16 @@ Como a **Bitmask DP** representa subconjuntos de elementos como inteiros binári
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Tree DP (DP em Árvores): Re-Rooting e Subárvores</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Bitmask DP (TSP): dp[mask][u] = min_{v} (dp[mask | (1 &lt;&lt; v)][v] + dist[u][v])</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
-    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Duas Passadas DFS (Subindo e Descendo)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">DFS 1 (Bottom-Up): Calcula as respostas parciais de cada subárvore a partir das folhas.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">DFS 2 (Top-Down): Transfere a contribuição do pai ao re-enraizar a árvore para cada vizinho.</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Estado Inteiro Compacto: máscara de N bits</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Bit k = 1 indica que a cidade k já foi visitada no tour atual.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Reduz a busca exaustiva fatorial O(N!) para complexidade exata O(N² · 2ᴺ).</text>
   </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Calcula a resposta para TODAS as N possíveis raízes em tempo O(N) ao invés de O(N²)</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Permite resolver instâncias exatas de TSP para N até 20 a 22 cidades</text>
 </svg>
-
+<p>Visualização: Bitmask DP para o Caixeiro Viajante representando o subconjunto de cidades visitadas como máscara de bits em tempo O(N²·2ᴺ).</p>
 | Representação de Conjunto | Formato Binário | Custo do Algoritmo |
 |---|---|---|
 | **Força Bruta de Permutações** | Lista de cidades visitadas | $O(N!)$ Inviável para $N > 12$ |

@@ -52,6 +52,7 @@ Por que o runtime do Go consegue executar centenas de milhares de goroutines sim
 
   <text x="300" y="160" fill="#10b981" font-size="11" font-family="monospace" text-anchor="middle">Pausa do GC no Go: Menos de 1 ms graças à marcação concorrente!</text>
 </svg>
+<p>Visualização: Representação intuitiva do escalonador cooperativo do Go distribuindo milhares de Goroutines concorrentes sobre os núcleos de CPU com pausas de GC imperceptíveis abaixo de 1 milissegundo.</p>
 
 | Conceito do Runtime | O que Significa | Analogia do Cotidiano |
 |---|---|---|

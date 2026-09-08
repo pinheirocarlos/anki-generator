@@ -60,6 +60,7 @@ Qual é a intuição fundamental por trás das propriedades ACID e dos diferente
 
   <text x="300" y="175" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Trade-off clássico: Mais isolamento = Mais segurança, porém Menor concorrência!</text>
 </svg>
+<p>Visualização: Analogia intuitiva dos quatro pilares ACID garantindo segurança transacional, atomicidade tudo-ou-nada e isolamento concorrente.</p>
 
 | Nível de Isolamento | O que Tolera | Analogia do Cotidiano |
 |---|---|---|

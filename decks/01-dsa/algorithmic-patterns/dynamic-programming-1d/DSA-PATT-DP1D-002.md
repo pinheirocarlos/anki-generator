@@ -20,18 +20,23 @@ Quais as diferenças estruturais e trade-offs entre **Memoization (Top-Down)** e
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Top-Down (Memoization) vs Bottom-Up (Tabulation)</text>
+  <g transform="translate(60, 50)">
+    <rect x="0" y="0" width="260" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="130" y="22" fill="#60a5fa" font-size="11" font-weight="bold" text-anchor="middle">Top-Down (Recursão + Cache)</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">Resolve do estado final n até a base.</text>
+    <text x="15" y="60" fill="#93c5fd" font-size="10">Calcula apenas estados estritamente necessários.</text>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Coin Change: dp[i] = min(dp[i - coin] + 1) para cada moeda</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Transição de Estado 1D (Bottom-Up)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Casos base: dp[0] = 0; todos os outros dp[i] inicializados com infinito (INF).</text>
-    <text x="20" y="62" fill="#38bdf8" font-size="11">Para cada quantia i de 1 até Amount: dp[i] = min_{c} (dp[i - c] + 1).</text>
+    <g transform="translate(300, 0)">
+      <rect x="0" y="0" width="260" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="130" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Bottom-Up (Iterativo / Tabular)</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">Inicia nos casos base: dp[0], dp[1]...</text>
+      <text x="15" y="60" fill="#a7f3d0" font-size="10">Zero overhead de pilha recursiva, mais rápido.</text>
+    </g>
   </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Complexidade de Tempo: O(Amount × Moedas) | Complexidade de Espaço: O(Amount)</text>
-
+  <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Bottom-Up permite otimização de espaço eliminando vetores completos em tempo O(1) auxiliar</text>
 </svg>
-
+<p>Visualização: Comparação entre Top-Down (recursivo sob demanda com memoization) e Bottom-Up (iterativo tabular a partir dos casos base).</p>
 | Estratégia de DP | Fluxo de Computação | Estrutura de Controle |
 |---|---|---|
 | **Memoization (Top-Down)** | Problema Maior $\to$ Casos Base | Recursão + Cache (`memo[]`) |

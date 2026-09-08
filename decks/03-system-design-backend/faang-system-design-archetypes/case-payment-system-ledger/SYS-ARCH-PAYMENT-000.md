@@ -39,6 +39,7 @@ Por que sistemas financeiros e gateways de pagamento utilizam o princípio de Co
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Livro-razão é estritamente append-only e imutável; correções exigem lançamentos de estorno equilibrados.</text>
 
 </svg>
+<p>Visualização: Livro-razão imutável garantindo que toda transação financeira possua Débitos e Créditos equilibrados com soma zero.</p>
 
 | Tipo de Conta | Aumento de Valor | Redução de Valor |
 |---|---|---|

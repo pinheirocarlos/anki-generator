@@ -45,6 +45,7 @@ Como o Mutual TLS (mTLS) garante autenticação criptográfica bidirecional e au
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Zero Trust: nenhum pacote trafega sem criptografia e validação criptográfica mútua, mesmo dentro da rede interna.</text>
 
 </svg>
+<p>Visualização: Criptografia mTLS de ponta a ponta com certificados X.509 validados bilateralmente entre microsserviços.</p>
 
 | Tipo de TLS | Quem Apresenta Certificado | Nível de Segurança |
 |---|---|---|

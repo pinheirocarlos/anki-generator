@@ -52,6 +52,7 @@ Qual é o objetivo principal da memória virtual nos sistemas operacionais e com
 
   <text x="300" y="155" fill="#10b981" font-size="11" font-family="monospace" text-anchor="middle">Benefício: Se o Processo A falhar (Segmentation Fault), o Processo B segue intacto!</text>
 </svg>
+<p>Visualização: Representação intuitiva da memória virtual transformando blocos virtuais ordenados em quadros físicos dispersos de RAM com total proteção.</p>
 
 | Conceito | Papel no Sistema Operacional | Analogia no Mundo Real |
 |---|---|---|

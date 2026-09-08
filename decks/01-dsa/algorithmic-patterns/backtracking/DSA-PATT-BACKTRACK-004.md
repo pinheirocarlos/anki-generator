@@ -36,6 +36,7 @@ Como o algoritmo de Backtracking para **Sudoku Solver** (LeetCode 37) valida nú
   <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Garante preenchimento determinístico de qualquer grade 9x9 válida em milissegundos</text>
 
 </svg>
+<p>Visualização: Preenchimento de células com verificação simultânea de linha, coluna e sub-grade 3x3 e retorno imediato ao encontrar conflito.</p>
 
 | Restrição de Sudoku | Estrutura de Validação | Fórmula de Índice |
 |---|---|---|

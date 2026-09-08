@@ -41,6 +41,7 @@ Quando bancos de dados relacionais contornam o Page Cache do sistema operacional
   <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">O_DIRECT entrega controle total do algoritmo de eviction (LRU/2Q) para o próprio banco de dados.</text>
 
 </svg>
+<p>Visualização: Direct I/O (O_DIRECT) contornando o Page Cache e evitando duplicação de buffers de dados.</p>
 
 | Estratégia de I/O | Caminho dos Dados | Risco de Duplicação de RAM |
 |---|---|---|

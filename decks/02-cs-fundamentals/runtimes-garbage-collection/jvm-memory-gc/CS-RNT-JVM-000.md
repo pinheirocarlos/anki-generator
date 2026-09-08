@@ -44,6 +44,7 @@ Como a memória da JVM é dividida entre **Metaspace (Off-Heap)**, **Heap** (Ede
   <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">O consumo total de RAM da JVM = Heap + Metaspace + (Threads × Xss) + Code Cache + Direct Buffers.</text>
 
 </svg>
+<p>Visualização: Topologia de memória do processo Java dividindo a Heap gerenciada pelo GC, o Metaspace em RAM nativa para metadados de classes e as Stacks isoladas de cada thread do sistema operacional.</p>
 
 | Área de Memória | Compartilhada entre Threads? | Gerenciada pelo Garbage Collector? |
 |---|---|---|

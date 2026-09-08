@@ -49,30 +49,8 @@ Como manter a consulta do elemento mínimo (`getMin`) em **tempo constante $O(1)
 
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+<p>Visualização: Min Stack com rastreamento sincronizado mantendo consulta getMin() em O(1).</p>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Min Stack com Rastreamento Sincronizado O(1)</text>
-  <g transform="translate(120, 50)">
-    <!-- Main Stack -->
-    <rect x="0" y="0" width="180" height="85" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="90" y="20" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Pilha Principal</text>
-    <rect x="30" y="30" width="120" height="15" fill="#2563eb" rx="2"/><text x="90" y="42" fill="#fff" font-size="10" text-anchor="middle">val: 2 (Topo)</text>
-    <rect x="30" y="47" width="120" height="15" fill="#1d4ed8" rx="2"/><text x="90" y="59" fill="#fff" font-size="10" text-anchor="middle">val: 6</text>
-    <rect x="30" y="64" width="120" height="15" fill="#1e40af" rx="2"/><text x="90" y="76" fill="#fff" font-size="10" text-anchor="middle">val: 3 (Base)</text>
-
-    <!-- Min Stack -->
-    <g transform="translate(240, 0)">
-      <rect x="0" y="0" width="180" height="85" fill="#1e293b" stroke="#10b981" rx="6"/>
-      <text x="90" y="20" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Pilha de Mínimos Auxiliar</text>
-      <rect x="30" y="30" width="120" height="15" fill="#047857" rx="2"/><text x="90" y="42" fill="#fff" font-size="10" text-anchor="middle">min: 2 (min(2, 3))</text>
-      <rect x="30" y="47" width="120" height="15" fill="#065f46" rx="2"/><text x="90" y="59" fill="#fff" font-size="10" text-anchor="middle">min: 3 (min(6, 3))</text>
-      <rect x="30" y="64" width="120" height="15" fill="#0f766e" rx="2"/><text x="90" y="76" fill="#fff" font-size="10" text-anchor="middle">min: 3</text>
-    </g>
-  </g>
-  <text x="340" y="165" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">getMin() retorna o topo da pilha auxiliar instantaneamente em tempo O(1)</text>
-
-</svg>
 
 | Operação | Pilhas (`main` / `min`) | `getMin()` |
 |---|---|---|

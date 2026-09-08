@@ -40,6 +40,7 @@ Como o algoritmo de **Brian Kernighan** utiliza a expressão `n & (n - 1)` para 
   <text x="340" y="188" fill="#94a3b8" font-size="10" text-anchor="middle">Cada iteração desliga exatamente o bit 1 menos significativo (LSB set bit) em O(1).</text>
 
 </svg>
+<p>Visualização: Mecânica do Algoritmo de Brian Kernighan limpando o bit 1 menos significativo a cada passo com n & (n - 1).</p>
 
 | Valor de `n` | Binário Original | Resultado `n & (n - 1)` |
 |---|---|---|

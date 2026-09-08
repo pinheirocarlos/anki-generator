@@ -18,40 +18,18 @@ Como a técnica de Linha de Varredura (Sweep-Line Algorithm) simplifica problema
 - Em vez de comparar todos os pares de formas geométricas ($O(N^2)$), ela para apenas em **pontos críticos de eventos** (onde um prédio/retângulo começa ou termina), mantendo uma estrutura ordenada dos itens ativos no feixe laser em **$O(N \log N)$**.
 
 ### Dual Coding Visual
-<svg viewBox="0 0 600 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-  <rect width="600" height="190" fill="#0f172a" rx="10" />
-
-  <text x="300" y="24" fill="#10b981" font-size="13" font-family="sans-serif" font-weight="bold" text-anchor="middle">Sweep-Line: Uma Linha Laser Imaginária Processa Inícios e Fins de Prédios</text>
-
-  <!-- Prédios / Retângulos -->
-  <g transform="translate(60, 45)">
-    <!-- Prédio 1 -->
-    <rect x="40" y="30" width="120" height="70" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="2" />
-    <text x="100" y="70" fill="#93c5fd" font-size="11" text-anchor="middle">Prédio A (Alt 70)</text>
-
-    <!-- Prédio 2 (Sobreposto) -->
-    <rect x="110" y="10" width="140" height="90" fill="#065f46" stroke="#10b981" stroke-width="2" rx="2" fill-opacity="0.6" />
-    <text x="180" y="55" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Prédio B (Alt 90)</text>
-
-    <!-- Linha Laser Sweep-Line -->
-    <line x1="110" y1="0" x2="110" y2="105" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="4,4" />
-    <polygon points="110,0 105,8 115,8" fill="#ef4444" />
-    <text x="110" y="125" fill="#fca5a5" font-size="10" font-family="monospace" text-anchor="middle">Laser em X=110</text>
-    <text x="110" y="138" fill="#ef4444" font-size="9" text-anchor="middle">(Evento: Início de B)</text>
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Sweep-Line: Uma Linha Laser Imaginária Processa Inícios e Fins de Objetos</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Metáfora do Scanner de Código de Barras</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Em vez de olhar o plano 2D inteiro de uma vez, você passa um scanner vertical.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Você só precisa recalcular coisas nos pontos exatos onde algo começa, cruza ou termina.</text>
   </g>
-
-  <!-- Painel de Eventos -->
-  <g transform="translate(360, 45)">
-    <rect x="0" y="0" width="200" height="90" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="6" />
-    <text x="100" y="20" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Fila de Eventos Ordenados</text>
-    <text x="15" y="40" fill="#a7f3d0" font-size="10" font-family="monospace">1. X=40:  Entra A (Max=70)</text>
-    <text x="15" y="58" fill="#34d399" font-size="10" font-family="monospace">2. X=110: Entra B (Max=90) ✓</text>
-    <text x="15" y="76" fill="#94a3b8" font-size="10" font-family="monospace">3. X=160: Sai A   (Max=90)</text>
-  </g>
-
-  <text x="300" y="170" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">O contorno da cidade (Skyline) muda exatamente quando a altura máxima ativa no laser é alterada!</text>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Converte problemas contínuos infinitos em um conjunto discreto finito de eventos</text>
 </svg>
-
+<p>Visualização: Metáfora do scanner laser: transformar um problema geométrico bidimensional contínuo em uma sequência cronológica de eventos pontuais.</p>
 | Problema Geométrico | Abordagem Força Bruta | Abordagem Sweep-Line |
 |---|---|---|
 | **Interseção de Segmentos de Linha** | Compara todos os pares ($O(N^2)$) | Compara apenas linhas vizinhas no laser ($O(N \log N)$) |

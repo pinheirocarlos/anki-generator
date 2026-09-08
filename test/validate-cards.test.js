@@ -474,8 +474,8 @@ Qual é o impacto da rotação AVL?
 **Solução Direta**: Rebalanceia a árvore em O(1).
 
 ### Dual Coding Visual
-![Diagram](assets/DSA-STRUCT-TREE-001.svg)
-<img src="assets/DSA-STRUCT-TREE-001.svg" alt="Tree Diagram" />
+![Diagram](assets/DSA-STRUCT-TREE-001.gif)
+<img src="assets/DSA-STRUCT-TREE-001.gif" alt="Tree Diagram" />
 <video src="https://assets.faang-anki.dev/media/dsa/avl-rotation-loop.webm" autoplay loop muted playsinline></video>
 `;
 
@@ -483,8 +483,8 @@ Qual é o impacto da rotação AVL?
   if (resolved.mediaFiles.length !== 1) {
     console.error(`❌ Expected exactly 1 unique extracted local media file, got ${resolved.mediaFiles.length}`);
     unitFailures++;
-  } else if (resolved.mediaFiles[0].filename !== 'DSA-STRUCT-TREE-001.svg') {
-    console.error(`❌ Expected filename "DSA-STRUCT-TREE-001.svg", got "${resolved.mediaFiles[0].filename}"`);
+  } else if (resolved.mediaFiles[0].filename !== 'DSA-STRUCT-TREE-001.gif') {
+    console.error(`❌ Expected filename "DSA-STRUCT-TREE-001.gif", got "${resolved.mediaFiles[0].filename}"`);
     unitFailures++;
   } else if (!Buffer.isBuffer(resolved.mediaFiles[0].data) || resolved.mediaFiles[0].data.length === 0) {
     console.error('❌ Expected valid non-empty Buffer for local media file data.');
@@ -493,10 +493,10 @@ Qual é o impacto da rotação AVL?
     console.log('✅ PASS: resolveMedia correctly extracted and deduplicated local asset binary buffer.');
   }
 
-  if (resolved.rewrittenMarkdown.includes('assets/DSA-STRUCT-TREE-001.svg')) {
+  if (resolved.rewrittenMarkdown.includes('assets/DSA-STRUCT-TREE-001.gif')) {
     console.error('❌ Expected markdown paths to be rewritten to flat filenames for Anki package export.');
     unitFailures++;
-  } else if (!resolved.rewrittenMarkdown.includes('DSA-STRUCT-TREE-001.svg')) {
+  } else if (!resolved.rewrittenMarkdown.includes('DSA-STRUCT-TREE-001.gif')) {
     console.error('❌ Rewritten markdown missing flat filename reference.');
     unitFailures++;
   } else if (!resolved.rewrittenMarkdown.includes('https://assets.faang-anki.dev/media/dsa/avl-rotation-loop.webm')) {
@@ -627,7 +627,7 @@ Como uma rotação simples à direita funciona em árvores AVL?
 **Solução Direta**: O nó filho esquerdo sobe para a raiz da subárvore e o nó desbalanceado torna-se seu filho direito.
 
 ### Dual Coding Visual
-![Diagram](assets/DSA-STRUCT-TREE-001.svg)
+![Diagram](assets/DSA-STRUCT-TREE-001.gif)
 `;
   const resValidLocal = validateCard(path.join(mockCardDir, 'test-card.md'), validLocalAssetCard);
   if (!resValidLocal.valid) {

@@ -23,44 +23,26 @@ Como a **Radix Tree (Compressed / Compact Trie / Patricia Tree)** reduz o consum
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Busca de Prefixo (startsWith) vs Busca de Palavra Completa (search)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Compressed Trie (Radix Tree): Compactação de Arestas Unifilhas</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="230" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="115" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">startsWith("ca")</text>
-    <text x="15" y="45" fill="#f8fafc" font-size="10">Percorre 'c' → 'a'</text>
-    <text x="15" y="60" fill="#34d399" font-size="10">Retorna true se o nó existe</text>
+    <!-- Standard Trie -->
+    <rect x="0" y="0" width="220" height="75" fill="#1e293b" stroke="#f43f5e" rx="6"/>
+    <text x="110" y="20" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Standard Trie (Esparsa)</text>
+    <text x="15" y="42" fill="#f8fafc" font-size="10">r → o → m → a → n</text>
+    <text x="15" y="60" fill="#94a3b8" font-size="10">5 nós alocados na memória</text>
 
+    <!-- Radix Tree -->
     <g transform="translate(280, 0)">
       <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">search("ca")</text>
-      <text x="15" y="45" fill="#f8fafc" font-size="10">Percorre 'c' → 'a'</text>
-      <text x="15" y="60" fill="#f87171" font-size="10">Retorna node.isEndOfWord (false se só "cat")</text>
+      <text x="120" y="20" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Radix Tree (Compactada)</text>
+      <text x="15" y="42" fill="#34d399" font-size="10">Aresta única: "roman"</text>
+      <text x="15" y="60" fill="#f8fafc" font-size="10">1 único nó alocado (IP Routing)</text>
     </g>
   </g>
-  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Compartilhamento de prefixos reduz drasticamente a redundância na memória</text>
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Reduz o consumo de memória em até 70% em tabelas de roteamento CIDR e Linux Kernel</text>
 
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Busca de Prefixo (startsWith) vs Busca de Palavra Completa (search)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="230" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="115" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">startsWith("ca")</text>
-    <text x="15" y="45" fill="#f8fafc" font-size="10">Percorre 'c' → 'a'</text>
-    <text x="15" y="60" fill="#34d399" font-size="10">Retorna true se o nó existe</text>
-
-    <g transform="translate(280, 0)">
-      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">search("ca")</text>
-      <text x="15" y="45" fill="#f8fafc" font-size="10">Percorre 'c' → 'a'</text>
-      <text x="15" y="60" fill="#f87171" font-size="10">Retorna node.isEndOfWord (false se só "cat")</text>
-    </g>
-  </g>
-  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Compartilhamento de prefixos reduz drasticamente a redundância na memória</text>
-
-</svg>
+<p>Visualização: Radix Tree compactando sequências de nós com filho único em arestas consolidadas, reduzindo drasticamente o consumo de memória.</p>
 
 | Estrutura | Sequência `"inter"` sem bifurcação | Quantidade de Nós |
 |---|---|---|

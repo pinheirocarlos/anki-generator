@@ -44,6 +44,7 @@ O que são **números Subnormais (Denormais)**, `NaN` e `Infinito` no padrão IE
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Números subnormais podem tornar cálculos de FPU até 100x mais lentos se não tratados via flags FTZ/DAZ.</text>
 
 </svg>
+<p>Visualização: Codificação de valores especiais no padrão IEEE 754: NaN, infinitos positivo/negativo e números subnormais com penalidade de clock.</p>
 
 | Estado Especial | Padrão dos Bits | Comportamento em Execução |
 |---|---|---|

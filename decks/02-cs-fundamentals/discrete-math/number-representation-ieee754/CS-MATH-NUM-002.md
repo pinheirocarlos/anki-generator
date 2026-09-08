@@ -42,6 +42,7 @@ O que é **Endianness** (Big-Endian vs Little-Endian) e por que a conversão par
   <text x="340" y="165" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Funções htons() / ntohs() realizam a conversão obrigatória entre Host e Network Byte Order.</text>
 
 </svg>
+<p>Visualização: Disposição sequencial de bytes na memória física: Big-Endian (ordem de rede) vs Little-Endian (padrão x86/ARM).</p>
 
 | Ordem de Bytes (`0x12345678`) | Endereço `0x00` (Início) | Endereço `0x03` (Fim) |
 |---|---|---|

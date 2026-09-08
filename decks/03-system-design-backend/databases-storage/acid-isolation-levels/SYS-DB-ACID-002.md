@@ -47,6 +47,7 @@ O que é a anomalia de Write Skew que ocorre sob Snapshot Isolation / Repeatable
   <text x="340" y="200" fill="#f43f5e" font-size="11" font-weight="bold" text-anchor="middle">Resultado: 0 médicos de plantão! Solução: SELECT FOR UPDATE ou SSI com detecção de conflito siREAD.</text>
 
 </svg>
+<p>Visualização: Anomalia de Write Skew violando restrições de integridade cruzadas sob Snapshot Isolation e detecção de dependências no SSI.</p>
 
 | Nível de Isolamento | Comportamento no Caso dos Médicos | Resultado Final |
 |---|---|---|

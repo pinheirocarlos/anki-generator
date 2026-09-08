@@ -46,6 +46,7 @@ Quais são as diferenças essenciais de garantias entre o protocolo **TCP** e o 
   <text x="340" y="165" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">QUIC constrói confiabilidade e criptografia TLS 1.3 no espaço do usuário diretamente sobre UDP.</text>
 
 </svg>
+<p>Visualização: Comparação entre TCP (conexão confiável, retransmissão e ordenação) e UDP (datagramas rápidos com overhead de 8 bytes e sem garantias).</p>
 
 | Característica | TCP | UDP |
 |---|---|---|

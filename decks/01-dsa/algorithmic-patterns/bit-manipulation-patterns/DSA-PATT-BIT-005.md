@@ -27,18 +27,16 @@ Como iterar estritamente sobre todos os subconjuntos de uma máscara binária us
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Swap de Duas Variáveis sem Memória Temporária via XOR</text>
-  <g transform="translate(100, 50)">
-    <rect x="0" y="0" width="480" height="70" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="240" y="25" fill="#34d399" font-size="11" font-family="monospace" text-anchor="middle">a = a ^ b;   // a guarda a diferença bitwise</text>
-    <text x="240" y="45" fill="#38bdf8" font-size="11" font-family="monospace" text-anchor="middle">b = a ^ b;   // (a ^ b) ^ b = a  (b recebe valor original de a)</text>
-    <text x="240" y="65" fill="#f59e0b" font-size="11" font-family="monospace" text-anchor="middle">a = a ^ b;   // (a ^ b) ^ a = b  (a recebe valor original de b)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Iteração de Submáscaras: sub = (sub - 1) &amp; mask em Tempo O(3ᴺ)</text>
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Salto Estrito Apenas por Subconjuntos Válidos</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">sub = mask; while (sub &gt; 0) { process(sub); sub = (sub - 1) &amp; mask; }</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Soma de combinações Σ C(N, k) · 2ᵏ = (1 + 2)ᴺ = 3ᴺ, muito superior a testar O(4ᴺ).</text>
   </g>
-  <text x="340" y="165" fill="#f59e0b" font-size="11" text-anchor="middle">Atenção: Se &amp;a == &amp;b (mesmo endereço de memória), o valor é zerado; use if (&amp;a != &amp;b)</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Técnica padrão para problemas de DP de partição de conjuntos e empacotamento exato</text>
 </svg>
-
+<p>Visualização: Enumeração de submáscaras via (sub - 1) & mask gerando todos os subconjuntos válidos em tempo ótimo O(3ᴺ).</p>
 | Abordagem | Estados Avaliados | Complexidade para todas as máscaras |
 |---|---|---|
 | **Loop Ingênuo de $0$ a `mask`** | Testa números inválidos | $O(4^N)$ |

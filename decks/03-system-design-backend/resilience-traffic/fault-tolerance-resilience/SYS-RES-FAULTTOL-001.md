@@ -45,6 +45,7 @@ Por que adicionar Full Jitter aleatório ao Exponential Backoff é obrigatório 
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Padrão obrigatório em todos os SDKs de clientes cloud resilientes.</text>
 
 </svg>
+<p>Visualização: Full Jitter aleatorizando tempos de espera entre retentativas dissipando tempestades de requisições sincronizadas.</p>
 
 | Estratégia de Retry | Distribuição de Tráfego no Tempo | Risco de Ressaturação do Backend |
 |---|---|---|

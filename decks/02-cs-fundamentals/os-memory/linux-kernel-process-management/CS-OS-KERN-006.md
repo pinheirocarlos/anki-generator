@@ -45,6 +45,7 @@ Como o escalonador de processos do Linux (CFS) divide o tempo de CPU entre dezen
   <text x="300" y="135" fill="#f8fafc" font-size="11" font-family="sans-serif" text-anchor="middle">Estados do Ciclo: <tspan fill="#10b981" font-weight="bold">Running</tspan> (Executando) ➔ <tspan fill="#3b82f6" font-weight="bold">Ready</tspan> (Pronto na Fila) ➔ <tspan fill="#f59e0b" font-weight="bold">Sleeping</tspan> (Esperando I/O)</text>
   <text x="300" y="165" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">A rotação é tão rápida (100x por segundo) que humanos percebem como simultâneo!</text>
 </svg>
+<p>Visualização: Modelo mental de fatiamento de tempo do escalonador CFS alternando rajadas de CPU de modo equitativo entre múltiplos processos.</p>
 
 | Estado do Processo | O que Significa | Analogia na Sala de Aula |
 |---|---|---|

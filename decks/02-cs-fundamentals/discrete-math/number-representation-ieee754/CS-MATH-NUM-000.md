@@ -34,6 +34,7 @@ Como funciona a representação de inteiros em **Complemento de Dois** e como o 
   <text x="340" y="165" fill="#f43f5e" font-size="11" font-weight="bold" text-anchor="middle">Integer Overflow: Somar 1 ao maior int32 positivo (0x7FFFFFFF) resulta no menor número negativo (-2^31).</text>
 
 </svg>
+<p>Visualização: Representação de inteiros negativos em Complemento de Dois (~x + 1) e mecânica de detecção de integer overflow.</p>
 
 | Valor Decimal (8 bits) | Representação Binária | Significado dos Bits |
 |---|---|---|

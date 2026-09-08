@@ -32,6 +32,7 @@ O que é uma **Race Condition (Condição de Corrida)** e por que seções crít
   <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Sem exclusão mútua, a ordem de escalonamento não-determinística da CPU corrompe o estado dos dados.</text>
 
 </svg>
+<p>Visualização: Diagrama de seção crítica demonstrando a imposição de exclusão mútua, progresso e espera limitada para prevenir corrupção de estado.</p>
 
 | Thread 1 (Lê saldo = 100) | Thread 2 (Lê saldo = 100) | Saldo Real Gravado |
 |---|---|---|

@@ -57,6 +57,7 @@ Como o particionamento de tópicos e o modelo de Consumer Groups viabilizam esca
   <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">A ordem das mensagens é estritamente garantida dentro de cada partição, nunca entre partições distintas.</text>
 
 </svg>
+<p>Visualização: Cada partição do Kafka é um log sequencial distribuído e lido de forma independente por consumidores.</p>
 
 | Componente Kafka | Papel Estrutural | Regra de Escala |
 |---|---|---|

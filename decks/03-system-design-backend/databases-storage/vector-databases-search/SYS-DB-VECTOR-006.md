@@ -53,6 +53,7 @@ Qual é a intuição fundamental por trás dos bancos de dados vetoriais (Vector
 
   <text x="300" y="180" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">A busca por similaridade encontra o que o usuário quis dizer, não o que digitou!</text>
 </svg>
+<p>Visualização: Analogia intuitiva de bancos de dados vetoriais ilustrando o agrupamento por proximidade semântica em espaço geométrico multidimensional via embeddings.</p>
 
 | Tipo de Busca | Como Funciona | Analogia do Cotidiano |
 |---|---|---|

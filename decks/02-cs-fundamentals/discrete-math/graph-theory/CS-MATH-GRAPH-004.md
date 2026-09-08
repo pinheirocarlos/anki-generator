@@ -43,6 +43,7 @@ O que é uma **Relação de Equivalência** e como a estrutura **Disjoint Set Un
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Complexidade Amortizada: O(α(N)) por operação (Função Inversa de Ackermann ≤ 4 para qualquer N prático).</text>
 
 </svg>
+<p>Visualização: Disjoint Set Union (DSU) com compressão de caminhos e união por rank atingindo tempo quase linear O(α(N)).</p>
 
 | Operação DSU | Sem Otimização | Com Path Compression & Union-by-Rank |
 |---|---|---|

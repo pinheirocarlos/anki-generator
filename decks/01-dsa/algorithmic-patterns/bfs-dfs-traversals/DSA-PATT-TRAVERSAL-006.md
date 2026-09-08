@@ -67,6 +67,8 @@ Qual é a diferença conceitual na ordem de exploração entre Busca em Largura 
   </g>
 </svg>
 
+<p>Visualização: Comparação conceitual da ordem de exploração: BFS em camadas concêntricas (ondas) vs DFS em profundidade com recuo (labirinto).</p>
+
 | Algoritmo | Estrutura | Superpoder & Quando Usar |
 |---|---|---|
 | **BFS (Breadth-First)** | Fila (Queue) | Menor caminho em grafos não-ponderados (GPS, LinkedIn) |

@@ -49,6 +49,7 @@ Qual é o trade-off fundamental entre Fan-Out on Write (Push Model) e Fan-Out on
   <text x="340" y="215" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Sistemas modernos usam o modelo híbrido para obter o melhor de ambos os mundos.</text>
 
 </svg>
+<p>Visualização: Fan-Out on Write gravando posts na caixa de entrada de cada seguidor vs Fan-Out on Read consultando na hora da leitura.</p>
 
 | Modelo de Feed | Custo na Publicação (Write) | Custo no Carregamento (Read) |
 |---|---|---|

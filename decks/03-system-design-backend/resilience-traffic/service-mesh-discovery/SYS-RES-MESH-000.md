@@ -48,6 +48,7 @@ Como a arquitetura de Service Mesh divide responsabilidades entre o Data Plane (
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Envoy Sidecar intercepta todo tráfego via iptables: injeta Circuit Breaking, Retries, Métricas e mTLS de forma transparente.</text>
 
 </svg>
+<p>Visualização: Proxies Envoy Sidecar interceptando todo tráfego leste-oeste coordenados pelas políticas do Control Plane Istiod.</p>
 
 | Plano do Service Mesh | Componente Típico | Responsabilidade Primária |
 |---|---|---|

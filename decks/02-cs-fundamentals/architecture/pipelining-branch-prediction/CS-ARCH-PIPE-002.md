@@ -43,6 +43,7 @@ O que são **Hazards Estruturais e de Dados (RAW)** no pipeline da CPU e como a 
   <text x="340" y="185" fill="#94a3b8" font-size="10" text-anchor="middle">Compiladores reordenam instruções independentes (Instruction Scheduling) para preencher essa lacuna.</text>
 
 </svg>
+<p>Visualização: Hazards estruturais, de dados e de controle gerando stalls e bolhas no pipeline.</p>
 
 | Tipo de Hazard | Causa Primária | Solução de Hardware |
 |---|---|---|

@@ -65,6 +65,8 @@ Qual problema prático a Ordenação Topológica resolve ao organizar tarefas co
   <text x="300" y="160" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Algoritmo de Kahn: Sempre processa as tarefas com 0 pré-requisitos pendentes (in-degree == 0)</text>
 </svg>
 
+<p>Visualização: Analogia da grade de dependências: tarefas sem pré-requisitos pendentes são executadas primeiro, liberando os passos subsequentes.</p>
+
 | Algoritmo | Ideia Central | Detecção de Ciclo Impossível |
 |---|---|---|
 | **Algoritmo de Kahn (BFS)** | Conta pré-requisitos (`in-degree`) e coloca tarefas prontas na fila | Se a fila esvaziar antes de processar todas as tarefas, há um ciclo cíclico (impasse) |

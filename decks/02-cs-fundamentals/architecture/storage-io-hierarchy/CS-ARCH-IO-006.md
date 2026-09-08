@@ -53,6 +53,7 @@ Qual é a diferença fundamental entre memória principal (RAM) e armazenamento 
 
   <text x="300" y="172" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Regra de Ouro: Evite I/O síncrono em caminhos críticos de código!</text>
 </svg>
+<p>Visualização: Da velocidade da luz na CPU à caminhada a pé até o disco magnético.</p>
 
 | Meio de Armazenamento | Persistência & Latência | Analogia em Escala Humana |
 |---|---|---|

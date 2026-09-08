@@ -49,6 +49,7 @@ Qual é a intuição por trás do Paradoxo do Aniversário e por que ele explica
 
   <text x="300" y="160" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Regra: Um hash de 32 bits (4 bilhões de valores) colide com 50% de chance com apenas 77.000 itens!</text>
 </svg>
+<p>Visualização: Explosão combinatória de pares ilustrando intuitivamente por que apenas 23 pessoas geram 50% de chance de aniversário coincidente.</p>
 
 | Conceito Matemático | Efeito Computacional | Aplicação Prática no Backend |
 |---|---|---|

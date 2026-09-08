@@ -53,6 +53,7 @@ Como dimensionar a ingestão e matching de localização GPS de 1 milhão de mot
   <text x="340" y="198" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">O particionamento de memória por célula H3 isola o tráfego de cada cidade sem interdependência global.</text>
 
 </svg>
+<p>Visualização: Ingestão de localização de motoristas a cada 4 segundos com matching geoespacial por células H3 em tempo real.</p>
 
 | Camada | Tecnologia | Função no Sistema |
 |---|---|---|

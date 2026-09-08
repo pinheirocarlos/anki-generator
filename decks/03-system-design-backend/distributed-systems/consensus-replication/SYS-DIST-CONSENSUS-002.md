@@ -42,6 +42,7 @@ Como a fórmula de Quorum $R + W > N$ garante leituras com dados atualizados em 
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Como R (3) + W (3) = 6 &gt; N (5), ao menos 1 nó da leitura certamente contém a versão mais recente escrita.</text>
 
 </svg>
+<p>Visualização: A fórmula R + W > N garante que ao menos um nó no conjunto de leitura possui a versão mais recente escrita.</p>
 
 | Configuração ($N=3$) | Parâmetros ($W, R$) | Garantia de Consistência |
 |---|---|---|

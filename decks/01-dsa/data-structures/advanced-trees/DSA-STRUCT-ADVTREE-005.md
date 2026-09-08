@@ -26,30 +26,17 @@ Como a estrutura **Treap (Cartesian Tree)** combina as propriedades de BST e Hea
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Suffix Tree &amp; Suffix Automaton: Indexação de Substrings em Tempo Linear</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Treap (Tree + Heap): Balanceamento Probabilístico com Prioridades Aleatórias</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Construção com Algoritmo de Ukkonen em Tempo O(N)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Armazena todos os sufixos de uma string compactados em uma árvore.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Responde se qualquer padrão de tamanho M existe no texto em tempo O(M).</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
+    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Invariante Dupla: BST na Chave + Max-Heap na Prioridade</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Cada nó gera uma prioridade aleatória rand(). Insere como BST e restaura Heap com rotações.</text>
+    <text x="20" y="62" fill="#10b981" font-size="11">Garante altura esperada de O(log N) sem algoritmos complexos de rebalanceamento.</text>
   </g>
-  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Resolve Maior Substring Comum e Substring Palindrômica Mais Longa em tempo ótimo</text>
-
+  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Facilita operações poderosas de Split(k) e Merge(T1, T2) em tempo O(log N)</text>
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Suffix Tree &amp; Suffix Automaton: Indexação de Substrings em Tempo Linear</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Construção com Algoritmo de Ukkonen em Tempo O(N)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Armazena todos os sufixos de uma string compactados em uma árvore.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Responde se qualquer padrão de tamanho M existe no texto em tempo O(M).</text>
-  </g>
-  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Resolve Maior Substring Comum e Substring Palindrômica Mais Longa em tempo ótimo</text>
-
-</svg>
+<p>Visualização: Prioridades aleatórias garantindo altura esperada O(log N) na Treap.</p>
 
 | Dimensão do Nó | Invariante Satisfeita | Função na Estrutura |
 |---|---|---|

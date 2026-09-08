@@ -42,6 +42,7 @@ O que é o padrão **Sliding Window (Janela Deslizante)** e como ele reduz a com
   <text x="340" y="170" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Atualização em tempo O(1) por passo → Complexidade total O(N)</text>
 
 </svg>
+<p>Visualização: Janela deslizante de tamanho fixo calculando o delta de entrada e saída em O(1).</p>
 
 | Abordagem | Cálculo por Deslizamento | Complexidade Total |
 |---|---|---|

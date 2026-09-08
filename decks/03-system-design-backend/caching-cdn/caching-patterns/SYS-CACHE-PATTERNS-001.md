@@ -46,6 +46,7 @@ Como a política de evicção LRU (Least Recently Used) se compara à LFU (Least
   <text x="340" y="210" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">W-TinyLFU atinge taxas de hit próximas de 99% em benchmarks de servidores de alta escala.</text>
 
 </svg>
+<p>Visualização: Política W-TinyLFU combinando Window Cache para recência com Count-Min Sketch para frequência com 99% de hit ratio.</p>
 
 | Política de Evicção | Critério de Descarte | Vulnerabilidade Típica |
 |---|---|---|

@@ -48,6 +48,7 @@ Como a arquitetura Log-Structured Merge-Tree (LSM-Tree) converte escritas aleat�
   <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Gravações sequenciais no WAL/MemTable conferem à LSM-Tree taxa de escrita ordens de grandeza superior à B+Tree.</text>
 
 </svg>
+<p>Visualização: LSM-Tree gravando em WAL e MemTable em memória com flush assíncrono para SSTables imutáveis em disco.</p>
 
 | Componente LSM | Localização | Papel Funcional |
 |---|---|---|

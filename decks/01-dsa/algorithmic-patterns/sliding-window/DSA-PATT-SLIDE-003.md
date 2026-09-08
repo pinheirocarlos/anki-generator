@@ -23,16 +23,16 @@ Como funciona uma **Sliding Window Dinâmica/Variável** onde o tamanho da janel
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Minimum Window Substring: Contador de Caracteres Válidos</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Janela Dinâmica: Expansão com Right e Contração Mínima com Left</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
-    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Variável 'matched' rastreando caracteres atendidos</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Quando matched == target.unique_chars: tenta encolher left para achar janela mínima.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Atualiza min_start e min_len apenas quando a janela completa é válida.</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Problema: Menor Subarray com Soma &gt;= Target (LeetCode 209)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Expande Right: soma += arr[right] até soma &gt;= target.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">2. Contrai Left: min_len = min(min_len, right - left + 1); soma -= arr[left++];</text>
   </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Algoritmo clássico de hard interview resolvido em tempo estritamente O(N + M)</text>
-
+  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Cada ponteiro avança no máximo N vezes: Tempo O(2N) = O(N), Espaço O(1)</text>
 </svg>
+<p>Visualização: Contração da janela dinâmica até encontrar o menor comprimento que satisfaz a restrição.</p>
 
 | Ação de Janela Dinâmica | Movimento de Ponteiro | Disparo de Ação |
 |---|---|---|

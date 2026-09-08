@@ -50,6 +50,7 @@ Como implementar um **Bitset / Bit Array** compacto de alta performance e realiz
   </g>
 
 </svg>
+<p>Visualização: Arquitetura de Bitset compactando 64 flags booleanas por palavra uint64 com operações bitwise O(1).</p>
 
 | Estrutura de Booleans | Memória por 1.000.000 Bools | Custo de Interseção (AND) |
 |---|---|---|

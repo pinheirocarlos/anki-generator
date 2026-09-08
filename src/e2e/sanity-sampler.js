@@ -95,8 +95,8 @@ export function detectCardTypologies(cardData) {
     typologies.push(CARD_TYPOLOGIES.L4_PLENO_CODE);
   }
 
-  // 4. MICRO_VIDEO: Card containing <video> tag, <source ... video>, or .mp4
-  const hasVideoTag = /<video[\s>]/i.test(text) || /<source[^>]*type=["']video\//i.test(text) || /\.mp4\b/i.test(text);
+  // 4. MICRO_VIDEO: Card containing looping micro-animation (<video> tag, <source ... video>, .mp4, or .gif)
+  const hasVideoTag = /<video[\s>]/i.test(text) || /<source[^>]*type=["']video\//i.test(text) || /\.mp4\b/i.test(text) || /\.gif\b/i.test(text);
   if (hasVideoTag) {
     typologies.push(CARD_TYPOLOGIES.MICRO_VIDEO);
   }

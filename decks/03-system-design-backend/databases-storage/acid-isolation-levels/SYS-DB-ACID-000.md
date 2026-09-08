@@ -56,6 +56,7 @@ Quais são as três anomalias clássicas de leitura concorrente (Dirty Read, Non
   <text x="340" y="218" fill="#94a3b8" font-size="10" text-anchor="middle">PostgreSQL e MySQL InnoDB utilizam MVCC para prevenir Phantom Reads em Repeatable Read sem locks em tabela.</text>
 
 </svg>
+<p>Visualização: Anomalias de concorrência ANSI SQL: leitura de dados não commitados (Dirty Read) e inserções invisíveis na mesma transação (Phantom Read).</p>
 
 | Nível de Isolamento | Anomalias Prevenidas | Anomalias Permitidas |
 |---|---|---|

@@ -23,32 +23,16 @@ Por que a **SkipList Concorrente (ConcurrentSkipListMap)** é preferida em rela�
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Treiber Lock-Free Stack: Push/Pop com CAS no Ponteiro Head</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">ConcurrentSkipList: Deleção em Duas Fases com Nós Marcadores</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Push: new_node.next = head; CAS(&amp;head, new_node.next, new_node)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Pop: CAS(&amp;head, old_head, old_head.next) em um loop de retry sem bloqueios.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Garante que múltiplas threads empilhem e desempilhem simultaneamente sem corromper ponteiros.</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Fase 1: Marcação Lógica | Fase 2: Desvinculação Física</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Insere nó marcador atômico no ponteiro next (CAS) sinalizando deleção lógica.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Qualquer thread concorrente que encontrar o marcador auxilia na remoção física em O(log N).</text>
   </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">A mais simples e elegante estrutura concorrente sem locks</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Mapas e conjuntos ordenados lock-free com busca, inserção e deleção em O(log N)</text>
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Treiber Lock-Free Stack: Push/Pop com CAS no Ponteiro Head</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Push: new_node.next = head; CAS(&amp;head, new_node.next, new_node)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Pop: CAS(&amp;head, old_head, old_head.next) em um loop de retry sem bloqueios.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Garante que múltiplas threads empilhem e desempilhem simultaneamente sem corromper ponteiros.</text>
-  </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">A mais simples e elegante estrutura concorrente sem locks</text>
-
-</svg>
-
+<p>Visualização: SkipList concorrente realizando remoção lock-free em duas etapas com nós marcadores lógicos atômicos.</p>
 | Estrutura Ordenada | Custo de Modificação Concorrente | Escalabilidade Multithread |
 |---|---|---|
 | **Red-Black Tree Concorrente** | Rotações afetam árvore inteira | Baixa (Locks amplos) |

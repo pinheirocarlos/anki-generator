@@ -18,40 +18,31 @@ O que caracteriza uma estratégia Gulosa (Greedy) e por que a escolha da melhor 
 - Funciona como dar troco no caixa: você entrega a maior cédula possível (R$ 50, R$ 20, R$ 10). Isso é muito rápido e funciona perfeitamente quando o problema tem a **Propriedade da Escolha Gulosa**, mas falha se o conjunto de opções for arbitrário.
 
 ### Dual Coding Visual
-<svg viewBox="0 0 600 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-  <rect width="600" height="190" fill="#0f172a" rx="10" />
+<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Intuição Gulosa: Pega Sempre o Maior Pedaço Disponível Imediatamente</text>
+  <g transform="translate(100, 50)">
+    <rect x="0" y="15" width="90" height="45" fill="#065f46" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="45" y="42" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">R$ 50</text>
 
-  <text x="300" y="24" fill="#10b981" font-size="13" font-family="sans-serif" font-weight="bold" text-anchor="middle">Greedy: Pega Sempre o Maior Pedaço Disponível Imediatamente</text>
+    <text x="115" y="42" fill="#38bdf8" font-size="16" font-weight="bold" text-anchor="middle">→</text>
 
-  <!-- Dar Troco de R$ 36 -->
-  <g transform="translate(60, 45)">
-    <rect x="0" y="0" width="130" height="60" fill="#065f46" stroke="#10b981" stroke-width="2" rx="6" />
-    <text x="65" y="25" fill="#a7f3d0" font-size="11" text-anchor="middle">Passo 1 (Guloso)</text>
-    <text x="65" y="45" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">Pega Nota R$ 20</text>
-    <text x="65" y="80" fill="#34d399" font-size="10" text-anchor="middle">Resta R$ 16</text>
+    <rect x="140" y="15" width="90" height="45" fill="#065f46" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="185" y="42" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">R$ 20</text>
 
-    <!-- Seta 1 -->
-    <path d="M 140 30 L 175 30" fill="none" stroke="#10b981" stroke-width="2" />
-    <polygon points="180,30 170,25 170,35" fill="#10b981" />
+    <text x="255" y="42" fill="#38bdf8" font-size="16" font-weight="bold" text-anchor="middle">→</text>
 
-    <rect x="185" y="0" width="130" height="60" fill="#065f46" stroke="#10b981" stroke-width="2" rx="6" />
-    <text x="250" y="25" fill="#a7f3d0" font-size="11" text-anchor="middle">Passo 2 (Guloso)</text>
-    <text x="250" y="45" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">Pega Nota R$ 10</text>
-    <text x="250" y="80" fill="#34d399" font-size="10" text-anchor="middle">Resta R$ 6</text>
+    <rect x="280" y="15" width="90" height="45" fill="#065f46" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="325" y="42" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">R$ 5</text>
 
-    <!-- Seta 2 -->
-    <path d="M 325 30 L 360 30" fill="none" stroke="#10b981" stroke-width="2" />
-    <polygon points="365,30 355,25 355,35" fill="#10b981" />
+    <text x="395" y="42" fill="#38bdf8" font-size="16" font-weight="bold" text-anchor="middle">→</text>
 
-    <rect x="370" y="0" width="105" height="60" fill="#065f46" stroke="#10b981" stroke-width="2" rx="6" />
-    <text x="422" y="25" fill="#a7f3d0" font-size="11" text-anchor="middle">Passos 3 e 4</text>
-    <text x="422" y="45" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">R$ 5 + R$ 1</text>
-    <text x="422" y="80" fill="#34d399" font-size="10" text-anchor="middle">Troco Pago!</text>
+    <rect x="420" y="15" width="60" height="45" fill="#1e293b" stroke="#64748b" rx="4"/>
+    <text x="450" y="42" fill="#94a3b8" font-size="12" text-anchor="middle">Troco 0</text>
   </g>
-
-  <text x="300" y="160" fill="#94a3b8" font-size="11" font-family="sans-serif" text-anchor="middle">Total: 4 cédulas (Ótimo!). Mas se as moedas fossem [1, 3, 4] e troco = 6: Greedy pega 4+1+1 (3 moedas) vs Ótimo 3+3 (2 moedas!)</text>
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Em sistemas canônicos de moedas, a escolha da maior nota minimiza o total de cédulas</text>
 </svg>
-
+<p>Visualização: Intuição gulosa do troco: priorizar sempre a cédula de maior valor disponível para minimizar a contagem total.</p>
 | Abordagem | Complexidade | Quando Usar |
 |---|---|---|
 | **Greedy (Guloso)** | Muito rápido ($O(N)$ ou $O(N \log N)$) | Quando a melhor escolha local comprovadamente leva ao ótimo global |

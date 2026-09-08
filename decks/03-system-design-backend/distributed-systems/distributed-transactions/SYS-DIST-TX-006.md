@@ -60,6 +60,7 @@ Qual é a intuição fundamental por trás do padrão Saga para transações em 
 
   <text x="300" y="185" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Consistência Eventual: Cada microsserviço cuida do seu próprio estado!</text>
 </svg>
+<p>Visualização: Padrão Saga gerenciando transações locais encadeadas com compensações retroativas em caso de falha parcial.</p>
 
 | Abordagem | Como Lida com Múltiplos Bancos | Analogia do Cotidiano |
 |---|---|---|

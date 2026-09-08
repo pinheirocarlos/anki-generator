@@ -50,6 +50,7 @@ Qual é a intuição fundamental por trás das primitivas de sincronização (Mu
     <text x="115" y="118" fill="#94a3b8" font-size="10" text-anchor="middle">Qualquer thread pode sinalizar liberação!</text>
   </g>
 </svg>
+<p>Visualização: Analogia intuitiva entre a chave única de acesso (Mutex) e a cancela de estacionamento com vagas limitadas (Semáforo Contador).</p>
 
 | Primitiva | Como Funciona | Analogia do Cotidiano |
 |---|---|---|

@@ -59,6 +59,7 @@ Qual é o papel arquitetural de um API Gateway e quando adotar a variação Back
   <text x="340" y="198" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">O API Gateway centraliza SSL Termination, Rate Limiting, Autenticação JWT e agregação de chamadas.</text>
 
 </svg>
+<p>Visualização: API Gateway agregando chamadas de microsserviços e BFF customizando respostas para interfaces mobile e web.</p>
 
 | Padrão | Quantidade de Gateways | Vantagem Principal |
 |---|---|---|

@@ -56,6 +56,7 @@ Qual é a diferença de consumo de CPU e latência entre um **Spinlock**, um **O
   <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Futex combina a velocidade ultrarrápida do atomic em espaço do usuário com a eficiência do Kernel sob contenção real.</text>
 
 </svg>
+<p>Visualização: Mecânica e latência de sincronização comparando Spinlock (busy-wait), OS Mutex e a otimização híbrida de Fast Userspace Mutex (Futex).</p>
 
 | Primitiva | Caminho Sem Contenção | Comportamento sob Contenção |
 |---|---|---|

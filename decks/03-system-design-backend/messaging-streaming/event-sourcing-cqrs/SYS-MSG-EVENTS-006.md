@@ -55,6 +55,7 @@ Qual é a intuição fundamental por trás de Event Sourcing (guardar fatos imut
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Auditoria 100% perfeita: você pode reconstruir o estado do sistema em qualquer data do passado!</text>
 </svg>
+<p>Visualização: Arquitetura unificada Event Sourcing e CQRS: gravação em append-only log imutável e projeções assíncronas para consultas otimizadas.</p>
 
 | Arquitetura | Como Armazena o Estado | Analogia do Cotidiano |
 |---|---|---|

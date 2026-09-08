@@ -21,18 +21,16 @@ Como a expressão bitwise **`n & (n - 1)` (Algoritmo de Brian Kernighan)** apaga
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Single Number: XOR Cumulativo para Cancelar Elementos Duplicados</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Brian Kernighan's Algorithm: n &amp; (n - 1) para Contar Bits 1 (Popcount)</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Propriedades: x ^ x = 0  e  x ^ 0 = x</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Ao acumular XOR sobre todo o array: (2 ^ 2) ^ (4 ^ 4) ^ 5 = 0 ^ 0 ^ 5 = 5.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Todos os elementos com número par de repetições anulam-se mutualmente a zero.</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Eliminação Direta do Bit 1 Menos Significativo (LSB Ativo)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Exemplo: n = 12 (1100₂), n - 1 = 11 (1011₂). 1100 &amp; 1011 = 1000₂ (1 bit 1 eliminado).</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Itera estritamente k vezes, onde k é o número de bits 1 presentes no número.</text>
   </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Tempo linear O(N) com espaço auxiliar O(1) absoluto (zero Hash Set)</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Tempo: O(k) onde k ≤ 64, superando loops ingênuos de 32/64 iterações</text>
 </svg>
-
+<p>Visualização: Algoritmo de Brian Kernighan zerando o bit 1 menos significativo a cada iteração n & (n - 1) em O(bits_ativos).</p>
 | Passo | Valor de `n` (Binário) | Ação `n & (n - 1)` |
 |---|---|---|
 | **Inicial** | `11000` ($24$) | $24 \ \& \ 23 = 11000 \ \& \ 10111 = 10000$ |

@@ -51,6 +51,7 @@ Qual é a estrutura binária de 64 bits do algoritmo Twitter Snowflake e como el
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Capacidade: 4.096.000 IDs únicos ordenáveis por tempo por nó a cada segundo sem coordenação central.</text>
 
 </svg>
+<p>Visualização: Estrutura do Snowflake: 41 bits de timestamp, 10 bits de ID de máquina/datacenter e 12 bits de sequência local.</p>
 
 | Segmento do Snowflake ID | Quantidade de Bits | Capacidade / Propósito |
 |---|---|---|

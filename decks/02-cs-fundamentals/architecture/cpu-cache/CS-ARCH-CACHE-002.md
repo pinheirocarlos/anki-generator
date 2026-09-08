@@ -49,6 +49,7 @@ O que é uma **Cache Line** de 64 bytes e como ela afeta a transferência de dad
   <text x="340" y="170" fill="#94a3b8" font-size="11" text-anchor="middle">Base da Localidade Espacial: Acessar array sequencial aproveita 1 miss a cada 8 elementos int64.</text>
 
 </svg>
+<p>Visualização: Transferência de blocos contíguos de 64 bytes da RAM para os caches da CPU.</p>
 
 | Estrutura de Memória | Unidade de Transferência | Alinhamento Típico |
 |---|---|---|

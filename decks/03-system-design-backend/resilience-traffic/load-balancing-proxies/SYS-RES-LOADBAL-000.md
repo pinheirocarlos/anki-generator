@@ -44,6 +44,7 @@ Qual é a diferença fundamental entre Load Balancers de Camada 4 (L4) e Camada 
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Topologia clássica: L4 na borda distribuindo para um pool de proxies reversos L7 escalonados horizontalmente.</text>
 
 </svg>
+<p>Visualização: Load Balancer L4 operando por IP/Porta sem abrir payload vs L7 inspecionando cabeçalhos HTTP, cookies e rotas.</p>
 
 | Critério de Comparação | Layer 4 (L4 - ex: AWS NLB, Maglev) | Layer 7 (L7 - ex: AWS ALB, NGINX, Envoy) |
 |---|---|---|

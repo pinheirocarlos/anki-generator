@@ -54,6 +54,7 @@ Qual é o ciclo de vida completo e a sequência de syscalls de um **Socket TCP n
   <text x="340" y="170" fill="#94a3b8" font-size="10" text-anchor="middle">accept() extrai uma conexão estabelecida da Accept Queue e retorna um novo File Descriptor dedicado àquele cliente.</text>
 
 </svg>
+<p>Visualização: Chamadas de sistema do ciclo de vida de sockets TCP no servidor diferenciando o socket de escuta dos sockets conectados de dados.</p>
 
 | Syscall no Servidor | Estado do Socket | Função no Kernel |
 |---|---|---|

@@ -46,6 +46,7 @@ Qual é a intuição fundamental por trás das estimativas de ordem de grandeza 
   <!-- Rodapé -->
   <text x="300" y="175" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">Regra de Ouro: Multiplicações de potências de 10 guiam a escolha das tecnologias!</text>
 </svg>
+<p>Visualização: Comparação de escala entre monólito simples (10 RPS) e cluster distribuído multi-região (500k RPS) guiado por ordens de grandeza.</p>
 
 | Dimensão da Estimativa | O que Avaliamos | Analogia do Cotidiano |
 |---|---|---|

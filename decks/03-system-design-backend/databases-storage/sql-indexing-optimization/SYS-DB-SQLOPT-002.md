@@ -40,6 +40,7 @@ O que é um Covering Index (Índice de Cobertura) em SQL e como ele elimina comp
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Index-Only Scan atende 100% da consulta direto da memória RAM do buffer pool.</text>
 
 </svg>
+<p>Visualização: Covering Index satisfazendo todas as colunas do SELECT e WHERE diretamente nos nós folhas sem acessar a tabela física.</p>
 
 | Estrutura de Consulta | Índice Utilizado | Acesso à Tabela Primária? |
 |---|---|---|

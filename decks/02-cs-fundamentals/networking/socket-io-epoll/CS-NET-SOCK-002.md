@@ -33,6 +33,7 @@ O que é o estado **TIME_WAIT** no encerramento de conexões TCP e por que o ker
   <text x="340" y="165" fill="#f43f5e" font-size="11" font-weight="bold" text-anchor="middle">Perigo em Microservices: Milhares de conexões curtas sem Keep-Alive esgotam a tabela de portas efêmeras (Port Exhaustion).</text>
 
 </svg>
+<p>Visualização: Estado TIME_WAIT retendo o socket durante 2MSL para prevenir colisões de pacotes de conexões antigas e garantir entrega do ACK final.</p>
 
 | Lado do Encerramento | Sequência de Estados de Término | Assume TIME_WAIT? |
 |---|---|---|

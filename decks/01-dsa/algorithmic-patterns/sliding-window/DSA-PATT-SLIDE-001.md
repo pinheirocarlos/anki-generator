@@ -48,6 +48,7 @@ Qual é o **template canônico universal** para resolver qualquer problema de Sl
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Cada índice é adicionado e removido no máximo 1 vez: Tempo amortizado O(2N) = O(N)</text>
 
 </svg>
+<p>Visualização: Expansão do ponteiro direito e contração do esquerdo em janela deslizante dinâmica.</p>
 
 | Etapa do Template | Responsabilidade | Complexidade Amortizada |
 |---|---|---|

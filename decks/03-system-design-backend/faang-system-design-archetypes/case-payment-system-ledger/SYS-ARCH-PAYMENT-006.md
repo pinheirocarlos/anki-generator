@@ -48,6 +48,7 @@ Qual é a intuição fundamental por trás do sistema de contabilidade de partid
 
   <text x="300" y="175" fill="#10b981" font-size="11" font-family="monospace" text-anchor="middle">Equilíbrio Perfeito: -100 + 97 + 3 = 0 (Auditoria e Conciliação Trivial!)</text>
 </svg>
+<p>Visualização: Princípio das partidas dobradas registrando débitos e créditos simétricos onde a soma contábil é estritamente zero.</p>
 
 | Abordagem | Segurança | Risco de Corrupção |
 |---|---|---|

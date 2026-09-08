@@ -23,16 +23,39 @@ Como a **BFS Bidirecional (Bidirectional BFS)** reduz a complexidade de espaço 
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">DFS (Depth-First Search): Exploração em Profundidade com Pilha/Recursão</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Mergulho até as Folhas com Backtracking</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Visita um ramo completo até o final antes de retroceder e explorar irmãos.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">Espaço de memória proporcional à profundidade máxima: O(h), ideal para grafos profundos.</text>
-  </g>
-  <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Base para detecção de ciclos, ordenação topológica e caminhos Eulerianos</text>
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">BFS Bidirecional: Redução Exponencial do Espaço O(B^d) → O(B^(d/2))</text>
 
+  <!-- Origem -->
+  <g transform="translate(60, 45)">
+    <circle cx="60" cy="50" r="42" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <circle cx="60" cy="50" r="26" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="60" cy="50" r="10" fill="#3b82f6"/>
+    <text x="60" y="54" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">S</text>
+    <text x="60" y="110" fill="#60a5fa" font-size="11" font-weight="bold" text-anchor="middle">Origem (Raio d/2)</text>
+  </g>
+
+  <!-- Interseção -->
+  <g transform="translate(310, 75)">
+    <rect x="0" y="0" width="60" height="40" fill="#78350f" stroke="#f59e0b" stroke-width="1.5" rx="4"/>
+    <text x="30" y="18" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">Encontro</text>
+    <text x="30" y="32" fill="#fef3c7" font-size="9" text-anchor="middle">Fronteiras</text>
+    <!-- Linhas conectando -->
+    <line x1="-30" y1="20" x2="-2" y2="20" stroke="#f59e0b" stroke-width="2" stroke-dasharray="2,2"/>
+    <line x1="62" y1="20" x2="90" y2="20" stroke="#f59e0b" stroke-width="2" stroke-dasharray="2,2"/>
+  </g>
+
+  <!-- Destino -->
+  <g transform="translate(440, 45)">
+    <circle cx="120" cy="50" r="42" fill="#1e293b" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <circle cx="120" cy="50" r="26" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <circle cx="120" cy="50" r="10" fill="#10b981"/>
+    <text x="120" y="54" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">T</text>
+    <text x="120" y="110" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Destino (Raio d/2)</text>
+  </g>
+
+  <text x="340" y="175" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Para B=10 e d=6: BFS Tradicional visita 1.000.000 nós; Bidirecional visita apenas 2.000 nós</text>
 </svg>
+<p>Visualização: Busca em largura bidirecional expandindo simultaneamente de origem e destino até a colisão de fronteiras no meio.</p>
 
 | Técnica de BFS | Nós Avaliados ($B=10, d=6$) | Complexidade de Nós |
 |---|---|---|

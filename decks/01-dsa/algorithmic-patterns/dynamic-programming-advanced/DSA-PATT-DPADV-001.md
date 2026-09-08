@@ -23,18 +23,16 @@ Como o paradigma de **Matrix Chain Multiplication (MCM)** particiona intervalos 
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Digit DP: Contagem de Números com Propriedades em [L, R]</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Matrix Chain Multiplication (MCM): dp[i][j] = min_k (dp[i][k] + dp[k+1][j] + cost)</text>
   <g transform="translate(80, 50)">
     <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">solve(R) - solve(L - 1) com Parâmetros de Estado</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">memo[idx][isTight][hasLeadingZero][conditionState].</text>
-    <text x="20" y="62" fill="#38bdf8" font-size="11">isTight == true limita o dígito atual ao teto do número original; caso contrário, varia de 0 a 9.</text>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Particionamento em Ponto de Corte k: i ≤ k &lt; j</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Custo de multiplicação escalar: d[i-1] × d[k] × d[j].</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Iteração por comprimento de cadeia L de 2 até N em O(N³) tempo e O(N²) memória.</text>
   </g>
-  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Resolve problemas com números de até 10¹⁸ dígitos em tempo O(log₁₀ N · Estados)</text>
-
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Otimiza a ordem de parentização minimizando operações aritméticas totais</text>
 </svg>
-
+<p>Visualização: DP sobre intervalos na multiplicação de matrizes testando todos os pontos de corte k para minimizar operações escalares.</p>
 | Componente da Recorrência | Significado |
 |---|---|
 | $DP[i][k]$ | Custo ótimo da partição esquerda |

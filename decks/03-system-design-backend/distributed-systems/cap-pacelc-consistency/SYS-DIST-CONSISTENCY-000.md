@@ -46,6 +46,7 @@ Por que em sistemas distribuídos sob o Teorema CAP a escolha real é sempre ent
   <text x="340" y="215" fill="#94a3b8" font-size="10" text-anchor="middle">Em redes assíncronas reais, partição não é opcional; a escolha é estritamente entre Consistência (CP) ou Disponibilidade (AP).</text>
 
 </svg>
+<p>Visualização: Teorema CAP: em caso de partição de rede (P), o sistema deve optar entre Consistência estrita (CP) ou Disponibilidade (AP).</p>
 
 | Propriedade CAP | Definição Rigorosa | Exemplo de Sistema |
 |---|---|---|

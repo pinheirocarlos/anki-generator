@@ -44,6 +44,7 @@ Como funciona a compressão de cabeçalhos **HPACK** no HTTP/2 e por que o HTTP/
   <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Reduz o tamanho dos cabeçalhos repetidos (Cookies, User-Agent, Auth) em até 85% por requisição.</text>
 
 </svg>
+<p>Visualização: Mecanismos de compressão de cabeçalhos comparando a sincronização serial do HPACK com o desacoplamento assíncrono do QPACK.</p>
 
 | Mecanismo de Compressão | Protocolo | Tolerância a Entrega Fora de Ordem |
 |---|---|---|

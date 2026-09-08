@@ -42,6 +42,7 @@ O que faz o **Algoritmo de Nagle** e por que aplicações backend de baixa latê
   <text x="340" y="165" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Sistemas de backend de alto desempenho e microsserviços ativam TCP_NODELAY por padrão para eliminar pausas artificiais.</text>
 
 </svg>
+<p>Visualização: Algoritmo de Nagle agrupando pequenos pacotes para eficiência de rede vs TCP_NODELAY priorizando latência mínima em tempo real.</p>
 
 | Configuração de Socket | Comportamento de Envio | Latência em Mensagens Pequenas (gRPC / Redis) |
 |---|---|---|

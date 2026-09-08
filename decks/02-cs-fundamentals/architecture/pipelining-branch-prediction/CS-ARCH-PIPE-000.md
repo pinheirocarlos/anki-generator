@@ -57,6 +57,7 @@ O que é o **Pipeline de Instruções** da CPU e como ele aumenta o throughput d
   <text x="340" y="170" fill="#94a3b8" font-size="11" text-anchor="middle">Sobreposição temporal: 5 instruções diferentes sendo processadas simultaneamente em cada estágio.</text>
 
 </svg>
+<p>Visualização: Pipeline clássico de 5 estágios (IF, ID, EX, MEM, WB) com paralelismo temporal de 1 CPI.</p>
 
 | Estágio de Pipeline | Função Principal | Recurso de Hardware |
 |---|---|---|

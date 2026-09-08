@@ -52,6 +52,7 @@ Como o algoritmo de Consistent Hashing minimiza a realocação de chaves quando 
   <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Utilizado por DynamoDB, Cassandra, Memcached e Discord para balanceamento uniforme e elástico.</text>
 
 </svg>
+<p>Visualização: Anel de Consistent Hashing distribuindo chaves entre nós virtuais e minimizando remanejamento na adição de servidores.</p>
 
 | Estratégia de Hashing | Chaves Remapeadas ao Alterar Cluster | Impacto em Produção |
 |---|---|---|

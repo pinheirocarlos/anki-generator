@@ -50,6 +50,7 @@ O que define um **Grafo Direcionado Acíclico (DAG)** e como a **Ordenação Top
   </g>
 
 </svg>
+<p>Visualização: Grafo Direcionado Acíclico (DAG) e sua correspondente linearização via Ordenação Topológica de dependências.</p>
 
 | Estrutura de Grafo | Possui Ciclo? | Suporta Ordenação Topológica? |
 |---|---|---|

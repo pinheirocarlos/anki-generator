@@ -41,6 +41,7 @@ O que é o **TLB (Translation Lookaside Buffer)** e por que bancos de dados de a
   <text x="340" y="160" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">HugePages reduzem drasticamente a sobrecarga de tradução de endereços da MMU em heap pesados.</text>
 
 </svg>
+<p>Visualização: Impacto de HugePages (2 MB / 1 GB) vs páginas padrão de 4 KB na redução dramática de entradas na TLB e mitigação de Page Walks caros.</p>
 
 | Configuração de Página | Quantidade de Entradas para 64 GB | Cobertura Típica do TLB |
 |---|---|---|

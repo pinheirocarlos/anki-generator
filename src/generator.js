@@ -917,13 +917,14 @@ export function renderMarkdownToHtml(markdown = '') {
  * @returns {string} - Full HTML document string
  */
 export function wrapInCardDocument(cardInnerHtml, options = {}) {
-  const { isNightMode = false, title = 'FAANG Anki Card', customCss = '' } = options;
+  const { isNightMode = false, title = 'FAANG Anki Card', customCss = '', baseDir = null } = options;
   const nightClass = isNightMode ? 'nightMode' : '';
+  const baseTag = baseDir ? `\n  <base href="file:///${baseDir.replace(/\\/g, '/')}/">` : '';
 
   return `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8">${baseTag}
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>${title}</title>
   <style>
@@ -1003,8 +1004,45 @@ export function renderCard(cardInput, options = {}) {
       </div>
     `;
 
-  const frontDocument = wrapInCardDocument(front, { title: (frontmatter.title || 'Card') + ' - Front' });
-  const backDocument = wrapInCardDocument(back, { title: (frontmatter.title || 'Card') + ' - Back' });
+  // For preview documents (Playwright, local runner, and headless browsers), inline local media as data URIs
+  // to avoid Chromium "Not allowed to load local resource file:///" security blocks on about:blank.
+  let previewQuestionHtml = questionHtml;
+  let previewAnswerHtml = answerHtml;
+
+  if (options.resolveLocalMedia && mediaFiles.length > 0) {
+    for (const media of mediaFiles) {
+      if (Buffer.isBuffer(media.data)) {
+        const ext = path.extname(media.filename).toLowerCase();
+        let mime = 'image/png';
+        if (ext === '.gif') mime = 'image/gif';
+        else if (ext === '.jpg' || ext === '.jpeg') mime = 'image/jpeg';
+        else if (ext === '.svg') mime = 'image/svg+xml';
+        const dataUri = `data:${mime};base64,${media.data.toString('base64')}`;
+        previewQuestionHtml = previewQuestionHtml.replaceAll(media.filename, dataUri);
+        previewAnswerHtml = previewAnswerHtml.replaceAll(media.filename, dataUri);
+      }
+    }
+  }
+
+  const previewFront = `
+      <div class="card-container">
+        <div class="tags">${tagsHtml}</div>
+        <div class="question-title">Pergunta</div>
+        <div class="question-text">${previewQuestionHtml}</div>
+      </div>
+    `;
+
+  const previewBack = `
+      <div class="card-container">
+        <div class="tags">${tagsHtml}</div>
+        <div class="question-title">Pergunta</div>
+        <div class="question-compact">${previewQuestionHtml}</div>
+        <div class="answer-section">${previewAnswerHtml}</div>
+      </div>
+    `;
+
+  const frontDocument = wrapInCardDocument(previewFront, { title: (frontmatter.title || 'Card') + ' - Front' });
+  const backDocument = wrapInCardDocument(previewBack, { title: (frontmatter.title || 'Card') + ' - Back' });
 
   return {
     front,

@@ -24,48 +24,44 @@ Como funciona a representação de grafos por **Matriz de Adjacência** e quais 
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Grafos Direcionados vs Não-Direcionados (In-Degree &amp; Out-Degree)</text>
-  <g transform="translate(80, 50)">
-    <!-- Directed -->
-    <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="120" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Direcionado (Arestas com Seta)</text>
-    <text x="15" y="45" fill="#f8fafc" font-size="10">In-Degree: arestas que chegam ao nó</text>
-    <text x="15" y="60" fill="#93c5fd" font-size="10">Out-Degree: arestas que saem do nó</text>
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Matriz de Adjacência: Consulta O(1) e Custo Espacial O(V²)</text>
+  
+  <g transform="translate(70, 45)">
+    <!-- Grafo de 4 nós -->
+    <g transform="translate(20, 10)">
+      <circle cx="30" cy="20" r="14" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+      <text x="30" y="24" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">0</text>
 
-    <!-- Undirected -->
-    <g transform="translate(280, 0)">
-      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Não-Direcionado (Simétrico)</text>
-      <text x="15" y="45" fill="#f8fafc" font-size="10">Aresta (u, v) implica (v, u)</text>
-      <text x="15" y="60" fill="#a7f3d0" font-size="10">Grau total = Σ vizinhos conectados</text>
+      <line x1="44" y1="20" x2="106" y2="20" stroke="#38bdf8" stroke-width="2"/>
+      <circle cx="120" cy="20" r="14" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+      <text x="120" y="24" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">1</text>
+
+      <line x1="30" y1="34" x2="30" y2="76" stroke="#38bdf8" stroke-width="2"/>
+      <circle cx="30" cy="90" r="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+      <text x="30" y="94" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">2</text>
+
+      <line x1="44" y1="90" x2="106" y2="34" stroke="#a855f7" stroke-width="2"/>
+      <circle cx="120" cy="90" r="14" fill="#0f172a" stroke="#a855f7" stroke-width="2"/>
+      <text x="120" y="94" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">3</text>
+      <line x1="120" y1="34" x2="120" y2="76" stroke="#10b981" stroke-width="2"/>
+    </g>
+
+    <!-- Matriz bidimensional -->
+    <g transform="translate(250, 0)">
+      <rect x="0" y="0" width="270" height="105" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="6"/>
+      <text x="135" y="20" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Matriz adj[4][4] (Memória Contígua)</text>
+      <text x="35" y="40" fill="#94a3b8" font-size="10" font-family="monospace">idx   0  1  2  3</text>
+      <text x="35" y="55" fill="#f8fafc" font-size="10" font-family="monospace">0:  [ 0, 1, 1, 0 ]</text>
+      <text x="35" y="70" fill="#f8fafc" font-size="10" font-family="monospace">1:  [ 1, 0, 1, 1 ]</text>
+      <text x="35" y="85" fill="#f8fafc" font-size="10" font-family="monospace">2:  [ 1, 1, 0, 0 ]</text>
+      <text x="35" y="100" fill="#f8fafc" font-size="10" font-family="monospace">3:  [ 0, 1, 0, 0 ]</text>
     </g>
   </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">In-Degree == 0 é a condição inicial de Kahn para Ordenação Topológica</text>
 
+  <text x="340" y="175" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">hasEdge(u, v) é O(1) direto na célula; iterar vizinhos de u exige varrer toda a linha O(V)</text>
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Grafos Direcionados vs Não-Direcionados (In-Degree &amp; Out-Degree)</text>
-  <g transform="translate(80, 50)">
-    <!-- Directed -->
-    <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="120" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Direcionado (Arestas com Seta)</text>
-    <text x="15" y="45" fill="#f8fafc" font-size="10">In-Degree: arestas que chegam ao nó</text>
-    <text x="15" y="60" fill="#93c5fd" font-size="10">Out-Degree: arestas que saem do nó</text>
-
-    <!-- Undirected -->
-    <g transform="translate(280, 0)">
-      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Não-Direcionado (Simétrico)</text>
-      <text x="15" y="45" fill="#f8fafc" font-size="10">Aresta (u, v) implica (v, u)</text>
-      <text x="15" y="60" fill="#a7f3d0" font-size="10">Grau total = Σ vizinhos conectados</text>
-    </g>
-  </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">In-Degree == 0 é a condição inicial de Kahn para Ordenação Topológica</text>
-
-</svg>
+<p>Visualização: Matriz de adjacência bidimensional com consulta direta de arestas em tempo O(1) e custo espacial quadrático O(V²).</p>
 
 | Operação em Matriz | Complexidade | Observação |
 |---|---|---|

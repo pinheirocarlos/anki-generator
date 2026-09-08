@@ -34,6 +34,7 @@ O que é **Memória Virtual** e por que os processos nunca acessam a memória RA
   <text x="340" y="155" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Permite overcommit de memória, compartilhamento de bibliotecas dinâmicas (.so) e paginação sob demanda.</text>
 
 </svg>
+<p>Visualização: Esquema de isolamento de memória virtual onde cada processo acessa seu próprio espaço linear traduzido para frames de RAM física pela MMU.</p>
 
 | Visão do Processo | Visão do Kernel / Hardware |
 |---|---|

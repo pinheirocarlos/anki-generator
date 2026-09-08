@@ -57,6 +57,7 @@ Como funciona a esteira assíncrona de ingestão, particionamento (Chunking) e t
   <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Transcodificação paralela particionada por chunks reduz o tempo de processamento de horas para minutos.</text>
 
 </svg>
+<p>Visualização: Upload de vídeo particionado em chunks com workers paralelos transcodificando múltiplos codecs e resoluções.</p>
 
 | Etapa do Pipeline | Componente Responsável | Objetivo |
 |---|---|---|

@@ -31,6 +31,7 @@ Qual é a diferença fundamental entre um **Processo** e uma **Thread** no siste
   <text x="340" y="155" fill="#f43f5e" font-size="11" font-weight="bold" text-anchor="middle">Falha de segmentação (SIGSEGV) em uma thread derruba o processo inteiro e todas as suas threads irmãs.</text>
 
 </svg>
+<p>Visualização: Modelo de memória comparando o isolamento total entre processos com o compartilhamento de Heap e descritores entre threads de um mesmo processo.</p>
 
 | Recurso do Sistema | Compartilhado entre Threads do mesmo Processo? | Isolado por Processo? |
 |---|---|---|

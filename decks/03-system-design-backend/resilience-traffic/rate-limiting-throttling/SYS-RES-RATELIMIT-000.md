@@ -48,6 +48,7 @@ Qual é a diferença de funcionamento e capacidade de absorção de rajadas (Bur
   <text x="340" y="215" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Token Bucket é o mais adotado em APIs Web porque não penaliza picos legítimos de curta duração do cliente.</text>
 
 </svg>
+<p>Visualização: Algoritmo Leaky Bucket convertendo fluxos de requisições em rajada (bursty) em uma saída de taxa constante.</p>
 
 | Algoritmo | Permite Rajadas (Bursts)? | Taxa de Saída para o Backend |
 |---|---|---|

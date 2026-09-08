@@ -55,6 +55,7 @@ Qual é a intuição fundamental de por que usamos cache em memória e qual a di
 
   <text x="300" y="180" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">O cache absorve quase todo o impacto, permitindo ao sistema atender 100x mais usuários!</text>
 </svg>
+<p>Visualização: Analogia intuitiva do fluxo Cache-Aside com blindagem de banco de dados, evidenciando o contraste de latência entre a memória RAM (&lt; 1 ms) e o disco (20-50 ms).</p>
 
 | Padrão de Cache | Como Trata a Gravação | Analogia do Cotidiano |
 |---|---|---|

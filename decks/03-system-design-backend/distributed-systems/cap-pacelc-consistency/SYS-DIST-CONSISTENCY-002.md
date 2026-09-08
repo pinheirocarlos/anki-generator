@@ -41,6 +41,7 @@ Qual é a diferença conceitual entre Linearizabilidade (Strong Consistency), Co
   <text x="340" y="195" fill="#94a3b8" font-size="10" text-anchor="middle">Modelos intermediários: Causal Consistency, Monotonic Reads e Read-After-Write Consistency.</text>
 
 </svg>
+<p>Visualização: Linearizabilidade simulando uma cópia única global atômica vs propagação assíncrona na consistência eventual.</p>
 
 | Modelo de Consistência | Garantia Oferecida | Custo de Implementação |
 |---|---|---|

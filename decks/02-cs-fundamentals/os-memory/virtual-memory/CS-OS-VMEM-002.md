@@ -51,6 +51,7 @@ Como a **MMU (Memory Management Unit)** e as **Tabelas de Páginas Multinível**
   <text x="340" y="150" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Estrutura em árvore esparsa economiza memória: aloca apenas nós para regiões virtuais efetivamente utilizadas.</text>
 
 </svg>
+<p>Visualização: Percurso hierárquico do Page Table Walk de 4 níveis (PGD, PUD, PMD, PTE) traduzindo endereço virtual em endereço físico no x86-64.</p>
 
 | Estrutura | Função no Hardware |
 |---|---|

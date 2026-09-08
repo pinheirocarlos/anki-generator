@@ -47,6 +47,7 @@ Quais são os trade-offs entre o modelo de coleta Pull (Prometheus) e Push (Data
   <text x="340" y="195" fill="#94a3b8" font-size="10" text-anchor="middle">Downsampling: 10s resolution (7 dias) → 5m resolution (30 dias) → 1h resolution (1 ano).</text>
 
 </svg>
+<p>Visualização: Coleta Pull por scraper central vs Push por agentes locais e agregação temporal (downsampling) para histórico de longo prazo.</p>
 
 | Modelo de Coleta | Iniciação da Conexão | Cenário Ideal |
 |---|---|---|

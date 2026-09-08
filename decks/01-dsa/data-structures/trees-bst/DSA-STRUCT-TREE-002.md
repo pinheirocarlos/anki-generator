@@ -23,60 +23,33 @@ Qual é a invariante matemática fundamental que caracteriza uma **Árvore Biná
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Degeneração de BST em Lista Ligada O(N) vs Balanceada O(log N)</text>
-  <g transform="translate(80, 50)">
-    <!-- Degenerate Skewed -->
-    <text x="70" y="10" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">BST Degenerada (Pior Caso)</text>
-    <circle cx="20" cy="30" r="12" fill="#7f1d1d" stroke="#ef4444"/><text x="20" y="34" fill="#fff" font-size="9" text-anchor="middle">1</text>
-    <line x1="28" y1="38" x2="42" y2="52" stroke="#ef4444"/>
-    <circle cx="50" cy="60" r="12" fill="#7f1d1d" stroke="#ef4444"/><text x="50" y="64" fill="#fff" font-size="9" text-anchor="middle">2</text>
-    <line x1="58" y1="68" x2="72" y2="82" stroke="#ef4444"/>
-    <circle cx="80" cy="90" r="12" fill="#7f1d1d" stroke="#ef4444"/><text x="80" y="94" fill="#fff" font-size="9" text-anchor="middle">3</text>
-    <text x="80" y="115" fill="#ef4444" font-size="10" font-weight="bold">Busca: O(N)</text>
+  <text x="340" y="26" fill="#38bdf8" font-size="13" font-weight="bold" text-anchor="middle">Invariante Global de BST: Subárvore Esquerda &lt; Nó Raiz &lt; Subárvore Direita</text>
+  
+  <g transform="translate(140, 45)">
+    <!-- Root Node 50 -->
+    <circle cx="200" cy="20" r="18" fill="#1e293b" stroke="#38bdf8" stroke-width="2.5"/>
+    <text x="200" y="25" fill="#f8fafc" font-size="12" font-weight="bold" text-anchor="middle">50</text>
+    <rect x="160" y="42" width="80" height="18" fill="#0369a1" rx="3"/>
+    <text x="200" y="54" fill="#e0f2fe" font-size="9" text-anchor="middle">Faixa: (-∞, +∞)</text>
 
-    <!-- Balanced Tree -->
-    <g transform="translate(280, 0)">
-      <text x="80" y="10" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Árvore AVL / Red-Black</text>
-      <circle cx="80" cy="30" r="14" fill="#047857" stroke="#10b981"/><text x="80" y="34" fill="#fff" font-size="10" text-anchor="middle">2</text>
-      <line x1="70" y1="40" x2="40" y2="60" stroke="#10b981"/>
-      <circle cx="35" cy="70" r="12" fill="#1e293b" stroke="#10b981"/><text x="35" y="74" fill="#fff" font-size="9" text-anchor="middle">1</text>
-      <line x1="90" y1="40" x2="120" y2="60" stroke="#10b981"/>
-      <circle cx="125" cy="70" r="12" fill="#1e293b" stroke="#10b981"/><text x="125" y="74" fill="#fff" font-size="9" text-anchor="middle">3</text>
-      <text x="80" y="115" fill="#10b981" font-size="10" font-weight="bold">Busca: O(log N)</text>
-    </g>
+    <!-- Left Child 30 -->
+    <line x1="185" y1="28" x2="105" y2="72" stroke="#10b981" stroke-width="2"/>
+    <circle cx="95" cy="78" r="16" fill="#065f46" stroke="#10b981" stroke-width="2"/>
+    <text x="95" y="83" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">30</text>
+    <rect x="55" y="98" width="80" height="18" fill="#047857" rx="3"/>
+    <text x="95" y="110" fill="#d1fae5" font-size="9" text-anchor="middle">Faixa: (-∞, 50)</text>
+
+    <!-- Right Child 70 -->
+    <line x1="215" y1="28" x2="295" y2="72" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="305" cy="78" r="16" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+    <text x="305" y="83" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">70</text>
+    <rect x="265" y="98" width="80" height="18" fill="#b45309" rx="3"/>
+    <text x="305" y="110" fill="#fef3c7" font-size="9" text-anchor="middle">Faixa: (50, +∞)</text>
   </g>
-  <text x="340" y="175" fill="#f59e0b" font-size="11" text-anchor="middle">Inserções ordenadas sem auto-balanceamento transformam árvores em listas encadeadas</text>
-
+  <text x="340" y="180" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Validação O(N): Cada nó herda estritamente o teto (upper bound) ou piso (lower bound) de seus ancestrais</text>
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Degeneração de BST em Lista Ligada O(N) vs Balanceada O(log N)</text>
-  <g transform="translate(80, 50)">
-    <!-- Degenerate Skewed -->
-    <text x="70" y="10" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">BST Degenerada (Pior Caso)</text>
-    <circle cx="20" cy="30" r="12" fill="#7f1d1d" stroke="#ef4444"/><text x="20" y="34" fill="#fff" font-size="9" text-anchor="middle">1</text>
-    <line x1="28" y1="38" x2="42" y2="52" stroke="#ef4444"/>
-    <circle cx="50" cy="60" r="12" fill="#7f1d1d" stroke="#ef4444"/><text x="50" y="64" fill="#fff" font-size="9" text-anchor="middle">2</text>
-    <line x1="58" y1="68" x2="72" y2="82" stroke="#ef4444"/>
-    <circle cx="80" cy="90" r="12" fill="#7f1d1d" stroke="#ef4444"/><text x="80" y="94" fill="#fff" font-size="9" text-anchor="middle">3</text>
-    <text x="80" y="115" fill="#ef4444" font-size="10" font-weight="bold">Busca: O(N)</text>
-
-    <!-- Balanced Tree -->
-    <g transform="translate(280, 0)">
-      <text x="80" y="10" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Árvore AVL / Red-Black</text>
-      <circle cx="80" cy="30" r="14" fill="#047857" stroke="#10b981"/><text x="80" y="34" fill="#fff" font-size="10" text-anchor="middle">2</text>
-      <line x1="70" y1="40" x2="40" y2="60" stroke="#10b981"/>
-      <circle cx="35" cy="70" r="12" fill="#1e293b" stroke="#10b981"/><text x="35" y="74" fill="#fff" font-size="9" text-anchor="middle">1</text>
-      <line x1="90" y1="40" x2="120" y2="60" stroke="#10b981"/>
-      <circle cx="125" cy="70" r="12" fill="#1e293b" stroke="#10b981"/><text x="125" y="74" fill="#fff" font-size="9" text-anchor="middle">3</text>
-      <text x="80" y="115" fill="#10b981" font-size="10" font-weight="bold">Busca: O(log N)</text>
-    </g>
-  </g>
-  <text x="340" y="175" fill="#f59e0b" font-size="11" text-anchor="middle">Inserções ordenadas sem auto-balanceamento transformam árvores em listas encadeadas</text>
-
-</svg>
+<p>Visualização: Invariante da BST com subárvore esquerda estritamente menor e subárvore direita estritamente maior.</p>
 
 | Posição do Nó | Relação de Valor com $N$ | Direção de Busca para Alvo $X$ |
 |---|---|---|

@@ -24,18 +24,16 @@ Como a técnica de **Array de Rolamento (Rolling Array)** reduz o consumo de mem
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Longest Common Subsequence (LCS) e Reconstrução da Solução</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Otimização de Espaço em DP 2D: Matriz O(M·N) → Array 1D O(N)</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Transição de Caracteres</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Se s1[i-1] == s2[j-1]: dp[i][j] = dp[i-1][j-1] + 1 (diagonal + 1).</text>
-    <text x="20" y="62" fill="#f59e0b" font-size="11">Se s1[i-1] != s2[j-1]: dp[i][j] = max(dp[i-1][j], dp[i][j-1]).</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Rolling Array (Duas Linhas) ou 1D Reverso</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Se a linha i depende estritamente da linha i-1, usa-se dp[i % 2] ou vetor único.</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Na Mochila 0/1: itera-se w de W até wt de trás para frente para evitar reuso do mesmo item.</text>
   </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Backtracking a partir de dp[M][N] reconstrói a sequência em tempo O(M + N) (base do git diff)</text>
-
+  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Redução massiva de consumo de memória RAM preservando o tempo O(M × N)</text>
 </svg>
-
+<p>Visualização: Otimização de espaço de DP 2D eliminando linhas antigas e mantendo apenas a linha corrente ou vetor 1D reverso O(N).</p>
 | Estrutura de Armazenamento | Consumo de Memória | Acesso ao Vizinho de Cima |
 |---|---|---|
 | **Matriz $M \times N$** | $O(M \times N)$ | `dp[r-1][c]` |

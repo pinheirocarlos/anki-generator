@@ -46,30 +46,8 @@ Como funciona um **Deque (Double-Ended Queue)** e quais operações ele suporta 
 
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
+<p>Visualização: Inserção e remoção em O(1) em ambas as extremidades do Deque.</p>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Deque (Double-Ended Queue): Inserção e Remoção em Ambas as Pontas</text>
-  <g transform="translate(80, 50)">
-    <rect x="80" y="20" width="360" height="45" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="6"/>
-    
-    <!-- Front Ops -->
-    <text x="30" y="35" fill="#38bdf8" font-size="10" font-weight="bold">push_front() →</text>
-    <text x="30" y="55" fill="#f43f5e" font-size="10" font-weight="bold">← pop_front()</text>
-
-    <!-- Interior items -->
-    <rect x="100" y="28" width="60" height="30" fill="#2563eb" rx="3"/><text x="130" y="48" fill="#fff" font-size="11" text-anchor="middle">Item 1</text>
-    <rect x="170" y="28" width="60" height="30" fill="#1e40af" rx="3"/><text x="200" y="48" fill="#94a3b8" font-size="11" text-anchor="middle">Item 2</text>
-    <rect x="240" y="28" width="60" height="30" fill="#1e40af" rx="3"/><text x="270" y="48" fill="#94a3b8" font-size="11" text-anchor="middle">Item 3</text>
-    <rect x="310" y="28" width="60" height="30" fill="#047857" rx="3"/><text x="340" y="48" fill="#fff" font-size="11" text-anchor="middle">Item 4</text>
-
-    <!-- Back Ops -->
-    <text x="450" y="35" fill="#10b981" font-size="10" font-weight="bold">← push_back()</text>
-    <text x="450" y="55" fill="#f59e0b" font-size="10" font-weight="bold">pop_back() →</text>
-  </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Essencial para Janela Deslizante Monotônica e Algoritmo 0-1 BFS</text>
-
-</svg>
 
 | Operação | Início (`First`) | Fim (`Last`) |
 |---|---|---|

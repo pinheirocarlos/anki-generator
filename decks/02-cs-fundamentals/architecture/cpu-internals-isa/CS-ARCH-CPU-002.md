@@ -52,6 +52,7 @@ Como a CPU gerencia **Stack Frames** utilizando os registradores de ponteiro de 
   <text x="340" y="205" fill="#94a3b8" font-size="10" text-anchor="middle">A Stack cresce para baixo (direção a endereços menores). RSP diminui com cada push.</text>
 
 </svg>
+<p>Visualização: Estrutura do stack frame delimitada por RSP (Stack Pointer) e RBP (Base Pointer).</p>
 
 | Registrador | Papel no Stack Frame | Variação Durante a Execução |
 |---|---|---|

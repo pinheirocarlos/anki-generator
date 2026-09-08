@@ -50,6 +50,7 @@ Como o padrão Event Sourcing modela o estado de uma entidade como uma sequênci
   <text x="340" y="200" fill="#94a3b8" font-size="10" text-anchor="middle">Snapshots periódicos a cada N eventos evitam ter que reproduzir o histórico inteiro desde o início dos tempos.</text>
 
 </svg>
+<p>Visualização: Reidratação de estado de entidade reconstruindo a partir da sequência cronológica de eventos imutáveis.</p>
 
 | Paradigma | O que fica persistido no banco | Rastreabilidade Histórica |
 |---|---|---|

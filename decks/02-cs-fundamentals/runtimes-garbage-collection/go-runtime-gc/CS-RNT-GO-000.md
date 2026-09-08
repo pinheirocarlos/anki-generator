@@ -45,6 +45,7 @@ Como opera o algoritmo de **Tri-Color Concurrent Mark & Sweep** no Garbage Colle
   <text x="340" y="155" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Write Barrier (Write Barrier Híbrido) previne que ponteiros pretos apontem para brancos sem passar por cinza.</text>
 
 </svg>
+<p>Visualização: Algoritmo Tri-Color Concurrent Mark-Sweep do Go classificando objetos em Branco (candidato a descarte), Cinza (em visitação na fronteira) e Preto (alcançável e verificado) com barreira de escrita híbrida.</p>
 
 | Cor do Objeto | Estado no Grafo de Memória | Ação do Coletor |
 |---|---|---|

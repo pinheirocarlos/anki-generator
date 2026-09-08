@@ -22,16 +22,25 @@ Quais são as diferenças de estrutura de loop e complexidade entre os padrões 
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Problema das N-Rainhas: Validação com Vetores de Colunas e Diagonais</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#f59e0b" rx="6"/>
-    <text x="260" y="22" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="middle">Validação de Ataques em Tempo O(1)</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Rastreia ocupação em 3 sets/bitsets: cols[c], diag1[row - col], diag2[row + col].</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Permite posicionar uma rainha por linha sem inspecionar o tabuleiro completo O(N).</text>
-  </g>
-  <text x="340" y="160" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Tempo reduzido para colocar N rainhas com validação O(1) instantânea</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Geração de Subconjuntos (Power Set O(2ᴺ)) vs Permutações (O(N!))</text>
+  <g transform="translate(60, 45)">
+    <!-- Subconjuntos -->
+    <rect x="0" y="0" width="260" height="85" fill="#1e293b" stroke="#3b82f6" rx="6"/>
+    <text x="130" y="22" fill="#60a5fa" font-size="11" font-weight="bold" text-anchor="middle">Subconjuntos (Subsets / Combinações)</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">• Decisão binária: Incluir ou Não Incluir</text>
+    <text x="15" y="62" fill="#94a3b8" font-size="10">• Próxima chamada: backtrack(i + 1)</text>
+    <text x="15" y="78" fill="#38bdf8" font-size="10">• Complexidade total: 2 × 2 × ... × 2 = O(2ᴺ)</text>
 
+    <!-- Permutações -->
+    <rect x="300" y="0" width="260" height="85" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="430" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Permutações (Permutations)</text>
+    <text x="315" y="45" fill="#f8fafc" font-size="10">• Ordem importa: escolher qualquer elemento não usado</text>
+    <text x="315" y="62" fill="#94a3b8" font-size="10">• Vetor de visitados: boolean[] used</text>
+    <text x="315" y="78" fill="#34d399" font-size="10">• Complexidade total: N × (N-1) × ... × 1 = O(N!)</text>
+  </g>
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Diferenciação crítica em entrevistas para prever o custo assintótico da busca exaustiva</text>
 </svg>
+<p>Visualização: Árvore de decisão comparando espaço de estados: Subconjuntos O(2ᴺ) vs Permutações O(N!).</p>
 
 | Problema Combinatório | Estrutura de Loop | Complexidade |
 |---|---|---|

@@ -57,6 +57,7 @@ Qual é a intuição fundamental do padrão API Gateway e como ele centraliza pr
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Segurança: A rede privada interna de microsserviços nunca fica exposta à internet!</text>
 </svg>
+<p>Visualização: API Gateway operando como ponto central de entrada e segurança: autenticação, limitação de taxa e roteamento inteligente para microsserviços.</p>
 
 | Preocupação Transversal | Sem Gateway | Com API Gateway |
 |---|---|---|

@@ -43,6 +43,7 @@ Por que o gRPC com Protocol Buffers (Protobuf) é significativamente mais rápid
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Comunicação leste-oeste (Leste-Oeste entre microsserviços) deve padronizar em gRPC para máxima eficiência de CPU.</text>
 
 </svg>
+<p>Visualização: Serialização binária compacta em Protobuf sobre HTTP/2 eliminando overhead textual de JSON e headers repetitivos.</p>
 
 | Dimensão | REST / JSON | gRPC / Protocol Buffers |
 |---|---|---|

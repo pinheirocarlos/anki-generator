@@ -23,50 +23,23 @@ Como funciona a instrução atômica de hardware **Compare-And-Swap (CAS)** e co
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Compare-And-Swap (CAS): Primitiva Atômica em Hardware</text>
+  <g transform="translate(60, 50)">
+    <rect x="0" y="0" width="260" height="75" fill="#1e293b" stroke="#ef4444" rx="6"/>
+    <text x="130" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Lock-Based (Mutex / RWLock)</text>
+    <text x="15" y="45" fill="#f8fafc" font-size="10">Thread suspensa pelo kernel.</text>
+    <text x="15" y="60" fill="#fca5a5" font-size="10">Overhead de context switch (~1-2µs).</text>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Lock-Based vs Lock-Free Concurrency</text>
-  <g transform="translate(80, 50)">
-    <!-- Lock-based -->
-    <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#ef4444" rx="6"/>
-    <text x="120" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Lock-Based (Mutex / RWLock)</text>
-    <text x="15" y="45" fill="#f8fafc" font-size="10">Thread suspensa pelo kernel</text>
-    <text x="15" y="60" fill="#fca5a5" font-size="10">Overhead de context switch (~1-2µs)</text>
-
-    <!-- Lock-free -->
-    <g transform="translate(280, 0)">
-      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Lock-Free (Atômicos / CAS)</text>
-      <text x="15" y="45" fill="#f8fafc" font-size="10">Instruções atômicas de CPU</text>
-      <text x="15" y="60" fill="#a7f3d0" font-size="10">Pelo menos 1 thread progride sempre</text>
+    <g transform="translate(300, 0)">
+      <rect x="0" y="0" width="260" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+      <text x="130" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Lock-Free (Atômicos / CAS)</text>
+      <text x="15" y="45" fill="#f8fafc" font-size="10">Instruções atômicas de CPU (ex: CMPXCHG).</text>
+      <text x="15" y="60" fill="#a7f3d0" font-size="10">Pelo menos uma thread progride sempre.</text>
     </g>
   </g>
-  <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Lock-free elimina deadlocks, priority inversions e gargalos de thread sleep</text>
-
+  <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">CAS elimina deadlocks, inversões de prioridade e suspensão de threads</text>
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Lock-Based vs Lock-Free Concurrency</text>
-  <g transform="translate(80, 50)">
-    <!-- Lock-based -->
-    <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#ef4444" rx="6"/>
-    <text x="120" y="22" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle">Lock-Based (Mutex / RWLock)</text>
-    <text x="15" y="45" fill="#f8fafc" font-size="10">Thread suspensa pelo kernel</text>
-    <text x="15" y="60" fill="#fca5a5" font-size="10">Overhead de context switch (~1-2µs)</text>
-
-    <!-- Lock-free -->
-    <g transform="translate(280, 0)">
-      <rect x="0" y="0" width="240" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
-      <text x="120" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Lock-Free (Atômicos / CAS)</text>
-      <text x="15" y="45" fill="#f8fafc" font-size="10">Instruções atômicas de CPU</text>
-      <text x="15" y="60" fill="#a7f3d0" font-size="10">Pelo menos 1 thread progride sempre</text>
-    </g>
-  </g>
-  <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Lock-free elimina deadlocks, priority inversions e gargalos de thread sleep</text>
-
-</svg>
-
+<p>Visualização: Primitiva atômica Compare-And-Swap (CAS) em nível de CPU comparando o valor esperado antes de aplicar a alteração.</p>
 | Mecanismo de Sincronização | Impacto de Contenção | Risco de Deadlock |
 |---|---|---|
 | **Mutex / Lock Tradicional** | Thread suspensa pelo SO (Context Switch) | Alto |

@@ -44,6 +44,7 @@ Por que o framework **gRPC com Protocol Buffers (Protobuf)** é significativamen
   <text x="340" y="165" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">gRPC utiliza HTTP/2 multiplexado nativo, viabilizando streaming bidirecional e RPCs de altíssimo throughput entre microsserviços.</text>
 
 </svg>
+<p>Visualização: Eficiência de transmissão comparando o payload textual verboso de JSON com a serialização binária com field tags do Protocol Buffers em gRPC.</p>
 
 | Métrica | REST com JSON | gRPC com Protocol Buffers |
 |---|---|---|

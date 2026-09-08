@@ -54,6 +54,7 @@ Qual é a intuição fundamental por trás de operações idempotentes e por que
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">Analogia: Apertar o botão do elevador 10 vezes não faz descer 10 elevadores!</text>
 </svg>
+<p>Visualização: Analogia do botão de elevador: chave de idempotência garantindo que múltiplas retentativas de envio executem a ação exatamente uma vez.</p>
 
 | Método HTTP / Ação | É Idempotente? | Comportamento ao Repetir |
 |---|---|---|

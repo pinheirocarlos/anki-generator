@@ -23,60 +23,60 @@ Por que a inserção e remoção no início de uma lista encadeada é **estritam
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Reversão In-Place de Lista Encadeada com Três Ponteiros</text>
-  <g transform="translate(60, 55)">
-    <!-- Prev -->
-    <rect x="0" y="20" width="60" height="40" fill="#1e293b" stroke="#94a3b8" rx="4"/><text x="30" y="45" fill="#94a3b8" font-size="12" text-anchor="middle">Prev</text>
-    
-    <!-- Curr -->
-    <rect x="140" y="20" width="60" height="40" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/><text x="170" y="45" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Curr</text>
-    
-    <!-- Next -->
-    <rect x="280" y="20" width="60" height="40" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="4"/><text x="310" y="45" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Next</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Inserção no Início (pushFront) em O(1) via Manipulação de Ponteiros</text>
+  
+  <g transform="translate(50, 55)">
+    <!-- New Node -->
+    <g transform="translate(0, 30)">
+      <rect x="0" y="0" width="55" height="40" fill="#065f46" stroke="#10b981" stroke-width="2" rx="4"/>
+      <text x="27" y="24" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">Novo</text>
+      <rect x="55" y="0" width="35" height="40" fill="#047857" rx="2"/>
+      <text x="72" y="24" fill="#a7f3d0" font-size="10" font-family="monospace" text-anchor="middle">&amp;N1</text>
+      <text x="45" y="-8" fill="#10b981" font-size="10" font-weight="bold" text-anchor="middle">1. newNode.next = head</text>
+    </g>
 
-    <!-- Inverted Arrow -->
-    <path d="M 140 30 L 65 30" stroke="#f43f5e" stroke-width="2.5"/>
-    <text x="100" y="20" fill="#f43f5e" font-size="10" font-weight="bold" text-anchor="middle">curr.next = prev</text>
-  </g>
-  <g transform="translate(420, 50)">
-    <rect x="0" y="0" width="200" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="100" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Passo a Passo O(N):</text>
-    <text x="15" y="40" fill="#f8fafc" font-size="10" font-family="monospace">next = curr.next</text>
-    <text x="15" y="54" fill="#f87171" font-size="10" font-family="monospace">curr.next = prev</text>
-    <text x="15" y="68" fill="#34d399" font-size="10" font-family="monospace">prev = curr; curr = next</text>
-  </g>
-  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Espaço Auxiliar: O(1) estrito | Complexidade de Tempo: O(N)</text>
+    <!-- Arrow from newNode to N1 -->
+    <path d="M 90 50 Q 140 10 180 40" fill="none" stroke="#10b981" stroke-width="2.5"/>
+    <polygon points="185,42 175,37 178,47" fill="#10b981"/>
 
+    <!-- Head Pointer -->
+    <g transform="translate(180, -15)">
+      <rect x="0" y="0" width="60" height="25" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="3"/>
+      <text x="30" y="17" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">head</text>
+      <path d="M 0 12 L -60 30" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3"/>
+      <text x="-70" y="10" fill="#f59e0b" font-size="10" font-weight="bold" text-anchor="middle">2. head = newNode</text>
+    </g>
+
+    <!-- Existing Node 1 -->
+    <g transform="translate(180, 30)">
+      <rect x="0" y="0" width="55" height="40" fill="#1e293b" stroke="#3b82f6" rx="4"/>
+      <text x="27" y="24" fill="#ffffff" font-size="12" text-anchor="middle">Nó 1</text>
+      <rect x="55" y="0" width="35" height="40" fill="#0f766e" rx="2"/>
+      <text x="72" y="24" fill="#a7f3d0" font-size="10" font-family="monospace" text-anchor="middle">&amp;N2</text>
+    </g>
+
+    <line x1="270" y1="50" x2="310" y2="50" stroke="#3b82f6" stroke-width="2"/>
+
+    <!-- Existing Node 2 -->
+    <g transform="translate(310, 30)">
+      <rect x="0" y="0" width="55" height="40" fill="#1e293b" stroke="#3b82f6" rx="4"/>
+      <text x="27" y="24" fill="#ffffff" font-size="12" text-anchor="middle">Nó 2</text>
+      <rect x="55" y="0" width="35" height="40" fill="#0f766e" rx="2"/>
+      <text x="72" y="24" fill="#a7f3d0" font-size="10" font-family="monospace" text-anchor="middle">NULL</text>
+    </g>
+  </g>
+
+  <g transform="translate(480, 55)">
+    <rect x="0" y="0" width="160" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="80" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Passos O(1):</text>
+    <text x="12" y="42" fill="#f8fafc" font-size="10" font-family="monospace">1. node.next = head</text>
+    <text x="12" y="60" fill="#f8fafc" font-size="10" font-family="monospace">2. head = node</text>
+  </g>
+
+  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Apenas 2 ponteiros atualizados: Custo O(1) estrito e zero cópia de buffer</text>
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Reversão In-Place de Lista Encadeada com Três Ponteiros</text>
-  <g transform="translate(60, 55)">
-    <!-- Prev -->
-    <rect x="0" y="20" width="60" height="40" fill="#1e293b" stroke="#94a3b8" rx="4"/><text x="30" y="45" fill="#94a3b8" font-size="12" text-anchor="middle">Prev</text>
-    
-    <!-- Curr -->
-    <rect x="140" y="20" width="60" height="40" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/><text x="170" y="45" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Curr</text>
-    
-    <!-- Next -->
-    <rect x="280" y="20" width="60" height="40" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="4"/><text x="310" y="45" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Next</text>
-
-    <!-- Inverted Arrow -->
-    <path d="M 140 30 L 65 30" stroke="#f43f5e" stroke-width="2.5"/>
-    <text x="100" y="20" fill="#f43f5e" font-size="10" font-weight="bold" text-anchor="middle">curr.next = prev</text>
-  </g>
-  <g transform="translate(420, 50)">
-    <rect x="0" y="0" width="200" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="100" y="22" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Passo a Passo O(N):</text>
-    <text x="15" y="40" fill="#f8fafc" font-size="10" font-family="monospace">next = curr.next</text>
-    <text x="15" y="54" fill="#f87171" font-size="10" font-family="monospace">curr.next = prev</text>
-    <text x="15" y="68" fill="#34d399" font-size="10" font-family="monospace">prev = curr; curr = next</text>
-  </g>
-  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">Espaço Auxiliar: O(1) estrito | Complexidade de Tempo: O(N)</text>
-
-</svg>
+<p>Visualização: Inserção O(1) no início (pushFront) via atualização de dois ponteiros na memória.</p>
 
 | Operação | Lista Encadeada | Vetor Dinâmico |
 |---|---|---|

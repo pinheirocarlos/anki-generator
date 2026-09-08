@@ -25,32 +25,16 @@ Como o **Algoritmo de Euclides Estendido** calcula o **Inverso Modular** $a^{-1}
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Fast Modular Exponentiation: (A^B) % MOD em Tempo O(log B)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Algoritmo de Euclides Estendido: Coeficientes de Bézout a·x + b·y = gcd(a, b)</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Exponenciação Binária por Elevação ao Quadrado</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Se B é ímpar: res = (res · A) % MOD; B--.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">A = (A · A) % MOD; B = B / 2. Executa em no máximo 64 iterações para inteiros de 64 bits.</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Cálculo do Inverso Modular: a · x ≡ 1 (mod m)</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Quando gcd(a, m) = 1: a·x + m·y = 1 ➔ a·x ≡ 1 (mod m). O coeficiente x é o inverso!</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Funciona mesmo quando m não é primo (diferente do Pequeno Teorema de Fermat).</text>
   </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Substitui multiplicação linear O(B) por logarítmica O(log B)</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Complexidade logarítmica O(log min(a, b)) essencial em criptografia RSA e combinatória</text>
 </svg>
-
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Fast Modular Exponentiation: (A^B) % MOD em Tempo O(log B)</text>
-  <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#3b82f6" rx="6"/>
-    <text x="260" y="22" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Exponenciação Binária por Elevação ao Quadrado</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Se B é ímpar: res = (res · A) % MOD; B--.</text>
-    <text x="20" y="62" fill="#34d399" font-size="11">A = (A · A) % MOD; B = B / 2. Executa em no máximo 64 iterações para inteiros de 64 bits.</text>
-  </g>
-  <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Substitui multiplicação linear O(B) por logarítmica O(log B)</text>
-
-</svg>
-
+<p>Visualização: Algoritmo de Euclides Estendido calculando os coeficientes de Bézout e o inverso multiplicativo modular em tempo logarítmico O(log min(a, b)).</p>
 | Método de Inverso Modular | Condição para Módulo $m$ | Complexidade |
 |---|---|---|
 | **Pequeno Teorema de Fermat** | $m$ deve ser **Primo** ($a^{m-2}$) | $O(\log m)$ |

@@ -42,6 +42,7 @@ Como uma arquitetura híbrida de Fan-Out resolve o 'Problema das Celebridades' c
   <text x="340" y="200" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Ao abrir o app, o Feed Service mescla a lista pré-calculada do Redis com os posts recentes das celebridades seguidas.</text>
 
 </svg>
+<p>Visualização: Arquitetura híbrida: push imediato para usuários regulares e pull sob demanda mesclado na leitura para contas com milhões de seguidores.</p>
 
 | Tipo de Autor | Estratégia de Disseminação | Impacto na Infraestrutura |
 |---|---|---|

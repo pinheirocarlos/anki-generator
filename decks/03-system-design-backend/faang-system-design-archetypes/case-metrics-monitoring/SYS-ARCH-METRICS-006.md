@@ -56,6 +56,7 @@ Qual é a intuição fundamental da arquitetura de ingestão de métricas e sér
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">A compressão Gorilla em memória RAM reduz o uso de espaço em mais de 10x!</text>
 </svg>
+<p>Visualização: Pirâmide de retenção em banco temporal reduzindo granularidade e custo de armazenamento via downsampling contínuo.</p>
 
 | Conceito de Métricas | O que Representa | Analogia do Cotidiano |
 |---|---|---|

@@ -58,6 +58,8 @@ Qual é a intuição fundamental de uma lista ligada e qual vantagem ela oferece
   </g>
 </svg>
 
+<p>Visualização: Analogia da caça ao tesouro onde cada nó contém o dado e a pista (endereço) para o próximo elemento.</p>
+
 | Aspecto | Lista Ligada | Array |
 |---|---|---|
 | **Alocação de Memória** | Fragmentada em qualquer lugar | Bloco único contíguo |

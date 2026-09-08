@@ -23,52 +23,51 @@ O que define formalmente um **Grafo** ($G = (V, E)$) e qual a diferença entre g
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
 
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Matriz de Adjacência (Espaço O(V²), Consulta de Aresta O(1))</text>
-  <g transform="translate(100, 50)">
-    <!-- Small graph -->
-    <circle cx="40" cy="20" r="14" fill="#1e293b" stroke="#3b82f6"/><text x="40" y="24" fill="#fff" font-size="10" text-anchor="middle">0</text>
-    <line x1="55" y1="20" x2="105" y2="20" stroke="#3b82f6" stroke-width="2"/>
-    <circle cx="120" cy="20" r="14" fill="#1e293b" stroke="#10b981"/><text x="120" y="24" fill="#fff" font-size="10" text-anchor="middle">1</text>
-    <line x1="40" y1="35" x2="40" y2="65" stroke="#3b82f6" stroke-width="2"/>
-    <circle cx="40" cy="80" r="14" fill="#1e293b" stroke="#f59e0b"/><text x="40" y="84" fill="#fff" font-size="10" text-anchor="middle">2</text>
-
-    <!-- Matrix -->
-    <g transform="translate(240, 0)">
-      <rect x="0" y="0" width="180" height="90" fill="#1e293b" stroke="#3b82f6" rx="4"/>
-      <text x="90" y="20" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Matriz adj[3][3]</text>
-      <text x="40" y="42" fill="#94a3b8" font-size="11" font-family="monospace">[ 0, 1, 1 ]</text>
-      <text x="40" y="60" fill="#94a3b8" font-size="11" font-family="monospace">[ 1, 0, 0 ]</text>
-      <text x="40" y="78" fill="#94a3b8" font-size="11" font-family="monospace">[ 1, 0, 0 ]</text>
-    </g>
+  <text x="340" y="26" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Classificação Formal de Grafos: Não-Direcionado, Direcionado e Ponderado</text>
+  
+  <!-- Painel 1: Não-Direcionado -->
+  <g transform="translate(40, 45)">
+    <rect x="0" y="0" width="180" height="105" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" rx="6"/>
+    <text x="90" y="22" fill="#60a5fa" font-size="11" font-weight="bold" text-anchor="middle">Não-Direcionado</text>
+    <circle cx="50" cy="55" r="14" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+    <text x="50" y="59" fill="#fff" font-size="10" text-anchor="middle">u</text>
+    <line x1="64" y1="55" x2="116" y2="55" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="130" cy="55" r="14" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+    <text x="130" y="59" fill="#fff" font-size="10" text-anchor="middle">v</text>
+    <text x="90" y="88" fill="#94a3b8" font-size="10" text-anchor="middle">(u, v) ≡ (v, u) (Simétrico)</text>
   </g>
-  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">hasEdge(u, v) é O(1) instantâneo; inadequada para grafos esparsos devido a O(V²) de memória</text>
 
+  <!-- Painel 2: Direcionado (Digrafo) -->
+  <g transform="translate(250, 45)">
+    <rect x="0" y="0" width="180" height="105" fill="#1e293b" stroke="#10b981" stroke-width="1.5" rx="6"/>
+    <text x="90" y="22" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Direcionado (Digrafo)</text>
+    <circle cx="50" cy="55" r="14" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <text x="50" y="59" fill="#fff" font-size="10" text-anchor="middle">u</text>
+    <line x1="64" y1="55" x2="114" y2="55" stroke="#10b981" stroke-width="2"/>
+    <polygon points="116,55 108,51 108,59" fill="#10b981"/>
+    <circle cx="130" cy="55" r="14" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <text x="130" y="59" fill="#fff" font-size="10" text-anchor="middle">v</text>
+    <text x="90" y="88" fill="#94a3b8" font-size="10" text-anchor="middle">u → v ≠ v → u (Fluxo)</text>
+  </g>
+
+  <!-- Painel 3: Ponderado -->
+  <g transform="translate(460, 45)">
+    <rect x="0" y="0" width="180" height="105" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" rx="6"/>
+    <text x="90" y="22" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Ponderado</text>
+    <circle cx="50" cy="55" r="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+    <text x="50" y="59" fill="#fff" font-size="10" text-anchor="middle">u</text>
+    <line x1="64" y1="55" x2="116" y2="55" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="80" y="44" width="20" height="14" fill="#78350f" rx="3"/>
+    <text x="90" y="55" fill="#fef3c7" font-size="9" text-anchor="middle">w=7</text>
+    <circle cx="130" cy="55" r="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+    <text x="130" y="59" fill="#fff" font-size="10" text-anchor="middle">v</text>
+    <text x="90" y="88" fill="#94a3b8" font-size="10" text-anchor="middle">Peso w: Custo / Latência</text>
+  </g>
+
+  <text x="340" y="180" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">G = (V, E): Vértices representam entidades e Arestas modelam relações e conectividade</text>
 </svg>
 
-<svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Matriz de Adjacência (Espaço O(V²), Consulta de Aresta O(1))</text>
-  <g transform="translate(100, 50)">
-    <!-- Small graph -->
-    <circle cx="40" cy="20" r="14" fill="#1e293b" stroke="#3b82f6"/><text x="40" y="24" fill="#fff" font-size="10" text-anchor="middle">0</text>
-    <line x1="55" y1="20" x2="105" y2="20" stroke="#3b82f6" stroke-width="2"/>
-    <circle cx="120" cy="20" r="14" fill="#1e293b" stroke="#10b981"/><text x="120" y="24" fill="#fff" font-size="10" text-anchor="middle">1</text>
-    <line x1="40" y1="35" x2="40" y2="65" stroke="#3b82f6" stroke-width="2"/>
-    <circle cx="40" cy="80" r="14" fill="#1e293b" stroke="#f59e0b"/><text x="40" y="84" fill="#fff" font-size="10" text-anchor="middle">2</text>
-
-    <!-- Matrix -->
-    <g transform="translate(240, 0)">
-      <rect x="0" y="0" width="180" height="90" fill="#1e293b" stroke="#3b82f6" rx="4"/>
-      <text x="90" y="20" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Matriz adj[3][3]</text>
-      <text x="40" y="42" fill="#94a3b8" font-size="11" font-family="monospace">[ 0, 1, 1 ]</text>
-      <text x="40" y="60" fill="#94a3b8" font-size="11" font-family="monospace">[ 1, 0, 0 ]</text>
-      <text x="40" y="78" fill="#94a3b8" font-size="11" font-family="monospace">[ 1, 0, 0 ]</text>
-    </g>
-  </g>
-  <text x="340" y="165" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">hasEdge(u, v) é O(1) instantâneo; inadequada para grafos esparsos devido a O(V²) de memória</text>
-
-</svg>
+<p>Visualização: Tipos fundamentais de grafos: não-direcionado (simétrico), direcionado (digrafo) e ponderado com pesos nas arestas.</p>
 
 | Tipo de Grafo | Simetria de Aresta | Exemplo de Aplicação |
 |---|---|---|

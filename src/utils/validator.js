@@ -337,12 +337,16 @@ export const VALID_MEDIA_TYPES = new Set([
   'image/gif',
   'image/png',
   'inline_svg',
-  'markdown_table'
+  'markdown_table',
+  'mp4',
+  'webm',
+  'gif'
 ]);
 
 export const VALID_ENTRY_STATUSES = new Set([
   'verified',
   'pending',
+  'pending_injection',
   'deprecated'
 ]);
 

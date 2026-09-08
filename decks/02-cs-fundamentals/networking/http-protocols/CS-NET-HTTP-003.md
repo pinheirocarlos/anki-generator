@@ -41,6 +41,7 @@ Como o **HTTP/3 sobre QUIC/UDP** elimina o Head-of-Line Blocking na camada de tr
   <text x="340" y="175" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Connection Migration: Celular muda de Wi-Fi para 4G sem interromper downloads/streaming em QUIC.</text>
 
 </svg>
+<p>Visualização: QUIC/UDP no HTTP/3 isolando perdas de pacotes por stream independente e eliminando completamente o Head-of-Line Blocking de transporte.</p>
 
 | Propriedade de Rede | HTTP/2 (sobre TCP + TLS 1.3) | HTTP/3 (sobre QUIC / UDP) |
 |---|---|---|

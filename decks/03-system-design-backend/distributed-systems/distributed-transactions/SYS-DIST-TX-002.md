@@ -44,6 +44,7 @@ Como o Transactional Outbox Pattern resolve o problema de 'Dual-Write' garantind
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Elimina o problema de gravar no banco e o broker de mensagens falhar no meio do caminho.</text>
 
 </svg>
+<p>Visualização: Gravação atômica da mutação de negócio e do evento na tabela Outbox na mesma transação SQL com relay via CDC.</p>
 
 | Etapa do Processo | Onde Ocorre | Garantia |
 |---|---|---|

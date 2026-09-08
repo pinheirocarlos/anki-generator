@@ -45,6 +45,7 @@ Como o **Handshake do TLS 1.3** reduziu a latência de estabelecimento seguro pa
   <text x="340" y="180" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Economia de 50% na latência de conexão segura e Forward Secrecy obrigatório por padrão.</text>
 
 </svg>
+<p>Visualização: Comparação de latência do handshake TLS 1.2 (2 RTTs) contra TLS 1.3 (1 RTT ou 0-RTT PSK) com Forward Secrecy garantido.</p>
 
 | Versão TLS | RTTs de Handshake | Algoritmos Criptográficos Legados (RSA Key Exch, CBC, MD5) |
 |---|---|---|

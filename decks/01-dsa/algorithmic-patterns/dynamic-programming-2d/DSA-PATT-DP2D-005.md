@@ -24,18 +24,16 @@ Como a DP 2D sobre intervalos $[i, j]$ verifica se substrings são palíndromos 
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Otimização de Espaço: Rolling Array (Duas Linhas / 1D)</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">DP em Intervalos [i, j]: dp[i][j] = (s[i] == s[j]) &amp;&amp; dp[i+1][j-1]</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
-    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Como a Linha i Depende Apenas da Linha i-1</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">Aloca apenas 2 linhas de tamanho N usando índice modular: dp[i % 2][j].</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">Ou um único array 1D percorrido na direção apropriada. Espaço reduz de O(M × N) para O(N).</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Ordem de Preenchimento por Comprimento L = j - i + 1</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Base: L=1 (sempre true); L=2 (true se s[i] == s[i+1]).</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Para L ≥ 3: dp[i][j] consulta o sub-intervalo interno menor já computado dp[i+1][j-1].</text>
   </g>
-  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Essencial para rodar problemas com M, N = 10⁴ sem estourar limites de memória (OOM)</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Complexidade: Tempo O(N²) e Espaço O(N²)</text>
 </svg>
-
+<p>Visualização: DP sobre intervalos de substrings [i, j] expandindo a partir de palíndromos centrais de comprimento menor.</p>
 | Condição de Palíndromo | Equação | Racional |
 |---|---|---|
 | $S[i] == S[j]$ e $j - i \le 2$ | `true` | Tamanho 1 ou 2 com caracteres iguais |

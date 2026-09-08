@@ -47,6 +47,7 @@ Como a topologia de Read Replicas (Leader-Follower assíncrono) escala leituras 
   <text x="340" y="195" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Solução Read-Your-Own-Writes: Roteia leituras do próprio usuário que alterou para o Leader por 5 segundos.</text>
 
 </svg>
+<p>Visualização: Assincronia na replicação Leader-Follower gerando Replication Lag e leituras inconsistentes em réplicas secundárias.</p>
 
 | Papel do Nó | Operações Permitidas | Mecanismo de Sincronização |
 |---|---|---|

@@ -43,6 +43,8 @@ Por que a presença de um ciclo em um grafo direcionado quebra matematicamente q
 
 </svg>
 
+<p>Visualização: Bloqueio mútuo por ciclo direcionado: dependência circular que impede qualquer nó de atingir in-degree zero no algoritmo de Kahn.</p>
+
 | Estrutura de Dependência | Relação de Posição | Status de Validade |
 |---|---|---|
 | **Caminho Linear $A \to B \to C$** | $\text{pos}(A) < \text{pos}(B) < \text{pos}(C)$ | Válido |

@@ -20,18 +20,16 @@ Por que a estratégia gulosa por **densidade de valor ($V/W$)** funciona perfeit
 ### Dual Coding Visual
 <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a; border-radius:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <rect width="680" height="200" fill="#0f172a" rx="8"/>
-
-  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Huffman Coding: Árvore de Prefixos Ótima com Min-Heap</text>
+  <text x="340" y="28" fill="#38bdf8" font-size="14" font-weight="bold" text-anchor="middle">Mochila Fracionária: Ordenação por Densidade de Valor (val / wt)</text>
   <g transform="translate(80, 50)">
-    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#a855f7" rx="6"/>
-    <text x="260" y="22" fill="#d8b4fe" font-size="12" font-weight="bold" text-anchor="middle">Caracteres Mais Frequentes Recebem Códigos Menores</text>
-    <text x="20" y="45" fill="#f8fafc" font-size="11">1. Insere nós de frequência em um Min-Heap.</text>
-    <text x="20" y="62" fill="#10b981" font-size="11">2. Combina os dois menores nós sucessivamente até restar uma única raiz em O(N log N).</text>
+    <rect x="0" y="0" width="520" height="75" fill="#1e293b" stroke="#10b981" rx="6"/>
+    <text x="260" y="22" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Escolha Gulosa de Fração Contínua</text>
+    <text x="20" y="45" fill="#f8fafc" font-size="11">Itens ordenados decrescentemente pela razão r = val[i] / wt[i].</text>
+    <text x="20" y="62" fill="#38bdf8" font-size="11">Consome itens inteiros; no último item fraciona: fração = capacidade_restante / wt[last].</text>
   </g>
-  <text x="340" y="160" fill="#a855f7" font-size="12" font-weight="bold" text-anchor="middle">Garante compressão sem perdas com códigos livres de prefixo (prefix-free)</text>
-
+  <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Guloso funciona em Mochila Fracionária O(N log N), mas FALHA na Mochila 0/1 (exige DP)</text>
 </svg>
-
+<p>Visualização: Mochila Fracionária ordenando itens por densidade de valor (valor/peso) para preenchimento guloso ótimo.</p>
 | Variante da Mochila | Divisibilidade dos Itens | Algoritmo Ótimo |
 |---|---|---|
 | **Fracionária (Fractional)** | Permite frações de itens | **Greedy** ($O(N \log N)$ por $V/W$) |

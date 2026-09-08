@@ -51,6 +51,7 @@ O que são chamadas de sistema (syscalls) e por que os programas de usuário nã
 
   <text x="300" y="160" fill="#94a3b8" font-size="11" font-family="monospace" text-anchor="middle">No Linux tudo é tratado como arquivo através de File Descriptors (inteiros 0, 1, 2, ...)!</text>
 </svg>
+<p>Visualização: Metáfora do guichê blindado de atendimento representando a fronteira de proteção e validação de parâmetros entre User Space e Kernel Space.</p>
 
 | Nível / Conceito | O que Faz | Analogia do Cotidiano |
 |---|---|---|

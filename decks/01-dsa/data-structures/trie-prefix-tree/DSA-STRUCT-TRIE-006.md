@@ -53,6 +53,7 @@ Qual é o princípio fundamental de uma árvore de prefixos (Trie) e como o comp
   <circle cx="400" cy="165" r="16" fill="#065f46" stroke="#10b981" stroke-width="2" />
   <text x="400" y="170" fill="#ffffff" font-size="12" font-family="sans-serif" font-weight="bold" text-anchor="middle">'O' ➔ cão</text>
 </svg>
+<p>Visualização: Analogia do dicionário e teclado preditivo compartilhando o prefixo comum 'CA-' para filtrar palavras candidatas.</p>
 
 | Operação | Complexidade | Explicação |
 |---|---|---|

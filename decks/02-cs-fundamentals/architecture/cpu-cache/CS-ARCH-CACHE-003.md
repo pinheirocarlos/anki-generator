@@ -53,6 +53,7 @@ Como o mecanismo de **Hardware Prefetching** da CPU acelera leituras sequenciais
   <text x="340" y="150" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Padrão Sequencial (Stride = +1) → Prefetcher esconde 100% da latência de RAM na CPU</text>
 
 </svg>
+<p>Visualização: Hardware prefetcher detectando padrões de acesso sequencial e antecipando dados.</p>
 
 | Padrão de Acesso | Comportamento do Prefetcher | Taxa de Cache Miss |
 |---|---|---|

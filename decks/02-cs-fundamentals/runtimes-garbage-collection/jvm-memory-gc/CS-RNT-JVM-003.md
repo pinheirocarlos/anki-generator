@@ -35,6 +35,7 @@ O que é uma pausa **Stop-The-World (STW)** e como a JVM utiliza **SafePoints** 
   <text x="340" y="155" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">Coletores modernos tornam a grande maioria das fases (Mark e Relocate) concorrentes, reduzindo o STW a frações de ms.</text>
 
 </svg>
+<p>Visualização: Mecanismo de SafePoints na JVM garantindo que todas as threads atinjam um estado de execução consistente para a realização segura de fases críticas e pausas Stop-The-World (STW).</p>
 
 | Fase do Algoritmo | Ação do Coletor | Efeito na Fragmentação |
 |---|---|---|

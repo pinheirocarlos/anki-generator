@@ -53,6 +53,7 @@ Qual é a intuição fundamental para evitar sobre-venda (Anti-Overselling) e co
 
   <text x="300" y="175" fill="#94a3b8" font-size="10" font-family="monospace" text-anchor="middle">O banco de dados relacional nunca recebe o impacto de 100k requisições!</text>
 </svg>
+<p>Visualização: Funil de alta concorrência: sala de espera virtual filtrando tráfego e script Lua em memória garantindo decremento atômico de estoque.</p>
 
 | Mecanismo | O que Faz | Analogia do Cotidiano |
 |---|---|---|
