@@ -34,6 +34,7 @@ Como resolver **Single Number III** (encontrar dois números únicos $X$ e $Y$ e
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">XOR acumulado em cada grupo recupera x e y separadamente em tempo linear O(N) e espaço O(1)</text>
 </svg>
 <p>Visualização: Isolamento do bit diferenciador (diff & -diff) para particionar o array em dois subgrupos disjuntos de elementos únicos.</p>
+
 | Grupo de Separação | Condição Bitwise | Resultado do XOR Acumulado |
 |---|---|---|
 | **Grupo 0** | `(num & diff) == 0` | Produz exatamente o número $X$ |

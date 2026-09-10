@@ -30,6 +30,7 @@ Qual é o princípio fundamental do algoritmo KMP (Knuth-Morris-Pratt) para busc
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">O ponteiro do texto avança estritamente para a frente em tempo O(N + M)</text>
 </svg>
 <p>Visualização: Intuição do KMP: reaproveitar informações de letras já lidas evita recuos desnecessários no texto de entrada.</p>
+
 | Algoritmo | Complexidade de Tempo | Abordagem |
 |---|---|---|
 | **Busca Ingênua (Naive)** | $O(N \times M)$ | Ao errar letra, volta o texto para o início |

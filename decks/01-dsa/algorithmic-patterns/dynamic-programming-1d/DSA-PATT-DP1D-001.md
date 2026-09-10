@@ -51,6 +51,7 @@ Como modelar a equação de recorrência e a escolha binária (roubar vs não ro
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Invariante: Casas adjacentes nunca são roubadas simultaneamente (Tempo O(N), Espaço O(1))</text>
 </svg>
 <p>Visualização: Transição de estados do House Robber escolhendo entre roubar a casa atual somada a dp[i-2] ou manter o acumulado dp[i-1].</p>
+
 | Decisão na Casa $i$ | Restrição Aplicada | Ganho Acumulado |
 |---|---|---|
 | **Roubar Casa $i$** | Não pode roubar $i-1$ | $DP[i-2] + A[i]$ |

@@ -33,6 +33,7 @@ Como o **Autômato de Aho-Corasick** combina uma Trie com links de falha (*failu
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">A espinha dorsal de filtros de antivírus, detecção de spam e bioinformática</text>
 </svg>
 <p>Visualização: Autômato de Aho-Corasick combinando árvore Trie com links de falha para busca simultânea de múltiplos padrões em tempo linear.</p>
+
 | Abordagem Multi-Padrão | Custo com $K$ Palavras | Escalabilidade |
 |---|---|---|
 | **$K \times$ KMP** | $O(K \cdot N)$ | Degrada com dicionários grandes |

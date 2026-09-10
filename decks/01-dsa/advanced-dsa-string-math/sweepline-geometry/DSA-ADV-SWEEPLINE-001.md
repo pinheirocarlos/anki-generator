@@ -37,6 +37,7 @@ Como o algoritmo **Monotone Chain de Andrew** constrói o Fecho Convexo (Convex 
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Gera o polígono convexo mínimo que envolve todos os pontos do plano</text>
 </svg>
 <p>Visualização: Construção do Fecho Convexo (Convex Hull) com Monotone Chain de Andrew empilhando cascos inferior e superior via produto vetorial.</p>
+
 | Sinal do Produto Vetorial | Orientação dos 3 Pontos | Ação na Pilha Monótona |
 |---|---|---|
 | $\text{cross}(A, B, C) > 0$ | Curva estritamente para a esquerda | Adiciona ponto $C$ |

@@ -33,6 +33,7 @@ Como o paradigma de **Matrix Chain Multiplication (MCM)** particiona intervalos 
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Otimiza a ordem de parentização minimizando operações aritméticas totais</text>
 </svg>
 <p>Visualização: DP sobre intervalos na multiplicação de matrizes testando todos os pontos de corte k para minimizar operações escalares.</p>
+
 | Componente da Recorrência | Significado |
 |---|---|
 | $DP[i][k]$ | Custo ótimo da partição esquerda |

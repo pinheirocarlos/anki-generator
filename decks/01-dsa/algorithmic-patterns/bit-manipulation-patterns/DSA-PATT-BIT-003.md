@@ -36,6 +36,7 @@ Como as propriedades comutativa e associativa do **XOR** encontram o único elem
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Propriedades: x ^ x = 0 e x ^ 0 = x (Comutativo e Associativo em tempo O(N) e espaço O(1))</text>
 </svg>
 <p>Visualização: Propriedades do XOR (comutatividade e auto-anulação x ^ x = 0) isolando o elemento único sem memória auxiliar.</p>
+
 | Abordagem | Tempo | Memória Auxiliar |
 |---|---|---|
 | **Hash Set** | $O(N)$ | $O(N)$ Conjunto de elementos |

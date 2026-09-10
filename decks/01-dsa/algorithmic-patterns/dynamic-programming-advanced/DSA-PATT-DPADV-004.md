@@ -35,6 +35,7 @@ Como a **Otimização Convex Hull Trick (CHT)** reduz a complexidade de transiç
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Reduz transições quadráticas pesadas para tempo linear amortizado O(1) por consulta</text>
 </svg>
 <p>Visualização: Otimização Convex Hull Trick mantendo o invólucro de retas para encontrar o mínimo em tempo amortizado O(1).</p>
+
 | Abordagem de Transição | Custo por Estado | Complexidade Total |
 |---|---|---|
 | **DP Quadrática Padrão** | Varre todos os $j < i$ | $O(N^2)$ |

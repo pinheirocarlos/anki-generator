@@ -33,6 +33,7 @@ Como o algoritmo de Divisão e Conquista geométrico encontra o **Par de Pontos 
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Garante complexidade temporal O(N log N) através do Teorema Mestre T(N) = 2T(N/2) + O(N)</text>
 </svg>
 <p>Visualização: Divisão e conquista no problema do par mais próximo restringindo comparações a uma faixa de largura 2d ao redor do corte.</p>
+
 | Etapa do Algoritmo | Complexidade | Propriedade Chave |
 |---|---|---|
 | **Divisão e Conquista** | $2T(N/2)$ | Resolve metades esquerda e direita |

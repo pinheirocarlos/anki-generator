@@ -38,6 +38,7 @@ Qual é a diferença conceitual e de garantias entre a **Escolha Gulosa (Greedy)
   <text x="340" y="165" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Exige prova matemática rigorosa de que o ótimo local sempre conduz ao ótimo global</text>
 </svg>
 <p>Visualização: Algoritmos Gulosos escolhendo a melhor opção local imediatamente sem retrocesso quando provada a subestrutura ótima.</p>
+
 | Paradigma | Decisão e Exploração | Custo Típico |
 |---|---|---|
 | **Greedy (Guloso)** | Irrevogável / 1 único caminho | $O(N)$ / $O(N log N)$ |

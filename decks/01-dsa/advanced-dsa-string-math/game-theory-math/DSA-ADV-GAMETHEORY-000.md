@@ -42,6 +42,7 @@ O que caracteriza as **Posições Vencedoras (N-Positions)** e **Perdedoras (P-P
   <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Propagação retroativa a partir dos estados terminais (onde não há movimentos válidos = P)</text>
 </svg>
 <p>Visualização: Grafo de estados em jogos imparciais classificando posições vencedoras (N) e perdedoras (P) a partir dos estados terminais.</p>
+
 | Tipo de Posição | Significado Prático | Movimentos Disponíveis |
 |---|---|---|
 | **P-Position** | Quem está com a vez perde | Todos os movimentos levam a N-Positions |

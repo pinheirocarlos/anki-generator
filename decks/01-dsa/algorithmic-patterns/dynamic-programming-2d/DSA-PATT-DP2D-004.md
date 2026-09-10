@@ -40,6 +40,7 @@ Como o algoritmo de **Edit Distance (Distância de Levenshtein)** computa o núm
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Se s1[i-1] == s2[j-1]: custo zero dp[i-1][j-1] sem incremento de operação</text>
 </svg>
 <p>Visualização: Matriz de distância de edição (Levenshtein) avaliando os custos de inserção, deleção e substituição de caracteres.</p>
+
 | Operação de Edição | Posição na Matriz DP | Racional |
 |---|---|---|
 | **Substituição** | Diagonal $DP[i-1][j-1]$ | Troca o caractere correspondente |

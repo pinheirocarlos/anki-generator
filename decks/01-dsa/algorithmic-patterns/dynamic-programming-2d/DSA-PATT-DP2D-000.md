@@ -43,6 +43,7 @@ Como modelar a função de transição de estados de uma DP 2D em matrizes de gr
   <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Fluxo acíclico da esquerda para a direita e de cima para baixo em tempo O(M × N)</text>
 </svg>
 <p>Visualização: Matriz de DP em grade 2D agregando caminhos válidos a partir das células superior e esquerda.</p>
+
 | Problema de Grade | Origem dos Subproblemas | Função de Agregação |
 |---|---|---|
 | **Unique Paths** | Cima $(r-1, c)$ e Esquerda $(r, c-1)$ | Soma ($+$) |

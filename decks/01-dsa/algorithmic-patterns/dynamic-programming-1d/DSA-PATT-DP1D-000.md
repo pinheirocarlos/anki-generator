@@ -38,6 +38,7 @@ Quais são as duas propriedades matemáticas fundamentais que qualificam um prob
   <text x="340" y="165" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Armazenar subproblemas (Memoization/Tabulation) reduz complexidade de O(2ᴺ) para O(N)</text>
 </svg>
 <p>Visualização: Sobreposição de subproblemas e subestrutura ótima formando a base para memoization e tabulação.</p>
+
 | Propriedade de DP | Definição | Exemplo Canônico |
 |---|---|---|
 | **Subestrutura Ótima** | Solução global composta de subsoluções | $DP[i] = DP[i-1] + DP[i-2]$ |

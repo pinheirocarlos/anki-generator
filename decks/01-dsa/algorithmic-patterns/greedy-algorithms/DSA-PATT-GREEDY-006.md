@@ -43,6 +43,7 @@ O que caracteriza uma estratégia Gulosa (Greedy) e por que a escolha da melhor 
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Em sistemas canônicos de moedas, a escolha da maior nota minimiza o total de cédulas</text>
 </svg>
 <p>Visualização: Intuição gulosa do troco: priorizar sempre a cédula de maior valor disponível para minimizar a contagem total.</p>
+
 | Abordagem | Complexidade | Quando Usar |
 |---|---|---|
 | **Greedy (Guloso)** | Muito rápido ($O(N)$ ou $O(N \log N)$) | Quando a melhor escolha local comprovadamente leva ao ótimo global |

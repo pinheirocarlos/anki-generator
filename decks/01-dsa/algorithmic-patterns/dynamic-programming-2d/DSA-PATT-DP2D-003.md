@@ -41,6 +41,7 @@ Como a Programação Dinâmica 2D resolve o problema **Longest Common Subsequenc
   <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Reconstrução do alinhamento ótimo seguindo os ponteiros diagonais em O(M + N)</text>
 </svg>
 <p>Visualização: Matriz 2D de Longest Common Subsequence computando correspondências diagonais e propagando valores máximos em O(M·N).</p>
+
 | Comparação de Caracteres | Equação de Transição | Direção de Preenchimento |
 |---|---|---|
 | $S_1[i-1] == S_2[j-1]$ | $1 + DP[i-1][j-1]$ | Diagonal Superior |

@@ -30,6 +30,7 @@ Por que a estratégia gulosa por **densidade de valor ($V/W$)** funciona perfeit
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Guloso funciona em Mochila Fracionária O(N log N), mas FALHA na Mochila 0/1 (exige DP)</text>
 </svg>
 <p>Visualização: Mochila Fracionária ordenando itens por densidade de valor (valor/peso) para preenchimento guloso ótimo.</p>
+
 | Variante da Mochila | Divisibilidade dos Itens | Algoritmo Ótimo |
 |---|---|---|
 | **Fracionária (Fractional)** | Permite frações de itens | **Greedy** ($O(N \log N)$ por $V/W$) |

@@ -49,6 +49,7 @@ Qual é o modelo mental das operações bitwise (AND, OR, XOR) e como a propried
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Interruptor de duas vias: acionar duas vezes retorna ao estado original (x ^ 1 ^ 1 = x)</text>
 </svg>
 <p>Visualização: Intuição do interruptor: cada operação XOR inverte o estado lógico do bit, cancelando ações repetidas em pares.</p>
+
 | Operador | Regra Lógica | Uso Clássico |
 |---|---|---|
 | **AND (`&`)** | `1 & 1 = 1`, resto `0` | Testar se é ímpar (`x & 1`) ou limpar bit |

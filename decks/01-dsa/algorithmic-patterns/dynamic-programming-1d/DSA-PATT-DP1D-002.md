@@ -37,6 +37,7 @@ Quais as diferenças estruturais e trade-offs entre **Memoization (Top-Down)** e
   <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Bottom-Up permite otimização de espaço eliminando vetores completos em tempo O(1) auxiliar</text>
 </svg>
 <p>Visualização: Comparação entre Top-Down (recursivo sob demanda com memoization) e Bottom-Up (iterativo tabular a partir dos casos base).</p>
+
 | Estratégia de DP | Fluxo de Computação | Estrutura de Controle |
 |---|---|---|
 | **Memoization (Top-Down)** | Problema Maior $\to$ Casos Base | Recursão + Cache (`memo[]`) |

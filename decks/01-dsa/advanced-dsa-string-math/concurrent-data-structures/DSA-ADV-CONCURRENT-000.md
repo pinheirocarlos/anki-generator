@@ -40,6 +40,7 @@ Como funciona a instrução atômica de hardware **Compare-And-Swap (CAS)** e co
   <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">CAS elimina deadlocks, inversões de prioridade e suspensão de threads</text>
 </svg>
 <p>Visualização: Primitiva atômica Compare-And-Swap (CAS) em nível de CPU comparando o valor esperado antes de aplicar a alteração.</p>
+
 | Mecanismo de Sincronização | Impacto de Contenção | Risco de Deadlock |
 |---|---|---|
 | **Mutex / Lock Tradicional** | Thread suspensa pelo SO (Context Switch) | Alto |

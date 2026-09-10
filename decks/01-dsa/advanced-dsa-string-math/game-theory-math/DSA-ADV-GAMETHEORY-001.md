@@ -35,6 +35,7 @@ Como a **Poda Alfa-Beta (Alpha-Beta Pruning)** reduz o número de nós avaliados
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Fundamento de engines clássicas de xadrez, damas e jogos de tabuleiro adversariais</text>
 </svg>
 <p>Visualização: Árvore Minimax com poda Alfa-Beta descartando ramos irrelevantes quando o limite superior beta é menor ou igual a alfa.</p>
+
 | Parâmetro de Poda | Papel na Busca | Condição de Corte |
 |---|---|---|
 | **$\alpha$ (Alfa)** | Maximizador (Piso de pontuação) | Se $\beta \le \alpha \implies$ Poda ramo |

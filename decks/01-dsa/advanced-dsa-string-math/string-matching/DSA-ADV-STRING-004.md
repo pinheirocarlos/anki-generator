@@ -32,6 +32,7 @@ Como a combinação de **Suffix Array** e **LCP Array (Longest Common Prefix)** 
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Permite busca binária de padrões em O(M log N) e contagem de substrings únicas</text>
 </svg>
 <p>Visualização: Suffix Array ordenando lexicograficamente todos os sufixos da string com vetor LCP de prefixos comuns adjacentes.</p>
+
 | Estrutura de Sufixos | Memória de Armazenamento | Propósito Principal |
 |---|---|---|
 | **Suffix Tree** | $O(N)$ (Constante alta ~20 bytes/nó) | Consultas complexas em grafos |

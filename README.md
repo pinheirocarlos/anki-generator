@@ -10,14 +10,14 @@
 - **Plataforma Principal:** Mobile-first (*AnkiDroid*, *AnkiMobile* e *AnkiWeb*).
 - **Carga de Estudo:** ~2 horas semanais em momentos de deslocamento/ociosidade (micro-learning de 15 a 90 segundos por card).
 - **Engenharia Pedagógica (Governança da Constituição v1.4.0):**
-  - **Atomicidade Estrita:** Cada flashcard avalia exatamente 1 conceito indivisível com tempo de resposta mental estimado em <30 segundos. Perguntas compostas são estritamente proibidas e decompostas em cartões atômicos uniconceituais.
-  - **Dual Coding Visual Multi-Tier & Micro-Vídeos:** Todo conceito complexo possui um recurso visual de alto impacto seguindo a hierarquia de 3 níveis: (1) Mídias consagradas/animações e micro-vídeos em loop (`<video autoplay loop muted playsinline>`) na Web/CDN via HTTPS, (2) Visual declarativo com SVGs responsivos (`viewBox`) ou tabelas compactas $\le 3$ colunas, ou (3) Fluxo híbrido com diagramas textuais e tabelas comparativas.
-  - **Nível L2 Foundations (Primeiros Princípios):** 100% dos subtópicos contam com cartão de nivelamento (`level::l2-fundamental`) usando analogias do mundo real e intuição física antes da formalização matemática/algorítmica.
+  - **Atomicidade Estrita:** Cada flashcard avalia exatamente 1 proposição interrogativa principal com tempo de resposta mental estimado em <30 segundos. Validação sintática contínua contra perguntas multipartes no pipeline de build.
+  - **Dual Coding Visual Multi-Tier & Offline-First:** Todo conceito complexo possui um recurso visual explicativo de alto impacto: (1) **453 cards com diagramas SVG declarativos responsivos** (`viewBox`) embutidos inline, (2) **26 cards com animações visuais e GIFs dinâmicos locais** co-localizados em `assets/` e empacotados no `.apkg`, e (3) suporte arquitetural completo a micro-vídeos em loop (`<video autoplay loop muted playsinline>`) com atributos mobile normalizados.
+  - **Nível L2 Foundations (Primeiros Princípios):** 100% dos 108 subtópicos contam com cartão de nivelamento (`level::l2-fundamental`, sufixo canônico `006`/`007`) usando analogias do mundo real e intuição física antes da formalização matemática/algorítmica.
   - **Progressive Disclosure:** Resposta imediata com badges de complexidade ($O(N)$, $O(1)$) visíveis em <15s, e aprofundamentos técnicos/código isolados no componente sanfona `<details><summary>Deep Dive & Walkthrough</summary>` (área de toque mínima de 44px).
   - **Template Unificado:** Arquitetura de nota sem duplicação de `{{FrontSide}}`, combinando contexto compacto da pergunta e resposta fluida em um único container estilizado.
   - **Bilinguismo Estratégico:** Prosa explicativa em PT-BR didático e termos técnicos, nomes de algoritmos e jargões mantidos em Inglês (`code`).
   - **Código Mobile-Ready & Syntax Highlighting Estático:** Snippets pré-compilados em tempo de build com `highlight.js` (tema *Dark Modern*), com quebras de linha automáticas (`pre code { white-space: pre-wrap; word-break: break-word; }`) sem rolagem horizontal no celular (≥360px) e **zero JavaScript em runtime**.
-  - **Static Engine & Online-Enhanced Media:** Motor de renderização e CSS 100% estáticos com suporte a mídias de alta resolução e micro-vídeos remotos via HTTPS, mantendo o `.apkg` leve e escalável.
+  - **Static Engine & Empacotamento Ultraleve:** Motor de renderização e CSS 100% estáticos com compilação de fórmulas matemáticas via `KaTeX`, gerando um pacote `.apkg` consolidado com menos de 10MB para os 550 cards e carregamento instantâneo.
 
 ---
 
@@ -25,15 +25,16 @@
 
 | Métrica | Quantidade | Observações |
 |---|---|---|
-| **Total de Flashcards Atômicos** | **550 cards** | 100% em conformidade com a Constituição v1.4.0 |
-| **Subtópicos Curriculares** | **108 subtópicos** | Cobertura integral em 4 fases curriculares |
-| **Foundations (L2)** | **108 cards** | 1 card introdutório com analogia por subtópico |
-| **Junior / Standard (L3)** | **229 cards** | Conceitos fundamentais e padrões de implementação |
-| **Pleno / Advanced (L4)** | **210 cards** | Trade-offs, otimizações e cenários de produção |
-| **Senior / Staff (L5)** | **3 cards** | Arquiteturas avançadas e falhas bizantinas |
-| **Cards com Micro-Vídeos** | **371 cards** | Animações em loop `<video>` via CDN HTTPS |
-| **Cards com Diagramas SVG** | **108 cards** | Vetores responsivos com `viewBox` |
-| **Deep Dives Expansíveis** | **550 cards** | `<details>` sanfona com área de toque $\ge 44$px |
+| **Total de Flashcards Atômicos** | **550 cards** | 100% em conformidade com a Constituição v1.4.0 e testes automatizados |
+| **Subtópicos Curriculares** | **108 subtópicos** | Cobertura integral em 4 fases curriculares (manifesto canônico) |
+| **Foundations (L2)** | **108 cards** | 1 card introdutório com analogia por subtópico (sufixo canônico `006`/`007`) |
+| **Junior / Standard (L3)** | **229 cards** | Conceitos fundamentais, invariantes e padrões de implementação |
+| **Pleno / Advanced (L4)** | **210 cards** | Trade-offs, otimizações de baixo nível e cenários de alta concorrência |
+| **Senior / Staff (L5)** | **3 cards** | Arquiteturas distribuídas avançadas, CAP/PACELC e tolerância a falhas bizantinas |
+| **Cards com Diagramas Vetoriais SVG** | **453 cards** | Vetores inline responsivos com `viewBox` e paleta semântica Dark Modern |
+| **Cards com Animações / GIFs Locais** | **26 cards** | Processos dinâmicos co-localizados em `assets/` e embutidos no `.apkg` |
+| **Deep Dives Expansíveis** | **550 cards** | Componente sanfona `<details>` com área de toque $\ge 44$px |
+| **Tabelas Compactas Mobile-First** | **550 cards** | Tabelas estruturadas $\le 3$ colunas com `overflow-x: auto` defensivo |
 
 ---
 
@@ -42,109 +43,115 @@
 Cada cartão é um arquivo Markdown isolado localizado na estrutura granular de subtópicos:
 `decks/<fase_id>/<modulo>/<subtopico>/<card_id>.md`
 
-Mídias locais e diagramas ficam co-localizados em:
-`decks/<fase_id>/<modulo>/<subtopico>/assets/<asset_name>.<svg|png|jpg>`
+Mídias locais e assets ficam co-localizados em:
+`decks/<fase_id>/<modulo>/<subtopico>/assets/<asset_name>.<svg|png|jpg|gif>`
 
-### Exemplo 1: Card Foundations (`CS-ARCH-CACHE-000.md`)
+### Exemplo 1: Card Foundations L2 (`CS-ARCH-CACHE-006.md`)
 
 ```markdown
 ---
-id: CS-ARCH-CACHE-000
-title: "Fundamentos de Cache de CPU e Analogia da Mesa de Trabalho"
+id: CS-ARCH-CACHE-006
+title: "Intuição Fundamental de Cache de CPU: A Mesa de Trabalho, a Gaveta e a Biblioteca"
 tags:
   - level::l2-fundamental
   - topic::cs::architecture
-  - company::general
+  - company::google
   - freq::high
 ---
 
 ## Pergunta
-Qual é a analogia do mundo real que explica a diferença de velocidade entre os **Caches de CPU (L1/L2/L3)** e a **Memória RAM Principal**?
-
-## Resposta
-### Quick Answer
-- **Caches de CPU (L1/L2/L3)** funcionam como os **papeis diretamente sobre a sua mesa de trabalho** ou nas gavetas imediatas (acesso instantâneo em segundos).
-- **Memória RAM Principal** funciona como o **armário de arquivos no final do corredor** (acesso muito mais lento, exigindo levantar e caminhar).
-- **SSD / Disco** funciona como a **biblioteca pública em outra cidade** (ordens de magnitude mais distante).
-
-### Dual Coding Visual
-| Nível de Memória | Analogia Física | Tempo Relativo Humano |
-|---|---|---|
-| **L1/L2 Cache** | Folha na mesa / gaveta | 1 a 5 segundos |
-| **L3 Cache** | Estante na mesma sala | 15 a 30 segundos |
-| **RAM Principal** | Armário no corredor | 2 a 5 minutos |
-| **NVMe SSD / HD** | Biblioteca em outra cidade | Dias a semanas |
-
-<details>
-<summary>Deep Dive & Walkthrough</summary>
-...
-</details>
-```
-
-### Exemplo 2: Card Padrão Atômico (`CS-ARCH-CACHE-001.md`)
-
-```markdown
----
-id: CS-ARCH-CACHE-001
-title: "Hierarquia de Latência de Caches (L1, L2, L3) vs RAM Principal"
-tags:
-  - level::l4-pleno
-  - topic::cs::architecture
-  - company::amazon
-  - freq::high
----
-
-## Pergunta
-Qual é a ordem de grandeza de **latência de acesso** aos diferentes níveis de memória da CPU (`L1`, `L2`, `L3`) em comparação com a `RAM Principal` (DRAM), e por que essa discrepância é crítica no design de software de alta performance?
+Qual é a intuição fundamental por trás da hierarquia de caches da CPU (L1, L2, L3) e por que ela é indispensável para o desempenho do computador?
 
 ## Resposta
 ### Quick Answer
 **Solução Direta**:
-- **L1 Cache**: ~1 ns (3–4 ciclos de clock)
-- **L2 Cache**: ~3–5 ns (~14 ciclos de clock)
-- **L3 Cache**: ~10–20 ns (~50 ciclos de clock)
-- **RAM Principal (DRAM)**: ~60–100 ns (~200 ciclos de clock — ~100x mais lenta que L1)
+- A CPU executa operações em frações de nanossegundo, mas a memória RAM é fisicamente distante e leva centenas de ciclos para responder (o chamado gargalo de Von Neumann).
+- Para evitar que o processador fique ocioso esperando dados (*CPU Stalls*), arquitetos colocam pequenas memórias ultra-rápidas (SRAM) dentro do próprio chip da CPU:
+  - **Cache L1**: O caderno aberto sobre a mesa (acesso em ~1 ns).
+  - **Cache L2/L3**: As gavetas ao lado da mesa (acesso em ~3 a 15 ns).
+  - **RAM**: O arquivo no corredor do prédio (acesso em ~60 a 100 ns).
 
 ### Dual Coding Visual
-| Memória | Latência | Escala Relativa |
+<svg viewBox="0 0 600 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <!-- Diagrama vetorial escalável com pirâmide de memória L1/L2/L3 vs RAM -->
+</svg>
+<p>Visualização: Analogia da mesa de trabalho (L1), gaveta (L3) e biblioteca distante (RAM).</p>
+
+| Nível de Memória | Latência / Velocidade | Analogia do Cotidiano |
 |---|---|---|
-| **L1 Cache** | ~1 ns (4 ciclos) | 1x (Referência) |
-| **L2 Cache** | ~4 ns (14 ciclos) | 4x mais lento |
-| **L3 Cache** | ~15 ns (50 ciclos) | 15x mais lento |
-| **RAM (DRAM)** | ~100 ns (200 ciclos) | 100x mais lento |
+| **Cache L1 / L2** | ~1 a 4 ns (Instantâneo) | Papel na mão / Caderno aberto na mesa |
+| **Cache L3 (LLC)** | ~10 a 15 ns (Muito rápido) | Livro na gaveta da escrivaninha |
+| **Memória RAM** | ~60 a 100 ns (Lento para a CPU) | Arquivo no armário do corredor |
 
 <details>
 <summary>Deep Dive & Walkthrough</summary>
 
-#### Impacto em Sistemas de Alta Performance & Big Techs
-Em entrevistas para posições de backend e sistemas distribuídos de alta vazão (Low-Latency / High-Throughput), a latência de memória dita a eficiência de estruturas de dados:
-- Estruturas baseadas em nós encadeados (`LinkedList`, árvores com ponteiros arbitrários) causam frequentes `Cache Misses` porque cada pulo de ponteiro exige buscar dados dispersos na DRAM.
-- Estruturas baseadas em arrays contíguos (`Vector`, `Slice`, `RingBuffer`) aproveitam o prefetcher de hardware e a localidade espacial das `Cache Lines`.
+#### O Problema Real
+A CPU evoluiu muito mais rápido do que a memória RAM ao longo das décadas...
 
-#### Go Benchmark Conceptual Pattern
+#### A Regra dos 90/10 (Localidade de Referência)
+1. **Localidade Temporal**: Dados acessados recentemente serão reutilizados em breve.
+2. **Localidade Espacial**: Dados contíguos na mesma Cache Line (64 bytes) serão lidos sequencialmente.
+
+</details>
+```
+
+### Exemplo 2: Card Padrão Atômico L4 (`CS-ARCH-CACHE-001.md`)
+
+```markdown
+---
+id: CS-ARCH-CACHE-001
+title: "False Sharing em Multi-Core e Mitigação por Padding de Cache Line"
+tags:
+  - level::l4-pleno
+  - topic::cs::architecture
+  - company::meta
+  - freq::high
+---
+
+## Pergunta
+O que é o fenômeno destrutivo de **False Sharing** em sistemas multi-core e como mitigá-lo com alinhamento e padding de memória?
+
+## Resposta
+### Quick Answer
+**Solução Direta**:
+- **False Sharing**: Ocorre quando duas threads em núcleos de CPU diferentes modificam variáveis independentes que residem por acaso na **mesma Cache Line de 64 bytes**.
+- Embora as variáveis sejam distintas no código (ex: `a` e `b`), o hardware invalida a Cache Line inteira a cada escrita através do protocolo de coerência (MESI), forçando recargas contínuas e degradando brutalmente a performance.
+- **Mitigação**: Inserir **padding de 64 bytes** (ex: `[8]uint64` em Go ou `@Contended` em Java) ou alinhar as estruturas para garantir que variáveis concorrentes fiquem em Cache Lines isoladas.
+
+### Dual Coding Visual
+<svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <!-- Diagrama vetorial ilustrando Cache Bouncing entre Core 0 e Core 1 -->
+</svg>
+<p>Visualização: Padding de cache line isolando variáveis concorrentes para eliminar false sharing.</p>
+
+| Cenário Multi-Thread | Disposição na Memória | Impacto de Performance |
+|---|---|---|
+| **False Sharing Ativo** | Variáveis concorrentes na mesma linha (64B) | Invalidação constante da Cache Line |
+| **Isolamento com Padding** | Linhas de 64B separadas por padding | Zero contenção de coerência no barramento |
+
+<details>
+<summary>Deep Dive & Walkthrough</summary>
+
+#### Exemplo em Go: Mitigando False Sharing com Padding
 ```go
-// Array contíguo: cache-friendly (acessos sequenciais)
-func sumContiguous(arr []int64) int64 {
-  var sum int64
-  for i := 0; i < len(arr); i++ {
-    sum += arr[i]
-  }
-  return sum
+type PaddedCounter struct {
+  count uint64
+  _     [7]uint64 // Padding de 56 bytes para preencher a Cache Line de 64B
 }
 ```
 
 #### Key Takeaways
-- **Mechanical Sympathy**: Projetar structs contíguas compactas maximiza a densidade de dados nos caches `L1/L2`.
-- **Latency Numbers Every Programmer Should Know**: Ter essas ordens de grandeza decoradas é padrão exigido em rodadas de System Design e Low-Level Coding.
+- **Mechanical Sympathy**: Compreender como o hardware gerencia linhas de cache evita gargalos invisíveis em código concorrente de alta vazão.
 
 </details>
 ```
 
 ---
 
-## 🏷️ Taxonomia de Tags Obrigatória
+## 🏷️ Taxonomia de Tags & Convenção de IDs
 
-O baralho adota arquitetura plana no Anki (sem sub-decks aninhados para preservar o algoritmo de repetição espaçada). A segmentação e filtragem dinâmica de estudo dá-se exclusivamente por tags no frontmatter:
+O baralho adota arquitetura plana no Anki (sem sub-decks aninhados para preservar o algoritmo de repetição espaçada e prática intercalada). A segmentação e filtragem dinâmica de estudo dá-se exclusivamente por tags no frontmatter:
 
 - **Nível de Senioridade / Profundidade:** *(Exatamente 1 por card)*
   - `level::l2-fundamental` — Foundations, analogias físicas e intuição do zero aos primeiros princípios (Badge Esmeralda `#10b981`).
@@ -155,50 +162,52 @@ O baralho adota arquitetura plana no Anki (sem sub-decks aninhados para preserva
 - **Empresa / Foco de Entrevista:** `company::<empresa>` *(Opcional/Recomendado, ex: `company::amazon`, `company::meta`, `company::google`, `company::netflix`)*
 - **Frequência em Entrevistas:** `freq::high` | `freq::medium` | `freq::low` *(Exatamente 1 por card)*
 
----
+### 🆔 Convenção Determinística de IDs Canônicos
+Para assegurar unicidade e rastreabilidade:
+- Cada subtópico possui cartões numerados de `000` a `005` dedicados a conceitos canônicos, algoritmos e implementações L3/L4/L5 (ex: `CS-ARCH-CACHE-000` a `CS-ARCH-CACHE-005`).
+- O cartão de nivelamento introdutório **L2 Foundations** recebe deterministamente o sufixo canônico `006` (ex: `CS-ARCH-CACHE-006`, ou `007` para subtópicos estendidos), garantindo indexação uniforme em todos os 108 subtópicos.
 
 ---
 
-## 🎨 Arquitetura de Mídias Online-Enhanced & Dual Coding Resiliente
+## 🎨 Arquitetura de Mídias Offline-First & Dual Coding Resiliente
 
-O motor pedagógico adota o conceito de **Online-Enhanced Multimedia Architecture**, combinando máxima riqueza visual com empacotamento ultraleve e resiliência total contra falhas de rede:
+O motor pedagógico adota uma arquitetura híbrida de alta resiliência, priorizando mídias autocontidas e offline-ready para que o baralho funcione com 100% de confiabilidade em viagens, deslocamentos ou modo avião:
 
-### 1. Hierarquia Visual Multi-Tier (Constituição v1.4.0)
-- **Tier P1 — Micro-Vídeos & Animações em Loop (Processos Dinâmicos):**
-  - Utilizado para transições temporais de estado (ex: rotações em árvores AVL, balanceamento Raft, handshake TCP).
-  - Executados via tags `<video>` com atributos móveis obrigatórios: `autoplay loop muted playsinline webkit-playsinline disableRemotePlayback`.
-  - Hospedados em fontes públicas e CDNs seguras via HTTPS com código de resposta HTTP `200 OK`.
-- **Tier P2 — SVGs Responsivos Declarativos (Estruturas Estáticas):**
-  - Utilizado para topologias de memória, grafos, esquemas conceituais e nós de dados.
-  - Implementados com `viewBox` escalável para ajuste perfeito em qualquer largura de tela sem rolagem horizontal.
-- **Tier P2 — Tabelas Comparativas Estruturadas ($\le 3$ colunas):**
-  - Utilizado para trade-offs diretos (ex: Latência L1 vs DRAM, Paxos vs Raft).
+### 1. Hierarquia Visual Implementada (Constituição v1.4.0)
+- **SVGs Vetoriais Declarativos Inline (453 cards — 82.4% do acervo):**
+  - Diagramas vetoriais embutidos diretamente no corpo dos cartões com `viewBox` responsivo, adaptando-se sem distorção ou quebra de layout de 360px a 4K.
+  - Zero chamadas de rede externas, zero problemas de CORS e imunidade total a bit rot (links quebrados ao longo dos anos).
+- **Animações & GIFs Locais Co-localizados (26 cards):**
+  - Utilizados para transições dinâmicas (ex: operações de pilha/fila, particionamento quickselect, travessias em grafos).
+  - Co-localizados nas pastas `assets/` e incorporados ao arquivo `.apkg` via `resolveMedia` no momento do build.
+- **Micro-Vídeos & WebM/MP4 em Loop (Suporte de Motor Ativo):**
+  - O pipeline de compilação em [generator.js](src/generator.js) conta com suporte nativo e injeção automática de atributos obrigatórios para WebViews móveis: `autoplay loop muted playsinline webkit-playsinline disableRemotePlayback`.
+- **Tabelas Comparativas Estruturadas ($\le 3$ colunas):**
+  - Presentes em 100% dos cartões para trade-offs rápidos e síntese de complexidades.
 
 ### 2. Resiliência de Layout & Degradação Graciosa (Zero Layout Shift)
-- **Eliminação de Caixas Pretas:** Remoção de `background-color: #000`, adotando transparência e integração total com as variáveis semânticas do tema (`--bg-card`, `--border-color`).
-- **Prevenção de Salto Visual (CLS):** Containers `.video-wrapper` e `.media-container` contam com `min-height: 120px`, `aspect-ratio: 16/9` e `contain: layout style`.
-- **Fallback Imediato:** Em redes lentas ou offline, a resposta direta (`Quick Answer`), a tabela comparativa e a legenda didática renderizam instantaneamente sem bloqueio de renderização.
+- **Eliminação de Caixas Pretas:** Integração total dos containers de mídia com as variáveis de cor semântica do tema (`--bg-card`, `--border-color`).
+- **Prevenção de Salto Visual (CLS):** Containers `.video-wrapper`, `.svg-wrapper` e `.media-container` contam com `min-height: 120px`, `aspect-ratio: 16/9` e `contain: layout style`.
+- **Fallback Imediato:** Em qualquer dispositivo, a resposta direta (`Quick Answer`), a tabela comparativa e o diagrama renderizam instantaneamente sem bloqueio de renderização.
 
 ---
 
-## 🏛️ Padrões de Curadoria Pública & Registro Central (`media-curation-registry.json`)
+## 🏛️ Governança Curricular & Registro Central de Mídias
 
-Toda mídia utilizada no currículo passa por auditoria e catalogação rigorosa:
+A consistência pedagógica do acervo é governada por dois catálogos centrais:
 
-- **Atomicidade Visual Estrita:** Cada diagrama ou animação retrata exclusivamente o conceito atômico daquele flashcard específico (zero imagens genéricas ou meramente ilustrativas).
-- **Catálogo Canônico (`media-curation-registry.json`):** Dicionário estruturado que rastreia os 550 cards, mapeando:
-  - `card_id` canônico e `subtopic_id`.
-  - `concept` indivisível e `tier` pedagógico (`P1_MICRO_VIDEO`, `P2_RESPONSIVE_SVG`, `P2_TABLE_FALLBACK`, `LOCAL_ASSET`).
-  - `url` pública segura HTTPS e `media_type` validado.
-  - `attribution` da fonte original e `license` de uso aberto (*Creative Commons*, *MIT*, *Public Domain*).
-  - `caption` explicativa em PT-BR contextualizando os termos técnicos.
+- **Manifesto Curricular Canônico (`syllabus_manifest.json`):** Rastreia os **550 cards** em **108 subtópicos** em 4 fases, validando a sincronização bidirecional entre arquivos físicos no disco e identificadores declarados.
+- **Catálogo de Curadoria de Mídias (`media-curation-registry.json`):** Dicionário canônico que audita e cataloga **424 cards** prioritários cobrindo 100% das Fases Técnicas 1 (`01-dsa`), 2 (`02-cs-fundamentals`) e o núcleo de System Design (`03-system-design-backend`), mapeando:
+  - `card_id` e `subtopic_id`.
+  - `concept` atômico indivisível e `tier` pedagógico (`P2_RESPONSIVE_SVG`, `P1_MICRO_VIDEO`, `LOCAL_ASSET`).
+  - Atribuição de autoria, licença de uso aberto (*MIT*, *Creative Commons*, *Public Domain*) e legenda didática em PT-BR.
 - **Erradicação de Placeholders:** 100% dos cards livres de domínios fictícios (`assets.faang-anki.dev`, `example.com`, `localhost`).
 
 ---
 
-## 📐 Contratos de Validação Automatizada (`validator.js` & `link-checker.js`)
+## 📐 Contratos de Validação Automatizada
 
-A qualidade do baralho é garantida por duas camadas complementares de validação:
+A qualidade e a integridade do baralho são asseguradas por três camadas complementares de validação:
 
 ### Camada 1: Validação Offline Determinística (`validator.js` / `npm test`)
 | Regra | Requisito Validado |
@@ -206,21 +215,18 @@ A qualidade do baralho é garantida por duas camadas complementares de validaç�
 | **ID Canônico** | Padrão `^[A-Z0-9]+-[A-Z0-9]+-[A-Z0-9]+-[0-9]{3}$` (ex: `CS-ARCH-CACHE-001`). |
 | **Título** | String de 3 a 120 caracteres no Frontmatter YAML. |
 | **Tags** | $\ge 3$ tags válidas (1 `level::*`, $\ge 1$ `topic::*`, 1 `freq::*` e opcionais `company::*`). |
-| **Atomicidade de Pergunta** | Exatamente uma interrogação e proibição de conectivos compostos. |
+| **Atomicidade Sintática** | No máximo uma interrogação na pergunta (`?`), proibindo cartões multipartes. |
 | **Seções Estruturais** | Exatamente uma seção `## Pergunta` e uma seção `## Resposta`. |
 | **Linguagens de Código** | Todo bloco ` ```lang ` deve declarar linguagem suportada (`go`, `java`, `python`, `sql`, etc.). |
 | **Tabelas Mobile-First** | Máximo de 3 colunas por tabela e proibição de barras inquebráveis. |
 | **Zero Placeholders** | Bloqueio estrito de domínios fictícios (`assets.faang-anki.dev`). |
 | **Sincronização com Manifesto** | Validação bidirecional com `syllabus_manifest.json` (zero IDs órfãos). |
 
-### Camada 2: Auditoria Ativa de Links de Rede (`link-checker.js` / `npm run test:links`)
-| Recurso | Especificação |
-|---|---|
-| **Pool de Concorrência** | 8 workers simultâneos para verificação de alta vazão. |
-| **Timeout Individual** | 5000ms por requisição HTTP. |
-| **Política de Retentativas** | Até 2 retentativas com backoff em erros transitórios (429 / 5xx / timeout). |
-| **Identificação HTTP** | Cabeçalho `User-Agent: FAANG-Anki-LinkChecker/1.0`. |
-| **Relatório Estruturado** | Emissão do arquivo `link-health-report.json` com latências, status e MIME types. |
+### Camada 2: Auditoria Semântica de Atomicidade (`atomic-decomposer.js` / `npm run audit:atomic`)
+Auditor pedagógico avançado que detecta conectivos gramaticais compostos ("e como funciona...", "e por que...") no enunciado da pergunta, fornecendo diagnósticos e planos de decomposição para preservar a precisão do algoritmo de repetição espaçada.
+
+### Camada 3: Auditoria de Links de Rede (`link-checker.js` / `npm run test:links`)
+Auditor concorrente (pool de 8 workers, timeout de 5000ms e retentativas) que verifica a acessibilidade HTTP 200 e integridade de MIME types de eventuais links e mídias externas.
 
 ---
 
@@ -259,10 +265,11 @@ anki-generator/
 │   ├── generator.js                            # Pipeline de compilação e packaging .apkg
 │   ├── e2e/                                    # Suíte de automação E2E e guardrails de layout
 │   │   ├── orchestrator.js                     # CLI & orquestrador central do pipeline E2E
-│   │   ├── local-runner.js                     # Runner local in-memory headless ultra-rápido (<3s)
+│   │   ├── local-runner.js                     # Runner local in-memory headless ultra-rápido (<1s)
 │   │   ├── ankiweb-runner.js                   # Controlador Playwright do AnkiWeb e sessão de estudo
 │   │   ├── guardrails.js                       # Assertions DOM/CSS (overflow 360px, touch target, KaTeX)
-│   │   └── sanity-sampler.js                   # Amostrador dinâmico cobrindo 100% das tipologias
+│   │   ├── sanity-sampler.js                   # Amostrador dinâmico cobrindo 100% das 8 tipologias
+│   │   └── generate-baselines.js               # Gerador de snapshots golden para regressão visual
 │   └── utils/
 │       ├── anki-connect.js                     # Cliente JSON-RPC Anki-Connect (import, sync, teardown)
 │       ├── validator.js                        # Validador de esquemas, atomicidade e constituição
@@ -277,22 +284,13 @@ anki-generator/
 │       └── baselines/                          # Screenshots golden de referência (360x640, 390x844, 1280x720)
 ├── reports/e2e/                                # Relatórios estruturados JSON e evidências de screenshots
 ├── playwright.config.js                        # Configuração multi-viewport do Playwright
-├── media-curation-registry.json                 # Catálogo canônico central de curadoria de mídias
+├── media-curation-registry.json                 # Catálogo central de curadoria de mídias (424 cards)
 ├── link-health-report.json                      # Relatório de auditoria de links gerado
 ├── syllabus_manifest.json                      # Catálogo central de currículo e IDs (550 cards)
 ├── .env.example                                # Modelo de variáveis de ambiente para AnkiWeb
 ├── package.json
 └── README.md
 ```
-
----
-
-## 📋 Catálogo Curricular (`syllabus_manifest.json`)
-
-Para viabilizar a escalabilidade para centenas de cards sem duplicações:
-1. O arquivo `syllabus_manifest.json` rastreia o status de cada subtópico (`completed`) e lista seus `card_ids`.
-2. Todo card possui um ID canônico determinístico (ex: `CS-ARCH-CACHE-000` para L2, `CS-ARCH-CACHE-001` a `006` para L3/L4/L5).
-3. O script de teste valida a sincronização bidirecional entre o manifesto e os arquivos no disco.
 
 ---
 
@@ -305,12 +303,12 @@ npx playwright install chromium
 ```
 
 ### 2. Executar Testes Automatizados de Validação (Offline)
-Valida todos os 550 cards contra os esquemas da constituição, atomicidade de perguntas, tags obrigatórias, cabeçalhos, tabelas responsivas, resolução de imagens/vídeos, segurança (`.env`/`.auth` ignorados) e integridade do catálogo curricular:
+Valida todos os 550 cards contra os esquemas da constituição, atomicidade sintática, tags obrigatórias, cabeçalhos, tabelas responsivas, resolução de imagens e integridade do catálogo curricular:
 ```bash
 npm test
 ```
 
-### 3. Fast Local Component Runner (Feedback Instantâneo < 3s)
+### 3. Fast Local Component Runner (Feedback Instantâneo < 1s)
 Executa em memória via Playwright headless a verificação completa de guardrails visuais e DOM em cards representativos de **100% das 8 tipologias**, com **0 dependências externas** (sem necessidade de Anki Desktop aberto ou credenciais de rede):
 ```bash
 npm run test:e2e:local
@@ -320,10 +318,15 @@ npm run test:e2e:local
 - 👆 **Touch Target $\ge 44$px:** Elementos interativos `<details><summary>` com área para toque confortável (*fat-finger proof*).
 - 🎨 **Dark Modern Tokens:** Realce sintático pré-compilado sem JavaScript em runtime.
 - 🔢 **Zero KaTeX Errors:** Fórmulas matemáticas livres da classe `.katex-error`.
-- 🎬 **Atributos de Micro-Vídeo:** Tags `<video>` com `autoplay loop muted playsinline`.
 - 📊 **SVGs & Tabelas:** SVGs com `viewBox` responsivo e tabelas compactas $\le 3$ colunas.
 
-### 4. Full AnkiWeb E2E Pipeline (Validação em Nuvem)
+### 4. Auditoria Semântica de Atomicidade de Perguntas
+Analisa a estrutura gramatical das perguntas em busca de conectivos compostos e projeta cenários de decomposição uniconceitual:
+```bash
+npm run audit:atomic
+```
+
+### 5. Full AnkiWeb E2E Pipeline (Validação em Nuvem)
 Executa o ciclo completo end-to-end:
 1. Amostragem dinâmica de baralho de sanidade (`MAANG_E2E_Sanity.apkg`).
 2. Importação e sincronização com AnkiWeb via Anki-Connect.
@@ -347,49 +350,25 @@ npm run test:e2e
 | `--report-dir <dir>` | Diretório para saída do relatório estruturado e capturas de tela | `reports/e2e` |
 | `-h, --help` | Exibe o menu de ajuda da CLI com todas as opções | — |
 
-**Exemplos de Uso:**
-```bash
-# Execução padrão com preservação de baralho
-npm run test:e2e
-
-# Executar com navegador visível e limpeza automática ao final
-npm run test:e2e -- --headed --cleanup
-
-# Atualizar imagens golden de baseline
-npm run test:e2e -- --update-snapshots
-
-# Filtrar para fase curricular de Estruturas de Dados
-npm run test:e2e -- --phase 01-dsa
-```
-
-### 5. Suíte Playwright de Regressão Visual Multi-Viewport
-Executa testes de regressão visual multi-resolução (`mobile-small` 360x640, `mobile-standard` 390x844, `desktop-hd` 1280x720) contra todos os baselines de referência:
+### 6. Suíte Playwright de Regressão Visual Multi-Viewport
+Executa testes de regressão visual multi-resolução (`mobile-small` 360x640, `mobile-standard` 390x844, `desktop-hd` 1280x720) contra todos os 110 baselines de referência:
 ```bash
 npx playwright test
 ```
 
-### 6. Executar Auditoria Ativa de Mídias Públicas (Online)
-Audita ativamente todas as URLs de mídias na internet garantindo HTTP 200 e MIME types válidos:
+### 7. Auditoria de Links e Mídias de Rede
+Audita ativamente eventuais URLs externas na internet garantindo HTTP 200 e integridade de MIME types:
 ```bash
-# Auditar todos os decks do repositório
 npm run test:links
-
-# Auditar lotes curriculares individuais
-node src/utils/link-checker.js --deck decks/01-dsa
-node src/utils/link-checker.js --deck decks/02-cs-fundamentals
-node src/utils/link-checker.js --deck decks/03-system-design-backend
-
-# Executar com opções customizadas de concorrência e relatório
-node src/utils/link-checker.js --concurrency 8 --timeout 5000 --retries 2 --report link-health-report.json
 ```
 
-### 7. Compilar o Baralho Consolidado Master
+### 8. Compilar o Baralho Consolidado Master
 ```bash
 npm run build
 ```
-Gera `MAANG_Engineering_Mastery.apkg` na raiz do projeto contendo todos os 550 cards e mídias embutidas (< 50MB, compilação em < 5s).
+Gera `MAANG_Engineering_Mastery.apkg` na raiz do projeto contendo todos os 550 cards e mídias embutidas (< 10MB, compilação em < 5s).
 
-### 8. Compilar Baralhos Modulares por Fase
+### 9. Compilar Baralhos Modulares por Fase
 ```bash
 node src/generator.js --phase 01-dsa
 node src/generator.js --phase 02-cs-fundamentals
@@ -398,17 +377,17 @@ node src/generator.js --phase 04-behavioral-engineering
 ```
 Gera os arquivos `.apkg` modulares correspondentes na raiz para sincronizações parciais.
 
-### 9. Como Importar no Anki
+### 10. Como Importar no Anki
 1. Abra o **Anki** no desktop ou aplicativo móvel (*AnkiDroid* / *AnkiMobile*).
 2. Clique em **Arquivo -> Importar** (ou abra diretamente o arquivo `.apkg` no celular).
-3. O baralho será importado com todos os estilos mobile-first, tags hierárquicas, badges coloridos por senioridade, realce sintático Dark Modern e mídias 100% responsivas e resilientes.
+3. O baralho será importado com todos os estilos mobile-first, tags hierárquicas, badges coloridos por senioridade, realce sintático Dark Modern e diagramas vetoriais SVG perfeitamente escaláveis.
 
 ---
 
 ## 🛠️ Diagnóstico & Resolução de Problemas (Troubleshooting)
 
 ### 1. Erro de Conexão com Anki-Connect (`ECONNREFUSED` na porta 8765)
-Se o Anki Desktop não estiver em execução ou o complemento Anki-Connect estiver inativo, o orquestrador aborta imediatamente com instruções claras:
+Se o Anki Desktop não estiver em execução ou o complemento Anki-Connect estiver inativo, o orquestrador aborta com instruções claras:
 ```text
 ❌ Anki-Connect Connection Error (ECONNREFUSED)
    Unable to connect to Anki-Connect at http://127.0.0.1:8765.
@@ -435,4 +414,3 @@ Se houver alterações intencionais de CSS ou layout que causem falhas nos teste
    ```bash
    npx playwright test --update-snapshots
    ```
-

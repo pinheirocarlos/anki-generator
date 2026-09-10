@@ -36,6 +36,7 @@ Como o **Algoritmo de Huffman Coding** utiliza uma estratégia gulosa com Min-He
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Caracteres mais frequentes recebem códigos binários curtos gerando compressão ótima sem perda</text>
 </svg>
 <p>Visualização: Construção da árvore de Huffman combinando sucessivamente os dois nós de menor frequência via Min-Heap.</p>
+
 | Frequência do Símbolo | Posição na Árvore de Huffman | Tamanho do Código Binário |
 |---|---|---|
 | **Alta Frequência** | Próximo à Raiz | Curto (ex: 1 a 2 bits) |

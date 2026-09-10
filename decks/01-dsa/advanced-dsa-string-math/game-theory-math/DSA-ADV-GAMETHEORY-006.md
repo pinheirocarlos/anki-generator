@@ -37,6 +37,7 @@ Qual é o modelo mental do algoritmo Minimax e como a Poda Alpha-Beta evita calc
   <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Jogar pelo melhor resultado assumindo sempre que o oponente jogará com perfeição</text>
 </svg>
 <p>Visualização: Intuição do Minimax: antecipar a resposta ótima do adversário para escolher a jogada que maximiza o retorno no pior cenário.</p>
+
 | Conceito | Ator | Objetivo na Árvore |
 |---|---|---|
 | **Nó MAX** | Você (IA do jogador) | Escolhe o caminho com o **maior valor possível** |

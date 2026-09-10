@@ -30,6 +30,7 @@ Como a técnica de Linha de Varredura (Sweep-Line Algorithm) simplifica problema
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Converte problemas contínuos infinitos em um conjunto discreto finito de eventos</text>
 </svg>
 <p>Visualização: Metáfora do scanner laser: transformar um problema geométrico bidimensional contínuo em uma sequência cronológica de eventos pontuais.</p>
+
 | Problema Geométrico | Abordagem Força Bruta | Abordagem Sweep-Line |
 |---|---|---|
 | **Interseção de Segmentos de Linha** | Compara todos os pares ($O(N^2)$) | Compara apenas linhas vizinhas no laser ($O(N \log N)$) |

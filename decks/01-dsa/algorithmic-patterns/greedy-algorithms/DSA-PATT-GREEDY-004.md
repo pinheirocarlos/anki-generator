@@ -34,6 +34,7 @@ Como provar que o problema **Gas Station (Postos de Combustível)** pode ser res
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Tempo linear estrito O(N) e espaço auxiliar estrito O(1)</text>
 </svg>
 <p>Visualização: Algoritmo guloso de Gas Station reiniciando o ponto de partida sempre que o saldo acumulado do tanque se torna negativo.</p>
+
 | Métrica Rastreada | Condição de Teste | Ação |
 |---|---|---|
 | **`totalTank`** | $\sum (\text{gas} - \text{cost}) < 0$ | Retorna $-1$ no final |

@@ -23,6 +23,7 @@ Como o **Algoritmo KMP (Knuth-Morris-Pratt)** utiliza a tabela LPS para nunca re
 ### Dual Coding Visual
 <img src="assets/DSA-ADV-STRING-002.gif" alt="Algoritmo Knuth-Morris-Pratt (KMP)" style="max-width: 100%; height: auto; border-radius: 8px; margin: 12px 0;" />
 <p>Visualização: Algoritmo KMP utilizando a tabela LPS para saltar comparações redundantes em tempo O(N+M).</p>
+
 | Comportamento em Mismatch | Ponteiro do Texto $i$ | Ponteiro do Padrão $j$ |
 |---|---|---|
 | **Busca Ingênua** | Retrocede para $i - j + 1$ | Reinicia em $0$ |

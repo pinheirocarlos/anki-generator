@@ -37,6 +37,7 @@ Qual é a diferença conceitual fundamental entre proteger dados com travas excl
   <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Lock-Free garante progresso global do sistema sob qualquer condição de escalonamento</text>
 </svg>
 <p>Visualização: Intuição da catraca rotativa: o progresso global é contínuo mesmo que threads individuais precisem repetir tentativas.</p>
+
 | Abordagem | O que ocorre na colisão? | Vantagem / Risco |
 |---|---|---|
 | **Lock / Mutex** | Threads perdedoras dormem no SO | Alto custo de contexto, risco de deadlock |

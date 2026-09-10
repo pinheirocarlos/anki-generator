@@ -31,6 +31,7 @@ Como a expressão bitwise **`n & (n - 1)` (Algoritmo de Brian Kernighan)** apaga
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Tempo: O(k) onde k ≤ 64, superando loops ingênuos de 32/64 iterações</text>
 </svg>
 <p>Visualização: Algoritmo de Brian Kernighan zerando o bit 1 menos significativo a cada iteração n & (n - 1) em O(bits_ativos).</p>
+
 | Passo | Valor de `n` (Binário) | Ação `n & (n - 1)` |
 |---|---|---|
 | **Inicial** | `11000` ($24$) | $24 \ \& \ 23 = 11000 \ \& \ 10111 = 10000$ |

@@ -31,6 +31,7 @@ Qual é o modelo mental de Bitmask DP e como um único número inteiro pode repr
   <text x="340" y="160" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">Máscara binária: 01011₂ = 11 (número inteiro único indexando o estado da DP em O(1))</text>
 </svg>
 <p>Visualização: Metáfora do painel de interruptores: cada bit representa se uma tarefa já foi executada ou um item foi selecionado.</p>
+
 | Operação Bitwise | Expressão | Significado Prático |
 |---|---|---|
 | **Verificar se cidade $i$ foi visitada** | `(mask & (1 << i)) != 0` | A lâmpada da cidade $i$ está acesa? |

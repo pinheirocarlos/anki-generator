@@ -37,6 +37,7 @@ Como a técnica de **Sweep-Line com TreeMap de contagem de alturas** resolve **T
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Tempo: O(N log N) e Espaço O(N) mantendo apenas prédios ativos na linha</text>
 </svg>
 <p>Visualização: Resolução do Skyline Problem com linha de varredura e rastreamento da altura máxima ativa por árvore balanceada ou Max-Heap.</p>
+
 | Evento de Edifício | Modificação no TreeMap | Condição de Ponto no Skyline |
 |---|---|---|
 | **Início em $L$ ($+H$)** | Incrementa contagem de $H$ | $\text{maxH atual} \neq \text{maxH anterior}$ |

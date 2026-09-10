@@ -38,6 +38,7 @@ Qual é o princípio fundamental da Programação Dinâmica (Memoização/Tabula
   <text x="340" y="165" fill="#94a3b8" font-size="12" text-anchor="middle">Tabela 1D: dp[i] = dp[i-1] + ... ➔ Cada estado é calculado exatamente 1 vez!</text>
 </svg>
 <p>Visualização: Metáfora do bloco de notas: gravar resultados de subproblemas na memória evita recalcular operações do zero.</p>
+
 | Estratégia | Direção | Como Funciona |
 |---|---|---|
 | **Top-Down (Memoização)** | Do problema maior para os menores | Recursão natural + Dicionário de cache (`@cache`) |

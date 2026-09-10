@@ -35,6 +35,7 @@ Como o **Algoritmo de Euclides Estendido** calcula o **Inverso Modular** $a^{-1}
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Complexidade logarítmica O(log min(a, b)) essencial em criptografia RSA e combinatória</text>
 </svg>
 <p>Visualização: Algoritmo de Euclides Estendido calculando os coeficientes de Bézout e o inverso multiplicativo modular em tempo logarítmico O(log min(a, b)).</p>
+
 | Método de Inverso Modular | Condição para Módulo $m$ | Complexidade |
 |---|---|---|
 | **Pequeno Teorema de Fermat** | $m$ deve ser **Primo** ($a^{m-2}$) | $O(\log m)$ |

@@ -34,6 +34,7 @@ Como a **Programação Dinâmica em Árvores (Tree DP)** calcula valores ótimos
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">DFS única em pós-ordem resolvendo a árvore inteira em tempo linear estrito O(N)</text>
 </svg>
 <p>Visualização: Programação Dinâmica em Árvore computando recursivamente pares de estados (rob, not_rob) em pós-ordem O(N).</p>
+
 | Estado Retornado | Relação com Filhos | Fórmula de Ganho |
 |---|---|---|
 | **Roubar Raiz** | Obriga a NÃO roubar filhos | $\text{node.val} + \text{filhos.notRob}$ |

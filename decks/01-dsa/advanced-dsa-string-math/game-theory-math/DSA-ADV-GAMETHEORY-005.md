@@ -37,6 +37,7 @@ Como o **Crivo Linear (Crivo de Euler)** visita cada número composto exatamente
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Tempo estrito O(N) e fatoração primária instantânea em O(log N) para qualquer número até N</text>
 </svg>
 <p>Visualização: Crivo de Eratóstenes Linear marcando cada número composto exatamente uma vez pelo seu menor fator primo em tempo estrito O(N).</p>
+
 | Algoritmo de Crivo | Visitas por Número Composto | Complexidade de Tempo |
 |---|---|---|
 | **Eratóstenes Tradicional** | Múltiplas vezes (uma por fator primo) | $O(N \log \log N)$ |

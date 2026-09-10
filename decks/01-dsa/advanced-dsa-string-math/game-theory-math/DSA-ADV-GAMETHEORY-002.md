@@ -35,6 +35,7 @@ Como o **Teorema de Bouton** utiliza a **Soma de Nim (XOR acumulado das pilhas)*
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Permite determinar o vencedor de qualquer configuração de Nim em tempo linear O(N) e espaço O(1)</text>
 </svg>
 <p>Visualização: Teorema de Bouton aplicando o operador XOR cumulativo (Nim-Sum) sobre as pilhas de moedas para identificar posições vencedoras.</p>
+
 | Soma de Nim ($S = \bigoplus x_i$) | Tipo de Posição | Destino do Primeiro Jogador |
 |---|---|---|
 | $S = 0$ | P-Position | Derrota garantida contra jogo perfeito |

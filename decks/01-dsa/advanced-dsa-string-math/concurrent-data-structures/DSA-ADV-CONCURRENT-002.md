@@ -35,6 +35,7 @@ Como a **Fila de Michael-Scott (ConcurrentLinkedQueue)** implementa operações 
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Algoritmo cooperativo garantindo progresso do sistema (lock-free) sem deadlock</text>
 </svg>
 <p>Visualização: Fila concorrente de Michael-Scott garantindo inserção lock-free via CAS no ponteiro next da cauda.</p>
+
 | Operação Concorrente | Mecanismo de Proteção | Propriedade Garantida |
 |---|---|---|
 | **Enqueue** | 2 passos com CAS + Helping | Lock-Free (Não bloqueia) |

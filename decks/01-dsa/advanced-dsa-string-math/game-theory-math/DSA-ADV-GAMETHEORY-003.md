@@ -34,6 +34,7 @@ Como o **Teorema de Sprague-Grundy** e a função **MEX (Minimum Excluded Value)
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Unifica qualquer jogo imparcial acíclico normal diretamente ao problema de Nim</text>
 </svg>
 <p>Visualização: Teorema de Sprague-Grundy calculando a função MEX (menor inteiro não-negativo ausente) para unificar múltiplos jogos combinados.</p>
+
 | Componente | Definição Matemática | Papel no Jogo |
 |---|---|---|
 | **MEX** | Menor inteiro $\ge 0$ ausente | Atribui valor ao estado |

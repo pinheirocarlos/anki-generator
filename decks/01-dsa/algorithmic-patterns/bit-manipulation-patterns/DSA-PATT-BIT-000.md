@@ -34,6 +34,7 @@ Como funcionam os operadores bitwise fundamentais (`&`, `|`, `^`, `~`, `<<`, `>>
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Manipulação direta a nível de registradores elimina saltos condicionais e otimiza throughput</text>
 </svg>
 <p>Visualização: Operações lógicas bitwise fundamentais executadas em um único ciclo de clock na ALU do processador.</p>
+
 | Operador | Operação em Bits | Identidade Chave |
 |---|---|---|
 | **Operador AND** | Interseção de bits | $x \ \& \ x = x, \quad x \ \& \ 0 = 0$ |

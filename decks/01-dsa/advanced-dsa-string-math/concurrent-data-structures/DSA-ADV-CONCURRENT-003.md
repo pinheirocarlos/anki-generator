@@ -33,6 +33,7 @@ O que é o **Problema ABA** em estruturas lock-free baseadas em CAS e como **Tag
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Tagging de versão previne corrupção silenciosa de estruturas de dados lock-free</text>
 </svg>
 <p>Visualização: Problema ABA em estruturas concorrentes e mitigação através de ponteiros versionados (tagged pointers / stamps).</p>
+
 | Tipo de Referência | Transição de Estados | Resultado do CAS |
 |---|---|---|
 | **Ponteiro Puro (Sem Versão)** | $A \to B \to A$ | CAS tem **sucesso falso** (Corrompe memória) |

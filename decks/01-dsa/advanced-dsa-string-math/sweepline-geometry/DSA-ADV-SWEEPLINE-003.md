@@ -35,6 +35,7 @@ Como o **Algoritmo de Bentley-Ottmann** encontra todas as $K$ interseções entr
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Reduz a comparação quadrática ingênua O(N²) para tempo eficiente O((N + K) log N)</text>
 </svg>
 <p>Visualização: Algoritmo de Bentley-Ottmann detectando interseções entre segmentos adjacentes na estrutura de estado ativa em O((N + K) log N).</p>
+
 | Abordagem | Pares Testados | Complexidade de Tempo |
 |---|---|---|
 | **Força Bruta** | Todos os $\binom{N}{2}$ pares | $O(N^2)$ |

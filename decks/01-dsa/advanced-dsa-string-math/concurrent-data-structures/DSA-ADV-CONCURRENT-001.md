@@ -42,6 +42,7 @@ Qual a evolução arquitetural do **ConcurrentHashMap** entre Java 7 (Segment Lo
   <text x="340" y="165" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Concorrência fina por balde individual reduz contenção drasticamente em larga escala</text>
 </svg>
 <p>Visualização: Evolução arquitetural do ConcurrentHashMap de Striped Locks (Java 7) para CAS no primeiro nó de cada balde (Java 8+).</p>
+
 | Característica | ConcurrentHashMap Java 7 | ConcurrentHashMap Java 8+ |
 |---|---|---|
 | **Granularidade de Lock** | Segmento (1/16 da tabela) | Nó da cabeça do bucket individual |

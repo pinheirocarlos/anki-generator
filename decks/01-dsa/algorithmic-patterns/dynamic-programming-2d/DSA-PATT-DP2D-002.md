@@ -34,6 +34,7 @@ Como a técnica de **Array de Rolamento (Rolling Array)** reduz o consumo de mem
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Redução massiva de consumo de memória RAM preservando o tempo O(M × N)</text>
 </svg>
 <p>Visualização: Otimização de espaço de DP 2D eliminando linhas antigas e mantendo apenas a linha corrente ou vetor 1D reverso O(N).</p>
+
 | Estrutura de Armazenamento | Consumo de Memória | Acesso ao Vizinho de Cima |
 |---|---|---|
 | **Matriz $M \times N$** | $O(M \times N)$ | `dp[r-1][c]` |

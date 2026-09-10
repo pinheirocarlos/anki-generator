@@ -34,6 +34,7 @@ Como a Programação Dinâmica 1D resolve o problema **Coin Change** (número m�
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Tempo: O(Amount × |coins|) | Espaço Auxiliar: O(Amount)</text>
 </svg>
 <p>Visualização: Transição de estado 1D no Coin Change minimizando o número de moedas para cada valor acumulado de 0 a Amount.</p>
+
 | Quantia Alvo $a$ | Relação de Recorrência | Caso Impossível |
 |---|---|---|
 | $a = 0$ | $DP[0] = 0$ (0 moedas) | N/A |

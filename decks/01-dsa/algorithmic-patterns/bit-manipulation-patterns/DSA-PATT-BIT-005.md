@@ -37,6 +37,7 @@ Como iterar estritamente sobre todos os subconjuntos de uma máscara binária us
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Técnica padrão para problemas de DP de partição de conjuntos e empacotamento exato</text>
 </svg>
 <p>Visualização: Enumeração de submáscaras via (sub - 1) & mask gerando todos os subconjuntos válidos em tempo ótimo O(3ᴺ).</p>
+
 | Abordagem | Estados Avaliados | Complexidade para todas as máscaras |
 |---|---|---|
 | **Loop Ingênuo de $0$ a `mask`** | Testa números inválidos | $O(4^N)$ |

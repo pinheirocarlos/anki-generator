@@ -33,6 +33,7 @@ Por que a **SkipList Concorrente (ConcurrentSkipListMap)** é preferida em rela�
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Mapas e conjuntos ordenados lock-free com busca, inserção e deleção em O(log N)</text>
 </svg>
 <p>Visualização: SkipList concorrente realizando remoção lock-free em duas etapas com nós marcadores lógicos atômicos.</p>
+
 | Estrutura Ordenada | Custo de Modificação Concorrente | Escalabilidade Multithread |
 |---|---|---|
 | **Red-Black Tree Concorrente** | Rotações afetam árvore inteira | Baixa (Locks amplos) |

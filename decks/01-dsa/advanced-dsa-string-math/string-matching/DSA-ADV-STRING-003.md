@@ -33,6 +33,7 @@ O que é o **Z-Array** e como o **Algoritmo Z** encontra todas as ocorrências d
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Aplicado na string pattern + "$" + text para localizar todas as ocorrências em O(N + M)</text>
 </svg>
 <p>Visualização: Algoritmo Z mantendo a janela de correspondência [L, R] para calcular os valores de casamento de prefixo em tempo O(N+M).</p>
+
 | Estrutura Concatenada | Condição de Casamento | Índice Real no Texto |
 |---|---|---|
 | $\text{Padrão} + \$ + \text{Texto}$ | $Z[i] == \text{len}(\text{Padrão})$ | $i - \text{len}(\text{Padrão}) - 1$ |

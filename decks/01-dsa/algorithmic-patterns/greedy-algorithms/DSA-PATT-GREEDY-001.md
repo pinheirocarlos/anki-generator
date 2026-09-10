@@ -38,6 +38,7 @@ Como o padrão guloso de rastreamento do alcance máximo (`maxReach`) resolve **
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Se i &gt; max_reach: destino inalcançável. Se max_reach ≥ N-1: vitória em O(N) tempo e O(1) espaço</text>
 </svg>
 <p>Visualização: Rastreamento da fronteira máxima de alcance (max_reach) no Jump Game em tempo estritamente linear O(N).</p>
+
 | Problema Jump Game | Variáveis Rastreadas | Decisão de Incremento |
 |---|---|---|
 | **Jump Game I** | `maxReach` | Se $i > \text{maxReach} \implies$ Inalcançável |

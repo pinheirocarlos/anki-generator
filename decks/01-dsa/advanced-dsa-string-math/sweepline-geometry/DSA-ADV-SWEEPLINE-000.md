@@ -34,6 +34,7 @@ O que é o paradigma de **Linha de Varredura (Sweep-Line)** e como ele converte 
   <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Transforma problemas geométricos 2D estáticos em problemas 1D dinâmicos em O(N log N)</text>
 </svg>
 <p>Visualização: Linha de varredura vertical processando eventos pontuais discretos ao longo do eixo X em tempo O(N log N).</p>
+
 | Componente de Sweep-Line | Estrutura de Dados | Papel no Algoritmo |
 |---|---|---|
 | **Fila de Eventos** | Array Ordenado / Min-Heap ($X$) | Determina a ordem cronológica da varredura |

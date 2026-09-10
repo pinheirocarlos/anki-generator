@@ -32,6 +32,7 @@ Como a **Bitmask DP** representa subconjuntos de elementos como inteiros binári
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Permite resolver instâncias exatas de TSP para N até 20 a 22 cidades</text>
 </svg>
 <p>Visualização: Bitmask DP para o Caixeiro Viajante representando o subconjunto de cidades visitadas como máscara de bits em tempo O(N²·2ᴺ).</p>
+
 | Representação de Conjunto | Formato Binário | Custo do Algoritmo |
 |---|---|---|
 | **Força Bruta de Permutações** | Lista de cidades visitadas | $O(N!)$ Inviável para $N > 12$ |

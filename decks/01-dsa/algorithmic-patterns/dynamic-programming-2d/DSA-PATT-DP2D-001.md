@@ -31,6 +31,7 @@ Como formular a Programação Dinâmica do problema da **Mochila 0/1 (0-1 Knapsa
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Tempo: O(N × W) pseudo-polinomial | Espaço: O(N × W) reduzível para O(W) 1D reverso</text>
 </svg>
 <p>Visualização: Tabela 2D da Mochila 0/1 comparando a inclusão do item i com capacidade residual versus a exclusão do item.</p>
+
 | Tipo de Mochila | Ordem de Iteração da Capacidade $w$ | Reutilização de Itens |
 |---|---|---|
 | **0/1 Knapsack** | **Decrescente** ($W \to \text{wt}[i]$) | Cada item usado no máximo 1 vez |

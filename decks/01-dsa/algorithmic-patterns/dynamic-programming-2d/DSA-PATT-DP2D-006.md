@@ -39,6 +39,7 @@ Qual é o modelo mental de uma matriz de Programação Dinâmica 2D no clássico
   <text x="340" y="165" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">A DP compara as duas opções e guarda a melhor para cada capacidade de 0 a W</text>
 </svg>
 <p>Visualização: Intuição da mala de viagem: testar sistematicamente levar ou deixar cada item para cada quilo de capacidade disponível.</p>
+
 | Decisão | Fórmula Matemática | Explicação Intuitiva |
 |---|---|---|
 | **Opção 1: Deixar o item de fora** | `dp[i-1][w]` | Fica com o valor que já tínhamos sem esse item |

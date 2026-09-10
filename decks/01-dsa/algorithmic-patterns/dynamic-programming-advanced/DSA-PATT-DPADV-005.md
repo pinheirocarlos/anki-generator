@@ -34,6 +34,7 @@ Como a técnica de **Profile DP (Broken Profile)** modela o preenchimento exato 
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Complexidade: O(N · M · 2ᴺ) viabilizando contagens combinatórias exatas</text>
 </svg>
 <p>Visualização: Profile DP (broken profile) cobrindo uma grade célula a célula rastreando a fronteira de preenchimento via máscara de bits.</p>
+
 | Estratégia de Transição | Estado Rastreado | Complexidade |
 |---|---|---|
 | **Coluna por Coluna** | $2^M \times 2^M$ transições | $O(N \cdot 4^M)$ |

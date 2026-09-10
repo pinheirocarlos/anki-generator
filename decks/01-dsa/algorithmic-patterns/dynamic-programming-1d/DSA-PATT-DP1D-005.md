@@ -43,6 +43,7 @@ Como o algoritmo de **Patience Sorting + Busca Binária** otimiza o cálculo de 
   <text x="340" y="165" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Patience sorting escala com facilidade para N = 10⁵ elementos</text>
 </svg>
 <p>Visualização: Patience Sorting com busca binária mantendo o vetor tails de menores finais de subsequência em O(N log N).</p>
+
 | Algoritmo de LIS | Complexidade de Tempo | Espaço de Memória |
 |---|---|---|
 | **DP Quadrática Padrão** | $O(N^2)$ | $O(N)$ |

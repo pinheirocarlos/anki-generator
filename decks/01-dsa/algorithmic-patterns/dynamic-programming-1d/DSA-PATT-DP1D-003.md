@@ -33,6 +33,7 @@ Como reduzir o espaço de memória de uma DP 1D de $O(N)$ para **tempo constante
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Redução drástica de cache misses e footprint de memória de O(N) para O(1)</text>
 </svg>
 <p>Visualização: Compressão espacial de vetor DP completo O(N) para duas variáveis de estado O(1) quando o cálculo depende apenas de i-1 e i-2.</p>
+
 | Abordagem | Consumo de Memória | Estrutura de Armazenamento |
 |---|---|---|
 | **Array `dp[]` Completo** | $O(N)$ | Array alocado no Heap |

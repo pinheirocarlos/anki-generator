@@ -34,6 +34,7 @@ Como a DP 2D sobre intervalos $[i, j]$ verifica se substrings são palíndromos 
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Complexidade: Tempo O(N²) e Espaço O(N²)</text>
 </svg>
 <p>Visualização: DP sobre intervalos de substrings [i, j] expandindo a partir de palíndromos centrais de comprimento menor.</p>
+
 | Condição de Palíndromo | Equação | Racional |
 |---|---|---|
 | $S[i] == S[j]$ e $j - i \le 2$ | `true` | Tamanho 1 ou 2 com caracteres iguais |

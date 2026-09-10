@@ -34,6 +34,7 @@ Como resolver **Single Number II** (onde todos os números aparecem 3 vezes, exc
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Ao final, 'ones' contém exatamente o elemento único com complexidade O(N) tempo e O(1) espaço</text>
 </svg>
 <p>Visualização: Máquina de estados bitwise com registradores ones e twos acumulando ocorrências de bits módulo 3.</p>
+
 | Contribuição de Bit | Ocorrências do Número | Valor Módulo 3 ($\% 3$) |
 |---|---|---|
 | **Números Triplicados** | Aparecem $3k$ vezes | $3k \pmod 3 = 0$ (Anulados) |

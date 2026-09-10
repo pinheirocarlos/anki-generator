@@ -35,6 +35,7 @@ Como o **Algoritmo de Manacher** calcula o maior raio palíndromo centrado em ca
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Encontra a maior substring palíndroma sem o custo quadrático O(N²) da expansão ingênua</text>
 </svg>
 <p>Visualização: Algoritmo de Manacher espelhando os raios de palíndromos já calculados através do centro ativo para tempo estrito O(N).</p>
+
 | Algoritmo de Palíndromos | Complexidade de Tempo | Tratamento de Tamanho Par/Ímpar |
 |---|---|---|
 | **Expand Around Center** | $O(N^2)$ | Exige 2 loops separados ($2N-1$ centros) |

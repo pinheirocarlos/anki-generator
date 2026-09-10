@@ -211,6 +211,12 @@ export function validateCard(filePath, rawContent) {
       if (/[█▓▒░#]{10,}/.test(line)) {
         errors.push(`Markdown table on line ${i + 1} contains long unbroken character bars. Use compact notation or visual CSS indicators.`);
       }
+      // Check for GFM table syntax requirement: table header must have a preceding blank line when following HTML tags or blocks
+      if (i + 1 < lines.length && /^\|[\s\-:|]+\|$/.test(lines[i + 1].trim())) {
+        if (i > 0 && lines[i - 1].trim().length > 0 && lines[i - 1].trim().endsWith('>')) {
+          errors.push(`Markdown table on line ${i + 1} is immediately preceded by HTML tag "${lines[i - 1].trim()}". CommonMark/GFM requires a blank line before markdown tables to be parsed correctly.`);
+        }
+      }
     }
   }
 

@@ -37,6 +37,7 @@ Como a combinação de **Linha de Varredura** com **Árvore de Segmentos (Segmen
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Resolve problemas com sobreposições complexas de múltiplos retângulos em tempo O(N log N)</text>
 </svg>
 <p>Visualização: Cálculo da união de áreas de retângulos 2D com linha de varredura horizontal e árvore de segmentos no eixo Y.</p>
+
 | Evento no Eixo $X$ | Atualização na Segment Tree | Cálculo da Área da Faixa |
 |---|---|---|
 | Avanço $X_{i-1} \to X_i$ | $\pm 1$ no intervalo $[y_1, y_2]$ | $\text{comprimentoY} \times (X_i - X_{i-1})$ |

@@ -34,6 +34,7 @@ Como a técnica de **Digit DP** conta números em um intervalo $[A, B]$ que sati
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Elimina varreduras lineares quando N alcança até 10¹⁸</text>
 </svg>
 <p>Visualização: Digit DP processando dígitos da esquerda para a direita controlando a flag de limite superior e restrições acumuladas.</p>
+
 | Parâmetro de Digit DP | Papel no Algoritmo | Efeito na Ramificação |
 |---|---|---|
 | `isLimit == true` | Prefixo coincide com $N$ | Dígito limitado a $[0, N[i]]$ |

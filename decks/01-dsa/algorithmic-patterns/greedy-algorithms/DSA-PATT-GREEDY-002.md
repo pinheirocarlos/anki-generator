@@ -42,6 +42,7 @@ Por que o problema de **Seleção de Atividades (Interval Scheduling)** exige or
   <text x="340" y="160" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Estratégia comprovadamente ótima maximizando a quantidade total de eventos não-conflitantes</text>
 </svg>
 <p>Visualização: Seleção de atividades ordenadas pelo menor tempo de término garantindo a liberação precoce do recurso.</p>
+
 | Critério de Ordenação Guloso | Resultado | Status de Otimização |
 |---|---|---|
 | **Ordenar por Início (`start`)** | Pode escolher tarefa longa que bloqueia tudo | Incorreto |

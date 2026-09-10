@@ -34,6 +34,7 @@ Como o **Algoritmo de Rabin-Karp** utiliza **Rolling Hash polinomial** para busc
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Complexidade: Tempo médio O(N + M) e espaço auxiliar estrito O(1)</text>
 </svg>
 <p>Visualização: Algoritmo de Rabin-Karp atualizando o hash polinomial da janela deslizante em tempo estrito O(1).</p>
+
 | Algoritmo | Custo por Janela | Complexidade de Tempo Médio |
 |---|---|---|
 | **Busca Ingênua** | $O(M)$ Comparações | $O(N \cdot M)$ |

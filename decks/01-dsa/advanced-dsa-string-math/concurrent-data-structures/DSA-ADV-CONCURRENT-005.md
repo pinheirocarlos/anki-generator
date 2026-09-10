@@ -33,6 +33,7 @@ Como as técnicas de **Read-Copy-Update (RCU)** e **Copy-On-Write (COW)** garant
   <text x="340" y="160" fill="#10b981" font-size="12" font-weight="bold" text-anchor="middle">Ideal para tabelas de roteamento e configurações em cenários de 99%+ leituras</text>
 </svg>
 <p>Visualização: Ciclo de vida de Read-Copy-Update (RCU) com leitores concorrentes sem bloqueio e liberação de memória após o período de graça.</p>
+
 | Operação | Copy-On-Write Performance | Mecanismo |
 |---|---|---|
 | **Leitura (`get`)** | $O(1)$ Custo Zero de Lock | Acesso direto a array imutável |
