@@ -9,6 +9,7 @@ import { createRequire } from 'module';
 import initSqlJs from 'sql.js';
 import { validateCard } from './utils/validator.js';
 import { resolveMedia } from './utils/media-resolver.js';
+import { syncManifestFiles } from './utils/manifest.js';
 
 const require = createRequire(import.meta.url);
 const { Exporter } = require('anki-apkg-export');
@@ -1098,6 +1099,15 @@ export async function buildDecks(options = {}) {
     }
   } else if (!path.isAbsolute(outputFile)) {
     outputFile = path.resolve(ROOT_DIR, outputFile);
+  }
+
+  // Auto-sync manifest and media registry from Markdown SSOT on complete deck builds
+  if (!phaseFilter && !files && decksDir === DECKS_DIR) {
+    try {
+      syncManifestFiles({ silent: true });
+    } catch (err) {
+      warn('⚠️ Could not auto-sync manifest files:', err.message);
+    }
   }
 
   const mdFiles = Array.isArray(files) && files.length > 0

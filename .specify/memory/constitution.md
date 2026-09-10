@@ -137,17 +137,21 @@ tags:
 
 ## Development Workflow & Multi-Agent Continuity
 
-### 1. Rastreamento pelo Manifesto do Currículo (`syllabus_manifest.json`)
-Para viabilizar a criação de centenas ou milhares de subtópicos sem duplicidade:
-1. O repositório mantém um arquivo `syllabus_manifest.json` com a árvore exaustiva de tópicos/subtópicos e status de cobertura (`pending`, `in_progress`, `completed`).
-2. Antes de gerar um lote de 5 a 10 cards, a IA consulta o manifesto, seleciona o próximo subtópico pendente e reserva os IDs canônicos.
-3. Ao finalizar e validar os cards e assets locais, o manifesto é atualizado com os novos `card_ids`.
+### 1. Markdown como Única Fonte da Verdade (SSOT) & Manifestos Auto-Sincronizados
+Para viabilizar a criação de centenas ou milhares de cards sem duplicidade, retrabalho ou scripts descartáveis:
+1. **Markdown como SSOT:** Os arquivos Markdown em `decks/` são a única fonte da verdade de todo o conteúdo e metadados. O `syllabus_manifest.json` e o `media-curation-registry.json` são artefatos **derivados e auto-sincronizados** via `npm run manifest:sync` ou automaticamente durante o build (`npm run build`).
+2. **Proibição Estrita de Edição Manual de Manifestos Satélites:** IAs e desenvolvedores nunca devem criar scripts descartáveis (`scripts/decompose-*.js`, `scripts/inject-*.js`) nem editar manualmente arquivos JSON satélites. Toda adição ou remoção de card é feita puramente no arquivo `.md`.
+3. **Scaffolding Padronizado via CLI:** Para criar novos cards, utilize a ferramenta oficial:
+   ```bash
+   npm run card:new -- --phase=<fase> --module=<modulo> --subtopic=<subtopico> --id=<ID> --title="<Título>"
+   ```
+4. **Resiliência Visual Local-First:** Recursos visuais devem priorizar diagramas vetoriais SVG declarativos inline responsivos (`viewBox="0 0 680 200"`) ou mídias locais em `decks/**/assets/`. É terminantemente proibido o uso de URLs externas sujeitas a rot de links ou vídeos remotos em streaming que prejudiquem o estudo offline em mobilidade.
 
-### 2. Geração Incremental em Lotes
-Agentes de IA geram conteúdo em fatias atômicas de 5 a 10 cards por iteração, garantindo qualidade pedagógica e cobertura exaustiva de edge cases.
+### 2. Geração Incremental em Lotes Atômicos
+Agentes de IA geram conteúdo em fatias atômicas fechadas por subtópico (5 a 7 cards por iteração: L2 Intuição -> L3 Mecânica -> L4 Código/Trade-offs), garantindo profundidade pedagógica sem saturação de contexto.
 
 ### 3. Desacoplamento da Compilação
-A criação dos arquivos Markdown é independente da geração do `.apkg`. O motor de compilação em Node.js (`npm run build`) pode ser executado a qualquer momento para validar o parsing do frontmatter, a tokenização do código, o envelopamento de tabelas responsivas e a compilação do pacote SQLite consolidado ou por fase.
+A criação dos arquivos Markdown é independente da geração do `.apkg`. O motor de compilação em Node.js (`npm run build`) auto-sincroniza os manifestos e compila o pacote SQLite consolidado ou por fase.
 
 ## Governance
 
@@ -158,4 +162,4 @@ A criação dos arquivos Markdown é independente da geração do `.apkg`. O mot
    - **PATCH:** Correções gramaticais, pequenos ajustes de redação ou esclarecimentos que não alterem a governança.
 3. **Conformidade em Agentes:** Todos os agentes de IA envolvidos no ciclo de geração de conteúdo devem ler esta constituição como fonte de verdade antes de propor ou gravar novos cards.
 
-**Version**: 1.4.0 | **Ratified**: 2026-08-16 | **Last Amended**: 2026-08-17
+**Version**: 1.5.0 | **Ratified**: 2026-08-16 | **Last Amended**: 2026-09-10

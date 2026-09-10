@@ -9,7 +9,9 @@
     "test:e2e": "node src/e2e/orchestrator.js",
     "test:e2e:local": "node src/e2e/local-runner.js",
     "test:links": "node src/utils/link-checker.js",
-    "audit:atomic": "node src/utils/atomic-decomposer.js"
+    "audit:atomic": "node src/utils/atomic-decomposer.js",
+    "manifest:sync": "node src/utils/manifest.js",
+    "card:new": "node src/cli/new-card.js"
   },
   "keywords": [
     "anki",

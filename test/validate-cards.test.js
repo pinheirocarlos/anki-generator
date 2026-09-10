@@ -36,6 +36,11 @@ import {
   SVG_GENERATORS
 } from '../src/utils/media-catalog.js';
 import {
+  generateManifest,
+  generateMediaRegistry,
+  scanDecksStructure
+} from '../src/utils/manifest.js';
+import {
   parseArgs,
   isValidContentType,
   createReport,
@@ -1618,6 +1623,54 @@ Como funciona a busca binária?
     unitFailures++;
   } else {
     console.log('✅ PASS: validateCard correctly identified and rejected placeholder domain.');
+  }
+
+  console.log('');
+  return unitFailures;
+}
+
+function testDynamicManifestAndSSOT() {
+  console.log('🧪 Running Unit Tests for Dynamic Manifest & Markdown SSOT (src/utils/manifest.js)...\n');
+  let unitFailures = 0;
+
+  // 1. Validate dynamically generated manifest against validateManifest schema
+  const generatedManifest = generateManifest(DECKS_DIR);
+  const manifestValidation = validateManifest(generatedManifest);
+  if (!manifestValidation.valid) {
+    console.error('❌ Dynamic generateManifest produced invalid manifest:');
+    manifestValidation.errors.forEach(e => console.error(`   - ${e}`));
+    unitFailures++;
+  } else {
+    console.log(`✅ PASS: Dynamic generateManifest validated successfully (${generatedManifest.phases.length} phases, all compliant).`);
+  }
+
+  // 2. Validate dynamically generated media curation registry against schema
+  const generatedRegistry = generateMediaRegistry(DECKS_DIR);
+  const registryValidation = validateMediaCurationRegistry(generatedRegistry);
+  if (!registryValidation.valid) {
+    console.error('❌ Dynamic generateMediaRegistry produced invalid registry:');
+    registryValidation.errors.forEach(e => console.error(`   - ${e}`));
+    unitFailures++;
+  } else {
+    console.log(`✅ PASS: Dynamic generateMediaRegistry validated successfully (${generatedRegistry.stats.total_cards} cards registered).`);
+  }
+
+  // 3. Confirm 100% parity with card files on disk
+  const cardFiles = getMarkdownFiles(DECKS_DIR);
+  let indexedCardsCount = 0;
+  for (const phase of generatedManifest.phases) {
+    for (const mod of phase.modules) {
+      for (const sub of mod.subtopics) {
+        indexedCardsCount += sub.card_ids.length;
+      }
+    }
+  }
+
+  if (indexedCardsCount !== cardFiles.length) {
+    console.error(`❌ Expected ${cardFiles.length} indexed cards in dynamic manifest, got ${indexedCardsCount}`);
+    unitFailures++;
+  } else {
+    console.log(`✅ PASS: 100% card parity verified between disk files (${cardFiles.length}) and dynamic manifest (${indexedCardsCount}).`);
   }
 
   console.log('');
@@ -4271,6 +4324,7 @@ async function runTests() {
   failureCount += await testUserStory3LinkCheckerAndRetryLogic();
   failureCount += testUserStory1VideoStylesAndMobileFlags();
   failureCount += testUserStory2RegistrySchemaAndPlaceholderGuardrails();
+  failureCount += testDynamicManifestAndSSOT();
   failureCount += testUserStory4GracefulDegradationAndFallbackStyles();
   failureCount += await testPlaywrightConfigAndAnkiConnectClient();
   failureCount += testSanitySamplerAndTenPercentRule();

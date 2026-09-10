@@ -194,12 +194,12 @@ O motor pedagógico adota uma arquitetura híbrida de alta resiliência, prioriz
 
 ## 🏛️ Governança Curricular & Registro Central de Mídias
 
-A consistência pedagógica do acervo é governada por dois catálogos centrais:
+A consistência pedagógica do acervo adota o **Markdown como Única Fonte da Verdade (SSOT)**, derivando automaticamente dois catálogos centrais:
 
-- **Manifesto Curricular Canônico (`syllabus_manifest.json`):** Rastreia os **550 cards** em **108 subtópicos** em 4 fases, validando a sincronização bidirecional entre arquivos físicos no disco e identificadores declarados.
-- **Catálogo de Curadoria de Mídias (`media-curation-registry.json`):** Dicionário canônico que audita e cataloga **424 cards** prioritários cobrindo 100% das Fases Técnicas 1 (`01-dsa`), 2 (`02-cs-fundamentals`) e o núcleo de System Design (`03-system-design-backend`), mapeando:
+- **Manifesto Curricular Canônico (`syllabus_manifest.json`):** Rastreia os **550 cards** em **108 subtópicos** em 4 fases, gerado dinamicamente a partir da estrutura física de `decks/`.
+- **Catálogo de Curadoria de Mídias (`media-curation-registry.json`):** Dicionário auto-sincronizado que audita e cataloga **100% dos 550 cards** cobrindo todas as Fases Técnicas 1 a 4, mapeando:
   - `card_id` e `subtopic_id`.
-  - `concept` atômico indivisível e `tier` pedagógico (`P2_RESPONSIVE_SVG`, `P1_MICRO_VIDEO`, `LOCAL_ASSET`).
+  - `concept` atômico indivisível e `tier` pedagógico (`P2_RESPONSIVE_SVG`, `LOCAL_ASSET`, `P2_TABLE_FALLBACK`).
   - Atribuição de autoria, licença de uso aberto (*MIT*, *Creative Commons*, *Public Domain*) e legenda didática em PT-BR.
 - **Erradicação de Placeholders:** 100% dos cards livres de domínios fictícios (`assets.faang-anki.dev`, `example.com`, `localhost`).
 
@@ -262,7 +262,9 @@ anki-generator/
 │   ├── 03-system-design-backend/               # 137 cards
 │   └── 04-behavioral-engineering/              # 83 cards
 ├── src/
-│   ├── generator.js                            # Pipeline de compilação e packaging .apkg
+│   ├── generator.js                            # Pipeline de compilação e packaging .apkg (auto-sync SSOT)
+│   ├── cli/                                    # Ferramentas CLI para authoring de conteúdo
+│   │   └── new-card.js                         # Scaffolding instantâneo de novos cards
 │   ├── e2e/                                    # Suíte de automação E2E e guardrails de layout
 │   │   ├── orchestrator.js                     # CLI & orquestrador central do pipeline E2E
 │   │   ├── local-runner.js                     # Runner local in-memory headless ultra-rápido (<1s)
@@ -271,6 +273,7 @@ anki-generator/
 │   │   ├── sanity-sampler.js                   # Amostrador dinâmico cobrindo 100% das 8 tipologias
 │   │   └── generate-baselines.js               # Gerador de snapshots golden para regressão visual
 │   └── utils/
+│       ├── manifest.js                         # Auto-indexador e gerador dinâmico de manifestos (SSOT)
 │       ├── anki-connect.js                     # Cliente JSON-RPC Anki-Connect (import, sync, teardown)
 │       ├── validator.js                        # Validador de esquemas, atomicidade e constituição
 │       ├── link-checker.js                     # Auditor ativo de alcance HTTP 200 e MIME types
@@ -284,9 +287,9 @@ anki-generator/
 │       └── baselines/                          # Screenshots golden de referência (360x640, 390x844, 1280x720)
 ├── reports/e2e/                                # Relatórios estruturados JSON e evidências de screenshots
 ├── playwright.config.js                        # Configuração multi-viewport do Playwright
-├── media-curation-registry.json                 # Catálogo central de curadoria de mídias (424 cards)
+├── media-curation-registry.json                 # Catálogo derivado de curadoria de mídias (550 cards)
 ├── link-health-report.json                      # Relatório de auditoria de links gerado
-├── syllabus_manifest.json                      # Catálogo central de currículo e IDs (550 cards)
+├── syllabus_manifest.json                      # Catálogo derivado de currículo e IDs (550 cards)
 ├── .env.example                                # Modelo de variáveis de ambiente para AnkiWeb
 ├── package.json
 └── README.md
@@ -320,13 +323,25 @@ npm run test:e2e:local
 - 🔢 **Zero KaTeX Errors:** Fórmulas matemáticas livres da classe `.katex-error`.
 - 📊 **SVGs & Tabelas:** SVGs com `viewBox` responsivo e tabelas compactas $\le 3$ colunas.
 
-### 4. Auditoria Semântica de Atomicidade de Perguntas
+### 4. Scaffolding Instantâneo de Novos Cards (CLI)
+Cria novos cards padronizados diretamente no subtópico desejado com frontmatter válido, blocos de Pergunta/Resposta, SVG Dark responsivo e `<details>`, auto-sincronizando o manifesto:
+```bash
+npm run card:new -- --phase=01-dsa --module=data-structures --subtopic=arrays-strings --id=DSA-STRUCT-ARRAY-007 --title="Dois Ponteiros Avançados"
+```
+
+### 5. Sincronização Dinâmica de Manifestos (SSOT)
+Gera e sincroniza `syllabus_manifest.json` e `media-curation-registry.json` a partir dos arquivos Markdown em `decks/` em ~40ms (também executado automaticamente ao rodar `npm run build`):
+```bash
+npm run manifest:sync
+```
+
+### 6. Auditoria Semântica de Atomicidade de Perguntas
 Analisa a estrutura gramatical das perguntas em busca de conectivos compostos e projeta cenários de decomposição uniconceitual:
 ```bash
 npm run audit:atomic
 ```
 
-### 5. Full AnkiWeb E2E Pipeline (Validação em Nuvem)
+### 7. Full AnkiWeb E2E Pipeline (Validação em Nuvem)
 Executa o ciclo completo end-to-end:
 1. Amostragem dinâmica de baralho de sanidade (`MAANG_E2E_Sanity.apkg`).
 2. Importação e sincronização com AnkiWeb via Anki-Connect.
