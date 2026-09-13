@@ -1211,6 +1211,10 @@
               "card_ids": [
                 "SYS-RES-RATELIMIT-000",
                 "SYS-RES-RATELIMIT-001",
+                "SYS-RES-RATELIMIT-002",
+                "SYS-RES-RATELIMIT-003",
+                "SYS-RES-RATELIMIT-004",
+                "SYS-RES-RATELIMIT-005",
                 "SYS-RES-RATELIMIT-006"
               ]
             },

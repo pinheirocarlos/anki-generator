@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "last_updated": "2026-09-10T19:09:33.937Z",
+  "last_updated": "2026-09-10T23:09:27.051Z",
   "stats": {
-    "total_cards": 550,
+    "total_cards": 554,
     "p1_video_count": 0,
-    "p2_svg_count": 453,
+    "p2_svg_count": 457,
     "p2_table_count": 71
   },
   "cards": {
@@ -5479,6 +5479,54 @@
       "caption": "Visualização: Janela deslizante com Redis Sorted Set contando elementos com timestamp acima de (now - window) em script Lua atômico.",
       "status": "verified",
       "last_verified": "2026-08-28T20:27:57.604Z"
+    },
+    "SYS-RES-RATELIMIT-002": {
+      "card_id": "SYS-RES-RATELIMIT-002",
+      "subtopic_id": "rate-limiting-throttling",
+      "concept": "Sliding Window Counter com Aproximação Ponderada: Memória O(1) vs Precisão",
+      "tier": "P2_RESPONSIVE_SVG",
+      "media_type": "inline_svg",
+      "attribution": "FAANG Anki Pedagogy Engine / Open Data Structures",
+      "license": "CC-BY-SA-4.0",
+      "caption": "Visualização: Cálculo da aproximação ponderada entre janela anterior e janela corrente no Sliding Window Counter.",
+      "status": "verified",
+      "last_verified": "2026-09-10T23:09:27.051Z"
+    },
+    "SYS-RES-RATELIMIT-003": {
+      "card_id": "SYS-RES-RATELIMIT-003",
+      "subtopic_id": "rate-limiting-throttling",
+      "concept": "Arquitetura Distribuída de Rate Limiting: Centralizado vs Local com Batch Sync",
+      "tier": "P2_RESPONSIVE_SVG",
+      "media_type": "inline_svg",
+      "attribution": "FAANG Anki Pedagogy Engine / Open Data Structures",
+      "license": "CC-BY-SA-4.0",
+      "caption": "Visualização: Comparação entre Rate Limiter centralizado síncrono e arquitetura híbrida com reserva de tokens em batch.",
+      "status": "verified",
+      "last_verified": "2026-09-10T23:09:27.051Z"
+    },
+    "SYS-RES-RATELIMIT-004": {
+      "card_id": "SYS-RES-RATELIMIT-004",
+      "subtopic_id": "rate-limiting-throttling",
+      "concept": "Mitigação de Thundering Herd: Exponential Backoff com Full Jitter no Cliente",
+      "tier": "P2_RESPONSIVE_SVG",
+      "media_type": "inline_svg",
+      "attribution": "FAANG Anki Pedagogy Engine / Open Data Structures",
+      "license": "CC-BY-SA-4.0",
+      "caption": "Visualização: Impacto do Exponential Backoff puro (ondas de pico sincronizadas) vs Full Jitter (dispersão uniforme da carga).",
+      "status": "verified",
+      "last_verified": "2026-09-10T23:09:27.051Z"
+    },
+    "SYS-RES-RATELIMIT-005": {
+      "card_id": "SYS-RES-RATELIMIT-005",
+      "subtopic_id": "rate-limiting-throttling",
+      "concept": "Rate Limiting Multi-Camadas e Cost-Based Limiting para Proteção em Profundidade",
+      "tier": "P2_RESPONSIVE_SVG",
+      "media_type": "inline_svg",
+      "attribution": "FAANG Anki Pedagogy Engine / Open Data Structures",
+      "license": "CC-BY-SA-4.0",
+      "caption": "Visualização: Arquitetura de Rate Limiting multi-camadas em defesa em profundidade combinada com dimensionamento por custo.",
+      "status": "verified",
+      "last_verified": "2026-09-10T23:09:27.051Z"
     },
     "SYS-RES-RATELIMIT-006": {
       "card_id": "SYS-RES-RATELIMIT-006",

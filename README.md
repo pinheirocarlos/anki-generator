@@ -17,7 +17,7 @@
   - **Template Unificado:** Arquitetura de nota sem duplicação de `{{FrontSide}}`, combinando contexto compacto da pergunta e resposta fluida em um único container estilizado.
   - **Bilinguismo Estratégico:** Prosa explicativa em PT-BR didático e termos técnicos, nomes de algoritmos e jargões mantidos em Inglês (`code`).
   - **Código Mobile-Ready & Syntax Highlighting Estático:** Snippets pré-compilados em tempo de build com `highlight.js` (tema *Dark Modern*), com quebras de linha automáticas (`pre code { white-space: pre-wrap; word-break: break-word; }`) sem rolagem horizontal no celular (≥360px) e **zero JavaScript em runtime**.
-  - **Static Engine & Empacotamento Ultraleve:** Motor de renderização e CSS 100% estáticos com compilação de fórmulas matemáticas via `KaTeX`, gerando um pacote `.apkg` consolidado com menos de 10MB para os 550 cards e carregamento instantâneo.
+  - **Static Engine & Empacotamento Ultraleve:** Motor de renderização e CSS 100% estáticos com compilação de fórmulas matemáticas via `KaTeX`, gerando um pacote `.apkg` consolidado com menos de 10MB para os 554 cards e carregamento instantâneo.
 
 ---
 
@@ -25,16 +25,16 @@
 
 | Métrica | Quantidade | Observações |
 |---|---|---|
-| **Total de Flashcards Atômicos** | **550 cards** | 100% em conformidade com a Constituição v1.4.0 e testes automatizados |
+| **Total de Flashcards Atômicos** | **554 cards** | 100% em conformidade com a Constituição v1.4.0 e testes automatizados |
 | **Subtópicos Curriculares** | **108 subtópicos** | Cobertura integral em 4 fases curriculares (manifesto canônico) |
 | **Foundations (L2)** | **108 cards** | 1 card introdutório com analogia por subtópico (sufixo canônico `006`/`007`) |
-| **Junior / Standard (L3)** | **229 cards** | Conceitos fundamentais, invariantes e padrões de implementação |
-| **Pleno / Advanced (L4)** | **210 cards** | Trade-offs, otimizações de baixo nível e cenários de alta concorrência |
+| **Junior / Standard (L3)** | **231 cards** | Conceitos fundamentais, invariantes e padrões de implementação |
+| **Pleno / Advanced (L4)** | **212 cards** | Trade-offs, otimizações de baixo nível e cenários de alta concorrência |
 | **Senior / Staff (L5)** | **3 cards** | Arquiteturas distribuídas avançadas, CAP/PACELC e tolerância a falhas bizantinas |
-| **Cards com Diagramas Vetoriais SVG** | **453 cards** | Vetores inline responsivos com `viewBox` e paleta semântica Dark Modern |
+| **Cards com Diagramas Vetoriais SVG** | **457 cards** | Vetores inline responsivos com `viewBox` e paleta semântica Dark Modern |
 | **Cards com Animações / GIFs Locais** | **26 cards** | Processos dinâmicos co-localizados em `assets/` e embutidos no `.apkg` |
-| **Deep Dives Expansíveis** | **550 cards** | Componente sanfona `<details>` com área de toque $\ge 44$px |
-| **Tabelas Compactas Mobile-First** | **550 cards** | Tabelas estruturadas $\le 3$ colunas com `overflow-x: auto` defensivo |
+| **Deep Dives Expansíveis** | **554 cards** | Componente sanfona `<details>` com área de toque $\ge 44$px |
+| **Tabelas Compactas Mobile-First** | **554 cards** | Tabelas estruturadas $\le 3$ colunas com `overflow-x: auto` defensivo |
 
 ---
 
@@ -196,8 +196,8 @@ O motor pedagógico adota uma arquitetura híbrida de alta resiliência, prioriz
 
 A consistência pedagógica do acervo adota o **Markdown como Única Fonte da Verdade (SSOT)**, derivando automaticamente dois catálogos centrais:
 
-- **Manifesto Curricular Canônico (`syllabus_manifest.json`):** Rastreia os **550 cards** em **108 subtópicos** em 4 fases, gerado dinamicamente a partir da estrutura física de `decks/`.
-- **Catálogo de Curadoria de Mídias (`media-curation-registry.json`):** Dicionário auto-sincronizado que audita e cataloga **100% dos 550 cards** cobrindo todas as Fases Técnicas 1 a 4, mapeando:
+- **Manifesto Curricular Canônico (`syllabus_manifest.json`):** Rastreia os **554 cards** em **108 subtópicos** em 4 fases, gerado dinamicamente a partir da estrutura física de `decks/`.
+- **Catálogo de Curadoria de Mídias (`media-curation-registry.json`):** Dicionário auto-sincronizado que audita e cataloga **100% dos 554 cards** cobrindo todas as Fases Técnicas 1 a 4, mapeando:
   - `card_id` e `subtopic_id`.
   - `concept` atômico indivisível e `tier` pedagógico (`P2_RESPONSIVE_SVG`, `LOCAL_ASSET`, `P2_TABLE_FALLBACK`).
   - Atribuição de autoria, licença de uso aberto (*MIT*, *Creative Commons*, *Public Domain*) e legenda didática em PT-BR.
@@ -256,10 +256,10 @@ O projeto mapeia a jornada completa de preparação técnica em 4 fases definida
 
 ```text
 anki-generator/
-├── decks/                                      # Repositório de conteúdo particionado (550 cards)
+├── decks/                                      # Repositório de conteúdo particionado (554 cards)
 │   ├── 01-dsa/                                 # 210 cards
 │   ├── 02-cs-fundamentals/                     # 120 cards
-│   ├── 03-system-design-backend/               # 137 cards
+│   ├── 03-system-design-backend/               # 141 cards
 │   └── 04-behavioral-engineering/              # 83 cards
 ├── src/
 │   ├── generator.js                            # Pipeline de compilação e packaging .apkg (auto-sync SSOT)
@@ -287,9 +287,9 @@ anki-generator/
 │       └── baselines/                          # Screenshots golden de referência (360x640, 390x844, 1280x720)
 ├── reports/e2e/                                # Relatórios estruturados JSON e evidências de screenshots
 ├── playwright.config.js                        # Configuração multi-viewport do Playwright
-├── media-curation-registry.json                 # Catálogo derivado de curadoria de mídias (550 cards)
+├── media-curation-registry.json                 # Catálogo derivado de curadoria de mídias (554 cards)
 ├── link-health-report.json                      # Relatório de auditoria de links gerado
-├── syllabus_manifest.json                      # Catálogo derivado de currículo e IDs (550 cards)
+├── syllabus_manifest.json                      # Catálogo derivado de currículo e IDs (554 cards)
 ├── .env.example                                # Modelo de variáveis de ambiente para AnkiWeb
 ├── package.json
 └── README.md
@@ -306,7 +306,7 @@ npx playwright install chromium
 ```
 
 ### 2. Executar Testes Automatizados de Validação (Offline)
-Valida todos os 550 cards contra os esquemas da constituição, atomicidade sintática, tags obrigatórias, cabeçalhos, tabelas responsivas, resolução de imagens e integridade do catálogo curricular:
+Valida todos os 554 cards contra os esquemas da constituição, atomicidade sintática, tags obrigatórias, cabeçalhos, tabelas responsivas, resolução de imagens e integridade do catálogo curricular:
 ```bash
 npm test
 ```
@@ -381,7 +381,7 @@ npm run test:links
 ```bash
 npm run build
 ```
-Gera `MAANG_Engineering_Mastery.apkg` na raiz do projeto contendo todos os 550 cards e mídias embutidas (< 10MB, compilação em < 5s).
+Gera `MAANG_Engineering_Mastery.apkg` na raiz do projeto contendo todos os 554 cards e mídias embutidas (< 10MB, compilação em < 5s).
 
 ### 9. Compilar Baralhos Modulares por Fase
 ```bash

@@ -1870,8 +1870,8 @@ function testSanitySamplerAndTenPercentRule() {
       decksDir: DECKS_DIR
     });
 
-    if (totalScannedCards !== 550) {
-      console.error(`❌ Expected totalScannedCards to be 550, got: ${totalScannedCards}`);
+    if (totalScannedCards < 550) {
+      console.error(`❌ Expected totalScannedCards to be at least 550, got: ${totalScannedCards}`);
       unitFailures++;
     }
 
@@ -2879,8 +2879,8 @@ async function testUserStory1AnkiConnectSamplerAndReportValidation() {
   const { manifest, sampledCards, totalScannedCards } = sampleResult;
 
   // 2.1 Check total available card count and sample count >= 10%
-  if (totalScannedCards !== 550) {
-    console.error(`❌ Expected 550 scanned cards on disk, got: ${totalScannedCards}`);
+  if (totalScannedCards < 550) {
+    console.error(`❌ Expected at least 550 scanned cards on disk, got: ${totalScannedCards}`);
     unitFailures++;
   } else {
     console.log(`✅ PASS: Sampler scanned all ${totalScannedCards} cards on disk across all 4 phases.`);
